@@ -1,0 +1,55 @@
+[general]
+auto_hide = true
+accent_color = "LightRed"
+beginner_mode = false
+headers_hide = false
+
+[connection]
+url = "http://127.0.0.1:9091/transmission/rpc" # REQUIRED!
+torrents_refresh = 1
+stats_refresh = 1
+free_space_refresh = 2
+# username = "CHANGE_ME"
+# password = "CHANGE_ME"
+
+[torrents_tab]
+# Available fields:
+# Id, Name, SizeWhenDone, Progress, Eta, DownloadRate, UploadRate, DownloadDir,
+# Padding, UploadRatio, UploadedEver, AddedDate, ActivityDate, PeersConnected
+# SmallStatus, Category, CategoryIcon
+headers = ["Name", "SizeWhenDone", "Progress", "Eta", "DownloadRate" ]
+default_sort = "Progress"
+default_sort_reverse = true
+category_icon_insert_into_name = true
+
+[search_tab]
+# If you uncomment this, providers won't be automatically added in future
+# versions of Rustmission.
+# providers = ["Knaben", "Nyaa"]
+
+[icons]
+# Ascii alternatives                # Defaults
+# upload = "↑"                      # ""
+# download = "↓"                    # ""
+# arrow_left = "←"                  # ""
+# arrow_right = "→"                 # ""
+# arrow_up = "↑"                    # ""
+# arrow_down = "↓"                  # ""
+# triangle_right = "▶"              # "▶"
+# triangle_down = "▼"               # "▼"
+# file = "∷"                        # ""
+# disk = "[D]"                      # "󰋊"
+# help = "[?]"                      # "󰘥"
+# success = "✔"                     # ""
+# failure = "✖"                     # ""
+# searching = "⟳"                   # ""
+# verifying = "⟳"                   # "󰑓"
+# loading = "⌛"                    # "󱥸"
+# pause = "‖"                       # "󰏤"
+# idle = "○"                        # "󱗼"
+# magnifying_glass = "[o]"          # ""
+# provider_disabled = "⛔"          # "󰪎"
+# provider_category_general = "[G]" # ""
+# provider_category_anime = "[A]"   # "󰎁"
+# sort_ascending = "↓"              # "󰒼"
+# sort_descending = "↑"             # "󰒽""

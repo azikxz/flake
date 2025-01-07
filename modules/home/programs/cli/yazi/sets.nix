@@ -22,8 +22,8 @@ with x;
         tab_size = 1;
         image_filter = "lanczos3";
         image_quality = 90;
-        max_height = 1000;
-        max_width = 1000;
+        max_height = 5000;
+        max_width = 5000;
       };
       opener = {
         open = [

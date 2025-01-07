@@ -46,15 +46,12 @@ in
       [
         corefonts
         (tinos.overrideAttrs a)
-        (monaspace.overrideAttrs a)
-        (space-mono.overrideAttrs a)
         (code-new-roman.overrideAttrs a)
         (dejavu-sans-mono.overrideAttrs a)
       ];
     stylix = True // {
       autoEnable = false;
       base16Scheme = "${wal}/base16/${x.theme}.yaml";
-      image = "${wal}/wallpapers/paradise/${x.image}.jpg";
       cursor = with inputs.cursors.packages.${pkgs.system}; {
         size = 16;
         name = "GoogleDot-Custom";

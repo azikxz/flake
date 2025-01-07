@@ -1,10 +1,10 @@
 { pkgs, lib, ... }:
 {
   module.shells.alias.alias =
-    with pkgs;
     let
       inherit (lib) getExe;
     in
+    with pkgs;
     {
       # helpful
       e = "$EDITOR";

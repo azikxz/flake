@@ -10,9 +10,9 @@ with lib;
     autostart = [ "mako" ]; # autostart
     binds =
       let
-        c = "--class";
+        inherit (pkgs) grimblast;
         pic = "$(xdg-user-dir PICTURES)/$(date +'scr_%d-%m-%y|%H:%M:%S.png')";
-        args = "xargs hyprctl dispatch exec --";
+        c = "--class";
         # regex
         mk =
           mod: sub: key: cmd:
@@ -23,10 +23,10 @@ with lib;
         s = (mod "$s");
         a = (mod "$a");
       in
-      with pkgs;
       [
         # menus
-        (m "$tb" "tofi-drun | ${args}")
+        (m "$tb" "tofi-drun | xargs hyprctl dispatch exec -- ")
+        (s "$tb" "wlogout")
 
         # programs
         (m "$rt" "kitty")

@@ -9,8 +9,9 @@
     flakeDir = "/persist/flake";
     is = "desktop";
     # customize
-    theme = "paradise"; # from inputs.design
-    image = "train";
+    theme = "paradise";
+    # paradise | neo-gen | chanivibes | primer-dark
+    image = "mask";
     # sys info
     plfrm = "x86_64-linux";
     ver = "24.05";

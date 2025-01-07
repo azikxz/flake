@@ -54,7 +54,6 @@ in
       steam = True;
       sway = False;
       torrserver = True;
-      winapps = True;
     };
     virt = {
       podman = True;

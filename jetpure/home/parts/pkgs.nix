@@ -22,7 +22,7 @@ in
         ventoy # FUCK
 
         bottles # LAUNCH GAMES WITHOUT STEAM
-        mindustry-wayland # MINDUSTRY LETSSS GOOOOO
+        # mindustry-wayland # MINDUSTRY LETSSS GOOOOO
       ])
       ++ (with inputs; [
         zen.packages.${system}.twilight # COOL BROWSER
@@ -52,7 +52,6 @@ in
         tuir # REDDIT TUI
         hut # SOURCEHUT INTERACTION
         sd # FIND/REPLACE
-        fuc # RUSTED CP/RM
 
         wineWow64Packages.staging # SIMPLE LAUNCHER
       ])

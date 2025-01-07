@@ -7,7 +7,7 @@ in
   xdg.mimeApps = True // {
     defaultApplications =
       let
-        web = "zen";
+        web = "org.qutebrowser.qutebrowser";
       in
       {
         # TEXT FORMATS

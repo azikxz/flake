@@ -12,7 +12,6 @@ let
   null = {
     default = null;
   };
-  setFmt = pkgs.formats.ini { };
 in
 with lib;
 with lib.types;

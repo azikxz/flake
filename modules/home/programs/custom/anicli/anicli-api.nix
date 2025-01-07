@@ -1,7 +1,12 @@
-{ fetchPypi, python3Packages }:
+{
+  python3,
+  fetchPypi,
+  python3Packages,
+  verApi ? null,
+}:
 python3Packages.buildPythonApplication rec {
   pname = "anicli_api";
-  version = "0.7.0";
+  version = verApi;
   pyproject = true;
   dontCheckRuntimeDeps = true;
 
@@ -15,7 +20,7 @@ python3Packages.buildPythonApplication rec {
   ];
 
   dependencies = with python3Packages; [
-    httpx
+    (python3.withPackages (ps: with ps; [ httpx ] ++ httpx.optional-dependencies.http2))
     attrs
     parsel
     tqdm

@@ -13,6 +13,7 @@ in
         bat = True;
         cava = True;
         eza = True;
+        fd = True;
         fetch = True;
         fzf = True;
         git = True;
@@ -22,6 +23,7 @@ in
         legendary = True;
         lsd = False;
         micro = False;
+        ripgrep = True;
         rustmission = True;
         top = True;
         yazi = True;
@@ -30,7 +32,7 @@ in
       gui = {
         floorp = False;
         minecraft = True // {
-          cli = True;
+          cli = False;
         };
         mpv = True;
         obs = True;
@@ -77,6 +79,7 @@ in
         rofi = False;
         tofi = True;
         waybar = False;
+        wlogout = True;
         wob = False;
         yofi = False;
       };

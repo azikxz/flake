@@ -22,7 +22,6 @@ let
   inherit (inputs.home-manager.lib) homeManagerConfiguration;
   pkgs = inputs.nixpkgs.legacyPackages.${plfrm};
   # NEEDS
-  sec = import ./secrets.nix;
   args = { inherit x inputs; };
   x = import ./options.nix { inherit inputs pkgs lib; } // {
     inherit
@@ -39,7 +38,6 @@ let
       plfrm
       ver
       dev
-      sec # secrets
       ;
   };
 in

@@ -2,10 +2,12 @@
   pkgs,
   fetchPypi,
   python3Packages,
+  verCli ? null,
+  verApi ? null,
 }:
 python3Packages.buildPythonApplication rec {
   pname = "anicli_ru";
-  version = "5.0.12";
+  version = verCli;
   pyproject = true;
 
   src = fetchPypi {
@@ -22,6 +24,6 @@ python3Packages.buildPythonApplication rec {
     python3Packages.hatchling
     (callPackage ./eggella.nix { })
     (callPackage ./chompjs.nix { })
-    (callPackage ./anicli-api.nix { })
+    (callPackage ./anicli-api.nix { verApi = verApi; })
   ];
 }

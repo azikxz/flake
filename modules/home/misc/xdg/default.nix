@@ -20,6 +20,7 @@ in
   };
 
   config = {
+    home.packages = [ pkgs.xdg-user-dirs ];
     xdg = {
       mime = True;
       portal = True // {

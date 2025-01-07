@@ -51,13 +51,14 @@
 
   outputs =
     inputs:
-    inputs.parts.lib.mkFlake { inherit inputs; } {
-      perSystem =
-        { pkgs, ... }:
-        {
-          formatter = pkgs.nixfmt-rfc-style;
-        };
-      systems = [ "x86_64-linux" ]; # YOUR SYSTEM IDK
-      imports = [ ./jetpure ]; # YOUR MACHINES
+    with inputs;
+    parts.lib.mkFlake { inherit inputs; } {
+      perSystem.formatter =
+        let
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        in
+        pkgs.nixfmt-rfc-style;
+      systems = [ "x86_64-linux" ]; # system arch
+      imports = [ ./jetpure ]; # machines | packages
     };
 }

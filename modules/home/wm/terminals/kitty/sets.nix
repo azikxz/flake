@@ -13,7 +13,7 @@
 
       active_tab_font_style = "bold";
       tab_separator = "";
-      tab_bar_min_tabs = 1;
+      tab_bar_min_tabs = 2;
       tab_bar_edge = "button";
       tab_bar_style = "fade";
       tab_bar_align = "left";

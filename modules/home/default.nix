@@ -8,7 +8,6 @@
     exclude = [
       ./default.nix
       ./programs/gui/floorp/addons.nix
-      ./themes/stylix/image.nix
       ./programs/custom
     ];
   };

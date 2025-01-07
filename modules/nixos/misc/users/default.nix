@@ -1,5 +1,6 @@
 {
   x,
+  inputs,
   pkgs,
   lib,
   config,
@@ -18,6 +19,7 @@ in
     };
   };
 
+  imports = with inputs; [ home-manager.nixosModules.home-manager ];
   config = mkIf cfg.enable {
     programs.${cfg.shell} = True;
     users =

@@ -18,6 +18,11 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ (callPackage ./anicli-ru.nix { }) ];
+    home.packages = with pkgs; [
+      (callPackage ./anicli-ru.nix {
+        verCli = "5.0.12";
+        verApi = "0.7.0";
+      })
+    ];
   };
 }

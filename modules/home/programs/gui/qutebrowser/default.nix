@@ -9,7 +9,7 @@ with lib;
 with x;
 let
   cfg = config.module.programs.gui.qutebrowser;
-  frc = lib.mkForce;
+  f = lib.mkForce;
 in
 {
   options = {
@@ -22,8 +22,11 @@ in
     home.packages = with pkgs; [ python312Packages.adblock ];
     programs.qutebrowser = True // {
       settings = {
-        downloads.location = {
-          remember = true;
+        downloads = {
+          position = "bottom";
+          location = {
+            remember = true;
+          };
         };
         confirm_quit = [ "downloads" ];
         scrolling = {
@@ -56,12 +59,13 @@ in
         window.hide_decoration = true;
         colors = with config.lib.stylix.colors.withHashtag; {
           webpage = {
+            bg = "${base00}";
             preferred_color_scheme = "dark";
             # darkmode.enabled = true;
           };
           hints = {
-            bg = frc "${base04}";
-            fg = frc "${base00}";
+            bg = f "${base04}";
+            fg = f "${base00}";
           };
         };
         fonts = with config.stylix.fonts; {

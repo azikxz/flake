@@ -29,10 +29,7 @@ in
         };
       };
     };
-    services = {
-      resolved = True;
-      pptpd = True;
-    };
+    services.resolved = True;
     systemd.services = {
       # IDK
       NetworkManager-wait-online = False;

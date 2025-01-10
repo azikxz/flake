@@ -23,7 +23,7 @@ in
     programs.git = True // {
       package = pkgs.gitMinimal;
       userName = userName;
-      userEmail = "${userName}@nixos.org";
+      userEmail = "${userName}@${hostName}.org";
       extraConfig = {
         color.ui = true;
         init.defaultBranch = "main";

@@ -32,6 +32,7 @@ in
       };
       userDirs = True // {
         createDirectories = true;
+        # xdg default
         desktop = "${hmdir}/Desktop";
         documents = "${hmdir}/Documents";
         download = "${hmdir}/Downloads";

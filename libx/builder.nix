@@ -1,8 +1,10 @@
 {
   inputs,
   lib,
-  # variables
+  # lol
   disk ? null,
+  pass ? null,
+  # variables
   hostName ? "sus",
   userName ? "amogus",
   flakeDir ? null,
@@ -25,8 +27,9 @@ let
   args = { inherit x inputs; };
   x = import ./options.nix { inherit inputs pkgs lib; } // {
     inherit
-      # variables
       disk
+      pass
+      # variables
       hostName
       userName
       flakeDir

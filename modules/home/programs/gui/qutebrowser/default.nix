@@ -15,13 +15,20 @@ in
   options = {
     module.programs.gui.qutebrowser = {
       enable = mkBool;
+      quickmarks = mkOpt.attrs.str;
     };
   };
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ python312Packages.adblock ];
     programs.qutebrowser = True // {
+      quickmarks = cfg.quickmarks;
       settings = {
+        url = {
+          start_pages = [ "qute://start" ];
+          default_page = "qute://start";
+        };
+        completion.height = "50%";
         downloads = {
           position = "bottom";
           location = {
@@ -59,9 +66,8 @@ in
         window.hide_decoration = true;
         colors = with config.lib.stylix.colors.withHashtag; {
           webpage = {
-            bg = "${base00}";
             preferred_color_scheme = "dark";
-            # darkmode.enabled = true;
+            darkmode.enabled = true;
           };
           hints = {
             bg = f "${base04}";
@@ -82,9 +88,6 @@ in
       };
       searchEngines = {
         DEFAULT = "https://www.google.com/search?hl=en&q={}";
-        nx = "https://wiki.nixos.org/index.php?search={}";
-        g = "https://www.google.com/search?hl=en&q={}";
-        d = "https://duckduckgo.com/?q={}";
       };
     };
   };

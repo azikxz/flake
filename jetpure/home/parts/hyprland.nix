@@ -34,8 +34,8 @@ with lib;
 
         (m "V" "telegram-desktop")
 
-        (m "B" "zen")
-        (s "B" "qutebrowser")
+        (m "B" "qutebrowser")
+        (s "B" "zen")
         (a "B" "floorp")
 
         (m "N" "yazi")

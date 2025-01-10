@@ -20,7 +20,6 @@ in
     programs.zed-editor = True // {
       extensions = [
         "nix"
-        "city-lights"
       ];
       userSettings = {
         features = {

@@ -33,17 +33,18 @@ in
         backgroundColor = "${base01}";
         borderColor = "${base0E}";
         textColor = "${base06}";
-        extraConfig = ''
-          [urgency=low]
-          background-color=${base00}
-          border-color=${base0C}
-          text-color=${base06}
+        extraConfig = # ini
+          ''
+            [urgency=low]
+            background-color=${base00}
+            border-color=${base0C}
+            text-color=${base06}
 
-          [urgency=high]
-          background-color=${base00}
-          border-color=${base0C}
-          text-color=${base06}
-        '';
+            [urgency=high]
+            background-color=${base00}
+            border-color=${base0C}
+            text-color=${base06}
+          '';
         # SETTINGS
         layer = "overlay";
         sort = "+time";

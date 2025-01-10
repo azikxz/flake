@@ -9,18 +9,19 @@
 with lib;
 with x;
 let
+  inherit (inputs) base16;
   cfg = config.module.themes.stylix;
-  wal = inputs.design;
   a = (
     oldAttrs: {
-      installPhase = ''
-        runHook preInstall
-        dst_opentype=$out/share/fonts/opentype/NerdFonts
-        dst_truetype=$out/share/fonts/truetype/NerdFonts
-        find -name \*.otf -exec mkdir -p $dst_opentype \; -exec cp -p {} $dst_opentype \;
-        find -name \*.ttf -exec mkdir -p $dst_truetype \; -exec cp -p {} $dst_truetype \;
-        runHook postInstall
-      '';
+      installPhase = # sh
+        ''
+          runHook preInstall
+          dst_opentype=$out/share/fonts/opentype/NerdFonts
+          dst_truetype=$out/share/fonts/truetype/NerdFonts
+          find -name \*.otf -exec mkdir -p $dst_opentype \; -exec cp -p {} $dst_opentype \;
+          find -name \*.ttf -exec mkdir -p $dst_truetype \; -exec cp -p {} $dst_truetype \;
+          runHook postInstall
+        '';
     }
   );
 in
@@ -51,7 +52,7 @@ in
       ];
     stylix = True // {
       autoEnable = false;
-      base16Scheme = "${wal}/base16/${x.theme}.yaml";
+      base16Scheme = "${base16}/${x.theme}.yaml";
       cursor = with inputs.cursors.packages.${pkgs.system}; {
         size = 16;
         name = "GoogleDot-Custom";

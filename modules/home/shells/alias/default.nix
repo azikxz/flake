@@ -7,12 +7,13 @@
 with lib;
 with x;
 let
-  cfg = config.module.shells.alias;
+  cfg = config.module.shells;
 in
 {
   options = {
-    module.shells.alias = {
+    module.shells = {
       alias = mkOpt.attrs.str;
+      abbrs = mkOpt.attrs.str;
     };
   };
 

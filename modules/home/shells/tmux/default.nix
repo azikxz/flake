@@ -26,10 +26,11 @@ in
       customPaneNavigationAndResize = true;
       prefix = "C-a";
       shortcut = "a";
-      extraConfig = ''
-        set -g status-position bottom
-        set -g status-style bg=color0
-      '';
+      extraConfig = # sh
+        ''
+          set -g status-position bottom
+          set -g status-style bg=color0
+        '';
     };
   };
 }

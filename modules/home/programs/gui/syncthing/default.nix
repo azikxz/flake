@@ -7,18 +7,16 @@
 with lib;
 with x;
 let
-  cfg = config.module.programs.cli.gpg;
+  cfg = config.module.programs.gui.syncthing;
 in
 {
   options = {
-    module.programs.cli.gpg = {
+    module.programs.gui.syncthing = {
       enable = mkBool;
     };
   };
 
   config = mkIf cfg.enable {
-    programs.gpg = True // {
-
-    };
+    services.syncthing = True;
   };
 }

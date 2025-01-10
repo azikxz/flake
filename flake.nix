@@ -43,10 +43,15 @@
       url = "github:LilleAila/nix-cursors";
       inputs.nixpkgs.follows = "nixpkgs";
     }; # COLORIZE CUSRSOR
-    design = {
-      url = "sourcehut:~neverness/design?ref=main";
+
+    base16 = {
+      url = "sourcehut:~neverness/design/base16";
       flake = false;
-    }; # DISIGNING REPO
+    }; # BASE16
+    wallpapers = {
+      url = "sourcehut:~neverness/design/wallpapers";
+      flake = false;
+    }; # WALLPAPERS
   };
 
   outputs =

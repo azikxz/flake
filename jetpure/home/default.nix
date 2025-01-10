@@ -17,7 +17,6 @@ in
         fetch = True;
         fzf = True;
         git = True;
-        gpg = True;
         helix = True;
         joshuto = False;
         legendary = True;
@@ -38,12 +37,20 @@ in
         obs = True;
         qbittorrent = True;
         qutebrowser = True;
-        spotify = True;
+        music = {
+          amberol = True;
+          spotify = True;
+        };
         swayimg = True;
+        syncthing = True;
+        walogram = True // {
+          walmode = "solid";
+        };
         zed = False;
       };
       custom = {
         anicli = True;
+        keydex = True;
       };
     };
     shells = {

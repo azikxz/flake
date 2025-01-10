@@ -66,6 +66,7 @@ in
           '';
         in
         with config.lib.stylix.colors.withHashtag;
+        # css
         ''
           * {	background-image: none; box-shadow: none; }
           window { background-color: ${base00}; }

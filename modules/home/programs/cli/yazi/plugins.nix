@@ -59,29 +59,35 @@ in
       };
     }
     # custom
-    // (plugin "smart-enter" ''
-      --- @sync entry
-      local function setup(self, opts) self.open_multi = opts.open_multi end
-      local function entry(self)
-      local h = cx.active.current.hovered
-      ya.manager_emit(h and h.cha.is_dir and "enter" or "open", { hovered = not self.open_multi })
-      end return { entry = entry, setup = setup }
-    '')
-    // (plugin "smart-paste" ''
-      --- @sync entry
-      return { entry = function()
-      local h = cx.active.current.hovered
-      if h and h.cha.is_dir then
-      ya.manager_emit("enter", {})
-      ya.manager_emit("paste", {})
-      ya.manager_emit("leave", {}) else
-      ya.manager_emit("paste", {}) end end, }
-    '')
-    // (plugin "smart-tab" ''
-      --- @sync entry
-      return { entry = function()
-      local h = cx.active.current.hovered
-      ya.manager_emit("tab_create", h and h.cha.is_dir and { h.url } or { current = true })
-      end, }
-    '');
+    // (plugin "smart-enter" # lua
+      ''
+        --- @sync entry
+        local function setup(self, opts) self.open_multi = opts.open_multi end
+        local function entry(self)
+        local h = cx.active.current.hovered
+        ya.manager_emit(h and h.cha.is_dir and "enter" or "open", { hovered = not self.open_multi })
+        end return { entry = entry, setup = setup }
+      ''
+    )
+    // (plugin "smart-paste" # lua
+      ''
+        --- @sync entry
+        return { entry = function()
+        local h = cx.active.current.hovered
+        if h and h.cha.is_dir then
+        ya.manager_emit("enter", {})
+        ya.manager_emit("paste", {})
+        ya.manager_emit("leave", {}) else
+        ya.manager_emit("paste", {}) end end, }
+      ''
+    )
+    // (plugin "smart-tab" # lua
+      ''
+        --- @sync entry
+        return { entry = function()
+        local h = cx.active.current.hovered
+        ya.manager_emit("tab_create", h and h.cha.is_dir and { h.url } or { current = true })
+        end, }
+      ''
+    );
 }

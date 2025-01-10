@@ -7,10 +7,10 @@
   ...
 }:
 let
-  inherit (inputs) design;
+  inherit (inputs) wallpapers;
   inherit (pkgs) lutgen runCommand;
   inherit (lib) getExe;
-  img = "${design}/wallpapers/${x.image}.jpg";
+  img = "${wallpapers}/${x.image}.jpg";
 in
 {
   stylix.image = runCommand "output.png" { } ''

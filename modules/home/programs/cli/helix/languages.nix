@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  x,
+  pkgs,
+  lib,
+  ...
+}:
 let
   inherit (lib) getExe;
   inherit (pkgs.nodePackages_latest) prettier;
@@ -185,13 +190,23 @@ in
       ];
       language-server =
         let
+          inherit (x) flakeDir hostName userName;
           vscode = vscode-langservers-extracted;
           typescript = typescript-language-server;
           yaml = yaml-language-server;
         in
         {
-          nil.command = "${getExe nil}";
-          nixd.command = "${getExe nixd}";
+          nixd = {
+            command = "${getExe nixd}";
+            config = {
+              nixos = {
+                expr = ''(builtins.getFlake \"${flakeDir}\").nixosConfigurations.${hostName}.options'';
+              };
+              home-manager = {
+                expr = ''(builtins.getFlake \"${flakeDir}\").homeConfigurations.\"${userName}@${hostName}\".options'';
+              };
+            };
+          };
         } # nix
         // {
           typescript.command = "${getExe typescript}";

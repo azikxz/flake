@@ -12,6 +12,7 @@ let
     let
       st = "${toString package}/share/${name}/qss";
     in
+    # toml
     ''
       [Appearance]
         color_scheme_path=${homeDirectory}/.config/${name}/colors/stylix.conf

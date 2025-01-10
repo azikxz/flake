@@ -9,7 +9,7 @@ with lib;
 with x;
 let
   cfg = config.module.themes.stylix;
-  wal = inputs.design;
+  inherit (inputs) base16;
 in
 {
   options = {
@@ -23,11 +23,11 @@ in
     stylix = True // {
       # COLORIZE !!!
       autoEnable = false;
-      base16Scheme = "${wal}/base16/${x.theme}.yaml";
+      base16Scheme = "${base16}/${x.theme}.yaml";
       targets = {
         console = True; # TTY
-        chromium = True; # CHROMIUM LOL
         fish = True; # SHELL
+        nixos-icons = True;
         plymouth = True // {
           logoAnimated = true;
         }; # STARTING SCREEN

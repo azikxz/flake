@@ -44,7 +44,7 @@ in
         swayimg = True;
         syncthing = True;
         walogram = True // {
-          walmode = "solid";
+          mode = "solid";
         };
         zed = False;
       };

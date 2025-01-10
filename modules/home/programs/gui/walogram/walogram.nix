@@ -15,8 +15,9 @@ pkgs.writeShellApplication {
     let
       inherit (config.xdg) cacheHome;
       inherit (config.stylix) image;
-      cfg = config.module.programs.gui.walogram;
+      inherit (config.lib.stylix.colors.withHashtag) base00 base01;
       theme = import ./palette.nix { inherit config; };
+      cfg = config.module.programs.gui.walogram;
     in
     # sh
     ''
@@ -24,16 +25,16 @@ pkgs.writeShellApplication {
       tempdir="$(mktemp -d)"
       cachedir="${cacheHome}/stylix-telegram-theme"
       themename="stylix.tdesktop-theme"
-      walmode="${cfg.walmode}" # solid | background
+      walmode="${cfg.mode}"
+      walname="background.jpg"
       blur="true"
       # mkdir 
       mkdir -p "$cachedir"
       echo "${theme}" > "$tempdir/colors.tdesktop-theme"
       gentheme() {
-        walname="background.jpg"
         if command -v zip >/dev/null 2>&1; then
           if [ "$walmode" = "solid" ]; then
-            magick convert -size 256x256 "xc:''${bgcolor:-''${background:-$color0}}" "$tempdir/$walname"
+            magick -size 256x256 "gradient:${base01}-${base00}" "$tempdir/$walname"
           else
             case "$(file -b --mime-type "${image}")" in
             image/*) convert ''${blur:+-blur 0x32} -resize 1920x1080 "${image}" "$tempdir/$walname" ;;

@@ -41,6 +41,9 @@ in
         # translate
         ",t" = "${us} ${translate}/translate -s en -t ru";
         ",T" = "hint links userscript ${translate}/translate";
+        # tabs
+        ",b" = "config-cycle tabs.show always switching";
+        ",s" = "config-cycle statusbar.show in-mode always";
       };
       caret = {
         # translate

@@ -55,8 +55,6 @@ in
           show = "switching";
           position = "top";
           tooltips = false;
-          max_width = 250;
-          min_width = 250;
           show_switching_delay = 500;
           title = {
             format = "{index}: {current_title}";

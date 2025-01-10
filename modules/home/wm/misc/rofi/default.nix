@@ -22,14 +22,6 @@ in
       location = "bottom";
       terminal = "kitty";
       package = pkgs.rofi-wayland;
-      plugins = with pkgs; [
-        rofi-file-browser
-        rofi-power-menu
-        rofi-screenshot
-        rofi-bluetooth
-        rofi-calc
-        rofimoji
-      ];
     };
   };
 }

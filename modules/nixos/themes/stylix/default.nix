@@ -27,7 +27,6 @@ in
       targets = {
         console = True; # TTY
         fish = True; # SHELL
-        nixos-icons = True;
         plymouth = True // {
           logoAnimated = true;
         }; # STARTING SCREEN

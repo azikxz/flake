@@ -16,6 +16,7 @@ in
 with lib;
 with lib.types;
 {
+  stable = inputs.nixpkgs-stable.legacyPackages.x86_64-linux;
   # ylib & stylix
   umport = inputs.nypkgs.legacyPackages.${system}.lib.umport;
   imports = {

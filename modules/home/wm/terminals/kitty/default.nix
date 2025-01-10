@@ -16,5 +16,8 @@ in
     };
   };
 
-  config = mkIf cfg.enable { programs.kitty = True // { }; };
+  config = mkIf cfg.enable {
+    programs.kitty = True // {
+    };
+  };
 }

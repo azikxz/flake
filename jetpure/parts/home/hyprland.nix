@@ -56,11 +56,11 @@ with lib;
     rules =
       let
         inherit (config.lib.stylix.colors) base0B base01;
+        # regex
+        mk = type: rule: "${rule}, ${type}";
         # titile & class
         cl = win: (mk "class:^(${win})$");
         tl = win: (mk "title:^(${win})$");
-        # regex
-        mk = type: rule: "${rule}, ${type}";
       in
       [
         (cl "firefox" "workspace 2 silent")
@@ -70,10 +70,9 @@ with lib;
         (cl "spotify" "workspace 3 silent")
         (cl "com.ayugram" "workspace 4 silent")
         (cl "io.github.tdesktop_x64.TDesktop" "workspace 4 silent")
-        (cl "vesktop" "workspace 4 silent")
-        (cl "obsidian" "workspace 5 silent")
+        (cl "vesktop" "workspace 5 silent")
         (cl "anicli" "workspace 6 silent")
-        (cl "org.qbittorrent.qBittorrent" "workspace 9 silent")
+        (cl "org.qbittorrent.qBittorrent" "workspace 8 silent")
 
         # term rules
         (cl "termfloat" "float")

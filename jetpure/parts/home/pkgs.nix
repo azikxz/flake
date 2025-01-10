@@ -20,7 +20,8 @@ in
         onlyoffice-bin # OFFICE
         qbittorrent-enhanced # QTORRENT
         filezilla # FTP CLIENT
-        keepassxc # PASSWORDS
+        keepassxc # PASSWORDS MANAGER
+        keepmenu # ROFI KEEPASS
 
         popsicle # ISO WRITER
         ventoy # FUCK

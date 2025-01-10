@@ -8,12 +8,15 @@
       # nix
       nixpkgs = "search.nixos.org/packages?channel=unstable";
       home-manager = "home-manager-options.extranix.com/?query=&release=master";
+      # git
+      ultima = "git.sr.ht/~neverness/ultima";
       # social
       youtube = "youtube.com";
       redlib = "l.opnxng.com";
       twitch = "twitch.tv";
       protonMail = "mail.proton.me";
       mastodonMl = "mastodon.ml";
+      vk = "vk.com";
       # anime etc
       animeGo = "animego.me";
       mangaLib = "mangalib.me";
@@ -38,6 +41,8 @@
         "https://archlinux.org/*"
         "https://*.extranix.com/*"
         "https://home-manager-options.extranix.com/*"
+        "https://git.sr.ht/*"
+        "https://*.sr.ht/*"
       ];
       text = # js
         ''
@@ -49,11 +54,7 @@
     };
     userstyle = {
       "start" = {
-        includes = [
-          "qute://start/"
-          "qute://start"
-          "qute://start/*"
-        ];
+        includes = [ "qute://start/" ];
         text =
           let
             font = config.stylix.fonts;

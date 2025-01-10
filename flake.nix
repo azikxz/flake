@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # UNSTABLE
+    nixpkgs-stable.url = "github:nixos/nixpkgs/release-24.11"; # STABLE
     nur.url = "github:nix-community/NUR"; # NUR
 
     impermanence.url = "github:nix-community/impermanence"; # IMPERA

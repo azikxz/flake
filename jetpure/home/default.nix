@@ -3,10 +3,7 @@ let
   inherit (x) True False umport;
 in
 {
-  imports = umport {
-    exclude = [ ./default.nix ];
-    path = ./.;
-  };
+  imports = umport { path = ../parts/home; };
   module = {
     programs = {
       cli = {
@@ -83,7 +80,7 @@ in
       misc = {
         mako = True;
         nwg = False;
-        rofi = False;
+        rofi = True;
         tofi = True;
         waybar = False;
         wlogout = True;

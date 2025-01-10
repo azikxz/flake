@@ -1,0 +1,56 @@
+{
+  x,
+  lib,
+  config,
+  ...
+}:
+with lib;
+with x;
+let
+  cfg = config.module.wm.misc.mako;
+  font = config.stylix.fonts;
+in
+{
+  options = {
+    module.wm.misc.mako = {
+      enable = mkBool;
+    };
+  };
+
+  config = mkIf cfg.enable {
+    services.mako =
+      with config.lib.stylix.colors.withHashtag;
+      True
+      // {
+        icons = true;
+        actions = false;
+        anchor = "top-right";
+        font = "${font.monospace.name}";
+        # DECORATION
+        borderRadius = 8;
+        borderSize = 2;
+        # COLORS
+        backgroundColor = "${base01}";
+        borderColor = "${base0E}";
+        textColor = "${base06}";
+        extraConfig = # ini
+          ''
+            [urgency=low]
+            background-color=${base00}
+            border-color=${base0C}
+            text-color=${base06}
+
+            [urgency=high]
+            background-color=${base00}
+            border-color=${base0C}
+            text-color=${base06}
+          '';
+        # SETTINGS
+        layer = "overlay";
+        sort = "+time";
+        margin = "20, 20, 20";
+        maxVisible = 5;
+        defaultTimeout = 0;
+      };
+  };
+}

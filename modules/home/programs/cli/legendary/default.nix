@@ -1,0 +1,36 @@
+{
+  x,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+with lib;
+with x;
+let
+  cfg = config.module.programs.cli.legendary;
+in
+{
+  options = {
+    module.programs.cli.legendary = {
+      enable = mkBool;
+    };
+  };
+
+  config = mkIf cfg.enable {
+    home.packages = with pkgs; [ legendary-gl ];
+    xdg.configFile."legendary/config.ini".text = # ini
+      ''
+        [Legendary]
+        log_level = debug
+        max_memory = 2048
+        max_workers = 8
+        install_dir = ${dev.hdd}/Games[LITE]
+        locale = en-US
+        disable_https = false
+        disable_update_check = false
+        disable_update_notice = false
+        disable_auto_aliasing = false
+      '';
+  };
+}

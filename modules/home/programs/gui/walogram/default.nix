@@ -14,7 +14,7 @@ in
   options = {
     module.programs.gui.walogram = {
       enable = mkBool;
-      walmode = mkOpt.str;
+      mode = mkOpt.str; # solid | background
     };
   };
 

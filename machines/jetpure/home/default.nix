@@ -45,10 +45,6 @@ in
         };
         zed = False;
       };
-      custom = {
-        anicli = True;
-        keydex = True;
-      };
     };
     shells = {
       fish = True;

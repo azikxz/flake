@@ -42,108 +42,132 @@ in
     "$mu" = "mouse_up";
     "$ex" = "exec";
 
+    "$Mf" = "movefocus";
+    "$Sw" = "swapwindow";
+    "$Ra" = "resizeactive";
+    "$Ma" = "moveactive";
     # binds
     bind =
+      let
+        mk =
+          mod: args: cmd:
+          "${toString mod} ${toString args}, ${toString cmd}";
+        m = mk "$m,     ";
+        s = mk "$m  $s, ";
+        a = mk "$m  $a, ";
+      in
       [
-        "$m, $sp, togglefloating"
-        "$m, Q,   killactive"
-
-        "$m,     F, fullscreen"
-        "$m  $s, F, centerwindow"
-
-        "$m,     X, pseudo"
-        "$m  $s, X, pin"
+        (m "$sp" "togglefloating")
+        (a "$sp" "centerwindow")
         # window control
-        "$m,     W, cyclenext"
-        "$m  $s, W, swapnext"
+        (m "Q" "killactive")
+        (m "F" "fullscreen")
 
-        "$m,     C, changegroupactive"
-        "$m,     G, togglegroup"
-        "$m  $s, G, moveoutofgroup"
+        (m "X" "pseudo")
+        (s "X" "pin")
+
+        (m "W" "cyclenext")
+        (s "W" "swapnext")
+
         # window movement
-        "$m,     A, togglespecialworkspace,  extra"
-        "$m  $s, A, movetoworkspace, special:extra"
+        (m "C" "changegroupactive")
+        (m "G" "togglegroup")
+        (s "G" "moveoutofgroup")
 
-        "$m,     D, togglespecialworkspace,  magic"
-        "$m  $s, D, movetoworkspace, special:magic"
         # special workspaces
-        "$m, $md, workspace, e+1"
-        "$m, $mu, workspace, e-1"
+        (m "A" "togglespecialworkspace,  extra")
+        (s "A" "movetoworkspace, special:extra")
+        (m "D" "togglespecialworkspace,  magic")
+        (s "D" "movetoworkspace, special:magic")
 
-        "$m, $nx, workspace, e+1"
-        "$m, $pr, workspace, e-1"
-      ] # chsnge workspaces via mouse wheel
+        # chsnge workspaces via mouse wheel
+        (mk "$m," "$md" "workspace, e+1")
+        (mk "$m," "$mu" "workspace, e-1")
+        (mk "$m," "$nx" "workspace, e+1")
+        (mk "$m," "$pr" "workspace, e-1")
+      ] # modules
       ++ workspaces
       ++ cfg.binds;
 
     # HOLDING BUTTONS
     binde =
       let
-        mf = "movefocus";
-        sw = "swapwindow";
-        ra = "resizeactive";
-        ma = "moveactive";
+        mk =
+          mod: args: cmd:
+          "${toString mod} ${toString args}, ${toString cmd}";
+        m = mk "$m,     ";
+        s = mk "$m  $s, ";
+        a = mk "$m  $a, ";
+        c = mk "$m  $c, ";
       in
       [
         # hjkl
-        "$m, H,    ${mf}, l"
-        "$m, J,    ${mf}, d"
-        "$m, K,    ${mf}, u"
-        "$m, L,    ${mf}, r"
+        (m "H" "$Mf, l")
+        (m "J" "$Mf, d")
+        (m "K" "$Mf, u")
+        (m "L" "$Mf, r")
 
-        "$m $s, H, ${sw}, l"
-        "$m $s, J, ${sw}, d"
-        "$m $s, K, ${sw}, u"
-        "$m $s, L, ${sw}, r"
+        (s "H" "$Sw, l")
+        (s "J" "$Sw, d")
+        (s "K" "$Sw, u")
+        (s "L" "$Sw, r")
 
-        "$m $a, H, ${ra}, -50 0"
-        "$m $a, J, ${ra}, 0 50"
-        "$m $a, K, ${ra}, 0 -50"
-        "$m $a, L, ${ra}, 50 0"
+        (a "H" "$Ra, -50  0")
+        (a "J" "$Ra, 0   50")
+        (a "K" "$Ra, 0  -50")
+        (a "L" "$Ra, 50   0")
 
-        "$m $c, H, ${ma}, -50 0"
-        "$m $c, J, ${ma}, 0 50"
-        "$m $c, K, ${ma}, 0 -50"
-        "$m $c, L, ${ma}, 50 0"
+        (c "H" "$Ma, -50  0")
+        (c "J" "$Ma, 0   50")
+        (c "K" "$Ma, 0  -50")
+        (c "L" "$Ma, 50   0")
 
         # arrows
-        "$m, left,     ${mf}, l"
-        "$m, down,     ${mf}, d"
-        "$m, up,       ${mf}, u"
-        "$m, right,    ${mf}, r"
+        (m "left " "$Mf, l")
+        (m "down " "$Mf, d")
+        (m "up   " "$Mf, u")
+        (m "right" "$Mf, r")
 
-        "$m $s, left,  ${sw}, l"
-        "$m $s, down,  ${sw}, d"
-        "$m $s, up,    ${sw}, u"
-        "$m $s, right, ${sw}, r"
+        (s "left " "$Sw, l")
+        (s "down " "$Sw, d")
+        (s "up   " "$Sw, u")
+        (s "right" "$Sw, r")
 
-        "$m $a, left,  ${ra}, -50 0"
-        "$m $a, down,  ${ra}, 0  50"
-        "$m $a, up,    ${ra}, 0 -50"
-        "$m $a, right, ${ra}, 50  0"
+        (a "left " "$Ra, -50  0")
+        (a "down " "$Ra, 0   50")
+        (a "up   " "$Ra, 0  -50")
+        (a "right" "$Ra, 50   0")
 
-        "$m $c, left,  ${ma}, -50 0"
-        "$m $c, down,  ${ma}, 0  50"
-        "$m $c, up,    ${ma}, 0 -50"
-        "$m $c, right, ${ma}, 50  0"
+        (c "left " "$Ma, -50  0")
+        (c "down " "$Ma, 0   50")
+        (c "up   " "$Ma, 0  -50")
+        (c "right" "$Ma, 50   0")
       ]
       ++ [
         # sound
-        ", XF86AudioMute,        $ex, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", XF86AudioMicMute,     $ex, ${mic}"
-        ", XF86AudioRaiseVolume, $ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, $ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        (mk "," "XF86AudioMute       " "$ex, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
+        (mk "," "XF86AudioMicMute    " "$ex, ${mic}")
+        (mk "," "XF86AudioRaiseVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")
+        (mk "," "XF86AudioLowerVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
       ]
       ++ [
         # light
-        ", XF86MonBrightnessDown, $ex, sudo light -U 10"
-        ", XF86MonBrightnessUp,   $ex, sudo light -A 10"
+        (mk "," "XF86MonBrightnessDown" "$ex, sudo light -U 10")
+        (mk "," "XF86MonBrightnessUp  " "$ex, sudo light -A 10")
       ];
-    bindm = [
-      # mouse
-      "$m,     mouse:272, movewindow"
-      "$m,     mouse:273, resizewindow"
-      "$m  $s, mouse:273, resizewindow 1"
-    ];
+    bindm =
+      let
+        mk =
+          mod: args: cmd:
+          "${toString mod} ${toString args}, ${cmd}";
+        m = mk "$m,   ";
+        s = mk "$m $s,";
+      in
+      [
+        # mouse
+        (m "mouse:272" "movewindow")
+        (m "mouse:273" "resizewindow")
+        (s "mouse:273" "resizewindow 1")
+      ];
   };
 }

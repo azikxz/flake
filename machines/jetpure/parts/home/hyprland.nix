@@ -64,7 +64,7 @@ with lib;
       in
       [
         (cl "firefox" "workspace 2 silent")
-        (cl "zen-zen-twilight" "workspace 2 silent")
+        (cl "org.qutebrowser.qutebrowser" "workspace 2 silent")
         (cl "zen-alpha" "workspace 2 silent")
         (cl "zen-beta" "workspace 2 silent")
         (cl "spotify" "workspace 3 silent")
@@ -105,6 +105,11 @@ with lib;
         # (cl "mpv" "nodim")
         (cl "ani" "float")
         (cl "ani" "size 810 630")
+
+        # (cl "mpv" "nodim")
+        (cl "io.bassi.Amberol" "float")
+        (cl "io.bassi.Amberol" "maxsize 360 660")
+        (cl "io.bassi.Amberol" "minsize 360 660")
 
         # torrent
         (cl "org.qbittorrent.qBittorrent" "float")

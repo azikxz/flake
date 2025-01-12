@@ -24,6 +24,6 @@ python3Packages.buildPythonApplication rec {
     python3Packages.hatchling
     (callPackage ./eggella.nix { })
     (callPackage ./chompjs.nix { })
-    (callPackage ./anicli-api.nix { verApi = verApi; })
+    (callPackage ./api.nix { verApi = verApi; })
   ];
 }

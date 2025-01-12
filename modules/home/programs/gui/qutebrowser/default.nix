@@ -52,7 +52,7 @@ in
           ];
         };
         tabs = {
-          show = "switching";
+          show = "multiple";
           position = "top";
           tooltips = false;
           show_switching_delay = 500;

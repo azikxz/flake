@@ -19,17 +19,22 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ ] ++ (cfg.pkgs);
+    environment.systemPackages = [ ] ++ cfg.pkgs;
     programs = {
       nano = False;
-      light = True;
+      light = if x.is == "iso" then False else True;
       git = True // {
         package = mkDefault pkgs.gitMinimal;
       };
-      ryzen-monitor-ng = True;
-      nh = True // {
-        flake = flakeDir;
-      };
+      ryzen-monitor-ng = if x.is == "iso" then False else True;
+      nh =
+        if x.is == "iso" then
+          False
+        else
+          True
+          // {
+            flake = flakeDir;
+          };
     };
   };
 }

@@ -30,9 +30,7 @@ in
       programs.spicetify = True // {
         theme = spicePkgs.themes.sleek // {
           additionalCss = # css
-            ''
-              *{font-family:"${font.monospace.name}"!important}
-            '';
+            ''*{font-family:"${font.monospace.name}"!important}'';
         };
         colorScheme = "custom";
         customColorScheme = with config.lib.stylix.colors; {

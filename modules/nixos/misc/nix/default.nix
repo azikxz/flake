@@ -4,11 +4,15 @@
   lib,
   ...
 }:
+
 with lib;
 with x;
+let
+  inherit (pkgs) nix libnotify;
+in
 {
   nix = {
-    package = pkgs.nix;
+    package = nix;
     settings = {
       warn-dirty = false;
       experimental-features = [
@@ -19,12 +23,8 @@ with x;
         "${userName}"
         "@wheel"
       ];
-      substituters = [
-        "https://hyprland.cachix.org" # HYPRLAND
-      ];
-      trusted-public-keys = [
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" # HYPRLAND
-      ];
+      substituters = x.substituters;
+      trusted-public-keys = x.keys;
     };
   };
   nixpkgs = {
@@ -35,5 +35,14 @@ with x;
       allowUnfree = true;
     };
   };
-  system.stateVersion = ver;
+  system = {
+    stateVersion = ver;
+    # userActivationScripts = {
+    #   rebuildFinished = {
+    #     text = ''
+    #       ${libnotify}/bin/notify-send "NixOS     rebuild finished" -t 1500"
+    #     '';
+    #   };
+    # };
+  };
 }

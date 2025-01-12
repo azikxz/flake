@@ -39,7 +39,6 @@ in
       transmission = True // {
         tui = True;
       };
-      zapret = False;
       zram = True // {
         algo = "zstd";
       };

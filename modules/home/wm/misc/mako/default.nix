@@ -33,23 +33,23 @@ in
         backgroundColor = "${base01}";
         borderColor = "${base0E}";
         textColor = "${base06}";
-        extraConfig = # ini
-          ''
-            [urgency=low]
-            background-color=${base00}
-            border-color=${base0D}
-            text-color=${base06}
-
-            [urgency=high]
-            background-color=${base00}
-            border-color=${base0C}
-            text-color=${base06}
-
-            [urgency=critical]
-            background-color=${base00}
-            border-color=${base0A}
-            text-color=${base06}
-          '';
+        extraConfig = x.gen "toINI" {
+          "urgency=low" = {
+            background-color = "${base00}";
+            border-color = "${base0D}";
+            text-color = "${base06}";
+          };
+          "urgency=high" = {
+            background-color = "${base00}";
+            border-color = "${base0C}";
+            text-color = "${base06}";
+          };
+          "urgency=critical" = {
+            background-color = "${base00}";
+            border-color = "${base0A}";
+            text-color = "${base06}";
+          };
+        };
         # SETTINGS
         layer = "overlay";
         sort = "+time";

@@ -22,7 +22,7 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ yofi ];
     xdg.configFile = with config.lib.stylix.colors; {
-      "yofi/yofi.config".text = # toml
+      "yofi/yofi.config".text = # ini
         ''
           width = 500
           height = 300

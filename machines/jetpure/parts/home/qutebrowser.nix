@@ -1,4 +1,7 @@
-{ config, ... }:
+{
+  config,
+  ...
+}:
 {
   module.programs.gui.qutebrowser = {
     quickmarks = {
@@ -31,10 +34,17 @@
     };
     whitelist."whitelist" = {
       includes = [
+        # localhost
+        "http://localhost:8090/*"
+        "http://localhost:8384/*"
+        # sites
+        "https://rutracker.org/*"
         "*://*.youtube.com/*"
         "https://www.youtube.com/*"
         "https://*.google.com/*"
         "https://mail.proton.me/*"
+        "https://account.proton.me/*"
+        "https://*.proton.me/*"
         "https://www.reddit.com/*"
         "https://mastodon.ml/*"
         "https://github.com/*"

@@ -3,7 +3,10 @@ let
   inherit (x) True False umport;
 in
 {
-  imports = umport { path = ../parts/host; };
+  imports = umport {
+    path = ./.;
+    exclude = [ ./default.nix ];
+  };
   module = {
     themes.stylix = True;
     base = True;
@@ -15,7 +18,6 @@ in
       boot = True // {
         plymouth = True;
       };
-      disko = True;
       impermanence = False;
       network = True;
       power = False;

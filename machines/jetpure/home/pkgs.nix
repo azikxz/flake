@@ -57,7 +57,7 @@ in
       wineWow64Packages.staging # SIMPLE LAUNCHER
 
       rycee.mozilla-addons-to-nix # ADDONS TO NIX
-      (callPackage ../pkgs/anicli {
+      (callPackage ./pkgs/anicli {
         verCli = "5.0.12";
         verApi = "0.7.0";
       }) # WATCH ANIME VIA TERMINAL & MPV

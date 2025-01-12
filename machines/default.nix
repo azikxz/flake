@@ -1,3 +1,1 @@
-{
-  imports = [ ./jetpure ];
-}
+{ imports = [ ./jetpure ]; }

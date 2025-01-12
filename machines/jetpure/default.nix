@@ -2,7 +2,6 @@
 {
   flake = import ../../libx/builder.nix {
     inherit inputs lib;
-    disk = "/dev/disk/by-uuid/d8440438-2f95-4854-b139-bf0a3e91a81f";
     pass = "/persist/vault/pass.kdbx";
     # variables
     hostName = "jetpure";

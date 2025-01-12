@@ -3,7 +3,10 @@ let
   inherit (x) True False umport;
 in
 {
-  imports = umport { path = ../parts/home; };
+  imports = umport {
+    path = ./.;
+    exclude = [ ./default.nix ];
+  };
   module = {
     programs = {
       cli = {

@@ -15,7 +15,7 @@
   # sys info
   plfrm ? "x86_64-linux",
   ver ? "24.05",
-  dev,
+  dev ? null,
   ...
 }:
 let
@@ -49,14 +49,14 @@ in
   nixosConfigurations.${hostName} = nixosSystem {
     modules = [
       ../modules/nixos
-      ../${hostName}/host
+      ../machines/${hostName}/host
     ];
     specialArgs = args;
   };
   homeConfigurations.${userName} = homeManagerConfiguration {
     modules = [
       ../modules/home
-      ../${hostName}/home
+      ../machines/${hostName}/home
     ];
     extraSpecialArgs = args;
     inherit pkgs;

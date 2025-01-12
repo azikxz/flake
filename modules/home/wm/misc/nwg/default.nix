@@ -18,7 +18,7 @@ in
 
   config = mkIf cfg.enable {
     xdg.configFile = with config.lib.stylix.colors.withHashtag; {
-      "nwg-drawer/drawer.css".text = # cs
+      "nwg-drawer/drawer.css".text = # css
         ''
           window {
             color = ${base06};

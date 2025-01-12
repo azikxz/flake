@@ -9,7 +9,6 @@ with lib;
 with x;
 let
   cfg = config.module.shells.fish;
-  ani = config.module.programs.custom.anicli;
   abbrs = config.module.shells.abbrs;
 in
 {
@@ -54,10 +53,6 @@ in
 
           [ "$(tty)" = "/dev/tty1" ] && exec Hyprland # LAUNCH WM
         '';
-      functions = mkIf ani.enable {
-        aniD = "anicli-ru --search $argv -s dreamcast";
-        aniG = "anicli-ru --search $argv -s animego";
-      };
     };
   };
 }

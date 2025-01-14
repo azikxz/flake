@@ -24,7 +24,7 @@ in
         log_level = "debug";
         max_memory = 2048;
         max_workers = 8;
-        install_dir = "${dev.hdd}/Games[LITE]";
+        install_dir = "/mnt/HDD/Games[LITE]";
         locale = "en-US";
         disable_https = false;
         disable_update_check = false;

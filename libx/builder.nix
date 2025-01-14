@@ -2,12 +2,12 @@
   inputs,
   lib,
   # lol
-  disk ? null,
-  pass ? null,
+  disk ? "/dev/sda",
+  pass ? "/etc/pass.kdbx",
   # variables
   hostName ? "sus",
   userName ? "amogus",
-  flakeDir ? null,
+  flakeDir ? "/etc/nixos",
   is ? null,
   # customize
   theme ? "horizon-dark",
@@ -15,7 +15,6 @@
   # sys info
   plfrm ? "x86_64-linux",
   ver ? "24.05",
-  dev ? null,
   ...
 }:
 let
@@ -40,7 +39,6 @@ let
       # sys info
       plfrm
       ver
-      dev
       ;
   };
 in

@@ -41,7 +41,7 @@ in
             title = "blue";
           };
           size = {
-            ndigits = 2;
+            ndigits = 1;
             maxPrefix = "GB";
           };
         };

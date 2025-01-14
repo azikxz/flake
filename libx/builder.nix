@@ -20,8 +20,8 @@
 }:
 let
   # OTHER
-  inherit (inputs.nixpkgs.lib) nixosSystem;
-  inherit (inputs.home-manager.lib) homeManagerConfiguration;
+  inherit (inputs) home-manager nixpkgs;
+  inherit (nixpkgs.lib) nixosSystem;
   pkgs = inputs.nixpkgs.legacyPackages.${plfrm};
   # NEEDS
   args = { inherit x inputs; };
@@ -47,18 +47,29 @@ in
 # configurations
 {
   nixosConfigurations.${hostName} = nixosSystem {
+    specialArgs = args;
     modules = [
       ../modules/nixos
       ../machines/${hostName}/host
+      home-manager.nixosModules.home-manager
+      {
+        home-manager = {
+          extraSpecialArgs = args;
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.${userName} = {
+            imports = [
+              ../modules/home
+              ../machines/${hostName}/home
+            ];
+            home = {
+              username = userName;
+              stateVersion = ver;
+              homeDirectory = "/home/${userName}";
+            };
+          };
+        };
+      }
     ];
-    specialArgs = args;
-  };
-  homeConfigurations.${userName} = homeManagerConfiguration {
-    modules = [
-      ../modules/home
-      ../machines/${hostName}/home
-    ];
-    extraSpecialArgs = args;
-    inherit pkgs;
   };
 }

@@ -236,24 +236,6 @@ with x;
         {
           on = [
             "g"
-            "d"
-            "h"
-          ];
-          run = "cd ${dev.hdd}";
-          desc = "Go to HDD";
-        }
-        {
-          on = [
-            "g"
-            "d"
-            "s"
-          ];
-          run = "cd ${dev.ssd}";
-          desc = "Go to SSD";
-        }
-        {
-          on = [
-            "g"
             "r"
           ];
           run = ''

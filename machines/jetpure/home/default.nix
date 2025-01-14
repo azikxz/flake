@@ -5,7 +5,10 @@ in
 {
   imports = umport {
     path = ./.;
-    exclude = [ ./default.nix ];
+    exclude = [
+      ./default.nix
+      ./pkgs
+    ];
   };
   module = {
     programs = {

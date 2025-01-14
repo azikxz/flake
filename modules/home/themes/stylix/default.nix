@@ -39,7 +39,6 @@ in
     };
   };
 
-  imports = with inputs; [ stylix.homeManagerModules.stylix ];
   config = mkIf cfg.enable {
     home.packages =
       with pkgs;
@@ -52,7 +51,6 @@ in
       ];
     stylix = True // {
       autoEnable = false;
-      base16Scheme = "${base16}/${x.theme}.yaml";
       cursor = with inputs.cursors.packages.${pkgs.system}; {
         size = 16;
         name = "GoogleDot-Custom";

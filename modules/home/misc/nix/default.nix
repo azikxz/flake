@@ -1,12 +1,10 @@
 {
   x,
-  pkgs,
   ...
 }:
 with x;
 {
   nix = {
-    package = pkgs.nix;
     settings = {
       warn-dirty = false;
       extra-experimental-features = [
@@ -23,7 +21,6 @@ with x;
       auto-optimise-store = true;
     };
   };
-  nixpkgs.config.allowUnfree = true;
   news.display = "silent";
   manual = {
     manpages = False;

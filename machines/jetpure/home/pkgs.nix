@@ -5,8 +5,8 @@
 }:
 let
   inherit (pkgs) callPackage;
-  inherit (pkgs.nur.repos) rycee;
 in
+# inherit (pkgs.nur.repos) rycee;
 {
   imports = with inputs; [ nur.modules.homeManager.default ];
   module.programs = {
@@ -56,7 +56,7 @@ in
 
       wineWow64Packages.staging # SIMPLE LAUNCHER
 
-      rycee.mozilla-addons-to-nix # ADDONS TO NIX
+      # rycee.mozilla-addons-to-nix # ADDONS TO NIX
       (callPackage ./pkgs/anicli {
         verCli = "5.0.12";
         verApi = "0.7.0";

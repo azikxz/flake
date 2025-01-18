@@ -21,20 +21,16 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = [ ] ++ cfg.pkgs;
     programs = {
+      fuse.userAllowOther = true;
       nano = False;
-      light = if x.is == "iso" then False else True;
+      light = if x.is == "laptop" then True else False;
       git = True // {
         package = mkDefault pkgs.gitMinimal;
       };
-      ryzen-monitor-ng = if x.is == "iso" then False else True;
-      nh =
-        if x.is == "iso" then
-          False
-        else
-          True
-          // {
-            flake = flakeDir;
-          };
+      ryzen-monitor-ng = if x.is == "desktop" then True else False;
+      nh = True // {
+        flake = flakeDir;
+      };
     };
   };
 }

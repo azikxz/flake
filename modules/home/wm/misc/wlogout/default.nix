@@ -1,6 +1,5 @@
 {
   x,
-  pkgs,
   lib,
   config,
   ...
@@ -59,19 +58,19 @@ in
       ];
       style =
         let
-          inherit (pkgs) wlogout;
+          inherit (config) programs lib;
           p = "share/wlogout/icons";
           icon = n: ''
-            #${n} { background-image: image(url("${wlogout}/${p}/${n}.png")); }
+            #${n} { background-image: image(url("${programs.wlogout.package}/${p}/${n}.png")); }
           '';
         in
-        with config.lib.stylix.colors.withHashtag;
+        with lib.stylix.colors.withHashtag;
         # css
         ''
           * {	background-image: none; box-shadow: none; }
           window { background-color: ${base00}; }
           button {
-            border-radius: 12;
+            border-radius: 10;
             border-color: ${base0E};
           	text-decoration-color: ${base04};
             color: ${base05};

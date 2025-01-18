@@ -1,4 +1,8 @@
-{ x, config, ... }:
+{
+  x,
+  config,
+  ...
+}:
 let
   inherit (x) True False umport;
 in
@@ -22,32 +26,35 @@ in
         git = True;
         helix = True;
         joshuto = False;
-        legendary = True;
+        legendary = False;
         lsd = False;
         micro = False;
         ripgrep = True;
-        rustmission = True;
+        rustmission = False;
         top = True;
         yazi = True;
         zoxide = True;
       };
       gui = {
+        chromium = True;
         floorp = False;
-        minecraft = True // {
+        minecraft = False // {
           cli = False;
         };
         mpv = True;
-        obs = True;
+        obs = False;
         qbittorrent = True;
         qutebrowser = True;
         music = {
           amberol = True;
-          spotify = True;
+          spotify = False;
         };
         swayimg = True;
         syncthing = True;
-        walogram = True // {
-          mode = "solid";
+        telegram = True // {
+          walogram = True // {
+            mode = "solid";
+          };
         };
         zed = False;
       };
@@ -65,15 +72,16 @@ in
       stylix = True // {
         icon = "adwaita";
         cursor = with config.lib.stylix.colors.withHashtag; {
-          bg = "${base0E}";
+          size = 24;
+          bg = "${base08}";
           ol = "${base00}";
-          ac = "${base0E}";
+          ac = "${base08}";
         };
       };
     };
     wm = {
       hyprland = True;
-      sway = False;
+      sway = True;
       terminals = {
         kitty = True;
         foot = False;
@@ -82,9 +90,9 @@ in
       misc = {
         mako = True;
         nwg = False;
-        rofi = True;
+        rofi = False;
         tofi = True;
-        waybar = False;
+        waybar = True;
         wlogout = True;
         wob = False;
         yofi = False;

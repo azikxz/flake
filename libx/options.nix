@@ -7,7 +7,7 @@ let
   def = {
     default = false;
   };
-  null = {
+  nulla = {
     default = null;
   };
 in
@@ -31,22 +31,25 @@ with lib.types;
     type = bool;
   };
   mkOpt = {
-    str = mkOption def // {
+    str = mkOption nulla // {
       type = str;
     };
-    lines = mkOption null // {
+    int = mkOption nulla // {
+      type = int;
+    };
+    lines = mkOption nulla // {
       type = nullOr lines;
     };
     list = {
-      pkgs = mkOption null // {
+      pkgs = mkOption nulla // {
         type = listOf package;
       };
-      str = mkOption null // {
+      str = mkOption nulla // {
         type = listOf str;
       };
     };
     attrs = {
-      str = mkOption null // {
+      str = mkOption nulla // {
         type = attrsOf str;
       };
     };
@@ -72,9 +75,20 @@ with lib.types;
     "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs=" # HELIX
   ];
 
-  overlays = with inputs; [
-    nixpkgs-wayland.overlay
-  ];
-
   gen = type: text: lib.generators.${type} { } text;
+
+  workspaces =
+    with builtins;
+    (concatLists (
+      genList (
+        i:
+        let
+          ws = i + 1;
+        in
+        [
+          "$mod, code:1${toString i}, workspace, ${toString ws}"
+          "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+        ]
+      ) 10
+    ));
 }

@@ -15,7 +15,8 @@ in
       }
 
       window#waybar {
-        background-color: transparent;
+        border-top: 3px solid ${base01};
+        background-color: ${base00};
         color: ${base05};
       }
 
@@ -26,7 +27,6 @@ in
         border-bottom: 0;
         border-style: solid;
         border-color: #3C3836;
-        /* box-shadow: 1 1 3 1px #101010; */
       }
 
       /* WORKSPACES */
@@ -52,7 +52,7 @@ in
       }
 
       #workspaces button.active {
-        background: radial-gradient(circle, ${base0E} 0%, ${base0E} 50%, ${base0D} 100%);
+        background: radial-gradient(circle, ${base0C} 0%, ${base0E} 50%, ${base0D} 100%);
         background-size: 400% 400%;
         animation: gradient 5s linear infinite;
         transition: all 0.3s ease-in-out;
@@ -68,17 +68,6 @@ in
         0% { background-position: 0px 50px; }
         50% { background-position: 100px 30px; }
         100% { background-position: 0px 50px; }
-      }
-
-      @keyframes gradient_f {
-        0% { background-position: 0px 200px; }
-        50% { background-position: 200px 0px; }
-        100% { background-position: 400px 200px; }
-      }
-
-      @keyframes gradient_f_nh {
-        0% { background-position: 0px 200px; }
-        100% { background-position: 200px 200px; }
       }
 
       /* MODULES */
@@ -107,7 +96,7 @@ in
       #custom-launcher,
       #tray {
         color: ${base05};
-        background-color: transparent;
+        background-color: ${base00};
         padding: 0 0.4em;
         padding-top: 0px;
         padding-bottom: 2px;

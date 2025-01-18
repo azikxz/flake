@@ -18,9 +18,7 @@ in
 
   config = mkIf cfg.enable {
     services.getty = {
-      # greetingLine = "Good day my lord ahhhh ${userName}";
-      greetingLine =
-        if x.is == "iso" then "Welcome to nixended installer" else "Good day my lord ahhhh ${userName}";
+      greetingLine = "Good day my lord ahhhh ${userName}";
       helpLine = "";
       autologinOnce = true;
     };

@@ -26,6 +26,7 @@ in
       base16Scheme = "${base16}/${x.theme}.yaml";
       targets = {
         console = True; # TTY
+        chromium = True; # TTY
         fish = True; # SHELL
         plymouth = True // {
           logoAnimated = true;

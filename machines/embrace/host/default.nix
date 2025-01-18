@@ -1,35 +1,34 @@
-{ x, ... }:
+{
+  x,
+  ...
+}:
 let
   inherit (x) True False umport;
 in
 {
   imports = umport {
     path = ./.;
+    include = [ ../impermanence.nix ];
     exclude = [ ./default.nix ];
   };
   module = {
     themes.stylix = True;
     base = True;
     hardware = {
-      amd = True // {
-        amdvlk = False;
-      };
+      amd = True;
       bluetooth = True;
       boot = True // {
         plymouth = True;
       };
-      impermanence = False;
+      impermanence = True;
       network = True;
-      power = False;
+      power = True;
       sound = True;
-      system76 = False;
+      system76 = True;
     };
     services = {
-      amneziawg = True // {
-        service = False;
-        config = "topor";
-      };
-      autocpu = False;
+      amneziawg = True;
+      autocpu = True;
       dbus = True;
       deluge = False;
       getty = True;
@@ -37,37 +36,28 @@ in
       polkit = True;
       printing = False;
       tailscale = False;
-      tlp = False;
-      transmission = True // {
-        tui = True;
+      tlp = True;
+      transmission = False // {
+        tui = False;
       };
-      zram = True // {
-        algo = "zstd";
-      };
+      zram.algo = "zstd";
     };
     programs = {
       common = True;
       hamachi = False;
       hyprland = True;
-      steam = True;
+      steam = False;
       sway = False;
-      torrserver = True;
-    };
-    virt = {
-      podman = True;
+      torrserver = False;
     };
     misc = {
       console = False;
-      locales = True // {
-        zone = "Asia/Chita";
-      };
+      locales.zone = "Asia/Chita";
       minimal = True;
       protonmail = False;
       security = True;
       terraria = False;
-      users = True // {
-        shell = "fish";
-      };
+      users = True;
       variables = True;
     };
   };

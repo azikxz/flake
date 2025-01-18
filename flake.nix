@@ -5,6 +5,7 @@
 
     impermanence.url = "github:nix-community/impermanence";
     hardware.url = "github:NixOS/nixos-hardware/master";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
     parts.url = "github:hercules-ci/flake-parts";
     hyprland.url = "github:hyprwm/Hyprland";
     stylix.url = "github:danth/stylix";
@@ -57,11 +58,6 @@
     inputs:
     with inputs;
     parts.lib.mkFlake { inherit inputs; } {
-      perSystem.formatter =
-        let
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        in
-        pkgs.nixfmt-rfc-style;
       systems = [ "x86_64-linux" ]; # system arch
       imports = [ ./machines ]; # machines
     };

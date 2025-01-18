@@ -3,7 +3,7 @@
   lib,
   # lol
   disk ? "/dev/sda",
-  pass ? "/etc/pass.kdbx",
+  pass ? "/persist/vault/pass.kdbx",
   # variables
   hostName ? "sus",
   userName ? "amogus",
@@ -44,6 +44,7 @@ let
 in
 # configurations
 {
+  formatter = pkgs.nixfmt-rfc-style;
   nixosConfigurations.${hostName} = nixosSystem {
     specialArgs = args;
     modules = [
@@ -52,6 +53,7 @@ in
       home-manager.nixosModules.home-manager
       {
         home-manager = {
+          backupFileExtension = "backup";
           extraSpecialArgs = args;
           useGlobalPkgs = true;
           useUserPackages = true;

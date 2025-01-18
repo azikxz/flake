@@ -4,11 +4,12 @@
     inherit inputs lib;
     # variables
     hostName = "embrace";
-    userName = "wurkote";
-    is = "desktop";
+    userName = "huggyer";
+    flakeDir = "/persist/flake";
+    is = "laptop";
     # customize
-    theme = "paradise";
-    image = "rocks";
+    theme = "neo-gen";
+    image = "town";
     # sys info
     ver = "24.05";
   };

@@ -1,4 +1,7 @@
-{ fetchPypi, python3Packages }:
+{
+  fetchPypi,
+  python3Packages,
+}:
 let
   setup = with python3Packages; [ setuptools ];
 in

@@ -7,7 +7,17 @@
 with lib;
 {
   module.wm.hyprland = {
-    autostart = [ "mako" ]; # autostart
+    autostart = [
+      "mako"
+      "waybar"
+    ]; # autostart
+    resolution =
+      let
+        mk =
+          resolution: scale: trans:
+          "eDP-1, ${resolution}, 0x0, ${scale}, transform, ${trans}";
+      in
+      mk "1920x1080@60" "1" "0";
     binds =
       let
         inherit (pkgs) grimblast;
@@ -26,7 +36,7 @@ with lib;
       [
         # menus
         (m "$tb" "tofi-drun | xargs hyprctl dispatch exec -- ")
-        (s "$tb" "wlogout")
+        (s "$tb" "killall -SIGUSR1 .waybar-wrapped")
 
         # programs
         (m "$rt" "kitty")
@@ -35,19 +45,12 @@ with lib;
         (m "V" "telegram-desktop")
 
         (m "B" "qutebrowser")
-        (s "B" "zen")
-        (a "B" "floorp")
 
         (m "N" "yazi")
         (s "N" "nemo")
 
-        (m "M" "spotify")
+        (m "M" "amberol")
         (s "M" "kitty ${c}=ani anicli-ru -q 1080")
-        (a "M" "onlyoffice")
-
-        (m "Z" "bottles")
-        (s "Z" "prismlauncher")
-        (a "Z" "qbittorrent")
 
         # screenshot
         (mk null null "$PR" "${getExe grimblast} copysave area   ${pic}")
@@ -118,6 +121,11 @@ with lib;
 
         # pinned
         (mk "pinned:1" "bordercolor rgb(${base0B}) rgb(${base01})")
+
+        "bordersize 0,  floating:0,  onworkspace:w[tv1]"
+        "rounding 0,    floating:0,  onworkspace:w[tv1]"
+        "bordersize 0,  floating:0,  onworkspace:f[1]"
+        "rounding 0,    floating:0,  onworkspace:f[1]"
       ];
   };
 }

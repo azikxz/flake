@@ -9,7 +9,6 @@
 with lib;
 with x;
 let
-  inherit (inputs) base16;
   cfg = config.module.themes.stylix;
   a = (
     oldAttrs: {
@@ -32,6 +31,7 @@ in
       image = mkOpt.str;
       icon = mkOpt.str;
       cursor = {
+        size = mkOpt.int;
         bg = mkOpt.str;
         ol = mkOpt.str;
         ac = mkOpt.str;
@@ -52,7 +52,7 @@ in
     stylix = True // {
       autoEnable = false;
       cursor = with inputs.cursors.packages.${pkgs.system}; {
-        size = 16;
+        size = cfg.cursor.size;
         name = "GoogleDot-Custom";
         package = google-cursor.override {
           background_color = cfg.cursor.bg;

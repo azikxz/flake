@@ -106,12 +106,12 @@
 
 ### PREVIEW
 
-![aye](https://git.sr.ht/~neverness/design/blob/wallpapers/dots/fetch.jpg)
+![aye](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/fetch.jpg)
 
-![aye](https://git.sr.ht/~neverness/design/blob/wallpapers/dots/brows.jpg)
+![aye](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/brows.jpg)
 
-![aye](https://git.sr.ht/~neverness/design/blob/wallpapers/dots/btop.jpg)
+![aye](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/btop.jpg)
 
-![aye](https://git.sr.ht/~neverness/design/blob/wallpapers/dots/misc.jpg)
+![aye](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/misc.jpg)
 
 #### THANKS FOR [hezaki](https://codeberg.org/Hezaki/Touka), [maxmurr](https://github.com/TheMaxMur/NixOS-Configuration), [artem](https://github.com/ArtemChandragupta/NixFlake)

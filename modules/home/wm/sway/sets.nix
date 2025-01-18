@@ -6,9 +6,8 @@
 }:
 with lib;
 let
-  font = config.stylix.fonts;
   win = {
-    border = 1;
+    border = 2;
     titlebar = false;
   };
 in
@@ -28,7 +27,6 @@ in
         { command = "${mako}/bin/mako"; }
         { command = "${autotiling-rs}/bin/autotiling-rs"; }
       ];
-      fonts.names = [ "${font.monospace.name}" ];
       # MOVEMENT & BINDS
       modifier = "Mod4";
       bindkeysToCode = true;

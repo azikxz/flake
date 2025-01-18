@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   cfg = config.module.wm.hyprland;
   True = {
@@ -10,14 +15,16 @@ with lib;
   wayland.windowManager.hyprland = {
     settings = with config.lib.stylix.colors; {
       env = [ "SLURP_ARGS, -b ${base00}CC -c ${base0F}FF -B ${base02}CC" ];
-      exec-once = cfg.autostart;
-      monitor =
+      exec-once =
         let
-          mk =
-            resolution: scale: trans:
-            "eDP-1, ${resolution}, 0x0, ${scale}, transform, ${trans}";
+          tee = "${pkgs.uutils-coreutils-noprefix}/bin/tee";
         in
-        mk "1920x1080@60" "1.2" "0";
+        [
+          "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1"
+          ''bash -c fixf4=$(cat /sys/class/leds/platform\:\:micmute/brightness); echo $((1-fixf4)) | sudo ${tee} /sys/class/leds/platform\:\:micmute/brightness; wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle''
+        ]
+        ++ cfg.autostart;
+      monitor = cfg.resolution;
       # apperance
       general = {
         gaps_in = 6;
@@ -90,6 +97,17 @@ with lib;
           disable_while_typing = true;
         };
       };
+      device = [
+        {
+          name = "synps/2-synaptics-touchpad";
+          accel_profile = "adaptive";
+        }
+        {
+          name = "tpps/2-elan-trackpoint";
+          accel_profile = "custom 200 1 -0.1";
+          scroll_points = "0.2 0.0 0.5 1 1.2 1.5";
+        }
+      ];
       gestures = {
         workspace_swipe = true;
         workspace_swipe_fingers = 3;
@@ -108,12 +126,16 @@ with lib;
         force_split = 2;
       };
 
+      ecosystem = {
+        no_update_news = true;
+        no_donation_nag = true;
+      };
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         mouse_move_enables_dpms = true;
         # vfr = true;
-        # vrr = 1;
+        vrr = 1;
         animate_manual_resizes = true;
         animate_mouse_windowdragging = true;
         # enable_swallow = true;

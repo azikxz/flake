@@ -17,11 +17,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    services = {
-      tailscale = True // {
-        # OWN VPN NETWORK
-        useRoutingFeatures = "both";
-      };
+    services.tailscale = True // {
+      useRoutingFeatures = "both";
     };
   };
 }

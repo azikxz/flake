@@ -18,14 +18,12 @@ in
 
   config = mkIf cfg.enable {
     hardware.system76 = {
-      # OPTIMIZATIONS
       enableAll = True;
       power-daemon = True;
       firmware-daemon = True;
       kernel-modules = True;
     };
     services.system76-scheduler = True // {
-      # SCHEDULER
       settings = {
         cfsProfiles = True;
         processScheduler.pipewireBoost = True;

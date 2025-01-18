@@ -19,7 +19,7 @@ in
   config = mkIf cfg.enable {
     powerManagement = True // {
       powertop = True;
-    }; # POWER OPTIMIZATION
+    };
     services.upower = True;
   };
 }

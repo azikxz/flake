@@ -12,17 +12,20 @@ in
 {
   options = {
     module.services.zram = {
-      enable = mkBool;
       algo = mkOpt.str;
     };
   };
 
-  config = mkIf cfg.enable {
-    zramSwap = True // {
-      priority = 1000;
-      algorithm = cfg.algo;
-      swapDevices = 1;
-      memoryPercent = 100;
+  config =
+    let
+      ON = if cfg.algo != null then True else False;
+    in
+    {
+      zramSwap = ON // {
+        priority = 1000;
+        algorithm = cfg.algo;
+        swapDevices = 1;
+        memoryPercent = 100;
+      };
     };
-  };
 }

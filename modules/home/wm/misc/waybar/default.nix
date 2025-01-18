@@ -22,7 +22,6 @@ in
       True
       // {
         settings = {
-          # BAR AT BOTTOM
           mainBar =
             let
               Tool = {
@@ -64,51 +63,42 @@ in
                 "󱩖 "
                 "󰛨 "
               ];
-              cava_icons = [
-                "▁"
-                "▂"
-                "▃"
-                "▄"
-                "▅"
-                "▆"
-                "▇"
-                "█"
-              ];
             in
             {
               layer = "top";
               position = "bottom";
               height = 1;
               modules-left = [
+                "custom/separator"
                 "custom/launcher"
-                "custom/separatorL"
+                "custom/separator"
                 "pulseaudio"
-                "custom/separatorL"
+                "custom/separator"
                 "backlight"
-                "custom/separatorL"
+                "custom/separator"
                 "network"
-                "custom/separatorL"
-                "hyprland/language"
+                "custom/separator"
               ];
               modules-center = [ "hyprland/workspaces" ];
               modules-right = [
+                "custom/separator"
                 "tray"
-                "custom/separatorR"
-                "disk"
-                "custom/separatorR"
+                "custom/separator"
+                "hyprland/language"
+                "custom/separator"
+                "clock#date"
+                "custom/separator"
                 "clock#time"
-                "custom/separatorR"
+                "custom/separator"
                 "battery"
+                "custom/separator"
               ];
+              "custom/separator".format = " ";
 
-              # LEFT MODULES
+              # left modules
               "custom/launcher" = Tool // {
                 format = "<span color='#${base0C}' font='17'></span> {}";
-                on-click = "nwg-drawer -ovl -nocats -nofs -d -c 7 -mb -49";
-              };
-              "custom/separatorL" = Tool // {
-                format = "|";
-                interval = 1;
+                on-click = "tofi-drun | xargs hyprctl dispatch exec -- ";
               };
               "pulseaudio" = Tool // {
                 format = "{icon} {volume}%";
@@ -146,40 +136,22 @@ in
                 on-click = "kitty nmtui";
                 interval = 5;
               };
-              "hyprland/language" = Tool // {
-                format = "󰌌 {}";
-                format-en = "EN";
-                format-ru = "RU";
-                keyboard-name = "at-translated-set-2-keyboard";
-              };
-              "cava" = Tool // {
-                framerate = 24;
-                autosens = 1;
-                bars = 12;
-                source = "auto";
-                format-icons = cava_icons;
-                actions = {
-                  on-click-right = "mode";
-                };
-              };
 
-              # CENTER MODULES
+              # center modules
               "hyprland/workspaces" = Tool // {
                 disable-scroll = false;
                 on-click = "activate";
                 format = "{icon}";
                 format-icons = wm_icons;
-                persistent-workspaces = {
-                  "*" = [
-                    1
-                    2
-                    3
-                    4
-                    5
-                    6
-                    7
-                  ];
-                };
+                persistent-workspaces."*" = [
+                  1
+                  2
+                  3
+                  4
+                  5
+                  6
+                  7
+                ];
               };
               "sway/workspaces" = Tool // {
                 disable-scroll = false;
@@ -197,24 +169,24 @@ in
                 };
               };
 
-              # RIGHT MODULES
-              "custom/separatorR" = Tool // {
-                format = "|";
-                interval = 1;
-              };
+              # right modules
               "tray" = Tool // {
                 icon-size = 18;
                 show-passive-items = true;
                 spacing = 8;
               };
-              "disk" = Tool // {
-                format = "{used} of {total} 󰋊";
-                interval = 30;
-                path = "/";
-                unit = "GB";
+              "hyprland/language" = Tool // {
+                format = "{} 󰌌";
+                format-en = "EN";
+                format-ru = "RU";
+                keyboard-name = "at-translated-set-2-keyboard";
+              };
+              "clock#date" = Tool // {
+                "format" = "{:%e.%m} 󰸘";
+                "interval" = 1;
               };
               "clock#time" = Tool // {
-                format = "{:%H:%M}  ";
+                format = "{:%H:%M} ";
                 interval = 1;
               };
               "battery" = Tool // {

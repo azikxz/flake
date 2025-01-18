@@ -1,4 +1,6 @@
 {
+  x,
+  pkgs,
   lib,
   config,
   ...
@@ -6,21 +8,8 @@
 with lib;
 let
   cfg = config.module.wm.hyprland;
-  mic = "fixf4=$(cat /sys/class/leds/platform::micmute/brightness); echo $((1-fixf4)) | doas tee /sys/class/leds/platform::micmute/brightness; wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
-  workspaces =
-    with builtins;
-    (concatLists (
-      genList (
-        i:
-        let
-          ws = i + 1;
-        in
-        [
-          "$mod, code:1${toString i}, workspace, ${toString ws}"
-          "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-        ]
-      ) 10
-    ));
+  tee = "${pkgs.uutils-coreutils-noprefix}/bin/tee";
+  mic = ''fixf4=$(cat /sys/class/leds/platform\:\:micmute/brightness); echo $((1-fixf4)) | sudo ${tee} /sys/class/leds/platform\:\:micmute/brightness; wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'';
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -86,8 +75,8 @@ in
         (mk "$m," "$nx" "workspace, e+1")
         (mk "$m," "$pr" "workspace, e-1")
       ] # modules
-      ++ workspaces
-      ++ cfg.binds;
+      ++ cfg.binds
+      ++ x.workspaces;
 
     # HOLDING BUTTONS
     binde =
@@ -99,6 +88,7 @@ in
         s = mk "$m  $s, ";
         a = mk "$m  $a, ";
         c = mk "$m  $c, ";
+        fn = mk ",";
       in
       [
         # hjkl
@@ -145,15 +135,18 @@ in
       ]
       ++ [
         # sound
-        (mk "," "XF86AudioMute       " "$ex, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
-        (mk "," "XF86AudioMicMute    " "$ex, ${mic}")
-        (mk "," "XF86AudioRaiseVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")
-        (mk "," "XF86AudioLowerVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
+        (fn "XF86AudioMute       " "$ex, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
+        (fn "XF86AudioMicMute    " "$ex, bash -c '${mic}'")
+        (fn "XF86AudioRaiseVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")
+        (fn "XF86AudioLowerVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
       ]
-      ++ [
+      ++ (with pkgs; [
         # light
-        (mk "," "XF86MonBrightnessDown" "$ex, sudo light -U 10")
-        (mk "," "XF86MonBrightnessUp  " "$ex, sudo light -A 10")
+        (fn "XF86MonBrightnessDown" "$ex, sudo ${light}/bin/light -U 10")
+        (fn "XF86MonBrightnessUp  " "$ex, sudo ${light}/bin/light -A 10")
+      ])
+      ++ [
+        (fn "XF86Favorites" "$ex, wlogout -sc 12 -r 12")
       ];
     bindm =
       let

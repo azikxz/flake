@@ -14,6 +14,7 @@ in
   options = {
     module.wm.hyprland = {
       enable = mkBool;
+      resolution = mkOpt.str;
       autostart = mkOpt.list.str;
       binds = mkOpt.list.str;
       rules = mkOpt.list.str;

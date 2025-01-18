@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-  xdg.configFile."kitty/tab_bar.py" = {
-    source = ./tabs.py;
-    executable = true;
-  };
   programs.kitty = with pkgs; {
     settings = {
       editor = "${helix}/bin/hx";

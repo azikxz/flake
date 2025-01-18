@@ -18,7 +18,6 @@ in
 
   config = mkIf cfg.enable {
     networking = {
-      # FOR NETWORK
       resolvconf.dnsSingleRequest = true;
       networkmanager = True // {
         dns = "systemd-resolved";
@@ -31,7 +30,6 @@ in
     };
     services.resolved = True;
     systemd.services = {
-      # IDK
       NetworkManager-wait-online = False;
       systemd-networkd-wait-online = mkForce False;
     };

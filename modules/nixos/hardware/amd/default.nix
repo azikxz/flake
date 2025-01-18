@@ -23,11 +23,8 @@ in
         graphics = True // {
           enable32Bit = true;
         };
-        amdgpu = {
-          initrd = True;
-        };
+        amdgpu.initrd = True;
         cpu.amd = {
-          # OPTIMIZATION FOR CPU
           updateMicrocode = with config.hardware; lib.mkDefault enableRedistributableFirmware;
           ryzen-smu = True;
         };
@@ -35,7 +32,6 @@ in
     })
     (mkIf cfg.amdvlk.enable {
       hardware.amdgpu.amdvlk = True // {
-        # IDK SHIT
         support32Bit = True;
         supportExperimental = False;
       };

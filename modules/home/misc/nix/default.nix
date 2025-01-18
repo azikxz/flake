@@ -21,10 +21,4 @@ with x;
       auto-optimise-store = true;
     };
   };
-  news.display = "silent";
-  manual = {
-    manpages = False;
-    json = False;
-    html = False;
-  };
 }

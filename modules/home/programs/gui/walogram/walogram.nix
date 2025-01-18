@@ -17,7 +17,7 @@ pkgs.writeShellApplication {
       inherit (config.stylix) image;
       inherit (config.lib.stylix.colors.withHashtag) base00 base01;
       theme = import ./palette.nix { inherit config; };
-      cfg = config.module.programs.gui.walogram;
+      cfg = config.module.programs.gui.telegram;
     in
     # sh
     ''
@@ -25,7 +25,7 @@ pkgs.writeShellApplication {
       tempdir="$(mktemp -d)"
       cachedir="${cacheHome}/stylix-telegram-theme"
       themename="stylix.tdesktop-theme"
-      walmode="${cfg.mode}"
+      walmode="${cfg.walogram.mode}"
       walname="background.jpg"
       blur="true"
       # mkdir 

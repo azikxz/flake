@@ -20,11 +20,7 @@ in
   config = mkIf cfg.enable {
     services.getty.autologinUser = userName; # AUTOLOGIN
     boot = {
-      # BOOT
       kernelPackages = with pkgs; linuxPackages_zen;
-      initrd.systemd = True // {
-        dbus = True;
-      };
       loader = {
         systemd-boot = True // {
           configurationLimit = 4;
@@ -33,18 +29,17 @@ in
       };
     };
     networking = {
-      # NETWORKING
       hostName = hostName;
       useDHCP = mkDefault true;
       nameservers = [
         "::1"
         "127.0.0.1"
-        "1.1.1.1"
         "1.0.0.1"
+        "1.1.1.1"
+        "8.8.8.8"
       ];
     };
     security = {
-      # SUDO RS
       sudo = False;
       sudo-rs = True;
     };

@@ -25,7 +25,7 @@
         {
           "attributes" = BASE09;
           "comment" = {
-            fg = BASE03;
+            fg = BASE02;
             modifiers = [ "italic" ];
           };
           "constant" = BASE09;
@@ -209,13 +209,13 @@
           "ui.text.focus" = BASE05;
 
           "ui.virtual.indent-guide" = {
-            fg = BASE03;
+            fg = BASE02;
           };
           "ui.virtual.wrap" = {
-            fg = BASE03;
+            fg = BASE02;
           };
           "ui.virtual.inlay-hint" = {
-            fg = BASE03;
+            fg = BASE02;
           };
           "ui.virtual.ruler" = {
             bg = BASE01;

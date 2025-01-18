@@ -19,11 +19,9 @@ in
 
   config = mkIf cfg.enable {
     hardware.bluetooth = True // {
-      # BLUETOOTH LOL
       powerOnBoot = true;
     };
     environment.systemPackages = with pkgs; [
-      # TUI FOR BLUETOOTH
       bluetuith
       bluetooth_battery
     ];

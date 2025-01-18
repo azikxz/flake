@@ -20,6 +20,7 @@ in
   config = mkIf cfg.enable {
     programs.tofi = True // {
       settings = with config.lib.stylix.colors.withHashtag; {
+        history = false;
         hide-cursor = true;
         text-cursor = true;
         font = "${font.monospace.name}";

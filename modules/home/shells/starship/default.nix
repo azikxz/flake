@@ -71,16 +71,20 @@ in
           vimcmd_replace_symbol = "[R](bold purple)";
           vimcmd_visual_symbol = "[V](bold yellow)";
         };
-        battery = (
-          mkIf (is == "desktop") {
-            format = "[$symbol$percentage]($style)";
-            full_symbol = "󰁹";
-            charging_symbol = "󰂄";
-            discharging_symbol = "󰂃";
-            unknown_symbol = "󰁽";
-            empty_symbol = "󰂎";
-          }
-        );
+        battery = mkIf (is == "laptop") {
+          format = "[$symbol $percentage]($style)";
+          full_symbol = "󰁹";
+          charging_symbol = "󰂄";
+          discharging_symbol = "󰂃";
+          unknown_symbol = "󰁽";
+          empty_symbol = "󰂎";
+          display = [
+            {
+              threshold = 25;
+              style = "bold red";
+            }
+          ];
+        };
       };
     };
   };

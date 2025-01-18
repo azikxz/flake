@@ -12,14 +12,17 @@ in
 {
   options = {
     module.misc.locales = {
-      enable = mkBool;
       zone = mkOpt.str;
     };
   };
 
-  config = mkIf cfg.enable {
-    time.timeZone = cfg.zone; # TIME
-    services.chrony = True; # SYNC TIME
-    i18n.defaultLocale = "en_US.UTF-8";
-  };
+  config =
+    let
+      ON = if cfg.zone != null then True else False;
+    in
+    {
+      time.timeZone = cfg.zone; # TIME
+      services.chrony = ON; # SYNC TIME
+      i18n.defaultLocale = "en_US.UTF-8";
+    };
 }

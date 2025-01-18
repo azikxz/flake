@@ -1,4 +1,8 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  ...
+}:
 let
   # MODIFIERS
   m = "Mod4";
@@ -17,28 +21,24 @@ let
   nm = "number";
   # PROGRAMS
   pic = "$(xdg-user-dir PICTURES)/$(date +'scr_%d-%m-%y|%H:%M:%S.png')";
+  inherit (lib) mkForce;
+  inherit (pkgs) grimblast;
 in
-with lib;
-with pkgs;
 {
   wayland.windowManager.sway.config.keybindings = mkForce {
-    # SWAY NATIVE CMD
     "${m}+q" = "kill";
     "${m}+f" = "fullscreen";
     "${m}+${s}+f" = "move position center";
     "${m}+${sp}" = "floating toggle";
 
-    # PROGRAMS
     "${m}+w" = "${ex} killall -SIGUSR1 waybar";
     "${m}+${tb}" = "${ex} rofi";
     "${m}+${rt}" = "${ex} kitty";
 
-    # SCREENSHOT
     "${pr}" = "${grimblast}/bin/grimblast copysave area";
     "${pr}+${s}" = "${grimblast}/bin/grimblast copysave output ${pic}";
     "${pr}+${a}" = "${grimblast}/bin/grimblast copysave active ${pic}";
 
-    # CONTROL
     "${m}+g" = "layout tabbed";
     "${m}+${s}+g" = "layout toggle split";
 
@@ -48,7 +48,6 @@ with pkgs;
     "${m}+Home" = "exit";
     "${m}+${s}+Home" = "reload";
 
-    # WORKSPACES SWITCH
     "${m}+1" = "${ws} ${nm} 1";
     "${m}+2" = "${ws} ${nm} 2";
     "${m}+3" = "${ws} ${nm} 3";
@@ -60,7 +59,6 @@ with pkgs;
     "${m}+9" = "${ws} ${nm} 9";
     "${m}+0" = "${ws} ${nm} 10";
 
-    # WORKSPACES MOVE
     "${m}+${s}+1" = "${mv} ${cn} to ${ws} ${nm} 1";
     "${m}+${s}+2" = "${mv} ${cn} to ${ws} ${nm} 2";
     "${m}+${s}+3" = "${mv} ${cn} to ${ws} ${nm} 3";
@@ -72,7 +70,6 @@ with pkgs;
     "${m}+${s}+9" = "${mv} ${cn} to ${ws} ${nm} 9";
     "${m}+${s}+0" = "${mv} ${cn} to ${ws} ${nm} 10";
 
-    # HJKL
     # "${m}+h" = "focus left";
     # "${m}+j" = "focus down";
     # "${m}+k" = "focus up";

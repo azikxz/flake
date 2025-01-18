@@ -40,12 +40,8 @@ with pkgs;
       baseD = "${getExe flavours} generate dark --stdout -a=azikx";
 
       # vpn
-      vpn = "openvpn";
-
-      # images
-      imagemagick = "imagemagick";
-      jpgop = "jpegoptim";
-      pngop = "optipng";
+      vpnUp = "sudo awg-quick up";
+      vpnDo = "sudo awg-quick down";
 
       # lutgen
       lut = "${getExe lutgen} apply -p paradise";

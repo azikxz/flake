@@ -14,8 +14,6 @@ in
   options = {
     module.services.amneziawg = {
       enable = mkBool;
-      service.enable = mkBool;
-      config = mkOpt.str;
     };
   };
 
@@ -113,19 +111,5 @@ in
       ];
     };
     boot.extraModulePackages = with pkgs.linuxKernel.packages.linux_zen; [ amneziawg ];
-    systemd.services.amneziawg = {
-      enable = cfg.service.enable;
-      after = [
-        "multi-user.target"
-        "network.target"
-      ];
-      wantedBy = [ "multi-user.target" ];
-      serviceConfig = {
-        ExecStart = "sudo awg-quick up ${cfg.config}";
-        Restart = "on-failure";
-        Type = "simple";
-        TimeoutSec = 35;
-      };
-    };
   };
 }

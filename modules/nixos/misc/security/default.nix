@@ -8,7 +8,6 @@
 with lib;
 with x;
 let
-  inherit (lib) getExe;
   cfg = config.module.misc.security;
 in
 {
@@ -25,9 +24,10 @@ in
       extraRules = [
         {
           users = [ userName ];
+          groups = [ "wheel" ];
           commands = with pkgs; [
             {
-              command = "${getExe light}";
+              command = "${light}/bin/light";
               options = [ "NOPASSWD" ];
             }
             {

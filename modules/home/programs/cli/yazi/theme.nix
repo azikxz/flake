@@ -1,4 +1,8 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  ...
+}:
 with config.lib.stylix.colors.withHashtag;
 let
   fg = "${base06}";
@@ -11,7 +15,7 @@ in
       };
       hovered = {
         fg = "${base00}";
-        bg = "${base04}";
+        bg = "${base0E}";
         bold = true;
       };
       preview_hovered = {

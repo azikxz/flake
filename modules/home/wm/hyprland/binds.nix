@@ -31,10 +31,6 @@ in
     "$mu" = "mouse_up";
     "$ex" = "exec";
 
-    "$Mf" = "movefocus";
-    "$Sw" = "swapwindow";
-    "$Ra" = "resizeactive";
-    "$Ma" = "moveactive";
     # binds
     bind =
       let
@@ -92,46 +88,46 @@ in
       in
       [
         # hjkl
-        (m "H" "$Mf, l")
-        (m "J" "$Mf, d")
-        (m "K" "$Mf, u")
-        (m "L" "$Mf, r")
+        (m "H" "movefocus, l")
+        (m "J" "movefocus, d")
+        (m "K" "movefocus, u")
+        (m "L" "movefocus, r")
 
-        (s "H" "$Sw, l")
-        (s "J" "$Sw, d")
-        (s "K" "$Sw, u")
-        (s "L" "$Sw, r")
+        (s "H" "resizeactive, -50  0")
+        (s "J" "resizeactive, 0   50")
+        (s "K" "resizeactive, 0  -50")
+        (s "L" "resizeactive, 50   0")
 
-        (a "H" "$Ra, -50  0")
-        (a "J" "$Ra, 0   50")
-        (a "K" "$Ra, 0  -50")
-        (a "L" "$Ra, 50   0")
+        (a "H" "swapwindow, l")
+        (a "J" "swapwindow, d")
+        (a "K" "swapwindow, u")
+        (a "L" "swapwindow, r")
 
-        (c "H" "$Ma, -50  0")
-        (c "J" "$Ma, 0   50")
-        (c "K" "$Ma, 0  -50")
-        (c "L" "$Ma, 50   0")
+        (c "H" "moveactive, -50  0")
+        (c "J" "moveactive, 0   50")
+        (c "K" "moveactive, 0  -50")
+        (c "L" "moveactive, 50   0")
 
         # arrows
-        (m "left " "$Mf, l")
-        (m "down " "$Mf, d")
-        (m "up   " "$Mf, u")
-        (m "right" "$Mf, r")
+        (m "left " "movefocus, l")
+        (m "down " "movefocus, d")
+        (m "up   " "movefocus, u")
+        (m "right" "movefocus, r")
 
-        (s "left " "$Sw, l")
-        (s "down " "$Sw, d")
-        (s "up   " "$Sw, u")
-        (s "right" "$Sw, r")
+        (s "left " "resizeactive, -50  0")
+        (s "down " "resizeactive, 0   50")
+        (s "up   " "resizeactive, 0  -50")
+        (s "right" "resizeactive, 50   0")
 
-        (a "left " "$Ra, -50  0")
-        (a "down " "$Ra, 0   50")
-        (a "up   " "$Ra, 0  -50")
-        (a "right" "$Ra, 50   0")
+        (a "left " "swapwindow, l")
+        (a "down " "swapwindow, d")
+        (a "up   " "swapwindow, u")
+        (a "right" "swapwindow, r")
 
-        (c "left " "$Ma, -50  0")
-        (c "down " "$Ma, 0   50")
-        (c "up   " "$Ma, 0  -50")
-        (c "right" "$Ma, 50   0")
+        (c "left " "moveactive, -50  0")
+        (c "down " "moveactive, 0   50")
+        (c "up   " "moveactive, 0  -50")
+        (c "right" "moveactive, 50   0")
       ]
       ++ [
         # sound

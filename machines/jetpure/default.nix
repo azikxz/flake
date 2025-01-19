@@ -9,7 +9,7 @@
     flakeDir = "/persist/flake";
     is = "desktop";
     # customize
-    theme = "paradise";
+    theme = "vesper";
     image = "rocks";
     # sys info
     plfrm = "x86_64-linux";

@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.starship = True // {
+    programs.starship = on // {
       # enableFishIntegration = false;
       enableTransience = true;
       settings = {

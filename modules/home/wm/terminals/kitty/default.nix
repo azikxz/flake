@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.kitty = True // {
+    programs.kitty = on // {
     };
   };
 }

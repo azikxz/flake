@@ -3,7 +3,7 @@
   ...
 }:
 let
-  inherit (x) True False umport;
+  inherit (x) on off umport;
 in
 {
   imports = umport {
@@ -12,53 +12,53 @@ in
     exclude = [ ./default.nix ];
   };
   module = {
-    themes.stylix = True;
-    base = True;
+    themes.stylix = on;
+    base = on;
     hardware = {
-      amd = True;
-      bluetooth = True;
-      boot = True // {
-        plymouth = True;
+      amd = on;
+      bluetooth = on;
+      boot = on // {
+        plymouth = on;
       };
-      impermanence = True;
-      network = True;
-      power = True;
-      sound = True;
-      system76 = True;
+      impermanence = on;
+      network = on;
+      power = on;
+      sound = on;
+      system76 = on;
     };
     services = {
-      amneziawg = True;
-      autocpu = True;
-      dbus = True;
-      deluge = False;
-      getty = True;
-      gvfs = True;
-      polkit = True;
-      printing = False;
-      tailscale = False;
-      tlp = True;
-      transmission = False // {
-        tui = False;
+      amneziawg = on;
+      autocpu = on;
+      dbus = on;
+      deluge = off;
+      getty = on;
+      gvfs = on;
+      polkit = on;
+      printing = off;
+      tailscale = off;
+      tlp = on;
+      transmission = off // {
+        tui = off;
       };
       zram.algo = "zstd";
     };
     programs = {
-      common = True;
-      hamachi = False;
-      hyprland = True;
-      steam = False;
-      sway = False;
-      torrserver = False;
+      common = on;
+      hamachi = off;
+      hyprland = on;
+      steam = off;
+      sway = off;
+      torrserver = off;
     };
     misc = {
-      console = False;
+      console = off;
       locales.zone = "Asia/Chita";
-      minimal = True;
-      protonmail = False;
-      security = True;
-      terraria = False;
-      users = True;
-      variables = True;
+      minimal = on;
+      protonmail = off;
+      security = on;
+      terraria = off;
+      users = on;
+      variables = on;
     };
   };
 }

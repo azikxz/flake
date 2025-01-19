@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.module.wm.hyprland;
-  True = {
+  on = {
     enabled = true;
   };
 in
@@ -38,11 +38,11 @@ with lib;
         rounding = 12;
         dim_inactive = true;
         dim_strength = 0.3;
-        shadow = True // {
+        shadow = on // {
           range = 10;
           render_power = 8;
         };
-        blur = True // {
+        blur = on // {
           size = 4;
           passes = 4;
           noise = 0.03;
@@ -66,7 +66,7 @@ with lib;
       };
 
       # animations
-      animations = True // {
+      animations = on // {
         first_launch_animation = false;
         bezier = [
           "over,     0,    0.1, 0.1, 0.3"

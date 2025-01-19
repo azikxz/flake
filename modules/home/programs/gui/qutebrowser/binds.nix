@@ -28,7 +28,7 @@ in
     translate
     pynacl
   ];
-  programs.qutebrowser = True // {
+  programs.qutebrowser = on // {
     keyBindings = {
       normal = {
         # mpv

@@ -20,15 +20,15 @@ in
 
   imports = with inputs; [ stylix.nixosModules.stylix ];
   config = mkIf cfg.enable {
-    stylix = True // {
+    stylix = on // {
       # COLORIZE !!!
       autoEnable = false;
       base16Scheme = "${base16}/${x.theme}.yaml";
       targets = {
-        console = True; # TTY
-        chromium = True; # TTY
-        fish = True; # SHELL
-        plymouth = True // {
+        console = on; # TTY
+        chromium = on; # TTY
+        fish = on; # SHELL
+        plymouth = on // {
           logoAnimated = true;
         }; # STARTING SCREEN
       };

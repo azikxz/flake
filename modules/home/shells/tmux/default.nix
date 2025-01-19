@@ -18,7 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.tmux = True // {
+    programs.tmux = on // {
       shell = pkgs: "${fish}/bin/fish";
       clock24 = true;
       keyMode = "vi";

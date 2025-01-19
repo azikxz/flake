@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.wlogout = True // {
+    programs.wlogout = on // {
       layout = [
         {
           label = "shutdown";

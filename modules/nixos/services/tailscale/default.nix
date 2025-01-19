@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.tailscale = True // {
+    services.tailscale = on // {
       useRoutingFeatures = "both";
     };
   };

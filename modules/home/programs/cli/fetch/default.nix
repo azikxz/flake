@@ -19,7 +19,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ onefetch ];
-    programs.fastfetch = True // {
+    programs.fastfetch = on // {
       settings = {
         logo = {
           type = "builtin";

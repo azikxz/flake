@@ -18,7 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.flameshot = True // {
+    services.flameshot = on // {
       package = pkgs.flameshot.override {
         enableWlrSupport = true;
         enableMonochromeIcon = true;

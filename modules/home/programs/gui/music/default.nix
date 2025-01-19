@@ -25,9 +25,9 @@ in
 
   imports = with inputs; [ spicetify.homeManagerModules.default ];
   config = mkMerge [
-    (mkIf cfg.amberol.enable { services.amberol = True; })
+    (mkIf cfg.amberol.enable { services.amberol = on; })
     (mkIf cfg.spotify.enable {
-      programs.spicetify = True // {
+      programs.spicetify = on // {
         theme = spicePkgs.themes.sleek // {
           additionalCss = # css
             ''*{font-family:"${font.monospace.name}"!important}'';

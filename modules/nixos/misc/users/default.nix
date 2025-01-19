@@ -21,7 +21,7 @@ in
 
   imports = with inputs; [ home-manager.nixosModules.home-manager ];
   config = mkIf cfg.enable {
-    programs.fish = True;
+    programs.fish = on;
     users =
       let
         grp = [

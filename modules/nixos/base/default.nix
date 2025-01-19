@@ -22,7 +22,7 @@ in
     boot = {
       kernelPackages = with pkgs; linuxPackages_zen;
       loader = {
-        systemd-boot = True // {
+        systemd-boot = on // {
           configurationLimit = 4;
         };
         timeout = 0;
@@ -40,8 +40,8 @@ in
       ];
     };
     security = {
-      sudo = False;
-      sudo-rs = True;
+      sudo = off;
+      sudo-rs = on;
     };
   };
 }

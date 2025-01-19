@@ -19,10 +19,10 @@ with lib.types;
   umport = (import ./umport.nix { inherit lib; }).umport;
 
   # enable = true; ++ enable = false;
-  True = {
+  on = {
     enable = true;
   };
-  False = {
+  off = {
     enable = false;
   };
   # mkOption and mkEnableOption

@@ -19,7 +19,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.fish = True // {
+    programs.fish = on // {
       package = pkgs.fish;
       preferAbbrs = true;
       shellAbbrs = abbrs;

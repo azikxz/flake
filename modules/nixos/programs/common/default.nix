@@ -22,13 +22,13 @@ in
     environment.systemPackages = [ ] ++ cfg.pkgs;
     programs = {
       fuse.userAllowOther = true;
-      nano = False;
-      light = if x.is == "laptop" then True else False;
-      git = True // {
+      nano = off;
+      light = if x.is == "laptop" then on else off;
+      git = on // {
         package = mkDefault pkgs.gitMinimal;
       };
-      ryzen-monitor-ng = if x.is == "desktop" then True else False;
-      nh = True // {
+      ryzen-monitor-ng = if x.is == "desktop" then on else off;
+      nh = on // {
         flake = flakeDir;
       };
     };

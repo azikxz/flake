@@ -20,7 +20,7 @@ in
   config = mkIf cfg.enable {
     services.mako =
       with config.lib.stylix.colors.withHashtag;
-      True
+      on
       // {
         icons = true;
         actions = false;

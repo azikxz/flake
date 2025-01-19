@@ -61,7 +61,6 @@ in
             format_pinned = "{index}";
           };
         };
-        window.hide_decoration = true;
         colors = with config.lib.stylix.colors.withHashtag; {
           webpage = {
             preferred_color_scheme = "dark";

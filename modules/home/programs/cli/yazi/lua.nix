@@ -13,8 +13,7 @@
         part_separator    = { open = "", close = "" },
         inverse_separator = { open = "", close = "" },
 
-        style_a = { fg = "white",
-          bg_mode = {
+        style_a = { fg = "white", bg_mode = {
             normal = "${base02}",
             select = "${base02}",
             un_set = "${base02}"

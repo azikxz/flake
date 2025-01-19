@@ -88,6 +88,7 @@ in
         wezterm = False;
       };
       misc = {
+        flameshot = False;
         mako = True;
         nwg = False;
         rofi = False;

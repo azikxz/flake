@@ -36,7 +36,7 @@ with lib;
       [
         # menus
         (m "$tb" "tofi-drun | xargs hyprctl dispatch exec -- ")
-        (s "$tb" "killall -SIGUSR1 .waybar-wrapped")
+        (s "$sp" "killall -SIGUSR1 .waybar-wrapped")
 
         # programs
         (m "$rt" "kitty")

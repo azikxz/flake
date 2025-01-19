@@ -16,7 +16,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.bat = True // {
+    programs.bat = on // {
       extraPackages = with pkgs.bat-extras; [
         # prettybat
         batwatch

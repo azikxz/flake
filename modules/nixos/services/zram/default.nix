@@ -18,7 +18,7 @@ in
 
   config =
     let
-      ON = if cfg.algo != null then True else False;
+      ON = if cfg.algo != null then on else off;
     in
     {
       zramSwap = ON // {

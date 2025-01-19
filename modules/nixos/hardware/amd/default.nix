@@ -20,20 +20,20 @@ in
   config = mkMerge [
     (mkIf cfg.enable {
       hardware = mkIf cfg.enable {
-        graphics = True // {
+        graphics = on // {
           enable32Bit = true;
         };
-        amdgpu.initrd = True;
+        amdgpu.initrd = on;
         cpu.amd = {
           updateMicrocode = with config.hardware; lib.mkDefault enableRedistributableFirmware;
-          ryzen-smu = True;
+          ryzen-smu = on;
         };
       };
     })
     (mkIf cfg.amdvlk.enable {
-      hardware.amdgpu.amdvlk = True // {
-        support32Bit = True;
-        supportExperimental = False;
+      hardware.amdgpu.amdvlk = on // {
+        support32Bit = on;
+        supportExperimental = off;
       };
     })
   ];

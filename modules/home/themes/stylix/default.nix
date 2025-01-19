@@ -49,7 +49,7 @@ in
         (code-new-roman.overrideAttrs a)
         (dejavu-sans-mono.overrideAttrs a)
       ];
-    stylix = True // {
+    stylix = on // {
       autoEnable = false;
       cursor = with inputs.cursors.packages.${pkgs.system}; {
         size = cfg.cursor.size;
@@ -60,7 +60,7 @@ in
           accent_color = cfg.cursor.ac;
         };
       };
-      iconTheme = True // {
+      iconTheme = on // {
         dark = "Papirus-Dark";
         light = "Papirus-Light";
         package = pkgs.papirus-icon-theme.override { color = cfg.icon; };
@@ -81,37 +81,37 @@ in
       };
       targets = {
         # CLI
-        tmux = True;
-        cava = True // {
-          rainbow = True;
+        tmux = on;
+        cava = on // {
+          rainbow = on;
         };
-        fish = True;
-        nushell = True;
+        fish = on;
+        nushell = on;
         # WM
-        hyprland = True // {
-          hyprpaper = True;
+        hyprland = on // {
+          hyprpaper = on;
         };
-        hyprpaper = True;
-        sway = True;
-        river = True;
+        hyprpaper = on;
+        sway = on;
+        river = on;
         # MISC PROGRAMS
-        foot = True;
-        kitty = True;
-        mako = False;
-        rofi = True;
-        bemenu = True;
+        foot = on;
+        kitty = on;
+        mako = off;
+        rofi = on;
+        bemenu = on;
         # TOOLS
-        nixvim = True;
-        yazi = True;
-        fzf = True;
-        bat = True;
-        mangohud = True;
+        nixvim = on;
+        yazi = on;
+        fzf = on;
+        bat = on;
+        mangohud = on;
         # GUI
-        spicetify = False;
-        vesktop = True;
-        qutebrowser = True;
-        firefox = True;
-        gtk = True;
+        spicetify = off;
+        vesktop = on;
+        qutebrowser = on;
+        firefox = on;
+        gtk = on;
       };
     };
   };

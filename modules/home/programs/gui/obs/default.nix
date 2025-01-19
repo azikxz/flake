@@ -18,7 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.obs-studio = True // {
+    programs.obs-studio = on // {
       package = pkgs.obs-studio;
       plugins = with pkgs.obs-studio-plugins; [
         wlrobs

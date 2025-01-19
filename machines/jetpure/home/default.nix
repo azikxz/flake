@@ -1,6 +1,6 @@
 { x, config, ... }:
 let
-  inherit (x) True False umport;
+  inherit (x) on off umport;
 in
 {
   imports = umport {
@@ -13,58 +13,61 @@ in
   module = {
     programs = {
       cli = {
-        bat = True;
-        cava = True;
-        eza = True;
-        fd = True;
-        fetch = True;
-        fzf = True;
-        git = True;
-        helix = True;
-        joshuto = False;
-        legendary = True;
-        lsd = False;
-        micro = False;
-        ripgrep = True;
-        rustmission = True;
-        top = True;
-        yazi = True;
-        zoxide = True;
+        bat = on;
+        cava = on;
+        eza = on;
+        fd = on;
+        fetch = on;
+        fzf = on;
+        git = on;
+        helix = on;
+        joshuto = off;
+        legendary = on;
+        lsd = off;
+        micro = off;
+        ripgrep = on;
+        rustmission = on;
+        top = on;
+        yazi = on;
+        zoxide = on;
       };
       gui = {
-        floorp = False;
-        minecraft = True // {
-          cli = False;
+        floorp = off;
+        minecraft = on // {
+          cli = off;
         };
-        mpv = True;
-        obs = True;
-        qbittorrent = True;
-        qutebrowser = True;
+        mpv = on;
+        obs = on;
+        qbittorrent = on;
+        qutebrowser = on;
         music = {
-          amberol = True;
-          spotify = True;
+          amberol = on;
+          spotify = on;
         };
-        swayimg = True;
-        syncthing = True;
-        walogram = True // {
-          mode = "solid";
+        swayimg = on;
+        syncthing = on;
+        telegram = on // {
+          walogram = on // {
+            mode = "solid";
+          };
         };
-        zed = False;
+        zed = off;
       };
     };
     shells = {
-      fish = True;
-      nushell = False;
-      tmux = False;
-      zsh = False;
-      starship = True;
+      fish = on;
+      nushell = off;
+      tmux = off;
+      zsh = off;
+      starship = on;
     };
     themes = {
-      gtk = True; # GTK APPS
-      qt = True; # QT APPS
-      stylix = True // {
+      gtk = on; # GTK APPS
+      qt = on; # QT APPS
+      stylix = on // {
         icon = "adwaita";
         cursor = with config.lib.stylix.colors.withHashtag; {
+          size = 16;
           bg = "${base0E}";
           ol = "${base00}";
           ac = "${base0E}";
@@ -72,27 +75,27 @@ in
       };
     };
     wm = {
-      hyprland = True;
-      sway = False;
+      hyprland = on;
+      sway = off;
       terminals = {
-        kitty = True;
-        foot = False;
-        wezterm = False;
+        kitty = on;
+        foot = off;
+        wezterm = off;
       };
       misc = {
-        mako = True;
-        nwg = False;
-        rofi = True;
-        tofi = True;
-        waybar = False;
-        wlogout = True;
-        wob = False;
-        yofi = False;
+        mako = on;
+        nwg = off;
+        rofi = off;
+        tofi = on;
+        waybar = off;
+        wlogout = on;
+        wob = off;
+        yofi = off;
       };
     };
     misc = {
-      dconf = True;
-      xdg.mime = True;
+      dconf = on;
+      xdg.mime = on;
     };
   };
 }

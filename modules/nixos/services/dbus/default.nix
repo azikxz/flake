@@ -19,7 +19,7 @@ in
   config = mkIf cfg.enable {
     services = {
       dbus.implementation = "broker";
-      udisks2 = True;
+      udisks2 = on;
     };
   };
 }

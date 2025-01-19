@@ -19,7 +19,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ nvtopPackages.amd ];
-    programs.btop = True // {
+    programs.btop = on // {
       settings = {
         update_ms = 100;
         color_theme = "TTY";

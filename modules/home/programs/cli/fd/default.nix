@@ -15,7 +15,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.fd = True // {
+    programs.fd = on // {
       ignores = [
         ".git/"
         "*.bak"

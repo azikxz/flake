@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.wezterm = True // {
+    programs.wezterm = on // {
       extraConfig = # lua
         ''
           return {

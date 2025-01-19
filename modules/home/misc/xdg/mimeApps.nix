@@ -4,7 +4,7 @@ let
   ds = "desktop";
 in
 {
-  xdg.mimeApps = True // {
+  xdg.mimeApps = on // {
     defaultApplications =
       let
         web = "org.qutebrowser.qutebrowser";

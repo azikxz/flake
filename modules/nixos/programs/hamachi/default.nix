@@ -16,5 +16,5 @@ in
     };
   };
 
-  config = mkIf cfg.enable { programs.haguichi = True; };
+  config = mkIf cfg.enable { programs.haguichi = on; };
 }

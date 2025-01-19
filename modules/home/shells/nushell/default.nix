@@ -20,7 +20,7 @@ in
   config = mkIf cfg.enable {
     programs.nushell =
       with pkgs;
-      True
+      on
       // {
         configFile.text = # nu
           ''

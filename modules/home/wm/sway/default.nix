@@ -19,11 +19,11 @@ in
   };
 
   config = mkIf cfg.enable {
-    wayland.windowManager.sway = True // {
+    wayland.windowManager.sway = on // {
       package = pkgs.swayfx;
       checkConfig = false;
       xwayland = true;
-      systemd = True;
+      systemd = on;
     };
   };
 }

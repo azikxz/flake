@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.fzf = True // {
+    programs.fzf = on // {
       defaultOptions = [
         "--border=rounded"
         "--info=hidden"

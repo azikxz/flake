@@ -16,5 +16,5 @@ in
     };
   };
 
-  config = mkIf cfg.enable { services.gvfs = True; };
+  config = mkIf cfg.enable { services.gvfs = on; };
 }

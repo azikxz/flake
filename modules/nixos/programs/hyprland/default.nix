@@ -19,6 +19,6 @@ in
 
   imports = with inputs; [ hyprland.nixosModules.default ];
   config = mkIf cfg.enable {
-    programs.hyprland = True;
+    programs.hyprland = on;
   };
 }

@@ -19,7 +19,7 @@ in
   config = mkIf cfg.enable {
     programs.waybar =
       with config.lib.stylix.colors;
-      True
+      on
       // {
         settings = {
           mainBar =

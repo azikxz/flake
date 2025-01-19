@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.micro = True // {
+    programs.micro = on // {
       settings = {
         clipboard = "terminal";
         autosu = true;

@@ -18,7 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.tofi = True // {
+    programs.tofi = on // {
       settings = with config.lib.stylix.colors.withHashtag; {
         history = false;
         hide-cursor = true;

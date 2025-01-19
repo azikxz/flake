@@ -15,7 +15,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.lsd = True // {
+    programs.lsd = on // {
       enableAliases = true;
       settings = {
         header = false;

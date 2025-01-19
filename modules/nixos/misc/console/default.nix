@@ -18,7 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    console = True // {
+    console = on // {
       earlySetup = true;
       font = with pkgs; "${terminus_font}/share/consolefonts/ter-v16n.psf.gz";
       packages = [ terminus_font ];

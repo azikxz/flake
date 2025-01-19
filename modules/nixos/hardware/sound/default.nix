@@ -21,14 +21,14 @@ in
   imports = with inputs; [ gaming.nixosModules.pipewireLowLatency ];
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ pulsemixer ];
-    security.rtkit = True;
-    services.pipewire = True // {
-      pulse = True;
-      wireplumber = True;
-      alsa = True // {
+    security.rtkit = on;
+    services.pipewire = on // {
+      pulse = on;
+      wireplumber = on;
+      alsa = on // {
         support32Bit = true;
       };
-      lowLatency = True // {
+      lowLatency = on // {
         quantum = 64;
         rate = 48000;
       };

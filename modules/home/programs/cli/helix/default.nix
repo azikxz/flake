@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.helix = True // {
+    programs.helix = on // {
       defaultEditor = true;
     };
   };

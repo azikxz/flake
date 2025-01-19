@@ -18,7 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.sway = True // {
+    programs.sway = on // {
       package = pkgs.swayfx;
     };
   };

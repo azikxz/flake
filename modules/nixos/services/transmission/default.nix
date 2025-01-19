@@ -27,7 +27,7 @@ in
     })
     (mkIf cfg.enable {
       systemd.services.transmission.serviceConfig.UMask = lib.mkForce "0037";
-      services.transmission = True // {
+      services.transmission = on // {
         home = "/var/lib/transmission";
         downloadDirPermissions = "777";
         performanceNetParameters = true;

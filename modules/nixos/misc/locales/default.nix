@@ -18,7 +18,7 @@ in
 
   config =
     let
-      ON = if cfg.zone != null then True else False;
+      ON = if cfg.zone != null then on else off;
     in
     {
       time.timeZone = cfg.zone; # TIME

@@ -21,7 +21,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ python312Packages.adblock ];
-    programs.qutebrowser = True // {
+    programs.qutebrowser = on // {
       quickmarks = cfg.quickmarks;
       settings = {
         url = {

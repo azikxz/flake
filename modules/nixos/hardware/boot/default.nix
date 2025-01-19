@@ -61,7 +61,7 @@ in
           "usb_storage"
         ];
       };
-      plymouth = (mkIf cfg.plymouth.enable True) // {
+      plymouth = (mkIf cfg.plymouth.enable on) // {
         logo = "${pkgs.nixos-icons}/share/icons/hicolor/48x48/apps/nix-snowflake-white.png";
       };
     };

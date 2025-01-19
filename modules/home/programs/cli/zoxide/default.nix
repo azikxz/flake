@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.zoxide = True // {
+    programs.zoxide = on // {
       enableFishIntegration = true;
       enableZshIntegration = true;
       options = [ "--cmd cd" ];

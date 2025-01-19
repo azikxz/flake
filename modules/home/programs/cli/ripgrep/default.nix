@@ -15,6 +15,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.ripgrep = True;
+    programs.ripgrep = on;
   };
 }

@@ -18,8 +18,8 @@ in
 
   config = mkIf cfg.enable {
     security = {
-      polkit = True;
-      soteria = True;
+      polkit = on;
+      soteria = on;
     };
   };
 }

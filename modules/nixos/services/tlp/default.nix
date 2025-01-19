@@ -19,16 +19,16 @@ in
 
   config = mkIf cfg.enable {
     services = {
-      thermald = True;
-      upower = True;
-      fprintd = True // {
+      thermald = on;
+      upower = on;
+      fprintd = on // {
         # FINGER PRINT
         package = pkgs.fprintd-tod;
-        tod = True // {
+        tod = on // {
           driver = pkgs.libfprint-2-tod1-vfs0090;
         };
       };
-      tlp = True // {
+      tlp = on // {
         settings = {
           PLATFORM_PROFILE_ON_AC = "performance";
           PLATFORM_PROFILE_ON_BAT = "balanced";

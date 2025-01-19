@@ -15,7 +15,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    dconf = True // {
+    dconf = on // {
       settings =
         let
           gnome = "org/gnome/desktop";

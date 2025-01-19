@@ -17,9 +17,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    powerManagement = True // {
-      powertop = True;
+    powerManagement = on // {
+      powertop = on;
     };
-    services.upower = True;
+    services.upower = on;
   };
 }

@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.auto-cpufreq = True // {
+    services.auto-cpufreq = on // {
       settings = {
         charger = {
           # AC MODE

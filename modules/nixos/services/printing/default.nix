@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.printing = True // {
+    services.printing = on // {
       drivers = with pkgs; [ epson_201207w ];
     };
   };

@@ -19,9 +19,9 @@ in
   config = mkIf cfg.enable {
     programs.foot =
       with config.lib.stylix.colors;
-      True
+      on
       // {
-        server = False;
+        server = off;
         settings = {
           main = {
             font = lib.mkForce "JetBrainsMono Nerd Font:size=12:fontfeatures=";

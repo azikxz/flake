@@ -21,17 +21,17 @@ in
   config = mkIf cfg.enable {
     programs.zsh =
       with pkgs;
-      True
+      on
       // {
         # COOL TOOLS YEYE
-        syntaxHighlighting = True;
+        syntaxHighlighting = on;
         enableCompletion = true;
-        autosuggestion = True;
+        autosuggestion = on;
         # SETS
         dotDir = ".config/zsh";
         completionInit = "autoload -U compinit && compinit";
         # CONFIGURATION
-        zsh-abbr = True // {
+        zsh-abbr = on // {
           abbreviations = abbrs;
         };
         initExtra =

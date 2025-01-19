@@ -19,7 +19,7 @@ in
   config = mkIf cfg.enable {
     services.wob =
       with config.lib.stylix.colors;
-      True
+      on
       // {
         systemd = true;
         settings = {

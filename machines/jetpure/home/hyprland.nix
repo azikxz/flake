@@ -8,6 +8,13 @@ with lib;
 {
   module.wm.hyprland = {
     autostart = [ "mako" ]; # autostart
+    resolution =
+      let
+        mk =
+          resolution: scale: trans:
+          "eDP-1, ${resolution}, 0x0, ${scale}, transform, ${trans}";
+      in
+      mk "1920x1080@60" "1.2" "0";
     binds =
       let
         inherit (pkgs) grimblast;

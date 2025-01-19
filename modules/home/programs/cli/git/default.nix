@@ -20,7 +20,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.git = True // {
+    programs.git = on // {
       package = pkgs.gitMinimal;
       userName = userName;
       userEmail = "${userName}@${hostName}.org";

@@ -18,7 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.chromium = True // {
+    programs.chromium = on // {
       package = pkgs.ungoogled-chromium;
       extensions = [
         { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }

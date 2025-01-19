@@ -18,7 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.rofi = True // {
+    programs.rofi = on // {
       location = "bottom";
       terminal = "kitty";
       package = pkgs.rofi-wayland;

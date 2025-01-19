@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    qt = True // {
+    qt = on // {
       platformTheme.name = "qtct";
     };
   };

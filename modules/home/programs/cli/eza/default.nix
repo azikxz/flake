@@ -15,7 +15,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.eza = True // {
+    programs.eza = on // {
       icons = "auto";
       extraOptions = [
         "--group-directories-first"

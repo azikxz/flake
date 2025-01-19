@@ -17,6 +17,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.syncthing = True;
+    services.syncthing = on;
   };
 }

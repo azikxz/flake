@@ -34,7 +34,7 @@ in
       noto-fonts
       noto-fonts-cjk-sans
     ];
-    gtk = True // {
+    gtk = on // {
       gtk3.extraConfig = extra;
       gtk4.extraConfig = extra;
       font = mkForce {

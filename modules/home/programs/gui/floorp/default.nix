@@ -22,7 +22,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.floorp = True // {
+    programs.floorp = on // {
       profiles.${userName} = {
         id = 0;
         isDefault = true;

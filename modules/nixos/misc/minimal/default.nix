@@ -8,7 +8,7 @@ with lib;
 with x;
 let
   cfg = config.module.misc.minimal;
-  nahuy = mkDefault False;
+  nahuy = mkDefault off;
 in
 {
   options = {
@@ -19,7 +19,7 @@ in
 
   config = mkIf cfg.enable {
     programs.command-not-found = nahuy;
-    documentation = False // {
+    documentation = off // {
       # DISABLE MAN AND GUIDES
       dev = nahuy;
       doc = nahuy;

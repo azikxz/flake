@@ -1,6 +1,9 @@
-{ x, ... }:
+{
+  x,
+  ...
+}:
 let
-  inherit (x) True False umport;
+  inherit (x) on off umport;
 in
 {
   imports = umport {
@@ -8,67 +11,53 @@ in
     exclude = [ ./default.nix ];
   };
   module = {
-    themes.stylix = True;
-    base = True;
+    themes.stylix = on;
+    base = on;
     hardware = {
-      amd = True // {
-        amdvlk = False;
+      amd = on;
+      bluetooth = on;
+      boot = on // {
+        plymouth = on;
       };
-      bluetooth = True;
-      boot = True // {
-        plymouth = True;
-      };
-      impermanence = False;
-      network = True;
-      power = False;
-      sound = True;
-      system76 = False;
+      impermanence = off;
+      network = on;
+      power = off;
+      sound = on;
+      system76 = off;
     };
     services = {
-      amneziawg = True // {
-        service = False;
-        config = "topor";
+      amneziawg = on;
+      autocpu = off;
+      dbus = on;
+      deluge = off;
+      getty = on;
+      gvfs = on;
+      polkit = on;
+      printing = off;
+      tailscale = off;
+      tlp = off;
+      transmission = off // {
+        tui = off;
       };
-      autocpu = False;
-      dbus = True;
-      deluge = False;
-      getty = True;
-      gvfs = True;
-      polkit = True;
-      printing = False;
-      tailscale = False;
-      tlp = False;
-      transmission = True // {
-        tui = True;
-      };
-      zram = True // {
-        algo = "zstd";
-      };
+      zram.algo = "zstd";
     };
     programs = {
-      common = True;
-      hamachi = False;
-      hyprland = True;
-      steam = True;
-      sway = False;
-      torrserver = True;
-    };
-    virt = {
-      podman = True;
+      common = on;
+      hamachi = off;
+      hyprland = on;
+      steam = on;
+      sway = off;
+      torrserver = on;
     };
     misc = {
-      console = False;
-      locales = True // {
-        zone = "Asia/Chita";
-      };
-      minimal = True;
-      protonmail = False;
-      security = True;
-      terraria = False;
-      users = True // {
-        shell = "fish";
-      };
-      variables = True;
+      console = off;
+      locales.zone = "Asia/Chita";
+      minimal = on;
+      protonmail = off;
+      security = on;
+      terraria = off;
+      users = on;
+      variables = on;
     };
   };
 }

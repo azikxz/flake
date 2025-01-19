@@ -2,10 +2,10 @@
 with x;
 {
   news.display = "silent";
-  programs.man = False;
+  programs.man = off;
   manual = {
-    html = False;
-    json = False;
-    manpages = False;
+    html = off;
+    json = off;
+    manpages = off;
   };
 }

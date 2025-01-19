@@ -22,7 +22,6 @@ in
       filezilla # FTP CLIENT
       gnome-secrets # KEEPASS LIBADW
       keepassxc # PASSWORDS MANAGER
-      keepmenu # ROFI KEEPASS
 
       popsicle # ISO WRITER
       ventoy # FUCK

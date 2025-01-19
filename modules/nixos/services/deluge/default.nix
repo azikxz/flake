@@ -18,10 +18,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.deluge = True // {
+    services.deluge = on // {
       package = pkgs.deluged;
       dataDir = "/home/${userName}/Torrents";
-      web = True // {
+      web = on // {
         openFirewall = true;
       };
     };

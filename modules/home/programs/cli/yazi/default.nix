@@ -16,5 +16,5 @@ in
     };
   };
 
-  config = mkIf cfg.enable { programs.yazi = True // { }; };
+  config = mkIf cfg.enable { programs.yazi = on // { }; };
 }

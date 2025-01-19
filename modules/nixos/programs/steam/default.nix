@@ -20,13 +20,13 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ protonup-qt ];
-    hardware.xone = True;
+    hardware.xone = on;
     programs = {
-      gamescope = True;
-      gamemode = True;
-      steam = True // {
+      gamescope = on;
+      gamemode = on;
+      steam = on // {
         # GAMING
-        gamescopeSession = True;
+        gamescopeSession = on;
         remotePlay.openFirewall = true;
         extraCompatPackages = with pkgs; [ proton-ge-bin ];
         package = pkgs.steam.override {

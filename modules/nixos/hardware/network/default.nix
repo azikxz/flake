@@ -19,7 +19,7 @@ in
   config = mkIf cfg.enable {
     networking = {
       resolvconf.dnsSingleRequest = true;
-      networkmanager = True // {
+      networkmanager = on // {
         dns = "systemd-resolved";
         wifi = {
           powersave = true;
@@ -28,10 +28,10 @@ in
         };
       };
     };
-    services.resolved = True;
+    services.resolved = on;
     systemd.services = {
-      NetworkManager-wait-online = False;
-      systemd-networkd-wait-online = mkForce False;
+      NetworkManager-wait-online = off;
+      systemd-networkd-wait-online = mkForce off;
     };
   };
 }

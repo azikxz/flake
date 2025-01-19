@@ -20,9 +20,9 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ podman-compose ];
     virtualisation = {
-      spiceUSBRedirection = True;
-      podman = True // {
-        dockerSocket = True;
+      spiceUSBRedirection = on;
+      podman = on // {
+        dockerSocket = on;
         dockerCompat = true;
         autoPrune.enable = true;
         defaultNetwork.settings = {

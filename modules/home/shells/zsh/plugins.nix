@@ -2,7 +2,7 @@
 with x;
 {
   programs.zsh = with pkgs; {
-    oh-my-zsh = True // {
+    oh-my-zsh = on // {
       plugins = [
         "git"
         "eza"

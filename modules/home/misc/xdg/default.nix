@@ -22,15 +22,15 @@ in
   config = {
     home.packages = [ pkgs.xdg-user-dirs ];
     xdg = {
-      mime = True;
-      portal = True // {
+      mime = on;
+      portal = on // {
         config.common.default = "gtk";
         extraPortals = with pkgs; [
           xdg-desktop-portal-gtk
           xdg-desktop-portal-hyprland
         ];
       };
-      userDirs = True // {
+      userDirs = on // {
         createDirectories = true;
         # xdg default
         desktop = "${hmdir}/Desktop";

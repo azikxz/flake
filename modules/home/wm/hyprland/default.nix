@@ -23,9 +23,9 @@ in
 
   imports = with inputs; [ hyprland.homeManagerModules.default ];
   config = mkIf cfg.enable {
-    wayland.windowManager.hyprland = True // {
-      xwayland = True;
-      systemd = True;
+    wayland.windowManager.hyprland = on // {
+      xwayland = on;
+      systemd = on;
     };
   };
 }

@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.terraria = True // {
+    services.terraria = on // {
       password = "1234";
       port = 7777;
       openFirewall = true;

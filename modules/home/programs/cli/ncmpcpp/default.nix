@@ -18,10 +18,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.mpd = True // {
+    services.mpd = on // {
       package = pkgs.mpd-small;
     };
-    programs.ncmpcpp = True // {
+    programs.ncmpcpp = on // {
       package = pkgs.ncmpcpp.override {
         visualizerSupport = true;
         clockSupport = true;

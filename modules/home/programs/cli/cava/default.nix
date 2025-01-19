@@ -15,6 +15,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.cava = True;
+    programs.cava = on;
   };
 }

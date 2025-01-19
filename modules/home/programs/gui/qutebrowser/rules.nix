@@ -73,10 +73,11 @@
           # css
           ''
             body {
-              background-color: #101010;
+              background-color: ${base00};
               font-family: "${font.monospace.name}" !important;
             }
             input {
+              color: ${base05};
               background-color: ${base01};
               border-radius: 8px !important;
               font-family: "${font.monospace.name}" !important;

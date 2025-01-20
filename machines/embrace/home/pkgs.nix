@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   ...
 }:
 let
@@ -17,6 +16,7 @@ in
       onlyoffice-bin # OFFICE
       qbittorrent-enhanced # QTORRENT
       gnome-secrets # KEEPASS LIBADW
+      komikku # MANGA READER
     ];
     cli.pkgs =
       let

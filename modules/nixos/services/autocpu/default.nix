@@ -20,12 +20,10 @@ in
     services.auto-cpufreq = on // {
       settings = {
         charger = {
-          # AC MODE
           governor = "performance";
           turbo = "auto";
         };
         battery = {
-          # BAT MODE
           governor = "powersave";
           turbo = "auto";
           energy_perf_bias = "balance_power";

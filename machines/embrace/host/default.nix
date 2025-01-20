@@ -28,7 +28,7 @@ in
     };
     services = {
       amneziawg = on;
-      autocpu = on;
+      autocpu = off;
       dbus = on;
       deluge = off;
       getty = on;
@@ -46,7 +46,7 @@ in
       common = on;
       hamachi = off;
       hyprland = on;
-      steam = off;
+      steam = on;
       sway = off;
       torrserver = off;
     };

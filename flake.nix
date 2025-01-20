@@ -5,9 +5,8 @@
 
     impermanence.url = "github:nix-community/impermanence";
     hardware.url = "github:NixOS/nixos-hardware/master";
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
     parts.url = "github:hercules-ci/flake-parts";
-    hyprland.url = "github:hyprwm/Hyprland";
+    flatpak.url = "github:gmodena/nix-flatpak";
     stylix.url = "github:danth/stylix";
 
     gaming = {
@@ -43,15 +42,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # DESIGN
+    # design
     base16 = {
       url = "sourcehut:~neverness/design/base16";
       flake = false;
-    }; # BASE16
+    }; # base16
     wallpapers = {
       url = "sourcehut:~neverness/design/wallpapers";
       flake = false;
-    }; # WALLPAPERS
+    }; # wallpapers
   };
 
   outputs =

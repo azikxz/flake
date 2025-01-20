@@ -18,14 +18,40 @@ in
     dconf = on // {
       settings =
         let
-          gnome = "org/gnome/desktop";
+          gn = "org/gnome";
+          gnDesk = gn + "/desktop";
           nemo = "org/nemo";
         in
         {
-          "${gnome}/wm/preferences" = {
+          "io/bassi/Amberol" = {
+            background-play = true;
+            enable-recoloring = true;
+            replay-gain = "track";
+          };
+          "info/febvre/Komikku" = {
+            card-backdrop = true;
+            downloader-state = true;
+            library-badges = [
+              "unread-chapters"
+              "downloaded-chapters"
+              "recent-chapters"
+            ];
+            library-servers-logo = true;
+            nsfw-only-content = true;
+            servers-languages = [ "ru" ];
+            system-accent-colors = true;
+            page-numbering = false;
+            background-color = "gray";
+          };
+          "${gn}/World/Secrets/last-opened-database" = {
+            last-opened-database = "file://${x.pass}";
+            generator-length = 24;
+            generator-use-numbers = true;
+          };
+          "${gnDesk}/wm/preferences" = {
             button-layout = "";
           };
-          "${gnome}/applications/terminal" = {
+          "${gnDesk}/applications/terminal" = {
             exec = "kitty";
           };
           # nemo configuration

@@ -10,19 +10,6 @@ with lib;
 with x;
 let
   cfg = config.module.themes.stylix;
-  a = (
-    oldAttrs: {
-      installPhase = # sh
-        ''
-          runHook preInstall
-          dst_opentype=$out/share/fonts/opentype/NerdFonts
-          dst_truetype=$out/share/fonts/truetype/NerdFonts
-          find -name \*.otf -exec mkdir -p $dst_opentype \; -exec cp -p {} $dst_opentype \;
-          find -name \*.ttf -exec mkdir -p $dst_truetype \; -exec cp -p {} $dst_truetype \;
-          runHook postInstall
-        '';
-    }
-  );
 in
 {
   options = {
@@ -45,9 +32,9 @@ in
       with nerd-fonts;
       [
         corefonts
-        (tinos.overrideAttrs a)
-        (code-new-roman.overrideAttrs a)
-        (dejavu-sans-mono.overrideAttrs a)
+        tinos
+        code-new-roman
+        dejavu-sans-mono
       ];
     stylix = on // {
       autoEnable = false;
@@ -63,12 +50,12 @@ in
       iconTheme = on // {
         dark = "Papirus-Dark";
         light = "Papirus-Light";
-        package = pkgs.papirus-icon-theme.override { color = cfg.icon; };
+        package = with pkgs; papirus-icon-theme.override { color = cfg.icon; };
       };
       fonts = with config.stylix.fonts; {
         monospace = {
           name = "JetBrainsMono Nerd Font";
-          package = with pkgs.nerd-fonts; (jetbrains-mono.overrideAttrs a);
+          package = with pkgs.nerd-fonts; jetbrains-mono;
         };
         serif = monospace;
         emoji = monospace;

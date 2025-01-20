@@ -30,10 +30,15 @@ in
       };
       tlp = on // {
         settings = {
+          # battery
+          START_CHARGE_THRESH_BAT0 = 80;
+          STOP_CHARGE_THRESH_BAT0 = 100;
+
+          # platform
           PLATFORM_PROFILE_ON_AC = "performance";
           PLATFORM_PROFILE_ON_BAT = "balanced";
 
-          # CPU
+          # cpu
           CPU_SCALING_GOVERNOR_ON_AC = "performance";
           CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
@@ -45,20 +50,21 @@ in
 
           CPU_MIN_PERF_ON_AC = 0;
           CPU_MAX_PERF_ON_AC = 100;
+
           CPU_MIN_PERF_ON_BAT = 0;
           CPU_MAX_PERF_ON_BAT = 40;
 
-          # NETWORKING
+          # networking
           WIFI_PWR_ON_AC = "off";
           WIFI_PWR_ON_BAT = "on";
 
-          # GRAPHICS
+          # gpu
           RADEON_DPM_STATE_ON_AC = "performance";
           RADEON_DPM_STATE_ON_BAT = "battery";
           RADEON_POWER_PROFILE_ON_AC = "default";
           RADEON_POWER_PROFILE_ON_BAT = "default";
 
-          # IDK
+          # idk
           TLP_DEFAULT_MODE = "BAT";
           RUNTIME_PM_ON_AC = "auto";
           RUNTIME_PM_ON_BAT = "auto";

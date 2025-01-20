@@ -17,7 +17,7 @@ in
     };
   };
 
-  imports = with inputs; [ nix-flatpak.nixosModules.nix-flatpak ];
+  imports = with inputs; [ flatpak.nixosModules.nix-flatpak ];
   config = mkIf cfg.enable {
     services.flatpak = {
       enable = true;

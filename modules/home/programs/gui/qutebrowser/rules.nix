@@ -35,6 +35,7 @@
     whitelist."whitelist" = {
       includes = [
         # localhost
+        "qute://start/*"
         "http://localhost:8090/*"
         "http://localhost:8384/*"
         # sites

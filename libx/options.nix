@@ -61,7 +61,7 @@ with lib.types;
     };
   };
 
-  # nix subsitutters and keys
+  # overlays, nix subsitutters and keys
   substituters = [
     "https://nix-gaming.cachix.org" # NIX GAMING
     "https://hyprland.cachix.org" # HYPRLAND

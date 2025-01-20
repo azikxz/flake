@@ -35,14 +35,5 @@ in
       allowUnfree = true;
     };
   };
-  system = {
-    stateVersion = ver;
-    # userActivationScripts = {
-    #   rebuildFinished = {
-    #     text = ''
-    #       ${libnotify}/bin/notify-send "NixOS     rebuild finished" -t 1500"
-    #     '';
-    #   };
-    # };
-  };
+  system.stateVersion = ver;
 }

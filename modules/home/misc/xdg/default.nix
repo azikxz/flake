@@ -23,6 +23,7 @@ in
     home.packages = [ pkgs.xdg-user-dirs ];
     xdg = {
       mime = on;
+      mimeApps = on // import ./mimeApps.nix { inherit x; };
       portal = on // {
         config.common.default = "gtk";
         extraPortals = with pkgs; [

@@ -1,12 +1,15 @@
-{ lib, ... }:
+{
+  lib,
+  ...
+}:
 let
+  recursive = true;
   umport =
     {
       path ? null,
       paths ? [ ],
       include ? [ ],
       exclude ? [ ],
-      recursive ? true,
     }:
     with lib;
     with fileset;

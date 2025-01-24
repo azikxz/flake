@@ -95,7 +95,7 @@ in
         tofi = on;
         waybar = on;
         wlogout = on;
-        wob = off;
+        wob = on;
         yofi = off;
       };
     };

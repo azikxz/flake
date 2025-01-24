@@ -10,6 +10,13 @@ with x;
 let
   cfg = config.module.shells.fish;
   abbrs = config.module.shells.abbrs;
+  winman =
+    if x.is == "desktop" then
+      "Hyprland"
+    else if x.is == "laptop" then
+      "Hyprland"
+    else
+      "fastfetch";
 in
 {
   options = {
@@ -19,13 +26,13 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [ grc ];
     programs.fish = on // {
       package = pkgs.fish;
       preferAbbrs = true;
       shellAbbrs = abbrs;
-      interactiveShellInit = ''
-        set fish_greeting
-      '';
+      plugins = import ./plugins.nix { inherit pkgs; };
+      interactiveShellInit = import ./colors.nix;
       shellInitLast = # fish
         ''
           set fish_cursor_default block
@@ -51,7 +58,7 @@ in
           set -g tide_pwd_color_anchors blue
           set -g tide_git_color_branch -o green
 
-          [ "$(tty)" = "/dev/tty1" ] && exec Hyprland # LAUNCH WM
+          [ "$(tty)" = "/dev/tty1" ] && exec ${winman} # LAUNCH WM
         '';
     };
   };

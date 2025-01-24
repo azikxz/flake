@@ -20,6 +20,7 @@ in
 
   config = mkIf cfg.enable {
     programs.mpv = on // {
+      bindings = import ./bindings.nix;
       scripts = with mpvScripts; [
         (quality-menu.override { oscSupport = true; })
         sponsorblock-minimal

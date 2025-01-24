@@ -20,10 +20,14 @@ in
 
   config = mkIf cfg.enable {
     programs.zsh =
+      let
+        plug = import ./plugins.nix { inherit x pkgs; };
+      in
       with pkgs;
       on
       // {
         # COOL TOOLS YEYE
+        plugins = plug.plugins;
         syntaxHighlighting = on;
         enableCompletion = true;
         autosuggestion = on;
@@ -31,6 +35,7 @@ in
         dotDir = ".config/zsh";
         completionInit = "autoload -U compinit && compinit";
         # CONFIGURATION
+        oh-my-zsh = plug.zsh;
         zsh-abbr = on // {
           abbreviations = abbrs;
         };

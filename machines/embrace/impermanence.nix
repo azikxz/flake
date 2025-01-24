@@ -52,6 +52,10 @@
           ".cache/stylix-telegram-theme"
           # cli tools
           ".local/share/zoxide"
+          # steam
+          ".local/share/Steam"
+          ".steam"
+          ".wine"
           (mk ".ssh")
         ];
       files = [

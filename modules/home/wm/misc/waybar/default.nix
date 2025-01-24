@@ -1,5 +1,6 @@
 {
   x,
+  pkgs,
   lib,
   config,
   ...
@@ -7,6 +8,7 @@
 with lib;
 with x;
 let
+  inherit (pkgs) libnotify;
   cfg = config.module.wm.misc.waybar;
 in
 {
@@ -21,6 +23,7 @@ in
       with config.lib.stylix.colors;
       on
       // {
+        style = import ./style.nix { inherit config; };
         settings = {
           mainBar =
             let
@@ -98,7 +101,8 @@ in
               # left modules
               "custom/launcher" = Tool // {
                 format = "<span color='#${base0C}' font='17'></span> {}";
-                on-click = "tofi-drun | xargs hyprctl dispatch exec -- ";
+                on-click = ''tofi-drun -c ~/.config/tofi/horizontal | xargs hyprctl dispatch exec -- '';
+                on-click-right = "tofi-drun | xargs hyprctl dispatch exec -- ";
               };
               "pulseaudio" = Tool // {
                 format = "{icon} {volume}%";
@@ -121,6 +125,8 @@ in
                 format = "{icon}{percent}%";
                 format-icons = light_icons;
                 scroll-step = 1;
+                on-click = ''light -S 70'';
+                on-click-right = ''light -S 100'';
               };
               "network" = Tool // {
                 format-icons = [
@@ -175,19 +181,27 @@ in
                 show-passive-items = true;
                 spacing = 8;
               };
-              "hyprland/language" = Tool // {
-                format = "{} 󰌌";
-                format-en = "EN";
-                format-ru = "RU";
-                keyboard-name = "at-translated-set-2-keyboard";
-              };
+              "hyprland/language" =
+                let
+                  keyboard = "at-translated-set-2-keyboard";
+                in
+                Tool
+                // {
+                  format = "{} 󰌌";
+                  format-en = "EN";
+                  format-ru = "RU";
+                  keyboard-name = keyboard;
+                  on-click = "hyprctl switchxkblayout ${keyboard} next";
+                };
               "clock#date" = Tool // {
-                "format" = "{:%e.%m} 󰸘";
-                "interval" = 1;
+                format = "{:%e.%m} 󰸘";
+                interval = 1;
+                on-click = ''${libnotify}/bin/notify-send  -t 1500 "Clock shows -> $(date +%H):$(date +%M):$(date +%S)'';
               };
               "clock#time" = Tool // {
                 format = "{:%H:%M} ";
                 interval = 1;
+                on-click = ''${libnotify}/bin/notify-send  -t 1500 "Date is -> $(date +%d) $(date +%b) $(date +%Y)"'';
               };
               "battery" = Tool // {
                 format = "{capacity}% {icon}";

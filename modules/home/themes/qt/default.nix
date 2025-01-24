@@ -1,5 +1,6 @@
 {
   x,
+  pkgs,
   lib,
   config,
   ...
@@ -17,6 +18,9 @@ in
   };
 
   config = mkIf cfg.enable {
+    xdg.configFile =
+      import ./qtct.nix { inherit pkgs config; }
+      // import ./color.nix { inherit x config; };
     qt = on // {
       platformTheme.name = "qtct";
     };

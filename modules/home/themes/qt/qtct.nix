@@ -5,6 +5,8 @@
 }:
 let
   inherit (config.home) homeDirectory;
+  inherit (pkgs.libsForQt5) qt5ct;
+  inherit (pkgs) qt6ct;
   font = config.stylix.fonts;
   icon = config.stylix.iconTheme;
   mk =
@@ -44,13 +46,6 @@ let
     '';
 in
 {
-  xdg.configFile =
-    let
-      inherit (pkgs.libsForQt5) qt5ct;
-      inherit (pkgs) qt6ct;
-    in
-    {
-      "qt5ct/qt5ct.conf".text = mk qt5ct "qt5ct";
-      "qt6ct/qt6ct.conf".text = mk qt6ct "qt6ct";
-    };
+  "qt5ct/qt5ct.conf".text = mk qt5ct "qt5ct";
+  "qt6ct/qt6ct.conf".text = mk qt6ct "qt6ct";
 }

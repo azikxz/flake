@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 with pkgs;
 let
   mk = name: { ${name} = "${yazi-plugins}/${name}.yazi"; };
@@ -13,7 +16,7 @@ let
   };
 in
 {
-  programs.yazi.plugins =
+  plugins =
     # builtin
     (mk "max-preview")
     // (mk "hide-preview")

@@ -9,7 +9,10 @@ let
   cfg = config.module.wm.hyprland;
 in
 {
-  layerrule = [ "noanim, notifications" ];
+  layerrule = [
+    "noanim, notifications"
+    "blur,   launcher"
+  ];
   workspace =
     let
       rule = "gapsout:0,  gapsin:0";

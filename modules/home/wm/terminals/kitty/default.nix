@@ -18,6 +18,9 @@ in
 
   config = mkIf cfg.enable {
     programs.kitty = on // {
+      keybindings = import ./binds.nix;
+      extraConfig = import ./extraBinds.nix;
+      settings = import ./sets.nix // import ./colors.nix { inherit config; };
     };
   };
 }

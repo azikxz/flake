@@ -150,6 +150,9 @@ in
       (fn "XF86Favorites" "$ex, wlogout -sc 12 -r 12")
       (fs "XF86Favorites" "$ex, poweroff")
       (fa "XF86Favorites" "$ex, reboot")
+    ]
+    ++ [
+      (fs "XF86WLAN " "$ex, bluetoothctl connect 3C:B0:ED:3A:24:48")
     ];
   bindm =
     let

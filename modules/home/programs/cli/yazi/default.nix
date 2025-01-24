@@ -1,5 +1,6 @@
 {
   x,
+  pkgs,
   lib,
   config,
   ...
@@ -16,5 +17,23 @@ in
     };
   };
 
-  config = mkIf cfg.enable { programs.yazi = on // { }; };
+  config = mkIf cfg.enable {
+    programs.yazi =
+      on
+      // import ./sets.nix
+      // import ./plugins.nix { inherit pkgs; }
+      // {
+        keymap = import ./binds.nix { inherit x; };
+        initLua = import ./lua.nix { inherit config; };
+        theme = import ./theme.nix { inherit lib config; };
+      };
+    home.packages = with pkgs; [
+      ffmpegthumbnailer
+      wl-clipboard
+
+      jq
+      poppler_min
+      mdcat
+    ];
+  };
 }

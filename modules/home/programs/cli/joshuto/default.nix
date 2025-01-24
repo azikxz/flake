@@ -16,5 +16,11 @@ in
     };
   };
 
-  config = mkIf cfg.enable { programs.joshuto = on; };
+  config = mkIf cfg.enable {
+    programs.joshuto = on // {
+      mimetype = import ./mimetype.nix;
+      settings = import ./settings.nix;
+      theme = import ./theme.nix { inherit config; };
+    };
+  };
 }

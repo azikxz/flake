@@ -17,6 +17,8 @@ in
       qbittorrent-enhanced # QTORRENT
       gnome-secrets # KEEPASS LIBADW
       komikku # MANGA READER
+
+      wine-staging # LAUCNCH WINDOW PROGRAMS
     ];
     cli.pkgs =
       let

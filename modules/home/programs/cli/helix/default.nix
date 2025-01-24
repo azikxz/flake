@@ -1,5 +1,6 @@
 {
   x,
+  pkgs,
   lib,
   config,
   ...
@@ -19,6 +20,11 @@ in
   config = mkIf cfg.enable {
     programs.helix = on // {
       defaultEditor = true;
+      settings = import ./settings.nix // {
+        keys = import ./binds.nix;
+      };
+      languages = import ./languages.nix { inherit pkgs lib; };
+      themes = import ./theme.nix { inherit lib config; };
     };
   };
 }

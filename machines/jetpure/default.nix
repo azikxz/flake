@@ -9,10 +9,9 @@
     flakeDir = "/persist/flake";
     is = "desktop";
     # customize
-    theme = "vesper";
-    image = "rocks";
+    theme = "tarot";
+    image = "clouds";
     # sys info
-    plfrm = "x86_64-linux";
     ver = "24.05";
     # ++ devices
     dev = {

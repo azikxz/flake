@@ -28,33 +28,30 @@ with lib;
         mod = (mk "$m");
         m = (mod null);
         s = (mod "$s");
-        a = (mod "$a");
       in
       [
         # menus
         (m "$tb" "tofi-drun | xargs hyprctl dispatch exec -- ")
-        (s "$tb" "wlogout")
+        (s "$tb" "wlogout -sc 12 -r 12")
 
         # programs
         (m "$rt" "kitty")
         (s "$rt" "kitty ${c}=termfloat")
 
-        (m "V" "telegram-desktop")
+        (m "V" "ayugram-desktop")
+        (s "V" "vesktop")
 
         (m "B" "qutebrowser")
-        (s "B" "zen")
-        (a "B" "floorp")
+        (s "B" "secrets")
 
         (m "N" "yazi")
-        (s "N" "nemo")
+        (s "N" "kitty ${c}=termfloat yazi")
 
         (m "M" "spotify")
         (s "M" "kitty ${c}=ani anicli-ru -q 1080")
-        (a "M" "onlyoffice")
 
         (m "Z" "bottles")
         (s "Z" "prismlauncher")
-        (a "Z" "qbittorrent")
 
         # screenshot
         (mk null null "$PR" "${getExe grimblast} copysave area   ${pic}")

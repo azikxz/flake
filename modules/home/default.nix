@@ -3,7 +3,7 @@
   imports = x.umport {
     path = ./.;
     include = [
-      ./programs/gui/walogram/default.nix
+      ./programs/gui/telegram/default.nix
       ./programs/cli/joshuto/default.nix
       ./wm/terminals/kitty/default.nix
       ./programs/cli/helix/default.nix
@@ -20,7 +20,7 @@
     exclude = [
       ./default.nix
       ./programs/gui/floorp/addons.nix
-      ./programs/gui/walogram
+      ./programs/gui/telegram
       ./programs/cli/joshuto
       ./wm/terminals/kitty
       ./programs/cli/helix

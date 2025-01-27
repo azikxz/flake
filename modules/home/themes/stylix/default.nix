@@ -96,6 +96,7 @@ in
         # GUI
         spicetify = off;
         vesktop = on;
+        zathura = on;
         qutebrowser = on;
         firefox = on;
         gtk = on;

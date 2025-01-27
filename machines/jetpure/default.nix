@@ -9,14 +9,9 @@
     flakeDir = "/persist/flake";
     is = "desktop";
     # customize
-    theme = "tarot";
-    image = "clouds";
+    theme = "chalk";
+    image = "lampa";
     # sys info
     ver = "24.05";
-    # ++ devices
-    dev = {
-      hdd = "/mnt/HDD";
-      ssd = "/mnt/SSD";
-    };
   };
 }

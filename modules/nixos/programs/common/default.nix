@@ -14,12 +14,14 @@ in
   options = {
     module.programs.common = {
       enable = mkBool;
-      pkgs = mkOpt.list.pkgs;
     };
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ ] ++ cfg.pkgs;
+    environment.systemPackages = with pkgs; [
+      helix
+      killall
+    ];
     programs = {
       fuse.userAllowOther = true;
       nano = off;

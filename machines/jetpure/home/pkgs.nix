@@ -5,29 +5,27 @@
 }:
 let
   inherit (pkgs) callPackage;
+  call = name: callPackage ../../../pkgs/${name};
 in
-# inherit (pkgs.nur.repos) rycee;
 {
   imports = with inputs; [ nur.modules.homeManager.default ];
   module.programs = {
     gui.pkgs = with pkgs; [
-      nemo # GUI FM
-      nemo-fileroller # ADDON
-      file-roller # ARCHIVER
-
-      _64gram # TG GUI
-      vesktop
-      onlyoffice-bin # OFFICE
+      vesktop # DISCORD FOR FEMBOYS
       qbittorrent-enhanced # QTORRENT
       filezilla # FTP CLIENT
       gnome-secrets # KEEPASS LIBADW
-      keepassxc # PASSWORDS MANAGER
+      libreoffice-fresh # GOOD OFFICE
 
       popsicle # ISO WRITER
       ventoy # FUCK
 
+      srb2 # SAWNICC
+      srb2kart # SAWNICC KARTING YEEE
+      mindustry-wayland # MINDUSTRY LETSSS GOOOOO
+
       bottles # LAUNCH GAMES WITHOUT STEAM
-      # mindustry-wayland # MINDUSTRY LETSSS GOOOOO
+      wineWow64Packages.stagingFull # WINE IS NOT EMO
     ];
     cli.pkgs = with pkgs; [
       nurl # FETCHER
@@ -42,7 +40,6 @@ in
       ouch # ARCHIVE IDK
 
       trashy # TRASH
-      tenki # CLOCK
 
       imagemagick # CONVERT IMG
       jpegoptim # LOW SIZE JPG
@@ -53,10 +50,9 @@ in
       hut # SOURCEHUT INTERACTION
       sd # FIND/REPLACE
 
-      wineWow64Packages.staging # SIMPLE LAUNCHER
-
       # rycee.mozilla-addons-to-nix # ADDONS TO NIX
-      (callPackage ./pkgs/anicli {
+      (call "lowfi" { }) # LISTEN LO-FI
+      (call "anicli" {
         verCli = "5.0.12";
         verApi = "0.7.0";
       }) # WATCH ANIME VIA TERMINAL & MPV

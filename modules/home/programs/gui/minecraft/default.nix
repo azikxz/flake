@@ -10,7 +10,8 @@ with x;
 let
   cfg = config.module.programs.gui.minecraft;
   jre = with pkgs; [
-    temurin-jre-bin-21
+    temurin-jre-bin-23
+    temurin-jre-bin # 21
     temurin-jre-bin-17
     temurin-jre-bin-8
   ];
@@ -25,7 +26,6 @@ in
 
   config = mkMerge [
     (mkIf cfg.enable {
-      # BEST MINECRAFT LACUNHER
       home.packages = with pkgs; [
         (prismlauncher.override {
           gamemodeSupport = true;
@@ -36,7 +36,6 @@ in
       ];
     })
     (mkIf cfg.cli.enable {
-      # CLI LAUNCER
       home.packages = with pkgs; [
         portablemc
         ferium

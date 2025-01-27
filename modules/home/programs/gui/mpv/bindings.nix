@@ -43,7 +43,4 @@
   f = "cycle fullscreen";
   "а" = "cycle fullscreen";
   ESC = "set fullscreen no";
-
-  "y" = "script-binding quality_menu/video_formats_toggle";
-  "н" = "script-binding quality_menu/video_formats_toggle";
 }

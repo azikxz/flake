@@ -8,7 +8,7 @@
 with lib;
 with x;
 let
-  inherit (pkgs) nix libnotify;
+  inherit (pkgs) nix;
 in
 {
   nix = {
@@ -30,7 +30,6 @@ in
   nixpkgs = {
     hostPlatform = mkDefault plfrm;
     config = {
-      # NIXPKGS SETS
       allowBroken = true;
       allowUnfree = true;
     };

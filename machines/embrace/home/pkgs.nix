@@ -4,16 +4,11 @@
 }:
 let
   inherit (pkgs) callPackage;
-  call = name: callPackage ./pkgs/${name};
+  call = name: callPackage ../../../pkgs/${name};
 in
 {
   module.programs = {
     gui.pkgs = with pkgs; [
-      nemo # GUI FM
-      nemo-fileroller # ADDON
-      file-roller # ARCHIVER
-
-      _64gram # TG GUI
       onlyoffice-bin # OFFICE
       qbittorrent-enhanced # QTORRENT
       gnome-secrets # KEEPASS LIBADW

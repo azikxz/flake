@@ -13,23 +13,17 @@ in
   module = {
     programs = {
       cli = {
-        bat = on;
+        common = on;
         cava = on;
-        eza = on;
-        fd = on;
         fetch = on;
-        fzf = on;
-        git = on;
         helix = on;
         joshuto = off;
         legendary = on;
         lsd = off;
         micro = off;
-        ripgrep = on;
-        rustmission = on;
+        rustmission = off;
         top = on;
         yazi = on;
-        zoxide = on;
       };
       gui = {
         floorp = off;
@@ -41,17 +35,18 @@ in
         qbittorrent = on;
         qutebrowser = on;
         music = {
-          amberol = on;
+          amberol = off;
           spotify = on;
         };
         swayimg = on;
         syncthing = on;
-        telegram = on // {
+        telegram = {
+          client = "ayugram";
           walogram = on // {
             mode = "solid";
           };
         };
-        zed = off;
+        zathura = on;
       };
     };
     shells = {

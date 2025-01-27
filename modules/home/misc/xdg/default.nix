@@ -9,10 +9,6 @@ with lib;
 with x;
 let
   hmdir = config.home.homeDirectory;
-  nD = name: {
-    name = "${name}";
-    noDisplay = true;
-  };
 in
 {
   options.module.misc.xdg = {
@@ -23,7 +19,7 @@ in
     home.packages = [ pkgs.xdg-user-dirs ];
     xdg = {
       mime = on;
-      mimeApps = on // import ./mimeApps.nix { inherit x; };
+      mimeApps = on // import ./mimeApps.nix;
       portal = on // {
         config.common.default = "gtk";
         extraPortals = with pkgs; [
@@ -43,15 +39,22 @@ in
         templates = "${hmdir}/";
         videos = "${hmdir}/Videos";
       };
-      desktopEntries = {
-        qt5ct = nD "qt5ct";
-        qt6ct = nD "qt6ct";
-        nvtop = nD "nvtop";
-        btop = nD "btop";
-        fish = nD "fish";
-        rofi = nD "rofi";
-        rofi-theme-selector = nD "rofi-theme-selector";
-      };
+      desktopEntries =
+        let
+          n = name: {
+            name = "${name}";
+            noDisplay = true;
+          };
+        in
+        {
+          qt5ct = n "qt5ct";
+          qt6ct = n "qt6ct";
+          nvtop = n "nvtop";
+          btop = n "btop";
+          fish = n "fish";
+          rofi = n "rofi";
+          rofi-theme-selector = n "rofi-theme-selector";
+        };
     };
   };
 }

@@ -6,11 +6,12 @@
   module.programs.gui.qutebrowser = {
     quickmarks = {
       # localhost
+      qBittorrent = "localhost:8080";
       torrserver = "localhost:8090";
       syncthing = "localhost:8384";
       # nix
       nixpkgs = "search.nixos.org/packages?channel=unstable";
-      home-manager = "home-manager-options.extranix.com/?query=&release=master";
+      homemanager = "home-manager-options.extranix.com/?query=&release=master";
       # git
       ultima = "git.sr.ht/~neverness/ultima";
       # social
@@ -36,6 +37,8 @@
       includes = [
         # localhost
         "qute://start/*"
+        "http://localhost:*/*"
+        "http://localhost:8080/*"
         "http://localhost:8090/*"
         "http://localhost:8384/*"
         # sites

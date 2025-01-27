@@ -49,7 +49,7 @@ with lib;
         (m "N" "yazi")
         (s "N" "nemo")
 
-        (m "M" "amberol")
+        (m "M" "spotify")
         (s "M" "kitty ${c}=ani anicli-ru -q 1080")
 
         # screenshot

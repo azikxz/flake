@@ -1,0 +1,28 @@
+{
+  x,
+  lib,
+  config,
+  ...
+}:
+with lib;
+with x;
+let
+  cfg = config.module.programs.cli.common;
+in
+{
+  options.module.programs.cli.common = {
+    enable = mkBool;
+  };
+
+  config = mkIf cfg.enable {
+    module.programs.cli = {
+      bat = on;
+      eza = on;
+      fd = on;
+      fzf = on;
+      git = on;
+      ripgrep = on;
+      zoxide = on;
+    };
+  };
+}

@@ -4,6 +4,7 @@
 }:
 let
   inherit (pkgs) callPackage;
+  call = name: callPackage ./pkgs/${name};
 in
 {
   module.programs = {
@@ -18,36 +19,34 @@ in
       gnome-secrets # KEEPASS LIBADW
       komikku # MANGA READER
 
-      wine-staging # LAUCNCH WINDOW PROGRAMS
+      wineWow64Packages.stagingFull # LAUCNCH WINDOW PROGRAMS
+
+      mindustry-wayland # TOWER DEFENSE
+      srb2 # SAWNIIICCCC
     ];
-    cli.pkgs =
-      let
-        call = name: callPackage ./pkgs/${name};
-      in
-      with pkgs;
-      [
-        nurl # FETCHER
-        nix-tree # JUST COOL
+    cli.pkgs = with pkgs; [
+      nurl # FETCHER
+      nix-tree # JUST COOL
 
-        btop # CPU RAM AND PROCESSES TOP
-        nvtopPackages.amd # GPU TOP
+      btop # CPU RAM AND PROCESSES TOP
+      nvtopPackages.amd # GPU TOP
 
-        atool # ARCHIVER
-        zip # ZIP ARCHIVER
-        p7zip-rar # 7ZIP
-        ouch # ARCHIVE IDK
-        trashy # TRASH
+      atool # ARCHIVER
+      zip # ZIP ARCHIVER
+      p7zip-rar # 7ZIP
+      ouch # ARCHIVE IDK
+      trashy # TRASH
 
-        imagemagick # CONVERT IMG
-        jpegoptim # LOW SIZE JPG
+      imagemagick # CONVERT IMG
+      jpegoptim # LOW SIZE JPG
 
-        hut # SOURCEHUT INTERACTION
-        sd # FIND/REPLACE
-        (call "lowfi" { }) # LO-FI RADIO
-        (call "anicli" {
-          verCli = "5.0.12";
-          verApi = "0.7.0";
-        }) # WATCH ANIME VIA TERMINAL & MPV
-      ];
+      hut # SOURCEHUT INTERACTION
+      sd # FIND/REPLACE
+      (call "lowfi" { }) # LO-FI RADIO
+      (call "anicli" {
+        verCli = "5.0.12";
+        verApi = "0.7.0";
+      }) # WATCH ANIME VIA TERMINAL & MPV
+    ];
   };
 }

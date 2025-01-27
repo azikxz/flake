@@ -31,19 +31,22 @@ in
   programs.qutebrowser = on // {
     keyBindings = {
       normal = {
+        # move tabs
+        "<Alt-j>" = "tab-move +";
+        "<Alt-k>" = "tab-move -";
         # mpv
-        "gh" = "open qute://start/";
+        ";h" = "open qute://start/";
         # mpv
-        ",m" = "spawn mpv {url}";
-        ",M" = "hint links spawn mpv {hint-url}";
+        ";m" = "spawn mpv {url}";
+        ";M" = "hint links spawn mpv {hint-url}";
         # keepassxc
-        pw = "${us} qute-keepass -p ${x.pass}";
+        ";p" = "${us} qute-keepass -p ${x.pass}";
         # translate
-        ",t" = "${us} ${translate}/translate -s en -t ru";
-        ",T" = "hint links userscript ${translate}/translate";
+        ";t" = "${us} ${translate}/translate -s en -t ru";
+        ";T" = "hint links userscript ${translate}/translate";
         # tabs
-        ",b" = "config-cycle tabs.show always switching";
-        ",s" = "config-cycle statusbar.show in-mode always";
+        ";b" = "config-cycle tabs.show always switching";
+        ";s" = "config-cycle statusbar.show in-mode always";
       };
       caret = {
         # translate

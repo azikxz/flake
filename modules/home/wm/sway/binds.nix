@@ -29,10 +29,11 @@ mkForce {
   "${m}+f" = "fullscreen";
   "${m}+${s}+f" = "move position center";
   "${m}+${sp}" = "floating toggle";
+  "${m}+${s}+${sp}" = "${ex} killall -SIGUSR1 waybar";
+  "${m}+${s}+${sp}" = "move position center";
 
-  "${m}+w" = "${ex} killall -SIGUSR1 waybar";
-  "${m}+${tb}" = "${ex} rofi";
   "${m}+${rt}" = "${ex} kitty";
+  "${m}+${rt}" = "${ex} kitty ----class=termfloat";
 
   "${pr}" = "${grimblast}/bin/grimblast copysave area";
   "${pr}+${s}" = "${grimblast}/bin/grimblast copysave output ${pic}";

@@ -17,23 +17,17 @@ in
   module = {
     programs = {
       cli = {
-        bat = on;
+        common = on;
         cava = on;
-        eza = on;
-        fd = on;
         fetch = on;
-        fzf = on;
-        git = on;
         helix = on;
         joshuto = off;
         legendary = off;
         lsd = off;
         micro = off;
-        ripgrep = on;
         rustmission = off;
         top = on;
         yazi = on;
-        zoxide = on;
       };
       gui = {
         chromium = on;
@@ -46,8 +40,8 @@ in
         qbittorrent = on;
         qutebrowser = on;
         music = {
-          amberol = on;
-          spotify = off;
+          amberol = off;
+          spotify = on;
         };
         swayimg = on;
         syncthing = on;

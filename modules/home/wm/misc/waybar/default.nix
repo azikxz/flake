@@ -96,7 +96,9 @@ in
                 "battery"
                 "custom/separator"
               ];
-              "custom/separator".format = " ";
+              "custom/separator" = Tool // {
+                format = " ";
+              };
 
               # left modules
               "custom/launcher" = Tool // {
@@ -122,7 +124,7 @@ in
               };
               "backlight" = Tool // {
                 device = "intel_backlight";
-                format = "{icon}{percent}%";
+                format = "{icon} {percent}%";
                 format-icons = light_icons;
                 scroll-step = 1;
                 on-click = ''light -S 70'';
@@ -196,17 +198,16 @@ in
               "clock#date" = Tool // {
                 format = "{:%e.%m} 󰸘";
                 interval = 1;
-                on-click = ''${libnotify}/bin/notify-send  -t 1500 "Clock shows -> $(date +%H):$(date +%M):$(date +%S)'';
               };
               "clock#time" = Tool // {
                 format = "{:%H:%M} ";
                 interval = 1;
-                on-click = ''${libnotify}/bin/notify-send  -t 1500 "Date is -> $(date +%d) $(date +%b) $(date +%Y)"'';
               };
               "battery" = Tool // {
                 format = "{capacity}% {icon}";
                 format-alt = "{time} {icon}";
                 format-charging = "{capacity}% 󱐋";
+                format-charging-alt = "{capacity}% 󱐋";
                 format-icons = bat_icons;
                 states = {
                   critical = 15;

@@ -50,12 +50,18 @@
           # telegram
           ".local/share/64Gram"
           ".cache/stylix-telegram-theme"
+          # komikku
+          ".local/share/komikku"
           # cli tools
           ".local/share/zoxide"
           # steam
           ".local/share/Steam"
           ".steam"
           ".wine"
+          ".srb2"
+          # torrent
+          ".config/qBittorrent"
+          ".local/share/qBittorrent"
           (mk ".ssh")
         ];
       files = [

@@ -49,7 +49,7 @@ in
       with styl;
       # conf
       ''
-        history = false;
+        history = false
         anchor = bottom
         width = 100%
         height = 40
@@ -65,9 +65,9 @@ in
         padding-bottom = 0
         padding-left = 0
         padding-right = 0
-        text-cursor=false
+        text-cursor = false
 
-        selection-background-padding=8
+        selection-background-padding= 8
         background-color = "${base00}"
         text-color = "${base05}"
         prompt-color = "${base04}"

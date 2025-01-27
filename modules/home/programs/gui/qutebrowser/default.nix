@@ -28,7 +28,7 @@ in
           start_pages = [ "qute://start" ];
           default_page = "qute://start";
         };
-        completion.height = "50%";
+        completion.height = "75%";
         downloads = {
           position = "bottom";
           location = {
@@ -62,6 +62,13 @@ in
           };
         };
         colors = with config.lib.stylix.colors.withHashtag; {
+          tabs = {
+            even.bg = f "${base00}";
+            selected = {
+              even.bg = f "${base03}";
+              odd.bg = f "${base03}";
+            };
+          };
           webpage = {
             preferred_color_scheme = "dark";
             darkmode.enabled = true;

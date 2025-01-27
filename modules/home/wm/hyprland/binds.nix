@@ -131,7 +131,6 @@ in
       (c "right" "moveactive, 50   0")
     ]
     ++ [
-      # sound
       (fn "XF86AudioMute       " "$ex, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
       (fn "XF86AudioMicMute    " "$ex, bash -c '${mic}'")
       (fn "XF86AudioRaiseVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")
@@ -140,7 +139,6 @@ in
       (fs "XF86AudioLowerVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-")
     ]
     ++ (with pkgs; [
-      # light
       (fn "XF86MonBrightnessDown" "$ex, sudo ${light}/bin/light -U 10")
       (fn "XF86MonBrightnessUp  " "$ex, sudo ${light}/bin/light -A 10")
       (fs "XF86MonBrightnessDown" "$ex, sudo ${light}/bin/light -S 70")
@@ -152,6 +150,8 @@ in
       (fa "XF86Favorites" "$ex, reboot")
     ]
     ++ [
+      (fn "XF86HangupPhone" "$ex, makoctl dismiss -a")
+      (fs "XF86HangupPhone" "$ex, makoctl restore")
       (fs "XF86WLAN " "$ex, bluetoothctl connect 3C:B0:ED:3A:24:48")
     ];
   bindm =

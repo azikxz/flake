@@ -2,10 +2,10 @@
 {
   flake = import ../../libx/builder.nix {
     inherit inputs lib;
+    flakeDir = "/persist/flake";
     # variables
     hostName = "embrace";
     userName = "huggyer";
-    flakeDir = "/persist/flake";
     is = "laptop";
     # customize
     theme = "neo-gen";

@@ -12,26 +12,26 @@
 
 - Fill it with:
 
-```nix
-   { inputs, lib, ... }:
-   {
-     flake = import ../libx/builder.nix {
-       inherit inputs lib;
-       disk = "..."; # your disk in /dev/disk/by-uuid/*
-       # variables
-       hostName = "pantheon"; # hostName is ~/flakeDir/hostName
-       userName = "arthemida"; # userName
-       flakeDir = "/persist/flake"; # flakeDir
-       is = "desktop"; # for laptop | desktop | server
-       # ricing
-       theme = "chanivibes"; # from inputs.design.base16
-       image = "default"; # from inputs.design.wallpapers
-       # sys
-       plfrm = "x86_64-linux"; # your architecture
-       ver = "24.05"; # stateVersion
-     };
-   }
-```
+  ```nix
+     { inputs, lib, ... }:
+     {
+       flake = import ../libx/builder.nix {
+         inherit inputs lib;
+         disk = "..."; # your disk in /dev/disk/by-uuid/*
+         # variables
+         hostName = "pantheon"; # hostName is ~/flakeDir/hostName
+         userName = "arthemida"; # userName
+         flakeDir = "/persist/flake"; # flakeDir
+         is = "desktop"; # for laptop | desktop | server
+         # ricing
+         theme = "chanivibes"; # from inputs.design.base16
+         image = "default"; # from inputs.design.wallpapers
+         # sys
+         plfrm = "x86_64-linux"; # your architecture
+         ver = "24.05"; # stateVersion
+       };
+     }
+  ```
 
 <details>
   <summary>Software</summary>

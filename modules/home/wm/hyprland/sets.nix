@@ -1,4 +1,5 @@
 {
+  x,
   pkgs,
   lib,
   config,
@@ -23,7 +24,13 @@ with config.lib.stylix.colors;
       ''bash -c fixf4=$(cat /sys/class/leds/platform\:\:micmute/brightness); echo $((1-fixf4)) | sudo ${tee} /sys/class/leds/platform\:\:micmute/brightness; wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle''
     ]
     ++ cfg.autostart;
-  monitor = cfg.resolution;
+  monitor =
+    if x.is == "desktop" then
+      "eDP-1, 1920x1080@60, 0x0, 1.2, transform, 0"
+    else if x.is == "laptop" then
+      "eDP-1, 1920x1080@60, 0x0, 1, transform, 0"
+    else
+      "eDP-1, 1920x1080@60, 0x0, 1, transform, 0";
   # apperance
   general = {
     gaps_in = 6;

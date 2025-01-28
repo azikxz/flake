@@ -47,13 +47,23 @@ in
           };
         in
         {
+          # qt
           qt5ct = n "qt5ct";
           qt6ct = n "qt6ct";
+          # cli
           nvtop = n "nvtop";
           btop = n "btop";
           fish = n "fish";
+          # shit
           rofi = n "rofi";
           rofi-theme-selector = n "rofi-theme-selector";
+          # office
+          base = n "base";
+          calc = n "calc";
+          draw = n "draw";
+          impress = n "impress";
+          math = n "math";
+          writer = n "writer";
         };
     };
   };

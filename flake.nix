@@ -7,6 +7,7 @@
     hardware.url = "github:NixOS/nixos-hardware/master";
     parts.url = "github:hercules-ci/flake-parts";
     flatpak.url = "github:gmodena/nix-flatpak";
+    hyprland.url = "github:hyprwm/Hyprland";
     stylix.url = "github:danth/stylix";
 
     gaming = {

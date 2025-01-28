@@ -28,6 +28,7 @@ in
     };
   };
   nixpkgs = {
+    overlays = x.overlays;
     hostPlatform = mkDefault plfrm;
     config = {
       allowBroken = true;

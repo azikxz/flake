@@ -1,5 +1,6 @@
 {
   x,
+  inputs,
   lib,
   config,
   ...
@@ -16,7 +17,7 @@ in
     };
   };
 
-  # imports = with inputs; [ hyprland.nixosModules.default ];
+  imports = with inputs; [ hyprland.nixosModules.default ];
   config = mkIf cfg.enable {
     programs.hyprland = on;
   };

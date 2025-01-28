@@ -1,5 +1,6 @@
 {
   x,
+  inputs,
   pkgs,
   lib,
   config,
@@ -14,14 +15,12 @@ in
   options = {
     module.wm.hyprland = {
       enable = mkBool;
-      resolution = mkOpt.str;
       autostart = mkOpt.list.str;
       binds = mkOpt.list.str;
-      rules = mkOpt.list.str;
     };
   };
 
-  # imports = with inputs; [ hyprland.homeManagerModules.default ];
+  imports = with inputs; [ hyprland.homeManagerModules.default ];
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = on // {
       xwayland = on;
@@ -36,7 +35,14 @@ in
             ;
         }
         // import ./rules.nix { inherit x lib config; }
-        // import ./sets.nix { inherit pkgs lib config; };
+        // import ./sets.nix {
+          inherit
+            x
+            pkgs
+            lib
+            config
+            ;
+        };
     };
   };
 }

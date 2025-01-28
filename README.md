@@ -42,63 +42,71 @@
 <details>
   <summary>Software</summary>
 
-|                                              Category (name + url) | Desciption                                                  |
-| -----------------------------------------------------------------: | :---------------------------------------------------------- |
-|                                                    Window managers |                                                             |
-|                     [hyprland](https://github.com/hyprwm/hyprland) | Best window manager                                         |
-|                       [kitty](https://github.com/kovidgoyal/kitty) | Very good terminal with image preview                       |
-| [grimblast](https://github.com/hyprwm/contrib/tree/main/grimblast) | Screenshoter                                                |
-|              [nwg-drawer](https://github.com/nwg-piotr/nwg-drawer) | Gnome-like launcher                                         |
-|                        [waybar](https://github.com/Alexays/Waybar) | Bar for wayland compositors                                 |
-|                                                       CLI utilites |                                                             |
-|                   [fish](https://github.com/fish-shell/fish-shell) | Just working shell                                          |
-|            [fastfetch](https://github.com/fastfetch-cli/fastfetch) | Fetch for be cool rices                                     |
-|                             [yazi](https://github.com/sxyazi/yazi) | Rusted file-manager great!!!                                |
-|                     [helix](https://github.com/helix-editor/helix) | Best text editor with vi-like keys                          |
-|                           [cava](https://github.com/karlstav/cava) | Sound visualizer                                            |
-|                        [eza](https://github.com/eza-community/eza) | Rusted ls with icons                                        |
-|                   [lutgen](https://github.com/ozwaldorf/lutgen-rs) | Rusted lut                                                  |
-|                     [jpegoptim](https://github.com/tjko/jpegoptim) | Low size for jpeg                                           |
-|                            [nvtop](https://github.com/Syllo/nvtop) | Top for GPU                                                 |
-|                       [btop](https://github.com/aristocratos/btop) | Very informated top                                         |
-|               [trashy](https://github.com/oberblastmeister/trashy) | Trash manager                                               |
-|                           [fuc](https://github.com/SUPERCILEX/fuc) | Rusted cp and rm commands                                   |
-|       [sudo-rs](https://github.com/trifectatechfoundation/sudo-rs) | Fast and secure sudo                                        |
-|                                                       GUI utilites |                                                             |
-|          [qutebrowser](https://github.com/qutebrowser/qutebrowser) | Keyboard-driven, vim-like browser (best my opinion)         |
-|                      [zen](https://github.com/zen-browser/desktop) | Stylish and modern FurryFox                                 |
-|           [keepassxc](https://github.com/keepassxreboot/keepassxc) | Passwords manager with crypt                                |
-|                          [secrets](https://apps.gnome.org/Secrets) | Manage your keepass with libadwaita                         |
-|                [syncthing](https://github.com/syncthing/syncthing) | Synchronize folders/files via devices                       |
-|                          [nemo](https://github.com/linuxmint/nemo) | File manager from Cinnamon                                  |
-|         [onlyoffice](https://github.com/ONLYOFFICE/DesktopEditors) | Office suite                                                |
-|                      [vesktop](https://github.com/Vencord/Vesktop) | Wayland Discord client                                      |
-|                          [komikku](https://apps.gnome.org/Komikku) | Read comics and manga                                       |
-|                                     [spotify](https://spotify.com) | Good music streamer                                         |
-|                                 [spicetify](https://spicetify.app) | Modder for spotify                                          |
-|                          [amberol](https://apps.gnome.org/Amberol) | Beauty local player                                         |
-|          [qbittorrent](https://github.com/qbittorrent/qBittorrent) | Torrents))))) hahah))))                                     |
-|                 [64gram](https://github.com/TDesktop-x64/tdesktop) | IDK just modified tgram client lol                          |
-|                [walogram](https://codeberg.org/thirtysix/walogram) | Generate telegram theme on stylix (nix verison in my files) |
-|          [file-roller](https://gitlab.gnome.org/GNOME/file-roller) | Archiver                                                    |
-|                         [filezilla](https://filezilla-project.org) | Good FTP client                                             |
-|                           [mpv](https://github.com/mpv-player/mpv) | Simplest video player                                       |
-|                       [anime4k](https://github.com/bloc97/Anime4K) | Anime upscaler                                              |
-|                     [swayimg](https://github.com/artemsen/swayimg) | Simple image viewer                                         |
-|                                                              Games |                                                             |
-|                   [mindustry](https://github.com/Anuken/Mindustry) | OHMYGOD 10/10 RTS YEEEE BOYYYY                              |
-|                  [bottles](https://github.com/bottlesdevs/Bottles) | Wine launcher with multiple prefixes                        |
-|    [prismlauncher](https://github.com/PrismLauncher/PrismLauncher) | Fuckm all my homies plays this shit man                     |
-|                            [steam](https://store.steampowered.com) | Cool game store and launcher                                |
-|                   [legendary](https://github.com/derrod/legendary) | CLI for Epic Games Store                                    |
-|               [protonup](https://github.com/DavidoTek/ProtonUp-Qt) | Provides Proton-GE/Wine-GE for Steam and Bottles            |
-|   [proton-ge](https://github.com/GloriousEggroll/proton-ge-custom) | GE(idk what that mean) version of Valve Proton              |
-|                                                               Misc |                                                             |
-|                    [nix-tree](https://github.com/utdemir/nix-tree) | Tree for your generations&derivations                       |
-|              [nix-init](https://github.com/nix-community/nix-init) | Easy nix package creator                                    |
-|                      [nurl](https://github.com/nix-community/nurl) | Tool for fetching git repo                                  |
-|                        [tenki](https://github.com/ckaznable/tenki) | TUI clock with effects                                      |
-|               [jetbrains](https://github.com/ryanoasis/nerd-fonts) | Nerded fonts                                                |
+|                                                         wm & tools |                     |
+| -----------------------------------------------------------------: | :------------------ |
+|                     [hyprland](https://github.com/hyprwm/hyprland) | best window manager |
+|                       [kitty](https://github.com/kovidgoyal/kitty) | good terminal       |
+| [grimblast](https://github.com/hyprwm/contrib/tree/main/grimblast) | screenshoter        |
+|                            [tofi](https://github.com/philj56/tofi) | gnome-like launcher |
+|                        [waybar](https://github.com/Alexays/Waybar) | bar for wayland     |
+|                           [mako](https://github.com/emersion/mako) | Notifications       |
+
+|                                                 cli utilites |                                    |
+| -----------------------------------------------------------: | :--------------------------------- |
+|      [fastfetch](https://github.com/fastfetch-cli/fastfetch) | fetch for be cool rices            |
+|             [fish](https://github.com/fish-shell/fish-shell) | just working shell                 |
+|                  [eza](https://github.com/eza-community/eza) | rusted ls with icons               |
+|                       [yazi](https://github.com/sxyazi/yazi) | rusted file-manager great!!!       |
+|               [helix](https://github.com/helix-editor/helix) | best text editor with vi-like keys |
+|                     [cava](https://github.com/karlstav/cava) | sound visualizer                   |
+|             [lutgen](https://github.com/ozwaldorf/lutgen-rs) | rusted lut                         |
+|               [jpegoptim](https://github.com/tjko/jpegoptim) | low size for jpeg                  |
+|                      [nvtop](https://github.com/Syllo/nvtop) | top for GPU                        |
+|                 [btop](https://github.com/aristocratos/btop) | very informated top                |
+|         [trashy](https://github.com/oberblastmeister/trashy) | trash manager                      |
+|                     [fuc](https://github.com/SUPERCILEX/fuc) | rusted cp and rm commands          |
+| [sudo-rs](https://github.com/trifectatechfoundation/sudo-rs) | fast and secure sudo               |
+
+|                                              gui utilites |                                                             |
+| --------------------------------------------------------: | :---------------------------------------------------------- |
+| [qutebrowser](https://github.com/qutebrowser/qutebrowser) | keyboard-driven, vim-like browser (best my opinion)         |
+|                 [secrets](https://apps.gnome.org/Secrets) | manage your .kdbx vaults with libadwaita                    |
+|       [syncthing](https://github.com/syncthing/syncthing) | synchronize folders/files via devices                       |
+|                [libreoffice](https://www.libreoffice.org) | office suite                                                |
+|             [vesktop](https://github.com/Vencord/Vesktop) | wayland Discord client                                      |
+|                 [komikku](https://apps.gnome.org/Komikku) | read comics and manga                                       |
+|                [zathura](https://github.com/pwmt/zathura) | read pdf and comix                                          |
+|                            [spotify](https://spotify.com) | good music streamer                                         |
+|                        [spicetify](https://spicetify.app) | modder for spotify                                          |
+| [qbittorrent](https://github.com/qbittorrent/qBittorrent) | torrents))))) hahah))))                                     |
+|      [ayugram](https://github.com/AyuGram/AyuGramDesktop) | i hate read deleted message >:(                             |
+|        [64gram](https://github.com/TDesktop-x64/tdesktop) | idk just modified tgram client lol                          |
+|       [walogram](https://codeberg.org/thirtysix/walogram) | generate telegram theme on stylix (nix verison in my files) |
+|                [filezilla](https://filezilla-project.org) | good FTP client                                             |
+|                  [mpv](https://github.com/mpv-player/mpv) | simplest video player                                       |
+|              [anime4k](https://github.com/bloc97/Anime4K) | anime upscaler                                              |
+|            [swayimg](https://github.com/artemsen/swayimg) | simple image viewer                                         |
+
+|                                                           games |                                                  |
+| --------------------------------------------------------------: | :----------------------------------------------- |
+|                                                          native |                                                  |
+|                [mindustry](https://github.com/Anuken/Mindustry) | OHMYGOD 10/10 RTS YEEEE BOYYYY                   |
+|                                    [srb2](https://www.srb2.org) | classic 3d sonix                                 |
+|                            [openarena](http://www.openarena.ws) | quake 3 with mods!!!                             |
+|                                                        via wine |                                                  |
+|               [bottles](https://github.com/bottlesdevs/Bottles) | wine launcher with multiple prefixes             |
+| [prismlauncher](https://github.com/PrismLauncher/PrismLauncher) | fuckm all my homies plays this shit man          |
+|                         [steam](https://store.steampowered.com) | cool game store and launcher                     |
+|                [legendary](https://github.com/derrod/legendary) | cli for Epic Games Store                         |
+|            [protonup](https://github.com/DavidoTek/ProtonUp-Qt) | provides Proton-GE/Wine-GE for Steam and Bottles |
+
+|                                                  misc |                                       |
+| ----------------------------------------------------: | :------------------------------------ |
+|       [nix-tree](https://github.com/utdemir/nix-tree) | tree for your generations&derivations |
+| [nix-init](https://github.com/nix-community/nix-init) | easy nix package creator              |
+|         [nurl](https://github.com/nix-community/nurl) | tool for fetching git repo            |
+|           [tenki](https://github.com/ckaznable/tenki) | tui clock with effects                |
+|  [jetbrains](https://github.com/ryanoasis/nerd-fonts) | nerded fonts                          |
 
 - IDK WHAT ALSO DUDES
 

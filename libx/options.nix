@@ -74,6 +74,26 @@ with lib.types;
     "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" # AYUGRAM
     "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs=" # HELIX
   ];
+  overlays = [
+    (self: super: {
+      steam-run =
+        (super.steam.override {
+          extraLibraries =
+            pkgs: with pkgs; [
+              libxkbcommon
+              mesa
+              wayland
+              (sndio.overrideAttrs (old: {
+                postFixup =
+                  old.postFixup
+                  + ''
+                    ln -s $out/lib/libsndio.so $out/lib/libsndio.so.6.1
+                  '';
+              }))
+            ];
+        }).run;
+    })
+  ];
 
   gen = type: text: lib.generators.${type} { } text;
 

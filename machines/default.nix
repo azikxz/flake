@@ -1,6 +1,6 @@
 {
   imports = [
-    ./jetpure
     ./embrace
+    ./jetpure
   ];
 }

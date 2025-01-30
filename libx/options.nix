@@ -1,5 +1,6 @@
 {
   inputs,
+  pkgs,
   lib,
   ...
 }:
@@ -17,7 +18,8 @@ import ./nixpkgs
 // {
   stable = inputs.nixpkgs-stable.legacyPackages.x86_64-linux;
   # ylib & stylix
-  umport = (import ./umport.nix { inherit lib; }).umport;
+  customPkgs = name: pkgs.callPackage ../pkgs/${name};
+  umport = import ./umport.nix { inherit lib; };
 
   # enable = true; ++ enable = false;
   on.enable = true;

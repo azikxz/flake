@@ -21,11 +21,17 @@ in
       resolvconf.dnsSingleRequest = true;
       networkmanager = on // {
         dns = "systemd-resolved";
+        ethernet = {
+          macAddress = "random";
+        };
         wifi = {
           powersave = true;
           macAddress = "random";
           backend = "iwd";
         };
+      };
+      firewall = {
+        allowedUDPPorts = [ 5029 ];
       };
     };
     services.resolved = on;

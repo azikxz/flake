@@ -26,16 +26,8 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zen = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     spicetify = {
       url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     cursors = {
@@ -56,8 +48,7 @@
 
   outputs =
     inputs:
-    with inputs;
-    parts.lib.mkFlake { inherit inputs; } {
+    inputs.parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ]; # system arch
       imports = [ ./machines ]; # machines
     };

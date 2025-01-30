@@ -3,11 +3,11 @@
   lib,
   # lol
   disk ? "/dev/sda",
-  pass ? "/persist/vault/pass.kdbx",
+  pass ? /persist/vault/pass.kdbx,
   # variables
   hostName ? "sus",
   userName ? "amogus",
-  flakeDir ? "/etc/nixos",
+  flakeDir ? toString /etc/nixos,
   is ? null,
   # customize
   theme ? "horizon-dark",
@@ -48,8 +48,8 @@ in
   nixosConfigurations.${hostName} = nixosSystem {
     specialArgs = args;
     modules = [
-      ../../modules/nixos
-      ../${hostName}/host
+      ../modules/nixos
+      ../machines/${hostName}/host
       home-manager.nixosModules.home-manager
       {
         home-manager = {
@@ -59,8 +59,8 @@ in
           useUserPackages = true;
           users.${userName} = {
             imports = [
-              ../../modules/home
-              ../${hostName}/home
+              ../modules/home
+              ../machines/${hostName}/home
 
             ];
             home = {

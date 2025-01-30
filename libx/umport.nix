@@ -41,6 +41,4 @@ let
       ++ (if recursive then concatMap (path: toList path) (unique include) else unique include)
     );
 in
-{
-  inherit umport;
-}
+umport

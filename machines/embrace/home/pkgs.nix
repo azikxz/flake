@@ -1,10 +1,10 @@
 {
+  x,
   pkgs,
   ...
 }:
 let
-  inherit (pkgs) callPackage;
-  call = name: callPackage ../../../pkgs/${name};
+  inherit (x) customPkgs;
 in
 {
   module.programs = {
@@ -37,8 +37,10 @@ in
 
       hut # SOURCEHUT INTERACTION
       sd # FIND/REPLACE
-      (call "lowfi" { }) # LO-FI RADIO
-      (call "anicli" {
+      (customPkgs "lowfi" {
+        version = "1.5.6";
+      }) # LO-FI RADIO
+      (customPkgs "anicli" {
         verCli = "5.0.12";
         verApi = "0.7.0";
       }) # WATCH ANIME VIA TERMINAL & MPV

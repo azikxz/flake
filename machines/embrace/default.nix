@@ -1,6 +1,6 @@
 { inputs, lib, ... }:
 {
-  flake = import ../../libx/builder.nix {
+  flake = import ../libx {
     inherit inputs lib;
     flakeDir = "/persist/flake";
     # variables

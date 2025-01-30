@@ -26,7 +26,7 @@ in
         yazi = on;
       };
       gui = {
-        floorp = off;
+        chromium = on;
         minecraft = on // {
           cli = off;
         };

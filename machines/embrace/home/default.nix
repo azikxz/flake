@@ -31,7 +31,6 @@ in
       };
       gui = {
         chromium = on;
-        floorp = off;
         minecraft = off // {
           cli = off;
         };

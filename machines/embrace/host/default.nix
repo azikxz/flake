@@ -11,7 +11,7 @@ in
 {
   imports = umport {
     path = ./.;
-    include = [ ] ++ optional (pathExists ../impermanence.nix);
+    include = [ ../impermanence.nix ];
     exclude = [ ./default.nix ];
   };
   module = {

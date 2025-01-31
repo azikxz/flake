@@ -44,12 +44,12 @@ in
         };
         swayimg = on;
         syncthing = on;
-        telegram = on // {
+        telegram = {
+          client = "64gram";
           walogram = on // {
             mode = "solid";
           };
         };
-        zed = off;
       };
     };
     shells = {
@@ -74,7 +74,7 @@ in
     };
     wm = {
       hyprland = on;
-      sway = on;
+      sway = off;
       terminals = {
         kitty = on;
         foot = off;

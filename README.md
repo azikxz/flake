@@ -15,9 +15,8 @@
   ```nix
      { inputs, lib, ... }:
      {
-       flake = import ../libx/builder.nix {
+       flake = import ../../libx {
          inherit inputs lib;
-         disk = "..."; # your disk in /dev/disk/by-uuid/*
          # variables
          hostName = "pantheon"; # hostName is ~/flakeDir/hostName
          userName = "arthemida"; # userName

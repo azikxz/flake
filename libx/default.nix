@@ -2,12 +2,11 @@
   inputs,
   lib,
   # lol
-  disk ? "/dev/sda",
-  pass ? /persist/vault/pass.kdbx,
+  pass ? "~/passwords.kdbx",
   # variables
   hostName ? "sus",
   userName ? "amogus",
-  flakeDir ? toString /etc/nixos,
+  flakeDir ? "/etc/nixos",
   is ? null,
   # customize
   theme ? "horizon-dark",
@@ -26,7 +25,6 @@ let
   args = { inherit x inputs; };
   x = import ./options.nix { inherit inputs pkgs lib; } // {
     inherit
-      disk
       pass
       # variables
       hostName
@@ -41,6 +39,22 @@ let
       ver
       ;
   };
+
+  mk =
+    n:
+    let
+      type =
+        if n == "nixos" then
+          "host"
+        else if n == "home" then
+          "home"
+        else
+          "";
+    in
+    [
+      ../modules/${n}
+      ../machines/${hostName}/${type}
+    ];
 in
 # configurations
 {
@@ -48,8 +62,6 @@ in
   nixosConfigurations.${hostName} = nixosSystem {
     specialArgs = args;
     modules = [
-      ../modules/nixos
-      ../machines/${hostName}/host
       home-manager.nixosModules.home-manager
       {
         home-manager = {
@@ -58,11 +70,7 @@ in
           useGlobalPkgs = true;
           useUserPackages = true;
           users.${userName} = {
-            imports = [
-              ../modules/home
-              ../machines/${hostName}/home
-
-            ];
+            imports = mk "home";
             home = {
               username = userName;
               stateVersion = ver;
@@ -71,6 +79,6 @@ in
           };
         };
       }
-    ];
+    ] ++ mk "nixos";
   };
 }

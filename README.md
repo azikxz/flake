@@ -1,5 +1,10 @@
 <div align="center"> <h1>❄️【 NIXOS DOTFILES 】❄️</h1> </div>
 
+mirrors:
+
+- [git.sr.ht](https://git.sr.ht/~neverness/ultima)
+- [sij.ai](https://sij.ai/uwugdeeee/ultima)
+
 ### GUIDE FOR CREATE OWN MACHINE & HOME
 
 1. Create directory with your _hostName_ in _flakeDir_
@@ -10,7 +15,7 @@
 
 3. Add your **hostName** in _default.nix_ in **~/flakeDir/machines**
 
-- Fill it with:
+- Fill it with: [example](./machines/embrace/default.nix)
 
   ```nix
      { inputs, lib, ... }:
@@ -115,4 +120,4 @@
 
 ![aye](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/misc.jpg)
 
-#### THANKS FOR [hezaki](https://codeberg.org/Hezaki/Touka), [maxmurr](https://github.com/TheMaxMur/NixOS-Configuration), [artem](https://github.com/ArtemChandragupta/NixFlake)
+> THANKS FOR [hezaki](https://codeberg.org/Hezaki/Touka), [maxmurr](https://github.com/TheMaxMur/NixOS-Configuration), [artem](https://github.com/ArtemChandragupta/NixFlake)

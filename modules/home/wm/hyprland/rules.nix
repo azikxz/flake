@@ -1,12 +1,8 @@
 {
-  x,
-  lib,
   config,
   ...
 }:
 let
-  inherit (lib) mkIf;
-  cfg = config.module.wm.hyprland;
 in
 {
   layerrule = [
@@ -18,7 +14,7 @@ in
       rule = "gapsout:0,  gapsin:0";
       spec = rule + ",  rounding:false,  shadow:false,  bordersize:1";
     in
-    mkIf (x.is == "laptop") [
+    [
       "w[tv1],   ${rule}"
       "f[1],     ${rule}"
       "s[true],  ${spec}"
@@ -89,5 +85,10 @@ in
       # pinned
       (cl "mpv" "nodim")
       (mk "pinned:1" "bordercolor rgb(${base0B}) rgb(${base01})")
+
+      (mk "onworkspace:w[tv1]" "bordersize 0, floating:0")
+      (mk "onworkspace:w[tv1]" "rounding   0, floating:0")
+      (mk "onworkspace:f[1]" "bordersize   0, floating:0")
+      (mk "onworkspace:f[1]" "rounding     0, floating:0")
     ];
 }

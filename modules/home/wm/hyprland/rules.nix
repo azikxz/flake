@@ -11,8 +11,8 @@ in
   ];
   workspace =
     let
-      rule = "gapsout:0,  gapsin:0";
-      spec = rule + ",  rounding:false,  shadow:false,  bordersize:1";
+      rule = "gapsout:0, gapsin:0, rounding:false";
+      spec = rule + ", shadow:false, bordersize:1";
     in
     [
       "w[tv1],   ${rule}"
@@ -86,9 +86,9 @@ in
       (cl "mpv" "nodim")
       (mk "pinned:1" "bordercolor rgb(${base0B}) rgb(${base01})")
 
-      (mk "onworkspace:w[tv1]" "bordersize 0, floating:0")
-      (mk "onworkspace:w[tv1]" "rounding   0, floating:0")
-      (mk "onworkspace:f[1]" "bordersize   0, floating:0")
-      (mk "onworkspace:f[1]" "rounding     0, floating:0")
+      "bordersize 0,  floating:0,  onworkspace:w[tv1]"
+      "rounding   0,  floating:0,  onworkspace:w[tv1]"
+      "bordersize 0,  floating:0,  onworkspace:f[1]"
+      "rounding   0,  floating:0,  onworkspace:f[1]"
     ];
 }

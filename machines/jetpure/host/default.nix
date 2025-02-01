@@ -1,7 +1,4 @@
-{
-  x,
-  ...
-}:
+{ x, ... }:
 let
   inherit (x) on off umport;
 in

@@ -46,6 +46,7 @@
         "*://*.youtube.com/*"
         "https://www.youtube.com/*"
         "https://*.google.com/*"
+        "https://vk.mail.ru/*"
         "https://mail.proton.me/*"
         "https://account.proton.me/*"
         "https://*.proton.me/*"

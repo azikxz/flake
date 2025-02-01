@@ -1,5 +1,6 @@
 {
   x,
+  pkgs,
   lib,
   config,
   ...
@@ -17,6 +18,13 @@ in
   };
 
   config = {
-    home.packages = [ ] ++ cfg.pkgs;
+    home.packages =
+      with pkgs;
+      [
+        nurl
+        trashy
+        nix-tree
+      ]
+      ++ cfg.pkgs;
   };
 }

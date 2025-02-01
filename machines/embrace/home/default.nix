@@ -1,22 +1,16 @@
-{
-  x,
-  config,
-  ...
-}:
+{ x, config, ... }:
 let
   inherit (x) on off umport;
 in
 {
   imports = umport {
     path = ./.;
-    exclude = [
-      ./default.nix
-      ./pkgs
-    ];
+    exclude = [ ./default.nix ];
   };
   module = {
     programs = {
       cli = {
+        archivers = on;
         common = on;
         cava = on;
         fetch = on;

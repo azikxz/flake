@@ -32,8 +32,11 @@ in
       wl-clipboard
 
       jq
-      poppler_min
       mdcat
+      poppler_min
+
+      atool
+      ouch
     ];
   };
 }

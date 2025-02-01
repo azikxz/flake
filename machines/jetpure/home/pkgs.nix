@@ -1,56 +1,43 @@
 {
   x,
   pkgs,
-  inputs,
   ...
 }:
 let
   inherit (x) customPkgs;
 in
 {
-  imports = with inputs; [ nur.modules.homeManager.default ];
   module.programs = {
     gui.pkgs = with pkgs; [
-      vesktop # DISCORD FOR FEMBOYS
-      qbittorrent-enhanced # QTORRENT
-      filezilla # FTP CLIENT
-      gnome-secrets # KEEPASS LIBADW
-      libreoffice-fresh # GOOD OFFICE
+      vesktop
+      qbittorrent-enhanced
+      filezilla
 
-      popsicle # ISO WRITER
-      ventoy # FUCK
+      gnome-secrets
+      keepassxc
 
-      srb2 # SAWNICC
-      srb2kart # SAWNICC KARTING YEEE
-      mindustry-wayland # MINDUSTRY LETSSS GOOOOO
+      libreoffice-fresh
 
-      bottles # LAUNCH GAMES WITHOUT STEAM
-      wineWow64Packages.stagingFull # WINE IS NOT EMO
+      popsicle
+      ventoy
+
+      srb2
+      srb2kart
+      mindustry-wayland
+
+      bottles
+      wineWow64Packages.stagingFull
     ];
     cli.pkgs = with pkgs; [
-      nurl # FETCHER
-      nix-tree # JUST COOL
+      imagemagick
+      jpegoptim
+      optipng
+      lutgen
 
-      btop # CPU RAM AND PROCESSES TOP
-      nvtopPackages.amd # GPU TOP
+      wyvern
+      hut
+      sd
 
-      atool # ARCHIVER
-      zip # ZIP ARCHIVER
-      p7zip-rar # 7ZIP
-      ouch # ARCHIVE IDK
-
-      trashy # TRASH
-
-      imagemagick # CONVERT IMG
-      jpegoptim # LOW SIZE JPG
-      optipng # LOW SIZE PNG
-      lutgen # COLORIZE IMG
-
-      wyvern # GOG
-      hut # SOURCEHUT INTERACTION
-      sd # FIND/REPLACE
-
-      # rycee.mozilla-addons-to-nix # ADDONS TO NIX
       (customPkgs "lowfi" {
         version = "1.5.6";
       }) # LISTEN LO-FI

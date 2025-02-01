@@ -15,7 +15,6 @@ in
       spec = rule + ", shadow:false, bordersize:1";
     in
     [
-      "w[f1]     rounding:12"
       "w[tv1],   ${rule}"
       "f[1],     ${rule}"
       "s[true],  ${spec}"

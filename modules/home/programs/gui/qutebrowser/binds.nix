@@ -1,33 +1,14 @@
 {
   x,
-  pkgs,
   ...
 }:
 with x;
 let
-  inherit (pkgs) callPackage;
   us = "spawn --userscript";
-  translate =
-    with pkgs;
-    callPackage (
-      { pkgs }:
-      stdenv.mkDerivation rec {
-        name = "translate";
-        installPhase = ''install -Dm555 ${name} $out/${name}'';
-        src = pkgs.fetchFromGitHub {
-          owner = "AckslD";
-          repo = "Qute-Translate";
-          rev = "cd2d201d17bb2d7490700b20d94495327af15e78";
-          sha256 = "sha256-xCbeEAw8a/5/ZD9+aB1J7FxLLBlP65kslGtpYGn3efs=";
-        };
-      }
-    ) { };
+  translate = x.customPkgs "qute/translate.nix" { };
 in
 {
-  home.packages = with pkgs.python312Packages; [
-    translate
-    pynacl
-  ];
+  home.packages = [ translate ];
   programs.qutebrowser = on // {
     keyBindings = {
       normal = {

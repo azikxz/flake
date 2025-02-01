@@ -8,9 +8,7 @@
 let
   inherit (lib) mkForce;
   cfg = config.module.wm.hyprland;
-  on = {
-    enabled = true;
-  };
+  on.enabled = true;
 in
 with config.lib.stylix.colors;
 {
@@ -41,7 +39,7 @@ with config.lib.stylix.colors;
     "col.inactive_border" = mkForce "rgb(${base01})";
   };
   decoration = {
-    rounding = 12;
+    rounding = 0;
     dim_inactive = true;
     dim_strength = 0.3;
     shadow = on // {

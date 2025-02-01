@@ -13,6 +13,7 @@ in
   module = {
     programs = {
       cli = {
+        archivers = on;
         common = on;
         cava = on;
         fetch = on;
@@ -41,7 +42,7 @@ in
         swayimg = on;
         syncthing = on;
         telegram = {
-          client = "ayugram";
+          client = "64gram";
           walogram = on // {
             mode = "solid";
           };

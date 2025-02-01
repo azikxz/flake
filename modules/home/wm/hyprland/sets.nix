@@ -33,8 +33,8 @@ with config.lib.stylix.colors;
       "eDP-1, 1920x1080@60, 0x0, 1, transform, 0";
   # apperance
   general = {
-    gaps_in = 6;
-    gaps_out = 12;
+    gaps_in = 4;
+    gaps_out = 10;
     border_size = 3;
     layout = "dwindle";
     "col.active_border" = mkForce "rgb(${base01})";

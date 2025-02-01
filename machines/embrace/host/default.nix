@@ -1,12 +1,6 @@
-{
-  x,
-  lib,
-  ...
-}:
+{ x, ... }:
 let
   inherit (x) on off umport;
-  inherit (builtins) pathExists;
-  inherit (lib) optional;
 in
 {
   imports = umport {

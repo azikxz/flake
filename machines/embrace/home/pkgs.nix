@@ -9,34 +9,29 @@ in
 {
   module.programs = {
     gui.pkgs = with pkgs; [
-      onlyoffice-bin # OFFICE
-      qbittorrent-enhanced # QTORRENT
-      gnome-secrets # KEEPASS LIBADW
-      komikku # MANGA READER
+      qbittorrent-enhanced
+      libreoffice-fresh
+      komikku
 
-      wineWow64Packages.stagingFull # LAUCNCH WINDOW PROGRAMS
+      gnome-secrets
+      keepassxc
 
-      mindustry-wayland # TOWER DEFENSE
-      srb2 # SAWNIIICCCC
+      wineWow64Packages.stagingFull
+      mindustry-wayland
+      srb2
     ];
     cli.pkgs = with pkgs; [
-      nurl # FETCHER
-      nix-tree # JUST COOL
+      atool
+      zip
+      p7zip-rar
+      ouch
 
-      btop # CPU RAM AND PROCESSES TOP
-      nvtopPackages.amd # GPU TOP
+      imagemagick
+      jpegoptim
 
-      atool # ARCHIVER
-      zip # ZIP ARCHIVER
-      p7zip-rar # 7ZIP
-      ouch # ARCHIVE IDK
-      trashy # TRASH
+      hut
+      sd
 
-      imagemagick # CONVERT IMG
-      jpegoptim # LOW SIZE JPG
-
-      hut # SOURCEHUT INTERACTION
-      sd # FIND/REPLACE
       (customPkgs "lowfi" {
         version = "1.5.6";
       }) # LO-FI RADIO

@@ -13,7 +13,7 @@ in
 {
   options = {
     module.misc.minimal = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

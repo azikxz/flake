@@ -12,8 +12,8 @@ in
 {
   options = {
     module.shells = {
-      alias = mkOpt.attrs.str;
-      abbrs = mkOpt.attrs.str;
+      alias = mkAttrs.str { };
+      abbrs = mkAttrs.str { };
     };
   };
 

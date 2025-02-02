@@ -12,7 +12,7 @@ in
 {
   options = {
     module.hardware.power = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

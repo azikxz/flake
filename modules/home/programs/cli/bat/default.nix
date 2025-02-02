@@ -11,8 +11,10 @@ let
   cfg = config.module.programs.cli.bat;
 in
 {
-  options.module.programs.cli.bat = {
-    enable = mkBool;
+  options = {
+    module.programs.cli.bat = {
+      enable = mkBool false;
+    };
   };
 
   config = mkIf cfg.enable {

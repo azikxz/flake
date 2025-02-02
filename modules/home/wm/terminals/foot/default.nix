@@ -12,7 +12,7 @@ in
 {
   options = {
     module.wm.terminals.foot = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

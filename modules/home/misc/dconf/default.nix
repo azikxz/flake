@@ -11,7 +11,7 @@ let
 in
 {
   options.module.misc.dconf = {
-    enable = mkBool;
+    enable = mkBool false;
   };
 
   config = mkIf cfg.enable {

@@ -27,25 +27,25 @@ in
 mkForce {
   "${m}+q" = "kill";
   "${m}+f" = "fullscreen";
-  "${m}+${s}+f" = "move position center";
-  "${m}+${sp}" = "floating toggle";
+
+  "${m}+${sp}     " = "floating toggle";
   "${m}+${s}+${sp}" = "${ex} killall -SIGUSR1 waybar";
-  "${m}+${s}+${sp}" = "move position center";
+  "${m}+${a}+${sp}" = "move position center";
 
-  "${m}+${rt}" = "${ex} kitty";
-  "${m}+${rt}" = "${ex} kitty ----class=termfloat";
+  "${m}+${rt}     " = "${ex} kitty";
+  "${m}+${s}+${rt}" = "${ex} kitty --class=termfloat";
 
-  "${pr}" = "${grimblast}/bin/grimblast copysave area";
+  "${pr}     " = "${grimblast}/bin/grimblast copysave area";
   "${pr}+${s}" = "${grimblast}/bin/grimblast copysave output ${pic}";
   "${pr}+${a}" = "${grimblast}/bin/grimblast copysave active ${pic}";
 
-  "${m}+g" = "layout tabbed";
+  "${m}+g     " = "layout tabbed";
   "${m}+${s}+g" = "layout toggle split";
 
-  "${m}+p" = "move scratchpad";
+  "${m}+p     " = "move scratchpad";
   "${m}+${s}+p" = "scratchpad show";
 
-  "${m}+Home" = "exit";
+  "${m}+Home     " = "exit";
   "${m}+${s}+Home" = "reload";
 
   "${m}+1" = "${ws} ${nm} 1";

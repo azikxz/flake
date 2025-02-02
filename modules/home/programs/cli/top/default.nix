@@ -13,7 +13,7 @@ in
 {
   options = {
     module.programs.cli.top = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

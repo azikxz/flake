@@ -12,7 +12,7 @@ in
 {
   options = {
     module.wm.terminals.wezterm = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

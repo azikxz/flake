@@ -10,18 +10,11 @@ with x;
 let
   cfg = config.module.shells.fish;
   abbrs = config.module.shells.abbrs;
-  winman =
-    if x.is == "desktop" then
-      "Hyprland"
-    else if x.is == "laptop" then
-      "Hyprland"
-    else
-      "fastfetch";
 in
 {
   options = {
     module.shells.fish = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 
@@ -33,7 +26,17 @@ in
       shellAbbrs = abbrs;
       plugins = import ./plugins.nix { inherit pkgs; };
       interactiveShellInit = import ./colors.nix;
-      shellInitLast = # fish
+      shellInitLast =
+        let
+          winman =
+            if x.is == "desktop" then
+              "Hyprland"
+            else if x.is == "laptop" then
+              "Hyprland"
+            else
+              "fastfetch";
+        in
+        # fish
         ''
           set fish_cursor_default block
           set fish_cursor_insert line

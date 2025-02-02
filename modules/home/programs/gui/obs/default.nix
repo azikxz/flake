@@ -13,7 +13,7 @@ in
 {
   options = {
     module.programs.gui.obs = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

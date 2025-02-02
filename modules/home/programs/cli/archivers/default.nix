@@ -11,8 +11,10 @@ let
   cfg = config.module.programs.cli.archivers;
 in
 {
-  options.module.programs.cli.archivers = {
-    enable = mkBool;
+  options = {
+    module.programs.cli.archivers = {
+      enable = mkBool false;
+    };
   };
 
   config = mkIf cfg.enable {

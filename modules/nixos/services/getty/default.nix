@@ -12,7 +12,7 @@ in
 {
   options = {
     module.services.getty = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

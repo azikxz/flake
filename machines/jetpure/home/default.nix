@@ -28,9 +28,8 @@ in
       };
       gui = {
         chromium = on;
-        minecraft = on // {
-          cli = off;
-        };
+        keepass = on;
+        minecraft = on;
         mpv = on;
         obs = on;
         qbittorrent = on;

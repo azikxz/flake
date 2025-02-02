@@ -13,7 +13,7 @@ in
 {
   options = {
     module.themes.qt = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

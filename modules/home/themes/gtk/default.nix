@@ -25,7 +25,7 @@ in
 {
   options = {
     module.themes.gtk = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

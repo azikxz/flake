@@ -12,7 +12,7 @@ in
 {
   options = {
     module.misc.protonmail = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

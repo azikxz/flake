@@ -1,8 +1,9 @@
 {
   stdenv,
   fetchFromGitHub,
+  python313Packages,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   name = "translate";
 
   src = fetchFromGitHub {
@@ -12,5 +13,7 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-xCbeEAw8a/5/ZD9+aB1J7FxLLBlP65kslGtpYGn3efs=";
   };
 
-  installPhase = ''install -Dm555 ${name} $out/${name}'';
+  installPhase = ''
+    install -Dm555 translate $out/exe
+  '';
 }

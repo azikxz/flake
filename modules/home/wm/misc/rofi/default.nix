@@ -13,7 +13,7 @@ in
 {
   options = {
     module.wm.misc.rofi = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

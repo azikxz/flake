@@ -12,7 +12,7 @@ let
 in
 {
   options.module.misc.xdg = {
-    mime.enable = mkBool;
+    mime.enable = mkBool false;
   };
 
   config = {

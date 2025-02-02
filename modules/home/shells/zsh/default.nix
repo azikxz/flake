@@ -14,7 +14,7 @@ in
 {
   options = {
     module.shells.zsh = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

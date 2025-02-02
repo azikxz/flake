@@ -14,7 +14,7 @@ in
 with config.lib.stylix.colors.withHashtag;
 {
   # INPUTS
-  seat."*".hide_cursor = "1";
+  seat."*".hide_cursor = "2";
   input."*" = {
     xkb_layout = "us,ru";
     xkb_options = "grp:caps_toggle";

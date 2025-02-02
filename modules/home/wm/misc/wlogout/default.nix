@@ -12,7 +12,7 @@ in
 {
   options = {
     module.wm.misc.wlogout = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

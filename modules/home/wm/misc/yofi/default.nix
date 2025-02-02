@@ -15,7 +15,7 @@ in
 {
   options = {
     module.wm.misc.yofi = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

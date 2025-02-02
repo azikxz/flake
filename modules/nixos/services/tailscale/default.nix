@@ -12,7 +12,7 @@ in
 {
   options = {
     module.services.tailscale = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

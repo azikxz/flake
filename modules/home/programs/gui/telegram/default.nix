@@ -13,10 +13,10 @@ in
 {
   options = {
     module.programs.gui.telegram = {
-      client = mkOpt.str;
+      client = mkNull.str "64gram";
       walogram = {
-        enable = mkBool;
-        mode = mkOpt.str; # solid | background
+        enable = mkBool false;
+        mode = mkStr "solid"; # solid | background
       };
     };
   };

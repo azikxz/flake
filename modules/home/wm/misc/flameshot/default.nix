@@ -13,7 +13,7 @@ in
 {
   options = {
     module.wm.misc.flameshot = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

@@ -12,10 +12,6 @@ in
       vesktop
       qbittorrent-enhanced
       filezilla
-
-      gnome-secrets
-      keepassxc
-
       libreoffice-fresh
 
       popsicle

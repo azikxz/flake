@@ -13,7 +13,7 @@ in
 {
   options = {
     module.services.flatpak = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

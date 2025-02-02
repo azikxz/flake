@@ -19,7 +19,7 @@ in
 {
   options = {
     module.hardware.impermanence = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

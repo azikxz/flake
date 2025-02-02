@@ -13,7 +13,7 @@ in
 {
   options = {
     module.base = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

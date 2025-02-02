@@ -13,7 +13,7 @@ in
 {
   options = {
     module.services.deluge = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

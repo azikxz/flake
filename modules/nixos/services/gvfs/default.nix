@@ -12,7 +12,7 @@ in
 {
   options = {
     module.services.gvfs = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

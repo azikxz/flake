@@ -14,7 +14,7 @@ in
 {
   options = {
     module.themes.stylix = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

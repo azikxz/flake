@@ -13,7 +13,7 @@ in
 {
   options = {
     module.virt.podman = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

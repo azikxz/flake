@@ -13,7 +13,7 @@ in
 {
   options = {
     module.services.amneziawg = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

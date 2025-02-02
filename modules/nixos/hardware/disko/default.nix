@@ -13,7 +13,7 @@ in
 {
   options = {
     module.hardware.disko = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

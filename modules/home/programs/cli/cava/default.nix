@@ -10,8 +10,10 @@ let
   cfg = config.module.programs.cli.cava;
 in
 {
-  options.module.programs.cli.cava = {
-    enable = mkBool;
+  options = {
+    module.programs.cli.cava = {
+      enable = mkBool false;
+    };
   };
 
   config = mkIf cfg.enable {

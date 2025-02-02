@@ -12,7 +12,7 @@ in
 {
   options = {
     module.wm.misc.nwg = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

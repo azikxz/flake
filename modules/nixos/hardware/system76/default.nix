@@ -12,7 +12,7 @@ in
 {
   options = {
     module.hardware.system76 = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

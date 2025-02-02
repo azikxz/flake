@@ -14,14 +14,13 @@ in
 {
   options = {
     module.themes.stylix = {
-      enable = mkBool;
-      image = mkOpt.str;
-      icon = mkOpt.str;
-      cursor = {
-        size = mkOpt.int;
-        bg = mkOpt.str;
-        ol = mkOpt.str;
-        ac = mkOpt.str;
+      enable = mkBool false;
+      icon = mkStr "breeze";
+      cursor = with config.lib.stylix.colors.withHashtag; {
+        size = mkInt 12;
+        bg = mkStr "${base04}";
+        ol = mkStr "${base00}";
+        ac = mkStr "${base04}";
       };
     };
   };

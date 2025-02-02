@@ -24,44 +24,7 @@ import ./nixpkgs
   # enable = true; ++ enable = false;
   on.enable = true;
   off.enable = false;
-  # mkOption and mkEnableOption
-  mkEnable = mkEnableOption "";
-  mkBool = mkOption def // {
-    type = bool;
-  };
-  mkOpt = {
-    str = mkOption nulla // {
-      type = str;
-    };
-    int = mkOption nulla // {
-      type = int;
-    };
-    lines = mkOption nulla // {
-      type = nullOr lines;
-    };
-    list = {
-      pkgs = mkOption nulla // {
-        type = listOf package;
-      };
-      str = mkOption nulla // {
-        type = listOf str;
-      };
-    };
-    attrs = {
-      str = mkOption nulla // {
-        type = attrsOf str;
-      };
-    };
-  };
-  mkConfig = {
-    ini = mkOption {
-      type = submodule { freeformType = settingsFormat.type; };
-      default = { };
-    };
-  };
-
   gen = type: text: lib.generators.${type} { } text;
-
   workspaces =
     with builtins;
     (concatLists (

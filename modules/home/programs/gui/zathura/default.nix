@@ -12,7 +12,7 @@ in
 {
   options = {
     module.programs.gui.zathura = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

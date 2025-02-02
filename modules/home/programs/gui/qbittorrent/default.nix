@@ -12,7 +12,7 @@ in
 {
   options = {
     module.programs.gui.qbittorrent = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

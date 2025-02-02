@@ -12,7 +12,7 @@ in
 {
   options = {
     module.programs.cli.joshuto = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

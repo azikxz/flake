@@ -13,7 +13,7 @@ in
 {
   options = {
     module.programs.cli.helix = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

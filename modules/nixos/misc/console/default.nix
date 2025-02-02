@@ -13,7 +13,7 @@ in
 {
   options = {
     module.misc.console = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

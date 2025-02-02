@@ -12,7 +12,7 @@ in
 {
   options = {
     module.misc.terraria = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

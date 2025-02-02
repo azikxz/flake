@@ -23,22 +23,25 @@ let
   inherit (nixpkgs.lib) nixosSystem;
   # NEEDS
   args = { inherit x inputs; };
-  x = import ./options.nix { inherit inputs pkgs lib; } // {
-    inherit
-      pass
-      # variables
-      hostName
-      userName
-      flakeDir
-      is
-      # customize
-      theme
-      image
-      # sys info
-      plfrm
-      ver
-      ;
-  };
+  x =
+    import ./options.nix { inherit inputs pkgs lib; }
+    // import ./newOpt.nix { inherit lib; }
+    // {
+      inherit
+        pass
+        # variables
+        hostName
+        userName
+        flakeDir
+        is
+        # customize
+        theme
+        image
+        # sys info
+        plfrm
+        ver
+        ;
+    };
 
   mk =
     n:

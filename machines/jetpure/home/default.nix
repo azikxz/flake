@@ -57,8 +57,9 @@ in
       starship = on;
     };
     themes = {
-      gtk = on; # GTK APPS
-      qt = on; # QT APPS
+      gtk = on;
+      qt = on;
+      kvantum = off;
       stylix = on // {
         icon = "adwaita";
         cursor = with config.lib.stylix.colors.withHashtag; {

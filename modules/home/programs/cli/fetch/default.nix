@@ -13,7 +13,7 @@ in
 {
   options = {
     module.programs.cli.fetch = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

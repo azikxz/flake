@@ -13,7 +13,7 @@ in
 {
   options = {
     module.programs.cli.yazi = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

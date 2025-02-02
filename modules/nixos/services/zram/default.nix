@@ -12,7 +12,7 @@ in
 {
   options = {
     module.services.zram = {
-      algo = mkOpt.str;
+      algo = mkNull.str "zstd";
     };
   };
 

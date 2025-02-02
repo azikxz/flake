@@ -12,7 +12,7 @@ in
 {
   options = {
     module.programs.gui.syncthing = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

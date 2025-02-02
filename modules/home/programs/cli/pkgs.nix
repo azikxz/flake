@@ -13,7 +13,7 @@ in
 {
   options = {
     module.programs.cli = {
-      pkgs = mkOpt.list.pkgs;
+      pkgs = mkList.pkgs [ ];
     };
   };
 

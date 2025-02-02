@@ -13,7 +13,7 @@ in
 {
   options = {
     module.wm.misc.mako = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

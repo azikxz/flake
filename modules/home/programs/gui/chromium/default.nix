@@ -13,7 +13,7 @@ in
 {
   options = {
     module.programs.gui.chromium = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

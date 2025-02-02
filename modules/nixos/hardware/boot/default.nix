@@ -14,8 +14,8 @@ in
 {
   options = {
     module.hardware.boot = {
-      enable = mkBool;
-      plymouth.enable = mkBool;
+      enable = mkBool false;
+      plymouth.enable = mkBool false;
     };
   };
 

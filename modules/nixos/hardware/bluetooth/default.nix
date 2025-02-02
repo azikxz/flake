@@ -13,7 +13,7 @@ in
 {
   options = {
     module.hardware.bluetooth = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

@@ -13,7 +13,7 @@ in
 {
   options = {
     module.programs.hyprland = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

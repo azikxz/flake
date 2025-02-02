@@ -10,8 +10,10 @@ let
   cfg = config.module.programs.cli.common;
 in
 {
-  options.module.programs.cli.common = {
-    enable = mkBool;
+  options = {
+    module.programs.cli.common = {
+      enable = mkBool false;
+    };
   };
 
   config = mkIf cfg.enable {

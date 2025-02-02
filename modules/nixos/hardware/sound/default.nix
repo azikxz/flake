@@ -14,7 +14,7 @@ in
 {
   options = {
     module.hardware.sound = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

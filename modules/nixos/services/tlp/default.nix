@@ -13,7 +13,7 @@ in
 {
   options = {
     module.services.tlp = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

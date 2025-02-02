@@ -19,27 +19,20 @@ in
 {
   options = {
     module.programs.gui.minecraft = {
-      enable = mkBool;
-      cli.enable = mkBool;
+      enable = mkBool false;
     };
   };
 
-  config = mkMerge [
-    (mkIf cfg.enable {
-      home.packages = with pkgs; [
-        (prismlauncher.override {
-          gamemodeSupport = true;
-          controllerSupport = true;
-          textToSpeechSupport = false;
-          jdks = jre;
-        })
-      ];
-    })
-    (mkIf cfg.cli.enable {
-      home.packages = with pkgs; [
-        portablemc
-        ferium
-      ];
-    })
-  ];
+  config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      (prismlauncher.override {
+        gamemodeSupport = true;
+        controllerSupport = true;
+        textToSpeechSupport = false;
+        jdks = jre;
+      })
+      portablemc
+      ferium
+    ];
+  };
 }

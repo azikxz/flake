@@ -12,7 +12,7 @@ in
 {
   options = {
     module.programs.cli.micro = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

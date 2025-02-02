@@ -13,7 +13,7 @@ in
 {
   options = {
     module.programs.cli.legendary = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

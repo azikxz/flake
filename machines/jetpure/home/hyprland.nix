@@ -30,7 +30,7 @@ with lib;
         (m "$rt" "kitty")
         (s "$rt" "kitty ${c}=termfloat")
 
-        (m "V" "ayugram-desktop")
+        (m "V" "telegram-desktop")
         (s "V" "vesktop")
 
         (m "B" "qutebrowser")

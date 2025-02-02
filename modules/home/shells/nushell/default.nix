@@ -13,7 +13,7 @@ in
 {
   options = {
     module.shells.nushell = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

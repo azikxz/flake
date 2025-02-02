@@ -12,8 +12,8 @@ in
 {
   options = {
     module.hardware.amd = {
-      enable = mkBool;
-      amdvlk.enable = mkBool;
+      enable = mkBool false;
+      amdvlk.enable = mkBool false;
     };
   };
 

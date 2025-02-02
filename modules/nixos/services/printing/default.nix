@@ -12,7 +12,7 @@ in
 {
   options = {
     module.services.printing = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

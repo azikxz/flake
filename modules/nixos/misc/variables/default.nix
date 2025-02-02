@@ -12,7 +12,7 @@ in
 {
   options = {
     module.misc.variables = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

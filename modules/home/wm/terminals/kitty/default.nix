@@ -12,7 +12,7 @@ in
 {
   options = {
     module.wm.terminals.kitty = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

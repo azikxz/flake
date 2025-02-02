@@ -12,7 +12,7 @@ in
 {
   options = {
     module.services.polkit = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

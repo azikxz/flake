@@ -14,9 +14,9 @@ in
 {
   options = {
     module.wm.hyprland = {
-      enable = mkBool;
-      autostart = mkOpt.list.str;
-      binds = mkOpt.list.str;
+      enable = mkBool false;
+      autostart = mkList.str [ ];
+      binds = mkList.str [ ];
     };
   };
 

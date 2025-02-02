@@ -13,8 +13,8 @@ in
 {
   options = {
     module.services.transmission = {
-      enable = mkBool;
-      tui.enable = mkBool;
+      enable = mkBool false;
+      tui.enable = mkBool false;
     };
   };
 

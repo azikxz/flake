@@ -12,7 +12,7 @@ in
 {
   options = {
     module.wm.misc.wob = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

@@ -12,7 +12,7 @@ in
 {
   options = {
     module.services.dbus = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

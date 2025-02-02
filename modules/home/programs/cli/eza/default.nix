@@ -10,8 +10,10 @@ let
   cfg = config.module.programs.cli.eza;
 in
 {
-  options.module.programs.cli.eza = {
-    enable = mkBool;
+  options = {
+    module.programs.cli.eza = {
+      enable = mkBool false;
+    };
   };
 
   config = mkIf cfg.enable {

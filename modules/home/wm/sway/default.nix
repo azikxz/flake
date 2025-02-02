@@ -13,8 +13,7 @@ in
 {
   options = {
     module.wm.sway = {
-      enable = mkBool;
-      programs = mkOpt.attrs.str;
+      enable = mkBool false;
     };
   };
 
@@ -26,7 +25,7 @@ in
       };
       extraConfig =
         with config.lib.stylix.colors.withHashtag;
-        # sh
+        # fish
         ''
           corner_radius 10
           blur enable
@@ -38,7 +37,6 @@ in
           default_dim_inactive 0.4
           layer_effects "waybar" shadows disable; corner_radius 0; blur disable
         '';
-
       checkConfig = false;
       xwayland = true;
       systemd = on;

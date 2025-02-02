@@ -13,9 +13,7 @@ in
 {
   options = {
     module.programs.cli.git = {
-      enable = mkBool;
-      name = mkOpt.str;
-      email = mkOpt.str;
+      enable = mkBool false;
     };
   };
 

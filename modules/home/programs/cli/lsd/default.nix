@@ -10,8 +10,10 @@ let
   cfg = config.module.programs.cli.lsd;
 in
 {
-  options.module.programs.cli.lsd = {
-    enable = mkBool;
+  options = {
+    module.programs.cli.lsd = {
+      enable = mkBool false;
+    };
   };
 
   config = mkIf cfg.enable {

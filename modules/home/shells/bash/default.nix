@@ -12,7 +12,7 @@ in
 {
   options = {
     module.shells.bash = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

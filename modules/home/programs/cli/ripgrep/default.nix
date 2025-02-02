@@ -10,8 +10,10 @@ let
   cfg = config.module.programs.cli.ripgrep;
 in
 {
-  options.module.programs.cli.ripgrep = {
-    enable = mkBool;
+  options = {
+    module.programs.cli.ripgrep = {
+      enable = mkBool false;
+    };
   };
 
   config = mkIf cfg.enable {

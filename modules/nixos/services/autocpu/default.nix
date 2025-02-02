@@ -12,7 +12,7 @@ in
 {
   options = {
     module.services.autocpu = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

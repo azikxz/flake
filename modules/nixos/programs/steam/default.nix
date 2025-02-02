@@ -14,7 +14,7 @@ in
 {
   options = {
     module.programs.steam = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

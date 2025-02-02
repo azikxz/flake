@@ -12,7 +12,7 @@ in
 {
   options = {
     module.programs.cli.zoxide = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

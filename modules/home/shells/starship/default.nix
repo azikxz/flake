@@ -12,7 +12,7 @@ in
 {
   options = {
     module.shells.starship = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

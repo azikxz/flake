@@ -14,7 +14,7 @@ in
 {
   options = {
     module.wm.misc.waybar = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

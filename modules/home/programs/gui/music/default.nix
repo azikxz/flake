@@ -18,8 +18,8 @@ in
 {
   options = {
     module.programs.gui.music = {
-      spotify.enable = mkBool;
-      amberol.enable = mkBool;
+      spotify.enable = mkBool false;
+      amberol.enable = mkBool false;
     };
   };
 

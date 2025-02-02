@@ -13,7 +13,7 @@ in
 {
   options = {
     module.programs.cli.ncmpcpp = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

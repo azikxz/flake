@@ -25,9 +25,7 @@ in
       };
       gui = {
         chromium = on;
-        minecraft = off // {
-          cli = off;
-        };
+        minecraft = off;
         mpv = on;
         obs = off;
         qbittorrent = on;

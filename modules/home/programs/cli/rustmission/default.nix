@@ -13,7 +13,7 @@ in
 {
   options = {
     module.programs.cli.rustmission = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

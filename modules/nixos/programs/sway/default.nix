@@ -13,7 +13,7 @@ in
 {
   options = {
     module.programs.sway = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

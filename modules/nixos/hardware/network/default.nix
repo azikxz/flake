@@ -12,7 +12,7 @@ in
 {
   options = {
     module.hardware.network = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

@@ -13,7 +13,7 @@ in
 {
   options = {
     module.programs.common = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

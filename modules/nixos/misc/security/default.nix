@@ -13,7 +13,7 @@ in
 {
   options = {
     module.misc.security = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

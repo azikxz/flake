@@ -12,7 +12,7 @@ in
 {
   options = {
     module.programs.gui = {
-      pkgs = mkOpt.list.pkgs;
+      pkgs = mkList.pkgs [ ];
     };
   };
 

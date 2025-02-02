@@ -14,7 +14,7 @@ in
 {
   options = {
     module.programs.gui.swayimg = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

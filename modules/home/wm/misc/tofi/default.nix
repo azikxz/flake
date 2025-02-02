@@ -14,7 +14,7 @@ in
 {
   options = {
     module.wm.misc.tofi = {
-      enable = mkBool;
+      enable = mkBool false;
     };
   };
 

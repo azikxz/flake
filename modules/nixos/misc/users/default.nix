@@ -14,8 +14,7 @@ in
 {
   options = {
     module.misc.users = {
-      enable = mkBool;
-      shell = mkOpt.str;
+      enable = mkBool false;
     };
   };
 

@@ -12,7 +12,7 @@ in
 {
   options = {
     module.misc.locales = {
-      zone = mkOpt.str;
+      zone = mkNull.str null;
     };
   };
 

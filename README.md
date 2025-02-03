@@ -38,13 +38,13 @@ mirrors: [git.sr.ht](https://git.sr.ht/~neverness/ultima) [sij.ai](https://sij.a
 |                     [hyprland](https://github.com/hyprwm/hyprland) | best window manager |
 |                       [kitty](https://github.com/kovidgoyal/kitty) | good terminal       |
 | [grimblast](https://github.com/hyprwm/contrib/tree/main/grimblast) | screenshoter        |
-|                            [tofi](https://github.com/philj56/tofi) | gnome-like launcher |
+|                            [tofi](https://github.com/philj56/tofi) | text based launcher |
 |                        [waybar](https://github.com/Alexays/Waybar) | bar for wayland     |
 |                           [mako](https://github.com/emersion/mako) | Notifications       |
 
 |                                                 cli utilites |                                    |
 | -----------------------------------------------------------: | :--------------------------------- |
-|      [fastfetch](https://github.com/fastfetch-cli/fastfetch) | fetch for be cool rices            |
+|      [fastfetch](https://github.com/fastfetch-cli/fastfetch) | fetch for cool rices               |
 |             [fish](https://github.com/fish-shell/fish-shell) | just working shell                 |
 |                  [eza](https://github.com/eza-community/eza) | rusted ls with icons               |
 |                       [yazi](https://github.com/sxyazi/yazi) | rusted file-manager great!!!       |

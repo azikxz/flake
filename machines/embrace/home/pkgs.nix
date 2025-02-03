@@ -29,13 +29,8 @@ in
       hut
       sd
 
-      (customPkgs "lowfi" {
-        version = "1.5.6";
-      }) # LO-FI RADIO
-      (customPkgs "anicli" {
-        verCli = "5.0.12";
-        verApi = "0.7.0";
-      }) # WATCH ANIME VIA TERMINAL & MPV
+      (customPkgs "lowfi" { })
+      (customPkgs "anicli" { })
     ];
   };
 }

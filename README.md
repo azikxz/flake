@@ -1,4 +1,4 @@
-<div align="center"> <h1>❄️【 NIXOS DOTFILES 】❄️</h1> </div>
+<div align="center"> <h1>❄️【 NIXOS FLAKE DOTFILES 】❄️</h1> </div>
 
 mirrors: [git.sr.ht](https://git.sr.ht/~neverness/ultima) [sij.ai](https://sij.ai/uwugdeeee/ultima)
 
@@ -62,6 +62,7 @@ mirrors: [git.sr.ht](https://git.sr.ht/~neverness/ultima) [sij.ai](https://sij.a
 | --------------------------------------------------------: | :---------------------------------------------------------- |
 | [qutebrowser](https://github.com/qutebrowser/qutebrowser) | keyboard-driven, vim-like browser (best my opinion)         |
 |                 [secrets](https://apps.gnome.org/Secrets) | manage your .kdbx vaults with libadwaita                    |
+|                        [keepASSxc](https://keepassxc.org) | fork keepassx with additionals                              |
 |       [syncthing](https://github.com/syncthing/syncthing) | synchronize folders/files via devices                       |
 |                [libreoffice](https://www.libreoffice.org) | office suite                                                |
 |             [vesktop](https://github.com/Vencord/Vesktop) | wayland Discord client                                      |

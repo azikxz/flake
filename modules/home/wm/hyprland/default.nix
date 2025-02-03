@@ -1,6 +1,5 @@
 {
   x,
-  inputs,
   pkgs,
   lib,
   config,
@@ -20,7 +19,6 @@ in
     };
   };
 
-  imports = with inputs; [ hyprland.homeManagerModules.default ];
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = on // {
       xwayland = on;

@@ -25,7 +25,7 @@ let
   args = { inherit x inputs; };
   x =
     import ./options.nix { inherit inputs pkgs lib; }
-    // import ./newOpt.nix { inherit lib; }
+    // import ./mkOpt.nix { inherit lib; }
     // {
       inherit
         pass

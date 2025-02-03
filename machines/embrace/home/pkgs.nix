@@ -13,9 +13,6 @@ in
       libreoffice-fresh
       komikku
 
-      gnome-secrets
-      keepassxc
-
       wineWow64Packages.stagingFull
       mindustry-wayland
       srb2

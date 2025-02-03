@@ -25,6 +25,7 @@ in
       };
       gui = {
         chromium = on;
+        keepass = on;
         minecraft = off;
         mpv = on;
         obs = off;

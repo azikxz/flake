@@ -1,35 +1,5 @@
 <div align="center"> <h1>❄️【 NIXOS FLAKE DOTFILES 】❄️</h1> </div>
 
-mirrors: [git.sr.ht](https://git.sr.ht/~neverness/ultima) [sij.ai](https://sij.ai/uwugdeeee/ultima)
-
-### GUIDE FOR CREATE OWN MACHINE & HOME
-
-1. Create directory with your [hostName](./machines/jetpure) in [flakeDir](./)
-
-2. Create [default.nix](./machines/jetpure/default.nix) in [flakeDir/hostName](./machines/jetpure)
-
-- Fill it with: [example](./machines/embrace/default.nix)
-
-  ```nix
-     { inputs, lib, ... }:
-     {
-       flake = import ../../libx {
-         inherit inputs lib;
-         # variables
-         hostName = "pantheon"; # hostName is ~/flakeDir/hostName
-         userName = "arthemida"; # userName
-         flakeDir = "/persist/flake"; # flakeDir
-         is = "desktop"; # for laptop | desktop | server
-         # ricing
-         theme = "chanivibes"; # from inputs.design.base16
-         image = "default"; # from inputs.design.wallpapers
-         # sys
-         plfrm = "x86_64-linux"; # your architecture
-         ver = "24.05"; # stateVersion
-       };
-     }
-  ```
-
 <details>
   <summary>Software</summary>
 
@@ -103,6 +73,34 @@ mirrors: [git.sr.ht](https://git.sr.ht/~neverness/ultima) [sij.ai](https://sij.a
 - IDK WHAT ALSO DUDES
 
 </details>
+
+### GUIDE FOR CREATE OWN MACHINE & HOME
+
+1. Create directory with your [hostName](./machines/jetpure) in [flakeDir](./)
+
+2. Create [default.nix](./machines/jetpure/default.nix) in [flakeDir/hostName](./machines/jetpure)
+
+- Fill it with: [example](./machines/embrace/default.nix)
+
+  ```nix
+     { inputs, lib, ... }:
+     {
+       flake = import ../../libx {
+         inherit inputs lib;
+         # variables
+         hostName = "pantheon"; # hostName is ~/flakeDir/hostName
+         userName = "arthemida"; # userName
+         flakeDir = "/persist/flake"; # flakeDir
+         is = "desktop"; # for laptop | desktop | server
+         # ricing
+         theme = "chanivibes"; # from inputs.design.base16
+         image = "default"; # from inputs.design.wallpapers
+         # sys
+         plfrm = "x86_64-linux"; # your architecture
+         ver = "24.05"; # stateVersion
+       };
+     }
+  ```
 
 ### PREVIEW
 

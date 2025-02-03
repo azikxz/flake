@@ -1,19 +1,14 @@
-<div align="center"> <h1>❄️【 NIXOS DOTFILES 】❄️</h1> </div>
+<div color='#7aaaff' > <h1>❄️【 NIXOS DOTFILES 】❄️</h1> </div>
 
-mirrors:
+- mirrors:
+  - [git.sr.ht](https://git.sr.ht/~neverness/ultima)
+  - [sij.ai](https://sij.ai/uwugdeeee/ultima)
 
-- [git.sr.ht](https://git.sr.ht/~neverness/ultima)
-- [sij.ai](https://sij.ai/uwugdeeee/ultima)
+> GUIDE FOR CREATE OWN MACHINE & HOME
 
-### GUIDE FOR CREATE OWN MACHINE & HOME
+1. Create directory with your [hostName](./machines/jetpure) in [flakeDir](./)
 
-1. Create directory with your _hostName_ in _flakeDir_
-
-- _flakeDir_ is flake root (example: **/persist/flake/** )
-
-2. Create _default.nix_ in ~/_flakeDir_/_hostName_/ (example: **~/flakeDir/machines/hostName/default.nix** )
-
-3. Add your **hostName** in _default.nix_ in **~/flakeDir/machines**
+2. Create [default.nix](./machines/jetpure/default.nix) in [flakeDir/hostName](./machines/jetpure)
 
 - Fill it with: [example](./machines/embrace/default.nix)
 
@@ -110,7 +105,7 @@ mirrors:
 
 </details>
 
-### PREVIEW
+> PREVIEW
 
 ![aye](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/fetch.jpg)
 
@@ -120,4 +115,4 @@ mirrors:
 
 ![aye](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/misc.jpg)
 
-> THANKS FOR [hezaki](https://codeberg.org/Hezaki/Touka), [maxmurr](https://github.com/TheMaxMur/NixOS-Configuration), [artem](https://github.com/ArtemChandragupta/NixFlake)
+> thanks for [hezaki](https://codeberg.org/Hezaki/Touka), [maxmurr](https://github.com/TheMaxMur/NixOS-Configuration), [artem](https://github.com/ArtemChandragupta/NixFlake)

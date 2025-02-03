@@ -1,10 +1,8 @@
-<div color='#7aaaff' > <h1>❄️【 NIXOS DOTFILES 】❄️</h1> </div>
+<div align="center"> <h1>❄️【 NIXOS DOTFILES 】❄️</h1> </div>
 
-- mirrors:
-  - [git.sr.ht](https://git.sr.ht/~neverness/ultima)
-  - [sij.ai](https://sij.ai/uwugdeeee/ultima)
+mirrors: [git.sr.ht](https://git.sr.ht/~neverness/ultima) [sij.ai](https://sij.ai/uwugdeeee/ultima)
 
-> GUIDE FOR CREATE OWN MACHINE & HOME
+### GUIDE FOR CREATE OWN MACHINE & HOME
 
 1. Create directory with your [hostName](./machines/jetpure) in [flakeDir](./)
 
@@ -105,14 +103,14 @@
 
 </details>
 
-> PREVIEW
+### PREVIEW
 
-![aye](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/fetch.jpg)
+![nill kiggers](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/fetch.jpg)
 
-![aye](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/brows.jpg)
+![nill kiggers](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/brows.jpg)
 
-![aye](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/btop.jpg)
+![nill kiggers](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/btop.jpg)
 
-![aye](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/misc.jpg)
+![nill kiggers](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/misc.jpg)
 
 > thanks for [hezaki](https://codeberg.org/Hezaki/Touka), [maxmurr](https://github.com/TheMaxMur/NixOS-Configuration), [artem](https://github.com/ArtemChandragupta/NixFlake)

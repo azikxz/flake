@@ -1,6 +1,4 @@
 {
-  version ? null,
-  #
   rustPlatform,
   fetchFromGitHub,
   pkg-config,
@@ -9,8 +7,8 @@
 }:
 
 rustPlatform.buildRustPackage rec {
-  inherit version;
   pname = "lowfi";
+  version = "1.5.6";
 
   src = fetchFromGitHub {
     owner = "talwat";

@@ -1,26 +1,39 @@
 {
-  x,
+  pkgs,
   lib,
   config,
   ...
 }:
-with lib;
-with x;
 let
-  cfg = config.module.shells;
+  inherit (lib) getExe;
 in
 {
-  options = {
-    module.shells = {
-      alias = mkAttrs.str { };
-      abbrs = mkAttrs.str { };
-    };
+  home.shellAliases = with pkgs; {
+    rebuild = "nh os switch";
+    # quality of life
+    e = "$EDITOR";
+    c = "clear";
+    x = "exit";
+    # nix
+    Npre = "nix store prefetch-file";
+    Nupd = "nix flake update";
+    # useful
+    ca = "cava";
+    cat = "bat";
+    pmx = "pulsemixer";
+    blt = "bluetuith";
+    icat = "kitten icat";
+    # tops
+    btop = "btop";
+    ntop = "nvtop -i";
+    # clock
+    ter = "${getExe tenki} --mode rain --wind disable --timer-color cyan -f 80";
+    tes = "${getExe tenki} --mode snow --wind disable --timer-color yellow -f 80";
+    tem = "${getExe tenki} --mode meteor --wind disable --timer-color red -f 80";
+    # translate
+    tr = "trans --brief";
   };
-
-  config = {
-    home.shellAliases = cfg.alias;
-    xdg.configFile."lutgen/stylix".text =
-      with config.lib.stylix.colors;
-      "${base00} ${base01} ${base02} ${base03} ${base04} ${base05} ${base06} ${base07} ${base08} ${base09} ${base0A} ${base0B} ${base0C} ${base0D} ${base0E} ${base0E}";
-  };
+  xdg.configFile."lutgen/stylix".text =
+    with config.lib.stylix.colors;
+    "${base00} ${base01} ${base02} ${base03} ${base04} ${base05} ${base06} ${base07} ${base08} ${base09} ${base0A} ${base0B} ${base0C} ${base0D} ${base0E} ${base0E}";
 }

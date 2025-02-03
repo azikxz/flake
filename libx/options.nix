@@ -4,14 +4,6 @@
   lib,
   ...
 }:
-let
-  def = {
-    default = false;
-  };
-  nulla = {
-    default = null;
-  };
-in
 with lib;
 with lib.types;
 import ./nixpkgs
@@ -24,6 +16,7 @@ import ./nixpkgs
   # enable = true; ++ enable = false;
   on.enable = true;
   off.enable = false;
+
   gen = type: text: lib.generators.${type} { } text;
   workspaces =
     with builtins;

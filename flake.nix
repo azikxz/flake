@@ -1,4 +1,11 @@
 {
+  description = ''
+     _  _  _        ___   ___    __  _        _        
+    | \| |(_)__ __ / _ \ / __|  / _|| | __ _ | |__ ___ 
+    | .` || |\ \ /| (_) |\__ \ |  _|| |/ _` || / // -_)
+    |_|\_||_|/_\_\ \___/ |___/ |_|  |_|\__,_||_\_\\___|
+  '';
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/release-24.11";
@@ -7,7 +14,6 @@
     hardware.url = "github:NixOS/nixos-hardware/master";
     parts.url = "github:hercules-ci/flake-parts";
     flatpak.url = "github:gmodena/nix-flatpak";
-    hyprland.url = "github:hyprwm/Hyprland";
     stylix.url = "github:danth/stylix";
 
     gaming = {

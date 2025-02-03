@@ -9,7 +9,6 @@ with lib;
 with x;
 let
   cfg = config.module.shells.fish;
-  abbrs = config.module.shells.abbrs;
 in
 {
   options = {
@@ -22,8 +21,6 @@ in
     home.packages = with pkgs; [ grc ];
     programs.fish = on // {
       package = pkgs.fish;
-      preferAbbrs = true;
-      shellAbbrs = abbrs;
       plugins = import ./plugins.nix { inherit pkgs; };
       interactiveShellInit = import ./colors.nix;
       shellInitLast =

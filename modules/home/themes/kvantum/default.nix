@@ -20,12 +20,18 @@ in
 
   config = mkIf cfg.enable (
     let
+      repo = pkgs.fetchFromGitHub {
+        owner = "bluskript";
+        repo = "stylix";
+        rev = "5ea12b9d3865ae47e71df66d4fef35f6e1b1ee5d";
+        hash = "sha256-Xz102PtwFKfz1y1CL2hmd/iYVfZALeW9QJsTHdCjBaw=";
+      };
       kvconfig = config.lib.stylix.colors {
-        template = ./kvconfig.mustache;
+        template = "${repo}/modules/qt/kvconfig.mustache";
         extension = ".kvconfig";
       };
       svg = config.lib.stylix.colors {
-        template = ./kvantum-svg.mustache;
+        template = "${repo}/modules/qt/kvantum-svg.mustache";
         extension = "svg";
       };
       kvantumPackage = pkgs.runCommandLocal "base16-kvantum" { } ''
@@ -51,23 +57,22 @@ in
         platformTheme.name = "qtct";
       };
 
-      xdg.configFile."Kvantum/kvantum.kvconfig".source =
-        (pkgs.formats.ini { }).generate "kvantum.kvconfig"
-          { General.theme = "Base16Kvantum"; };
-
-      xdg.configFile."Kvantum/Base16Kvantum".source = "${kvantumPackage}/share/Kvantum/Base16Kvantum";
-
-      xdg.configFile."qt5ct/qt5ct.conf".text = ''
-        [Appearance]
-        style=kvantum
-        icon_theme=${cfg.icon}
-      '';
-
-      xdg.configFile."qt6ct/qt6ct.conf".text = ''
-        [Appearance]
-        style=kvantum
-        icon_theme=${cfg.icon}
-      '';
+      xdg.configFile =
+        let
+          qtct = ''
+            [Appearance]
+            style=kvantum
+            icon_theme=${cfg.icon}
+          '';
+        in
+        {
+          "Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
+            General.theme = "Base16Kvantum";
+          };
+          "Kvantum/Base16Kvantum".source = "${kvantumPackage}/share/Kvantum/Base16Kvantum";
+          "qt5ct/qt5ct.conf".text = qtct;
+          "qt6ct/qt6ct.conf".text = qtct;
+        };
     }
   );
 }

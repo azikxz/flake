@@ -10,6 +10,7 @@
       ./programs/cli/helix/default.nix
       ./programs/cli/yazi/default.nix
       ./programs/gui/mpv/default.nix
+      ./shells/translate/default.nix
       ./wm/misc/waybar/default.nix
       ./wm/hyprland/default.nix
       ./shells/fish/default.nix
@@ -27,6 +28,7 @@
       ./programs/cli/helix
       ./programs/cli/yazi
       ./programs/gui/mpv
+      ./shells/translate
       ./wm/misc/waybar
       ./wm/hyprland
       ./shells/fish

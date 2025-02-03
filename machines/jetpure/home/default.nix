@@ -14,6 +14,7 @@ in
         common = on;
         cava = on;
         fetch = on;
+        figlet = on;
         helix = on;
         joshuto = off;
         legendary = on;
@@ -24,7 +25,7 @@ in
         yazi = on;
       };
       gui = {
-        chromium = on;
+        chromium = off;
         keepass = on;
         minecraft = on;
         mpv = on;
@@ -50,6 +51,7 @@ in
       fish = on;
       nushell = off;
       tmux = off;
+      translate = on;
       zsh = off;
       starship = on;
     };

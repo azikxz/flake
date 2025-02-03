@@ -31,7 +31,7 @@ in
       tlp = on // {
         settings = {
           # battery
-          START_CHARGE_THRESH_BAT0 = 80;
+          START_CHARGE_THRESH_BAT0 = 95;
           STOP_CHARGE_THRESH_BAT0 = 100;
 
           # platform

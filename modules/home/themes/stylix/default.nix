@@ -16,12 +16,7 @@ in
     module.themes.stylix = {
       enable = mkBool false;
       icon = mkStr "breeze";
-      cursor = with config.lib.stylix.colors.withHashtag; {
-        size = mkInt 12;
-        bg = mkStr "${base04}";
-        ol = mkStr "${base00}";
-        ac = mkStr "${base04}";
-      };
+      cursor.size = mkInt 12;
     };
   };
 
@@ -40,18 +35,33 @@ in
       cursor = with inputs.cursors.packages.${pkgs.system}; {
         size = cfg.cursor.size;
         name = "GoogleDot-Custom";
-        package = google-cursor.override {
-          background_color = cfg.cursor.bg;
-          outline_color = cfg.cursor.ol;
-          accent_color = cfg.cursor.ac;
-        };
+        package =
+          let
+            mode =
+              with config.lib.stylix.colors.withHashtag;
+              if x.is == "laptop" then
+                {
+                  background_color = "${base08}";
+                  outline_color = "${base00}";
+                  accent_color = "${base08}";
+                }
+              else if x.is == "desktop" then
+                {
+                  background_color = "${base0E}";
+                  outline_color = "${base00}";
+                  accent_color = "${base0E}";
+                }
+              else
+                { };
+          in
+          google-cursor.override mode;
       };
       iconTheme = on // {
         dark = "Papirus-Dark";
         light = "Papirus-Light";
         package = with pkgs; papirus-icon-theme.override { color = cfg.icon; };
       };
-      fonts = with config.stylix.fonts; {
+      fonts = rec {
         monospace = {
           name = "JetBrainsMono Nerd Font";
           package = with pkgs.nerd-fonts; jetbrains-mono;

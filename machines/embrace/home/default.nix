@@ -59,12 +59,7 @@ in
       qt = on; # QT APPS
       stylix = on // {
         icon = "adwaita";
-        cursor = with config.lib.stylix.colors.withHashtag; {
-          size = 24;
-          bg = "${base08}";
-          ol = "${base00}";
-          ac = "${base08}";
-        };
+        cursor.size = 24;
       };
     };
     wm = {

@@ -34,6 +34,7 @@ in
         tinos
         code-new-roman
         dejavu-sans-mono
+        (customPkgs "base16-preview" { })
       ];
     stylix = on // {
       autoEnable = false;

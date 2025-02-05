@@ -33,6 +33,7 @@ in
           "libvirtd"
           "terraria"
           "transmission"
+          "adbusers"
         ];
       in
       {

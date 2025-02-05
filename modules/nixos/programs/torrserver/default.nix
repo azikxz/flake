@@ -1,6 +1,5 @@
 {
   x,
-  pkgs,
   lib,
   config,
   ...
@@ -9,7 +8,7 @@ with lib;
 with x;
 let
   cfg = config.module.programs.torrserver;
-  torr = pkgs.callPackage ./package.nix { };
+  torr = x.customPkgs "torrserver" { };
 in
 {
   options = {

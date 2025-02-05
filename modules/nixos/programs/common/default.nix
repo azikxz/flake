@@ -23,8 +23,9 @@ in
       killall
     ];
     programs = {
-      fuse.userAllowOther = true;
+      adb = on;
       nano = off;
+      fuse.userAllowOther = true;
       light = if x.is == "laptop" then on else off;
       git = on // {
         package = mkDefault pkgs.gitMinimal;

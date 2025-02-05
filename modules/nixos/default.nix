@@ -3,11 +3,12 @@
   imports = x.umport {
     path = ./.;
     # include & exclude files/directories
-    include = [ ];
+    include = [
+      ./misc/users/default.nix
+    ];
     exclude = [
       ./default.nix
-      ./services/transmission/torque.nix
-      ./programs/torrserver/package.nix
+      ./misc/users
     ];
   };
 }

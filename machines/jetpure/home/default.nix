@@ -61,12 +61,7 @@ in
       kvantum = off;
       stylix = on // {
         icon = "adwaita";
-        cursor = with config.lib.stylix.colors.withHashtag; {
-          size = 16;
-          bg = "${base0E}";
-          ol = "${base00}";
-          ac = "${base0E}";
-        };
+        cursor.size = 16;
       };
     };
     wm = {

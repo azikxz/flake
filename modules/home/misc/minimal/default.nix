@@ -1,4 +1,7 @@
-{ x, ... }:
+{
+  x,
+  ...
+}:
 with x;
 {
   news.display = "silent";

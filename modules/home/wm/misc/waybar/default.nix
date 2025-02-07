@@ -23,8 +23,8 @@ in
       settings = {
         mainBar =
           let
-            ico = import ./icons;
             Tool.tooltip = false;
+            ico = import ./icons;
             wm_icons = ico.wm;
             bat_icons = ico.bat;
             light_icons = ico.light;
@@ -102,7 +102,7 @@ in
               ];
               format-wifi = "{icon} CON";
               format-ethernet = "󰈀 ETH";
-              format-disconnected = "⚠️ ERR";
+              format-disconnected = " ERR";
               on-click = "kitty nmtui";
               interval = 5;
             };

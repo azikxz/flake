@@ -6,7 +6,7 @@
 with x;
 with pkgs;
 {
-  zsh = on // {
+  ohMyZsh = on // {
     plugins = [
       "git"
       "eza"

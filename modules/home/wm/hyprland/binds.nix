@@ -9,6 +9,7 @@ with lib;
 let
   cfg = config.module.wm.hyprland;
   tee = "${pkgs.uutils-coreutils-noprefix}/bin/tee";
+  pic = "$(xdg-user-dir PICTURES)/$(date +'scr_%d-%m-%y|%H:%M:%S.png')";
   mic = ''fixf4=$(cat /sys/class/leds/platform\:\:micmute/brightness); echo $((1-fixf4)) | sudo ${tee} /sys/class/leds/platform\:\:micmute/brightness; wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'';
 in
 {
@@ -33,6 +34,7 @@ in
   # binds
   bind =
     let
+      inherit (pkgs) grimblast;
       mk =
         mod: args: cmd:
         "${toString mod} ${toString args}, ${toString cmd}";
@@ -69,6 +71,10 @@ in
       (mk "$m," "$mu" "workspace, e-1")
       (mk "$m," "$nx" "workspace, e+1")
       (mk "$m," "$pr" "workspace, e-1")
+
+      # screenshot
+      (mk null null "$PR, exec, ${getExe grimblast} copysave area   ${pic}")
+      (mk null "$s" "$PR, exec, ${getExe grimblast} copysave output ${pic}")
     ] # modules
     ++ cfg.binds
     ++ x.workspaces;

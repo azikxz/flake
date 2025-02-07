@@ -35,7 +35,7 @@ in
         dotDir = ".config/zsh";
         completionInit = "autoload -U compinit && compinit";
         # CONFIGURATION
-        oh-my-zsh = plug.zsh;
+        oh-my-zsh = plug.ohMyZsh;
         zsh-abbr = on // {
           abbreviations = abbrs;
         };

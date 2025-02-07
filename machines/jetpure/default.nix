@@ -3,7 +3,7 @@
   flake = import ../../libx {
     inherit inputs lib;
     flakeDir = "/persist/flake";
-    pass = "/persist/vault/pass.kdbx";
+    pass = "/persist/vault/passwords.kdbx";
     # variables
     hostName = "jetpure";
     userName = "nixzoid";

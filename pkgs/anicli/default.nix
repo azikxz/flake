@@ -1,6 +1,6 @@
 {
   verCli ? "5.0.12",
-  verApi ? "0.7.1",
+  verApi ? "0.7.2",
   #
   pkgs,
   fetchPypi,

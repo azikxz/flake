@@ -23,7 +23,7 @@ in
       wheelNeedsPassword = true;
       extraRules = [
         {
-          users = [ userName ];
+          users = [ sys.userName ];
           groups = [ "wheel" ];
           commands = with pkgs; [
             {

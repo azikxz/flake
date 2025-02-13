@@ -23,9 +23,7 @@
       max_width = 5000;
     };
     opener = {
-      open = [
-        { run = "xdg-open $@"; }
-      ];
+      open = [ { run = "xdg-open $@"; } ];
       edit = [
         {
           run = ''hx "$@"'';
@@ -52,11 +50,25 @@
           run = "onlyoffice-desktopeditors";
         }
       ];
-      extract = [
-        { run = ''ouch d -y "$@"''; }
+      extract = [ { run = ''ouch d -y "$@"''; } ];
+      kdbx = [
+        {
+          run = ''keepassxc $@'';
+          orphan = true;
+        }
       ];
     };
     open = {
+      prepend_rules = [
+        # kdbx
+        {
+          name = "*.kdbx";
+          use = [
+            "kdbx"
+            "reveal"
+          ];
+        }
+      ];
       rules = [
         # Folder
         {

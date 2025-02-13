@@ -14,12 +14,12 @@ in
 {
   options = {
     module.misc.users = {
-      enable = mkBool false;
+      passwd = mkStr "$6$T4HzrtblHxoBy.OJ$lHfkK82NM333C93PfFvuZZF0OfxY4.9V74.pKpYMRQiTDxkBYQn/H9Xmo40llzLkJiOauSm6hafGpDoc6AtLw.";
     };
   };
 
   imports = with inputs; [ home-manager.nixosModules.home-manager ];
-  config = mkIf cfg.enable {
+  config = {
     programs.fish = on;
     users =
       let
@@ -38,22 +38,18 @@ in
       in
       {
         defaultUserShell = pkgs.fish;
-        groups.${userName} = { };
-        users =
-          let
-            pass = "$6$i9pgNdhMRKSaq6l8$LN6X8d5315SSKUGuVEQDtmFYq2Gqal5RiAeXPfCFUERAsp1Ncq4cdN3nBO3TnmdvIUBS46fhU3Py0wi0v36R81";
-          in
-          {
-            ${userName} = {
-              uid = 1000;
-              home = "/home/${userName}";
-              createHome = true;
-              isNormalUser = true;
-              extraGroups = grp;
-              initialHashedPassword = pass;
-            };
-            root.initialHashedPassword = pass;
+        groups.${sys.userName} = { };
+        users = {
+          ${sys.userName} = {
+            uid = 1000;
+            home = "/home/${sys.userName}";
+            createHome = true;
+            isNormalUser = true;
+            extraGroups = grp;
+            initialHashedPassword = cfg.passwd;
           };
+          root.initialHashedPassword = cfg.passwd;
+        };
       };
   };
 }

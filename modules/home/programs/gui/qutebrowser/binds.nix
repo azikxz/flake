@@ -17,7 +17,7 @@ in
     ",m" = "spawn mpv {url}";
     ",M" = "hint links spawn mpv {hint-url}";
     # keepassxc
-    ",p" = "spawn --userscript qute-keepass -p ${x.pass}";
+    ",p" = "spawn --userscript qute-keepass -p ${x.path.pass}";
     # transPopup
     ",t" = "spawn --userscript ${translate}/exe -s en -t ru";
     ",T" = "spawn --userscript ${tranPopup}/exe --target_lang ru";

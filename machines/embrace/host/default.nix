@@ -50,11 +50,9 @@ in
     misc = {
       console = off;
       locales.zone = "Asia/Chita";
-      minimal = on;
       protonmail = off;
       security = on;
       terraria = off;
-      users = on;
       variables = on;
     };
   };

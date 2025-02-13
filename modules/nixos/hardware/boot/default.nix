@@ -22,7 +22,6 @@ in
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
   config = mkIf cfg.enable {
     boot = {
-      # ITSELF LOL
       tmp.cleanOnBoot = true;
       kernelModules = [ "kvm-amd" ];
       consoleLogLevel = 0;
@@ -43,7 +42,6 @@ in
         "psmouse.synaptics_intertouch=0"
       ];
       initrd = {
-        # IDK
         compressor = "zstd";
         compressorArgs = [ "-9" ];
         verbose = false;

@@ -1,17 +1,21 @@
-{ inputs, lib, ... }:
+{ inputs, ... }:
 {
   flake = import ../../libx {
-    inherit inputs lib;
-    flakeDir = "/persist/flake";
-    pass = "/persist/vault/passwords.kdbx";
-    # variables
-    hostName = "jetpure";
-    userName = "nixzoid";
-    is = "desktop";
-    # customize
-    theme = "paradise";
-    image = "lampa";
-    # sys info
-    ver = "24.05";
+    inherit inputs;
+    path = {
+      flakeDir = "/persist/flake";
+      pass = "/persist/vault/passwords.kdbx";
+    };
+    sys = {
+      hostName = "jetpure";
+      userName = "nixzoid";
+      is = "desktop";
+      platform = "x86_64-linux";
+      ver = "24.05";
+    };
+    styl = {
+      theme = "paradise";
+      image = "lampa";
+    };
   };
 }

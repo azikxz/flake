@@ -6,6 +6,7 @@
   fetchPypi,
   python3Packages,
 }:
+
 python3Packages.buildPythonApplication rec {
   pname = "anicli_ru";
   version = verCli;

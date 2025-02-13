@@ -19,7 +19,6 @@
         (m "$tb" "tofi-drun | xargs hyprctl dispatch exec -- ")
         (s "$tb" "tofi-drun -c ~/.config/tofi/horizontal | xargs hyprctl dispatch exec -- ")
         (s "$sp" "killall -SIGUSR1 .waybar-wrapped")
-        (s "$sp" "killall -SIGUSR1 .waybar-wrapped")
 
         # programs
         (m "$rt" "kitty")

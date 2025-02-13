@@ -7,7 +7,7 @@
 with lib;
 with x;
 let
-  styl = config.lib.stylix.colors.withHashtag;
+  stylex = config.lib.stylix.colors.withHashtag;
   cfg = config.module.wm.misc.tofi;
   font = config.stylix.fonts;
 in
@@ -20,7 +20,7 @@ in
 
   config = mkIf cfg.enable {
     programs.tofi = on // {
-      settings = with styl; {
+      settings = with stylex; {
         history = false;
         hide-cursor = true;
         text-cursor = true;
@@ -46,7 +46,7 @@ in
       };
     };
     xdg.configFile."tofi/horizontal".text =
-      with styl;
+      with stylex;
       # conf
       ''
         history = false

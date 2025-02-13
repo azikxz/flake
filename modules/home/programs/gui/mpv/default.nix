@@ -48,9 +48,9 @@ in
         glsl-shaders =
           let
             mk =
-              if x.is == "laptop" then
+              if x.sys.is == "laptop" then
                 "${anime4k}/Anime4K_Clamp_Highlights.glsl:${anime4k}/Anime4K_Restore_CNN_Soft_M.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_M.glsl:${anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_S.glsl"
-              else if x.is == "desktop" then
+              else if x.sys.is == "desktop" then
                 "${anime4k}/Anime4K_Clamp_Highlights.glsl:${anime4k}/Anime4K_Restore_CNN_VL.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_VL.glsl:${anime4k}/Anime4K_Restore_CNN_M.glsl:${anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_M.glsl"
               else
                 null;
@@ -60,9 +60,9 @@ in
       extraInput =
         let
           mk =
-            if x.is == "laptop" then
+            if x.sys.is == "laptop" then
               (import ./anime4k/laptop.nix { inherit pkgs; })
-            else if x.is == "desktop" then
+            else if x.sys.is == "desktop" then
               (import ./anime4k/desktop.nix { inherit pkgs; })
             else
               null;

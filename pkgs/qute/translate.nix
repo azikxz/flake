@@ -1,8 +1,8 @@
 {
   stdenv,
   fetchFromGitHub,
-  python313Packages,
 }:
+
 stdenv.mkDerivation {
   name = "translate";
 

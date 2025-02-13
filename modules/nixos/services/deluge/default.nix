@@ -20,7 +20,7 @@ in
   config = mkIf cfg.enable {
     services.deluge = on // {
       package = pkgs.deluged;
-      dataDir = "/home/${userName}/Torrents";
+      dataDir = "/home/${sys.userName}/Torrents";
       web = on // {
         openFirewall = true;
       };

@@ -77,7 +77,7 @@ in
       (mk null "$s" "$PR, exec, ${getExe grimblast} copysave output ${pic}")
     ] # modules
     ++ cfg.binds
-    ++ x.workspaces;
+    ++ x.wm.workspaces;
 
   # HOLDING BUTTONS
   binde =

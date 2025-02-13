@@ -19,6 +19,7 @@ in
   config = mkIf cfg.enable {
     xdg.configFile = {
       "qBittorrent/themes/default/config.json".text = x.gen "toJSON" {
+        "version" = 2;
         "colors.dark" = {
           "Log.BannedPeer" = "#b66467";
           "Log.Critical" = "#b66467";
@@ -44,7 +45,6 @@ in
           "TransferList.StalledUploading" = "#bbb6b6";
           "TransferList.Uploading" = "#bbb6b6";
         };
-        "version" = 2;
       };
     };
   };

@@ -32,7 +32,7 @@ in
             config
             ;
         }
-        // import ./rules.nix { inherit x lib config; }
+        // import ./rules.nix { inherit config; }
         // import ./sets.nix {
           inherit
             x

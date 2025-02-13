@@ -20,12 +20,12 @@ in
   config = mkIf cfg.enable {
     programs.git = on // {
       package = pkgs.gitMinimal;
-      userName = userName;
-      userEmail = "${userName}@${hostName}.org";
+      userName = sys.userName;
+      userEmail = "${sys.userName}@${sys.hostName}.org";
       extraConfig = {
         color.ui = true;
         init.defaultBranch = "main";
-        safe.directory = flakeDir;
+        safe.directory = path.flakeDir;
       };
     };
   };

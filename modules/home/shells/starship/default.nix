@@ -71,7 +71,7 @@ in
           vimcmd_replace_symbol = "[R](bold purple)";
           vimcmd_visual_symbol = "[V](bold yellow)";
         };
-        battery = mkIf (is == "laptop") {
+        battery = mkIf (x.sys.is == "laptop") {
           format = "[$symbol $percentage]($style)";
           full_symbol = "󰁹";
           charging_symbol = "󰂄";

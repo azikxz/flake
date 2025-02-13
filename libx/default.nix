@@ -1,51 +1,43 @@
 {
   inputs,
-  lib,
-  # lol
-  pass ? "~/passwords.kdbx",
-  # variables
-  hostName ? "sus",
-  userName ? "amogus",
-  flakeDir ? "/etc/nixos",
-  is ? null,
-  # customize
-  theme ? "horizon-dark",
-  image ? "train",
-  # sys info
-  plfrm ? "x86_64-linux",
-  ver ? "24.05",
+  path ? {
+    pass = null;
+    flakeDir = "/etc/nixos";
+  },
+  sys ? {
+    hostName = "starship";
+    userName = "amogus";
+    is = null;
+    platform = "x86_64-linux";
+    ver = "24.05";
+  },
+  styl ? {
+    theme = "horizon-dark";
+    image = "train";
+  },
   ...
 }:
 let
   # OTHER
-  pkgs = inputs.nixpkgs.legacyPackages.${plfrm};
+  pkgs = nixpkgs.legacyPackages.${sys.platform};
   inherit (inputs) home-manager nixpkgs;
-  inherit (nixpkgs.lib) nixosSystem;
+  inherit (nixpkgs) lib;
   # NEEDS
   args = { inherit x inputs; };
   x =
     import ./options.nix { inherit inputs pkgs lib; }
     // import ./mkOpt.nix { inherit lib; }
     // {
-      inherit
-        pass
-        # variables
-        hostName
-        userName
-        flakeDir
-        is
-        # customize
-        theme
-        image
-        # sys info
-        plfrm
-        ver
-        ;
+      inherit path sys styl;
     };
 
   mk =
     n:
     let
+      mod = ../modules/${n};
+      modEx = builtins.pathExists mod;
+      mac = ../machines/${sys.hostName}/${type};
+      macEx = builtins.pathExists mac;
       type =
         if n == "nixos" then
           "host"
@@ -54,15 +46,12 @@ let
         else
           "";
     in
-    [
-      ../modules/${n}
-      ../machines/${hostName}/${type}
-    ];
+    [ ] ++ lib.optional modEx mod ++ lib.optional macEx mac;
 in
 # configurations
 {
   formatter = pkgs.nixfmt-rfc-style;
-  nixosConfigurations.${hostName} = nixosSystem {
+  nixosConfigurations.${sys.hostName} = lib.nixosSystem {
     specialArgs = args;
     modules = [
       home-manager.nixosModules.home-manager
@@ -72,12 +61,12 @@ in
           extraSpecialArgs = args;
           useGlobalPkgs = true;
           useUserPackages = true;
-          users.${userName} = {
+          users.${sys.userName} = {
             imports = mk "home";
             home = {
-              username = userName;
-              stateVersion = ver;
-              homeDirectory = "/home/${userName}";
+              username = sys.userName;
+              stateVersion = sys.ver;
+              homeDirectory = "/home/${sys.userName}";
             };
           };
         };

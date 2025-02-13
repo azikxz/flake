@@ -1,31 +1,18 @@
 {
   x,
   lib,
-  config,
   ...
 }:
-with lib;
-with x;
 let
-  cfg = config.module.misc.minimal;
-  nahuy = mkDefault off;
+  nahuy = lib.mkDefault x.off;
 in
 {
-  options = {
-    module.misc.minimal = {
-      enable = mkBool false;
-    };
-  };
-
-  config = mkIf cfg.enable {
-    programs.command-not-found = nahuy;
-    documentation = off // {
-      # DISABLE MAN AND GUIDES
-      dev = nahuy;
-      doc = nahuy;
-      info = nahuy;
-      man = nahuy;
-      nixos = nahuy;
-    };
+  programs.command-not-found = nahuy;
+  documentation = x.off // {
+    dev = nahuy;
+    doc = nahuy;
+    info = nahuy;
+    man = nahuy;
+    nixos = nahuy;
   };
 }

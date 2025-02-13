@@ -17,8 +17,8 @@ import ./nixpkgs
   on.enable = true;
   off.enable = false;
 
-  gen = type: text: lib.generators.${type} { } text;
-  workspaces =
+  gen = type: text: lib.generators.${toString type} { } text;
+  wm.workspaces =
     with builtins;
     (concatLists (
       genList (

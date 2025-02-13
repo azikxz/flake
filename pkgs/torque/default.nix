@@ -1,4 +1,8 @@
-{ stdenv, fetchurl }:
+{
+  stdenv,
+  fetchurl,
+}:
+
 stdenv.mkDerivation {
   name = "torque";
   dontUnpack = true;

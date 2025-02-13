@@ -44,7 +44,7 @@ in
             background-color = "gray";
           };
           "${gn}/World/Secrets/last-opened-database" = {
-            last-opened-database = "file://${x.pass}";
+            last-opened-database = "file://${x.path.pass}";
             generator-length = 24;
             generator-use-numbers = true;
           };

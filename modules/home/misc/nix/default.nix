@@ -12,11 +12,11 @@ with x;
         "flakes"
       ];
       trusted-users = [
-        "${userName}"
+        "${sys.userName}"
         "@wheel"
       ];
-      extra-substituters = x.substituters;
-      extra-trusted-public-keys = x.keys;
+      extra-substituters = x.nix.substituters;
+      extra-trusted-public-keys = x.nix.keys;
       builders-use-substitutes = true;
       auto-optimise-store = true;
     };

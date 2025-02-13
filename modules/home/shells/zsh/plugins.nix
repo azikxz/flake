@@ -3,10 +3,9 @@
   pkgs,
   ...
 }:
-with x;
 with pkgs;
 {
-  ohMyZsh = on // {
+  ohMyZsh = x.on // {
     plugins = [
       "git"
       "eza"

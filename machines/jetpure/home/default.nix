@@ -1,4 +1,4 @@
-{ x, config, ... }:
+{ x, ... }:
 let
   inherit (x) on off umport;
 in

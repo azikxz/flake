@@ -205,7 +205,7 @@ with x;
           "f"
           "f"
         ];
-        run = "cd ${flakeDir}";
+        run = "cd ${path.flakeDir}";
         desc = "Go to flake main dir";
       }
       {
@@ -214,7 +214,7 @@ with x;
           "f"
           "h"
         ];
-        run = "cd ${flakeDir}/modules/home";
+        run = "cd ${path.flakeDir}/modules/home";
         desc = "Go to home modules";
       }
       {
@@ -223,7 +223,7 @@ with x;
           "f"
           "H"
         ];
-        run = "cd ${flakeDir}/modules/host";
+        run = "cd ${path.flakeDir}/modules/host";
         desc = "Go to nixos modules";
       }
       {

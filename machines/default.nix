@@ -2,5 +2,6 @@
   imports = [
     ./embrace
     ./jetpure
+    ./nixtended
   ];
 }

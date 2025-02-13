@@ -40,20 +40,24 @@ in
           let
             mode =
               with config.lib.stylix.colors.withHashtag;
-              if x.is == "laptop" then
+              if x.sys.is == "laptop" then
                 {
                   background_color = "${base08}";
                   outline_color = "${base00}";
                   accent_color = "${base08}";
                 }
-              else if x.is == "desktop" then
+              else if x.sys.is == "desktop" then
                 {
                   background_color = "${base0E}";
                   outline_color = "${base00}";
                   accent_color = "${base0E}";
                 }
               else
-                { };
+                {
+                  background_color = "${base00}";
+                  outline_color = "${base05}";
+                  accent_color = "${base05}";
+                };
           in
           google-cursor.override mode;
       };

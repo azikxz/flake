@@ -26,13 +26,13 @@ in
       adb = on;
       nano = off;
       fuse.userAllowOther = true;
-      light = if x.is == "laptop" then on else off;
+      light = if x.sys.is == "laptop" then on else off;
       git = on // {
         package = mkDefault pkgs.gitMinimal;
       };
-      ryzen-monitor-ng = if x.is == "desktop" then on else off;
+      ryzen-monitor-ng = if x.sys.is == "desktop" then on else off;
       nh = on // {
-        flake = flakeDir;
+        flake = path.flakeDir;
       };
     };
   };

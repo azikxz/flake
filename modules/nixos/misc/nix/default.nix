@@ -20,20 +20,19 @@ in
         "flakes"
       ];
       trusted-users = [
-        "${userName}"
+        "${sys.userName}"
         "@wheel"
       ];
-      substituters = x.substituters;
-      trusted-public-keys = x.keys;
+      substituters = x.nix.substituters;
+      trusted-public-keys = x.nix.keys;
     };
   };
   nixpkgs = {
-    overlays = x.overlays;
-    hostPlatform = mkDefault plfrm;
+    hostPlatform = mkDefault sys.platform;
     config = {
       allowBroken = true;
       allowUnfree = true;
     };
   };
-  system.stateVersion = ver;
+  system.stateVersion = sys.ver;
 }

@@ -1,8 +1,9 @@
 {
   x,
+  inputs,
+  pkgs,
   lib,
   config,
-  inputs,
   ...
 }:
 with lib;
@@ -23,7 +24,16 @@ in
     stylix = on // {
       # COLORIZE !!!
       autoEnable = false;
-      base16Scheme = "${base16}/${x.theme}.yaml";
+      image = import ./image.nix {
+        inherit
+          x
+          inputs
+          pkgs
+          lib
+          config
+          ;
+      };
+      base16Scheme = "${base16}/${x.styl.theme}.yaml";
       targets = {
         console = on; # TTY
         chromium = on; # TTY

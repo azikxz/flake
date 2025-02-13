@@ -9,6 +9,7 @@ in
 {
   module.programs = {
     gui.pkgs = with pkgs; [
+      portablemc
       vesktop
       qbittorrent-enhanced
       filezilla

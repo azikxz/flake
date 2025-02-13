@@ -18,11 +18,11 @@ in
 
   config =
     let
-      ON = if cfg.zone != null then on else off;
+      time = if x.sys.is == "iso" then null else cfg.zone;
     in
     {
-      time.timeZone = cfg.zone; # TIME
-      services.chrony = ON; # SYNC TIME
+      time.timeZone = time; # TIME
+      services.chrony = on; # SYNC TIME
       i18n.defaultLocale = "en_US.UTF-8";
     };
 }

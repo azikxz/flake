@@ -18,7 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.getty.autologinUser = userName; # AUTOLOGIN
+    services.getty.autologinUser = sys.userName; # AUTOLOGIN
     boot = {
       kernelPackages = with pkgs; linuxPackages_zen;
       loader = {
@@ -29,7 +29,7 @@ in
       };
     };
     networking = {
-      hostName = hostName;
+      hostName = sys.hostName;
       useDHCP = mkDefault true;
       nameservers = [
         "::1"

@@ -26,9 +26,9 @@ in
       shellInitLast =
         let
           winman =
-            if x.is == "desktop" then
+            if x.sys.is == "desktop" then
               "Hyprland"
-            else if x.is == "laptop" then
+            else if x.sys.is == "laptop" then
               "Hyprland"
             else
               "fastfetch";
@@ -48,7 +48,7 @@ in
           set -g tide_right_prompt_items cmd_duration
           set -g tide_cmd_duration_icon 
           set -g tide_cmd_duration_threshold 1000
-          set -g tide_pwd_icon_home "home of user ${userName}"
+          set -g tide_pwd_icon_home "home of user ${sys.userName}"
           set -g tide_pwd_icon 󰋜
 
           set -g tide_pwd_icon_unwritable 󰌾

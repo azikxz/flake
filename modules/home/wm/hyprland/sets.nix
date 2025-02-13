@@ -23,9 +23,9 @@ with config.lib.stylix.colors;
     ]
     ++ cfg.autostart;
   monitor =
-    if x.is == "desktop" then
+    if x.sys.is == "desktop" then
       "eDP-1, 1920x1080@60, 0x0, 1.2, transform, 0"
-    else if x.is == "laptop" then
+    else if x.sys.is == "laptop" then
       "eDP-1, 1920x1080@60, 0x0, 1, transform, 0"
     else
       "eDP-1, 1920x1080@60, 0x0, 1, transform, 0";

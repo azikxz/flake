@@ -2,9 +2,11 @@
   fetchPypi,
   python3Packages,
 }:
+
 let
   setup = with python3Packages; [ setuptools ];
 in
+
 python3Packages.buildPythonApplication rec {
   pname = "chompjs";
   version = "1.3.0";

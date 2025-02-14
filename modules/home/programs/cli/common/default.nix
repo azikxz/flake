@@ -21,6 +21,8 @@ in
       bat = on;
       eza = on;
       fd = on;
+      fzf = on;
+      git = on;
       ripgrep = on;
       zoxide = on;
     };

@@ -18,18 +18,18 @@
   ...
 }:
 let
-  # OTHER
+  # inherits and pkgs/lib
   pkgs = nixpkgs.legacyPackages.${sys.platform};
   inherit (inputs) home-manager nixpkgs;
   inherit (nixpkgs) lib;
-  # NEEDS
+  # base, foundament
   args = { inherit x inputs; };
   x =
-    import ./options.nix { inherit inputs pkgs lib; }
-    // import ./mkOpt.nix { inherit lib; }
-    // {
+    {
       inherit path sys styl;
-    };
+    }
+    // import ./options.nix { inherit inputs pkgs lib; }
+    // import ./mkOpt.nix { inherit lib; };
 
   mk =
     n:

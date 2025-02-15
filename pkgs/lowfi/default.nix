@@ -1,30 +1,42 @@
 {
+  lib,
   rustPlatform,
   fetchFromGitHub,
   pkg-config,
   openssl,
+  stdenv,
+  darwin,
   alsa-lib,
 }:
 
-rustPlatform.buildRustPackage rec {
+rustPlatform.buildRustPackage {
   pname = "lowfi";
-  version = "1.5.6";
+  version = "unstable-2025-02-15";
 
   src = fetchFromGitHub {
     owner = "talwat";
     repo = "lowfi";
-    rev = version;
-    hash = "sha256-lR22UN9LiuJknq2KTNOXcybXwi2KvLRe0KHocFWL0GM=";
+    rev = "923ac05cf87c17c4283a25a25ca65d33e1693457";
+    hash = "sha256-U4rTOkkEN6M2lKEXuf+xicEA2WVTqifuOpeZqFpzOEc=";
   };
 
-  cargoHash = "sha256-lH/8n0NcGl+EagE3o9K/+wB47h4a4CwBWsZWFcoMxG0=";
+  cargoHash = "sha256-lPr/qNlTBn+o/VLhqBF6mGiGf+YuSDpW44GdudmGtI4=";
+
   nativeBuildInputs = [
     pkg-config
     rustPlatform.bindgenHook
   ];
 
-  buildInputs = [
-    openssl
-    alsa-lib
-  ];
+  buildInputs =
+    [
+      openssl
+    ]
+    ++ lib.optionals stdenv.isDarwin [
+      darwin.apple_sdk.frameworks.CoreAudio
+      darwin.apple_sdk.frameworks.Security
+      darwin.apple_sdk.frameworks.SystemConfiguration
+    ]
+    ++ lib.optionals stdenv.isLinux [
+      alsa-lib
+    ];
 }

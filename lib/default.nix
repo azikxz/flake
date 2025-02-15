@@ -4,10 +4,19 @@
 }@inputs:
 
 let
+  inherit (inputs) nixpkgs;
+  pkgs = nixpkgs.legacyPackages.x86_64-linux;
   build = import ./builder { inherit self inputs; };
 in
 
 {
-  formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
   nixosConfigurations = build (import "${self}/machines");
+  formatter =
+    let
+      mk = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        "x86_64-darwin"
+      ];
+    in
+    mk (system: pkgs.nixfmt-rfc-style);
 }

@@ -10,8 +10,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/release-24.11";
-
     impermanence.url = "github:nix-community/impermanence";
     hardware.url = "github:NixOS/nixos-hardware/master";
     flatpak.url = "github:gmodena/nix-flatpak";
@@ -19,10 +17,6 @@
 
     gaming = {
       url = "github:fufexan/nix-gaming";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nur = {
-      url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home = {
@@ -49,10 +43,10 @@
     base16 = {
       url = "sourcehut:~neverness/design/base16";
       flake = false;
-    }; # base16
+    };
     wallpapers = {
       url = "sourcehut:~neverness/design/wallpapers";
       flake = false;
-    }; # wallpapers
+    };
   };
 }

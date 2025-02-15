@@ -11,6 +11,7 @@ python3Packages.buildPythonApplication rec {
   pname = "chompjs";
   version = "1.3.0";
   pyproject = true;
+
   build-system = setup;
   dependencies = setup;
 

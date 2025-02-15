@@ -1,16 +1,17 @@
 {
-  x,
   pkgs,
   lib,
   config,
   modulesPath,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.hardware.boot;
 in
+
 {
   options = {
     module.hardware.boot = {

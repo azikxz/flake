@@ -1,8 +1,10 @@
 {
-  x,
+  lib,
   ...
 }:
-with x;
+
+with lib.x;
+
 {
   news.display = "silent";
   programs.man = off;

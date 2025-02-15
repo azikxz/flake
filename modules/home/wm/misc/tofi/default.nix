@@ -1,9 +1,9 @@
 {
-  x,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
@@ -11,6 +11,7 @@ let
   cfg = config.module.wm.misc.tofi;
   font = config.stylix.fonts;
 in
+
 {
   options = {
     module.wm.misc.tofi = {

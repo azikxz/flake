@@ -1,14 +1,15 @@
 {
-  x,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.services.printing;
 in
+
 {
   options = {
     module.services.printing = {

@@ -1,8 +1,13 @@
-{ lib, config }:
+{
+  lib,
+  config,
+}:
+
 let
   cfg = config.module.programs.gui.qutebrowser;
   f = lib.mkForce;
 in
+
 {
   quickmarks = cfg.quickmarks;
   settings = {

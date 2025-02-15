@@ -1,14 +1,15 @@
 {
-  x,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.misc.dconf;
 in
+
 {
   options.module.misc.dconf = {
     enable = mkBool false;

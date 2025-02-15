@@ -1,15 +1,16 @@
 {
-  x,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.wm.misc.mako;
   font = config.stylix.fonts;
 in
+
 {
   options = {
     module.wm.misc.mako = {

@@ -1,8 +1,9 @@
 {
-  x,
+  lib,
   inputs,
   ...
 }:
+
 {
   imports = with inputs; [ impermanence.nixosModules.impermanence ];
   environment.persistence."/persist/system" = {
@@ -26,7 +27,7 @@
       }
     ];
     files = [ "/etc/machine-id" ];
-    users.${x.userName} = {
+    users.${lib.x.sys.userName} = {
       directories =
         let
           mode = "0777";

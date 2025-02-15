@@ -1,14 +1,15 @@
 {
-  x,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.programs.gui.qbittorrent;
 in
+
 {
   options = {
     module.programs.gui.qbittorrent = {

@@ -1,16 +1,17 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   inherit (pkgs) mpvScripts anime4k;
   cfg = config.module.programs.gui.mpv;
 in
+
 {
   options = {
     module.programs.gui.mpv = {

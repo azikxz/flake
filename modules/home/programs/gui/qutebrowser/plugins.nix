@@ -2,9 +2,11 @@
   pkgs,
   ...
 }:
+
 let
   inherit (pkgs) fetchurl;
 in
+
 [
   (fetchurl {
     url = "https://raw.githubusercontent.com/afreakk/greasemonkeyscripts/refs/heads/master/youtube_sponsorblock.js";

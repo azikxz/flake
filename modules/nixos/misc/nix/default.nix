@@ -1,5 +1,4 @@
 {
-  x,
   pkgs,
   lib,
   ...
@@ -10,6 +9,7 @@ with x;
 let
   inherit (pkgs) nix;
 in
+
 {
   nix = {
     package = nix;

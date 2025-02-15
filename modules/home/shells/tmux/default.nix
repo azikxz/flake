@@ -1,15 +1,16 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.shells.tmux;
 in
+
 {
   options = {
     module.shells.tmux = {
@@ -19,7 +20,7 @@ in
 
   config = mkIf cfg.enable {
     programs.tmux = on // {
-      shell = pkgs: "${fish}/bin/fish";
+      shell = "${getExe fish}";
       clock24 = true;
       keyMode = "vi";
       disableConfirmationPrompt = true;

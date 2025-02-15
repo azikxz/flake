@@ -1,15 +1,16 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.wm.misc.flameshot;
 in
+
 {
   options = {
     module.wm.misc.flameshot = {

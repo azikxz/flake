@@ -1,15 +1,16 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.programs.cli.rustmission;
 in
+
 {
   options = {
     module.programs.cli.rustmission = {

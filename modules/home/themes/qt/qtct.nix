@@ -3,6 +3,7 @@
   config,
   ...
 }:
+
 let
   inherit (config.home) homeDirectory;
   inherit (pkgs.libsForQt5) qt5ct;
@@ -45,6 +46,7 @@ let
         ignored_applications=@Invalid()
     '';
 in
+
 {
   "qt5ct/qt5ct.conf".text = mk qt5ct "qt5ct";
   "qt6ct/qt6ct.conf".text = mk qt6ct "qt6ct";

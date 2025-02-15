@@ -27,6 +27,7 @@ let
     ${pag}_progress     ${bg}=magenta black
   '';
 in
+
 ''
   ${colors}
   ${pager}

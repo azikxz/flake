@@ -1,8 +1,10 @@
 {
-  x,
+  lib,
   ...
 }:
-with x;
+
+with lib.x;
+
 {
   manager = {
     prepend_keymap = [
@@ -16,6 +18,11 @@ with x;
         on = [ "l" ];
         run = "plugin smart-enter";
         desc = "Enter/open";
+      }
+      {
+        on = [ "F" ];
+        run = "plugin jump-to-char";
+        desc = "Jump to char";
       }
       {
         on = [ "!" ];
@@ -276,6 +283,11 @@ with x;
         '';
         desc = "Yank files systemly";
       }
+      {
+        on = [ "U" ];
+        run = "plugin wl-clipboard";
+        desc = "Yank files to wl-clip";
+      }
 
       # paste
       {
@@ -300,7 +312,15 @@ with x;
           "f"
         ];
         run = "plugin paste-file";
-        desc = "Create new file from clipboard";
+        desc = "Paste file";
+      }
+      {
+        on = [
+          "p"
+          "F"
+        ];
+        run = "plugin paste-file --args='quiet'";
+        desc = "Paste file quiet";
       }
       {
         on = [

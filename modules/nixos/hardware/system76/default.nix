@@ -1,14 +1,15 @@
 {
-  x,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.hardware.system76;
 in
+
 {
   options = {
     module.hardware.system76 = {

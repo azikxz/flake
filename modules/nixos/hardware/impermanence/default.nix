@@ -1,21 +1,22 @@
 {
-  x,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.hardware.impermanence;
   dev =
-    if x.is == "laptop" then
+    if x.sys.is == "laptop" then
       "/dev/pool/root"
-    else if x.is == "desktop" then
+    else if x.sys.is == "desktop" then
       "/dev/pool/root"
     else
       null;
 in
+
 {
   options = {
     module.hardware.impermanence = {

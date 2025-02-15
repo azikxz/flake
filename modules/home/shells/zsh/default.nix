@@ -1,16 +1,17 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.shells.zsh;
   abbrs = config.module.shells.abbrs;
 in
+
 {
   options = {
     module.shells.zsh = {
@@ -21,7 +22,7 @@ in
   config = mkIf cfg.enable {
     programs.zsh =
       let
-        plug = import ./plugins.nix { inherit x pkgs; };
+        plug = import ./plugins.nix { inherit lib pkgs; };
       in
       with pkgs;
       on

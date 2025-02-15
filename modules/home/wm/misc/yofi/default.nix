@@ -1,10 +1,10 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
@@ -12,6 +12,7 @@ let
   font = config.stylix.fonts;
   icon = config.gtk.iconTheme.name;
 in
+
 {
   options = {
     module.wm.misc.yofi = {

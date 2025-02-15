@@ -1,14 +1,15 @@
 {
-  x,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.wm.misc.nwg;
 in
+
 {
   options = {
     module.wm.misc.nwg = {

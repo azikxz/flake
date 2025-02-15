@@ -1,15 +1,16 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.programs.gui.qutebrowser;
 in
+
 {
   options = {
     module.programs.gui.qutebrowser = {
@@ -31,7 +32,7 @@ in
       on
       // import ./sets.nix { inherit lib config; }
       // {
-        keyBindings = import ./binds.nix { inherit x; };
+        keyBindings = import ./binds.nix { inherit lib; };
         greasemonkey = import ./plugins.nix { inherit pkgs; };
       };
   };

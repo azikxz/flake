@@ -1,16 +1,17 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 let
-  inherit (lib) mkForce;
+  inherit (lib) x mkForce;
   cfg = config.module.wm.hyprland;
   on.enabled = true;
 in
 with config.lib.stylix.colors;
+
 {
   env = [ "SLURP_ARGS, -b ${base00}CC -c ${base0F}FF -B ${base02}CC" ];
   exec-once =

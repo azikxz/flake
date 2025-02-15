@@ -1,16 +1,17 @@
 {
-  x,
   pkgs,
   lib,
   config,
   inputs,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.themes.stylix;
 in
+
 {
   options = {
     module.themes.stylix = {
@@ -113,6 +114,8 @@ in
         zathura = on;
         qutebrowser = on;
         firefox = on;
+        floorp = on;
+        halloy = on;
         gtk = on;
       };
     };

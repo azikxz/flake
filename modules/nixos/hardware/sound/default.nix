@@ -1,16 +1,17 @@
 {
-  x,
   inputs,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.hardware.sound;
 in
+
 {
   options = {
     module.hardware.sound = {

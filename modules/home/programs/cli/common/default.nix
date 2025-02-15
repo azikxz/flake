@@ -1,14 +1,15 @@
 {
-  x,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.programs.cli.common;
 in
+
 {
   options = {
     module.programs.cli.common = {

@@ -3,6 +3,7 @@
   config,
   ...
 }:
+
 pkgs.writeShellApplication {
   name = "walogram";
   runtimeInputs = with pkgs; [

@@ -1,12 +1,13 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
+
 let
   cfg = config.module.programs.gui.swayimg;
   font = config.stylix.fonts;

@@ -3,16 +3,18 @@
   lib,
   ...
 }:
+
+with pkgs;
 let
   inherit (lib) getExe;
-  inherit (pkgs.nodePackages_latest) prettier;
+  inherit (nodePackages_latest) prettier;
   indent = {
     tab-width = 2;
     unit = "  ";
   };
   auto-format = true;
 in
-with pkgs;
+
 {
   language = [
     {

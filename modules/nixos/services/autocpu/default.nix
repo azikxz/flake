@@ -1,14 +1,15 @@
 {
-  x,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.services.autocpu;
 in
+
 {
   options = {
     module.services.autocpu = {

@@ -1,15 +1,16 @@
 {
-  x,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.programs.torrserver;
-  torr = x.customPkgs "torrserver" { };
+  torr = customPkgs "torrserver" { };
 in
+
 {
   options = {
     module.programs.torrserver = {

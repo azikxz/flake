@@ -1,8 +1,12 @@
 {
-  x,
+  lib,
   ...
 }:
-with x;
+
+let
+  inherit (lib) x;
+in
+
 {
   nix = {
     settings = {
@@ -12,7 +16,7 @@ with x;
         "flakes"
       ];
       trusted-users = [
-        "${sys.userName}"
+        "${x.sys.userName}"
         "@wheel"
       ];
       extra-substituters = x.nix.substituters;

@@ -1,15 +1,16 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.wm.hyprland;
 in
+
 {
   options = {
     module.wm.hyprland = {
@@ -26,7 +27,6 @@ in
       settings =
         import ./binds.nix {
           inherit
-            x
             pkgs
             lib
             config
@@ -35,7 +35,6 @@ in
         // import ./rules.nix { inherit config; }
         // import ./sets.nix {
           inherit
-            x
             pkgs
             lib
             config

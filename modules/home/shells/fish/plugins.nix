@@ -2,7 +2,9 @@
   pkgs,
   ...
 }:
+
 with pkgs.fishPlugins;
+
 [
   {
     name = "grc";

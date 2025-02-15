@@ -2,6 +2,7 @@
   config,
   ...
 }:
+
 {
   module.programs.gui.qutebrowser = {
     quickmarks = {
@@ -12,6 +13,8 @@
       # nix
       nixpkgs = "search.nixos.org/packages?channel=unstable";
       homemanager = "home-manager-options.extranix.com/?query=&release=master";
+      hydra = "hydra.nixos.org";
+      prTracker = "nixpk.gs/pr-tracker.html";
       # git
       ultima = "git.sr.ht/~neverness/ultima";
       # social
@@ -23,7 +26,7 @@
       mastodonMl = "mastodon.ml";
       vk = "vk.com";
       # anime etc
-      animeGo = "animego.me";
+      animeGo = "animego.me/index";
       mangaLib = "mangalib.me";
       urusai = "urusai.social";
       # torrents

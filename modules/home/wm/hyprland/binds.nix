@@ -1,17 +1,18 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
-with lib;
+
 let
+  inherit (lib) x getExe;
   cfg = config.module.wm.hyprland;
   tee = "${pkgs.uutils-coreutils-noprefix}/bin/tee";
   pic = "$(xdg-user-dir PICTURES)/$(date +'scr_%d-%m-%y|%H:%M:%S.png')";
   mic = ''fixf4=$(cat /sys/class/leds/platform\:\:micmute/brightness); echo $((1-fixf4)) | sudo ${tee} /sys/class/leds/platform\:\:micmute/brightness; wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'';
 in
+
 {
   # shortcuts
   "$m" = "SUPER";

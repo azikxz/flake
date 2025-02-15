@@ -1,6 +1,6 @@
-{ x, ... }:
+{ lib, ... }:
 {
-  imports = x.umport {
+  imports = lib.x.umport {
     path = ./.;
     # include & exclude files/directories
     include = [

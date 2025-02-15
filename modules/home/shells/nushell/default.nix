@@ -1,15 +1,16 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.shells.nushell;
 in
+
 {
   options = {
     module.shells.nushell = {

@@ -1,11 +1,14 @@
 {
-  x,
+  lib,
   ...
 }:
+
 let
+  inherit (lib) x;
   tranPopup = x.customPkgs "qute/tranPopup.nix" { };
   translate = x.customPkgs "qute/translate.nix" { };
 in
+
 {
   normal = {
     # move tabs

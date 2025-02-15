@@ -1,10 +1,10 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
@@ -16,6 +16,7 @@ let
     temurin-jre-bin-8
   ];
 in
+
 {
   options = {
     module.programs.gui.minecraft = {

@@ -1,16 +1,17 @@
 {
-  x,
   pkgs,
+  lib,
   ...
 }:
+
 let
-  inherit (x) customPkgs;
+  inherit (lib.x) customPkgs;
 in
+
 {
   module.programs = {
     gui.pkgs = with pkgs; [
       portablemc
-      vesktop
       qbittorrent-enhanced
       filezilla
       libreoffice-fresh
@@ -31,6 +32,7 @@ in
       optipng
       lutgen
 
+      cachix
       wyvern
       hut
       sd

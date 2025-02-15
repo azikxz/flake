@@ -1,5 +1,4 @@
 {
-  python3,
   fetchPypi,
   python3Packages,
   verApi ? null,
@@ -21,7 +20,7 @@ python3Packages.buildPythonApplication rec {
   ];
 
   dependencies = with python3Packages; [
-    (python3.withPackages (ps: with ps; [ httpx ] ++ httpx.optional-dependencies.http2))
+    # (python3.withPackages (ps: with ps; [ httpx ] ++ httpx.optional-dependencies.http2))
     attrs
     parsel
     tqdm

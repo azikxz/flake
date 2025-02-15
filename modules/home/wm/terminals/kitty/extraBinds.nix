@@ -3,6 +3,7 @@ let
   W = "map --mode w";
   b = ": pop_keyboard_mode";
 in
+
 ''
   # mk mods
   map  --new-mode x alt+space

@@ -2,7 +2,9 @@
   config,
   ...
 }:
+
 with config.lib.stylix.colors.withHashtag;
+
 # css
 ''
   base00: ${base00};

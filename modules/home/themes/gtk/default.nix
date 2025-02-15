@@ -1,12 +1,13 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
+
 let
   cfg = config.module.themes.gtk;
   font = config.stylix.fonts;
@@ -22,6 +23,7 @@ let
     gtk-enable-input-feedback-sounds = 0;
   };
 in
+
 {
   options = {
     module.themes.gtk = {

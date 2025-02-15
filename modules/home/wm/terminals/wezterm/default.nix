@@ -1,14 +1,15 @@
 {
-  x,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.wm.terminals.wezterm;
 in
+
 {
   options = {
     module.wm.terminals.wezterm = {

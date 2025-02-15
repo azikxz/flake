@@ -4,6 +4,7 @@
   config,
   ...
 }:
+
 let
   inherit (pkgs) writeTextFile;
   inherit (lib) types mkOption concatMapStringsSep;
@@ -36,6 +37,7 @@ let
     );
   };
 in
+
 {
   options = {
     module.programs.gui.qutebrowser = {

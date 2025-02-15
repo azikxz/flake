@@ -2,7 +2,9 @@
   config,
   ...
 }:
+
 with config.lib.stylix.colors.withHashtag;
+
 {
   foreground = "${base05}";
   background = "${base00}";

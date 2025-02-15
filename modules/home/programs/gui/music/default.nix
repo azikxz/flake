@@ -1,11 +1,11 @@
 {
-  x,
   inputs,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
@@ -15,6 +15,7 @@ let
   font = config.stylix.fonts;
   spicePkgs = inputs.spicetify.legacyPackages.${system};
 in
+
 {
   options = {
     module.programs.gui.music = {

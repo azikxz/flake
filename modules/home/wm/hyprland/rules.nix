@@ -2,8 +2,7 @@
   config,
   ...
 }:
-let
-in
+
 {
   layerrule = [
     "noanim, notifications"

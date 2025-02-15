@@ -1,11 +1,11 @@
 {
-  x,
   inputs,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
@@ -26,7 +26,6 @@ in
       autoEnable = false;
       image = import ./image.nix {
         inherit
-          x
           inputs
           pkgs
           lib

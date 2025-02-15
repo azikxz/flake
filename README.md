@@ -76,31 +76,33 @@
 
 ### GUIDE FOR CREATE OWN MACHINE & HOME
 
-1. Create directory with your [hostName](./machines/jetpure) in [flakeDir](./)
+1. Add your config for machine in [hostDir](./machines/default.nix)
 
-2. Create [default.nix](./machines/jetpure/default.nix) in [flakeDir/hostName](./machines/jetpure)
+```nix
+ {
+  jetpure = {
+   path = {
+    flakeDir = "/persist/flake";
+    pass = "/persist/vault/passwords.kdbx";
+   };
+   sys = {
+    hostName = "jetpure";
+    userName = "nixzoid";
+    is = "desktop";
+    platform = "x86_64-linux";
+    ver = "24.05";
+   };
+   styl = {
+    theme = "paradise";
+    image = "lampa";
+   };
+  };
+ }
+```
 
-- Fill it with: [example](./machines/embrace/default.nix)
+2. Create directory with your [hostName](./machines/jetpure) in [flakeDir](./)
 
-  ```nix
-     { inputs, lib, ... }:
-     {
-       flake = import ../../libx {
-         inherit inputs lib;
-         # variables
-         hostName = "pantheon"; # hostName is ~/flakeDir/hostName
-         userName = "arthemida"; # userName
-         flakeDir = "/persist/flake"; # flakeDir
-         is = "desktop"; # for laptop | desktop | server
-         # ricing
-         theme = "chanivibes"; # from inputs.design.base16
-         image = "default"; # from inputs.design.wallpapers
-         # sys
-         plfrm = "x86_64-linux"; # your architecture
-         ver = "24.05"; # stateVersion
-       };
-     }
-  ```
+3. Create in [./machines/hostName] directories [home](./machines/jetpure/home) and [host](./machines/jetpure/host)
 
 ### PREVIEW
 
@@ -112,4 +114,9 @@
 
 ![nill kiggers](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/misc.jpg)
 
-> thanks for [hezaki](https://codeberg.org/Hezaki/Touka), [maxmurr](https://github.com/TheMaxMur/NixOS-Configuration), [artem](https://github.com/ArtemChandragupta/NixFlake)
+- thanks for
+  - [hezaki](https://codeberg.org/Hezaki/Touka)
+  - [maxmurr](https://github.com/TheMaxMur/NixOS-Configuration)
+  - [artem](https://github.com/ArtemChandragupta/NixFlake)
+  - [luis](https://github.com/luishfonseca/nixos-config)
+  - [roman](https://github.com/nullptroma/nixos-configuration)

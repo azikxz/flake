@@ -1,16 +1,16 @@
 {
-  x,
-  inputs,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.programs.steam;
 in
+
 {
   options = {
     module.programs.steam = {

@@ -1,22 +1,23 @@
 {
-  inputs,
+  self,
   pkgs,
   lib,
   ...
 }:
+
 with lib;
-with lib.types;
-import ./nixpkgs
-// {
-  stable = inputs.nixpkgs-stable.legacyPackages.x86_64-linux;
+with types;
+
+{
   # ylib & stylix
-  customPkgs = name: pkgs.callPackage ../pkgs/${name};
+  customPkgs = name: pkgs.callPackage "${self}/pkgs/${name}";
   umport = import ./umport.nix { inherit lib; };
 
   # enable = true; ++ enable = false;
   on.enable = true;
   off.enable = false;
 
+  # for programs
   gen = type: text: lib.generators.${toString type} { } text;
   wm.workspaces =
     with builtins;
@@ -33,3 +34,4 @@ import ./nixpkgs
       ) 10
     ));
 }
+// import ./nixpkgs

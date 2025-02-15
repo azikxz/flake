@@ -2,76 +2,61 @@
   pkgs,
   ...
 }:
+
 with pkgs;
 let
   mk = name: { ${name} = "${yazi-plugins}/${name}.yazi"; };
-  plugin = name: text: {
-    "${name}" = toString (writeTextDir "${name}.yazi/init.lua" text) + "/${name}.yazi";
-  };
+  plugin = n: t: { "${n}" = toString (writeTextDir "${n}.yazi/main.lua" t) + "/${n}.yazi"; };
   yazi-plugins = fetchFromGitHub {
     owner = "yazi-rs";
     repo = "plugins";
-    rev = "71c4fc2e6fa1d6f70c85bf525842d6888d1ffa46";
-    hash = "sha256-X3R5bsnzGv1TVXOKdhAyspDMguVAyc9tvCxJlypUUAA=";
+    rev = "beb586aed0d41e6fdec5bba7816337fdad905a33";
+    hash = "sha256-enIt79UvQnKJalBtzSEdUkjNHjNJuKUWC4L6QFb3Ou4=";
   };
 in
+
 {
   plugins =
     # builtin
-    (mk "max-preview")
-    // (mk "hide-preview")
+    (mk "chmod")
+    // (mk "max-preview")
+    // (mk "smart-enter")
     // (mk "full-border")
-    // (mk "chmod")
+    // (mk "hide-preview")
     // {
       # fetched
       yatline = fetchFromGitHub {
-        owner = "imsi32";
+        owner = "not-mln";
         repo = "yatline.yazi";
-        rev = "600ed1fb1d04e1292da04280a65f8deca04dc36a";
-        hash = "sha256-oHCRScbahGaX8MTVNalNXlxQ7NJN5QKvGHbTXreAWFM=";
-      };
-      yatline-githead = fetchFromGitHub {
-        owner = "imsi32";
-        repo = "yatline-githead.yazi";
-        rev = "a6377a8b190a8563645e79c6d71e7f398e516c52";
-        hash = "sha256-SH2BDk8sHZT1L12gJjVbVBipiTwF/KARkuaJfNGdGXg=";
+        rev = "655facb7c31ddcf96a05185c65dd5b89d5954f2b";
+        hash = "sha256-fjapFEaM5ORoJJivrzKxwPM9pe6B9UkVqPfOsUPxpEg=";
       };
       ouch = fetchFromGitHub {
         owner = "ndtoan96";
         repo = "ouch.yazi";
-        rev = "b8698865a0b1c7c1b65b91bcadf18441498768e6";
-        hash = "sha256-eRjdcBJY5RHbbggnMHkcIXUF8Sj2nhD/o7+K3vD3hHY=";
-      };
-      archivemount = fetchFromGitHub {
-        owner = "AnirudhG07";
-        repo = "archivemount.yazi";
-        rev = "d4f3e6a41f955a1e821305ddbc16e571917511f4";
-        hash = "sha256-YoEpAQKXBH/W+IUTWaTZU/Q94Dp5mbLxcGuUi9FezYA=";
+        rev = "ce6fb75431b9d0d88efc6ae92e8a8ebb9bc1864a";
+        hash = "sha256-oUEUGgeVbljQICB43v9DeEM3XWMAKt3Ll11IcLCS/PA=";
       };
       mdcat = fetchFromGitHub {
-        owner = "GrzegorzKozub";
+        owner = "xmozoid";
         repo = "mdcat.yazi";
-        rev = "d3d5089d06fe4ed14504726722f89c977f9eb54a";
-        hash = "sha256-F6rNLWJxMmTOOlna6lev4m1h559BWftfy6pNoTqVGKw=";
+        rev = "fc6dc5ed991ac650c26aecdf760dfb174d0fb212";
+        hash = "sha256-lrPFBZASnBkjfJBeQmZizllMr+IoT0Ws+Axa0FBzR0o=";
       };
       paste = fetchFromGitHub {
-        owner = "crawraps";
+        owner = "xmozoid";
         repo = "paste-file.yazi";
-        rev = "e59d60cb82ad8d81268b93d20804c44701eca61c";
-        hash = "sha256-dV59B5UBBK59TiMv6wfG1EHx9bk3HmpYrQYND1qayTY=";
+        rev = "ad339a798a09452aed5c3067b4ab66cf3ce63f2e";
+        hash = "sha256-1nFc1CvM671aTSyIBjWpxDCuxa8T84j4B5jdXhUgkXA=";
+      };
+      wl-clipboard = fetchFromGitHub {
+        owner = "xmozoid";
+        repo = "wl-clipboard.yazi";
+        rev = "e3eb54b8d7d2e79d53db90bdb509211d7bceae2f";
+        hash = "sha256-7eJjNJyC6q+foCF48lwtjCt8fKqHfRWebbp7ymEb5NE=";
       };
     }
     # custom
-    // (plugin "smart-enter" # lua
-      ''
-        --- @sync entry
-        local function setup(self, opts) self.open_multi = opts.open_multi end
-        local function entry(self)
-        local h = cx.active.current.hovered
-        ya.manager_emit(h and h.cha.is_dir and "enter" or "open", { hovered = not self.open_multi })
-        end return { entry = entry, setup = setup }
-      ''
-    )
     // (plugin "smart-paste" # lua
       ''
         --- @sync entry

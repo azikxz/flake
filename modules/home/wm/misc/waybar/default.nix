@@ -1,15 +1,16 @@
 {
-  x,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.wm.misc.waybar;
   inherit (config.lib.stylix.colors) base0C;
 in
+
 {
   options = {
     module.wm.misc.waybar = {

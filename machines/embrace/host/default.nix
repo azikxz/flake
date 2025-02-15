@@ -1,6 +1,6 @@
-{ x, ... }:
+{ lib, ... }:
 let
-  inherit (x) on off umport;
+  inherit (lib.x) on off umport;
 in
 {
   imports = umport {

@@ -1,15 +1,16 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.programs.cli.yazi;
 in
+
 {
   options = {
     module.programs.cli.yazi = {
@@ -23,7 +24,7 @@ in
       // import ./sets.nix
       // import ./plugins.nix { inherit pkgs; }
       // {
-        keymap = import ./binds.nix { inherit x; };
+        keymap = import ./binds.nix { inherit lib; };
         initLua = import ./lua.nix { inherit config; };
         theme = import ./theme.nix { inherit lib config; };
       };

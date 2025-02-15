@@ -1,5 +1,4 @@
 {
-  x,
   inputs,
   pkgs,
   lib,
@@ -10,7 +9,7 @@ let
   inherit (inputs) wallpapers;
   inherit (pkgs) lutgen runCommand;
   inherit (lib) getExe;
-  img = "${wallpapers}/${x.styl.image}.jpg";
+  img = "${wallpapers}/${lib.x.styl.image}.jpg";
 in
 runCommand "output.png" { } ''
   ${getExe lutgen} apply ${img} -o $out -- ${

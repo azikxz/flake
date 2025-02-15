@@ -4,9 +4,11 @@
   config,
   ...
 }:
+
 let
   inherit (lib) getExe;
 in
+
 {
   home.shellAliases = with pkgs; {
     rebuild = "nh os switch";

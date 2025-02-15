@@ -1,11 +1,13 @@
 {
-  x,
   pkgs,
+  lib,
   ...
 }:
+
 with pkgs;
+
 {
-  ohMyZsh = x.on // {
+  ohMyZsh = lib.x.on // {
     plugins = [
       "git"
       "eza"

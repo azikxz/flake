@@ -3,7 +3,9 @@
   config,
   ...
 }:
+
 with config.lib.stylix.colors.withHashtag;
+
 lib.mkForce {
   themo =
     let

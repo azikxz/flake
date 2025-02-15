@@ -2,13 +2,12 @@
   config,
   ...
 }:
+
 with config.lib.stylix.colors.withHashtag;
+
 # lua
 ''
-  require("archivemount"):setup()
   require("full-border"):setup { type = ui.Border.ROUNDED, }
-
-  require("yatline-githead"):setup()
   require("yatline"):setup({
     section_separator = { open = "", close = "" },
     part_separator    = { open = "", close = "" },

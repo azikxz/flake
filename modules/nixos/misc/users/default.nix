@@ -1,16 +1,17 @@
 {
-  x,
   inputs,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.misc.users;
 in
+
 {
   options = {
     module.misc.users = {
@@ -18,7 +19,7 @@ in
     };
   };
 
-  imports = with inputs; [ home-manager.nixosModules.home-manager ];
+  imports = with inputs; [ home.nixosModules.home-manager ];
   config = {
     programs.fish = on;
     users =

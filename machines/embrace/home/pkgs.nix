@@ -1,11 +1,13 @@
 {
-  x,
   pkgs,
+  lib,
   ...
 }:
+
 let
-  inherit (x) customPkgs;
+  inherit (lib.x) customPkgs;
 in
+
 {
   module.programs = {
     gui.pkgs = with pkgs; [

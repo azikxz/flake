@@ -1,8 +1,13 @@
-{ lib, ... }:
+{
+  lib,
+  ...
+}:
+
 with lib;
 let
   nu = types.nullOr;
 in
+
 rec {
   # types and mk*
   mkOpt = type: default: mkOption { inherit type default; };

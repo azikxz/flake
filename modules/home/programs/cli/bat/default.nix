@@ -1,15 +1,16 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   cfg = config.module.programs.cli.bat;
 in
+
 {
   options = {
     module.programs.cli.bat = {

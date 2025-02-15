@@ -1,15 +1,16 @@
 {
-  x,
   pkgs,
   lib,
   config,
   ...
 }:
+
 with lib;
 with x;
 let
   hmdir = config.home.homeDirectory;
 in
+
 {
   options.module.misc.xdg = {
     mime.enable = mkBool false;

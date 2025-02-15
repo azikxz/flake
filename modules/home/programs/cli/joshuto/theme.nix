@@ -2,7 +2,9 @@
   config,
   ...
 }:
+
 with config.lib.stylix.colors;
+
 {
   lscolors_enabled = true;
   tabs.styles = {

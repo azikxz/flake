@@ -1,16 +1,13 @@
-{ lib, ... }:
 {
-  imports = lib.x.umport {
-    path = ./.;
-    # include & exclude files/directories
-    include = [
-      ./themes/stylix/default.nix
-      ./misc/users/default.nix
-    ];
-    exclude = [
-      ./default.nix
-      ./themes/stylix
-      ./misc/users
-    ];
-  };
+  lib,
+  ...
+}:
+
+{
+  imports = lib.x.baseName (
+    lib.x.umport {
+      path = ./.;
+      exclude = [ ./default.nix ];
+    }
+  );
 }

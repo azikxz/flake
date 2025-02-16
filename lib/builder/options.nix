@@ -12,6 +12,7 @@ with types;
   # ylib & stylix
   customPkgs = name: pkgs.callPackage "${self}/pkgs/${name}";
   umport = import ./umport.nix { inherit lib; };
+  baseName = lib.filter (path: baseNameOf path == "default.nix");
 
   # enable = true; ++ enable = false;
   on.enable = true;

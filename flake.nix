@@ -6,7 +6,7 @@
     |_|\_||_|/_\_\ \___/ |___/   |_|  |_|\__,_||_\_\\___|
   '';
 
-  outputs = args: import ./lib args;
+  outputs = a: import ./lib a;
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -42,7 +42,7 @@
 
     xpk = {
       url = "path:./pkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.n.follows = "nixpkgs";
     };
     base16 = {
       url = "sourcehut:~neverness/design/base16";

@@ -495,7 +495,8 @@
         "nixpkgs": "nixpkgs_2",
         "spicetify": "spicetify",
         "stylix": "stylix",
-        "wallpapers": "wallpapers"
+        "wallpapers": "wallpapers",
+        "xpk": "xpk"
       }
     },
     "spicetify": {
@@ -712,6 +713,23 @@
         "ref": "wallpapers",
         "repo": "design",
         "type": "sourcehut"
+      }
+    },
+    "xpk": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-wzJSmpRgN6GVKbHEynnkyCpVSuzSGYDSM37QCBbpJqo=",
+        "path": "./pkgs",
+        "type": "path"
+      },
+      "original": {
+        "path": "./pkgs",
+        "type": "path"
       }
     }
   },

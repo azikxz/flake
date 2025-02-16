@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
@@ -32,7 +33,7 @@ in
       on
       // import ./sets.nix { inherit lib config; }
       // {
-        keyBindings = import ./binds.nix { inherit lib; };
+        keyBindings = import ./binds.nix { inherit inputs lib; };
         greasemonkey = import ./plugins.nix { inherit pkgs; };
       };
   };

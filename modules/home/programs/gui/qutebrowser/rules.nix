@@ -15,6 +15,7 @@
       homemanager = "home-manager-options.extranix.com/?query=&release=master";
       hydra = "hydra.nixos.org";
       prTracker = "nixpk.gs/pr-tracker.html";
+      cachix = "app.cachix.org/cache/xache";
       # git
       ultima = "git.sr.ht/~neverness/ultima";
       # social

@@ -40,6 +40,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    xpk = {
+      url = "path:./pkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     base16 = {
       url = "sourcehut:~neverness/design/base16";
       flake = false;

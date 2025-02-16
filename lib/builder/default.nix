@@ -70,7 +70,7 @@ let
         {
           home-manager = {
             sharedModules = [ nixcord.homeManagerModules.nixcord ];
-            backupFileExtension = "backup";
+            backupFileExtension = "backupr";
             extraSpecialArgs = spArgs;
             useGlobalPkgs = true;
             useUserPackages = true;

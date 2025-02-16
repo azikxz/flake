@@ -1,11 +1,11 @@
 {
+  inputs,
   pkgs,
-  lib,
   ...
 }:
 
 let
-  inherit (lib.x) customPkgs;
+  inherit (inputs) xpk;
 in
 
 {
@@ -37,8 +37,8 @@ in
       hut
       sd
 
-      (customPkgs "lowfi" { })
-      (customPkgs "anicli" { })
+      xpk.lowfi
+      xpk.anicliru
     ];
   };
 }

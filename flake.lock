@@ -717,13 +717,13 @@
     },
     "xpk": {
       "inputs": {
-        "nixpkgs": [
+        "n": [
           "nixpkgs"
         ]
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-wzJSmpRgN6GVKbHEynnkyCpVSuzSGYDSM37QCBbpJqo=",
+        "narHash": "sha256-crgMp/Fqch/JuEHoFrXMAqvGzjQmTAQ/tE5VEYy+Zbg=",
         "path": "./pkgs",
         "type": "path"
       },

@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   config,
   ...
@@ -8,7 +9,6 @@ with lib;
 with x;
 let
   cfg = config.module.programs.torrserver;
-  torr = customPkgs "torrserver" { };
 in
 
 {
@@ -28,7 +28,7 @@ in
         ];
         wantedBy = [ "multi-user.target" ];
         serviceConfig = {
-          ExecStart = "${torr}/bin/torrserver";
+          ExecStart = "${inputs.xpk.torrserver}/bin/torrserver";
           Restart = "on-failure";
           Type = "simple";
           TimeoutSec = 30;

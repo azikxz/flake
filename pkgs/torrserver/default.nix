@@ -1,18 +1,13 @@
-{
-  stdenv,
-  fetchurl,
-  autoPatchelfHook,
-}:
-let
-  version = "134";
-in
-stdenv.mkDerivation {
+{ pkgs }:
+
+pkgs.stdenv.mkDerivation rec {
   name = "torrserver";
+  version = "134";
 
   dontUnpack = true;
-  nativeBuildInputs = [ autoPatchelfHook ];
+  nativeBuildInputs = [ pkgs.autoPatchelfHook ];
 
-  src = fetchurl {
+  src = pkgs.fetchurl {
     url = "https://github.com/YouROK/TorrServer/releases/download/MatriX.${version}/TorrServer-linux-amd64";
     sha256 = "sha256-WDygG9aGnD20nGxtG0t+T2KEwbJ+fZ0uRaCndirrsXI=";
   };

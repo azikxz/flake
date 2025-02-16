@@ -1,12 +1,9 @@
-{
-  stdenv,
-  fetchFromGitHub,
-}:
+{ pkgs }:
 
-stdenv.mkDerivation {
+pkgs.stdenv.mkDerivation {
   name = "translate";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "AckslD";
     repo = "Qute-Translate";
     rev = "cd2d201d17bb2d7490700b20d94495327af15e78";

@@ -1,12 +1,13 @@
 {
+  inputs,
   lib,
   ...
 }:
 
 let
   inherit (lib) x;
-  tranPopup = x.customPkgs "qute/tranPopup.nix" { };
-  translate = x.customPkgs "qute/translate.nix" { };
+  transPop = inputs.xpk.qTransPop;
+  transPag = inputs.xpk.qTransPag;
 in
 
 {
@@ -22,8 +23,8 @@ in
     # keepassxc
     ",p" = "spawn --userscript qute-keepass -p ${x.path.pass}";
     # transPopup
-    ",t" = "spawn --userscript ${translate}/exe -s en -t ru";
-    ",T" = "spawn --userscript ${tranPopup}/exe --target_lang ru";
+    ",t" = "spawn --userscript ${transPag}/exe -s en -t ru";
+    ",T" = "spawn --userscript ${transPop}/exe --target_lang ru";
     # tabs
     ",b" = "config-cycle tabs.show always switching";
     ",s" = "config-cycle statusbar.show in-mode always";

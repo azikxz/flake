@@ -25,7 +25,7 @@ in
         mainBar =
           let
             Tool.tooltip = false;
-            ico = import ./icons;
+            ico = import ./icons.nix;
             wm_icons = ico.wm;
             bat_icons = ico.bat;
             light_icons = ico.light;

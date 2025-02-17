@@ -8,7 +8,7 @@ let
   inherit (inputs) nixpkgs home nixcord;
   # make configuration
   mkMachine =
-    dirName:
+    machine:
     {
       path ? {
         pass = null;
@@ -34,7 +34,12 @@ let
         final: prev: {
           x =
             {
-              inherit path styl sys;
+              inherit
+                machine
+                path
+                styl
+                sys
+                ;
             }
             // import ./options.nix { inherit self pkgs lib; }
             // import ./mkOpt.nix { inherit lib; };

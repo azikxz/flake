@@ -1,4 +1,4 @@
 {
-  outputs = args: import ./outputs.nix args;
+  outputs = x: import ./outputs.nix x;
   inputs.n.url = "github:NixOS/nixpkgs/nixos-unstable";
 }

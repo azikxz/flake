@@ -6,7 +6,7 @@
     |_|\_||_|/_\_\ \___/ |___/   |_|  |_|\__,_||_\_\\___|
   '';
 
-  outputs = a: import ./lib a;
+  outputs = x: import ./xlib x;
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

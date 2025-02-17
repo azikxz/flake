@@ -10,7 +10,8 @@ let
 in
 
 {
-  nixosConfigurations = build (import "${self}/machines");
+  nixosConfigurations = build (import "${self}/machines").nixos;
+
   formatter =
     let
       mk = nixpkgs.lib.genAttrs [

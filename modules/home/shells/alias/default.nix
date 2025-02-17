@@ -11,7 +11,7 @@ in
 
 {
   home.shellAliases = with pkgs; {
-    rebuild = "nh os switch";
+    rebuild = "nh os switch -H ${lib.x.machine}";
     # quality of life
     e = "$EDITOR";
     c = "clear";

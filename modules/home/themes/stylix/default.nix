@@ -30,7 +30,7 @@ in
         tinos
         code-new-roman
         dejavu-sans-mono
-        inputs.xpk.base16-preview
+        inputs.xpk.pkgs.base16-preview
       ];
     stylix = on // {
       autoEnable = false;

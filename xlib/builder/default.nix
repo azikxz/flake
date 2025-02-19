@@ -8,18 +8,18 @@ let
   inherit (inputs) nixpkgs home nixcord;
   # make configuration
   mkMachine =
-    machine:
+    machineName:
     {
-      path ? {
-        pass = null;
-        flakeDir = "/etc/nixos";
-      },
       sys ? {
         hostName = "starship";
         userName = "amogus";
         is = null;
         platform = "x86_64-linux";
         ver = "24.05";
+      },
+      path ? {
+        pass = null;
+        flakeDir = "/etc/nixos";
       },
       styl ? {
         theme = "horizon-dark";
@@ -35,7 +35,7 @@ let
           x =
             {
               inherit
-                machine
+                machineName
                 path
                 styl
                 sys

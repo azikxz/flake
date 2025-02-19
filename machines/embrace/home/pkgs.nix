@@ -31,7 +31,7 @@ in
       hut
       sd
 
-      xpk.lowfi
+      xpk.pkgs.lowfi
     ];
   };
 }

@@ -33,7 +33,7 @@ in
       gvfs = on;
       polkit = on;
       printing = off;
-      tailscale = off;
+      tailscale = on;
       tlp = off;
       transmission = off // {
         tui = off;
@@ -42,7 +42,7 @@ in
     };
     programs = {
       common = on;
-      hamachi = off;
+      hamachi = on;
       hyprland = on;
       steam = on;
       sway = off;

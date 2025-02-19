@@ -1,10 +1,6 @@
 {
   nixos = {
-    pcRyazhenka = {
-      path = {
-        flakeDir = "/persist/flake";
-        pass = "/persist/vault/passwords.kdbx";
-      };
+    pcRyaz = {
       sys = {
         hostName = "jetpure";
         userName = "nixzoid";
@@ -12,16 +8,16 @@
         platform = "x86_64-linux";
         ver = "24.05";
       };
+      path = {
+        flakeDir = "/persist/flake";
+        pass = "/persist/vault/passwords.kdbx";
+      };
       styl = {
         theme = "paradise";
         image = "lampa";
       };
     };
     thinkpadT14 = {
-      path = {
-        flakeDir = "/persist/flake";
-        pass = "/persist/vault/passwords.kdbx";
-      };
       sys = {
         hostName = "embrace";
         userName = "huggyer";
@@ -29,8 +25,25 @@
         platform = "x86_64-linux";
         ver = "24.05";
       };
+      path = {
+        flakeDir = "/persist/flake";
+        pass = "/persist/vault/passwords.kdbx";
+      };
       styl = {
         theme = "neo-gen";
+        image = "town";
+      };
+    };
+    isoNixtended = {
+      sys = {
+        hostName = "sus";
+        userName = "amogus";
+        is = "iso";
+        platform = "x86_64-linux";
+        ver = "24.05";
+      };
+      styl = {
+        theme = "horizon-dark";
         image = "town";
       };
     };

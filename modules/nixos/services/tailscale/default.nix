@@ -20,6 +20,7 @@ in
   config = mkIf cfg.enable {
     services.tailscale = on // {
       useRoutingFeatures = "both";
+      openFirewall = true;
     };
   };
 }

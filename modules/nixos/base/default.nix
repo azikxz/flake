@@ -26,7 +26,7 @@ in
         systemd-boot = on // {
           configurationLimit = 4;
         };
-        timeout = 0;
+        timeout = mkForce 0;
       };
     };
     networking = {
@@ -35,6 +35,7 @@ in
       nameservers = [
         "::1"
         "127.0.0.1"
+        "100.100.100.100"
         "1.0.0.1"
         "1.1.1.1"
         "8.8.8.8"

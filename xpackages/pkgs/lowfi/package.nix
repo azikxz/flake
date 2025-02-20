@@ -19,17 +19,8 @@ pkgs.rustPlatform.buildRustPackage {
     rustPlatform.bindgenHook
   ];
 
-  buildInputs =
-    with pkgs;
-    [
-      openssl
-    ]
-    ++ lib.optionals pkgs.stdenv.isDarwin [
-      darwin.apple_sdk.frameworks.CoreAudio
-      darwin.apple_sdk.frameworks.Security
-      darwin.apple_sdk.frameworks.SystemConfiguration
-    ]
-    ++ lib.optionals pkgs.stdenv.isLinux [
-      alsa-lib
-    ];
+  buildInputs = with pkgs; [
+    openssl
+    alsa-lib
+  ];
 }

@@ -28,7 +28,7 @@ in
         ];
         wantedBy = [ "multi-user.target" ];
         serviceConfig = {
-          ExecStart = "${inputs.xpk.pkgs.torrserver}/bin/torrserver";
+          ExecStart = "${inputs.xpk.torrserver}/bin/torrserver";
           Restart = "on-failure";
           Type = "simple";
           TimeoutSec = 30;

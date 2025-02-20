@@ -2,6 +2,7 @@
 # https://github.com/drupol/pkgs-by-name-for-flake-parts
 
 inputs:
+
 let
   pkgs = import inputs.nix { system = "x86_64-linux"; };
   lib = inputs.nix.lib;
@@ -26,6 +27,5 @@ let
   legacyPackages = scope.packages scope;
   scope = scopeFromDirectory ./pkgs;
 in
-{
-  pkgs = flattenPkgs "/" [ ] legacyPackages;
-}
+
+flattenPkgs "/" [ ] legacyPackages

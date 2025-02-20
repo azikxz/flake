@@ -6,8 +6,8 @@
 
 let
   inherit (lib) x;
-  transPop = inputs.xpk.pkgs.qTransPop;
-  transPag = inputs.xpk.pkgs.qTransPag;
+  transPop = inputs.xpk.qTransPop;
+  transPag = inputs.xpk.qTransPag;
 in
 
 {

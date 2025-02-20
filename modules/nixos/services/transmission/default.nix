@@ -23,7 +23,7 @@ in
   config = mkMerge [
     (mkIf cfg.tui.enable {
       environment.systemPackages = with pkgs; [
-        inputs.xpk.pkgs.torque
+        inputs.xpk.torque
         rustmission
       ];
     })

@@ -3,8 +3,8 @@
 
 inputs:
 let
-  pkgs = inputs.n.legacyPackages."x86_64-linux";
-  lib = inputs.n.lib;
+  pkgs = import inputs.nix { system = "x86_64-linux"; };
+  lib = inputs.nix.lib;
 
   flattenPkgs =
     separator: path: value:

@@ -1,9 +1,11 @@
 {
   description = ''
+
      _  _  _        ___   ___      __  _        _        
     | \| |(_)__ __ / _ \ / __|    / _|| | __ _ | |__ ___ 
     | .` || |\ \ /| (_) |\__ \   |  _|| |/ _` || / // -_)
     |_|\_||_|/_\_\ \___/ |___/   |_|  |_|\__,_||_\_\\___|
+
   '';
 
   outputs = x: import ./xlib x;
@@ -41,8 +43,8 @@
     };
 
     xpk = {
-      url = "path:pkgs";
-      inputs.n.follows = "nixpkgs";
+      url = "path:xpackages";
+      inputs.nix.follows = "nixpkgs";
     };
     base16 = {
       url = "sourcehut:~neverness/design/base16";

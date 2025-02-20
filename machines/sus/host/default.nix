@@ -11,10 +11,6 @@ in
   };
   module = {
     themes.stylix = on;
-    base = on;
-    services = {
-      amneziawg = on;
-      zram.algo = "zstd";
-    };
+    services.amneziawg = on;
   };
 }

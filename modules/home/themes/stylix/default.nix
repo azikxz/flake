@@ -64,8 +64,7 @@ in
       iconTheme = on // {
         dark = "Papirus-Dark";
         light = "Papirus-Light";
-        # package = with pkgs; papirus-icon-theme.override { color = cfg.icon; };
-        package = with pkgs; papirus-icon-theme;
+        package = with pkgs; papirus-icon-theme.override { color = cfg.icon; };
       };
       fonts = rec {
         monospace = {

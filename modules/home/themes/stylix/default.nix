@@ -30,7 +30,6 @@ in
         tinos
         code-new-roman
         dejavu-sans-mono
-        inputs.xpk.pkgs.base16-preview
       ];
     stylix = on // {
       autoEnable = false;
@@ -65,7 +64,8 @@ in
       iconTheme = on // {
         dark = "Papirus-Dark";
         light = "Papirus-Light";
-        package = with pkgs; papirus-icon-theme.override { color = cfg.icon; };
+        # package = with pkgs; papirus-icon-theme.override { color = cfg.icon; };
+        package = with pkgs; papirus-icon-theme;
       };
       fonts = rec {
         monospace = {

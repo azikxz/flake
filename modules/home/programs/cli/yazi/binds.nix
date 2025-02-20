@@ -210,28 +210,9 @@ with lib.x;
         on = [
           "g"
           "f"
-          "f"
         ];
-        run = "cd ${path.flakeDir}";
+        run = "cd ${path.flake}";
         desc = "Go to flake main dir";
-      }
-      {
-        on = [
-          "g"
-          "f"
-          "h"
-        ];
-        run = "cd ${path.flakeDir}/modules/home";
-        desc = "Go to home modules";
-      }
-      {
-        on = [
-          "g"
-          "f"
-          "H"
-        ];
-        run = "cd ${path.flakeDir}/modules/host";
-        desc = "Go to nixos modules";
       }
       {
         on = [

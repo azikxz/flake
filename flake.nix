@@ -41,7 +41,7 @@
     };
 
     xpk = {
-      url = "path:./pkgs";
+      url = "path:pkgs";
       inputs.n.follows = "nixpkgs";
     };
     base16 = {

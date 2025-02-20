@@ -23,7 +23,6 @@ in
       zip
       unzip
       unrar
-      p7zip-rar
     ];
   };
 }

@@ -22,7 +22,6 @@ in
     cli.pkgs = with pkgs; [
       atool
       zip
-      p7zip-rar
       ouch
 
       imagemagick

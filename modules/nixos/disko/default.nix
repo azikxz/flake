@@ -1,5 +1,5 @@
 {
-  device ? "/dev/sda",
+  device ? throw,
   ...
 }:
 
@@ -8,7 +8,7 @@ let
 in
 
 {
-  disko.devices.disk.default = {
+  disko.devices.disk.disko = {
     inherit device;
     type = "disk";
     content = {
@@ -39,8 +39,8 @@ in
                   compress
                 ];
               };
-              "/persistent" = {
-                mountpoint = "/persistent";
+              "/persist" = {
+                mountpoint = "/persist";
                 mountOptions = [
                   compress
                 ];

@@ -11,6 +11,7 @@ in
 
 {
   home.shellAliases = with pkgs; {
+    goToFlake = "cd ${lib.x.path.flake}";
     rebuild = "nh os switch -H ${lib.x.machineName}";
     # quality of life
     e = "$EDITOR";

@@ -54,6 +54,7 @@ in
       protonmail = off;
       security = on;
       terraria = off;
+      users.passwd = "$2a$05$yafhLZqwJZaPtcvo1alcQekxot7ef8m9rbYIbIH5AKCywCOZK3URy";
       variables = on;
     };
   };

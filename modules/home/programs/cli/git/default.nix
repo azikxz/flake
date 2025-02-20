@@ -26,7 +26,7 @@ in
       extraConfig = {
         color.ui = true;
         init.defaultBranch = "main";
-        safe.directory = path.flakeDir;
+        safe.directory = path.flake;
       };
     };
   };

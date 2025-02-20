@@ -33,7 +33,7 @@ in
           #sh
           ''
             mkdir /btrfs_tmp
-            mount /dev/disk/by-partlabel/disk-primary-root /btrfs_tmp
+            mount /dev/disk/by-partlabel/disk-disko-root /btrfs_tmp
             if [[ -e /btrfs_tmp/root ]]; then
                 mkdir -p /btrfs_tmp/old_roots
                 timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/root)" "+%Y-%m-%-d_%H:%M:%S")

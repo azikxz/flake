@@ -33,7 +33,7 @@ in
       };
       ryzen-monitor-ng = if x.sys.is == "desktop" then on else off;
       nh = on // {
-        flake = path.flakeDir;
+        flake = path.flake;
       };
     };
   };

@@ -9,7 +9,7 @@
         ver = "24.05";
       };
       path = {
-        flakeDir = "/persist/flake";
+        flake = "/persist/flake";
         pass = "/persist/vault/passwords.kdbx";
       };
       styl = {
@@ -26,7 +26,7 @@
         ver = "24.05";
       };
       path = {
-        flakeDir = "/persist/flake";
+        flake = "/persist/flake";
         pass = "/persist/vault/passwords.kdbx";
       };
       styl = {

@@ -15,7 +15,9 @@ in
 {
   options = {
     module.misc.users = {
-      passwd = mkStr "$6$T4HzrtblHxoBy.OJ$lHfkK82NM333C93PfFvuZZF0OfxY4.9V74.pKpYMRQiTDxkBYQn/H9Xmo40llzLkJiOauSm6hafGpDoc6AtLw.";
+      passwd = mkStr "$2b$05$vfFJcNMZaHujKhPSERV/o.nLa2GqYlM0e8ovlfwnhj4XdOJ3Gv7h2"; # nixos
+      user.passwd = mkStr cfg.passwd;
+      root.passwd = mkStr cfg.passwd;
     };
   };
 
@@ -47,9 +49,9 @@ in
             createHome = true;
             isNormalUser = true;
             extraGroups = grp;
-            initialHashedPassword = cfg.passwd;
+            initialHashedPassword = cfg.user.passwd;
           };
-          root.initialHashedPassword = cfg.passwd;
+          root.initialHashedPassword = cfg.root.passwd;
         };
       };
   };

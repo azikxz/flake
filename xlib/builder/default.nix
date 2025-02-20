@@ -19,7 +19,7 @@ let
       },
       path ? {
         pass = null;
-        flakeDir = "/etc/nixos";
+        flake = "/etc/nixos";
       },
       styl ? {
         theme = "horizon-dark";

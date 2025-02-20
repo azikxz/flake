@@ -1,6 +1,7 @@
 {
   nixos = {
-    pcRyaz = {
+
+    pcRyazenka = {
       sys = {
         hostName = "jetpure";
         userName = "nixzoid";
@@ -17,6 +18,7 @@
         image = "lampa";
       };
     };
+
     thinkpadT14 = {
       sys = {
         hostName = "embrace";
@@ -34,6 +36,7 @@
         image = "town";
       };
     };
+
     isoNixtended = {
       sys = {
         hostName = "sus";
@@ -47,5 +50,6 @@
         image = "town";
       };
     };
+
   };
 }

@@ -21,7 +21,7 @@ let
   nm = "number";
   # PROGRAMS
   pic = "$(xdg-user-dir PICTURES)/$(date +'scr_%d-%m-%y|%H:%M:%S.png')";
-  inherit (lib) mkForce;
+  inherit (lib) mkForce getExe;
   inherit (pkgs) grimblast;
 in
 mkForce {
@@ -35,9 +35,9 @@ mkForce {
   "${m}+${rt}     " = "${ex} kitty";
   "${m}+${s}+${rt}" = "${ex} kitty --class=termfloat";
 
-  "${pr}     " = "${grimblast}/bin/grimblast copysave area";
-  "${pr}+${s}" = "${grimblast}/bin/grimblast copysave output ${pic}";
-  "${pr}+${a}" = "${grimblast}/bin/grimblast copysave active ${pic}";
+  "${pr}     " = "${getExe grimblast} copysave area";
+  "${pr}+${s}" = "${getExe grimblast} copysave output ${pic}";
+  "${pr}+${a}" = "${getExe grimblast} copysave active ${pic}";
 
   "${m}+g     " = "layout tabbed";
   "${m}+${s}+g" = "layout toggle split";

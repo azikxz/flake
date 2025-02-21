@@ -6,7 +6,7 @@
 }:
 
 let
-  inherit (lib) x mkForce;
+  inherit (lib) x mkForce getExe';
   cfg = config.module.wm.hyprland;
   on.enabled = true;
 in
@@ -16,7 +16,7 @@ with config.lib.stylix.colors;
   env = [ "SLURP_ARGS, -b ${base00}CC -c ${base0F}FF -B ${base02}CC" ];
   exec-once =
     let
-      tee = "${pkgs.uutils-coreutils-noprefix}/bin/tee";
+      tee = "${getExe' pkgs.uutils-coreutils-noprefix "tee"}";
     in
     [
       "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1"

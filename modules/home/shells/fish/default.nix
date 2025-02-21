@@ -22,6 +22,7 @@ in
     home.packages = with pkgs; [ grc ];
     programs.fish = on // {
       package = pkgs.fish;
+      preferAbbrs = true;
       plugins = import ./plugins.nix { inherit pkgs; };
       interactiveShellInit = import ./colors.nix;
       shellInitLast =

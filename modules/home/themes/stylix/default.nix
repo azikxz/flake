@@ -16,7 +16,7 @@ in
   options = {
     module.themes.stylix = {
       enable = mkBool false;
-      icon = mkStr "breeze";
+      icon = mkNull.str null;
       cursor.size = mkInt 12;
     };
   };

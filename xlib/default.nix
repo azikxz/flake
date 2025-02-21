@@ -5,7 +5,7 @@ inputs@{
 
 let
   inherit (inputs) nixpkgs;
-  pkgs = import inputs.nix { system = "x86_64-linux"; };
+  pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
   build = import ./builder { inherit self inputs; };
   devShells = import ./devShells.nix { inherit pkgs; };
 

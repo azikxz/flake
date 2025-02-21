@@ -111,6 +111,6 @@ in
         amneziawg-go
       ];
     };
-    boot.extraModulePackages = with pkgs.linuxKernel.packages.linux_zen; [ amneziawg ];
+    boot.extraModulePackages = with config.boot.kernelPackages; [ amneziawg ];
   };
 }

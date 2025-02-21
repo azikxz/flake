@@ -45,7 +45,7 @@ in
                 external: {
                   enable: true
                   max_results: 50
-                  completer: { |spans| ${carapace}/bin/carapace $spans.0 nushell ...$spans | from json }
+                  completer: { |spans| ${lib.getExe carapace} $spans.0 nushell ...$spans | from json }
                 }
               }
             }
@@ -56,7 +56,7 @@ in
             def wy [ video_id: string ] { mpv $"https://youtube.com/watch?v=($video_id)" }
           '';
         envFile.text = ''
-          $env.EDITOR = "${helix}/bin/hx"
+          $env.EDITOR = "${getExe' helix}"
           $env.BROWSER = "zen"
           $env.XDG_CONFIG_HOME = $"($env.HOME)/.config"
           $env.DIRENV_LOG_FORMAT = ""

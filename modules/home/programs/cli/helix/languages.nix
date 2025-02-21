@@ -6,13 +6,14 @@
 
 with pkgs;
 let
-  inherit (lib) getExe;
+  inherit (lib) getExe getExe';
   inherit (nodePackages_latest) prettier;
   indent = {
     tab-width = 2;
     unit = "  ";
   };
   auto-format = true;
+  vs = n: "vscode-${n}-language-server";
 in
 
 {
@@ -209,9 +210,9 @@ in
       marksman.command = "${getExe marksman}";
     } # markdown
     // {
-      vscode-html.command = "${vscode}/bin/vscode-html-language-server";
-      vscode-json.command = "${vscode}/bin/vscode-json-language-server";
-      vscode-css.command = "${vscode}/bin/vscode-css-language-server";
+      vscode-html.command = "${getExe' vscode (vs "html")}";
+      vscode-json.command = "${getExe' vscode (vs "json")}";
+      vscode-css.command = "${getExe' vscode (vs "css")}";
     } # vscode <lang> server
     // {
       ruff.command = "${getExe ruff-lsp}";

@@ -2,7 +2,7 @@
 
 pkgs.python3Packages.buildPythonApplication rec {
   pname = "anicli_ru";
-  version = "5.0.14";
+  version = "5.0.15";
   pyproject = true;
 
   src = pkgs.fetchPypi {

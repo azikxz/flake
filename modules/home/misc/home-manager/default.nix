@@ -5,6 +5,7 @@
   ...
 }:
 
+with lib;
 let
   inherit (pkgs) libnotify;
   dag = lib.hm.dag.entryAfter [ "" ];
@@ -12,7 +13,7 @@ let
 in
 
 {
-  home.activation.rebuildFinish = lib.mkIf (lib.x.sys.is != "iso") (dag ''
-    run ${libnotify}/bin/notify-send "Home-Manager   rebuild finished" -t 1500 -i "${papirus}/share/icons/Papirus-Dark/64x64/apps/nix-snowflake.svg"
+  home.activation.rebuildFinish = mkIf (x.sys.is != "iso") (dag ''
+    run ${getExe' libnotify "notify-send"} "Home-Manager   rebuild finished" -t 1500 -i "${papirus}/share/icons/Papirus-Dark/64x64/apps/nix-snowflake.svg"
   '');
 }

@@ -44,7 +44,7 @@ in
       ];
       initrd = {
         compressor = "zstd";
-        compressorArgs = [ "-9" ];
+        compressorArgs = [ "-16" ];
         verbose = false;
         availableKernelModules = [
           "nvme"

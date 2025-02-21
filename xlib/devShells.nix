@@ -3,15 +3,28 @@
   ...
 }:
 
+with pkgs;
 let
-  inherit (pkgs) mkShell;
+  mk =
+    p:
+    mkShell {
+      shellHook = ''exec fish'';
+      packages = p;
+    };
 in
 
 {
-  nixDev = mkShell {
-    nativeBuildInputs = with pkgs; [
-      nixfmt-rfc-style
-      cachix
-    ];
-  };
+  nixDev = mk [
+    nixfmt-rfc-style
+    cachix
+  ];
+  rust = mk [
+    rustfmt
+    rustc
+    cargo
+  ];
+  python = mk [
+    python3
+    pipx
+  ];
 }

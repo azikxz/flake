@@ -60,7 +60,6 @@ in
       gtk = on; # GTK APPS
       qt = on; # QT APPS
       stylix = on // {
-        icon = "adwaita";
         cursor.size = 24;
       };
     };

@@ -4,33 +4,46 @@
 }:
 
 with lib;
-let
-  nu = types.nullOr;
-in
 
 rec {
   # types and mk*
   mkOpt = type: default: mkOption { inherit type default; };
   mkBool = mkOpt types.bool;
   mkStr = mkOpt types.str;
+  mkLines = mkOpt types.lines;
   mkPkg = mkOpt types.package;
   mkInt = mkOpt types.int;
   mkEnum = mkOpt types.enum;
+  mkPath = mkOpt types.path;
   # mk two sided idk
-  mkList = {
-    pkgs = mkOpt (types.listOf types.package);
-    str = mkOpt (types.listOf types.str);
-  };
-  mkAttrs = {
-    pkgs = mkOpt (types.attrsOf types.package);
-    str = mkOpt (types.attrsOf types.str);
-    any = mkOpt (types.attrsOf types.anything);
-  };
-  mkNull = {
-    bool = mkOpt (nu types.bool);
-    str = mkOpt (nu types.str);
-    pkg = mkOpt (nu types.package);
-    int = mkOpt (nu types.int);
-    enum = mkOpt (nu types.enum);
-  };
+  mkList =
+    let
+      mk = types.listOf;
+    in
+    {
+      pkgs = mkOpt (mk types.package);
+      str = mkOpt (mk types.str);
+    };
+  mkAttrs =
+    let
+      mk = types.attrsOf;
+    in
+    {
+      pkgs = mkOpt (mk types.package);
+      str = mkOpt (mk types.str);
+      any = mkOpt (mk types.anything);
+    };
+  mkNull =
+    let
+      mk = types.nullOr;
+    in
+    {
+      bool = mkOpt (mk types.bool);
+      str = mkOpt (mk types.str);
+      lines = mkOpt (mk types.lines);
+      pkg = mkOpt (mk types.package);
+      int = mkOpt (mk types.int);
+      enum = mkOpt (mk types.enum);
+      path = mkOpt (mk types.path);
+    };
 }

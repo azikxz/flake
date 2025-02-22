@@ -23,6 +23,7 @@ in
         lsd = off;
         micro = off;
         rustmission = off;
+        tgt = on;
         top = on;
         yazi = on;
       };

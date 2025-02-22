@@ -32,6 +32,10 @@ in
       optipng
       lutgen
 
+      mini-calc
+      todo
+      nb
+
       cachix
       wyvern
       hut

@@ -6,10 +6,11 @@
 
 let
   inherit (inputs) nixpkgs home nixcord;
+  secrets = ../../secrets.nix;
   # make configuration
   mkMachine =
     machineName:
-    {
+    args@{
       sys ? {
         hostName = "starship";
         userName = "amogus";
@@ -25,6 +26,7 @@ let
         theme = "horizon-dark";
         image = "train";
       },
+      sec ? (builtins.pathExists secrets) import secrets args,
     }:
 
     let
@@ -39,6 +41,7 @@ let
                 path
                 styl
                 sys
+                sec
                 ;
             }
             // import ./options.nix { inherit self pkgs lib; }

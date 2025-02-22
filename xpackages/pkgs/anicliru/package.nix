@@ -7,7 +7,7 @@ pkgs.python3Packages.buildPythonApplication rec {
 
   src = pkgs.fetchPypi {
     inherit pname version;
-    hash = "sha256-P4dJL9V1uihNsF9mqjay3PbncjnBuKbmPhufDv5l7Uk=";
+    hash = "sha256-UaV781K0AfXwGoRPxLDSEFL7YG1Bp+OxCoxtVCwu90o=";
   };
 
   build-system = with pkgs.python3Packages; [

@@ -28,4 +28,4 @@ let
   scope = scopeFromDirectory ./pkgs;
 in
 
-flattenPkgs "/" [ ] legacyPackages
+(flattenPkgs "/" [ ] legacyPackages)

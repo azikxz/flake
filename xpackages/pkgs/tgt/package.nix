@@ -2,8 +2,14 @@
 
 with pkgs;
 let
-  rLinkLibs = builtins.attrValues {
-    inherit (pkgs) pkg-config openssl;
+  build = builtins.attrValues {
+    inherit (pkgs)
+      pkg-config
+      openssl
+      wayland
+      bzip2
+      zstd
+      ;
     tdlib = tdlib.overrideAttrs {
       version = "1.8.29";
       src = fetchFromGitHub {
@@ -27,23 +33,26 @@ pkgs.rustPlatform.buildRustPackage {
   src = pkgs.fetchFromGitHub {
     owner = "FedericoBruzzone";
     repo = "tgt";
-    rev = "39fb4acec241e2db384e268c77e875bd13a48c12";
-    sha256 = "sha256-McZEnRwtGEuhDA1uJ1FgUl6QiPfzCDr/Pl2haF9+MRw=";
+    rev = "38768515feb890fe15df08b5f1c1306370fd647a";
+    hash = "sha256-6UnvYjwizAXGL7+8MX8xNGJssHIAL9PBmhqeUHFpb3A=";
   };
 
-  cargoHash = "sha256-WIs9rVhTQn217DHIw1SPnQrkDtozEl2jfqVjTwJHF2w=";
-  nativeBuildInputs = rLinkLibs;
-  buildInputs = rLinkLibs;
+  useFetchCargoVendor = true;
+  cargoHash = "sha256-sEQQ6gsrbeHTfQ4AURNRMYb+kUKl9Zgw0+pHSpSlxNU=";
+
+  nativeBuildInputs = build;
+  buildInputs = build;
 
   patches = [
     (fetchurl {
-      url = "https://github.com/FedericoBruzzone/tgt/raw/refs/heads/main/patches/0001-check-filesystem-writability-before-operations.patch";
+      url = "https://raw.githubusercontent.com/FedericoBruzzone/tgt/38768515feb890fe15df08b5f1c1306370fd647a/patches/0001-check-filesystem-writability-before-operations.patch";
       sha256 = "sha256-ugztN6YAZEmpXndhMDGRPRuEOgGWS7cACXQ/Yj1soXw=";
     })
   ];
 
   env = {
     RUSTFLAGS = "-C link-arg=-Wl,-rpath,${tdlib}/lib -L ${pkgs.openssl}/lib";
+    ZSTD_SYS_USE_PKG_CONFIG = true;
     LOCAL_TDLIB_PATH = "${tdlib}/lib";
   };
 }

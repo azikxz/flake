@@ -19,7 +19,7 @@ in
         "${x.sys.userName}"
         "@wheel"
       ];
-      extra-substituters = x.nix.substituters;
+      extra-substituters = x.nix.subs;
       extra-trusted-public-keys = x.nix.keys;
       builders-use-substitutes = true;
       auto-optimise-store = true;

@@ -35,6 +35,7 @@ in
       printing = off;
       tailscale = on;
       tlp = off;
+      torrserver = on;
       transmission = off // {
         tui = off;
       };
@@ -46,7 +47,6 @@ in
       hyprland = on;
       steam = on;
       sway = off;
-      torrserver = on;
     };
     misc = {
       console = off;

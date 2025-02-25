@@ -24,16 +24,12 @@ in
       killall
     ];
     programs = {
-      adb = on;
-      nano = off;
-      fuse.userAllowOther = true;
-      light = if x.sys.is == "laptop" then on else off;
-      git = on // {
-        package = mkDefault pkgs.gitMinimal;
-      };
-      ryzen-monitor-ng = if x.sys.is == "desktop" then on else off;
+      adb = if sys.is == "laptop " then on else off;
+      light = if sys.is == "desktop" then on else off;
+      git.package = mkDefault pkgs.gitMinimal;
       nh = on // {
         flake = path.flake;
+        clean = on;
       };
     };
   };

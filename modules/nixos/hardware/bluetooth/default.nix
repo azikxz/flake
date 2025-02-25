@@ -19,12 +19,15 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [ bluetui ];
     hardware.bluetooth = on // {
       powerOnBoot = true;
+      settings = {
+        General = {
+          Experimental = true;
+          Enable = "Source,Sink,Media,Socket";
+        };
+      };
     };
-    environment.systemPackages = with pkgs; [
-      bluetuith
-      bluetooth_battery
-    ];
   };
 }

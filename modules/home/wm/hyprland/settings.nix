@@ -6,7 +6,12 @@
 }:
 
 let
-  inherit (lib) x mkForce getExe';
+  inherit (lib)
+    x
+    mkForce
+    getExe
+    getExe'
+    ;
   cfg = config.module.wm.hyprland;
   on.enabled = true;
 in
@@ -17,19 +22,23 @@ with config.lib.stylix.colors;
   exec-once =
     let
       tee = "${getExe' pkgs.uutils-coreutils-noprefix "tee"}";
+      mic = pkgs.writeShellScriptBin "micMute-hyprland" ''
+        fixf4=$(cat /sys/class/leds/platform\:\:micmute/brightness);
+        echo $((1-fixf4)) | sudo ${tee} /sys/class/leds/platform\:\:micmute/brightness;
+        wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+      '';
     in
     [
       "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1"
-      ''bash -c fixf4=$(cat /sys/class/leds/platform\:\:micmute/brightness); echo $((1-fixf4)) | sudo ${tee} /sys/class/leds/platform\:\:micmute/brightness; wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle''
+      ''${getExe mic}''
     ]
     ++ cfg.autostart;
   monitor =
-    if x.sys.is == "desktop" then
-      "eDP-1, 1920x1080@60, 0x0, 1.2, transform, 0"
-    else if x.sys.is == "laptop" then
+    if x.sys.is == "laptop" then
       "eDP-1, 1920x1080@60, 0x0, 1, transform, 0"
     else
-      "eDP-1, 1920x1080@60, 0x0, 1, transform, 0";
+      "HDMI-A-1, 1920x1080@60, 0x0, 1, transform, 0";
+
   # apperance
   general = {
     gaps_in = 4;

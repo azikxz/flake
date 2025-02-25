@@ -21,13 +21,13 @@ in
   config = mkIf cfg.enable {
     programs.yazi =
       on
-      // import ./sets.nix
-      // import ./plugins.nix { inherit pkgs; }
       // {
         keymap = import ./binds.nix { inherit lib; };
         initLua = import ./lua.nix { inherit config; };
         theme = import ./theme.nix { inherit lib config; };
-      };
+      }
+      // import ./plugins.nix { inherit pkgs; }
+      // import ./settings.nix;
     home.packages = with pkgs; [
       ffmpegthumbnailer
       wl-clipboard

@@ -1,4 +1,4 @@
-{
+a@{
   lib,
   config,
   ...
@@ -19,9 +19,9 @@ in
 
   config = mkIf cfg.enable {
     programs.joshuto = on // {
-      mimetype = import ./mimetype.nix;
+      mimetype = import ./mimeType.nix;
       settings = import ./settings.nix;
-      theme = import ./theme.nix { inherit config; };
+      theme = import ./theme.nix a;
     };
   };
 }

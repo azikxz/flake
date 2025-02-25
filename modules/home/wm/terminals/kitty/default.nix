@@ -21,7 +21,7 @@ in
     programs.kitty = on // {
       keybindings = import ./binds.nix;
       extraConfig = import ./extraBinds.nix;
-      settings = import ./sets.nix // import ./colors.nix { inherit config; };
+      settings = import ./settings.nix // import ./colors.nix { inherit config; };
     };
   };
 }

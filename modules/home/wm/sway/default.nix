@@ -21,7 +21,7 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.sway = on // {
       package = pkgs.swayfx;
-      config = import ./sets.nix { inherit pkgs lib config; } // {
+      config = import ./settings.nix { inherit pkgs lib config; } // {
         keybindings = import ./binds.nix { inherit pkgs lib; };
       };
       extraConfig =

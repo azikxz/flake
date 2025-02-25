@@ -31,10 +31,11 @@ in
     ];
     programs.qutebrowser =
       on
-      // import ./sets.nix { inherit lib config; }
+      // import ./settings.nix { inherit lib config; }
       // {
         keyBindings = import ./binds.nix { inherit inputs lib; };
         greasemonkey = import ./plugins.nix { inherit pkgs; };
+        searchEngines = import ./search.nix;
       };
   };
 }

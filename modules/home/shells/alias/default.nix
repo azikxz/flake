@@ -5,9 +5,9 @@
   ...
 }:
 
-with lib;
-with x;
 let
+  inherit (lib) x getExe;
+  inherit (x) mkAttrs path machineName;
   cfg = config.home;
 in
 
@@ -24,9 +24,9 @@ in
       s = "sudo";
     };
     home.shellAliases = with pkgs; {
-      goToFlake = "cd ${lib.x.path.flake}";
-      rebuild = "nh os switch -H ${lib.x.machineName}";
-      nixRepl = "nh os repl -H ${lib.x.machineName}";
+      goToFlake = "cd ${path.flake}";
+      rebuild = "nh os switch -H ${machineName}";
+      nixRepl = "nh os repl -H ${machineName}";
       # override default
       trash = "${getExe trashy} put";
       touch = "${getExe bonk}";
@@ -45,7 +45,7 @@ in
       # useful
       ca = "cava";
       pmx = "pulsemixer";
-      blt = "${getExe bluetuith}";
+      blt = "${getExe bluetui}";
       icat = "kitten icat";
       # tops
       btop = "btop";
@@ -59,6 +59,26 @@ in
     };
     xdg.configFile."lutgen/stylix".text =
       with config.lib.stylix.colors;
-      "${base00} ${base01} ${base02} ${base03} ${base04} ${base05} ${base06} ${base07} ${base08} ${base09} ${base0A} ${base0B} ${base0C} ${base0D} ${base0E} ${base0E}";
+      "${builtins.concatStringsSep " " (
+        with config.lib.stylix.colors;
+        [
+          base00
+          base01
+          base02
+          base03
+          base04
+          base05
+          base06
+          base07
+          base08
+          base09
+          base0A
+          base0B
+          base0C
+          base0D
+          base0E
+          base0F
+        ]
+      )}";
   };
 }

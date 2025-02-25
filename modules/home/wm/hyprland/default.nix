@@ -33,7 +33,7 @@ in
             ;
         }
         // import ./rules.nix { inherit config; }
-        // import ./sets.nix {
+        // import ./settings.nix {
           inherit
             pkgs
             lib

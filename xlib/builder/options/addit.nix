@@ -1,7 +1,8 @@
 {
+  inputs,
   lib,
   ...
-}:
+}@a:
 
 with lib;
 with types;
@@ -9,14 +10,14 @@ with types;
 {
   # ylib & stylix
   umport = import ./umport.nix { inherit lib; };
-  baseName = lib.filter (path: baseNameOf path == "default.nix");
+  baseName = filter (path: baseNameOf path == "default.nix");
 
   # enable = true; ++ enable = false;
   on.enable = true;
   off.enable = false;
 
   # for programs
-  gen = type: text: lib.generators.${toString type} { } text;
+  gen = type: text: generators.${toString type} { } text;
   wm.workspaces =
     with builtins;
     (concatLists (
@@ -32,4 +33,4 @@ with types;
       ) 10
     ));
 }
-// import ./nixpkgs
+// import ./nixpkgs a

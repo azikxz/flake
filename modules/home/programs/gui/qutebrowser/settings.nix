@@ -77,7 +77,4 @@ in
       chars = "asdfghjkl";
     };
   };
-  searchEngines = {
-    DEFAULT = "https://www.google.com/search?hl=en&q={}";
-  };
 }

@@ -21,6 +21,7 @@ in
     };
   };
 
+  imports = with inputs; [ niri.homeModules.stylix ];
   config = mkIf cfg.enable {
     home.packages =
       with pkgs;
@@ -93,6 +94,7 @@ in
           hyprpaper = on;
         };
         hyprpaper = on;
+        niri = on;
         sway = on;
         river = on;
         # MISC PROGRAMS
@@ -109,7 +111,7 @@ in
         mangohud = on;
         # GUI
         spicetify = off;
-        vesktop = on;
+        nixcord = on;
         zathura = on;
         qutebrowser = on;
         firefox = on;

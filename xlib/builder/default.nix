@@ -44,8 +44,8 @@ let
                 sec
                 ;
             }
-            // import ./options.nix { inherit self pkgs lib; }
-            // import ./mkOpt.nix { inherit lib; };
+            // import ./options/addit.nix { inherit inputs lib; }
+            // import ./options/mkOpt.nix { inherit lib; };
         }
       );
       # dirs

@@ -23,12 +23,13 @@ in
         "${sys.userName}"
         "@wheel"
       ];
-      substituters = x.nix.substituters;
+      substituters = x.nix.subs;
       trusted-public-keys = x.nix.keys;
     };
   };
   nixpkgs = {
     hostPlatform = mkDefault sys.platform;
+    overlays = x.nix.over;
     config = {
       allowBroken = true;
       allowUnfree = true;

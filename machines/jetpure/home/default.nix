@@ -71,6 +71,7 @@ in
     wm = {
       hyprland = on;
       sway = off;
+      niri = on;
       terminals = {
         kitty = on;
         foot = off;

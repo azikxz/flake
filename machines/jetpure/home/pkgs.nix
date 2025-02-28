@@ -1,11 +1,11 @@
 {
-  inputs,
+  self,
   pkgs,
   ...
 }:
 
 let
-  inherit (inputs) xpk;
+  s = self.packages;
 in
 
 {
@@ -41,8 +41,8 @@ in
       hut
       sd
 
-      xpk.lowfi
-      xpk.anicliru
+      s.lowfi
+      s.anicliru
     ];
   };
 }

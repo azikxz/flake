@@ -1,5 +1,5 @@
 {
-  inputs,
+  self,
   pkgs,
   lib,
   config,
@@ -23,7 +23,7 @@ in
   config = mkMerge [
     (mkIf cfg.tui.enable {
       environment.systemPackages = with pkgs; [
-        inputs.xpk.torque
+        self.packages.torque
         rustmission
       ];
     })

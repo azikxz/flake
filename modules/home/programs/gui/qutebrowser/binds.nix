@@ -1,13 +1,13 @@
 {
-  inputs,
+  self,
   lib,
   ...
 }:
 
 let
   inherit (lib) x;
-  transPop = inputs.xpk.qTransPop;
-  transPag = inputs.xpk.qTransPag;
+  transPop = self.packages.qTransPop;
+  transPag = self.packages.qTransPag;
 in
 
 {

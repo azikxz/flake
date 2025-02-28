@@ -47,10 +47,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    xpk = {
-      url = "path:xpackages";
-      inputs.nix.follows = "nixpkgs";
-    };
     base16 = {
       url = "sourcehut:~neverness/design/base16";
       flake = false;

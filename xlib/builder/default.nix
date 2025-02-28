@@ -5,7 +5,7 @@
 }:
 
 let
-  inherit (inputs) nixpkgs home nixcord;
+  inherit (inputs) home nixcord;
   secrets = ../../secrets.nix;
   # make configuration
   mkMachine =
@@ -30,8 +30,7 @@ let
     }:
 
     let
-      pkgs = nixpkgs.legacyPackages.${sys.platform};
-      spArgs = { inherit inputs; };
+      spArgs = { inherit self inputs; };
       lib = inputs.nixpkgs.lib.extend (
         final: prev: {
           x =

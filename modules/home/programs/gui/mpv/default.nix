@@ -1,4 +1,4 @@
-a@{
+{
   pkgs,
   lib,
   config,

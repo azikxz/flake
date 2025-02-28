@@ -556,8 +556,7 @@
         "nixpkgs": "nixpkgs_2",
         "spicetify": "spicetify",
         "stylix": "stylix",
-        "wallpapers": "wallpapers",
-        "xpk": "xpk"
+        "wallpapers": "wallpapers"
       }
     },
     "spicetify": {
@@ -774,23 +773,6 @@
         "ref": "wallpapers",
         "repo": "design",
         "type": "sourcehut"
-      }
-    },
-    "xpk": {
-      "inputs": {
-        "nix": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-VdAisfEfTkBmrrpVd+BlhXvTWTOGQR410/EkUhLtsLE=",
-        "path": "xpackages",
-        "type": "path"
-      },
-      "original": {
-        "path": "xpackages",
-        "type": "path"
       }
     },
     "xwayland-satellite-stable": {

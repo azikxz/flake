@@ -1,12 +1,10 @@
-# adapted from here
-# https://github.com/drupol/pkgs-by-name-for-flake-parts
-
-inputs:
+{
+  inputs,
+  pkgs,
+  lib,
+}:
 
 let
-  pkgs = import inputs.nix { system = "x86_64-linux"; };
-  lib = inputs.nix.lib;
-
   flattenPkgs =
     separator: path: value:
     if lib.isDerivation value then
@@ -25,7 +23,7 @@ let
     );
 
   legacyPackages = scope.packages scope;
-  scope = scopeFromDirectory ./pkgs;
+  scope = scopeFromDirectory ../pkgs;
 in
 
-(flattenPkgs "/" [ ] legacyPackages)
+flattenPkgs "/" [ ] legacyPackages

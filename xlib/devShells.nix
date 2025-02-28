@@ -1,4 +1,5 @@
 {
+  forAllSystems,
   pkgs,
   ...
 }:
@@ -13,7 +14,7 @@ let
     };
 in
 
-{
+forAllSystems (system: {
   nixDev = mk [
     nixfmt-rfc-style
     cachix
@@ -27,4 +28,4 @@ in
     python3
     pipx
   ];
-}
+})

@@ -34,7 +34,7 @@ in
         backgroundColor = "${base01}";
         borderColor = "${base0E}";
         textColor = "${base06}";
-        extraConfig = x.gen "toINI" {
+        extraConfig = x.toGen "toINI" {
           "urgency=low" = {
             background-color = "${base00}";
             border-color = "${base0D}";

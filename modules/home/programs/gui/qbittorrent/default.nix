@@ -19,7 +19,7 @@ in
 
   config = mkIf cfg.enable {
     xdg.configFile = {
-      "qBittorrent/themes/default/config.json".text = x.gen "toJSON" {
+      "qBittorrent/themes/default/config.json".text = toGen "toJSON" {
         "version" = 2;
         "colors.dark" = {
           "Log.BannedPeer" = "#b66467";

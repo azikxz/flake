@@ -1,4 +1,4 @@
-args@{
+{
   inputs,
   pkgs,
   lib,
@@ -24,8 +24,8 @@ in
     programs.niri = on // {
       package = pkgs.niri-unstable;
       settings = {
-        binds = import ./binds.nix args;
-      } // import ./settings.nix args;
+        binds = import ./binds.nix { inherit config; };
+      } // import ./settings.nix { inherit lib config; };
     };
   };
 }

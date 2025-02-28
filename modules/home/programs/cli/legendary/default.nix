@@ -20,7 +20,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ legendary-gl ];
-    xdg.configFile."legendary/config.ini".text = x.gen "toINI" {
+    xdg.configFile."legendary/config.ini".text = toGen "toINI" {
       "Legendary" = {
         log_level = "debug";
         max_memory = 2048;

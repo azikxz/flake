@@ -199,7 +199,7 @@ lib.mkForce {
         modifiers = [ "bold" ];
       };
       "ui.statusline.normal" = {
-        fg = BASE06;
+        fg = BASE05;
         bg = BASE02;
         modifiers = [ "bold" ];
       };

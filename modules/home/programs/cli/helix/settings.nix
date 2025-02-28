@@ -43,6 +43,7 @@
         "spacer"
         "position"
         "position-percentage"
+        "spacer"
         "separator"
         "total-line-numbers"
         "spacer"

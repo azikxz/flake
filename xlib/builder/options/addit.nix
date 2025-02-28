@@ -17,7 +17,7 @@ with types;
   off.enable = false;
 
   # for programs
-  gen = type: text: generators.${toString type} { } text;
+  toGen = type: text: generators.${toString type} { } text;
   wm.workspaces =
     with builtins;
     (concatLists (

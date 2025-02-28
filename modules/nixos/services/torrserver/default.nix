@@ -1,5 +1,5 @@
 {
-  inputs,
+  self,
   lib,
   config,
   ...
@@ -17,8 +17,8 @@ in
       enable = mkBool false;
       user = mkStr "torrserver";
       group = mkStr "torrserver";
-      port = mkStr "8080";
-      dir = mkPath "/var/lib/torrserver";
+      port = mkStr "8090";
+      disk = mkPath "/var/lib/torrserver";
     };
   };
 
@@ -34,7 +34,7 @@ in
           "multi-user.target"
         ];
         serviceConfig = {
-          ExecStart = "${getExe' inputs.xpk.torrserver "torrserver"} -d ${cfg.dir} -p ${cfg.port}";
+          ExecStart = "${getExe' self.packages.torrserver "torrserver"} -d ${cfg.disk} -p ${cfg.port}";
           Restart = "on-failure";
           Type = "simple";
           TimeoutSec = 30;
@@ -49,7 +49,7 @@ in
       groups.${cfg.user} = { };
       users.${cfg.user} = {
         group = cfg.user;
-        home = cfg.dir;
+        home = cfg.disk;
         isSystemUser = true;
       };
     };

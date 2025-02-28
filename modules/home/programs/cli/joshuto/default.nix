@@ -1,4 +1,4 @@
-a@{
+{
   lib,
   config,
   ...
@@ -21,7 +21,7 @@ in
     programs.joshuto = on // {
       mimetype = import ./mimeType.nix;
       settings = import ./settings.nix;
-      theme = import ./theme.nix a;
+      theme = import ./theme.nix { inherit config; };
     };
   };
 }

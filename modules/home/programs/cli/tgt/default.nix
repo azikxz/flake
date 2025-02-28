@@ -1,5 +1,5 @@
-a@{
-  inputs,
+{
+  self,
   lib,
   config,
   ...
@@ -19,12 +19,13 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ inputs.xpk.tgt ];
+    home.packages = [ self.packages.tgt ];
     home.file = {
       ".tgt/config/app.toml".text = import ./conf_nix/app.nix;
       ".tgt/config/theme.toml".text = import ./conf_nix/theme.nix { inherit config; };
       ".tgt/config/logger.toml".text = import ./conf_nix/logger.nix;
       ".tgt/config/keymap.toml".text = import ./conf_nix/keymap.nix;
+      ".tgt/config/keymap_custom.toml".text = import ./conf_nix/keymap.nix;
       ".tgt/config/telegram.toml".text = import ./conf_nix/telegram.nix { inherit lib; };
     };
   };

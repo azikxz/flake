@@ -6,8 +6,10 @@ inputs@{
 let
   inherit (inputs) nixpkgs;
   pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
+  lib = inputs.nixpkgs.lib;
+
   build = import ./builder { inherit self inputs; };
-  devShells = import ./devShells.nix { inherit pkgs; };
+  machines = (import "${self}/machines");
 
   forAllSystems = i: nixpkgs.lib.genAttrs sys i;
   sys = [
@@ -19,11 +21,9 @@ let
 in
 
 {
-  nixosConfigurations = build (import "${self}/machines").nixos;
+  nixosConfigurations = build machines;
 
-  devShells = forAllSystems (system: devShells);
-
-  formatter = forAllSystems (system: {
-    ${system} = pkgs.nixfmt-rfc-style;
-  });
+  packages = import ./packages.nix { inherit inputs pkgs lib; };
+  devShells = import ./devShells.nix { inherit forAllSystems pkgs; };
+  formatter = import ./formatter.nix { inherit forAllSystems pkgs; };
 }

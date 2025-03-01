@@ -35,6 +35,7 @@ in
       printing = off;
       tailscale = on;
       tlp = off;
+      torrentstream = off;
       torrserver = on;
       transmission = off // {
         tui = off;

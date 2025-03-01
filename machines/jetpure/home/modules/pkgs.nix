@@ -1,11 +1,13 @@
 {
   self,
+  inputs,
   pkgs,
   ...
 }:
 
 let
-  s = self.packages;
+  s = self.packages.${pkgs.system};
+  ytx = inputs.yt-x.packages."${pkgs.system}".default;
 in
 
 {
@@ -41,6 +43,7 @@ in
       hut
       sd
 
+      ytx
       s.lowfi
       s.anicliru
     ];

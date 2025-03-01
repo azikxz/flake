@@ -17,5 +17,7 @@ in
     };
   };
 
-  config = mkIf cfg.enable { programs.hyprland = on; };
+  config = mkIf cfg.enable {
+    programs.hyprland = on;
+  };
 }

@@ -34,6 +34,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-stable.follows = "nixpkgs";
     };
+    yt-x = {
+      url = "github:Benexl/yt-x";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     spicetify = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";

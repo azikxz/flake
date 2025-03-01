@@ -1,5 +1,6 @@
 {
   self,
+  pkgs,
   lib,
   config,
   ...
@@ -34,7 +35,9 @@ in
           "multi-user.target"
         ];
         serviceConfig = {
-          ExecStart = "${getExe' self.packages.torrserver "torrserver"} -d ${cfg.disk} -p ${cfg.port}";
+          ExecStart = "${
+            getExe' self.packages.${pkgs.system}.torrserver "torrserver"
+          } -d ${cfg.disk} -p ${cfg.port}";
           Restart = "on-failure";
           Type = "simple";
           TimeoutSec = 30;

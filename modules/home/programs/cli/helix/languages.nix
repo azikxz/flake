@@ -25,9 +25,6 @@ in
       language-servers = [ "nixd" ];
       formatter = {
         command = getExe nixfmt-rfc-style;
-        args = [
-          "--inlay-hints=true"
-        ];
       };
     }
     {
@@ -201,7 +198,6 @@ in
       nixd = {
         command = getExe nixd;
         config.nixd = {
-          formatting.command = [ (lib.getExe pkgs.nixfmt-rfc-style) ];
           nixpkgs.expr = "import <nixpkgs> { }";
           options =
             let

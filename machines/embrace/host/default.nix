@@ -5,7 +5,6 @@ in
 {
   imports = umport {
     path = ./.;
-    include = [ ../impermanence.nix ];
     exclude = [ ./default.nix ];
   };
   module = {

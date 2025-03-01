@@ -1,13 +1,14 @@
 {
   self,
+  pkgs,
   lib,
   ...
 }:
 
 let
   inherit (lib) x;
-  transPop = self.packages.qTransPop;
-  transPag = self.packages.qTransPag;
+  transPop = self.packages.${pkgs.system}.qTransPop;
+  transPag = self.packages.${pkgs.system}.qTransPag;
 in
 
 {

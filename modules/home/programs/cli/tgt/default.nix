@@ -1,5 +1,6 @@
 {
   self,
+  pkgs,
   lib,
   config,
   ...
@@ -19,7 +20,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ self.packages.tgt ];
+    home.packages = with self.packages.${pkgs.system}; [ tgt ];
     home.file = {
       ".tgt/config/app.toml".text = import ./conf_nix/app.nix;
       ".tgt/config/theme.toml".text = import ./conf_nix/theme.nix { inherit config; };

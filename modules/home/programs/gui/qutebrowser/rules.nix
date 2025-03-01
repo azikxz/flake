@@ -37,6 +37,8 @@
       mineWiki = "ru.minecraft.wiki";
       broTorrent = "brotorrent.net";
       freeTP = "freetp.org";
+      # study
+      proteh = "profteh.com/study";
     };
     whitelist."whitelist" = {
       includes = [

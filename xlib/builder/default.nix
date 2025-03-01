@@ -35,6 +35,7 @@ let
         final: prev: {
           x =
             {
+              xpk = self.packages.${sys.platform};
               inherit
                 machineName
                 path

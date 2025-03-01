@@ -5,7 +5,7 @@
 }:
 
 let
-  s = self.packages;
+  s = self.packages.${pkgs.system};
 in
 
 {

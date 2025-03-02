@@ -30,8 +30,7 @@ in
     boot.extraModulePackages = with config.boot.kernelPackages; [ amneziawg ];
     systemd.services.warp = with pkgs; {
       enable = true;
-      after = [ "network-online.target" ];
-      wants = [ "network-online.target" ];
+      after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
       path = [ amneziawg-go ];
       serviceConfig =
@@ -40,11 +39,11 @@ in
         in
         {
           Type = "oneshot";
+          Restart = "on-failure";
+          RestartSec = "5s";
           ExecStart = mk "up";
           ExecStop = mk "down";
           RemainAfterExit = "yes";
-          CapabilityBoundingSet = "CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_SYS_PTRACE CAP_DAC_READ_SEARCH";
-          AmbientCapabilities = "CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_SYS_PTRACE CAP_DAC_READ_SEARCH";
         };
     };
   };

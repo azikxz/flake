@@ -25,7 +25,9 @@ in
       system76 = off;
     };
     services = {
-      amneziawg = on;
+      amneziawg = on // {
+        config = ./warp.conf;
+      };
       autocpu = off;
       dbus = on;
       deluge = off;

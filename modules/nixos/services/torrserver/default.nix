@@ -28,8 +28,8 @@ in
       torrserver = {
         enable = true;
         after = [
-          "multi-user.target"
           "network.target"
+          "multi-user.target"
         ];
         wantedBy = [
           "multi-user.target"

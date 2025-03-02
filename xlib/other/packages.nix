@@ -23,7 +23,7 @@ let
     );
 
   legacyPackages = scope.packages scope;
-  scope = scopeFromDirectory ../pkgs;
+  scope = scopeFromDirectory ../../pkgs;
 in
 
 flattenPkgs "/" [ ] legacyPackages

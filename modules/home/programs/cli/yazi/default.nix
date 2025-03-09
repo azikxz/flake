@@ -22,11 +22,28 @@ in
     programs.yazi =
       on
       // {
-        keymap = import ./binds.nix { inherit lib; };
-        initLua = import ./lua.nix { inherit config; };
-        theme = import ./theme.nix { inherit lib config; };
+        keymap = import ./binds.nix {
+          inherit
+            lib
+            ;
+        };
+        initLua = import ./lua.nix {
+          inherit
+            config
+            ;
+        };
+        theme = import ./theme.nix {
+          inherit
+            lib
+            config
+            ;
+        };
       }
-      // import ./plugins.nix { inherit pkgs; }
+      // import ./plugins.nix {
+        inherit
+          pkgs
+          ;
+      }
       // import ./settings.nix;
     home.packages = with pkgs; [
       ffmpegthumbnailer

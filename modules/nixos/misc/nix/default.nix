@@ -7,10 +7,12 @@
 with lib;
 with x;
 let
-  inherit (pkgs) nix;
+  inherit (lib.x.nix) subs keys over;
+  inherit (pkgs) nix hydra-check;
 in
 
 {
+  environment.systemPackages = [ hydra-check ];
   nix = {
     package = nix;
     settings = {
@@ -23,13 +25,13 @@ in
         "${sys.userName}"
         "@wheel"
       ];
-      substituters = x.nix.subs;
-      trusted-public-keys = x.nix.keys;
+      substituters = subs;
+      trusted-public-keys = keys;
     };
   };
   nixpkgs = {
     hostPlatform = mkDefault sys.platform;
-    overlays = x.nix.over;
+    overlays = over;
     config = {
       allowBroken = true;
       allowUnfree = true;

@@ -23,7 +23,9 @@
       max_width = 5000;
     };
     opener = {
-      open = [ { run = "xdg-open $@"; } ];
+      open = [
+        { run = "xdg-open $@"; }
+      ];
       edit = [
         {
           run = ''hx "$@"'';
@@ -57,6 +59,12 @@
           orphan = true;
         }
       ];
+      exe = [
+        {
+          run = ''wine $@'';
+          orphan = true;
+        }
+      ];
     };
     open = {
       prepend_rules = [
@@ -65,6 +73,13 @@
           name = "*.kdbx";
           use = [
             "kdbx"
+            "reveal"
+          ];
+        }
+        {
+          name = "*.exe";
+          use = [
+            "exe"
             "reveal"
           ];
         }

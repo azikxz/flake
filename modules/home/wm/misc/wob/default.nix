@@ -25,14 +25,14 @@ in
         systemd = true;
         settings = {
           "" = {
-            background_color = "${base00}";
-            bar_color = "${base03}";
-            border_color = "${base0E}";
+            background_color = base00;
+            bar_color = base03;
+            border_color = base0E;
             anchor = "top right";
 
-            overflow_background_color = "${base00}";
-            overflow_bar_color = "${base03}";
-            overflow_border_color = "${base0C}";
+            overflow_background_color = base00;
+            overflow_bar_color = base03;
+            overflow_border_color = base0C;
 
             margin = 30;
             height = 50;

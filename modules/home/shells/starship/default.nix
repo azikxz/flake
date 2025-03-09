@@ -19,11 +19,12 @@ in
 
   config = mkIf cfg.enable {
     programs.starship = on // {
-      # enableFishIntegration = false;
       enableTransience = true;
       settings = {
         add_newline = true;
-        right_format = concatStrings [ "$battery" ];
+        right_format = mkIf (x.sys.is == "laptop") (concatStrings [
+          "$battery"
+        ]);
         format = concatStrings [
           "$username"
           "$directory"

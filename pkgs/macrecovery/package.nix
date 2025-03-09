@@ -1,6 +1,6 @@
 { pkgs }:
 
-pkgs.writeScriptBin "macrecovery.py" (
+pkgs.writeScriptBin "macrecovery" (
   builtins.readFile (
     pkgs.fetchurl {
       url = "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/refs/heads/master/Utilities/macrecovery/macrecovery.py";

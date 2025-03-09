@@ -10,7 +10,7 @@ with lib;
 with x;
 let
   inherit (pkgs) system;
-  inherit (spicePkgs) extensions snippets;
+  inherit (spicePkgs) extensions snippets apps;
   cfg = config.module.programs.gui.music;
   font = config.stylix.fonts;
   spicePkgs = inputs.spicetify.legacyPackages.${system};
@@ -35,40 +35,35 @@ in
         };
         colorScheme = "custom";
         customColorScheme = with config.lib.stylix.colors; {
-          # BASE 16 SCHEME
-          accent = "${base03}";
-          accent-active = "${base03}";
-          accent-inactive = "${base02}";
-          banner = "${base03}";
-          border-active = "${base03}";
-          border-inactive = "${base03}";
-          header = "${base00}";
-          highlight = "${base04}";
-          text = "${base06}";
-
-          subtext = "${base06}";
-          sidebar-text = "${base07}";
-          main = "${base00}";
-          sidebar = "${base01}";
-          player = "${base00}";
-          card = "${base00}";
-          shadow = "${base00}";
-          selected-row = "${base03}";
-          button = "${base0B}";
-          button-active = "${base0B}";
-          button-disabled = "${base03}";
-          tab-active = "${base04}";
-          notification = "${base0A}";
-          notification-error = "${base08}";
-          misc = "${base02}";
+          accent = base03;
+          accent-active = base03;
+          accent-inactive = base02;
+          banner = base03;
+          border-active = base03;
+          border-inactive = base03;
+          header = base00;
+          highlight = base04;
+          text = base06;
+          subtext = base06;
+          sidebar-text = base07;
+          main = base00;
+          sidebar = base01;
+          player = base00;
+          card = base00;
+          shadow = base00;
+          selected-row = base03;
+          button = base0B;
+          button-active = base0B;
+          button-disabled = base03;
+          tab-active = base04;
+          notification = base0A;
+          notification-error = base08;
+          misc = base02;
         };
         enabledExtensions = with extensions; [
-          # IMPORTANT
           fullAppDisplay
           betterGenres
           keyboardShortcut
-
-          #COMMUNITY
           adblockify
           historyShortcut
           beautifulLyrics
@@ -91,7 +86,6 @@ in
           hideNowPlayingViewButton
           fixLikedIcon
           removeTopSpacing
-          hideFriendsActivityButton
           hideFullScreenButton
           hideDownloadButton
           hideMiniPlayerButton
@@ -99,6 +93,12 @@ in
           hideSidebarScrollbar
           betterLyricsStyle
           queueTopSidePanel
+        ];
+        enabledCustomApps = with apps; [
+          lyricsPlus
+          newReleases
+          betterLibrary
+          historyInSidebar
         ];
       };
     })

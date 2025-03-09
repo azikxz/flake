@@ -1,5 +1,7 @@
 {
+  self,
   inputs,
+  pkgs,
   lib,
   ...
 }@a:
@@ -33,4 +35,4 @@ with types;
       ) 10
     ));
 }
-// import ./nixpkgs a
+// import ./nixpkgs { inherit self inputs pkgs; }

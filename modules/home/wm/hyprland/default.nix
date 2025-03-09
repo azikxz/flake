@@ -32,7 +32,11 @@ in
             config
             ;
         }
-        // import ./rules.nix { inherit config; }
+        // import ./rules.nix {
+          inherit
+            config
+            ;
+        }
         // import ./settings.nix {
           inherit
             pkgs

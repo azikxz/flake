@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   ...
@@ -8,18 +7,17 @@
 with lib;
 with x;
 let
-  cfg = config.module.programs.cli.top;
+  cfg = config.module.programs.cli.btop;
 in
 
 {
   options = {
-    module.programs.cli.top = {
+    module.programs.cli.btop = {
       enable = mkBool false;
     };
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ nvtopPackages.amd ];
     programs.btop = on // {
       settings = {
         update_ms = 100;

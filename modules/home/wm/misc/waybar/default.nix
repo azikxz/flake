@@ -20,7 +20,11 @@ in
 
   config = mkIf cfg.enable {
     programs.waybar = on // {
-      style = import ./style.nix { inherit config; };
+      style = import ./style.nix {
+        inherit
+          config
+          ;
+      };
       settings = {
         mainBar =
           let

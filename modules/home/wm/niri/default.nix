@@ -23,9 +23,20 @@ in
   config = mkIf cfg.enable {
     programs.niri = on // {
       package = pkgs.niri-unstable;
-      settings = {
-        binds = import ./binds.nix { inherit config; };
-      } // import ./settings.nix { inherit lib config; };
+      settings =
+        {
+          binds = import ./binds.nix {
+            inherit
+              config
+              ;
+          };
+        }
+        // import ./settings.nix {
+          inherit
+            lib
+            config
+            ;
+        };
     };
   };
 }

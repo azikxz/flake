@@ -20,17 +20,14 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      helix
       killall
+      helix
+      fff
     ];
     programs = {
       adb = if sys.is == "laptop " then on else off;
       light = if sys.is == "desktop" then on else off;
       git.package = mkDefault pkgs.gitMinimal;
-      nh = on // {
-        flake = path.flake;
-        clean = on;
-      };
     };
   };
 }

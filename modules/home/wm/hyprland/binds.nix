@@ -9,7 +9,9 @@ let
   inherit (lib) x getExe;
   cfg = config.module.wm.hyprland;
   tee = "${lib.getExe' pkgs.uutils-coreutils-noprefix "tee"}";
-  pic = "$(xdg-user-dir PICTURES)/scr/$(date +'scr_%d-%m-%y|%H:%M:%S.png')";
+  pic = ''
+    $(xdg-user-dir PICTURES)/scr/$(date +'scr_%d-%m-%y|%H:%M:%S.png')
+  '';
   mic = pkgs.writeShellScriptBin "micMute-hyprland" ''
     fixf4=$(cat /sys/class/leds/platform\:\:micmute/brightness);
     echo $((1-fixf4)) | sudo ${tee} /sys/class/leds/platform\:\:micmute/brightness;
@@ -41,8 +43,8 @@ in
     let
       inherit (pkgs) grimblast;
       mk =
-        mod: args: cmd:
-        "${toString mod} ${toString args}, ${toString cmd}";
+        m: a: c:
+        "${toString m} ${toString a}, ${toString c}";
       m = mk "$m,     ";
       s = mk "$m  $s, ";
       a = mk "$m  $a, ";

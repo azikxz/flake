@@ -19,6 +19,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.packages = [ pkgs.onefetch ];
     programs.git = on // {
       package = pkgs.gitMinimal;
       userName = sys.userName;

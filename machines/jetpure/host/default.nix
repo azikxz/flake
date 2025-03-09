@@ -26,6 +26,7 @@ in
     };
     services = {
       amneziawg = on // {
+        service = off;
         config = ./warp.conf;
       };
       autocpu = off;
@@ -35,19 +36,20 @@ in
       gvfs = on;
       polkit = on;
       printing = off;
+      qbittorrent = on;
       tailscale = on;
       tlp = off;
       torrentstream = off;
       torrserver = on;
-      transmission = off // {
-        tui = off;
-      };
+      transmission = off;
       zram.algo = "zstd";
     };
     programs = {
       common = on;
-      hamachi = on;
+      hamachi = off;
       hyprland = on;
+      nh = on;
+      nix-index = on;
       steam = on;
       sway = off;
     };

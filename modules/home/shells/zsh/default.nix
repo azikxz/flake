@@ -22,7 +22,12 @@ in
   config = mkIf cfg.enable {
     programs.zsh =
       let
-        plug = import ./plugins.nix { inherit lib pkgs; };
+        plug = import ./plugins.nix {
+          inherit
+            lib
+            pkgs
+            ;
+        };
       in
       with pkgs;
       on

@@ -28,11 +28,11 @@ in
           groups = [ "wheel" ];
           commands = with pkgs; [
             {
-              command = "${getExe light}";
+              command = getExe light;
               options = [ "NOPASSWD" ];
             }
             {
-              command = "${getExe' uutils-coreutils-noprefix "tee"}";
+              command = getExe' uutils-coreutils-noprefix "tee";
               options = [ "NOPASSWD" ];
             }
           ];

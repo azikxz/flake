@@ -27,9 +27,9 @@ in
       settings = with config.lib.stylix.colors.withHashtag; {
         General = {
           saveAsFileExtension = ".jpg";
-          uiColor = "${base00}";
-          contrastUiColor = "${base0E}";
-          drawColor = "${base0C}";
+          uiColor = base00;
+          contrastUiColor = base0E;
+          drawColor = base0C;
           useJpgForClipboard = true;
         };
       };

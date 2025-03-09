@@ -31,6 +31,15 @@ in
       MOZ_LEGACY_PROFILES = "1";
       QT_QPA_PLATFORMTHEME = "gtk3";
       TDESKTOP_I_KNOW_ABOUT_GTK_INCOMPATIBILITY = "1";
+      # fff
+      FFF_HIDDEN = 1;
+      FFF_COL1 = 7;
+      FFF_COL2 = 0;
+      FFF_COL3 = 3;
+      FFF_COL4 = 1;
+      FFF_COL5 = 1;
+      EDITOR = "hx";
+      FFF_FAV1 = "${x.path.flake}";
     };
     xdg.terminal-exec.settings = {
       default = [ "kitty.desktop" ];

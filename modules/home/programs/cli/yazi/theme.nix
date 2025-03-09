@@ -12,48 +12,48 @@ in
 lib.mkForce {
   manager = {
     cwd = {
-      fg = "${base0B}";
+      fg = base0B;
     };
     hovered = {
-      fg = "${base00}";
-      bg = "${base0E}";
+      fg = base00;
+      bg = base0E;
       bold = true;
     };
     preview_hovered = {
       underline = false;
     };
     tab_active = {
-      fg = "${base01}";
-      bg = "${base0E}";
+      fg = base01;
+      bg = base0E;
     };
     tab_inactive = {
-      fg = "${base06}";
-      bg = "${base00}";
+      fg = base06;
+      bg = base00;
     };
     tab_width = 1;
     border_style = {
-      fg = "${base00}";
+      fg = base00;
     };
     marker_selected = {
-      bg = "${base0C}";
-      fg = "${base00}";
+      bg = base0C;
+      fg = base00;
       bold = true;
     };
     marker_copied = {
-      bg = "${base0B}";
-      fg = "${base00}";
+      bg = base0B;
+      fg = base00;
       bold = true;
     };
     marker_cut = {
-      bg = "${base0A}";
-      fg = "${base00}";
+      bg = base0A;
+      fg = base00;
       bold = true;
     };
   };
   which = {
     cols = 3;
     mask = {
-      bg = "${base01}";
+      bg = base01;
     };
   };
   filetype = {

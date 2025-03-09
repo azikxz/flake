@@ -11,7 +11,7 @@ pkgs.stdenvNoCC.mkDerivation {
     install -Dm755 ${
       pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/Benexl/yt-x/refs/heads/master/yt-x";
-        sha256 = "sha256-LLs6dTmQ5+hUcxlN/PtkJjoCu3UEesOB9KuEBifObso=";
+        sha256 = "sha256-vVLSgGPAUY3uic3wKObsrTWPJyXs3uawtCQHiBcCkWg=";
         executable = true;
       }
     } -t $out/bin

@@ -9,7 +9,7 @@ let
   pkgs = import nixpkgs { inherit system; };
   lib = nixpkgs.lib;
 
-  build = import ./builder { inherit self inputs; };
+  build = import ./builder { inherit self inputs pkgs; };
   machines = (import "${self}/machines");
   mk = import ./other {
     inherit

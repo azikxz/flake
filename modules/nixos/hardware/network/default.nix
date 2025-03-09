@@ -19,6 +19,7 @@ in
 
   config = mkIf cfg.enable {
     networking = {
+      hosts = import ./hosts.nix;
       resolvconf.dnsSingleRequest = true;
       networkmanager = on // {
         dns = "systemd-resolved";

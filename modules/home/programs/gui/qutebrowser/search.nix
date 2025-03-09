@@ -1,8 +1,7 @@
 {
   DEFAULT = "https://google.com/search?q={}";
   d = "https://duckduckgo.com/?q={}";
-  r = "https://reddit.com/r/{}";
-  ig = "https://instagram.com/{}";
+  g = "https://google.com/search?q={}";
 
   ytm = "https://music.youtube.com/search?q={}";
   yt = "https://www.youtube.com/results?search_query={}";

@@ -20,7 +20,7 @@ in
 
   config = mkIf cfg.enable {
     programs.tmux = on // {
-      shell = "${getExe fish}";
+      shell = getExe fish;
       clock24 = true;
       keyMode = "vi";
       disableConfirmationPrompt = true;

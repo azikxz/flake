@@ -1,14 +1,7 @@
 {
-  self,
-  inputs,
   pkgs,
   ...
 }:
-
-let
-  s = self.packages.${pkgs.system};
-  ytx = inputs.yt-x.packages."${pkgs.system}".default;
-in
 
 {
   module.programs = {
@@ -23,6 +16,7 @@ in
 
       srb2
       srb2kart
+      openarena
       mindustry-wayland
 
       bottles
@@ -43,9 +37,8 @@ in
       hut
       sd
 
-      ytx
-      s.lowfi
-      s.anicliru
+      xpk.lowfi
+      xpk.anicliru
     ];
   };
 }

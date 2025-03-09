@@ -6,7 +6,7 @@
 }:
 
 {
-  "packages" = forAllSystems (
+  packages = forAllSystems (
     system:
     (import ./packages.nix {
       inherit
@@ -16,7 +16,7 @@
         ;
     })
   );
-  "devShells" = forAllSystems (
+  devShells = forAllSystems (
     system:
     (import ./shells.nix {
       inherit
@@ -24,5 +24,5 @@
         ;
     })
   );
-  "formatter" = forAllSystems (system: pkgs.nixfmt-rfc-style);
+  formatter = forAllSystems (system: pkgs.nixfmt-rfc-style);
 }

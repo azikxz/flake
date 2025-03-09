@@ -21,7 +21,11 @@ in
     programs.joshuto = on // {
       mimetype = import ./mimeType.nix;
       settings = import ./settings.nix;
-      theme = import ./theme.nix { inherit config; };
+      theme = import ./theme.nix {
+        inherit
+          config
+          ;
+      };
     };
   };
 }

@@ -27,6 +27,7 @@ in
     users =
       let
         grp = [
+          "media"
           "video"
           "audio"
           "networkmanager"
@@ -36,6 +37,7 @@ in
           "libvirtd"
           "terraria"
           "transmission"
+          "deluge"
           "adbusers"
         ];
       in

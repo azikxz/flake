@@ -39,28 +39,21 @@ in
         name = "GoogleDot-Custom";
         package =
           let
-            mode =
-              with config.lib.stylix.colors.withHashtag;
-              if x.sys.is == "laptop" then
-                {
-                  background_color = "${base08}";
-                  outline_color = "${base00}";
-                  accent_color = "${base08}";
-                }
-              else if x.sys.is == "desktop" then
-                {
-                  background_color = "${base0E}";
-                  outline_color = "${base00}";
-                  accent_color = "${base0E}";
-                }
-              else
-                {
-                  background_color = "${base00}";
-                  outline_color = "${base05}";
-                  accent_color = "${base05}";
-                };
+            mk = a: b: c: {
+              background_color = a;
+              outline_color = b;
+              accent_color = c;
+            };
           in
-          google-cursor.override mode;
+          google-cursor.override (
+            with config.lib.stylix.colors.withHashtag;
+            if x.sys.is == "laptop" then
+              mk base08 base00 base08
+            else if x.sys.is == "desktop" then
+              mk base0E base00 base0E
+            else
+              mk base00 base05 base05
+          );
       };
       iconTheme = on // {
         dark = "Papirus-Dark";
@@ -82,14 +75,14 @@ in
         };
       };
       targets = {
-        # CLI
+        # cli
         tmux = on;
         cava = on // {
           rainbow = on;
         };
         fish = on;
         nushell = on;
-        # WM
+        # wm
         hyprland = on // {
           hyprpaper = on;
         };
@@ -97,19 +90,19 @@ in
         niri = on;
         sway = on;
         river = on;
-        # MISC PROGRAMS
+        # misc
         foot = on;
         kitty = on;
         mako = off;
         rofi = on;
         bemenu = on;
-        # TOOLS
+        # tools
         nixvim = on;
         yazi = on;
         fzf = on;
         bat = on;
         mangohud = on;
-        # GUI
+        # gui
         spicetify = off;
         nixcord = on;
         zathura = on;

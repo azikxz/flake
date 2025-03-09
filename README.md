@@ -102,7 +102,7 @@
 
 2. Create directory with your [hostName](./machines/jetpure) in [flakeDir](./)
 
-3. Create in [./machines/hostName] directories [home](./machines/jetpure/home) and [host](./machines/jetpure/host)
+3. Create in [./machines/hostName](./machines/jetpure) directories [home](./machines/jetpure/home) and [host](./machines/jetpure/host)
 
 ### PREVIEW
 

@@ -17,5 +17,7 @@ in
     };
   };
 
-  config = mkIf cfg.enable { programs.bash = off; };
+  config = mkIf cfg.enable {
+    programs.bash = off;
+  };
 }

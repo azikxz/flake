@@ -7,7 +7,9 @@
   module.programs.gui.qutebrowser = {
     quickmarks = {
       # localhost
+      keenWeb = "192.168.1.1";
       qBittorrent = "localhost:8080";
+      transmission = "localhost:9091";
       torrserver = "localhost:8090";
       syncthing = "localhost:8384";
       # nix
@@ -45,10 +47,12 @@
         # localhost
         "qute://start/*"
         "http://localhost:*/*"
+        "http://192.168.1.1/*"
         "http://localhost:8080/*"
         "http://localhost:8090/*"
         "http://localhost:8384/*"
         # sites
+        "https://priv.au/*"
         "https://rutracker.org/*"
         "*://*.youtube.com/*"
         "https://www.youtube.com/*"

@@ -50,10 +50,10 @@ in
     };
     colors = with config.lib.stylix.colors.withHashtag; {
       tabs = {
-        even.bg = f "${base00}";
+        even.bg = f base00;
         selected = {
-          even.bg = f "${base03}";
-          odd.bg = f "${base03}";
+          even.bg = f base03;
+          odd.bg = f base03;
         };
       };
       webpage = {
@@ -61,8 +61,8 @@ in
         darkmode.enabled = true;
       };
       hints = {
-        bg = f "${base04}";
-        fg = f "${base00}";
+        bg = f base04;
+        fg = f base00;
       };
     };
     fonts = with config.stylix.fonts; {

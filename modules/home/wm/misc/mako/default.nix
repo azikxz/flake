@@ -31,26 +31,22 @@ in
         borderRadius = 8;
         borderSize = 2;
         # COLORS
-        backgroundColor = "${base01}";
-        borderColor = "${base0E}";
-        textColor = "${base06}";
-        extraConfig = x.toGen "toINI" {
-          "urgency=low" = {
-            background-color = "${base00}";
-            border-color = "${base0D}";
-            text-color = "${base06}";
+        backgroundColor = base01;
+        borderColor = base0E;
+        textColor = base06;
+        extraConfig =
+          let
+            mk = a: b: c: {
+              background-color = a;
+              border-color = b;
+              text-color = c;
+            };
+          in
+          x.toGen "toINI" {
+            "urgency=low" = mk base00 base0D base06;
+            "urgency=high" = mk base00 base0C base06;
+            "urgency=critical" = mk base00 base0A base06;
           };
-          "urgency=high" = {
-            background-color = "${base00}";
-            border-color = "${base0C}";
-            text-color = "${base06}";
-          };
-          "urgency=critical" = {
-            background-color = "${base00}";
-            border-color = "${base0A}";
-            text-color = "${base06}";
-          };
-        };
         # SETTINGS
         layer = "overlay";
         sort = "+time";

@@ -24,7 +24,7 @@ with config.lib.stylix.colors.withHashtag;
   # AUTOSTART
   startup = with pkgs; [
     { command = "mako"; }
-    { command = "${getExe autotiling-rs}"; }
+    { command = getExe autotiling-rs; }
   ];
   # MOVEMENT & BINDS
   modifier = "Mod4";
@@ -45,36 +45,21 @@ with config.lib.stylix.colors.withHashtag;
   };
   # COLORS
   colors =
+    let
+      mk = a: b: c: d: e: {
+        background = a;
+        border = b;
+        childBorder = c;
+        indicator = d;
+        text = e;
+      };
+    in
     with config.lib.stylix.colors.withHashtag;
     mkForce {
-      background = "${base00}";
-      focused = {
-        background = "${base00}";
-        border = "${base00}";
-        childBorder = "${base0B}";
-        indicator = "${base08}";
-        text = "${base06}";
-      };
-      focusedInactive = {
-        background = "${base02}";
-        border = "${base00}";
-        childBorder = "${base0B}";
-        indicator = "${base08}";
-        text = "${base04}";
-      };
-      unfocused = {
-        background = "${base00}";
-        border = "${base00}";
-        childBorder = "${base0B}";
-        indicator = "${base08}";
-        text = "${base06}";
-      };
-      urgent = {
-        background = "${base00}";
-        border = "${base08}";
-        childBorder = "${base0B}";
-        indicator = "${base08}";
-        text = "${base06}";
-      };
+      background = base00;
+      focused = mk base00 base00 base0B base08 base06;
+      focusedInactive = mk base02 base00 base0B base08 base04;
+      unfocused = mk base00 base00 base0B base08 base06;
+      urgent = mk base00 base08 base0B base08 base06;
     };
 }

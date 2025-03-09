@@ -30,7 +30,7 @@ with config.lib.stylix.colors;
     in
     [
       "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1"
-      ''${getExe mic}''
+      (getExe mic)
     ]
     ++ cfg.autostart;
   monitor =
@@ -65,7 +65,7 @@ with config.lib.stylix.colors;
       vibrancy = 0.9;
       popups = false;
       special = true;
-      xray = true;
+      xray = false;
     };
   };
   group = {

@@ -15,6 +15,9 @@ rec {
   mkInt = mkOpt types.int;
   mkEnum = mkOpt types.enum;
   mkPath = mkOpt types.path;
+  mkPort = mkOpt types.port;
+  mkOneOf = mkOpt types.oneOf;
+  mkUns = mkOpt types.unspecified;
   # mk two sided idk
   mkList =
     let
@@ -32,6 +35,7 @@ rec {
       pkgs = mkOpt (mk types.package);
       str = mkOpt (mk types.str);
       any = mkOpt (mk types.anything);
+      attrs = mkOpt (mk types.attrs);
     };
   mkNull =
     let
@@ -45,5 +49,6 @@ rec {
       int = mkOpt (mk types.int);
       enum = mkOpt (mk types.enum);
       path = mkOpt (mk types.path);
+      port = mkOpt (mk types.port);
     };
 }

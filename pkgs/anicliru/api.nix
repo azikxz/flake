@@ -2,13 +2,13 @@
 
 pkgs.python3Packages.buildPythonApplication rec {
   pname = "anicli_api";
-  version = "0.7.3";
+  version = "0.7.4";
   pyproject = true;
   dontCheckRuntimeDeps = true;
 
   src = pkgs.fetchPypi {
     inherit pname version;
-    hash = "sha256-eFAVr43lE+c7hFIyyKcq4W8MmzkPHdZ1z4fiYQxaHY8=";
+    hash = "sha256-TEB9w+kh/vCkWXSs4cqZiwMwuepn7oaMm/Hr9J79vOo=";
   };
 
   build-system = with pkgs.python3Packages; [

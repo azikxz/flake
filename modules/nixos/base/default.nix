@@ -19,7 +19,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.getty.autologinUser = sys.userName; # AUTOLOGIN
+    services.getty.autologinUser = sys.userName;
     boot = {
       kernelPackages = with pkgs; linuxPackages_zen;
       loader = {
@@ -44,6 +44,13 @@ in
     security = {
       sudo = off;
       sudo-rs = on;
+    };
+    users = {
+      users.media = {
+        isSystemUser = true;
+        group = "media";
+      };
+      groups.media = { };
     };
   };
 }

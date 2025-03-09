@@ -1,8 +1,8 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
-  modulesPath,
   ...
 }:
 
@@ -20,7 +20,7 @@ in
     };
   };
 
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports = with inputs; [ nixpkgs.nixosModules.notDetected ];
   config = mkIf cfg.enable {
     boot = {
       tmp.cleanOnBoot = true;
@@ -61,7 +61,9 @@ in
         ];
       };
       plymouth = (mkIf cfg.plymouth.enable on) // {
-        logo = "${pkgs.nixos-icons}/share/icons/hicolor/48x48/apps/nix-snowflake-white.png";
+        logo = ''
+          ${pkgs.nixos-icons}/share/icons/hicolor/48x48/apps/nix-snowflake-white.png
+        '';
       };
     };
   };

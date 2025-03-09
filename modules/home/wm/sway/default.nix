@@ -21,9 +21,22 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.sway = on // {
       package = pkgs.swayfx;
-      config = import ./settings.nix { inherit pkgs lib config; } // {
-        keybindings = import ./binds.nix { inherit pkgs lib; };
-      };
+      config =
+        import ./settings.nix {
+          inherit
+            pkgs
+            lib
+            config
+            ;
+        }
+        // {
+          keybindings = import ./binds.nix {
+            inherit
+              pkgs
+              lib
+              ;
+          };
+        };
       extraConfig =
         with config.lib.stylix.colors.withHashtag;
         # fish

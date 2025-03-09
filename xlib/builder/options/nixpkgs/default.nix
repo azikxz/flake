@@ -1,5 +1,7 @@
 {
+  self,
   inputs,
+  pkgs,
   ...
 }:
 
@@ -22,8 +24,9 @@
       "xache.cachix.org-1:InoMKnvFvDh+J5gFNHN1mmUONxvYJqFImLJY8/bl9YA=" # MY OWN
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964=" # NIRI
     ];
-    over = [
-      inputs.niri.overlays.niri
+    over = with inputs; [
+      niri.overlays.niri
+      (final: prev: { xpk = self.packages.${pkgs.system}; })
     ];
   };
 }

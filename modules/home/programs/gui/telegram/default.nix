@@ -84,7 +84,12 @@ in
       };
     home.activation =
       let
-        walogram = import ./walogram.nix { inherit pkgs config; };
+        walogram = import ./walogram.nix {
+          inherit
+            pkgs
+            config
+            ;
+        };
       in
       mkIf cfg.walogram.enable {
         telegramTheme = hm.dag.entryAfter [ "" ] ''

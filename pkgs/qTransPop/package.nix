@@ -12,5 +12,7 @@ pkgs.stdenv.mkDerivation {
 
   nativeBuildInputs = [ pkgs.python312Packages.requests ];
 
-  installPhase = ''install -Dm555 translate $out/exe'';
+  installPhase = ''
+    install -Dm555 translate $out/exe
+  '';
 }

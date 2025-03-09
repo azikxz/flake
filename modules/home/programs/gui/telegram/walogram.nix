@@ -17,7 +17,11 @@ pkgs.writeShellApplication {
       inherit (config.xdg) cacheHome;
       inherit (config.stylix) image;
       inherit (config.lib.stylix.colors.withHashtag) base00 base01;
-      theme = import ./palette.nix { inherit config; };
+      theme = import ./palette.nix {
+        inherit
+          config
+          ;
+      };
       cfg = config.module.programs.gui.telegram;
     in
     # sh

@@ -1,6 +1,7 @@
 {
   self,
   inputs,
+  pkgs,
   ...
 }:
 
@@ -44,8 +45,15 @@ let
                 sec
                 ;
             }
-            // import ./options/addit.nix { inherit inputs lib; }
-            // import ./options/mkOpt.nix { inherit lib; };
+            // import ./options/addit.nix {
+              inherit
+                self
+                inputs
+                lib
+                pkgs
+                ;
+            }
+            // import ./options/options.nix { inherit lib; };
         }
       );
       # dirs
@@ -78,7 +86,7 @@ let
         {
           home-manager = {
             sharedModules = [ nixcord.homeManagerModules.nixcord ];
-            backupFileExtension = "backupr";
+            backupFileExtension = "BACKUPR";
             extraSpecialArgs = spArgs;
             useGlobalPkgs = true;
             useUserPackages = true;

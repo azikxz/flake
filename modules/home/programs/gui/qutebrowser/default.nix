@@ -1,5 +1,4 @@
 {
-  self,
   pkgs,
   lib,
   config,
@@ -31,10 +30,24 @@ in
     ];
     programs.qutebrowser =
       on
-      // import ./settings.nix { inherit lib config; }
+      // import ./settings.nix {
+        inherit
+          lib
+          config
+          ;
+      }
       // {
-        keyBindings = import ./binds.nix { inherit self pkgs lib; };
-        greasemonkey = import ./plugins.nix { inherit pkgs; };
+        keyBindings = import ./binds.nix {
+          inherit
+            pkgs
+            lib
+            ;
+        };
+        greasemonkey = import ./plugins.nix {
+          inherit
+            pkgs
+            ;
+        };
         searchEngines = import ./search.nix;
       };
   };

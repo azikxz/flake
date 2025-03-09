@@ -1,6 +1,5 @@
 { pkgs }:
 
-with pkgs;
 let
   build = builtins.attrValues {
     inherit (pkgs)
@@ -10,9 +9,9 @@ let
       bzip2
       zstd
       ;
-    tdlib = tdlib.overrideAttrs {
+    tdlib = pkgs.tdlib.overrideAttrs {
       version = "1.8.29";
-      src = fetchFromGitHub {
+      src = pkgs.fetchFromGitHub {
         owner = "tdlib";
         repo = "td";
         rev = "af69dd4397b6dc1bf23ba0fd0bf429fcba6454f6";
@@ -44,15 +43,15 @@ pkgs.rustPlatform.buildRustPackage {
   buildInputs = build;
 
   patches = [
-    (fetchurl {
+    (pkgs.fetchurl {
       url = "https://raw.githubusercontent.com/FedericoBruzzone/tgt/38768515feb890fe15df08b5f1c1306370fd647a/patches/0001-check-filesystem-writability-before-operations.patch";
       sha256 = "sha256-ugztN6YAZEmpXndhMDGRPRuEOgGWS7cACXQ/Yj1soXw=";
     })
   ];
 
   env = {
-    RUSTFLAGS = "-C link-arg=-Wl,-rpath,${tdlib}/lib -L ${pkgs.openssl}/lib";
+    RUSTFLAGS = "-C link-arg=-Wl,-rpath,${pkgs.tdlib}/lib -L ${pkgs.openssl}/lib";
     ZSTD_SYS_USE_PKG_CONFIG = true;
-    LOCAL_TDLIB_PATH = "${tdlib}/lib";
+    LOCAL_TDLIB_PATH = "${pkgs.tdlib}/lib";
   };
 }

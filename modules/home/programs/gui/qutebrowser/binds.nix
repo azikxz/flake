@@ -1,5 +1,4 @@
 {
-  self,
   pkgs,
   lib,
   ...
@@ -7,8 +6,6 @@
 
 let
   inherit (lib) x;
-  transPop = self.packages.${pkgs.system}.qTransPop;
-  transPag = self.packages.${pkgs.system}.qTransPag;
 in
 
 {
@@ -24,8 +21,8 @@ in
     # keepassxc
     ",p" = "spawn --userscript qute-keepass -p ${x.path.pass}";
     # transPopup
-    ",t" = "spawn --userscript ${transPag}/exe -s en -t ru";
-    ",T" = "spawn --userscript ${transPop}/exe --target_lang ru";
+    ",t" = "spawn --userscript ${pkgs.xpk.qTransPag}/exe -s en -t ru";
+    ",T" = "spawn --userscript ${pkgs.xpk.qTransPop}/exe --target_lang ru";
     # tabs
     ",b" = "config-cycle tabs.show always switching";
     ",s" = "config-cycle statusbar.show in-mode always";

@@ -19,6 +19,7 @@ in
 
   config = mkIf cfg.enable {
     module.programs.cli = {
+      archivers = on;
       bat = on;
       eza = on;
       fd = on;

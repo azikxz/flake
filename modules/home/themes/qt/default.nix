@@ -20,8 +20,18 @@ in
 
   config = mkIf cfg.enable {
     xdg.configFile =
-      import ./qtct.nix { inherit pkgs config; }
-      // import ./color.nix { inherit lib config; };
+      import ./qtct.nix {
+        inherit
+          pkgs
+          config
+          ;
+      }
+      // import ./color.nix {
+        inherit
+          lib
+          config
+          ;
+      };
     qt = on // {
       platformTheme.name = "qtct";
     };

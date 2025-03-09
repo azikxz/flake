@@ -1,12 +1,7 @@
 {
-  self,
   pkgs,
   ...
 }:
-
-let
-  s = self.packages.${pkgs.system};
-in
 
 {
   module.programs = {
@@ -30,7 +25,7 @@ in
       hut
       sd
 
-      s.lowfi
+      xpk.lowfi
     ];
   };
 }

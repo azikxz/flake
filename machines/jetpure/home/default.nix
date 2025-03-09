@@ -12,19 +12,13 @@ in
   module = {
     programs = {
       cli = {
-        archivers = on;
         common = on;
         cava = on;
         fetch = on;
         figlet = on;
         helix = on;
-        joshuto = off;
         legendary = on;
-        lsd = off;
-        micro = off;
-        rustmission = off;
-        tgt = on;
-        top = on;
+        systop = on;
         yazi = on;
       };
       gui = {
@@ -33,7 +27,6 @@ in
         minecraft = on;
         mpv = on;
         obs = on;
-        qbittorrent = on;
         qutebrowser = on;
         music = {
           amberol = off;

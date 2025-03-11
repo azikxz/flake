@@ -22,9 +22,11 @@ in
     programs.obs-studio = on // {
       package = pkgs.obs-studio;
       plugins = with pkgs.obs-studio-plugins; [
-        wlrobs
+        obs-pipewire-audio-capture
+        obs-multi-rtmp
         obs-vkcapture
         input-overlay
+        wlrobs
       ];
     };
   };

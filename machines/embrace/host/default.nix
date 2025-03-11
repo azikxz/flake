@@ -29,34 +29,22 @@ in
     };
     services = {
       amneziawg = on;
-      autocpu = off;
       dbus = on;
-      deluge = off;
+      fprintd = on;
       getty = on;
       gvfs = on;
       polkit = on;
-      printing = off;
-      tailscale = off;
       tlp = on;
-      torrserver = off;
-      transmission = off // {
-        tui = off;
-      };
       zram.algo = "zstd";
     };
     programs = {
       common = on;
-      hamachi = off;
       hyprland = on;
       steam = on;
-      sway = off;
     };
     misc = {
-      console = off;
       locales.zone = "Asia/Chita";
-      protonmail = off;
       security = on;
-      terraria = off;
       users.passwd = "$2b$05$KxzRemxpLZBhgRObiACMBuZqXgCSdy8OEu2WtGohJkiCiabRhHAtm";
       variables = on;
     };

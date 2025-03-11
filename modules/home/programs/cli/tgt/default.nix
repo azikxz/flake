@@ -19,7 +19,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ xpk.tgt ];
+    home.packages = with pkgs; [ tgt ];
     home.file = {
       ".tgt/config/app.toml".text = import ./conf_nix/app.nix;
       ".tgt/config/theme.toml".text = import ./conf_nix/theme.nix {

@@ -19,6 +19,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs.xpk; [ countryfetch ];
+    home.packages = with pkgs; [ countryfetch ];
   };
 }

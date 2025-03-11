@@ -104,6 +104,7 @@ in
         mangohud = on;
         # gui
         spicetify = off;
+        mpv = on;
         nixcord = on;
         zathura = on;
         qutebrowser = on;
@@ -111,6 +112,7 @@ in
         floorp = on;
         halloy = on;
         gtk = on;
+        qt = on;
       };
     };
   };

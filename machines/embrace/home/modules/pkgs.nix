@@ -25,7 +25,7 @@
       hut
       sd
 
-      xpk.lowfi
+      lowfi
     ];
   };
 }

@@ -36,7 +36,7 @@
       [
         niri.overlays.niri
         nur.overlays.default
-        (final: prev: { xpk = xpackage; })
+        (final: prev: xpackage)
         (final: prev: { zen-browser = xpackage.zen-browser; })
       ];
   };

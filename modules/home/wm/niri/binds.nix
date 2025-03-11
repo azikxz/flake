@@ -27,7 +27,6 @@ in
 
   "Print".action = screenshot;
   "${s}+Print".action = screenshot-window;
-  "${a}+Print".action = screenshot-screen;
 
   "${m}+S".action = switch-preset-column-width;
   "${m}+Comma".action = consume-window-into-column;

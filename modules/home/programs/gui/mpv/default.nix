@@ -46,6 +46,7 @@ in
       config = {
         fs = "yes";
         osc = "no";
+        background-color = mkForce "#000000";
         glsl-shaders =
           let
             mk =
@@ -56,7 +57,7 @@ in
               else
                 null;
           in
-          "${toString mk}";
+          toString mk;
       };
       extraInput =
         let
@@ -70,7 +71,6 @@ in
         in
         ''
           ${toString mk}
-
           CTRL+0 no-osd change-list glsl-shaders clr ""; show-text "GLSL shaders cleared"
         '';
     };

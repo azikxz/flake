@@ -38,8 +38,8 @@
       hut
       sd
 
-      xpk.lowfi
-      xpk.anicliru
+      lowfi
+      anicliru
     ];
   };
 }

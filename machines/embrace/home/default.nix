@@ -19,28 +19,16 @@ in
         common = on;
         cava = on;
         fetch = on;
-        figlet = off;
         helix = on;
-        joshuto = off;
-        legendary = off;
-        lsd = off;
-        micro = off;
-        rustmission = off;
         top = on;
         yazi = on;
       };
       gui = {
-        chromium = off;
         keepass = on;
-        minecraft = off;
         mpv = on;
-        obs = off;
         qbittorrent = on;
         qutebrowser = on;
-        music = {
-          amberol = off;
-          spotify = on;
-        };
+        music.spotify = on;
         swayimg = on;
         syncthing = on;
         telegram = {
@@ -53,10 +41,7 @@ in
     };
     shells = {
       fish = on;
-      nushell = off;
-      tmux = off;
       translate = on;
-      zsh = off;
       starship = on;
     };
     themes = {
@@ -68,22 +53,13 @@ in
     };
     wm = {
       hyprland = on;
-      sway = off;
-      terminals = {
-        kitty = on;
-        foot = off;
-        wezterm = off;
-      };
+      terminals.kitty = on;
       misc = {
-        flameshot = off;
         mako = on;
-        nwg = off;
-        rofi = off;
         tofi = on;
         waybar = on;
         wlogout = on;
         wob = on;
-        yofi = off;
       };
     };
     misc = {

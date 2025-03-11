@@ -35,7 +35,7 @@ in
         ];
         serviceConfig = {
           ExecStart = ''
-            ${getExe' pkgs.xpk.torrserver "torrserver"} -d ${cfg.disk} -p ${cfg.port}
+            ${getExe' pkgs.torrserver "torrserver"} -d ${cfg.disk} -p ${cfg.port}
           '';
           Restart = "on-failure";
           Type = "simple";

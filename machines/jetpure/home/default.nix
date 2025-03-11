@@ -30,10 +30,7 @@ in
         mpv = on;
         obs = on;
         qutebrowser = on;
-        music = {
-          amberol = off;
-          spotify = on;
-        };
+        music.spotify = on;
         nixcord = on;
         swayimg = on;
         syncthing = on;
@@ -44,7 +41,6 @@ in
           };
         };
         zathura = on;
-        zen-browser = on;
       };
     };
     shells = {

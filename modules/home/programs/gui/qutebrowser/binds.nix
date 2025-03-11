@@ -21,8 +21,8 @@ in
     # keepassxc
     ",p" = "spawn --userscript qute-keepass -p ${x.path.pass}";
     # transPopup
-    ",t" = "spawn --userscript ${pkgs.xpk.qTransPag}/exe -s en -t ru";
-    ",T" = "spawn --userscript ${pkgs.xpk.qTransPop}/exe --target_lang ru";
+    ",t" = "spawn --userscript ${pkgs."qutebrowser/page"}/exe -s en -t ru";
+    ",T" = "spawn --userscript ${pkgs."qutebrowser/popup"}/exe --target_lang ru";
     # tabs
     ",b" = "config-cycle tabs.show always switching";
     ",s" = "config-cycle statusbar.show in-mode always";

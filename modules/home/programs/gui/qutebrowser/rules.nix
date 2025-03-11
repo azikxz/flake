@@ -29,7 +29,7 @@
       mastodonMl = "mastodon.ml";
       vk = "vk.com";
       # anime etc
-      animeGo = "animego.me/index";
+      animeGo = "animego.club/index";
       mangaLib = "mangalib.me";
       urusai = "urusai.social";
       # torrents
@@ -89,19 +89,15 @@
           with config.lib.stylix.colors.withHashtag;
           # css
           ''
-            body {
-              background-color: ${base00};
-              font-family: "${font.monospace.name}" !important;
-            }
-            input {
-              color: ${base05};
-              background-color: ${base01};
-              border-radius: 8px !important;
-              font-family: "${font.monospace.name}" !important;
-            }
-            .bookmarks { display: none; }
-            .header { margin-top: 220px; }
-            .logo { visibility: hidden; }
+            body {  background-color:  ${base00};
+                    font-family:      "${font.monospace.name}" !important; }
+            input { color:             ${base05};
+                    background-color:  ${base01};
+                    border-radius:     8px !important;
+                    font-family:      "${font.monospace.name}" !important; }
+            .bookmarks { display:    none;   }
+            .header    { margin-top: 220px;  }
+            .logo      { visibility: hidden; }
           '';
       };
     };

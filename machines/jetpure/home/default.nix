@@ -1,4 +1,7 @@
-{ lib, ... }:
+{
+  lib,
+  ...
+}:
 
 let
   inherit (lib.x) on off umport;
@@ -22,7 +25,6 @@ in
         yazi = on;
       };
       gui = {
-        chromium = off;
         keepass = on;
         minecraft = on;
         mpv = on;
@@ -42,20 +44,17 @@ in
           };
         };
         zathura = on;
+        zen-browser = on;
       };
     };
     shells = {
       fish = on;
-      nushell = off;
-      tmux = off;
       translate = on;
-      zsh = off;
       starship = on;
     };
     themes = {
       gtk = on;
       qt = on;
-      kvantum = off;
       stylix = on // {
         icon = "adwaita";
         cursor.size = 16;
@@ -63,22 +62,12 @@ in
     };
     wm = {
       hyprland = on;
-      sway = off;
       niri = on;
-      terminals = {
-        kitty = on;
-        foot = off;
-        wezterm = off;
-      };
+      terminals.kitty = on;
       misc = {
         mako = on;
-        nwg = off;
-        rofi = off;
         tofi = on;
-        waybar = off;
         wlogout = on;
-        wob = off;
-        yofi = off;
       };
     };
     misc = {

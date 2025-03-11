@@ -52,7 +52,7 @@ in
           format = "on [$symbol$branch]($style) ";
           style = "bold italic fg:green";
           symbol = " ";
-          truncation_length = 8;
+          truncation_length = 24;
           truncation_symbol = "";
         };
         git_metrics = {
@@ -68,7 +68,7 @@ in
           format = "$symbol ";
           success_symbol = "[❯](bold green)";
           error_symbol = "[✗](bold red)";
-          vimcmd_symbol = "[N](bold green)";
+          vimcmd_symbol = "[N](bold blue)";
           vimcmd_replace_one_symbol = "[R](bold purple)";
           vimcmd_replace_symbol = "[R](bold purple)";
           vimcmd_visual_symbol = "[V](bold yellow)";

@@ -8,16 +8,16 @@ with lib;
 rec {
   # types and mk*
   mkOpt = type: default: mkOption { inherit type default; };
-  mkBool = mkOpt types.bool;
-  mkStr = mkOpt types.str;
-  mkLines = mkOpt types.lines;
-  mkPkg = mkOpt types.package;
-  mkInt = mkOpt types.int;
-  mkEnum = mkOpt types.enum;
-  mkPath = mkOpt types.path;
-  mkPort = mkOpt types.port;
-  mkOneOf = mkOpt types.oneOf;
-  mkUns = mkOpt types.unspecified;
+  mkBool = mkOpt (types.bool);
+  mkStr = mkOpt (types.str);
+  mkLines = mkOpt (types.lines);
+  mkPkg = mkOpt (types.package);
+  mkInt = mkOpt (types.int);
+  mkEnum = mkOpt (types.enum);
+  mkPath = mkOpt (types.path);
+  mkPort = mkOpt (types.port);
+  mkOneOf = mkOpt (types.oneOf);
+  mkUns = mkOpt (types.unspecified);
   # mk two sided idk
   mkList =
     let

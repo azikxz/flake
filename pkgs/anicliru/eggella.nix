@@ -11,8 +11,8 @@ pkgs.python3Packages.buildPythonApplication rec {
   };
 
   build-system = with pkgs.python3Packages; [
-    hatchling
     setuptools
+    hatchling
   ];
 
   dependencies = with pkgs.python3Packages; [

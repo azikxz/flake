@@ -6,10 +6,10 @@
 {
   module.programs = {
     gui.pkgs = with pkgs; [
-      portablemc
       qbittorrent-enhanced
-      filezilla
       libreoffice-fresh
+      zen-browser
+      filezilla
 
       popsicle
       ventoy
@@ -17,6 +17,7 @@
       srb2
       srb2kart
       openarena
+      portablemc
       mindustry-wayland
 
       bottles

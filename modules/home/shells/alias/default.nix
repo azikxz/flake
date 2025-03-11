@@ -52,7 +52,7 @@ in
       ntop = "nvtop -i";
       # clock
       ter = ''
-        ${getExe tenki} -fps 80 \
+        ${getExe tenki} --fps 80 \
           --wind disable \
           --timer-color cyan \
           --mode rain

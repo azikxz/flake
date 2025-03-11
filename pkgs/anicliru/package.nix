@@ -11,8 +11,8 @@ pkgs.python3Packages.buildPythonApplication rec {
   };
 
   build-system = with pkgs.python3Packages; [
-    hatchling
     setuptools
+    hatchling
   ];
 
   dependencies = with pkgs; [
@@ -22,4 +22,6 @@ pkgs.python3Packages.buildPythonApplication rec {
     (callPackage ./chompjs.nix { })
     (callPackage ./api.nix { })
   ];
+
+  meta.mainProgram = "anicli-ru";
 }

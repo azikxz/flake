@@ -4,7 +4,7 @@
   pkgs,
   lib,
   ...
-}@a:
+}:
 
 with lib;
 with types;
@@ -35,4 +35,4 @@ with types;
       ) 10
     ));
 }
-// import ./nixpkgs { inherit self inputs pkgs; }
+// import ./nixpkgs.nix { inherit self inputs pkgs; }

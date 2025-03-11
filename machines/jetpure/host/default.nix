@@ -1,4 +1,7 @@
-{ lib, ... }:
+{
+  lib,
+  ...
+}:
 
 let
   inherit (lib.x) on off umport;
@@ -49,7 +52,6 @@ in
       hamachi = off;
       hyprland = on;
       nh = on;
-      nix-index = on;
       steam = on;
       sway = off;
     };

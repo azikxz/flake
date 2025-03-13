@@ -15,6 +15,7 @@ in
   options = {
     module.programs.gui.zen-browser = {
       enable = mkBool false;
+      compact.enable = mkBool false;
     };
   };
 

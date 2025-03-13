@@ -20,7 +20,6 @@ in
 
   config = mkIf cfg.enable {
     programs.obs-studio = on // {
-      package = pkgs.obs-studio;
       plugins = with pkgs.obs-studio-plugins; [
         obs-pipewire-audio-capture
         obs-multi-rtmp

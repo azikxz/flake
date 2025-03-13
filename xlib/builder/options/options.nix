@@ -7,10 +7,18 @@ with lib;
 
 rec {
   # types and mk*
-  mkOpt = type: default: mkOption { inherit type default; };
+  mkOpt =
+    type: default:
+    mkOption {
+      inherit
+        type
+        default
+        ;
+    };
   mkBool = mkOpt (types.bool);
   mkStr = mkOpt (types.str);
   mkLines = mkOpt (types.lines);
+  mkRaw = mkOpt (types.raw);
   mkPkg = mkOpt (types.package);
   mkInt = mkOpt (types.int);
   mkEnum = mkOpt (types.enum);
@@ -18,6 +26,7 @@ rec {
   mkPort = mkOpt (types.port);
   mkOneOf = mkOpt (types.oneOf);
   mkUns = mkOpt (types.unspecified);
+  mkAttrsOf = type: (types.attrsOf type);
   # mk two sided idk
   mkList =
     let

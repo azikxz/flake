@@ -29,6 +29,7 @@ in
         minecraft = on;
         mpv = on;
         obs = on;
+        obsidian = on;
         qutebrowser = on;
         music.spotify = on;
         nixcord = on;
@@ -41,6 +42,9 @@ in
           };
         };
         zathura = on;
+        zen-browser = on // {
+          compact = on;
+        };
       };
     };
     shells = {

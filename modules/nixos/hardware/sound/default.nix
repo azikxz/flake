@@ -19,7 +19,6 @@ in
     };
   };
 
-  imports = with inputs; [ gaming.nixosModules.pipewireLowLatency ];
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ pulsemixer ];
     security.rtkit = on;
@@ -29,9 +28,13 @@ in
       alsa = on // {
         support32Bit = true;
       };
-      lowLatency = on // {
-        quantum = 64;
-        rate = 48000;
+      extraConfig.pipewire."92-low-latency" = {
+        "context.properties" = {
+          "default.clock.rate" = 48000;
+          "default.clock.quantum" = 32;
+          "default.clock.min-quantum" = 32;
+          "default.clock.max-quantum" = 32;
+        };
       };
     };
   };

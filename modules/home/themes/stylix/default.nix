@@ -112,7 +112,6 @@ in
         floorp = on;
         halloy = on;
         gtk = on;
-        qt = on;
       };
     };
   };

@@ -5,6 +5,7 @@ let
   web = "org.qutebrowser.qutebrowser.desktop";
   pdf = "org.pwmt.zathura.desktop";
 in
+
 {
   defaultApplications = {
     # TEXT FORMATS

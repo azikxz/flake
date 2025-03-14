@@ -13,15 +13,6 @@
 
       popsicle
       ventoy
-
-      srb2
-      srb2kart
-      openarena
-      portablemc
-      mindustry-wayland
-
-      bottles
-      wineWow64Packages.stagingFull
     ];
     cli.pkgs = with pkgs; [
       imagemagick

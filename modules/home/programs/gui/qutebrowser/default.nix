@@ -37,6 +37,9 @@ in
           ;
       }
       // {
+        searchEngines = {
+          DEFAULT = "https://www.google.com/search?q={}";
+        };
         keyBindings = import ./binds.nix {
           inherit
             pkgs
@@ -48,7 +51,6 @@ in
             pkgs
             ;
         };
-        searchEngines = import ./search.nix;
       };
   };
 }

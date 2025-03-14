@@ -14,9 +14,21 @@ pkgs.writeShellApplication {
   bashOptions = [ "pipefail" ];
   text =
     let
-      inherit (config.xdg) cacheHome;
-      inherit (config.stylix) image;
-      inherit (config.lib.stylix.colors.withHashtag) base00 base01;
+      inherit (config)
+        xdg
+        stylix
+        lib
+        ;
+      inherit (xdg)
+        cacheHome
+        ;
+      inherit (stylix)
+        image
+        ;
+      inherit (lib.stylix.colors.withHashtag)
+        base00
+        base01
+        ;
       theme = import ./palette.nix {
         inherit
           config

@@ -24,15 +24,16 @@ in
   config = mkIf cfg.enable {
     programs.obsidian = on // {
       vaults = {
-        "Documents/Obsidian/master".enable = true;
+        "Obsidian/spellnotes".enable = true;
       };
       defaultSettings = {
         app = {
+          vimMode = true;
           defaultViewMode = "preview";
           livePreview = false;
           readableLineLength = true;
-          showLineNumber = true;
           tabSize = 2;
+          showLineNumber = true;
         };
         corePlugins =
           [
@@ -42,12 +43,32 @@ in
                 newFileLocation = "folder";
                 newFileFolderPath = "Inbox";
                 defaultWheelBehavior = "zoom";
+                snapToObjects = true;
+                snapToGrid = true;
+                cardLabelVisibility = "hover";
               };
             }
           ]
           ++ [
+            "audio-recorder"
             "bookmarks"
-            "canvas"
+            "command-palette"
+            "daily-notes"
+            "editor-status"
+            "file-explorer"
+            "graph"
+            "markdown-importer"
+            "note-composer"
+            "outgoing-link"
+            "outline"
+            "page-preview"
+            "properties"
+            "slash-command"
+            "slides"
+            "switcher"
+            "tag-pane"
+            "word-count"
+            "workspaces"
           ];
         communityPlugins = [
           # (mk ./obs-style-set.nix)

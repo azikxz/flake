@@ -7,17 +7,20 @@
 with lib;
 with x;
 let
-  cfg = config.module.programs.hamachi;
+  cfg = config.module.groups.themes;
 in
 
 {
   options = {
-    module.programs.hamachi = {
+    module.groups.themes = {
       enable = mkBool false;
     };
   };
 
   config = mkIf cfg.enable {
-    programs.haguichi = on;
+    module.themes = mkGroup [
+      "qt"
+      "stylix"
+    ];
   };
 }

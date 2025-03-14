@@ -5,8 +5,12 @@
 
 with pkgs;
 let
-  mk = name: { ${name} = "${yazi-plugins}/${name}.yazi"; };
-  plugin = n: t: { "${n}" = toString (writeTextDir "${n}.yazi/main.lua" t) + "/${n}.yazi"; };
+  mk = name: {
+    ${name} = "${yazi-plugins}/${name}.yazi";
+  };
+  plugin = n: t: {
+    "${n}" = toString (writeTextDir "${n}.yazi/main.lua" t) + "/${n}.yazi";
+  };
   yazi-plugins = fetchFromGitHub {
     owner = "yazi-rs";
     repo = "plugins";

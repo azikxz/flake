@@ -4,7 +4,7 @@
 }:
 
 let
-  inherit (lib.x) on off umport;
+  inherit (lib.x) on umport;
 in
 
 {
@@ -26,25 +26,15 @@ in
       };
       gui = {
         keepass = on;
-        minecraft = on;
         mpv = on;
-        obs = on;
-        obsidian = on;
-        qutebrowser = on;
-        music.spotify = on;
         nixcord = on;
+        obs = on;
+        qutebrowser = on;
+        spotify = on;
         swayimg = on;
         syncthing = on;
-        telegram = {
-          client = "64gram";
-          walogram = on // {
-            mode = "solid";
-          };
-        };
+        telegram = on;
         zathura = on;
-        zen-browser = on // {
-          compact = on;
-        };
       };
     };
     shells = {
@@ -52,13 +42,9 @@ in
       translate = on;
       starship = on;
     };
-    themes = {
-      gtk = on;
-      qt = on;
-      stylix = on // {
-        icon = "adwaita";
-        cursor.size = 16;
-      };
+    themes.stylix = on // {
+      icon = "adwaita";
+      cursor.size = 16;
     };
     wm = {
       hyprland = on;
@@ -69,6 +55,13 @@ in
         tofi = on;
         wlogout = on;
       };
+    };
+    games = {
+      mindustry = on;
+      minecraft = on;
+      openarena = on;
+      srb2 = on;
+      wine = on;
     };
     misc = {
       dconf = on;

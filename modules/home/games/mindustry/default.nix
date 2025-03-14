@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -7,17 +8,19 @@
 with lib;
 with x;
 let
-  cfg = config.module.programs.hamachi;
+  cfg = config.module.games.openarena;
 in
 
 {
   options = {
-    module.programs.hamachi = {
+    module.games.openarena = {
       enable = mkBool false;
     };
   };
 
   config = mkIf cfg.enable {
-    programs.haguichi = on;
+    home.packages = with pkgs; [
+      openarena
+    ];
   };
 }

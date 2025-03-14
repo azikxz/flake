@@ -7,17 +7,20 @@
 with lib;
 with x;
 let
-  cfg = config.module.programs.hamachi;
+  cfg = config.module.groups.social;
 in
 
 {
   options = {
-    module.programs.hamachi = {
+    module.groups.social = {
       enable = mkBool false;
     };
   };
 
   config = mkIf cfg.enable {
-    programs.haguichi = on;
+    module.programs.gui = mkGroup [
+      "nixcord"
+      "telegram"
+    ];
   };
 }

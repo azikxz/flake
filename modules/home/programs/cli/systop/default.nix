@@ -18,9 +18,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    module.programs.cli = {
-      btop = on;
-      nvtop = on;
-    };
+    module.programs.cli = mkGroup [
+      "btop"
+      "nvtop"
+    ];
   };
 }

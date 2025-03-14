@@ -9,7 +9,7 @@
 with lib;
 with types;
 
-{
+rec {
   # ylib & stylix
   umport = import ./umport.nix { inherit lib; };
   baseName = filter (path: baseNameOf path == "default.nix");
@@ -20,6 +20,7 @@ with types;
 
   # for programs
   toGen = type: text: generators.${toString type} { } text;
+  mkGroup = list: genAttrs list (n: on);
   wm.workspaces =
     with builtins;
     (concatLists (

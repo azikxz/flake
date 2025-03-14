@@ -6,10 +6,20 @@ inputs@{
 let
   inherit (inputs) nixpkgs;
   system = "x86_64-linux";
-  pkgs = import nixpkgs { inherit system; };
   lib = nixpkgs.lib;
+  pkgs = import nixpkgs {
+    inherit
+      system
+      ;
+  };
 
-  build = import ./builder { inherit self inputs pkgs; };
+  build = import ./builder {
+    inherit
+      self
+      inputs
+      pkgs
+      ;
+  };
   machines = (import "${self}/machines");
   mk = import ./other {
     inherit

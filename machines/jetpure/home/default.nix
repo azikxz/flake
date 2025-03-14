@@ -12,14 +12,17 @@ in
     path = ./.;
     exclude = [ ./default.nix ];
   };
+
   module = {
     programs = {
       cli = {
         common = on;
         cava = on;
+        develop = on;
         fetch = on;
         figlet = on;
         helix = on;
+        imageEdit = on;
         legendary = on;
         systop = on;
         yazi = on;
@@ -42,9 +45,12 @@ in
       translate = on;
       starship = on;
     };
-    themes.stylix = on // {
-      icon = "adwaita";
-      cursor.size = 16;
+    themes = {
+      qt = on;
+      stylix = on // {
+        icon = "adwaita";
+        cursor.size = 16;
+      };
     };
     wm = {
       hyprland = on;

@@ -18,15 +18,15 @@ in
   };
 
   config = mkIf cfg.enable {
-    module.programs.cli = {
-      archivers = on;
-      bat = on;
-      eza = on;
-      fd = on;
-      fzf = on;
-      git = on;
-      ripgrep = on;
-      zoxide = on;
-    };
+    module.programs.cli = mkGroup [
+      "archivers"
+      "bat"
+      "eza"
+      "fd"
+      "fzf"
+      "git"
+      "ripgrep"
+      "zoxide"
+    ];
   };
 }

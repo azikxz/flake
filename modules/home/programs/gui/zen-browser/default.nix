@@ -24,7 +24,13 @@ in
     programs.zen-browser = on // {
       policies = import ./policies.nix;
       profiles.${x.sys.userName} = {
-        settings = (import ./settings.nix).profile;
+        settings =
+          (import ./settings.nix {
+            inherit
+              lib
+              config
+              ;
+          }).profile;
         extensions = {
           force = true;
           packages = import ./extensions.nix {
@@ -33,7 +39,13 @@ in
               lib
               ;
           };
-          settings = (import ./settings.nix).ext;
+          settings =
+            (import ./settings.nix {
+              inherit
+                lib
+                config
+                ;
+            }).ext;
         };
       };
     };

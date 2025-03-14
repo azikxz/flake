@@ -17,7 +17,7 @@ in
     module.themes.stylix = {
       enable = mkBool false;
       icon = mkNull.str null;
-      cursor.size = mkInt 12;
+      cursor.size = mkInt 16;
     };
   };
 
@@ -58,7 +58,11 @@ in
       iconTheme = on // {
         dark = "Papirus-Dark";
         light = "Papirus-Light";
-        package = with pkgs; papirus-icon-theme.override { color = cfg.icon; };
+        package =
+          with pkgs;
+          papirus-icon-theme.override {
+            color = cfg.icon;
+          };
       };
       fonts = rec {
         monospace = {
@@ -112,6 +116,7 @@ in
         floorp = on;
         halloy = on;
         gtk = on;
+        qt = on;
       };
     };
   };

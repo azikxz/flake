@@ -8,6 +8,7 @@
 with lib;
 with x;
 let
+  inherit (pkgs) protonup-qt proton-ge-bin steam;
   cfg = config.module.programs.steam;
 in
 
@@ -19,17 +20,16 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ protonup-qt ];
+    environment.systemPackages = [ protonup-qt ];
     hardware.xone = on;
     programs = {
       gamescope = on;
       gamemode = on;
       steam = on // {
-        # GAMING
         gamescopeSession = on;
         remotePlay.openFirewall = true;
-        extraCompatPackages = with pkgs; [ proton-ge-bin ];
-        package = pkgs.steam.override {
+        extraCompatPackages = [ proton-ge-bin ];
+        package = steam.override {
           extraEnv = {
             MANGOHUD = true;
             OBS_VKCAPTURE = true;

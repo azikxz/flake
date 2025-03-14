@@ -7,17 +7,21 @@
 with lib;
 with x;
 let
-  cfg = config.module.programs.hamachi;
+  cfg = config.module.groups.music;
 in
 
 {
   options = {
-    module.programs.hamachi = {
+    module.groups.music = {
       enable = mkBool false;
     };
   };
 
   config = mkIf cfg.enable {
-    programs.haguichi = on;
+    module = {
+      programs.gui = mkGroup [
+        "spotify"
+      ];
+    };
   };
 }

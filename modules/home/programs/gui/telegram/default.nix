@@ -14,36 +14,23 @@ in
 {
   options = {
     module.programs.gui.telegram = {
-      client = mkNull.str "64gram";
-      walogram = {
-        enable = mkBool false;
-        mode = mkStr "solid"; # solid | background
-      };
+      enable = mkBool false;
+      package = mkPkg pkgs.ayugram-desktop;
+      walogram.mode = mkStr "solid"; # solid | background
     };
   };
 
-  config = {
-    home.packages =
-      let
-        client =
-          with pkgs;
-          if cfg.client == "64gram" then
-            _64gram
-          else if cfg.client == "ayugram" then
-            ayugram-desktop
-          else
-            null;
-      in
-      [ client ];
+  config = mkIf cfg.enable {
+    home.packages = [ cfg.package ];
     xdg.dataFile =
       let
         client =
-          if cfg.client == "64gram" then
+          if cfg.package == (pkgs._64gram) then
             "64Gram"
-          else if cfg.client == "ayugram" then
+          else if cfg.package == (pkgs.ayugram-desktop) then
             "AyuGramDesktop"
           else
-            toString null;
+            (toString null);
       in
       {
         "${client}/tdata/enhanced-settings-custom.json".text = # json
@@ -91,10 +78,16 @@ in
             ;
         };
       in
-      mkIf cfg.walogram.enable {
-        telegramTheme = hm.dag.entryAfter [ "" ] ''
-          run ${getExe walogram}
-        '';
+      mkIf (cfg.package != null) {
+        telegramTheme =
+          hm.dag.entryAfter
+            [
+              ""
+            ]
+            # sh
+            ''
+              run ${getExe walogram}
+            '';
       };
   };
 }

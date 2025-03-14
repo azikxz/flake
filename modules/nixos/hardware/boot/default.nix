@@ -46,7 +46,7 @@ in
         compressor = "zstd";
         compressorArgs = [ "-16" ];
         verbose = false;
-        availableKernelModules = [
+        kernelModules = [
           "nvme"
           "xhci_pci"
           "ahci"
@@ -61,9 +61,11 @@ in
         ];
       };
       plymouth = (mkIf cfg.plymouth.enable on) // {
-        logo = ''
-          ${pkgs.nixos-icons}/share/icons/hicolor/48x48/apps/nix-snowflake-white.png
-        '';
+        logo =
+          let
+            path = "${pkgs.nixos-icons}/share/icons/hicolor/48x48/apps/";
+          in
+          path + "nix-snowflake-white.png";
       };
     };
   };

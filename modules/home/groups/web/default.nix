@@ -7,17 +7,20 @@
 with lib;
 with x;
 let
-  cfg = config.module.programs.hamachi;
+  cfg = config.module.groups.web;
 in
 
 {
   options = {
-    module.programs.hamachi = {
+    module.groups.web = {
       enable = mkBool false;
     };
   };
 
   config = mkIf cfg.enable {
-    programs.haguichi = on;
+    module.programs.gui = mkGroup [
+      "qutebrowser"
+      "syncthing"
+    ];
   };
 }

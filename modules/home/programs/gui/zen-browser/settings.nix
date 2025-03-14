@@ -5,7 +5,7 @@
 }:
 
 let
-  inherit (lib) optional;
+  inherit (lib) optionalAttrs;
   cfg = config.module.programs.gui.zen-browser;
 in
 
@@ -28,7 +28,7 @@ in
       "zen.workspaces.show-icon-strip" = false;
       "zen.welcome-screen.seen" = true;
     }
-    // (optional cfg.compact.enable {
+    // (optionalAttrs cfg.compact.enable {
       "zen.view.compact.hide-toolbar" = true;
       "zen.view.use-single-toolbar" = false;
       "zen.view.sidebar-expanded" = false;

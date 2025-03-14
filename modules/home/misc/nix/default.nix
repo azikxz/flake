@@ -16,7 +16,7 @@ in
         "flakes"
       ];
       trusted-users = [
-        "${x.sys.userName}"
+        x.sys.userName
         "@wheel"
       ];
       extra-substituters = x.nix.subs;

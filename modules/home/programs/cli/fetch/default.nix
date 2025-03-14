@@ -18,9 +18,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    module.programs.cli = {
-      countryfetch = on;
-      fastfetch = on;
-    };
+    module.programs.cli = genAttrs [
+      "fastfetch"
+      "onefetch"
+    ] (n: on);
   };
 }

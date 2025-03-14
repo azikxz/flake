@@ -9,8 +9,8 @@ with lib;
 with x;
 
 let
-  cfg = config.module.themes.gtk;
-  font = config.stylix.fonts;
+  inherit (config.stylix) targets fonts;
+  cfg = targets.gtk;
   extra = {
     gtk-application-prefer-dark-theme = 1;
     gtk-xft-antialias = 1;
@@ -24,26 +24,18 @@ let
   };
 in
 
-{
-  options = {
-    module.themes.gtk = {
-      enable = mkBool false;
-    };
-  };
-
-  config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      noto-fonts
-      noto-fonts-cjk-sans
-    ];
-    gtk = on // {
-      gtk3.extraConfig = extra;
-      gtk4.extraConfig = extra;
-      font = mkForce {
-        size = 12;
-        name = "${font.monospace.name}";
-        package = font.monospace.package;
-      };
+mkIf cfg.enable {
+  home.packages = with pkgs; [
+    noto-fonts-cjk-sans
+    noto-fonts
+  ];
+  gtk = on // {
+    gtk3.extraConfig = extra;
+    gtk4.extraConfig = extra;
+    font = mkForce {
+      size = 12;
+      name = fonts.monospace.name;
+      package = fonts.monospace.package;
     };
   };
 }

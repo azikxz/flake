@@ -12,6 +12,7 @@ in
     path = ./.;
     exclude = [ ./default.nix ];
   };
+
   module = {
     themes.stylix = on;
     base = on;

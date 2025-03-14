@@ -12,30 +12,42 @@
 |                        [waybar](https://github.com/Alexays/Waybar) | bar for wayland     |
 |                           [mako](https://github.com/emersion/mako) | Notifications       |
 
-|                                                 cli utilites |                                    |
-| -----------------------------------------------------------: | :--------------------------------- |
-|      [fastfetch](https://github.com/fastfetch-cli/fastfetch) | fetch for cool rices               |
-|             [fish](https://github.com/fish-shell/fish-shell) | just working shell                 |
-|                  [eza](https://github.com/eza-community/eza) | rusted ls with icons               |
-|                       [yazi](https://github.com/sxyazi/yazi) | rusted file-manager great!!!       |
-|               [helix](https://github.com/helix-editor/helix) | best text editor with vi-like keys |
-|                     [cava](https://github.com/karlstav/cava) | sound visualizer                   |
-|             [lutgen](https://github.com/ozwaldorf/lutgen-rs) | rusted lut                         |
-|               [jpegoptim](https://github.com/tjko/jpegoptim) | low size for jpeg                  |
-|                      [nvtop](https://github.com/Syllo/nvtop) | top for GPU                        |
-|                 [btop](https://github.com/aristocratos/btop) | very informated top                |
-|         [trashy](https://github.com/oberblastmeister/trashy) | trash manager                      |
-|                     [fuc](https://github.com/SUPERCILEX/fuc) | rusted cp and rm commands          |
-| [sudo-rs](https://github.com/trifectatechfoundation/sudo-rs) | fast and secure sudo               |
+|                                                  cli utilites |                                    |
+| ------------------------------------------------------------: | :--------------------------------- |
+|              [fish](https://github.com/fish-shell/fish-shell) | just working shell                 |
+|       [fastfetch](https://github.com/fastfetch-cli/fastfetch) | fetch 4 cool rices                 |
+|       [countryfetch](https://github.com/nik-rev/countryfetch) | fetch 4 countries??? eh?           |
+|                  [onefetch](https://github.com/o2sh/onefetch) | fetch 4 ur git repo                |
+|                        [yazi](https://github.com/sxyazi/yazi) | rusted file-manager great!!!       |
+|                [helix](https://github.com/helix-editor/helix) | best text editor with vi-like keys |
+|                      [cava](https://github.com/karlstav/cava) | sound visualizer                   |
+| [translate-shell](https://github.com/soimort/translate-shell) | translate shell?                   |
+|              [lutgen](https://github.com/ozwaldorf/lutgen-rs) | rusted lut                         |
+|                [jpegoptim](https://github.com/tjko/jpegoptim) | low size for jpeg                  |
+|         [ani-cli-ru](https://github.com/vypivshiy/ani-cli-ru) | watch anime in cli                 |
+|                      [lowfi](https://github.com/talwat/lowfi) | listen lofi music from lofi girl   |
+|                       [nvtop](https://github.com/Syllo/nvtop) | top for GPU                        |
+|                  [btop](https://github.com/aristocratos/btop) | very informated top                |
+|          [trashy](https://github.com/oberblastmeister/trashy) | trash manager                      |
+
+|                                          def cli replacement |                      |
+| -----------------------------------------------------------: | :------------------- |
+|                  [eza](https://github.com/eza-community/eza) | rusted ls with icons |
+|                        [bat](https://github.com/sharkdp/bat) | rusted cat (robo???) |
+|                  [bonk](https://github.com/elliot40404/bonk) | rusted touch         |
+|                [hunt](https://github.com/LyonSyonII/hunt-rs) | rusted find          |
+|           [ripgrep](https://github.com/phiresky/ripgrep-all) | rusted grep          |
+| [sudo-rs](https://github.com/trifectatechfoundation/sudo-rs) | fast and secure sudo |
 
 |                                              gui utilites |                                                             |
 | --------------------------------------------------------: | :---------------------------------------------------------- |
 | [qutebrowser](https://github.com/qutebrowser/qutebrowser) | keyboard-driven, vim-like browser (best my opinion)         |
+|     [zen-browser](https://github.com/zen-browser/desktop) | furryfox for zoomers                                        |
 |                 [secrets](https://apps.gnome.org/Secrets) | manage your .kdbx vaults with libadwaita                    |
 |                        [keepASSxc](https://keepassxc.org) | fork keepassx with additionals                              |
 |       [syncthing](https://github.com/syncthing/syncthing) | synchronize folders/files via devices                       |
 |                [libreoffice](https://www.libreoffice.org) | office suite                                                |
-|             [vesktop](https://github.com/Vencord/Vesktop) | wayland Discord client                                      |
+|           [nixcord](https://github.com/KaylorBen/nixcord) | wayland Discord client adapted 4 nix                        |
 |                 [komikku](https://apps.gnome.org/Komikku) | read comics and manga                                       |
 |                [zathura](https://github.com/pwmt/zathura) | read pdf and comix                                          |
 |                            [spotify](https://spotify.com) | good music streamer                                         |

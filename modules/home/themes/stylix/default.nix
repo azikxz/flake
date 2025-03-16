@@ -23,15 +23,6 @@ in
 
   imports = with inputs; [ niri.homeModules.stylix ];
   config = mkIf cfg.enable {
-    home.packages =
-      with pkgs;
-      with nerd-fonts;
-      [
-        corefonts
-        tinos
-        code-new-roman
-        dejavu-sans-mono
-      ];
     stylix = on // {
       autoEnable = false;
       cursor = with inputs.cursors.packages.${pkgs.system}; {
@@ -58,26 +49,29 @@ in
       iconTheme = on // {
         dark = "Papirus-Dark";
         light = "Papirus-Light";
-        package =
-          with pkgs;
-          papirus-icon-theme.override {
-            color = cfg.icon;
+        package = pkgs.papirus-icon-theme.override {
+          color = cfg.icon;
+        };
+      };
+      fonts =
+        let
+          mk = name: package: { inherit name package; };
+        in
+        with pkgs;
+        rec {
+          emoji = mk "Noto Color Emoji" noto-fonts-emoji;
+          monospace = mk "JetBrainsMono Nerd Font" nerd-fonts.jetbrains-mono;
+          sansSerif = monospace;
+          serif = monospace;
+        }
+        // {
+          sizes = {
+            desktop = 10;
+            popups = 10;
+            applications = 12;
+            terminal = 12;
           };
-      };
-      fonts = rec {
-        monospace = {
-          name = "JetBrainsMono Nerd Font";
-          package = with pkgs.nerd-fonts; jetbrains-mono;
         };
-        serif = monospace;
-        emoji = monospace;
-        sizes = {
-          desktop = 10;
-          popups = 10;
-          applications = 12;
-          terminal = 12;
-        };
-      };
       targets = {
         # cli
         tmux = on;

@@ -143,6 +143,7 @@ in
                 "7" = [ ];
               };
             };
+
             # right modules
             "tray" = Tool // {
               icon-size = 18;

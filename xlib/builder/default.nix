@@ -7,6 +7,7 @@
 
 let
   inherit (inputs) home nixcord;
+  backup = "ba";
   secrets = ../../secrets.nix;
   # make configuration
   mkMachine =
@@ -86,7 +87,7 @@ let
         {
           home-manager = {
             sharedModules = [ nixcord.homeManagerModules.nixcord ];
-            backupFileExtension = "BACKUPX";
+            backupFileExtension = backup;
             extraSpecialArgs = spArgs;
             useGlobalPkgs = true;
             useUserPackages = true;

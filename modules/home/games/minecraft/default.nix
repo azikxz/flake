@@ -27,12 +27,14 @@ in
           gamemodeSupport = true;
           controllerSupport = true;
           textToSpeechSupport = false;
-          jdks = [
-            temurin-jre-bin-23
-            temurin-jre-bin # 21
-            temurin-jre-bin-17
-            temurin-jre-bin-8
-          ];
+          jdks = builtins.attrValues {
+            inherit
+              temurin-jre-bin-23
+              temurin-jre-bin
+              temurin-jre-bin-17
+              temurin-jre-bin-8
+              ;
+          };
         })
       ]
       ++ (optional cfg.cli.enable [

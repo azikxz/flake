@@ -19,7 +19,7 @@ in
 
   config = mkIf cfg.enable {
     module = {
-      programs.gui = mkGroup [
+      programs.gui = mkGrpOn [
         "mpv"
         "swayimg"
         "zathura"

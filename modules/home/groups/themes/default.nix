@@ -18,7 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    module.themes = mkGroup [
+    module.themes = mkGrpOn [
       "qt"
       "stylix"
     ];

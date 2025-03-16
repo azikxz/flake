@@ -19,11 +19,13 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      cachix
-      wyvern
-      hut
-      sd
-    ];
+    home.packages = builtins.attrValues {
+      inherit (pkgs)
+        cachix
+        wyvern
+        hut
+        sd
+        ;
+    };
   };
 }

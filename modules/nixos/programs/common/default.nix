@@ -20,6 +20,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
+      corefonts
       killall
       helix
       fff

@@ -18,7 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    module.programs.gui = mkGroup [
+    module.programs.gui = mkGrpOn [
       "qutebrowser"
       "syncthing"
     ];

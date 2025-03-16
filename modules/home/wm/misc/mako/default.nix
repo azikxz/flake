@@ -27,10 +27,8 @@ in
         actions = false;
         anchor = "top-right";
         font = "${font.monospace.name}";
-        # DECORATION
         borderRadius = 8;
         borderSize = 2;
-        # COLORS
         backgroundColor = base01;
         borderColor = base0E;
         textColor = base06;
@@ -42,12 +40,11 @@ in
               text-color = c;
             };
           in
-          x.toGen "toINI" {
+          toGen "toINI" {
             "urgency=low" = mk base00 base0D base06;
             "urgency=high" = mk base00 base0C base06;
             "urgency=critical" = mk base00 base0A base06;
           };
-        # SETTINGS
         layer = "overlay";
         sort = "+time";
         margin = "20, 20, 20";

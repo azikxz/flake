@@ -41,6 +41,8 @@
       freeTP = "freetp.org";
       # study
       proteh = "profteh.com/study";
+      chatGpt = "chatgpt.com";
+      gemini = "gemini.google.com";
     };
     whitelist."whitelist" = {
       includes = [

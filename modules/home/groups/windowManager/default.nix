@@ -19,18 +19,18 @@ in
 
   config = mkIf cfg.enable {
     module.wm =
-      (mkGroup [
+      (mkGrpOn [
         "hyprland"
       ])
       // {
-        misc = mkGroup [
+        misc = mkGrpOn [
           "mako"
           "tofi"
           "wlogout"
         ];
       }
       // {
-        terminals = mkGroup [
+        terminals = mkGrpOn [
           "kitty"
         ];
       };

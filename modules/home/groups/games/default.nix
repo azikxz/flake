@@ -18,7 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    module.games = mkGroup [
+    module.games = mkGrpOn [
       "mindustry"
       "minecraft"
       "openarena"

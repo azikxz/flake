@@ -19,19 +19,13 @@ in
   };
 
   config = mkIf cfg.enable {
-    xdg.configFile =
-      import ./qtct.nix {
-        inherit
-          pkgs
-          config
-          ;
-      }
-      // import ./color.nix {
-        inherit
-          lib
-          config
-          ;
-      };
+    xdg.configFile = import ./qtct.nix {
+      inherit
+        pkgs
+        lib
+        config
+        ;
+    };
     qt = on // {
       platformTheme.name = "qtct";
     };

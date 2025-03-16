@@ -11,16 +11,31 @@ with types;
 
 rec {
   # ylib & stylix
-  umport = import ./umport.nix { inherit lib; };
+  umport = import ./umport.nix {
+    inherit
+      lib
+      ;
+  };
   baseName = filter (path: baseNameOf path == "default.nix");
+  mkUmport =
+    path: exclude:
+    (lib.x.baseName (
+      lib.x.umport {
+        inherit
+          path
+          exclude
+          ;
+      }
+    ));
 
   # enable = true; ++ enable = false;
   on.enable = true;
   off.enable = false;
 
   # for programs
-  toGen = type: text: generators.${toString type} { } text;
-  mkGroup = list: genAttrs list (n: on);
+  toGen = t: e: generators.${toString t} { } e;
+  mkGrpOn = l: genAttrs l (n: on);
+  mkGrpOff = l: genAttrs l (n: off);
   wm.workspaces =
     with builtins;
     (concatLists (
@@ -36,4 +51,10 @@ rec {
       ) 10
     ));
 }
-// import ./nixpkgs.nix { inherit self inputs pkgs; }
+// import ./nixpkgs.nix {
+  inherit
+    self
+    inputs
+    pkgs
+    ;
+}

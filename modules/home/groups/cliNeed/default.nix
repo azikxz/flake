@@ -19,13 +19,13 @@ in
 
   config = mkIf cfg.enable {
     module = {
-      programs.cli = mkGroup [
+      programs.cli = mkGrpOn [
         "common"
         "fetch"
         "helix"
         "yazi"
       ];
-      shells = mkGroup [
+      shells = mkGrpOn [
         "fish"
         "starship"
         "translate"

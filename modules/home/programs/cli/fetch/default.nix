@@ -18,9 +18,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    module.programs.cli = genAttrs [
+    module.programs.cli = mkGrpOn [
       "fastfetch"
       "onefetch"
-    ] (n: on);
+    ];
   };
 }

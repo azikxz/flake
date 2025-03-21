@@ -9,6 +9,7 @@
       # localhost
       keenWeb = "192.168.1.1";
       qBittorrent = "localhost:8080";
+      flood = "localhost:8085";
       transmission = "localhost:9091";
       torrserver = "localhost:8090";
       syncthing = "localhost:8384";
@@ -18,6 +19,7 @@
       hydra = "hydra.nixos.org";
       prTracker = "nixpk.gs/pr-tracker.html";
       cachix = "app.cachix.org/cache/xache";
+      noogle = "noogle.dev";
       # git
       ultima = "git.sr.ht/~neverness/ultima";
       # social
@@ -40,7 +42,7 @@
       broTorrent = "brotorrent.net";
       freeTP = "freetp.org";
       # study
-      proteh = "profteh.com/study";
+      profteh = "profteh.com/study";
       chatGpt = "chatgpt.com";
       gemini = "gemini.google.com";
     };

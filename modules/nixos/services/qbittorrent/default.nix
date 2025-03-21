@@ -18,11 +18,9 @@ in
     };
   };
 
-  imports = [ ./qbit.nix ];
+  imports = [ ./module.nix ];
   config = mkIf cfg.enable {
     services.qbittorrent = on // {
-      user = "media";
-      group = "media";
       torrentingPort = 6881;
       serverConfig = {
         LegalNotice.Accepted = true;

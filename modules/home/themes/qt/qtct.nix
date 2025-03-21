@@ -5,13 +5,10 @@
 }:
 
 let
-  inherit (pkgs.libsForQt5) qt5ct;
-  inherit (pkgs) qt6ct formats;
-  ini = formats.ini { };
-  font = config.stylix.fonts;
-  icon = config.stylix.iconTheme;
+  inherit (config.stylix) fonts iconTheme;
+  ini = pkgs.formats.ini { };
   mk =
-    p: n:
+    n:
     ini.generate n {
       Appearance = {
         custom_palette = true;
@@ -21,13 +18,13 @@ let
             config
             ;
         };
-        icon_theme = icon.dark;
+        icon_theme = iconTheme.dark;
         standard_dialogs = ''"default"'';
         style = ''"Fusion"'';
       };
       Fonts = {
-        fixed = ''"${font.monospace.name},${toString font.sizes.applications},-1,5,50,0,0,0,0,0,Regular"'';
-        general = ''"${font.monospace.name},${toString font.sizes.applications},-1,5,50,0,0,0,0,0,Regular"'';
+        fixed = ''"${fonts.monospace.name},${toString fonts.sizes.applications},-1,5,50,0,0,0,0,0,Regular"'';
+        general = ''"${fonts.monospace.name},${toString fonts.sizes.applications},-1,5,50,0,0,0,0,0,Regular"'';
       };
       Interface = {
         activate_item_on_single_click = 1;
@@ -46,6 +43,6 @@ let
 in
 
 {
-  "qt5ct/qt5ct.conf".source = mk qt5ct "qt5ct";
-  "qt6ct/qt6ct.conf".source = mk qt6ct "qt6ct";
+  "qt5ct/qt5ct.conf".source = mk "qt5ct";
+  "qt6ct/qt6ct.conf".source = mk "qt6ct";
 }

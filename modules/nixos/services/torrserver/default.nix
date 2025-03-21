@@ -15,8 +15,6 @@ in
   options = {
     module.services.torrserver = {
       enable = mkBool false;
-      user = mkStr "media";
-      group = mkStr "media";
       port = mkStr "8090";
       disk = mkPath "/var/lib/torrserver";
     };
@@ -34,16 +32,18 @@ in
           "multi-user.target"
         ];
         serviceConfig = {
-          ExecStart = ''
-            ${getExe' pkgs.torrserver "torrserver"} -d ${cfg.disk} -p ${cfg.port}
-          '';
           Restart = "on-failure";
           Type = "simple";
           TimeoutSec = 30;
-          User = cfg.user;
-          Group = cfg.group;
+          User = "media";
+          Group = "media";
           StateDirectory = [ "torrserver" ];
-          StateDirectoryMode = mkDefault 777;
+          StateDirectoryMode = mkDefault 775;
+          ExecStart = ''
+            ${getExe' pkgs.torrserver "torrserver"} \
+            -d ${cfg.disk} \
+            -p ${cfg.port}
+          '';
         };
       };
     };

@@ -46,11 +46,11 @@ in
       sudo-rs = on;
     };
     users = {
+      groups.media = { };
       users.media = {
         isSystemUser = true;
         group = "media";
       };
-      groups.media = { };
     };
   };
 }

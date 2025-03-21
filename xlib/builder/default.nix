@@ -7,7 +7,7 @@
 
 let
   inherit (inputs) home nixcord;
-  backup = "ba";
+  backup = "backa";
   secrets = ../../secrets.nix;
   # make configuration
   mkMachine =

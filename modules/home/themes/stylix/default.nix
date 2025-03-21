@@ -102,7 +102,6 @@ in
         mangohud = on;
         # gui
         spicetify = off;
-        mpv = on;
         nixcord = on;
         zathura = on;
         qutebrowser = on;

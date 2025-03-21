@@ -30,15 +30,19 @@ in
           "media"
           "video"
           "audio"
+          #
           "networkmanager"
           "wheel"
           "docker"
           "podman"
           "libvirtd"
           "terraria"
-          "transmission"
-          "deluge"
           "adbusers"
+          # torrent
+          "transmission"
+          "qbittorrent"
+          "deluge"
+          "flood"
         ];
       in
       {

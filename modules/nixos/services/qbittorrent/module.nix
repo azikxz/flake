@@ -44,9 +44,9 @@ in
   options.services.qbittorrent = {
     enable = mkBool false;
     package = mkPkg pkgs.qbittorrent-nox;
-    user = mkStr "media";
-    group = mkStr "media";
-    mode = mkStr "777";
+    user = mkStr "qbittorrent";
+    group = mkStr "qbittorrent";
+    mode = mkStr "0775";
     profileDir = mkPath "/var/lib/qBittorrent/";
     webuiPort = mkPort 8080;
     torrentingPort = mkNull.port 6881;
@@ -59,7 +59,13 @@ in
       tmpfiles.settings = {
         qbittorrent =
           let
-            base = { inherit (cfg) user group mode; };
+            base = {
+              inherit (cfg)
+                user
+                group
+                mode
+                ;
+            };
           in
           {
             "${cfg.profileDir}/"."d" = base;
@@ -133,5 +139,12 @@ in
         cfg.torrentingPort
       ]
     );
+    users = {
+      groups.${cfg.group} = { };
+      users.${cfg.user} = {
+        isSystemUser = true;
+        group = cfg.group;
+      };
+    };
   };
 }

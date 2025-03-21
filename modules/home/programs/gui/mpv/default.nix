@@ -8,7 +8,16 @@
 with lib;
 with x;
 let
-  inherit (pkgs) mpvScripts anime4k;
+  inherit (pkgs)
+    mpvScripts
+    anime4k
+    ;
+  theme = import ./theme.nix {
+    inherit
+      config
+      lib
+      ;
+  };
   cfg = config.module.programs.gui.mpv;
 in
 
@@ -29,7 +38,10 @@ in
       scriptOpts = {
         sponsorblock-minimal = {
           sponsorblock_minimal-server = "https://sponsor.ajay.app/api/skipSegments";
-          sponsorblock_minimal-categories = [ "sponsor" ];
+          sponsorblock_minimal-categories = [
+            "sponsor"
+            "selfpromo"
+          ];
         };
         mpv_thumbnail_script = {
           autogenerate = "yes";
@@ -42,30 +54,37 @@ in
           thumbnail_network = "no";
           background_color = "282828";
         };
-      };
+      } // theme.uosc;
       config = {
         fs = "yes";
         osc = "no";
-        background-color = mkForce "#000000";
         glsl-shaders =
           let
             mk =
-              if x.sys.is == "laptop" then
+              if (x.sys.is == "laptop") then
                 "${anime4k}/Anime4K_Clamp_Highlights.glsl:${anime4k}/Anime4K_Restore_CNN_Soft_M.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_M.glsl:${anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_S.glsl"
-              else if x.sys.is == "desktop" then
+              else if (x.sys.is == "desktop") then
                 "${anime4k}/Anime4K_Clamp_Highlights.glsl:${anime4k}/Anime4K_Restore_CNN_VL.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_VL.glsl:${anime4k}/Anime4K_Restore_CNN_M.glsl:${anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_M.glsl"
               else
                 null;
           in
-          toString mk;
-      };
+          (toString mk);
+      } // theme.conf;
       extraInput =
         let
           mk =
-            if x.sys.is == "laptop" then
-              (import ./anime4k/laptop.nix { inherit pkgs; })
-            else if x.sys.is == "desktop" then
-              (import ./anime4k/desktop.nix { inherit pkgs; })
+            if (x.sys.is == "laptop") then
+              (import ./anime4k/laptop.nix {
+                inherit
+                  pkgs
+                  ;
+              })
+            else if (x.sys.is == "desktop") then
+              (import ./anime4k/desktop.nix {
+                inherit
+                  pkgs
+                  ;
+              })
             else
               null;
         in

@@ -8,12 +8,12 @@ with pkgs;
 let
   inherit (lib) getExe getExe';
   inherit (nodePackages_latest) prettier;
+  auto-format = true;
+  vs = n: "vscode-${n}-language-server";
   indent = {
     tab-width = 2;
     unit = "  ";
   };
-  auto-format = true;
-  vs = n: "vscode-${n}-language-server";
 in
 
 {
@@ -195,25 +195,7 @@ in
       yaml = yaml-language-server;
     in
     {
-      nixd = {
-        command = getExe nixd;
-        config.nixd = {
-          nixpkgs.expr = "import <nixpkgs> { }";
-          options =
-            let
-              inherit (lib.x) sys path;
-              get = ''(builtins.getFlake "${dir}")'';
-              host = sys.hostName;
-              user = sys.userName;
-              dir = path.flake;
-            in
-            {
-              libX.expr = "${get}.nixosConfigurations.${host}.lib.x";
-              nixos.expr = "${get}.nixosConfigurations.${host}.options";
-              home-manager.expr = "${get}.homeConfigurations.${user}.options";
-            };
-        };
-      };
+      nixd.command = getExe nixd;
     } # nix
     // {
       typescript.command = getExe typescript;

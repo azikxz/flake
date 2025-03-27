@@ -8,7 +8,10 @@ pkgs.python3Packages.buildPythonApplication rec {
   strictDeps = false;
 
   src = pkgs.fetchPypi {
-    inherit pname version;
+    inherit
+      pname
+      version
+      ;
     hash = "sha256-a8RXcl+w/Ju4k57a8RLAx5mXUExU6cBBEsF0AwaogIg=";
   };
 

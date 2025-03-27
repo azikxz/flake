@@ -9,7 +9,10 @@ pkgs.python3Packages.buildPythonApplication rec {
   pythonImportsCheck = [ "BeatPrints" ];
 
   src = pkgs.fetchPypi {
-    inherit pname version;
+    inherit
+      pname
+      version
+      ;
     hash = "sha256-qPmvZs6nQq629zp2TNhKXO6C+EJuZAD8NjcSg/p00Vg=";
   };
 

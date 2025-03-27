@@ -19,7 +19,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ grc ];
+    home.packages = with pkgs; [
+      fish-helix
+      grc
+    ];
     programs = {
       # nix-index.enableFishIntegration = true;
       fish = on // {
@@ -30,13 +33,18 @@ in
             pkgs
             ;
         };
-        interactiveShellInit = import ./colors.nix;
+        interactiveShellInit =
+          (import ./colors.nix)
+          + ''
+            fish_vi_key_bindings
+            fish_helix_key_bindings
+          '';
         shellInitLast =
           let
             winman =
-              if x.sys.is == "desktop" then
+              if (x.sys.is == "desktop") then
                 "Hyprland"
-              else if x.sys.is == "laptop" then
+              else if (x.sys.is == "laptop") then
                 "Hyprland"
               else
                 "fastfetch";

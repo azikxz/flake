@@ -82,7 +82,7 @@ in
       # screenshot
       (mk null null "$PR, exec, ${getExe grimblast} copysave area   ${pic}")
       (mk null "$s" "$PR, exec, ${getExe grimblast} copysave output ${pic}")
-    ] # modules
+    ]
     ++ cfg.binds
     ++ x.wm.workspaces;
 

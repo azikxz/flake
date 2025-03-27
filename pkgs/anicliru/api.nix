@@ -1,14 +1,22 @@
-{ pkgs }:
+{
+  pkgs,
+  #
+  version ? null,
+  hash ? null,
+}:
 
 pkgs.python3Packages.buildPythonApplication rec {
   pname = "anicli_api";
-  version = "0.7.6";
+  inherit version;
   pyproject = true;
   dontCheckRuntimeDeps = true;
 
   src = pkgs.fetchPypi {
-    inherit pname version;
-    hash = "sha256-g5hGmQeTNKHmIjKgrp/n3YGCWIiPQO0ZvnMHRSEmBFc=";
+    inherit
+      pname
+      version
+      hash
+      ;
   };
 
   build-system = with pkgs.python3Packages; [
@@ -38,10 +46,14 @@ pkgs.python3Packages.buildPythonApplication rec {
           };
           patches = [
             (pkgs.substituteAll {
-              src = pkgs.fetchurl {
-                url = "https://github.com/DADA30000/dotfiles/raw/refs/heads/main/modules/system/anicli-ru/remove-hatch-plugins.patch";
-                sha256 = "sha256-+WJGrSutAo+BtSrIh3V1PX0xJfoJTX3jkteYc06e6Ss=";
-              };
+              src =
+                let
+                  git = "https://github.com/DADA30000/dotfiles/raw/refs/heads/main/";
+                in
+                pkgs.fetchurl {
+                  url = git + "modules/system/anicli-ru/remove-hatch-plugins.patch";
+                  sha256 = "sha256-+WJGrSutAo+BtSrIh3V1PX0xJfoJTX3jkteYc06e6Ss=";
+                };
               version = "23.2.0";
             })
           ];

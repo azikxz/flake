@@ -15,17 +15,22 @@ in
   options = {
     module.programs.gui.telegram = {
       enable = mkBool false;
-      package = mkPkg pkgs.ayugram-desktop;
+      package = mkPkg pkgs._64gram;
       walogram.mode = mkStr "solid"; # solid | background
     };
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ cfg.package ];
+    home.packages =
+      [ cfg.package ]
+      ++ (optional (cfg.package == pkgs.ayugram-desktop) (
+        pkgs.writeShellScriptBin "telegram-desktop" ''
+          ayugram-desktop
+        ''
+      ));
     xdg.dataFile = import ./configs.nix {
       inherit
         pkgs
-        lib
         config
         ;
     };
@@ -40,10 +45,7 @@ in
       in
       mkIf (cfg.package != null) {
         telegramTheme =
-          hm.dag.entryAfter
-            [
-              ""
-            ]
+          hm.dag.entryAfter [ "" ]
             # sh
             ''
               run ${getExe walogram}

@@ -1,13 +1,11 @@
 {
   pkgs,
-  lib,
   config,
 }:
 
 let
   inherit (builtins) toJSON;
   cfg = config.module.programs.gui.telegram;
-  pack = cfg.package == (pkgs._64gram);
   client =
     if cfg.package == (pkgs._64gram) then
       "64Gram"

@@ -1,13 +1,21 @@
-{ pkgs }:
+{
+  pkgs,
+  #
+  version ? null,
+  hash ? null,
+}:
 
 pkgs.python3Packages.buildPythonApplication rec {
   pname = "eggella";
-  version = "0.1.7";
+  inherit version;
   pyproject = true;
 
   src = pkgs.fetchPypi {
-    inherit pname version;
-    hash = "sha256-8Vo39BePA86wcLKs/F+u2N7tpIpPrEyEPp3POszy050=";
+    inherit
+      pname
+      version
+      hash
+      ;
   };
 
   build-system = with pkgs.python3Packages; [

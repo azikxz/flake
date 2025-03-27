@@ -30,51 +30,24 @@ in
   };
 
   config = mkIf cfg.enable {
-    systemd = {
-      tmpfiles.settings = {
-        flood =
-          let
-            text = import ./db.nix;
-            base = {
-              inherit (cfg)
-                user
-                group
-                mode
-                ;
-            };
-          in
-          {
-            "${cfg.dir}/db/_config/settings/settings.db"."L+" = base // {
-              argument = "${pkgs.writeText "settings.db" text}";
-            };
-          };
-      };
-      services.flood = {
-        after = [
-          "network.target"
-        ];
-        wantedBy = [
-          "multi-user.target"
-        ];
-        serviceConfig = {
-          Type = "simple";
-          User = cfg.user;
-          Group = cfg.group;
-          StateDirectory = [
-            "flood"
-          ];
-          StateDirectoryMode = mkDefault 775;
-          ExecStart = ''
-            ${getExe pkgs.flood} --auth "none" \
-            --rundir ${cfg.dir} \
-            --host "127.0.0.1" \
-            --port "${toString cfg.port}" \
-            \
-            --qburl "http://${cfg.qbit.url}" \
-            --qbuser "${cfg.qbit.user}" \
-            --qbpass "${cfg.qbit.pass}"
-          '';
-        };
+    systemd.services.flood = {
+      after = [ "network.target" ];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        Type = "simple";
+        User = cfg.user;
+        Group = cfg.group;
+        StateDirectory = [ "flood" ];
+        StateDirectoryMode = mkDefault 775;
+        ExecStart = ''
+          ${getExe pkgs.flood} --auth "none" \
+          --rundir ${cfg.dir} \
+          --host "127.0.0.1" \
+          --port "${toString cfg.port}" \
+          --qburl "http://${cfg.qbit.url}" \
+          --qbuser "${cfg.qbit.user}" \
+          --qbpass "${cfg.qbit.pass}"
+        '';
       };
     };
     users = {

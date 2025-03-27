@@ -8,7 +8,7 @@
 with lib;
 with x;
 let
-  inherit (pkgs) protonup-qt proton-ge-bin steam;
+  inherit (pkgs) protonup proton-ge-bin steam;
   cfg = config.module.programs.steam;
 in
 
@@ -20,8 +20,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ protonup-qt ];
     hardware.xone = on;
+    programs.fish.shellAbbrs = {
+      protonUpdate = "${getExe protonup} -y";
+      protonRemove = "${getExe protonup} -r";
+      protonList = "${getExe protonup} -l";
+    };
     programs = {
       gamescope = on;
       gamemode = on;

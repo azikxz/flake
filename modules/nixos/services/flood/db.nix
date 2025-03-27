@@ -1,8 +1,0 @@
-''
-  {"id":"language","data":"auto","_id":"xNgKa1J9gLpQTit3"}
-  {"id":"torrentListViewSize","data":"expanded","_id":"HSVzDhazHPsgDdWA"}
-  {"id":"UITagSelectorMode","data":null,"_id":"nNIKiOdMCg74WWCu"}
-  {"id":"torrentListColumns","data":[{"id":"name","visible":true},{"id":"percentComplete","visible":true},{"id":"downTotal","visible":true},{"id":"downRate","visible":true},{"id":"upTotal","visible":false},{"id":"upRate","visible":true},{"id":"eta","visible":true},{"id":"ratio","visible":true},{"id":"sizeBytes","visible":true},{"id":"peers","visible":false},{"id":"seeds","visible":false},{"id":"dateAdded","visible":false},{"id":"dateCreated","visible":false},{"id":"dateFinished","visible":false},{"id":"directory","visible":false},{"id":"hash","visible":false},{"id":"isPrivate","visible":false},{"id":"message","visible":false},{"id":"trackerURIs","visible":false},{"id":"tags","visible":false}],"_id":"31hPqfuB61JtgHoh"}
-  {"id":"torrentContextMenuActions","data":[{"id":"start","visible":true},{"id":"stop","visible":true},{"id":"remove","visible":true},{"id":"checkHash","visible":true},{"id":"reannounce","visible":true},{"id":"setTaxonomy","visible":true},{"id":"move","visible":true},{"id":"setTrackers","visible":false},{"id":"torrentDetails","visible":true},{"id":"downloadContents","visible":true},{"id":"downloadMetainfo","visible":true},{"id":"generateMagnet","visible":true},{"id":"setInitialSeeding","visible":false},{"id":"setSequential","visible":false},{"id":"setPriority","visible":true}],"_id":"YXGLh2Fnq8KAKPg0"}
-  {"id":"language","data":"auto","_id":"xNgKa1J9gLpQTit3"}
-''

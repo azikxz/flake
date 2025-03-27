@@ -12,6 +12,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
+
     impermanence.url = "github:nix-community/impermanence";
     hardware.url = "github:NixOS/nixos-hardware/master";
     flatpak.url = "github:gmodena/nix-flatpak";
@@ -33,11 +35,18 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-stable.follows = "nixpkgs-stable";
+      };
+    };
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        nixpkgs-stable.follows = "nixpkgs";
+        nixpkgs-stable.follows = "nixpkgs-stable";
       };
     };
     yt-x = {

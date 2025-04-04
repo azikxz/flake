@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -7,21 +8,19 @@
 with lib;
 with x;
 let
-  cfg = config.module.groups.music;
+  cfg = config.module.games.cartridges;
 in
 
 {
   options = {
-    module.groups.music = {
+    module.games.cartridges = {
       enable = mkBool false;
     };
   };
 
   config = mkIf cfg.enable {
-    module = {
-      programs.gui = mkGrpOn [
-        "spotify"
-      ];
-    };
+    home.packages = with pkgs; [
+      cartridges
+    ];
   };
 }

@@ -6,17 +6,17 @@
 }:
 
 let
-  inherit (lib) x getExe;
+  inherit (lib)
+    getExe
+    x
+    ;
+  inherit (pkgs)
+    uutils-coreutils-noprefix
+    grimblast
+    light
+    ;
   cfg = config.module.wm.hyprland;
-  tee = "${lib.getExe' pkgs.uutils-coreutils-noprefix "tee"}";
-  pic = ''
-    $(xdg-user-dir PICTURES)/scr/$(date +'scr_%d-%m-%y|%H:%M:%S.png')
-  '';
-  mic = pkgs.writeShellScriptBin "micMute-hyprland" ''
-    fixf4=$(cat /sys/class/leds/platform\:\:micmute/brightness);
-    echo $((1-fixf4)) | sudo ${tee} /sys/class/leds/platform\:\:micmute/brightness;
-    wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-  '';
+  tee = "${lib.getExe' uutils-coreutils-noprefix "tee"}";
 in
 
 {
@@ -41,7 +41,6 @@ in
   # binds
   bind =
     let
-      inherit (pkgs) grimblast;
       mk =
         m: a: c:
         "${toString m} ${toString a}, ${toString c}";
@@ -78,11 +77,19 @@ in
       (mk "$m," "$mu" "workspace, e-1")
       (mk "$m," "$nx" "workspace, e+1")
       (mk "$m," "$pr" "workspace, e-1")
-
-      # screenshot
-      (mk null null "$PR, exec, ${getExe grimblast} copysave area   ${pic}")
-      (mk null "$s" "$PR, exec, ${getExe grimblast} copysave output ${pic}")
     ]
+    ++ (
+      let
+        pic = ''
+          $(xdg-user-dir PICTURES)/scr/$(date +'scr_%d-%m-%y|%H:%M:%S.png')
+        '';
+      in
+      [
+        # screenshot
+        (mk null null "$PR, exec, ${getExe grimblast} copysave area   ${pic}")
+        (mk null "$s" "$PR, exec, ${getExe grimblast} copysave output ${pic}")
+      ]
+    )
     ++ cfg.binds
     ++ x.wm.workspaces;
 
@@ -143,20 +150,29 @@ in
       (c "up   " "moveactive, 0  -50")
       (c "right" "moveactive, 50   0")
     ]
+    ++ (
+      let
+        mic = pkgs.writeShellScriptBin "micMute-hyprland" ''
+          fixf4=$(cat /sys/class/leds/platform\:\:micmute/brightness);
+          echo $((1-fixf4)) | sudo ${tee} /sys/class/leds/platform\:\:micmute/brightness;
+          wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+        '';
+      in
+      [
+        (fn "XF86AudioMute       " "$ex, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
+        (fn "XF86AudioMicMute    " "$ex, ${getExe mic}'")
+        (fn "XF86AudioRaiseVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")
+        (fn "XF86AudioLowerVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
+        (fs "XF86AudioRaiseVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+")
+        (fs "XF86AudioLowerVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-")
+      ]
+    )
     ++ [
-      (fn "XF86AudioMute       " "$ex, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
-      (fn "XF86AudioMicMute    " "$ex, ${getExe mic}'")
-      (fn "XF86AudioRaiseVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")
-      (fn "XF86AudioLowerVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
-      (fs "XF86AudioRaiseVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+")
-      (fs "XF86AudioLowerVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-")
-    ]
-    ++ (with pkgs; [
       (fn "XF86MonBrightnessDown" "$ex, sudo ${getExe light} -U 10")
       (fn "XF86MonBrightnessUp  " "$ex, sudo ${getExe light} -A 10")
       (fs "XF86MonBrightnessDown" "$ex, sudo ${getExe light} -S 70")
       (fs "XF86MonBrightnessUp  " "$ex, sudo ${getExe light} -S 100")
-    ])
+    ]
     ++ [
       (fn "XF86Favorites" "$ex, wlogout -sc 12 -r 12")
       (fs "XF86Favorites" "$ex, poweroff")

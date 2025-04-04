@@ -13,7 +13,7 @@ in
 
 {
   options.module.misc.xdg = {
-    mime.enable = mkBool false;
+    enable = mkBool false;
   };
 
   config = {

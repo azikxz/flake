@@ -7,10 +7,10 @@
 
 let
   inherit (lib)
-    x
     mkForce
-    getExe
     getExe'
+    getExe
+    x
     ;
   cfg = config.module.wm.hyprland;
   on.enabled = true;
@@ -30,6 +30,7 @@ with config.lib.stylix.colors;
     in
     [
       "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1"
+      # "${getExe pkgs.swaybg} -i ${config.stylix.image}"
       (getExe mic)
     ]
     ++ cfg.autostart;

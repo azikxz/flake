@@ -8,7 +8,12 @@
 with lib;
 with x;
 let
-  inherit (pkgs) protonup proton-ge-bin steam;
+  inherit (pkgs)
+    stable
+    protonup
+    proton-ge-bin
+    steam
+    ;
   cfg = config.module.programs.steam;
 in
 
@@ -16,6 +21,7 @@ in
   options = {
     module.programs.steam = {
       enable = mkBool false;
+      autostart = mkBool true;
     };
   };
 
@@ -32,7 +38,10 @@ in
       steam = on // {
         gamescopeSession = on;
         remotePlay.openFirewall = true;
-        extraCompatPackages = [ proton-ge-bin ];
+        extraCompatPackages = [
+          stable.proton-ge-bin
+          proton-ge-bin
+        ];
         package = steam.override {
           extraEnv = {
             MANGOHUD = true;
@@ -40,6 +49,14 @@ in
             RADV_TEX_ANISO = 16;
           };
         };
+      };
+    };
+    systemd.user.services.steam-autostart = mkIf cfg.autostart {
+      wantedBy = [ "graphical-session.target" ];
+      serviceConfig = {
+        ExecStart = "${getExe pkgs.steam} -nochatui -nofriendsui -silent %U";
+        Restart = "on-abort";
+        RestartSec = "5s";
       };
     };
   };

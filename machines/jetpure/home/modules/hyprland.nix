@@ -12,10 +12,10 @@ in
   module.wm.hyprland = {
     autostart = [ "mako" ];
     binds = [
-      (m "$rt" "kitty")
-      (s "$rt" "kitty --class=termfloat")
+      (m "RETURN" "kitty")
+      (s "RETURN" "kitty --class=termfloat")
 
-      (m "$tb" "tofi-drun | xargs hyprctl dispatch exec -- ")
+      (m "TAB" "tofi-drun | xargs hyprctl dispatch exec -- ")
 
       (m "V" "telegram-desktop")
       (s "V" "vesktop")

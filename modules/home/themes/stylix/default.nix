@@ -17,7 +17,7 @@ in
     module.themes.stylix = {
       enable = mkBool false;
       icon = mkNull.str null;
-      cursor.size = mkInt 16;
+      cursor.size = mkInt 24;
     };
   };
 
@@ -38,9 +38,9 @@ in
           in
           google-cursor.override (
             with config.lib.stylix.colors.withHashtag;
-            if x.sys.is == "laptop" then
+            if (x.sys.is == "laptop") then
               mk base08 base00 base08
-            else if x.sys.is == "desktop" then
+            else if (x.sys.is == "desktop") then
               mk base0E base00 base0E
             else
               mk base00 base05 base05
@@ -72,43 +72,10 @@ in
             terminal = 12;
           };
         };
-      targets = {
-        # cli
-        tmux = on;
-        cava = on // {
-          rainbow = on;
-        };
-        fish = on;
-        nushell = on;
-        # wm
-        hyprland = on // {
-          hyprpaper = on;
-        };
-        hyprpaper = on;
-        niri = on;
-        sway = on;
-        river = on;
-        # misc
-        foot = on;
-        kitty = on;
-        mako = off;
-        rofi = on;
-        bemenu = on;
-        # tools
-        nixvim = on;
-        yazi = on;
-        fzf = on;
-        bat = on;
-        mangohud = on;
-        # gui
-        spicetify = off;
-        nixcord = on;
-        zathura = on;
-        qutebrowser = on;
-        firefox = on;
-        floorp = on;
-        halloy = on;
-        gtk = on;
+      targets = import ./targets.nix {
+        inherit
+          lib
+          ;
       };
     };
   };

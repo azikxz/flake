@@ -4,14 +4,13 @@
 }:
 
 let
-  inherit (lib.x) on umport;
+  inherit (lib.x) umport on;
 in
 
 {
-  imports = umport {
-    path = ./.;
-    exclude = [ ./default.nix ];
-  };
+  imports = umport { path = ./modules; };
+
+  programs.adb = lib.mkForce on;
 
   module = {
     themes.stylix = on;

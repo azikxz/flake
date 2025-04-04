@@ -23,9 +23,7 @@
       max_width = 5000;
     };
     opener = {
-      open = [
-        { run = "xdg-open $@"; }
-      ];
+      open = [ { run = "xdg-open $@"; } ];
       edit = [
         {
           run = ''hx "$@"'';
@@ -49,7 +47,7 @@
         {
           desc = "Document";
           orphan = true;
-          run = "onlyoffice-desktopeditors";
+          run = "libreoffice";
         }
       ];
       extract = [ { run = ''ouch d -y "$@"''; } ];

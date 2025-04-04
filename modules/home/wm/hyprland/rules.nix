@@ -14,9 +14,9 @@
       spec = rule + ", shadow:false, bordersize:1";
     in
     [
-      "w[tv1],   ${rule}"
-      "f[1],     ${rule}"
-      "s[true],  ${spec}"
+      ("w[tv1],  " + rule)
+      ("f[1],    " + rule)
+      ("s[true], " + spec)
     ];
   windowrulev2 =
     let
@@ -38,6 +38,7 @@
       (cl "vesktop" "workspace 5 silent")
       (cl "anicli" "workspace 6 silent")
       (cl "org.qbittorrent.qBittorrent" "workspace 8 silent")
+      (tl "steam" "workspace 10 silent")
 
       # term rules
       (cl "termfloat" "float")
@@ -84,10 +85,18 @@
       # pinned
       (cl "mpv" "nodim")
       (mk "pinned:1" "bordercolor rgb(${base0B}) rgb(${base01})")
-
-      "bordersize 0,  floating:0,  onworkspace:w[tv1]"
-      "rounding   0,  floating:0,  onworkspace:w[tv1]"
-      "bordersize 0,  floating:0,  onworkspace:f[1]"
-      "rounding   0,  floating:0,  onworkspace:f[1]"
-    ];
+    ]
+    ++ (
+      let
+        float = "floating:0, ";
+        w = float + "onworkspace:w[tv1]";
+        f = float + "onworkspace:f[1]";
+      in
+      [
+        ("bordersize 0, " + w)
+        ("rounding   0, " + w)
+        ("bordersize 0, " + f)
+        ("rounding   0, " + f)
+      ]
+    );
 }

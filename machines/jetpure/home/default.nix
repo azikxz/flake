@@ -4,74 +4,74 @@
 }:
 
 let
-  inherit (lib.x) on umport;
+  inherit (lib.x) umport mkGrpOn on;
 in
 
 {
-  imports = umport {
-    path = ./.;
-    exclude = [ ./default.nix ];
-  };
+  imports = umport { path = ./modules; };
 
   module = {
     programs = {
-      cli = {
-        common = on;
-        cava = on;
-        develop = on;
-        fetch = on;
-        figlet = on;
-        helix = on;
-        imageEdit = on;
-        legendary = on;
-        systop = on;
-        yazi = on;
+      cli = mkGrpOn [
+        "common"
+        "cava"
+        "develop"
+        "fetch"
+        "figlet"
+        "helix"
+        "imageEdit"
+        "legendary"
+        "systop"
+        "yazi"
+      ];
+      gui = mkGrpOn [
+        "keepass"
+        "mpv"
+        "nixcord"
+        "obs"
+        "qutebrowser"
+        "spotify"
+        "swayimg"
+        "syncthing"
+        "telegram"
+        "zathura"
+      ];
+    };
+    shells = mkGrpOn [
+      "fish"
+      "translate"
+      "starship"
+    ];
+    themes =
+      mkGrpOn [
+        "qt"
+      ]
+      // {
+        stylix = on // {
+          icon = "adwaita";
+          cursor.size = 16;
+        };
       };
-      gui = {
-        keepass = on;
-        mpv = on;
-        nixcord = on;
-        obs = on;
-        qutebrowser = on;
-        spotify = on;
-        swayimg = on;
-        syncthing = on;
-        telegram = on;
-        zathura = on;
-      };
+    wm = (mkGrpOn [ "hyprland" ]) // {
+      terminals = mkGrpOn [
+        "kitty"
+      ];
+      misc = mkGrpOn [
+        "mako"
+        "tofi"
+        "wlogout"
+      ];
     };
-    shells = {
-      fish = on;
-      translate = on;
-      starship = on;
-    };
-    themes = {
-      qt = on;
-      stylix = on // {
-        icon = "adwaita";
-        cursor.size = 16;
-      };
-    };
-    wm = {
-      hyprland = on;
-      niri = on;
-      terminals.kitty = on;
-      misc = {
-        mako = on;
-        tofi = on;
-        wlogout = on;
-      };
-    };
-    games = {
-      mindustry = on;
-      minecraft = on;
-      openarena = on;
-      srb2 = on;
-      wine = on;
-    };
-    misc = {
-      dconf = on;
-      xdg.mime = on;
-    };
+    games = mkGrpOn [
+      "mindustry"
+      "minecraft"
+      "openarena"
+      "srb2"
+      "wine"
+    ];
+    misc = mkGrpOn [
+      "dconf"
+      "xdg"
+    ];
   };
 }

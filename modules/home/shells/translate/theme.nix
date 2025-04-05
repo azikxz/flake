@@ -1,6 +1,5 @@
 {
   theme = "init.trans";
-
   sgr-original = [ "green" ];
   sgr-original-phonetics = [
     "green"

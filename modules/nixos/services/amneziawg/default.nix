@@ -18,7 +18,7 @@ in
     module.services.amneziawg = {
       enable = mkBool false;
       service.enable = mkBool false;
-      config = mkPath ./warp.conf;
+      config = mkNull.path ./warp.conf;
     };
   };
 

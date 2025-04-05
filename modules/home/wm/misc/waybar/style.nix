@@ -8,7 +8,7 @@ in
 with config.lib.stylix.colors.withHashtag;
 # css
 ''
-  /* BAR ITSELF */
+  /* itself */
   * {
     font-family: "${font.monospace.name}";
     font-weight: bold;

@@ -26,7 +26,7 @@ in
     };
     services = {
       amneziawg = on // {
-        config = ./warp.conf;
+        config = ./modules/warp.conf;
       };
       dbus = on;
       flood = on;

@@ -26,9 +26,9 @@ in
         hl = "en";
         tl = [
           "ru"
+          "en"
           "jpn"
         ];
-        user-agent = "Mozilla/5.0 (X11; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0";
       } // import ./theme.nix;
     };
   };

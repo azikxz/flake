@@ -16,7 +16,7 @@ let
     light
     ;
   cfg = config.module.wm.hyprland;
-  tee = "${lib.getExe' uutils-coreutils-noprefix "tee"}";
+  tee = lib.getExe' uutils-coreutils-noprefix "tee";
 in
 
 {
@@ -30,27 +30,21 @@ in
   "$sp" = "SPACE";
   "$tb" = "TAB";
 
-  "$nx" = "Next";
-  "$pr" = "Prior";
-  "$PR" = "Print";
-
-  "$md" = "mouse_down";
-  "$mu" = "mouse_up";
   "$ex" = "exec";
 
   # binds
   bind =
     let
       mk =
-        m: a: c:
-        "${toString m} ${toString a}, ${toString c}";
+        mod: args: cmd:
+        "${toString mod} ${toString args}, ${toString cmd}";
       m = mk "$m,     ";
       s = mk "$m  $s, ";
       a = mk "$m  $a, ";
     in
     [
-      (m "$sp" "togglefloating")
-      (a "$sp" "centerwindow")
+      (m "SPACE" "togglefloating")
+      (a "SPACE" "centerwindow")
       # window control
       (m "Q" "killactive")
       (m "F" "fullscreen")
@@ -73,21 +67,19 @@ in
       (s "D" "movetoworkspace, special:magic")
 
       # chsnge workspaces via mouse wheel
-      (mk "$m," "$md" "workspace, e+1")
-      (mk "$m," "$mu" "workspace, e-1")
-      (mk "$m," "$nx" "workspace, e+1")
-      (mk "$m," "$pr" "workspace, e-1")
+      (mk "$m," "MOUSE_DOWN" "workspace, e+1")
+      (mk "$m," "MOUSE_UP" "workspace, e-1")
+      (mk "$m," "NEXT" "workspace, e+1")
+      (mk "$m," "PRIOR" "workspace, e-1")
     ]
     ++ (
       let
-        pic = ''
-          $(xdg-user-dir PICTURES)/scr/$(date +'scr_%d-%m-%y|%H:%M:%S.png')
-        '';
+        pic = "$(xdg-user-dir PICTURES)/scr/$(date +'scr_%d-%m-%y|%H:%M:%S.png')";
       in
       [
         # screenshot
-        (mk null null "$PR, exec, ${getExe grimblast} copysave area   ${pic}")
-        (mk null "$s" "$PR, exec, ${getExe grimblast} copysave output ${pic}")
+        (mk null null "PRINT, $ex, ${getExe grimblast} copysave area   " + pic)
+        (mk null "$s" "PRINT, $ex, ${getExe grimblast} copysave output " + pic)
       ]
     )
     ++ cfg.binds
@@ -130,25 +122,25 @@ in
       (c "L" "moveactive, 50   0")
 
       # arrows
-      (m "left " "movefocus, l")
-      (m "down " "movefocus, d")
-      (m "up   " "movefocus, u")
-      (m "right" "movefocus, r")
+      (m "LEFT " "movefocus, l")
+      (m "DOWN " "movefocus, d")
+      (m "UP   " "movefocus, u")
+      (m "RIGHT" "movefocus, r")
 
-      (s "left " "resizeactive, -50  0")
-      (s "down " "resizeactive, 0   50")
-      (s "up   " "resizeactive, 0  -50")
-      (s "right" "resizeactive, 50   0")
+      (s "LEFT " "resizeactive, -50  0")
+      (s "DOWN " "resizeactive, 0   50")
+      (s "UP   " "resizeactive, 0  -50")
+      (s "RIGHT" "resizeactive, 50   0")
 
-      (a "left " "swapwindow, l")
-      (a "down " "swapwindow, d")
-      (a "up   " "swapwindow, u")
-      (a "right" "swapwindow, r")
+      (a "LEFT " "swapwindow, l")
+      (a "DOWN " "swapwindow, d")
+      (a "UP   " "swapwindow, u")
+      (a "RIGHT" "swapwindow, r")
 
-      (c "left " "moveactive, -50  0")
-      (c "down " "moveactive, 0   50")
-      (c "up   " "moveactive, 0  -50")
-      (c "right" "moveactive, 50   0")
+      (c "LEFT " "moveactive, -50  0")
+      (c "DOWN " "moveactive, 0   50")
+      (c "UP   " "moveactive, 0  -50")
+      (c "RIGHT" "moveactive, 50   0")
     ]
     ++ (
       let
@@ -160,7 +152,7 @@ in
       in
       [
         (fn "XF86AudioMute       " "$ex, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
-        (fn "XF86AudioMicMute    " "$ex, ${getExe mic}'")
+        (fn "XF86AudioMicMute    " "$ex, ${getExe mic}")
         (fn "XF86AudioRaiseVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")
         (fn "XF86AudioLowerVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
         (fs "XF86AudioRaiseVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+")

@@ -51,7 +51,7 @@ in
         users = {
           ${sys.userName} = {
             uid = 1000;
-            home = "/home/${sys.userName}";
+            home = "/home/" + sys.userName;
             createHome = true;
             isNormalUser = true;
             extraGroups = grp;

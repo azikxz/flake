@@ -15,18 +15,12 @@ in
   options = {
     module.games.srb2 = {
       enable = mkBool false;
-      kart.enable = mkBool false;
     };
   };
 
   config = mkIf cfg.enable {
-    home.packages =
-      with pkgs;
-      [
-        srb2
-      ]
-      ++ optional cfg.kart.enable [
-        srb2kart
-      ];
+    home.packages = with pkgs; [
+      srb2
+    ];
   };
 }

@@ -47,11 +47,11 @@ in
             cache = "100";
             fill = "yes";
             antialiasing = "yes";
-            window = "${base00}ff";
-            background = "${base01}ff";
-            select = "${base02}ff";
-            border = "${base0E}ff";
-            shadow = "${base00}a0";
+            window = base00 + "ff";
+            background = base01 + "ff";
+            select = base02 + "ff";
+            border = base0E + "ff";
+            shadow = base00 + "a0";
           };
           list = {
             order = "alpha";
@@ -62,8 +62,8 @@ in
           font = {
             name = font.monospace.name;
             size = "14";
-            color = "${base06}ff";
-            shadow = "${base00}a0";
+            color = base06 + "ff";
+            shadow = base00 + "a0";
           };
           info = {
             show = "yes";

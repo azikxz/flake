@@ -63,7 +63,7 @@ in
       plymouth = (mkIf cfg.plymouth.enable on) // {
         logo =
           let
-            path = "${pkgs.nixos-icons}/share/icons/hicolor/48x48/apps/";
+            path = pkgs.nixos-icons + "/share/icons/hicolor/48x48/apps/";
           in
           path + "nix-snowflake-white.png";
       };

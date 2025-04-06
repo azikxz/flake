@@ -7,9 +7,6 @@
 
 with lib;
 with x;
-let
-  hmdir = config.home.homeDirectory;
-in
 
 {
   options.module.misc.xdg = {
@@ -20,7 +17,13 @@ in
     home.packages = [ pkgs.xdg-user-dirs ];
     xdg = {
       mime = on;
-      mimeApps = on // import ./mimeApps.nix;
+      mimeApps =
+        on
+        // import ./mimeApps.nix {
+          inherit
+            lib
+            ;
+        };
       portal = on // {
         config.common.default = "gtk";
         extraPortals = with pkgs; [
@@ -28,43 +31,52 @@ in
           xdg-desktop-portal-hyprland
         ];
       };
-      userDirs = on // {
-        createDirectories = true;
-        # xdg default
-        desktop = "${hmdir}/Desktop";
-        documents = "${hmdir}/Documents";
-        download = "${hmdir}/Downloads";
-        music = "${hmdir}/Music";
-        pictures = "${hmdir}/Pictures";
-        publicShare = "${hmdir}/";
-        templates = "${hmdir}/";
-        videos = "${hmdir}/Videos";
-      };
+      userDirs =
+        on
+        // {
+          createDirectories = true;
+        }
+        // (
+          let
+            hmdir = config.home.homeDirectory;
+          in
+          {
+            # xdg default
+            desktop = hmdir + "/Desktop";
+            documents = hmdir + "/Documents";
+            download = hmdir + "/Downloads";
+            music = hmdir + "/Music";
+            pictures = hmdir + "/Pictures";
+            publicShare = hmdir + "/";
+            templates = hmdir + "/";
+            videos = hmdir + "/Videos";
+          }
+        );
       desktopEntries =
         let
-          n = name: {
-            name = "${name}";
+          mk = name: {
+            inherit name;
             noDisplay = true;
           };
         in
         {
           # qt
-          qt5ct = n "qt5ct";
-          qt6ct = n "qt6ct";
+          qt5ct = mk "qt5ct";
+          qt6ct = mk "qt6ct";
           # cli
-          nvtop = n "nvtop";
-          btop = n "btop";
-          fish = n "fish";
+          nvtop = mk "nvtop";
+          btop = mk "btop";
+          fish = mk "fish";
           # shit
-          rofi = n "rofi";
-          rofi-theme-selector = n "rofi-theme-selector";
+          rofi = mk "rofi";
+          rofi-theme-selector = mk "rofi-theme-selector";
           # office
-          base = n "base";
-          calc = n "calc";
-          draw = n "draw";
-          impress = n "impress";
-          math = n "math";
-          writer = n "writer";
+          base = mk "base";
+          calc = mk "calc";
+          draw = mk "draw";
+          impress = mk "impress";
+          math = mk "math";
+          writer = mk "writer";
         };
     };
   };

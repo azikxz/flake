@@ -4,22 +4,17 @@
   ...
 }:
 let
-  # MODIFIERS
+  # modifiers
   m = "Mod4";
   s = "Shift";
   a = "Alt";
-  # BUTTUONS
+  # buttuons
   rt = "Return";
-  tb = "Tab";
   sp = "Space";
   pr = "Print";
-  # DISPATCHERS
-  ex = "exec";
-  ws = "workspace";
-  mv = "move";
-  cn = "container";
-  nm = "number";
-  # PROGRAMS
+  # dispatchers
+  ex = "exec ";
+  # programs
   pic = "$(xdg-user-dir PICTURES)/$(date +'scr_%d-%m-%y|%H:%M:%S.png')";
   inherit (lib) mkForce getExe;
   inherit (pkgs) grimblast;
@@ -29,15 +24,15 @@ mkForce {
   "${m}+f" = "fullscreen";
 
   "${m}+${sp}     " = "floating toggle";
-  "${m}+${s}+${sp}" = "${ex} killall -SIGUSR1 waybar";
+  "${m}+${s}+${sp}" = ex + "killall -SIGUSR1 waybar";
   "${m}+${a}+${sp}" = "move position center";
 
-  "${m}+${rt}     " = "${ex} kitty";
-  "${m}+${s}+${rt}" = "${ex} kitty --class=termfloat";
+  "${m}+${rt}     " = ex + "kitty";
+  "${m}+${s}+${rt}" = ex + "kitty --class=termfloat";
 
-  "${pr}     " = "${getExe grimblast} copysave area";
-  "${pr}+${s}" = "${getExe grimblast} copysave output ${pic}";
-  "${pr}+${a}" = "${getExe grimblast} copysave active ${pic}";
+  "${pr}     " = ex + getExe grimblast + " copysave area   " + pic;
+  "${pr}+${s}" = ex + getExe grimblast + " copysave output " + pic;
+  "${pr}+${a}" = ex + getExe grimblast + " copysave active " + pic;
 
   "${m}+g     " = "layout tabbed";
   "${m}+${s}+g" = "layout toggle split";
@@ -47,41 +42,50 @@ mkForce {
 
   "${m}+Home     " = "exit";
   "${m}+${s}+Home" = "reload";
-
-  "${m}+1" = "${ws} ${nm} 1";
-  "${m}+2" = "${ws} ${nm} 2";
-  "${m}+3" = "${ws} ${nm} 3";
-  "${m}+4" = "${ws} ${nm} 4";
-  "${m}+5" = "${ws} ${nm} 5";
-  "${m}+6" = "${ws} ${nm} 6";
-  "${m}+7" = "${ws} ${nm} 7";
-  "${m}+8" = "${ws} ${nm} 8";
-  "${m}+9" = "${ws} ${nm} 9";
-  "${m}+0" = "${ws} ${nm} 10";
-
-  "${m}+${s}+1" = "${mv} ${cn} to ${ws} ${nm} 1";
-  "${m}+${s}+2" = "${mv} ${cn} to ${ws} ${nm} 2";
-  "${m}+${s}+3" = "${mv} ${cn} to ${ws} ${nm} 3";
-  "${m}+${s}+4" = "${mv} ${cn} to ${ws} ${nm} 4";
-  "${m}+${s}+5" = "${mv} ${cn} to ${ws} ${nm} 5";
-  "${m}+${s}+6" = "${mv} ${cn} to ${ws} ${nm} 6";
-  "${m}+${s}+7" = "${mv} ${cn} to ${ws} ${nm} 7";
-  "${m}+${s}+8" = "${mv} ${cn} to ${ws} ${nm} 8";
-  "${m}+${s}+9" = "${mv} ${cn} to ${ws} ${nm} 9";
-  "${m}+${s}+0" = "${mv} ${cn} to ${ws} ${nm} 10";
-
-  # "${m}+h" = "focus left";
-  # "${m}+j" = "focus down";
-  # "${m}+k" = "focus up";
-  # "${m}+l" = "focus right";
-
-  "${m}+${s}+h" = "move left";
-  "${m}+${s}+j" = "move down";
-  "${m}+${s}+k" = "move up";
-  "${m}+${s}+l" = "move right";
-
-  "${m}+${a}+h" = "move workspace to output left";
-  "${m}+${a}+j" = "move workspace to output down";
-  "${m}+${a}+k" = "move workspace to output up";
-  "${m}+${a}+l" = "move workspace to output right";
 }
+// (
+  let
+    ws = "workspace ";
+    mv = "move ";
+    cn = "container ";
+    nm = "number ";
+    mvcn = mv + cn;
+    mvws = mv + ws;
+    _2ws = ws + nm;
+    _2ss = mvcn + "to" + _2ws;
+    sumws = [
+      "1"
+      "2"
+      "3"
+      "4"
+      "5"
+      "6"
+      "7"
+      "8"
+      "9"
+      "10"
+    ];
+  in
+  (lib.genAttrs sumws (n: {
+    "${m}+${n}" = _2ws + n;
+  }))
+  // (lib.genAttrs sumws (n: {
+    "${m}+${s}+${n}" = _2ss + n;
+  }))
+  // {
+    # "${m}+h" = "focus left";
+    # "${m}+j" = "focus down";
+    # "${m}+k" = "focus up";
+    # "${m}+l" = "focus right";
+
+    "${m}+${s}+h" = mv + "left";
+    "${m}+${s}+j" = mv + "down";
+    "${m}+${s}+k" = mv + "up";
+    "${m}+${s}+l" = mv + "right";
+
+    "${m}+${a}+h" = mvws + "to output left";
+    "${m}+${a}+j" = mvws + "to output down";
+    "${m}+${a}+k" = mvws + "to output up";
+    "${m}+${a}+l" = mvws + "to output right";
+  }
+)

@@ -26,8 +26,8 @@ in
       fff
     ];
     programs = {
-      adb = if sys.is == "laptop " then on else off;
-      light = if sys.is == "desktop" then on else off;
+      adb = if (sys.is == "laptop") then on else off;
+      light = if (sys.is == "desktop") then on else off;
       git.package = mkDefault pkgs.gitMinimal;
     };
   };

@@ -7,77 +7,79 @@
 with config.lib.stylix.colors;
 let
   ini = pkgs.formats.ini { };
+  f = "#ff";
+  e = "#8f";
 
   color = ini.generate "stylix.conf" {
     ColorScheme = {
       active_colors = builtins.concatStringsSep ", " [
-        "#ff${base05}"
-        "#ff${base01}"
-        "#ff${base01}"
-        "#ff${base05}"
-        "#ff${base03}"
-        "#ff${base04}"
-        "#ff${base05}"
-        "#ff${base06}"
-        "#ff${base05}"
-        "#ff${base01}"
-        "#ff${base00}"
-        "#ff${base03}"
-        "#ff${base02}"
-        "#ff${base05}"
-        "#ff${base09}"
-        "#ff${base08}"
-        "#ff${base02}"
-        "#ff${base05}"
-        "#ff${base01}"
-        "#ff${base0E}"
-        "#8f${base0E}"
+        (f + base05)
+        (f + base01)
+        (f + base01)
+        (f + base05)
+        (f + base03)
+        (f + base04)
+        (f + base05)
+        (f + base06)
+        (f + base05)
+        (f + base01)
+        (f + base00)
+        (f + base03)
+        (f + base02)
+        (f + base05)
+        (f + base09)
+        (f + base08)
+        (f + base02)
+        (f + base05)
+        (f + base01)
+        (f + base0E)
+        (e + base0E)
       ];
       disabled_colors = builtins.concatStringsSep ", " [
-        "#ff${base04}"
-        "#ff${base01}"
-        "#ff${base01}"
-        "#ff${base05}"
-        "#ff${base03}"
-        "#ff${base04}"
-        "#ff${base04}"
-        "#ff${base04}"
-        "#ff${base04}"
-        "#ff${base01}"
-        "#ff${base00}"
-        "#ff${base03}"
-        "#ff${base02}"
-        "#ff${base05}"
-        "#ff${base09}"
-        "#ff${base08}"
-        "#ff${base02}"
-        "#ff${base05}"
-        "#ff${base01}"
-        "#ff${base0E}"
-        "#8f${base0E}"
+        (f + base04)
+        (f + base01)
+        (f + base01)
+        (f + base05)
+        (f + base03)
+        (f + base04)
+        (f + base04)
+        (f + base04)
+        (f + base04)
+        (f + base01)
+        (f + base00)
+        (f + base03)
+        (f + base02)
+        (f + base05)
+        (f + base09)
+        (f + base08)
+        (f + base02)
+        (f + base05)
+        (f + base01)
+        (f + base0E)
+        (e + base0E)
       ];
       inactive_colors = builtins.concatStringsSep ", " [
-        "#ff${base04}"
-        "#ff${base01}"
-        "#ff${base01}"
-        "#ff${base05}"
-        "#ff${base03}"
-        "#ff${base04}"
-        "#ff${base04}"
-        "#ff${base04}"
-        "#ff${base04}"
-        "#ff${base01}"
-        "#ff${base00}"
-        "#ff${base03}"
-        "#ff${base02}"
-        "#ff${base05}"
-        "#ff${base09}"
-        "#ff${base08}"
-        "#ff${base02}"
-        "#ff${base05}"
-        "#ff${base01}"
-        "#ff${base0E}"
-        "#8f${base0E}"
+        (f + base04)
+        (f + base01)
+        (f + base01)
+        (f + base05)
+        (f + base03)
+        (f + base04)
+        (f + base04)
+        (f + base04)
+        (f + base04)
+        (f + base01)
+        (f + base00)
+        (f + base03)
+        (f + base02)
+        (f + base05)
+        (f + base09)
+        (f + base08)
+        (f + base02)
+        (f + base05)
+        (f + base01)
+        (f + base0E)
+        (e + base0E)
       ];
     };
   };

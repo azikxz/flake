@@ -21,7 +21,7 @@ with config.lib.stylix.colors;
   env = [ "SLURP_ARGS, -b ${base00}CC -c ${base0F}FF -B ${base02}CC" ];
   exec-once =
     let
-      tee = "${getExe' pkgs.uutils-coreutils-noprefix "tee"}";
+      tee = getExe' pkgs.uutils-coreutils-noprefix "tee";
       mic = pkgs.writeShellScriptBin "micMute-hyprland" ''
         fixf4=$(cat /sys/class/leds/platform\:\:micmute/brightness);
         echo $((1-fixf4)) | sudo ${tee} /sys/class/leds/platform\:\:micmute/brightness;

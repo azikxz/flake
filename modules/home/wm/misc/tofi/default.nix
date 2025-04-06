@@ -25,7 +25,7 @@ in
         history = false;
         hide-cursor = true;
         text-cursor = true;
-        font = "${font.monospace.name}";
+        font = font.monospace.name;
         width = "100%";
         height = "100%";
         border-width = 0;

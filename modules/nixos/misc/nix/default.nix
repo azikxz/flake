@@ -22,7 +22,7 @@ in
         "flakes"
       ];
       trusted-users = [
-        "${sys.userName}"
+        sys.userName
         "@wheel"
       ];
       substituters = subs;

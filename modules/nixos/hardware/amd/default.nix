@@ -26,7 +26,7 @@ in
         };
         amdgpu.initrd = on;
         cpu.amd = {
-          updateMicrocode = with config.hardware; lib.mkDefault enableRedistributableFirmware;
+          updateMicrocode = mkDefault config.hardware.enableRedistributableFirmware;
           ryzen-smu = on;
         };
       };

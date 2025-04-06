@@ -25,7 +25,7 @@ in
         mk =
           name: hash:
           pkgs.fetchurl {
-            url = "http://www.figlet.org/fonts/${name}";
+            url = "http://www.figlet.org/fonts/" + name;
             sha256 = toString hash;
           };
       in

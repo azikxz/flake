@@ -26,7 +26,7 @@ in
         icons = true;
         actions = false;
         anchor = "top-right";
-        font = "${font.monospace.name}";
+        font = font.monospace.name;
         borderRadius = 8;
         borderSize = 2;
         backgroundColor = base01;

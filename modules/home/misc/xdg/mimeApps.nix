@@ -1,122 +1,134 @@
+{
+  lib,
+}:
+
 let
   text = "Helix.desktop";
   image = "swayimg.desktop";
   video = "mpv.desktop";
+  audio = "mpv.desktop";
   web = "org.qutebrowser.qutebrowser.desktop";
   pdf = "org.pwmt.zathura.desktop";
+  mk = type: list: (lib.genAttrs list (n: type));
 in
 
 {
-  defaultApplications = {
-    # TEXT FORMATS
-    "text/plain" = text;
-    "text/x-cmake" = text;
-    "text/markdown" = text;
-    "text/rhtml" = text;
-    "text/x-tex" = text;
-    "text/x-java" = text;
-    "text/x-ruby" = text;
-    "inode/x-empty" = text;
-    "text/x-python" = text;
-    "text/x-readme" = text;
-    "text/x-markdown" = text;
-    "application/json" = text;
-    "application/x-ruby" = text;
-    "application/x-yaml" = text;
-    "application/x-shellscript" = text;
-    "application/x-docbook+xml" = text;
-    # IMAGE FORMATS
-    "image/avif" = image;
-    "image/gif" = image;
-    "image/heif" = image;
-    "image/jpg" = image;
-    "image/jpeg" = image;
-    "image/jxl" = image;
-    "image/png" = image;
-    "image/bmp" = image;
-    "image/x-eps" = image;
-    "image/x-icns" = image;
-    "image/x-ico" = image;
-    "image/x-portable-bitmap" = image;
-    "image/x-portable-graymap" = image;
-    "image/x-portable-swayimgmap" = image;
-    "image/x-xbitmap" = image;
-    "image/x-xswayimgmap" = image;
-    "image/tiff" = image;
-    "image/x-psd" = image;
-    "image/x-webp" = image;
-    "image/webp" = image;
-    "image/x-tga" = image;
-    "image/svg+xml" = image;
-    # VIDEO FORMATS
-    "video/3gp" = video;
-    "video/3gpp" = video;
-    "video/3gpp2" = video;
-    "video/avi" = video;
-    "video/divx" = video;
-    "video/dv" = video;
-    "video/fli" = video;
-    "video/flv" = video;
-    "video/mp2t" = video;
-    "video/mp4" = video;
-    "video/mp4v-es" = video;
-    "video/mpeg" = video;
-    "video/msvideo" = video;
-    "video/ogg" = video;
-    "video/quicktime" = video;
-    "video/vnd.divx" = video;
-    "video/vnd.mpegurl" = video;
-    "video/vnd.rn-realvideo" = video;
-    "video/webm" = video;
-    "video/x-avi" = video;
-    "video/x-flv" = video;
-    "video/x-m4v" = video;
-    "video/x-matroska" = video;
-    "video/x-mpeg2" = video;
-    "video/x-ms-asf" = video;
-    "video/x-msvideo" = video;
-    "video/x-ms-wmv" = video;
-    "video/x-ms-wmx" = video;
-    "video/x-ogm" = video;
-    "video/x-ogm+ogg" = video;
-    "video/x-theora" = video;
-    "video/x-theora+ogg" = video;
-    "application/x-matroska" = video;
-    # AUDIO FORMATS
-    "audio/aac" = video;
-    "audio/mp4" = video;
-    "audio/mpeg" = video;
-    "audio/mpegurl" = video;
-    "audio/ogg" = video;
-    "audio/vnd.rn-realaudio" = video;
-    "audio/vorbis" = video;
-    "audio/x-flac" = video;
-    "audio/x-mp3" = video;
-    "audio/x-mpegurl" = video;
-    "audio/x-ms-wma" = video;
-    "audio/x-musepack" = video;
-    "audio/x-oggflac" = video;
-    "audio/x-pn-realaudio" = video;
-    "audio/x-scpls" = video;
-    "audio/x-speex" = video;
-    "audio/x-vorbis" = video;
-    "audio/x-vorbis+ogg" = video;
-    "audio/x-wav" = video;
-    # WEB
-    "text/html" = web;
-    "x-scheme-handler/ftp" = web;
-    "application/xhtml+xml" = web;
-    "x-scheme-handler/http" = web;
-    "x-scheme-handler/https" = web;
-    "x-scheme-handler/chrome" = web;
-    "application/x-extension-htm" = web;
-    "application/x-extension-xht" = web;
-    "application/x-extension-html" = web;
-    "application/x-extension-shtml" = web;
-    "application/x-extension-xhtml" = web;
-    "x-scheme-handler/about" = web;
-    "x-scheme-handler/unknown" = web;
-    # office
-    "application/pdf" = pdf;
-  };
+  defaultApplications =
+    (mk text [
+      "text/plain"
+      "text/x-cmake"
+      "text/markdown"
+      "text/rhtml"
+      "text/x-tex"
+      "text/x-java"
+      "text/x-ruby"
+      "inode/x-empty"
+      "text/x-python"
+      "text/x-readme"
+      "text/x-markdown"
+      "application/json"
+      "application/x-ruby"
+      "application/x-yaml"
+      "application/x-shellscript"
+      "application/x-docbook+xml"
+    ])
+    // (mk image [
+      "image/avif"
+      "image/gif"
+      "image/heif"
+      "image/jpg"
+      "image/jpeg"
+      "image/jxl"
+      "image/png"
+      "image/bmp"
+      "image/x-eps"
+      "image/x-icns"
+      "image/x-ico"
+      "image/x-portable-bitmap"
+      "image/x-portable-graymap"
+      "image/x-portable-swayimgmap"
+      "image/x-xbitmap"
+      "image/x-xswayimgmap"
+      "image/tiff"
+      "image/x-psd"
+      "image/x-webp"
+      "image/webp"
+      "image/x-tga"
+      "image/svg+xml"
+    ])
+    // (mk video [
+      "video/3gp"
+      "video/3gpp"
+      "video/3gpp2"
+      "video/avi"
+      "video/divx"
+      "video/dv"
+      "video/fli"
+      "video/flv"
+      "video/mp2t"
+      "video/mp4"
+      "video/mp4v-es"
+      "video/mpeg"
+      "video/msvideo"
+      "video/ogg"
+      "video/quicktime"
+      "video/vnd.divx"
+      "video/vnd.mpegurl"
+      "video/vnd.rn-realvideo"
+      "video/webm"
+      "video/x-avi"
+      "video/x-flv"
+      "video/x-m4v"
+      "video/x-matroska"
+      "video/x-mpeg2"
+      "video/x-ms-asf"
+      "video/x-msvideo"
+      "video/x-ms-wmv"
+      "video/x-ms-wmx"
+      "video/x-ogm"
+      "video/x-ogm+ogg"
+      "video/x-theora"
+      "video/x-theora+ogg"
+      "application/x-matroska"
+    ])
+    // (mk audio [
+      "audio/aac"
+      "audio/mp4"
+      "audio/mpeg"
+      "audio/mpegurl"
+      "audio/ogg"
+      "audio/vnd.rn-realaudio"
+      "audio/vorbis"
+      "audio/x-flac"
+      "audio/x-mp3"
+      "audio/x-mpegurl"
+      "audio/x-ms-wma"
+      "audio/x-musepack"
+      "audio/x-oggflac"
+      "audio/x-pn-realaudio"
+      "audio/x-scpls"
+      "audio/x-speex"
+      "audio/x-vorbis"
+      "audio/x-vorbis+ogg"
+      "audio/x-wav"
+    ])
+    // (mk web [
+      "text/html"
+      "x-scheme-handler/ftp"
+      "application/xhtml+xml"
+      "x-scheme-handler/http"
+      "x-scheme-handler/https"
+      "x-scheme-handler/chrome"
+      "application/x-extension-htm"
+      "application/x-extension-xht"
+      "application/x-extension-html"
+      "application/x-extension-shtml"
+      "application/x-extension-xhtml"
+      "x-scheme-handler/about"
+      "x-scheme-handler/unknown"
+    ])
+    // {
+      # office
+      "application/pdf" = pdf;
+    };
 }

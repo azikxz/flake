@@ -21,8 +21,8 @@ in
   config = mkIf cfg.enable {
     console = on // {
       earlySetup = true;
-      font = with pkgs; "${terminus_font}/share/consolefonts/ter-v16n.psf.gz";
-      packages = [ terminus_font ];
+      font = pkgs.terminus_font + "/share/consolefonts/ter-v16n.psf.gz";
+      packages = [ pkgs.terminus_font ];
       keyMap = "us";
     };
   };

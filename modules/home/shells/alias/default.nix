@@ -20,9 +20,7 @@ in
 
   config = {
     programs.fish.shellAbbrs = cfg.shellAbbrs;
-    home.shellAbbrs = {
-      s = "sudo";
-    };
+    home.shellAbbrs.s = "sudo";
     home.shellAliases = with pkgs; {
       goToFlake = "cd ${path.flake}";
       rebuild = "nh os switch -H ${machineName}";
@@ -31,13 +29,13 @@ in
       nixPre = "nix store prefetch-file";
       nixUpd = "nix flake update";
       # override default
-      trash = "${getExe trashy} put";
-      touch = "${getExe bonk}";
-      find = "${getExe hunt}";
-      frep = "${getExe ripgrep-all}";
+      trash = getExe trashy + " put";
+      touch = getExe bonk;
+      find = getExe hunt;
+      frep = getExe ripgrep-all;
       # cp = "${getExe' fuc "cpz"}";
       # rm = "${getExe' fuc "rmz"}";
-      cat = "${getExe bat}";
+      cat = getExe bat;
       # quality of life
       e = "$EDITOR";
       c = "clear";
@@ -45,18 +43,20 @@ in
       # useful
       ca = "cava";
       pmx = "pulsemixer";
-      blt = "${getExe bluetui}";
+      blt = getExe bluetui;
       icat = "kitten icat";
       # tops
       btop = "btop";
       ntop = "nvtop -i";
       # clock
-      ter = ''
-        ${getExe tenki} --fps 80 \
+      ter =
+        getExe tenki
+        + "
+          --fps 80 \
           --wind disable \
           --timer-color cyan \
           --mode rain
-      '';
+        ";
       # translate
       tr = "trans --brief";
     };

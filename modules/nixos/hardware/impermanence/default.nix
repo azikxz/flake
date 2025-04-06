@@ -29,7 +29,7 @@ in
     boot.initrd = {
       systemd.enable = false;
       postDeviceCommands =
-        lib.mkAfter
+        mkAfter
           #sh
           ''
             mkdir /btrfs_tmp

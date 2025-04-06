@@ -22,8 +22,8 @@ in
       time = if x.sys.is == "iso" then null else cfg.zone;
     in
     {
-      time.timeZone = time; # TIME
-      services.chrony = on; # SYNC TIME
+      time.timeZone = time; # time
+      services.chrony = on; # sync time
       i18n.defaultLocale = "en_US.UTF-8";
     };
 }

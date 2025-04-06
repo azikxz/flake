@@ -22,15 +22,15 @@ in
       server = off;
       settings = {
         main = {
-          font = lib.mkForce "JetBrainsMono Nerd Font:size=12:fontfeatures=";
+          font = mkForce (config.stylix.fonts.monospace.name + ":size=12:fontfeatures=");
           pad = "10x10 center";
           resize-by-cells = "yes";
           letter-spacing = 0;
-          dpi-aware = lib.mkForce "yes";
+          dpi-aware = mkForce "yes";
         };
         cursor = with config.lib.stylix.colors; {
           style = "block";
-          color = "${base00} ${base06}";
+          color = base00 + " " + base06;
         };
         mouse = {
           hide-when-typing = "yes";

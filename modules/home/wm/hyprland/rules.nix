@@ -4,10 +4,14 @@
 }:
 
 {
-  layerrule = [
-    "noanim, notifications"
-    "blur,   launcher"
-  ];
+  layerrule =
+    let
+      mk = param: lay: "${param}, ${lay}";
+    in
+    [
+      (mk "noanim" "notifications")
+      (mk "blur" "launcher")
+    ];
   workspace =
     let
       rule = "gapsout:0, gapsin:0, rounding:false";
@@ -88,9 +92,9 @@
     ]
     ++ (
       let
-        float = "floating:0, ";
-        w = float + "onworkspace:w[tv1]";
-        f = float + "onworkspace:f[1]";
+        float = "floating:0";
+        w = float + ", onworkspace:w[tv1]";
+        f = float + ", onworkspace:f[1]";
       in
       [
         ("bordersize 0, " + w)

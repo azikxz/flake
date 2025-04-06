@@ -20,9 +20,9 @@ in
 
   config = mkIf cfg.enable {
     environment.shellAliases = {
-      goToFlake = "cd ${path.flake}";
-      rebuild = "nh os switch -H ${machineName}";
-      nixRepl = "nh os repl -H ${machineName}";
+      goToFlake = "cd " + path.flake;
+      rebuild = "nh os switch -H " + machineName;
+      nixRepl = "nh os repl -H " + machineName;
     };
     programs.nh = on // {
       flake = path.flake;

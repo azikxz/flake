@@ -6,8 +6,13 @@
 
 with pkgs;
 let
-  inherit (lib) getExe getExe';
-  inherit (nodePackages_latest) prettier;
+  inherit (lib)
+    getExe
+    getExe'
+    ;
+  inherit (nodePackages_latest)
+    prettier
+    ;
   auto-format = true;
   vs = n: "vscode-${n}-language-server";
   indent = {

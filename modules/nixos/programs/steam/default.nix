@@ -28,9 +28,9 @@ in
   config = mkIf cfg.enable {
     hardware.xone = on;
     programs.fish.shellAbbrs = {
-      protonUpdate = "${getExe protonup} -y";
-      protonRemove = "${getExe protonup} -r";
-      protonList = "${getExe protonup} -l";
+      protonUpdate = getExe protonup + " -y";
+      protonRemove = getExe protonup + " -r";
+      protonList = getExe protonup + " -l";
     };
     programs = {
       gamescope = on;
@@ -54,7 +54,7 @@ in
     systemd.user.services.steam-autostart = mkIf cfg.autostart {
       wantedBy = [ "graphical-session.target" ];
       serviceConfig = {
-        ExecStart = "${getExe pkgs.steam} -nochatui -nofriendsui -silent %U";
+        ExecStart = getExe pkgs.steam + " -nochatui -nofriendsui -silent %U";
         Restart = "on-abort";
         RestartSec = "5s";
       };

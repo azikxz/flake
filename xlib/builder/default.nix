@@ -32,7 +32,7 @@ let
     }:
 
     let
-      spArgs = { inherit self inputs; };
+      specialArgs = { inherit self inputs; };
       lib = inputs.nixpkgs.lib.extend (
         final: prev: {
           x =
@@ -54,7 +54,11 @@ let
                 pkgs
                 ;
             }
-            // import ./options/options.nix { inherit lib; };
+            // import ./options/options.nix {
+              inherit
+                lib
+                ;
+            };
         }
       );
       # dirs
@@ -62,46 +66,49 @@ let
       machineDir = "${self}/machines/${sys.hostName}";
       # make nixossystem/home manager
       mkSystem =
-        n:
+        name:
         let
-          mod = "${modulesDir}/${n}";
+          mod = "${modulesDir}/${name}";
           modEx = builtins.pathExists mod;
           mac = "${machineDir}/${type}";
           macEx = builtins.pathExists mac;
           type =
-            if n == "nixos" then
+            if name == "nixos" then
               "host"
-            else if n == "home" then
+            else if name == "home" then
               "home"
             else
-              "";
+              null;
         in
-        [ ] ++ lib.optional modEx mod ++ lib.optional macEx mac;
+        [ ] ++ (lib.optional modEx mod) ++ (lib.optional macEx mac);
     in
 
     lib.nixosSystem {
-      inherit lib;
-      specialArgs = spArgs;
-      modules = [
-        home.nixosModules.home-manager
-        {
-          home-manager = {
-            sharedModules = [ nixcord.homeManagerModules.nixcord ];
-            backupFileExtension = backup;
-            extraSpecialArgs = spArgs;
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.${sys.userName} = {
-              imports = mkSystem "home";
-              home = {
-                username = sys.userName;
-                stateVersion = sys.ver;
-                homeDirectory = "/home/${sys.userName}";
+      inherit lib specialArgs;
+      modules =
+        mkSystem "nixos"
+        ++ [ home.nixosModules.home-manager ]
+        ++ [
+          {
+            home-manager = {
+              sharedModules = [
+                nixcord.homeManagerModules.nixcord
+              ];
+              backupFileExtension = backup;
+              extraSpecialArgs = specialArgs;
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.${sys.userName} = {
+                imports = mkSystem "home";
+                home = {
+                  username = sys.userName;
+                  stateVersion = sys.ver;
+                  homeDirectory = "/home/${sys.userName}";
+                };
               };
             };
-          };
-        }
-      ] ++ mkSystem "nixos";
+          }
+        ];
     };
 
 in

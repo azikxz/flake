@@ -39,7 +39,7 @@ in
       FFF_COL4 = 1;
       FFF_COL5 = 1;
       EDITOR = "hx";
-      FFF_FAV1 = "${x.path.flake}";
+      FFF_FAV1 = x.path.flake;
     };
     xdg.terminal-exec.settings = {
       default = [ "kitty.desktop" ];

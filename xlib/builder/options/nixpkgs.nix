@@ -52,6 +52,9 @@
               ;
           };
         })
+        (f: p: {
+          cursor = cursors.packages.${pkgs.system};
+        })
       ];
   };
 }

@@ -13,24 +13,29 @@ let
 in
 with config.lib.stylix.colors.withHashtag;
 {
-  # INPUTS
+  # inputs
   seat."*".hide_cursor = "2";
   input."*" = {
     xkb_layout = "us,ru";
     xkb_options = "grp:caps_toggle";
   };
-  # BARS
+  # bars
   bars = [ ];
-  # AUTOSTART
-  startup = with pkgs; [
-    { command = "mako"; }
-    { command = getExe autotiling-rs; }
-  ];
-  # MOVEMENT & BINDS
+  # autostart
+  startup =
+    let
+      mk = cmd: { command = cmd; };
+    in
+    with pkgs;
+    [
+      (mk "mako")
+      (mk (getExe autotiling-rs))
+    ];
+  # movement & binds
   modifier = "Mod4";
   bindkeysToCode = true;
   workspaceAutoBackAndForth = true;
-  # DECORATIONS
+  # decorations
   gaps = {
     inner = 4;
     outer = 4;
@@ -43,7 +48,7 @@ with config.lib.stylix.colors.withHashtag;
   floating = win // {
     modifier = "Mod4";
   };
-  # COLORS
+  # colors
   colors =
     let
       mk = a: b: c: d: e: {

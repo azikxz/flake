@@ -24,11 +24,11 @@ in
       systemPackages = with pkgs; [ xpk.torque ];
       shellAliases =
         let
-          mk = n: "${getExe' config.services.transmission.package n}";
+          mk = n: getExe' config.services.transmission.package n;
         in
         {
-          magn = "${mk "transmission-show"} -m";
-          tAdd = "${mk "transmission-remote"} -a";
+          magn = mk "transmission-show" + " -m";
+          tAdd = mk "transmission-remote" + " -a";
         };
     };
     systemd.services.transmission.serviceConfig.UMask = lib.mkForce "0037";

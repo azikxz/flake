@@ -47,9 +47,7 @@ in
         telegramTheme =
           hm.dag.entryAfter [ "" ]
             # sh
-            ''
-              run ${getExe walogram}
-            '';
+            ("run " + getExe walogram);
       };
   };
 }

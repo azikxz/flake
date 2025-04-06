@@ -8,9 +8,12 @@
 with lib;
 with x;
 let
-  inherit (pkgs) amneziawg-tools amneziawg-go;
+  inherit (pkgs)
+    amneziawg-tools
+    amneziawg-go
+    ;
   cfg = config.module.services.amneziawg;
-  mk = n: "sudo ${getExe' amneziawg-tools "awg-quick"} ${n} warp";
+  mk = n: "sudo " + getExe' amneziawg-tools "awg-quick" + " ${n} warp";
 in
 
 {

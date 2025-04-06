@@ -19,7 +19,7 @@ in
 
   config = mkIf cfg.enable {
     services.getty = {
-      greetingLine = "Good day my lord ahhhh ${sys.userName}";
+      greetingLine = "Good day my lord ahhhh " + sys.userName;
       helpLine = "";
       autologinOnce = true;
     };

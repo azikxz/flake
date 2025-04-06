@@ -8,7 +8,6 @@ in
 with config.lib.stylix.colors.withHashtag;
 # css
 ''
-  /* itself */
   * {
     font-family: "${font.monospace.name}";
     font-weight: bold;
@@ -30,7 +29,7 @@ with config.lib.stylix.colors.withHashtag;
     border-color: #3C3836;
   }
 
-  /* WORKSPACES */
+  /* workspaces */
   #workspaces button {
     background-color: ${base03};
     border-radius: 20px;
@@ -71,7 +70,7 @@ with config.lib.stylix.colors.withHashtag;
     100% { background-position: 0px 50px; }
   }
 
-  /* MODULES */
+  /* modules */
   #custom-date,
   #battery,
   #backlight

@@ -25,7 +25,7 @@ in
   config = mkIf cfg.enable {
     stylix = on // {
       autoEnable = false;
-      cursor = with inputs.cursors.packages.${pkgs.system}; {
+      cursor = with pkgs.cursor; {
         size = cfg.cursor.size;
         name = "GoogleDot-Custom";
         package =

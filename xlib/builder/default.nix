@@ -23,6 +23,7 @@ let
       path ? {
         pass = null;
         flake = "/etc/nixos";
+        steamUnified = null;
       },
       styl ? {
         theme = "horizon-dark";

@@ -22,7 +22,7 @@
       ("f[1],    " + rule)
       ("s[true], " + spec)
     ];
-  windowrulev2 =
+  windowrule =
     let
       inherit (config.lib.stylix.colors) base0B base01;
       # regex

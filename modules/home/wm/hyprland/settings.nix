@@ -10,6 +10,7 @@ let
     mkForce
     getExe'
     getExe
+    mkIf
     x
     ;
   cfg = config.module.wm.hyprland;
@@ -30,8 +31,7 @@ with config.lib.stylix.colors;
     in
     [
       "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1"
-      # "${getExe pkgs.swaybg} -i ${config.stylix.image}"
-      (getExe mic)
+      (mkIf (x.sys.is == "laptop") (getExe mic))
     ]
     ++ cfg.autostart;
   monitor =

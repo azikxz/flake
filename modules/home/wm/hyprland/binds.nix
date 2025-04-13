@@ -83,7 +83,18 @@ in
       ]
     )
     ++ cfg.binds
-    ++ x.wm.workspaces;
+    ++ (builtins.concatLists (
+      builtins.genList (
+        i:
+        let
+          ws = i + 1;
+        in
+        [
+          "$m,    code:1${toString i}, workspace,       ${toString ws}"
+          "$m $s, code:1${toString i}, movetoworkspace, ${toString ws}"
+        ]
+      ) 10
+    ));
 
   # HOLDING BUTTONS
   binde =

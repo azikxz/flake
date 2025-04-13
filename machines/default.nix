@@ -10,6 +10,7 @@
     path = {
       flake = "/persist/flake";
       pass = "/persist/vault/passwords.kdbx";
+      steamUnified = "/mnt/SSD/SteamUnified";
     };
     styl = {
       theme = "paradise";

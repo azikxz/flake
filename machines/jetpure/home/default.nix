@@ -4,7 +4,7 @@
 }:
 
 let
-  inherit (lib.x) umport mkGrpOn on;
+  inherit (lib.x) umport mkOn on;
 in
 
 {
@@ -12,7 +12,7 @@ in
 
   module = {
     programs = {
-      cli = mkGrpOn [
+      cli = mkOn [
         "common"
         "cava"
         "develop"
@@ -24,7 +24,7 @@ in
         "systop"
         "yazi"
       ];
-      gui = mkGrpOn [
+      gui = mkOn [
         "keepass"
         "mpv"
         "nixcord"
@@ -37,13 +37,13 @@ in
         "zathura"
       ];
     };
-    shells = mkGrpOn [
+    shells = mkOn [
       "fish"
       "translate"
       "starship"
     ];
     themes =
-      mkGrpOn [
+      mkOn [
         "qt"
       ]
       // {
@@ -52,24 +52,24 @@ in
           cursor.size = 16;
         };
       };
-    wm = (mkGrpOn [ "hyprland" ]) // {
-      terminals = mkGrpOn [
+    wm = (mkOn [ "hyprland" ]) // {
+      terminals = mkOn [
         "kitty"
       ];
-      misc = mkGrpOn [
+      misc = mkOn [
         "mako"
         "tofi"
         "wlogout"
       ];
     };
-    games = mkGrpOn [
+    games = mkOn [
       "mindustry"
       "minecraft"
       "openarena"
       "srb2"
       "wine"
     ];
-    misc = mkGrpOn [
+    misc = mkOn [
       "dconf"
       "xdg"
     ];

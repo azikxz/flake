@@ -16,6 +16,7 @@
       # nix
       nixpkgs = "search.nixos.org/packages?channel=unstable";
       homemanager = "home-manager-options.extranix.com/?query=&release=master";
+      nixosWiki = "wiki.nixos.org";
       hydra = "hydra.nixos.org";
       prTracker = "nixpk.gs/pr-tracker.html";
       cachix = "app.cachix.org/cache/xache";
@@ -47,34 +48,56 @@
       gemini = "gemini.google.com";
     };
     whitelist."whitelist" = {
-      includes = [
-        # localhost
-        "qute://start/*"
-        "http://localhost:*/*"
-        "http://192.168.1.1/*"
-        "http://localhost:8080/*"
-        "http://localhost:8090/*"
-        "http://localhost:8384/*"
-        # sites
-        "https://priv.au/*"
-        "https://rutracker.org/*"
-        "*://*.youtube.com/*"
-        "https://www.youtube.com/*"
-        "https://*.google.com/*"
-        "https://mail.google.com/*"
-        "https://vk.mail.ru/*"
-        "https://mail.proton.me/*"
-        "https://account.proton.me/*"
-        "https://*.proton.me/*"
-        "https://www.reddit.com/*"
-        "https://mastodon.ml/*"
-        "https://github.com/*"
-        "https://archlinux.org/*"
-        "https://*.extranix.com/*"
-        "https://home-manager-options.extranix.com/*"
-        "https://git.sr.ht/*"
-        "https://*.sr.ht/*"
-      ];
+      includes =
+        let
+          pre = "*://";
+          qute = "qute://";
+          http = "http://";
+          https = "https://";
+          end = "/*";
+        in
+        (
+          let
+            mk = url: http + url + end;
+            qk = url: qute + url + end;
+          in
+          [
+            (qk "start")
+            (mk "localhost:*")
+            (mk "192.168.1.1")
+            (mk "localhost:8080")
+            (mk "localhost:8090")
+            (mk "localhost:8384")
+          ]
+        )
+        ++ (
+          let
+            mk = url: https + url + end;
+            pk = url: pre + url + end;
+          in
+          [
+            (mk "priv.au")
+            (mk "rutracker.org")
+            (pk "*.youtube.com")
+            (mk "www.youtube.com")
+            (mk "*.google.com")
+            (mk "mail.google.com")
+            (mk "vk.mail.ru")
+            (mk "mail.proton.me")
+            (mk "account.proton.me")
+            (mk "*.proton.me")
+            (mk "www.reddit.com")
+            (mk "mastodon.ml")
+            (mk "github.com")
+            (mk "archlinux.org")
+            (mk "*.extranix.com")
+            (mk "home-manager-options.extranix.com")
+            (mk "git.sr.ht")
+            (mk "*.sr.ht")
+            (mk "wiki.nixos.org")
+            (mk "*.nixos.org")
+          ]
+        );
       text = # js
         ''
           const meta = document.createElement('meta');

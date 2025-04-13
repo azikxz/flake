@@ -25,39 +25,44 @@ in
     };
   };
 
-  config = mkIf cfg.enable {
-    hardware.xone = on;
-    programs.fish.shellAbbrs = {
-      protonUpdate = getExe protonup + " -y";
-      protonRemove = getExe protonup + " -r";
-      protonList = getExe protonup + " -l";
-    };
-    programs = {
-      gamescope = on;
-      gamemode = on;
-      steam = on // {
-        gamescopeSession = on;
-        remotePlay.openFirewall = true;
-        extraCompatPackages = [
-          stable.proton-ge-bin
-          proton-ge-bin
-        ];
-        package = steam.override {
-          extraEnv = {
-            MANGOHUD = true;
-            OBS_VKCAPTURE = true;
-            RADV_TEX_ANISO = 16;
+  config =
+    mkIf cfg.enable {
+      hardware.xone = on;
+      programs.fish.shellAbbrs = {
+        protonUpdate = getExe protonup + " -y";
+        protonRemove = getExe protonup + " -r";
+        protonList = getExe protonup + " -l";
+      };
+      programs = {
+        gamescope = on;
+        gamemode = on;
+        steam = on // {
+          protontricks = on;
+          gamescopeSession = on;
+          remotePlay.openFirewall = true;
+          extraCompatPackages = [
+            stable.proton-ge-bin
+            proton-ge-bin
+          ];
+          package = steam.override {
+            extraEnv = {
+              MANGOHUD = true;
+              OBS_VKCAPTURE = true;
+              RADV_TEX_ANISO = 16;
+            };
           };
         };
       };
-    };
-    systemd.user.services.steam-autostart = mkIf cfg.autostart {
-      wantedBy = [ "graphical-session.target" ];
-      serviceConfig = {
-        ExecStart = getExe pkgs.steam + " -nochatui -nofriendsui -silent %U";
-        Restart = "on-abort";
-        RestartSec = "5s";
+      systemd.user.services.steam-autostart = mkIf cfg.autostart {
+        wantedBy = [ "graphical-session.target" ];
+        serviceConfig = {
+          ExecStart = getExe pkgs.steam + " -nochatui -nofriendsui -silent %U";
+          Restart = "on-abort";
+          RestartSec = "5s";
+        };
       };
+    }
+    // optionalAttrs (path.steamUnified != null) {
+      environment.variables.STEAM_COMPAT_DATA_PATH = path.steamUnified;
     };
-  };
 }

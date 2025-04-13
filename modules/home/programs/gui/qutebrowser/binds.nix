@@ -18,6 +18,8 @@ in
     # mpv
     ",m" = "spawn mpv {url}";
     ",M" = "hint links spawn mpv {hint-url}";
+    "yi" = "hint images yank";
+    "yI" = "hint images yank -s";
     # keepassxc
     ",p" = "spawn --userscript qute-keepass -p " + x.path.pass;
     # transPopup

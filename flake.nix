@@ -7,6 +7,7 @@
 
     impermanence.url = "github:nix-community/impermanence";
     hardware.url = "github:NixOS/nixos-hardware/master";
+    flake-utils.url = "github:numtide/flake-utils";
     flatpak.url = "github:gmodena/nix-flatpak";
     stylix.url = "github:danth/stylix";
 

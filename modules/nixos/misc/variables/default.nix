@@ -19,6 +19,7 @@ in
 
   config = mkIf cfg.enable {
     environment.variables = {
+      STEAM_COMPAT_DATA_PATH = "/mnt/SSD/SteamUnified";
       QT_QPA_PLATFORM = "wayland";
       SDL_VIDEODRIVER = "wayland";
       CLUTTER_BACKEND = "wayland";

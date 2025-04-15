@@ -10,6 +10,10 @@ in
 {
   imports = umport { path = ./modules; };
 
+  home.sessionVariables = {
+    STEAM_COMPAT_DATA_PATH = "/mnt/SSD/SteamUnified";
+  };
+
   module = {
     programs = {
       cli = mkOn [

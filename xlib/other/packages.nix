@@ -1,4 +1,5 @@
 {
+  self,
   inputs,
   pkgs,
   lib,
@@ -15,10 +16,10 @@ let
   scopeFromDirectory =
     directory:
     lib.makeScope pkgs.newScope (
-      self:
+      self':
       lib.filesystem.packagesFromDirectoryRecursive {
         inherit directory;
-        callPackage = self.newScope { inherit inputs; };
+        callPackage = self'.newScope { inherit self inputs; };
       }
     );
 

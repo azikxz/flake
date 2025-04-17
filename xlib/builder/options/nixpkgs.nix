@@ -35,15 +35,14 @@
     over =
       with inputs;
       let
+        inherit (pkgs) system;
         xpackage = self.packages.${pkgs.system};
       in
       [
         niri.overlays.niri
         nur.overlays.default
-        (f: p: xpackage)
-        (f: p: {
-          zen-browser = xpackage.zen-browser;
-        })
+      ]
+      ++ [
         (f: p: {
           stable = import nixpkgs-stable {
             inherit (p)
@@ -52,8 +51,20 @@
               ;
           };
         })
+      ]
+      ++ [
+        (f: p: xpackage)
         (f: p: {
-          cursor = cursors.packages.${pkgs.system};
+          zen-browser = xpackage.zen-browser;
+        })
+        (f: p: {
+          cursor = cursors.packages.${system};
+        })
+        (f: p: {
+          torrHelper = torrHelper.packages.${system}.default;
+        })
+        (f: p: {
+          torrMagnet = torrHelper.packages.${system}.torrMagnet;
         })
       ];
   };

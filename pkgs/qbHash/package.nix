@@ -13,9 +13,7 @@ pkgs.stdenv.mkDerivation {
   unpackPhase = "true";
   installPhase = ''
     mkdir -p $out/bin;
-
     cp $src $out/bin/qbitHash
-
     chmod +x $out/bin/qbitHash
   '';
 }

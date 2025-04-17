@@ -24,6 +24,7 @@ let
   mk = import ./other {
     inherit
       forAllSystems
+      self
       inputs
       pkgs
       lib

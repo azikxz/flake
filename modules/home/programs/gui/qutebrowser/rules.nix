@@ -45,6 +45,7 @@
       # study
       profteh = "profteh.com/study";
       chatGpt = "chatgpt.com";
+      deekpeek = "chat.deepseek.com";
       gemini = "gemini.google.com";
     };
     whitelist."whitelist" = {

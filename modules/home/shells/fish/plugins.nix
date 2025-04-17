@@ -8,9 +8,6 @@ let
     name = n;
     src = p.src;
   };
-  cu = name: src: {
-    inherit name src;
-  };
 in
 
 (with pkgs.fishPlugins; [
@@ -20,7 +17,4 @@ in
   (mk "git-abbr" git-abbr)
   (mk "puffer" puffer)
   (mk "grc" grc)
-])
-++ (with pkgs; [
-  (cu "fish-helix" fish-helix)
 ])

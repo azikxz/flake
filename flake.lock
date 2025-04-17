@@ -727,6 +727,7 @@
         "nur": "nur",
         "spicetify": "spicetify",
         "stylix": "stylix",
+        "torrHelper": "torrHelper",
         "wallpapers": "wallpapers",
         "yt-x": "yt-x"
       }
@@ -961,6 +962,29 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
+        "type": "github"
+      }
+    },
+    "torrHelper": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1744813247,
+        "narHash": "sha256-5WPaR4jJVmkk1niqu3dnygrCb+/kjM0oWrg7GO5r9b8=",
+        "owner": "mctrxnv",
+        "repo": "torrserver-helper",
+        "rev": "a845ae215b7ff7106185dc8e5c0885477284f16a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mctrxnv",
+        "repo": "torrserver-helper",
         "type": "github"
       }
     },

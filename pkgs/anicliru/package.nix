@@ -30,8 +30,8 @@ pkgs.python3Packages.buildPythonApplication rec {
       hash = "sha256-LMXksmbp5YMH6aUjXmoDPUxCgtn6VuiBDlBXES5Ak2M=";
     })
     (callPackage ./api.nix {
-      version = "0.7.7";
-      hash = "sha256-dsUlYpBtMqIgdhOmRwfeRGgYAtrh41fi2aV6URA8NQQ=";
+      version = "0.7.12";
+      hash = "sha256-ltOy4iS5NEPF/cbbWs6tuxLq9tDqsTk75IsNH+sKSuA=";
     })
   ];
 

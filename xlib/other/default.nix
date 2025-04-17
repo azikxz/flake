@@ -1,5 +1,6 @@
 {
   forAllSystems,
+  self,
   inputs,
   pkgs,
   lib,
@@ -10,6 +11,7 @@
     system:
     (import ./packages.nix {
       inherit
+        self
         inputs
         pkgs
         lib

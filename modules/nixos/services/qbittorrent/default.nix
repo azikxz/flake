@@ -43,8 +43,6 @@ in
         };
         Preferences.WebUI = {
           Enabled = true;
-          AlternativeUIEnabled = true;
-          RootFolder = getExe' pkgs.vuetorrent "vuetorrent";
           AuthSubnetWhitelistEnabled = true;
           LocalHostAuth = false;
           UseUPnP = false;

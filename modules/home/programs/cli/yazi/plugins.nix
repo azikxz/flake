@@ -3,13 +3,13 @@
   ...
 }:
 
-with pkgs;
 let
-  mk = name: {
-    ${name} = "${yazi-plugins}/${name}.yazi";
+  inherit (pkgs) writeTextDir fetchFromGitHub;
+  mkPlugin = n: {
+    "${n}" = (yazi-plugins + "/" + n + ".yazi");
   };
   plugin = n: t: {
-    "${n}" = toString (writeTextDir "${n}.yazi/main.lua" t) + "/${n}.yazi";
+    "${n}" = toString (writeTextDir (n + ".yazi" + "/" + "main.lua") t) + ("/" + n + ".yazi");
   };
   yazi-plugins = fetchFromGitHub {
     owner = "yazi-rs";
@@ -21,37 +21,37 @@ in
 
 {
   plugins =
+    {
+      inherit (pkgs.yaziPlugins)
+        jump-to-char
+        full-border
+        smart-enter
+        yatline
+        chmod
+        ;
+    }
     # builtin
-    (mk "chmod")
-    // (mk "max-preview")
-    // (mk "smart-enter")
-    // (mk "full-border")
-    // (mk "hide-preview")
+    // (mkPlugin "max-preview")
+    // (mkPlugin "hide-preview")
     // {
       # fetched
-      yatline = fetchFromGitHub {
-        owner = "not-mln";
-        repo = "yatline.yazi";
-        rev = "655facb7c31ddcf96a05185c65dd5b89d5954f2b";
-        hash = "sha256-fjapFEaM5ORoJJivrzKxwPM9pe6B9UkVqPfOsUPxpEg=";
+      yatline-tab-path = fetchFromGitHub {
+        owner = "blackdaemon";
+        repo = "yatline-tab-path.yazi";
+        rev = "101fe7c8a979dbdf498259cc773dc8bd781a8733";
+        hash = "sha256-wV5YXm31zMsG7e/YhWa+72eLYC/QmBgjweKFuIn5BpA=";
       };
       ouch = fetchFromGitHub {
         owner = "ndtoan96";
         repo = "ouch.yazi";
-        rev = "ce6fb75431b9d0d88efc6ae92e8a8ebb9bc1864a";
-        hash = "sha256-oUEUGgeVbljQICB43v9DeEM3XWMAKt3Ll11IcLCS/PA=";
+        rev = "2496cd9ac2d1fb52597b22ae84f3af06c826a86d";
+        hash = "sha256-OsNfR7rtnq+ceBTiFjbz+NFMSV/6cQ1THxEFzI4oPJk=";
       };
-      mdcat = fetchFromGitHub {
-        owner = "xmozoid";
-        repo = "mdcat.yazi";
-        rev = "fc6dc5ed991ac650c26aecdf760dfb174d0fb212";
-        hash = "sha256-lrPFBZASnBkjfJBeQmZizllMr+IoT0Ws+Axa0FBzR0o=";
-      };
-      paste = fetchFromGitHub {
-        owner = "xmozoid";
-        repo = "paste-file.yazi";
-        rev = "ad339a798a09452aed5c3067b4ab66cf3ce63f2e";
-        hash = "sha256-1nFc1CvM671aTSyIBjWpxDCuxa8T84j4B5jdXhUgkXA=";
+      glow = fetchFromGitHub {
+        owner = "Reledia";
+        repo = "glow.yazi";
+        rev = "2da96e3ffd9cd9d4dd53e0b2636f83ff69fe9af0";
+        hash = "sha256-4krck4U/KWmnl32HWRsblYW/biuqzDPysrEn76buRck=";
       };
       wl-clipboard = fetchFromGitHub {
         owner = "xmozoid";
@@ -73,13 +73,37 @@ in
         ya.manager_emit("paste", {}) end end, }
       ''
     )
+    // (plugin "folder-screenshots" # lua
+      ''
+        local function setup() ps.sub("cd", function()
+        local cwd = cx.active.current.cwd if cwd:ends_with("Pictures/screenshots")
+        then ya.mgr_emit("sort", { "mtime", reverse = true, dir_first = false })
+        else ya.mgr_emit("sort", { "naturally", reverse = false, dir_first = true })
+        end end) end return { setup = setup }
+      ''
+    )
+    // (plugin "parent-arrow" # lua
+      ''
+        --- @sync entry
+        local function entry(_, job)
+        local parent = cx.active.parent if not parent then return end
+        local offset = tonumber(job.args[1]) if not offset then return
+        ya.err(job.args[1], 'is not a number') end
+        local start = parent.cursor + 1 + offset
+        local end_ = offset < 0 and 1 or #parent.files
+        local step = offset < 0 and -1 or 1
+        for i = start, end_, step do local target = parent.files[i]
+        if target and target.cha.is_dir then return
+        ya.mgr_emit("cd", { target.url }) end end end
+        return { entry = entry }
+      ''
+    )
     // (plugin "smart-tab" # lua
       ''
         --- @sync entry
-        return { entry = function()
-        local h = cx.active.current.hovered
-        ya.manager_emit("tab_create", h and h.cha.is_dir and { h.url } or { current = true })
-        end, }
+        return { entry = function() local h = cx.active.current.hovered
+        ya.manager_emit("tab_create", h and h.cha.is_dir and
+        { h.url } or { current = true }) end, }
       ''
     );
 }

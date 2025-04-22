@@ -12,7 +12,7 @@ let
     ;
   inherit (pkgs)
     uutils-coreutils-noprefix
-    grimblast
+    grilurp
     light
     ;
   cfg = config.module.wm.hyprland;
@@ -78,8 +78,8 @@ in
       in
       [
         # screenshot
-        (mk null null "PRINT, $ex, ${getExe grimblast} copysave area   " + pic)
-        (mk null "$s" "PRINT, $ex, ${getExe grimblast} copysave output " + pic)
+        (mk null null "PRINT, $ex, ${getExe grilurp} copysave area   " + pic)
+        (mk null "$s" "PRINT, $ex, ${getExe grilurp} copysave output " + pic)
       ]
     )
     ++ cfg.binds

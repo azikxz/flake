@@ -30,9 +30,10 @@ with lib.x;
         desc = "Enter to shell";
       }
 
+      # navigate
       {
         on = [ "<Esc>" ];
-        run = "close";
+        run = "escape --all";
         desc = "Close";
       }
       {
@@ -44,6 +45,26 @@ with lib.x;
         on = [ "<Enter>" ];
         run = "plugin smart-enter";
         desc = "Enter/open";
+      }
+      {
+        on = [ "<A-Up>" ];
+        run = "plugin parent-arrow -1";
+        desc = "Navigation in the parent directory up";
+      }
+      {
+        on = [ "<A-Down>" ];
+        run = "plugin parent-arrow 1";
+        desc = "Navigation in the parent directory down";
+      }
+      {
+        on = [ "<A-k>" ];
+        run = "plugin parent-arrow -1";
+        desc = "Navigation in the parent directory up";
+      }
+      {
+        on = [ "<A-j>" ];
+        run = "plugin parent-arrow 1";
+        desc = "Navigation in the parent directory down";
       }
 
       # vis
@@ -69,6 +90,13 @@ with lib.x;
           "v"
         ];
         run = "visual_mode";
+        desc = "Select mode";
+      }
+      {
+        on = [
+          "V"
+        ];
+        run = "escape --visual";
         desc = "Select mode";
       }
       {
@@ -106,8 +134,19 @@ with lib.x;
 
       # archive
       {
-        on = [ "C" ];
-        run = "plugin ouch --args=zip";
+        on = [
+          "C"
+          "c"
+        ];
+        run = "plugin ouch";
+        desc = "Compress with ouch";
+      }
+      {
+        on = [
+          "C"
+          "C"
+        ];
+        run = "plugin ouch 7z";
         desc = "Compress with ouch";
       }
 
@@ -254,20 +293,11 @@ with lib.x;
       # yank
       {
         on = [ "y" ];
-        run = "yank";
+        run = [
+          "plugin wl-clipboard"
+          "yank"
+        ];
         desc = "Yank files";
-      }
-      {
-        on = [ "u" ];
-        run = ''
-          shell 'for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list'
-        '';
-        desc = "Yank files systemly";
-      }
-      {
-        on = [ "U" ];
-        run = "plugin wl-clipboard";
-        desc = "Yank files to wl-clip";
       }
 
       # paste
@@ -287,47 +317,15 @@ with lib.x;
         run = "plugin smart-paste";
         desc = "Paste yanked files in preview dir";
       }
-      {
-        on = [
-          "p"
-          "f"
-        ];
-        run = "plugin paste-file";
-        desc = "Paste file";
-      }
-      {
-        on = [
-          "p"
-          "F"
-        ];
-        run = "plugin paste-file --args='quiet'";
-        desc = "Paste file quiet";
-      }
-      {
-        on = [
-          "p"
-          "F"
-        ];
-        run = "plugin paste-file --args='quiet'";
-        desc = "Create new file from clipboard";
-      }
 
-      # mounts
+      # chmod
       {
         on = [
+          "c"
           "m"
-          "a"
         ];
-        run = "plugin archivemount --args=mount";
-        desc = "Mount selected archive";
-      }
-      {
-        on = [
-          "m"
-          "u"
-        ];
-        run = "plugin archivemount --args=unmount";
-        desc = "Unmount and save changes to original archive";
+        run = "plugin chmod";
+        desc = "Chmod on selected files";
       }
     ];
   };

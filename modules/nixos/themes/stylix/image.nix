@@ -11,7 +11,7 @@ let
   inherit (inputs) wallpapers;
   inherit (pkgs) lutgen runCommand;
   inherit (lib) getExe;
-  img = "${wallpapers}/${lib.x.styl.image}.jpg";
+  img = wallpapers + "/" + "${lib.x.styl.image}.jpg";
 in
 
 runCommand "output.png" { } ''

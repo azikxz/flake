@@ -9,6 +9,7 @@ let
   inherit (lib)
     getExe
     getExe'
+    x
     ;
   inherit (nodePackages_latest)
     prettier
@@ -166,7 +167,6 @@ in
         "pylsp"
         "ruff"
       ];
-      shebangs = [ (getExe python39) ];
       file-types = [
         "py"
         "pyi"
@@ -200,7 +200,21 @@ in
       yaml = yaml-language-server;
     in
     {
-      nixd.command = getExe nixd;
+      nixd = {
+        command = getExe nixd;
+        config =
+          let
+            flake = x.path.flake;
+            host = x.sys.hostName;
+          in
+          {
+            nixpkgs.expr = "import (builtins.getFlake \"${flake}\").inputs.nixpkgs { }";
+            options = rec {
+              nixos.expr = "(builtins.getFlake \"${flake}\").nixosConfigurations.${host}.options";
+              home-manager.expr = "${nixos.expr}.home-manager.users.type.getSubOptions [ ]";
+            };
+          };
+      };
     } # nix
     // {
       typescript.command = getExe typescript;

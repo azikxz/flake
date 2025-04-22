@@ -15,14 +15,19 @@ in
   options = {
     module.programs.gui.keepass = {
       enable = mkBool false;
+      gnome = mkBool false;
     };
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      gnome-secrets
-      keepassxc
-    ];
+    home.packages =
+      with pkgs;
+      [
+        keepassxc
+      ]
+      ++ optional cfg.gnome [
+        gnome-secrets
+      ];
     xdg.configFile."keepassxc/keepassxc.ini".text = # ini
       ''
         [General]

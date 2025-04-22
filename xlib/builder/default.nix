@@ -6,7 +6,7 @@
 }:
 
 let
-  inherit (inputs) home nixcord;
+  inherit (inputs) nixpkgs home nixcord;
   backup = "backa";
   secrets = ../../secrets.nix;
   # make configuration
@@ -34,7 +34,7 @@ let
 
     let
       specialArgs = { inherit self inputs; };
-      lib = inputs.nixpkgs.lib.extend (
+      lib = nixpkgs.lib.extend (
         final: prev: {
           x =
             {
@@ -64,14 +64,14 @@ let
       );
       # dirs
       modulesDir = "${self}/modules";
-      machineDir = "${self}/machines/${sys.hostName}";
+      machineDir = "${self}/machines/" + sys.hostName;
       # make nixossystem/home manager
       mkSystem =
         name:
         let
-          mod = "${modulesDir}/${name}";
+          mod = modulesDir + "/" + name;
           modEx = builtins.pathExists mod;
-          mac = "${machineDir}/${type}";
+          mac = machineDir + "/" + type;
           macEx = builtins.pathExists mac;
           type =
             if name == "nixos" then
@@ -91,6 +91,10 @@ let
         ++ [ home.nixosModules.home-manager ]
         ++ [
           {
+            networking = {
+              hostName = sys.hostName;
+              useDHCP = lib.mkDefault true;
+            };
             home-manager = {
               sharedModules = [
                 nixcord.homeManagerModules.nixcord
@@ -104,7 +108,7 @@ let
                 home = {
                   username = sys.userName;
                   stateVersion = sys.ver;
-                  homeDirectory = "/home/${sys.userName}";
+                  homeDirectory = "/home/" + sys.userName;
                 };
               };
             };

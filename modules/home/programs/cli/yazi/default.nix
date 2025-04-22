@@ -44,13 +44,17 @@ in
           pkgs
           ;
       }
-      // import ./settings.nix;
+      // import ./settings/settings.nix {
+        inherit
+          lib
+          ;
+      };
     home.packages = with pkgs; [
       ffmpegthumbnailer
       wl-clipboard
 
       jq
-      mdcat
+      glow
       poppler_min
 
       atool

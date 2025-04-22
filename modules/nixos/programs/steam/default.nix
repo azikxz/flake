@@ -15,6 +15,12 @@ let
     steam
     ;
   cfg = config.module.programs.steam;
+  steamUnified = (
+    optionalAttrs (path.steamUnified != null) {
+      STEAM_COMPAT_CLIENT_INSTALL_PATH = config.users.users.nixzoid.home + "/.steam";
+      STEAM_COMPAT_DATA_PATH = path.steamUnified;
+    }
+  );
 in
 
 {
@@ -39,38 +45,34 @@ in
         protontricks = on;
         gamescopeSession = on;
         remotePlay.openFirewall = true;
-        extraCompatPackages = [
-          stable.proton-ge-bin
-          proton-ge-bin
-        ];
-        package = steam.override {
-          extraEnv =
-            {
-              MANGOHUD = true;
-              OBS_VKCAPTURE = true;
-              RADV_TEX_ANISO = 16;
-            }
-            // optionalAttrs (path.steamUnified != null) {
-              STEAM_COMPAT_CLIENT_INSTALL_PATH = config.users.users.nixzoid.home + "/.steam";
-              STEAM_COMPAT_DATA_PATH = path.steamUnified;
+        extraCompatPackages =
+          let
+            mk = n: {
+              steamDisplayName = "Proton-GE-" + n;
             };
+          in
+          [
+            (proton-ge-bin.override (mk "unstable"))
+            (stable.proton-ge-bin.override (mk "stable"))
+          ];
+        package = steam.override {
+          extraArgs = "-nochatui -nofriendsui -silent";
+          extraEnv = {
+            MANGOHUD = true;
+            OBS_VKCAPTURE = true;
+            RADV_TEX_ANISO = 16;
+          } // steamUnified;
         };
       };
     };
-    systemd.user.services.steam-autostart =
-      mkIf cfg.autostart {
-        wantedBy = [ "graphical-session.target" ];
-        serviceConfig = {
-          ExecStart = getExe pkgs.steam + " -nochatui -nofriendsui -silent %U";
-          Restart = "on-abort";
-          RestartSec = "5s";
-        };
-      }
-      // optionalAttrs (path.steamUnified != null) {
-        environment = {
-          STEAM_COMPAT_CLIENT_INSTALL_PATH = config.users.users.nixzoid.home + "/.steam";
-          STEAM_COMPAT_DATA_PATH = path.steamUnified;
-        };
+    systemd.user.services.steam-autostart = mkIf cfg.autostart {
+      wantedBy = [ "graphical-session.target" ];
+      serviceConfig = {
+        ExecStart = getExe pkgs.steam;
+        Restart = "on-abort";
+        RestartSec = "5s";
       };
+      environment = { } // steamUnified;
+    };
   };
 }

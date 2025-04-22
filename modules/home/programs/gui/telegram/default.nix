@@ -15,7 +15,7 @@ in
   options = {
     module.programs.gui.telegram = {
       enable = mkBool false;
-      package = mkPkg pkgs._64gram;
+      package = mkPkg pkgs.stable._64gram;
       walogram.mode = mkStr "solid"; # solid | background
     };
   };

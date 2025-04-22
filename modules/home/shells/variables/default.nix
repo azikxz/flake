@@ -9,7 +9,7 @@
     MOZ_ENABLE_WAYLAND = "1";
     RANGER_LOAD_DEFAULT_RC = "false";
 
-    # FFF FILE MANAGER
+    # fff file manager
     FFF_HIDDEN = "1";
     FFF_LS_COLORS = "1";
     FFF_COL1 = "1";

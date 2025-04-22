@@ -19,18 +19,6 @@ in
 
   config = mkIf cfg.enable {
     environment.variables = {
-      STEAM_COMPAT_DATA_PATH = "/mnt/SSD/SteamUnified";
-      QT_QPA_PLATFORM = "wayland";
-      SDL_VIDEODRIVER = "wayland";
-      CLUTTER_BACKEND = "wayland";
-      GDK_BACKEND = "wayland";
-      NIXPKGS_ALLOW_UNFREE = "1";
-      NIXPKGS_ALLOW_INSECURE = "1";
-      MOZ_ENABLE_WAYLAND = "1";
-      XDG_SESSION_TYPE = "wayland";
-      NIXOS_OZONE_WL = "1";
-      MOZ_LEGACY_PROFILES = "1";
-      QT_QPA_PLATFORMTHEME = "gtk3";
       TDESKTOP_I_KNOW_ABOUT_GTK_INCOMPATIBILITY = "1";
       # fff
       FFF_HIDDEN = 1;
@@ -39,7 +27,6 @@ in
       FFF_COL3 = 3;
       FFF_COL4 = 1;
       FFF_COL5 = 1;
-      EDITOR = "hx";
       FFF_FAV1 = x.path.flake;
     };
     xdg.terminal-exec.settings = {

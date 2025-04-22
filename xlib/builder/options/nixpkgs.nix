@@ -8,18 +8,22 @@
 {
   # overlays, nix subsitutters and keys
   nix = {
-    subs = [
-      "https://nix-gaming.cachix.org" # NIX GAMING
-      "https://chaotic-nyx.cachix.org" # CHAOTIC
-      "https://helix.cachix.org" # HELIX
-      "https://xache.cachix.org" # MY OWN
-      "https://cache.garnix.io" # AYUGRAM
-      "https://nyx.chaotic.cx" # NYX
-      #
-      "https://hyprland.cachix.org" # HYPRLAND
-      "https://cosmic.cachix.org" # COSMIC
-      "https://niri.cachix.org" # NIRI
-    ];
+    subs =
+      let
+        mk = url: "https://" + url;
+      in
+      [
+        (mk "nix-gaming.cachix.org") # NIX GAMING
+        (mk "chaotic-nyx.cachix.org") # CHAOTIC
+        (mk "helix.cachix.org") # HELIX
+        (mk "xache.cachix.org") # MY OWN
+        (mk "cache.garnix.io") # AYUGRAM
+        (mk "nyx.chaotic.cx") # NYX
+        #
+        (mk "hyprland.cachix.org") # HYPRLAND
+        (mk "cosmic.cachix.org") # COSMIC
+        (mk "niri.cachix.org") # NIRI
+      ];
     keys = [
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" # NIX GAMING
       "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8=" # CHAOTIC
@@ -36,7 +40,9 @@
       with inputs;
       let
         inherit (pkgs) system;
-        xpackage = self.packages.${pkgs.system};
+        xpackage = self.packages.${system};
+        torr = torrHelper.packages.${system};
+        qb = qbHelper.packages.${system};
       in
       [
         niri.overlays.niri
@@ -53,19 +59,17 @@
         })
       ]
       ++ [
-        (f: p: xpackage)
-        (f: p: {
-          zen-browser = xpackage.zen-browser;
-        })
-        (f: p: {
-          cursor = cursors.packages.${system};
-        })
-        (f: p: {
-          torrHelper = torrHelper.packages.${system}.default;
-        })
-        (f: p: {
-          torrMagnet = torrHelper.packages.${system}.torrMagnet;
-        })
+        (
+          f: p:
+          xpackage
+          // {
+            cursor = cursors.packages.${system};
+            torrHelper = torr.torrHelper;
+            torrMagnet = torr.torrMagnet;
+            qbHelper = qb.qbHelper;
+            rut2qb = qb.rut2qb;
+          }
+        )
       ];
   };
 }

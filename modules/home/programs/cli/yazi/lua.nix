@@ -15,8 +15,8 @@ with config.lib.stylix.colors.withHashtag;
 
     style_a = { fg = "white", bg_mode = {
         normal = "${base02}",
-        select = "${base02}",
-        un_set = "${base02}"
+        select = "${base0A}",
+        un_set = "${base09}"
       }
     },
     style_b = { bg = "${base03}", fg = "white" },
@@ -46,30 +46,40 @@ with config.lib.stylix.colors.withHashtag;
 
     header_line = {
       left = {
-        section_a = { {type = "string", custom = false, name = "tab_path"}, },
+        section_a = { { type = "string", custom = false, name = "tab_path",
+                        params = { trimed = true, max_length = 24, trim_length = 5 } }, },
         section_b = { },
         section_c = { }
       },
       right = {
-        section_a = { {type = "line", custom = false, name = "tabs", params = {"right"}}, },
+        section_a = { { type = "line", custom = false, name = "tabs", params = {"right"} }, },
         section_b = { },
-        section_c = { {type = "coloreds", custom = false, name = "githead"}, }
+        section_c = { { type = "coloreds", custom = false, name = "githead" }, }
       }
     },
 
     status_line = {
       left = {
-        section_a = { {type = "string", custom = false, name = "tab_mode"}, },
-        section_b = { {type = "string", custom = false, name = "cursor_position"}, },
-        section_c = { {type = "string", custom = false, name = "hovered_size"},
-                      {type = "coloreds", custom = false, name = "count"}, }
+        section_a = { { type = "string",   custom = false, name = "tab_mode" }, },
+        section_b = { { type = "string",   custom = false, name = "tab_num_files" }, },
+        section_c = { { type = "coloreds", custom = false, name = "count", params = "true" },
+                      { type = "string",   custom = false, name = "hovered_size" }, }
       },
       right = {
-        section_a = { {type = "string", custom = false, name = "date", params = {"%d/%m/%Y"}}, },
-        section_b = { {type = "string", custom = false, name = "hovered_file_extension", params = {true}},
-                      {type = "string", custom = false, name = "hovered_mime"}, },
-        section_c = { {type = "coloreds", custom = false, name = "permissions"}, }
+        section_a = { { type = "string",   custom = false, name = "date", params = { "%d/%m/%Y" } }, },
+        section_b = { { type = "string",   custom = false, name = "hovered_file_extension", params = { true } },
+                      { type = "string",   custom = false, name = "hovered_mime" }, },
+        section_c = { { type = "coloreds", custom = false, name = "permissions" }, }
       }
     },
+  })
+  require("yatline-tab-path"):setup({
+    path_fg = "white",
+    filter_fg = "brightyellow",
+    search_label = " search",
+    filter_label = " filter",
+    no_filter_label = "",
+    flatten_label = " flatten",
+    separator = "  ",
   })
 ''

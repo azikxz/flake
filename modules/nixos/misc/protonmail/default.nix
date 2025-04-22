@@ -17,5 +17,7 @@ in
     };
   };
 
-  config = mkIf cfg.enable { services.protonmail-bridge = on // { }; };
+  config = mkIf cfg.enable {
+    services.protonmail-bridge = on;
+  };
 }

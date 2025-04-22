@@ -89,11 +89,7 @@ in
                 '';
             };
           in
-          ''
-            ${completion.fzf-tab}
-            ${settings.default}
-            ${builtins.readFile ./keymap}
-          '';
+          completion.fzf-tab + settings.default + readFile ./keymap;
       };
   };
 }

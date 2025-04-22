@@ -20,7 +20,6 @@ with pkgs;
       rev = "main";
     in
     [
-      # FROM REPO
       # {
       #   name = "zsh-powerlevel10k";
       #   file = "${s}/zsh-powerlevel10k/powerlevel10k.zsh-theme";
@@ -28,15 +27,16 @@ with pkgs;
       # }
       {
         name = "zsh-fzf-tab";
-        file = "${s}/fzf-tab/fzf-tab.plugin.zsh";
+        file = s + "/fzf-tab/fzf-tab.plugin.zsh";
         src = zsh-fzf-tab;
       }
       {
         name = "zsh-autopair";
-        file = "${s}/zsh/zsh-autopair/autopair.zsh";
+        file = s + "/zsh/zsh-autopair/autopair.zsh";
         src = zsh-autopair;
       }
-      # FROM GITHUB
+    ]
+    ++ [
       # {
       #   name = "zsh-allclear";
       #   file = "zsh-allclear.plugin.zsh";

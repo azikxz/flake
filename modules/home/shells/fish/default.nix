@@ -22,7 +22,6 @@ in
     home.packages = with pkgs; [ grc ];
     programs = {
       fish = on // {
-        package = pkgs.fish;
         preferAbbrs = true;
         plugins = import ./plugins.nix {
           inherit
@@ -30,24 +29,23 @@ in
             ;
         };
         interactiveShellInit =
-          (import ./colors.nix)
-          + (
-            let
-              d = "bind -M default";
-              v = "bind -M visual";
-            in
-            # fish
-            ''
-              fish_vi_key_bindings
 
-              # default
-              ${d} d delete-char
-              ${d} x cancel
+          let
+            d = "bind -M default";
+            v = "bind -M visual";
+          in
+          # fish
+          ''
+            fish_vi_key_bindings
 
-              # visual
-              ${v} x down-line
-            ''
-          );
+            # default
+            ${d} d delete-char
+            ${d} x cancel
+
+            # visual
+            ${v} x down-line
+          ''
+          + (import ./colors.nix);
         shellInitLast =
           let
             winman =

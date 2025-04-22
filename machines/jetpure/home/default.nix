@@ -72,6 +72,7 @@ in
       "openarena"
       "srb2"
       "wine"
+      "umu"
     ];
     misc = mkOn [
       "dconf"

@@ -21,9 +21,13 @@ in
   config = mkIf cfg.enable {
     programs.chromium = on // {
       package = pkgs.ungoogled-chromium;
-      extensions = [
-        { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
-      ];
+      extensions =
+        let
+          mk = id: { inherit id; };
+        in
+        [
+          (mk "cjpalhdlnbpafiamejdnhcphjbkeiagm")
+        ];
     };
   };
 }

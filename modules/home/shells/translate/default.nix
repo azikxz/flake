@@ -27,7 +27,6 @@ in
         tl = [
           "ru"
           "en"
-          "jpn"
         ];
       } // import ./theme.nix;
     };

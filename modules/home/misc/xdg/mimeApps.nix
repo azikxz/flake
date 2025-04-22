@@ -3,36 +3,35 @@
 }:
 
 let
-  text = "Helix.desktop";
-  image = "swayimg.desktop";
-  video = "mpv.desktop";
-  audio = "mpv.desktop";
-  web = "org.qutebrowser.qutebrowser.desktop";
-  pdf = "org.pwmt.zathura.desktop";
-  mk = type: list: (lib.genAttrs list (n: type));
+  mk = type: list: (lib.genAttrs list (n: (type + ".desktop")));
 in
 
 {
   defaultApplications =
-    (mk text [
+    (mk "Helix" [
+      "inode/empty"
       "text/plain"
       "text/x-cmake"
       "text/markdown"
       "text/rhtml"
+      "text/x-lua"
       "text/x-tex"
       "text/x-java"
       "text/x-ruby"
-      "inode/x-empty"
+      "text/x-nix"
       "text/x-python"
       "text/x-readme"
       "text/x-markdown"
+      "text/x-devicetree-source"
+      "text/octet-stream"
       "application/json"
       "application/x-ruby"
       "application/x-yaml"
       "application/x-shellscript"
       "application/x-docbook+xml"
+      "*/javascript"
     ])
-    // (mk image [
+    // (mk "swayimg" [
       "image/avif"
       "image/gif"
       "image/heif"
@@ -56,7 +55,7 @@ in
       "image/x-tga"
       "image/svg+xml"
     ])
-    // (mk video [
+    // (mk "mpv" [
       "video/3gp"
       "video/3gpp"
       "video/3gpp2"
@@ -91,7 +90,7 @@ in
       "video/x-theora+ogg"
       "application/x-matroska"
     ])
-    // (mk audio [
+    // (mk "mpv" [
       "audio/aac"
       "audio/mp4"
       "audio/mpeg"
@@ -112,23 +111,49 @@ in
       "audio/x-vorbis+ogg"
       "audio/x-wav"
     ])
-    // (mk web [
+    // (mk "org.qutebrowser.qutebrowser" [
       "text/html"
-      "x-scheme-handler/ftp"
       "application/xhtml+xml"
+      "x-scheme-handler/ftp"
       "x-scheme-handler/http"
       "x-scheme-handler/https"
       "x-scheme-handler/chrome"
+      "x-scheme-handler/about"
+      "x-scheme-handler/unknown"
       "application/x-extension-htm"
       "application/x-extension-xht"
       "application/x-extension-html"
       "application/x-extension-shtml"
       "application/x-extension-xhtml"
-      "x-scheme-handler/about"
-      "x-scheme-handler/unknown"
+    ])
+    // (mk "libreoffice-writer" [
+      "application/msword"
+      "application/vnd.oasis.opendocument.text"
+      "application/vnd.oasis.opendocument.text-template"
+      "application/vnd.oasis.opendocument.text-web"
+      "application/vnd.oasis.opendocument.text-master"
+    ])
+    // (mk "libreoffice-calc" [
+      "application/vnd.ms-excel"
+      "application/vnd.oasis.opendocument.spreadsheet"
+      "application/vnd.oasis.opendocument.spreadsheet-template"
+      "application/vnd.oasis.opendocument.chart"
+      "text/csv"
+    ])
+    // (mk "libreoffice-impress" [
+      "application/vnd.ms-powerpoint"
+      "application/vnd.oasis.opendocument.presentation"
+      "application/vnd.oasis.opendocument.presentation-template"
+    ])
+    // (mk "libreoffice-draw" [
+      "application/vnd.oasis.opendocument.graphics"
+      "application/vnd.oasis.opendocument.graphics-template"
+      "application/vnd.oasis.opendocument.image"
     ])
     // {
       # office
-      "application/pdf" = pdf;
+      "application/pdf" = "org.pwmt.zathura.desktop";
+      "application/vnd.oasis.opendocument.formula" = "libreoffice-math.desktop";
+      "application/vnd.oasis.opendocument.database" = "libreoffice-base.desktop";
     };
 }

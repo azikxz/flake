@@ -8,24 +8,32 @@
   imports = with inputs; [ impermanence.nixosModules.impermanence ];
   environment.persistence."/persist/system" = {
     hideMounts = true;
-    directories = [
-      "/var/log"
-      "/var/lib/bluetooth"
-      "/var/lib/nixos"
-      "/var/lib/systemd/coredump"
-      "/etc/NetworkManager/system-connections"
-      "/var/lib/NetworkManager"
-      "/var/lib/chrony"
-      "/var/lib/private"
-      "/var/lib/iwd"
-      "/var/lib/plymouth"
-      {
-        directory = "/var/lib/colord";
-        user = "colord";
-        group = "colord";
-        mode = "u=rwx,g=rx,o=";
-      }
-    ];
+    directories =
+      let
+        var = "/var/";
+        varLib = var + "lib/";
+      in
+      [
+        "/media"
+        "/etc/NetworkManager/system-connections"
+        (var + "log")
+        (varLib + "bluetooth")
+        (varLib + "flood")
+        (varLib + "qBittorrent")
+        (varLib + "nixos")
+        (varLib + "systemd/coredump")
+        (varLib + "NetworkManager")
+        (varLib + "chrony")
+        (varLib + "private")
+        (varLib + "iwd")
+        (varLib + "plymouth")
+        {
+          directory = varLib + "colord";
+          user = "colord";
+          group = "colord";
+          mode = "u=rwx,g=rx,o=";
+        }
+      ];
     files = [ "/etc/machine-id" ];
     users.${lib.x.sys.userName} = {
       directories =
@@ -35,6 +43,10 @@
             directory = "${dir}";
             inherit mode;
           };
+          cache = ".cache/";
+          local = ".local/";
+          lState = local + "state/";
+          lShare = local + "share/";
         in
         [
           # xdg dirs
@@ -45,24 +57,21 @@
           "Pictures"
           "Videos"
           # syncthing
-          ".local/state/syncthing"
-          ".local/share/syncthing"
-          ".local/share/qutebrowser"
+          (lState + "syncthing")
+          (lShare + "syncthing")
+          (lShare + "qutebrowser")
           # telegram
-          ".local/share/64Gram"
-          ".cache/stylix-telegram-theme"
+          (lShare + "64Gram")
+          (cache + "stylix-telegram-theme")
           # komikku
-          ".local/share/komikku"
+          (lShare + "komikku")
           # cli tools
-          ".local/share/zoxide"
+          (lShare + "zoxide")
           # steam
-          ".local/share/Steam"
+          (lShare + ".local/share/Steam")
           ".steam"
-          ".wine"
           ".srb2"
-          # torrent
-          ".config/qBittorrent"
-          ".local/share/qBittorrent"
+          ".wine-pfx"
           (mk ".ssh")
         ];
       files = [

@@ -4,14 +4,16 @@
 }:
 
 let
-  inherit (lib.x) umport mkOn on;
+  inherit (lib.x)
+    umport
+    mkOn
+    on
+    ;
 in
 
 {
-  imports = umport { path = ./modules; };
-
-  home.sessionVariables = {
-    STEAM_COMPAT_DATA_PATH = "/mnt/SSD/SteamUnified";
+  imports = umport {
+    path = ./modules;
   };
 
   module = {

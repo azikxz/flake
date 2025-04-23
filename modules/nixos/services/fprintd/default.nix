@@ -20,9 +20,9 @@ in
 
   config = mkIf cfg.enable {
     services.fprintd = on // {
-      package = pkgs.fprintd-tod;
+      package = pkgs.stable.fprintd-tod;
       tod = on // {
-        driver = pkgs.libfprint-2-tod1-vfs0090;
+        driver = pkgs.stable.libfprint-2-tod1-vfs0090;
       };
     };
   };

@@ -29,6 +29,7 @@
     path = {
       flake = "/persist/flake";
       pass = "/persist/vault/passwords.kdbx";
+      steamUnified = "/persist/proton-prefix";
     };
     styl = {
       theme = "neo-gen";

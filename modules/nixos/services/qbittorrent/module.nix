@@ -98,6 +98,7 @@ in
             ]
             ++ (optional (cfg.torrentingPort != null) "--torrenting-port=${toString cfg.torrentingPort}")
           );
+          StateDirectory = "qBittorrent";
           TimeoutStopSec = 1800;
           PrivateTmp = false;
           PrivateNetwork = false;

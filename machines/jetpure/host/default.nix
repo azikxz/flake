@@ -4,11 +4,16 @@
 }:
 
 let
-  inherit (lib.x) umport on;
+  inherit (lib.x)
+    umport
+    on
+    ;
 in
 
 {
-  imports = umport { path = ./modules; };
+  imports = umport {
+    path = ./modules;
+  };
 
   programs.adb = lib.mkForce on;
 

@@ -4,13 +4,15 @@
 }:
 
 let
-  inherit (lib.x) on off umport;
+  inherit (lib.x)
+    on
+    umport
+    ;
 in
 
 {
   imports = umport {
-    path = ./.;
-    exclude = [ ./default.nix ];
+    path = ./modules;
   };
   module = {
     themes.stylix = on;
@@ -28,12 +30,16 @@ in
       system76 = on;
     };
     services = {
-      amneziawg = on;
+      amneziawg = on // {
+        config = ./modules/warp.conf;
+      };
       dbus = on;
       fprintd = on;
+      flood = on;
       getty = on;
       gvfs = on;
       polkit = on;
+      qbittorrent = on;
       tlp = on;
       zram.algo = "zstd";
     };
@@ -41,6 +47,7 @@ in
       common = on;
       hyprland = on;
       steam = on;
+      nh = on;
     };
     misc = {
       locales.zone = "Asia/Chita";

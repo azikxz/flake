@@ -6,15 +6,17 @@
 }:
 
 let
-  inherit (lib) x getExe;
-  inherit (x) mkAttrs path machineName;
+  inherit (lib)
+    x
+    getExe
+    ;
   cfg = config.home;
 in
 
 {
   options = {
     home = {
-      shellAbbrs = mkAttrs.str { };
+      shellAbbrs = x.mkAttrs.str { };
     };
   };
 
@@ -22,9 +24,6 @@ in
     programs.fish.shellAbbrs = cfg.shellAbbrs;
     home.shellAbbrs.s = "sudo";
     home.shellAliases = with pkgs; {
-      goToFlake = "cd ${path.flake}";
-      rebuild = "nh os switch -H ${machineName}";
-      nixRepl = "nh os repl -H ${machineName}";
       # nix
       nixPre = "nix store prefetch-file";
       nixUpd = "nix flake update";

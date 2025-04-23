@@ -4,67 +4,72 @@
 }:
 
 let
-  inherit (lib.x) on off umport;
+  inherit (lib.x)
+    umport
+    mkOn
+    on
+    ;
 in
 
 {
   imports = umport {
-    path = ./.;
-    exclude = [ ./default.nix ];
+    path = ./modules;
   };
+
   module = {
     programs = {
-      cli = {
-        archivers = on;
-        common = on;
-        cava = on;
-        fetch = on;
-        helix = on;
-        top = on;
-        yazi = on;
-      };
-      gui = {
-        keepass = on;
-        mpv = on;
-        qbittorrent = on;
-        qutebrowser = on;
-        music.spotify = on;
-        swayimg = on;
-        syncthing = on;
-        telegram = {
-          client = "64gram";
-          walogram = on // {
-            mode = "solid";
-          };
+      cli = mkOn [
+        "common"
+        "cava"
+        "fetch"
+        "helix"
+        "systop"
+        "yazi"
+      ];
+      gui = mkOn [
+        "keepass"
+        "mpv"
+        "qutebrowser"
+        "spotify"
+        "swayimg"
+        "syncthing"
+        "telegram"
+        "zathura"
+      ];
+    };
+    shells = mkOn [
+      "fish"
+      "translate"
+      "starship"
+    ];
+    themes =
+      mkOn [
+        "qt"
+      ]
+      // {
+        stylix = on // {
+          icon = "paleorange";
+          cursor.size = 24;
         };
       };
+    wm = (mkOn [ "hyprland" ]) // {
+      terminals = mkOn [
+        "kitty"
+      ];
+      misc = mkOn [
+        "mako"
+        "tofi"
+        "waybar"
+        "wlogout"
+      ];
     };
-    shells = {
-      fish = on;
-      translate = on;
-      starship = on;
-    };
-    themes = {
-      gtk = on; # GTK APPS
-      qt = on; # QT APPS
-      stylix = on // {
-        cursor.size = 24;
-      };
-    };
-    wm = {
-      hyprland = on;
-      terminals.kitty = on;
-      misc = {
-        mako = on;
-        tofi = on;
-        waybar = on;
-        wlogout = on;
-        wob = on;
-      };
-    };
-    misc = {
-      dconf = on;
-      xdg.mime = on;
-    };
+    games = mkOn [
+      "minecraft"
+      "umu"
+    ];
+    misc = mkOn [
+      "dconf"
+      "xdg"
+    ];
   };
 }

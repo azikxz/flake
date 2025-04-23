@@ -14,13 +14,13 @@
     ];
   workspace =
     let
-      rule = "gapsout:0, gapsin:0, rounding:false";
-      spec = rule + ", shadow:false, bordersize:1";
+      gaps = "gapsout:0, gapsin:0";
     in
     [
-      ("w[tv1],  " + rule)
-      ("f[1],    " + rule)
-      ("s[true], " + spec)
+      "w[tv1], bordersize:0"
+      #
+      ("w[tv1], " + gaps)
+      (" f[1],  " + gaps)
     ];
   windowrule =
     let
@@ -28,8 +28,8 @@
       # regex
       mk = type: rule: "${rule}, ${type}";
       # titile & class
-      cl = win: (mk "class:^(${win})$");
-      tl = win: (mk "title:^(${win})$");
+      cl = win: (mk "class:${win}");
+      tl = win: (mk "title:${win}");
     in
     [
       (cl "firefox" "workspace 2 silent")
@@ -92,15 +92,11 @@
     ]
     ++ (
       let
-        float = "floating:0";
-        w = float + ", onworkspace:w[tv1]";
-        f = float + ", onworkspace:f[1]";
+        no = "norounding, noborder, floating:0,";
       in
       [
-        ("bordersize 0, " + w)
-        ("rounding   0, " + w)
-        ("bordersize 0, " + f)
-        ("rounding   0, " + f)
+        (no + "onworkspace:w[tv1]")
+        (no + "onworkspace:f[1]")
       ]
     );
 }

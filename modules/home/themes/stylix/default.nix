@@ -21,7 +21,7 @@ in
     };
   };
 
-  imports = with inputs; [ niri.homeModules.stylix ];
+  # imports = with inputs; [ niri.homeModules.stylix ];
   config = mkIf cfg.enable {
     stylix = on // {
       autoEnable = false;

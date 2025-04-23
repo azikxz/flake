@@ -15,9 +15,10 @@ let
     steam
     ;
   cfg = config.module.programs.steam;
+  home = config.users.users.${sys.userName}.home;
   steamUnified = (
     optionalAttrs (path.steamUnified != null) {
-      STEAM_COMPAT_CLIENT_INSTALL_PATH = config.users.users.nixzoid.home + "/.steam";
+      STEAM_COMPAT_CLIENT_INSTALL_PATH = home + "/.steam";
       STEAM_COMPAT_DATA_PATH = path.steamUnified;
     }
   );
@@ -69,7 +70,7 @@ in
               wayland
               (sndio.overrideAttrs (old: {
                 postFixup =
-                  old.postFixup
+                  old.postInstall
                   + ''
                     ln -s $out/lib/libsndio.so $out/lib/libsndio.so.6.1
                   '';

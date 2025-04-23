@@ -21,6 +21,7 @@ in
   imports = [ ./module.nix ];
   config = mkIf cfg.enable {
     services.qbittorrent = on // {
+      package = pkgs.stable.qbittorrent-nox;
       torrentingPort = 6881;
       serverConfig = {
         LegalNotice.Accepted = true;

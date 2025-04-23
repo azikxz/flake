@@ -62,6 +62,19 @@ in
             OBS_VKCAPTURE = true;
             RADV_TEX_ANISO = 16;
           } // steamUnified;
+          extraLibraries =
+            pkgs: with pkgs; [
+              libxkbcommon
+              mesa
+              wayland
+              (sndio.overrideAttrs (old: {
+                postFixup =
+                  old.postFixup
+                  + ''
+                    ln -s $out/lib/libsndio.so $out/lib/libsndio.so.6.1
+                  '';
+              }))
+            ];
         };
       };
     };

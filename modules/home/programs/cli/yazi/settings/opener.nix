@@ -1,4 +1,15 @@
 {
+  lib,
+  config,
+  config',
+  ...
+}:
+
+let
+  inherit (lib) mkIf;
+in
+
+{
   edit = [
     {
       run = ''hx "$@"'';
@@ -48,16 +59,27 @@
       orphan = true;
     }
   ];
-  exe = [
+  exe =
+    let
+      type = if config.module.games.umu.enable then "umu-run" else "wine";
+    in
+    mkIf config.module.games.umu.enable [
+      {
+        run = ''${type} "$@"'';
+        desc = "Open via ${type}";
+        orphan = true;
+      }
+    ];
+  native = mkIf config'.programs.steam.enable [
     {
-      run = ''wine "$@"'';
-      desc = "Open via wine";
+      run = ''steam-run "$@"'';
+      desc = "Open native bin";
       orphan = true;
     }
   ];
   open = [
     {
-      run = ''"xdg-open "$@"'';
+      run = "xdg-open \"$@\"";
       desc = "Open via xdg";
     }
   ];

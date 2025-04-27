@@ -13,6 +13,7 @@ let
       ;
   };
 
+  machines = import (self + "/machines");
   build = import ./builder {
     inherit
       self
@@ -20,7 +21,7 @@ let
       pkgs
       ;
   };
-  machines = (import "${self}/machines");
+
   mk = import ./other {
     inherit
       forAllSystems

@@ -165,7 +165,7 @@ in
       name = "python";
       language-servers = [
         "pylsp"
-        "ruff"
+        "pyright"
       ];
       file-types = [
         "py"
@@ -231,7 +231,7 @@ in
       vscode-css.command = getExe' vscode (vs "css");
     } # vscode <lang> server
     // {
-      ruff.command = getExe ruff-lsp;
+      pylsp.command = getExe python312Packages.python-lsp-server;
       pyright = {
         command = getExe pyright;
         args = [ "--stdio" ];

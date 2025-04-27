@@ -21,7 +21,7 @@ in
     hyprpaper = on;
   };
   hyprpaper = on;
-  # niri = on;
+  niri = on;
   sway = on;
   river = on;
   # misc

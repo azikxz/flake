@@ -67,6 +67,64 @@ with lib.x;
         desc = "Navigation in the parent directory down";
       }
 
+      # bookmarks
+      {
+        on = [
+          "b"
+          "f"
+        ];
+        run = "cd ${path.flake}";
+        desc = "Go to flake main dir";
+      }
+      {
+        on = [
+          "b"
+          "d"
+        ];
+        run = "cd $XDG_DOWNLOAD_DIR";
+        desc = "Go to xdg-downloads";
+      }
+      {
+        on = [
+          "b"
+          "v"
+        ];
+        run = "cd $XDG_VIDEOS_DIR";
+        desc = "Go to xdg-videos";
+      }
+      {
+        on = [
+          "b"
+          "o"
+        ];
+        run = "cd $XDG_DOCUMENTS_DIR";
+        desc = "Go to xdg-docs";
+      }
+      {
+        on = [
+          "b"
+          "p"
+        ];
+        run = "cd $XDG_PICTURES_DIR";
+        desc = "Go to xdg-pictures";
+      }
+      {
+        on = [
+          "b"
+          "m"
+        ];
+        run = "cd $XDG_MUSIC_DIR";
+        desc = "Go to xdg-music";
+      }
+      {
+        on = [
+          "b"
+          "D"
+        ];
+        run = "cd $XDG_DESKTOP_DIR";
+        desc = "Go to xdg-desktop";
+      }
+
       # vis
       {
         on = [
@@ -248,28 +306,19 @@ with lib.x;
       {
         on = [
           "g"
-          "f"
-        ];
-        run = "cd ${path.flake}";
-        desc = "Go to flake main dir";
-      }
-      {
-        on = [
-          "g"
-          "n"
-          "s"
-        ];
-        run = "cd /nix/store";
-        desc = "Go to store";
-      }
-      {
-        on = [
-          "g"
           "r"
         ];
         run = ''
           shell 'ya emit cd "$(git rev-parse --show-toplevel)"'
         '';
+        desc = "Go to root of git repo";
+      }
+      {
+        on = [
+          "g"
+          "e"
+        ];
+        run = "arrow bot";
         desc = "Go to root of git repo";
       }
 

@@ -35,5 +35,14 @@ in
         };
       })
     ];
+    xdg.configFile."protonfixes" = {
+      recursive = true;
+      source = pkgs.fetchFromGitHub {
+        owner = "Open-Wine-Components";
+        repo = "umu-protonfixes";
+        rev = "f04757bc1bc973f9b446155e4444ec936701708b";
+        hash = "sha256-8zRJuaYuZkIeh/OAdZYE4/ev8YBeBEXG8r1FmJGsdUM=";
+      };
+    };
   };
 }

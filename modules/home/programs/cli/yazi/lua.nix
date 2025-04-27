@@ -13,14 +13,22 @@ with config.lib.stylix.colors.withHashtag;
     part_separator    = { open = "", close = "" },
     inverse_separator = { open = "", close = "" },
 
-    style_a = { fg = "white", bg_mode = {
-        normal = "${base02}",
+    style_a = {
+      fg = "${base00}",
+      bg_mode = {
+        normal = "${base0C}",
         select = "${base0A}",
         un_set = "${base09}"
       }
     },
-    style_b = { bg = "${base03}", fg = "white" },
-    style_c = { bg = "black", fg = "white" },
+    style_b = {
+      bg = "${base03}",
+      fg = "${base05}"
+    },
+    style_c = {
+      bg = "${base00}",
+      fg = "${base05}"
+    },
 
     permissions_t_fg = "green",
     permissions_r_fg = "yellow",
@@ -46,8 +54,8 @@ with config.lib.stylix.colors.withHashtag;
 
     header_line = {
       left = {
-        section_a = { { type = "string", custom = false, name = "tab_path",
-                        params = { trimed = true, max_length = 24, trim_length = 5 } }, },
+        section_a = { { type = "string", custom = false, name = "tab_path", params = {
+                        trimed = true, max_length = 24, trim_length = 5 } }, },
         section_b = { },
         section_c = { }
       },
@@ -72,14 +80,5 @@ with config.lib.stylix.colors.withHashtag;
         section_c = { { type = "coloreds", custom = false, name = "permissions" }, }
       }
     },
-  })
-  require("yatline-tab-path"):setup({
-    path_fg = "white",
-    filter_fg = "brightyellow",
-    search_label = " search",
-    filter_label = " filter",
-    no_filter_label = "",
-    flatten_label = " flatten",
-    separator = "  ",
   })
 ''

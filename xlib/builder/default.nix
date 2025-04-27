@@ -63,8 +63,8 @@ let
         }
       );
       # dirs
-      modulesDir = "${self}/modules";
-      machineDir = "${self}/machines/" + sys.hostName;
+      modulesDir = self + "/modules";
+      machineDir = self + "/machines/" + sys.hostName;
       # make nixossystem/home manager
       mkSystem =
         name:
@@ -91,16 +91,19 @@ let
         ++ [ home.nixosModules.home-manager ]
         ++ [
           {
+            services.getty.autologinUser = sys.userName;
             networking = {
               hostName = sys.hostName;
               useDHCP = lib.mkDefault true;
             };
             home-manager = {
               sharedModules = [
-                nixcord.homeManagerModules.nixcord
+                nixcord.homeModules.nixcord
               ];
               backupFileExtension = backup;
-              extraSpecialArgs = specialArgs;
+              extraSpecialArgs = specialArgs // {
+                config' = self.nixosConfigurations.${machineName}.config;
+              };
               useGlobalPkgs = true;
               useUserPackages = true;
               users.${sys.userName} = {

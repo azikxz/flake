@@ -19,19 +19,16 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.getty.autologinUser = sys.userName;
     boot = {
       kernelPackages = with pkgs; linuxPackages_zen;
       loader = {
+        timeout = mkForce 0;
         systemd-boot = on // {
           configurationLimit = 4;
         };
-        timeout = mkForce 0;
       };
     };
     networking = {
-      hostName = sys.hostName;
-      useDHCP = mkDefault true;
       nameservers = [
         "::1"
         "127.0.0.1"

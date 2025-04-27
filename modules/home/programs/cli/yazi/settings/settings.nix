@@ -1,5 +1,7 @@
 {
   lib,
+  config,
+  config',
   ...
 }:
 
@@ -27,14 +29,20 @@
       max_height = 5000;
       max_width = 5000;
     };
-    input = lib.genAttrs [
-      "cd_origin"
-      "find_origin"
-      "create_origin"
-      "delete_origin"
-      "search_origin"
-      "shell_origin"
-    ] (n: "center");
+    input =
+      let
+        _ = n: n + "_origin";
+      in
+      lib.genAttrs [
+        (_ "cd")
+        (_ "find")
+        (_ "rename")
+        (_ "filter")
+        (_ "create")
+        (_ "delete")
+        (_ "search")
+        (_ "shell")
+      ] (n: "center");
     plugin = {
       prepend_previewers =
         (map
@@ -61,7 +69,7 @@
           }
         ];
     };
-    opener = import ./opener.nix;
+    opener = import ./opener.nix { inherit lib config config'; };
     open = import ./open.nix;
   };
 }

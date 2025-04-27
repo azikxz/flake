@@ -15,6 +15,7 @@ let
     steam
     ;
   cfg = config.module.programs.steam;
+  extraArgs = "-nochatui -nofriendsui -silent";
   home = config.users.users.${sys.userName}.home;
   steamUnified = (
     optionalAttrs (path.steamUnified != null) {
@@ -57,7 +58,7 @@ in
             (stable.proton-ge-bin.override (mk "stable"))
           ];
         package = steam.override {
-          extraArgs = "-nochatui -nofriendsui -silent";
+          inherit extraArgs;
           extraEnv = {
             MANGOHUD = true;
             OBS_VKCAPTURE = true;
@@ -68,13 +69,6 @@ in
               libxkbcommon
               mesa
               wayland
-              (sndio.overrideAttrs (old: {
-                postFixup =
-                  old.postInstall
-                  + ''
-                    ln -s $out/lib/libsndio.so $out/lib/libsndio.so.6.1
-                  '';
-              }))
             ];
         };
       };
@@ -82,7 +76,11 @@ in
     systemd.user.services.steam-autostart = mkIf cfg.autostart {
       wantedBy = [ "graphical-session.target" ];
       serviceConfig = {
-        ExecStart = getExe pkgs.steam;
+        ExecStart =
+          let
+            _ = " ";
+          in
+          getExe pkgs.steam + _ + extraArgs + _ + "%U";
         Restart = "on-abort";
         RestartSec = "5s";
       };

@@ -27,14 +27,6 @@ in
     gen.ext
     ++ gen.app
     ++ [
-      (mkName "*/" [
-        "edit"
-        "open"
-      ])
-      (mkMime "text/*" [
-        "edit"
-        "open"
-      ])
       (mkMime "image/*" [
         "image"
         "open"
@@ -58,6 +50,26 @@ in
         "*.xlw"
         "*.pptx"
         "*.docx"
+      ]
+    )
+    ++ (map
+      (
+        n:
+        (mkMime n [
+          "edit"
+          "open"
+        ])
+      )
+      [
+        "inode/empty"
+        "application/json"
+        "application/x-ruby"
+        "application/x-yaml"
+        "application/x-shellscript"
+        "application/x-docbook+xml"
+        "*/javascript"
+        "text/*"
+        "*/"
       ]
     );
 }

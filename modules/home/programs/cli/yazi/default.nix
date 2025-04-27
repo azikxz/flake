@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  config',
   ...
 }:
 
@@ -47,17 +48,16 @@ in
       // import ./settings/settings.nix {
         inherit
           lib
+          config
+          config'
           ;
       };
     home.packages = with pkgs; [
       ffmpegthumbnailer
       wl-clipboard
-
       jq
       glow
       poppler_min
-
-      atool
       ouch
     ];
   };

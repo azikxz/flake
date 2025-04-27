@@ -18,7 +18,6 @@
     in
     [
       "w[tv1], bordersize:0"
-      #
       ("w[tv1], " + gaps)
       (" f[1],  " + gaps)
     ];
@@ -42,7 +41,7 @@
       (cl "vesktop" "workspace 5 silent")
       (cl "anicli" "workspace 6 silent")
       (cl "org.qbittorrent.qBittorrent" "workspace 8 silent")
-      (tl "steam" "workspace 10 silent")
+      (cl "steam" "workspace 10 silent")
 
       # term rules
       (cl "termfloat" "float")
@@ -68,11 +67,11 @@
       (tl "Choose Files" "move center")
       (tl "Choose Files" "size 650 450")
 
-      # (cl "xdg-desktop-portal-gtk" "float")
+      (cl "xdg-desktop-portal-gtk" "float")
       (cl "xdg-desktop-portal-gtk" "move center")
       (cl "xdg-desktop-portal-gtk" "size 807 570")
 
-      # (cl "mpv" "nodim")
+      (cl "mpv" "nodim")
       (cl "ani" "float")
       (cl "ani" "size 810 630")
 
@@ -87,7 +86,6 @@
       (cl "org.qbittorrent.qBittorrent" "pseudo")
 
       # pinned
-      (cl "mpv" "nodim")
       (mk "pinned:1" "bordercolor rgb(${base0B}) rgb(${base01})")
     ]
     ++ (

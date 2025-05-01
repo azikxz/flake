@@ -10,7 +10,6 @@ with lib;
 with x;
 let
   cfg = config.module.themes.stylix;
-  inherit (inputs) base16;
 in
 {
   options = {
@@ -32,7 +31,7 @@ in
           config
           ;
       };
-      base16Scheme = base16 + "/" + x.styl.theme + ".yaml";
+      base16Scheme = inputs.base16.paths.x86_64-linux."${x.styl.theme}";
       targets = {
         console = on; # tty
         chromium = on; # tty

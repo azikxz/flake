@@ -4,7 +4,9 @@
 }:
 
 let
-  inherit (pkgs) fetchurl;
+  inherit (pkgs)
+    fetchurl
+    ;
 in
 
 [

@@ -10,11 +10,11 @@
     path = {
       flake = "/persist/flake";
       pass = "/persist/vault/passwords.kdbx";
-      steamUnified = "/mnt/SSD/SteamUnified";
+      steamUnified = "/media/disks/fastBitch/SteamUnified";
     };
     styl = {
-      theme = "paradise";
-      image = "lampa";
+      theme = "tokyocityDark";
+      image = "vanRoad";
     };
   };
 
@@ -33,7 +33,7 @@
     };
     styl = {
       theme = "neo-gen";
-      image = "town";
+      image = "townChristmas";
     };
   };
 

@@ -26,6 +26,7 @@ in
         keymap = import ./binds.nix {
           inherit
             lib
+            config'
             ;
         };
         initLua = import ./lua.nix {
@@ -55,10 +56,10 @@ in
     home.packages = with pkgs; [
       ffmpegthumbnailer
       wl-clipboard
-      jq
-      glow
       poppler_min
+      glow
       ouch
+      jq
     ];
   };
 }

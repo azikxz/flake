@@ -5,14 +5,19 @@
 }:
 
 let
-  inherit (lib) getExe getExe' x;
+  inherit (lib)
+    getExe
+    getExe'
+    x
+    ;
 in
 
 {
   normal = {
-    # move tabs
+    # tabs
     "<Alt-j>" = "tab-move +";
     "<Alt-k>" = "tab-move -";
+    "gp" = "tab-pin";
     # mpv
     ",h" = "open qute://start/";
     # mpv

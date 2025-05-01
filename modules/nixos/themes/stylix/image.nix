@@ -7,15 +7,11 @@
 }:
 
 with config.lib.stylix.colors;
-let
-  inherit (inputs) wallpapers;
-  inherit (pkgs) lutgen runCommand;
-  inherit (lib) getExe;
-  img = wallpapers + "/" + "${lib.x.styl.image}.jpg";
-in
 
-runCommand "output.png" { } ''
-  ${getExe lutgen} apply ${img} -o $out -- ${
+pkgs.runCommand "output.png" { } ''
+  ${lib.getExe pkgs.lutgen} apply ${
+    inputs.wallpapers.paths.x86_64-linux."${lib.x.styl.image}"
+  } -o $out -- ${
     builtins.concatStringsSep " " [
       base00
       base01

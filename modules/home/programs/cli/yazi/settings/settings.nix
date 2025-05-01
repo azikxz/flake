@@ -43,14 +43,25 @@
         (_ "search")
         (_ "shell")
       ] (n: "center");
-    plugin = {
-      prepend_previewers =
-        (map
-          (mime: {
+    plugin =
+      let
+        mk =
+          run: list:
+          (map (mime: {
             inherit mime;
             run = "ouch";
-          })
-          [
+          }) list);
+      in
+      {
+        prepend_preloaders = mk "office" [
+          "application/openxmlformats-officedocument.*"
+          "application/oasis.opendocument.*"
+          "application/msword"
+          "application/ms-*"
+          "*.docx"
+        ];
+        prepend_previewers =
+          (mk "ouch" [
             "application/*zip"
             "application/*tar"
             "application/*bzip2"
@@ -60,16 +71,21 @@
             "application/vnd.rar"
             "application/7z-compressed"
             "application/rar"
-          ]
-        )
-        ++ [
-          {
-            name = "*.md";
-            run = "glow";
-          }
-        ];
+          ])
+          ++ [
+            {
+              name = "*.md";
+              run = "glow";
+            }
+          ];
+      };
+    opener = import ./opener.nix {
+      inherit
+        lib
+        config
+        config'
+        ;
     };
-    opener = import ./opener.nix { inherit lib config config'; };
     open = import ./open.nix;
   };
 }

@@ -6,9 +6,18 @@
 }:
 
 let
-  inherit (pkgs) writeTextFile;
-  inherit (lib) types mkOption concatMapStringsSep;
-  inherit (builtins) map attrValues;
+  inherit (pkgs)
+    writeTextFile
+    ;
+  inherit (lib)
+    types
+    mkOption
+    concatMapStringsSep
+    ;
+  inherit (builtins)
+    map
+    attrValues
+    ;
   collection = lib.mkOption {
     default = { };
     type = types.attrsOf (

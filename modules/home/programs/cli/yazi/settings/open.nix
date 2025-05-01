@@ -40,22 +40,6 @@ in
       (
         n:
         (mkMime n [
-          "office"
-        ])
-      )
-      [
-        "*.odt"
-        "*.xlsx"
-        "*.xlt"
-        "*.xlw"
-        "*.pptx"
-        "*.docx"
-      ]
-    )
-    ++ (map
-      (
-        n:
-        (mkMime n [
           "edit"
           "open"
         ])

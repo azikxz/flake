@@ -30,18 +30,24 @@ in
         "systop"
         "yazi"
       ];
-      gui = mkOn [
-        "keepass"
-        "mpv"
-        "nixcord"
-        "obs"
-        "qutebrowser"
-        "spotify"
-        "swayimg"
-        "syncthing"
-        "telegram"
-        "zathura"
-      ];
+      gui =
+        mkOn [
+          "keepass"
+          "mpv"
+          "nixcord"
+          "obs"
+          "qutebrowser"
+          "spotify"
+          "swayimg"
+          "syncthing"
+          "telegram"
+          "zathura"
+        ]
+        // {
+          libreoffice = on // {
+            yazi = on;
+          };
+        };
     };
     shells = mkOn [
       "fish"

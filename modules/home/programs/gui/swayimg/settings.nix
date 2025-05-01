@@ -19,17 +19,17 @@ with config.lib.stylix.colors.withHashtag;
     transparency = "grid";
     scale = "optimal";
     fixed = "yes";
-    antialiasing = "no";
+    antialiasing = "none";
     slideshow = "no";
     slideshow_time = "3";
-    history = "1";
-    preload = "1";
+    history = "5";
+    preload = "5";
   };
   gallery = {
     size = "400";
     cache = "100";
     fill = "yes";
-    antialiasing = "yes";
+    antialiasing = "box";
     window = base00 + "ff";
     background = base01 + "ff";
     select = base02 + "ff";
@@ -42,16 +42,16 @@ with config.lib.stylix.colors.withHashtag;
     recursive = "no";
     all = "yes";
   };
-  font = {
-    name =
-      let
-        font = config.stylix.fonts;
-      in
-      font.monospace.name;
-    size = "14";
-    color = base06 + "ff";
-    shadow = base00 + "a0";
-  };
+  font =
+    let
+      font = config.stylix.fonts;
+    in
+    {
+      name = font.monospace.name;
+      size = toString (font.sizes.applications + 2);
+      color = base06 + "ff";
+      shadow = base00 + "a0";
+    };
   info = {
     show = "yes";
     info_timeout = "1";

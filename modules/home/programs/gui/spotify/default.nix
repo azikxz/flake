@@ -33,6 +33,8 @@ in
       on
       // {
         inherit theme;
+        wayland = true;
+        windowManagerPatch = true;
         colorScheme = "custom";
         customColorScheme = import ./theme.nix {
           inherit

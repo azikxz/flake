@@ -28,11 +28,20 @@ in
           ayugram-desktop
         ''
       ));
-    xdg.dataFile = import ./configs.nix {
-      inherit
-        pkgs
-        config
-        ;
+    xdg = {
+      mimeApps = import ./mime.nix {
+        inherit
+          pkgs
+          lib
+          config
+          ;
+      };
+      dataFile = import ./configs.nix {
+        inherit
+          pkgs
+          config
+          ;
+      };
     };
     home.activation =
       let

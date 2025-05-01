@@ -1,13 +1,35 @@
 {
   lib,
+  config',
   ...
 }:
 
-with lib.x;
+with lib;
+let
+  fs = config'.fileSystems;
+  media = filter (p: hasPrefix "/media" p) (attrNames fs);
+  keymap = map (
+    mnt:
+    let
+      parts = split "/" mnt;
+      dirName = elemAt parts ((length parts) - 1);
+      firstChar = (substring 0 1 dirName);
+    in
+    {
+      on = [
+        "b"
+        "B"
+        firstChar
+      ];
+      run = "cd " + toString mnt;
+      desc = "Go to " + toString mnt;
+    }
+  ) media;
+in
 
 {
   manager = {
-    prepend_keymap = [
+    prepend_keymap = keymap ++ [
       # main
       {
         on = [ "q" ];
@@ -73,7 +95,7 @@ with lib.x;
           "b"
           "f"
         ];
-        run = "cd ${path.flake}";
+        run = "cd ${x.path.flake}";
         desc = "Go to flake main dir";
       }
       {
@@ -267,23 +289,38 @@ with lib.x;
           "r"
         ];
         run = "rename --cursor=end";
-        desc = "Rename";
+        desc = "Rename at end";
       }
       {
         on = [
           "r"
-          "n"
+          "R"
+        ];
+        run = "rename --cursor=start";
+        desc = "Rename at start";
+      }
+      {
+        on = [
+          "R"
+        ];
+        run = "rename --cursor=before_ext";
+        desc = "Rename before ext";
+      }
+      {
+        on = [
+          "r"
+          "f"
         ];
         run = "rename --empty=stem --cursor=start";
-        desc = "Rename namefile";
+        desc = "Rename name of file";
       }
       {
         on = [
           "r"
-          "e"
+          "F"
         ];
         run = "rename --empty=ext --cursor=end";
-        desc = "Rename extension";
+        desc = "Rename extension of file";
       }
       {
         on = [

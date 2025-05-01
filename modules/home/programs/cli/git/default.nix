@@ -25,10 +25,21 @@ in
       userName = sys.userName;
       userEmail = sys.userName + "@" + sys.hostName + ".org";
       extraConfig = {
-        color.ui = true;
+        color = {
+          ui = true;
+          diff = {
+            commit = "yellow";
+            frag = "cyan";
+            meta = "yellow";
+            new = "green";
+            old = "red";
+            whitespace = "red reverse";
+          };
+        };
         init.defaultBranch = "main";
         safe.directory = path.flake;
       };
+      aliases = import ./aliases.nix;
     };
   };
 }

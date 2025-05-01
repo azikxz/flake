@@ -75,11 +75,17 @@
 
     base16 = {
       url = "sourcehut:~neverness/design/base16";
-      flake = false;
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
     wallpapers = {
       url = "sourcehut:~neverness/design/wallpapers";
-      flake = false;
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
   };
 }

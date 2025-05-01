@@ -9,7 +9,6 @@ with lib;
 with x;
 let
   inherit (pkgs)
-    stable
     protonup
     proton-ge-bin
     steam
@@ -47,16 +46,11 @@ in
         protontricks = on;
         gamescopeSession = on;
         remotePlay.openFirewall = true;
-        extraCompatPackages =
-          let
-            mk = n: {
-              steamDisplayName = "Proton-GE-" + n;
-            };
-          in
-          [
-            (proton-ge-bin.override (mk "unstable"))
-            (stable.proton-ge-bin.override (mk "stable"))
-          ];
+        extraCompatPackages = [
+          (proton-ge-bin.override {
+            steamDisplayName = "Proton-GE-unstable";
+          })
+        ];
         package = steam.override {
           inherit extraArgs;
           extraEnv = {

@@ -2,7 +2,7 @@
 
 pkgs.python3Packages.buildPythonApplication rec {
   pname = "anicli_ru";
-  version = "5.0.15";
+  version = "5.0.16";
   pyproject = true;
 
   src = pkgs.fetchPypi {
@@ -10,7 +10,7 @@ pkgs.python3Packages.buildPythonApplication rec {
       pname
       version
       ;
-    hash = "sha256-UaV781K0AfXwGoRPxLDSEFL7YG1Bp+OxCoxtVCwu90o=";
+    hash = "sha256-gM9on15RQIpQVJfWW/uPeN63vSSbCJt2mNN5zkvc5Jg=";
   };
 
   build-system = with pkgs.python3Packages; [
@@ -30,8 +30,8 @@ pkgs.python3Packages.buildPythonApplication rec {
       hash = "sha256-LMXksmbp5YMH6aUjXmoDPUxCgtn6VuiBDlBXES5Ak2M=";
     })
     (callPackage ./api.nix {
-      version = "0.7.12";
-      hash = "sha256-ltOy4iS5NEPF/cbbWs6tuxLq9tDqsTk75IsNH+sKSuA=";
+      version = "0.7.13";
+      hash = "sha256-hAshFd751aK3ZUP1Z+aJANtLmT955KiO1XJK+3ZNvBY=";
     })
   ];
 

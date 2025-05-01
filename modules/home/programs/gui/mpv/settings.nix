@@ -4,6 +4,10 @@
   ...
 }:
 
+let
+  mkShader = "no-osd change-list glsl-shaders";
+in
+
 {
   script = {
     sponsorblock-minimal = {
@@ -28,36 +32,37 @@
   config = {
     fs = "yes";
     osc = "no";
-    glsl-shaders =
-      let
-        inherit (pkgs) anime4k;
-        mk =
-          if (lib.x.sys.is == "laptop") then
-            "${anime4k}/Anime4K_Clamp_Highlights.glsl:${anime4k}/Anime4K_Restore_CNN_Soft_M.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_M.glsl:${anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_S.glsl"
-          else if (lib.x.sys.is == "desktop") then
-            "${anime4k}/Anime4K_Clamp_Highlights.glsl:${anime4k}/Anime4K_Restore_CNN_VL.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_VL.glsl:${anime4k}/Anime4K_Restore_CNN_M.glsl:${anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_M.glsl"
-          else
-            null;
-      in
-      (toString mk);
+    glsl-shaders = toString (
+      with pkgs;
+      if (lib.x.sys.is == "laptop") then
+        "${anime4k}/Anime4K_Clamp_Highlights.glsl:${anime4k}/Anime4K_Restore_CNN_Soft_M.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_M.glsl:${anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_S.glsl"
+      else if (lib.x.sys.is == "desktop") then
+        "${anime4k}/Anime4K_Clamp_Highlights.glsl:${anime4k}/Anime4K_Restore_CNN_VL.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_VL.glsl:${anime4k}/Anime4K_Restore_CNN_M.glsl:${anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_M.glsl"
+      else
+        null
+    );
   };
   extra = ''
     ${toString (
       if (lib.x.sys.is == "laptop") then
         (import ./anime4k/laptop.nix {
           inherit
+            mkShader
             pkgs
             ;
         })
       else if (lib.x.sys.is == "desktop") then
         (import ./anime4k/desktop.nix {
           inherit
+            mkShader
             pkgs
             ;
         })
       else
         null
     )}
-    CTRL+0 no-osd change-list glsl-shaders clr ""; show-text "GLSL shaders cleared"
+    # fsr
+    CTRL+7 ${mkShader} set "${pkgs.mpv-shim-default-shaders}/share/mpv-shim-default-shaders/shaders/FSR.glsl"; show-text "FSR enabled"
+    CTRL+0 ${mkShader} clr ""; show-text "GLSL shaders cleared"
   '';
 }

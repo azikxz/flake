@@ -9,6 +9,8 @@ let
   client =
     if cfg.package == (pkgs._64gram) then
       "64Gram"
+    else if cfg.package == (pkgs.stable._64gram) then
+      "64Gram"
     else if cfg.package == (pkgs.ayugram-desktop) then
       "AyuGramDesktop"
     else
@@ -108,278 +110,79 @@ in
     voiceConfirmation = false;
     wideMultiplier = 1.0;
   };
-  "${client}/tdata/shortcuts-custom.json".text = toJSON [
-    {
-      command = "previous_folder";
-      keys = "alt+,";
-    }
-    {
-      command = "next_folder";
-      keys = "alt+.";
-    }
-    {
-      command = "show_archive";
-      keys = "alt+a";
-    }
-    {
-      command = "folder4";
-      keys = "alt+b";
-    }
-    {
-      command = "folder2";
-      keys = "alt+c";
-    }
-    {
-      command = "self_chat";
-      keys = "alt+d";
-    }
-    {
-      command = "media_viewer_video_fullscreen";
-      keys = "alt+f";
-    }
-    {
-      command = "first_chat";
-      keys = "alt+g";
-    }
-    {
-      command = "next_chat";
-      keys = "alt+j";
-    }
-    {
-      command = "previous_chat";
-      keys = "alt+k";
-    }
-    {
-      command = "last_folder";
-      keys = "alt+m";
-    }
-    {
-      command = "folder5";
-      keys = "alt+n";
-    }
-    {
-      command = "close_telegram";
-      keys = "alt+q";
-    }
-    {
-      command = "read_chat";
-      keys = "alt+r";
-    }
-    {
-      command = "show_contacts";
-      keys = "alt+s";
-    }
-    {
-      command = "folder3";
-      keys = "alt+v";
-    }
-    {
-      command = "folder1";
-      keys = "alt+x";
-    }
-    {
-      command = "all_chats";
-      keys = "alt+z";
-    }
-    {
-      command = "message";
-      keys = "alt+return";
-    }
-    {
-      command = "media_previous";
-      keys = "alt+shift+;";
-    }
-    {
-      command = "media_next";
-      keys = "alt+shift+.";
-    }
-    {
-      command = "media_playpause";
-      keys = "alt+shift+/";
-    }
-    {
-      command = "account1";
-      keys = "alt+shift+1";
-    }
-    {
-      command = "account2";
-      keys = "alt+shift+2";
-    }
-    {
-      command = "account3";
-      keys = "alt+shift+3";
-    }
-    {
-      command = "account4";
-      keys = "alt+shift+4";
-    }
-    {
-      command = "account5";
-      keys = "alt+shift+5";
-    }
-    {
-      command = "account6";
-      keys = "alt+shift+6";
-    }
-    {
-      command = "archive_chat";
-      keys = "alt+shift+a";
-    }
-    {
-      command = "show_chat_menu";
-      keys = "alt+shift+d";
-    }
-    {
-      command = "last_chat";
-      keys = "alt+shift+g";
-    }
-    {
-      command = "quit_telegram";
-      keys = "alt+shift+q";
-    }
-    {
-      command = "show_scheduled";
-      keys = "alt+shift+s";
-    }
-    {
-      command = "message_silently";
-      keys = "alt+shift+return";
-    }
-    {
-      command = "message_scheduled";
-      keys = "ctrl+alt+return";
-    }
-    {
-      command = null;
-      keys = "media previous";
-    }
-    {
-      command = null;
-      keys = "media next";
-    }
-    {
-      command = null;
-      keys = "toggle media play/pause";
-    }
-    {
-      command = null;
-      keys = "ctrl+0";
-    }
-    {
-      command = null;
-      keys = "ctrl+1";
-    }
-    {
-      command = null;
-      keys = "ctrl+2";
-    }
-    {
-      command = null;
-      keys = "ctrl+3";
-    }
-    {
-      command = null;
-      keys = "ctrl+4";
-    }
-    {
-      command = null;
-      keys = "ctrl+5";
-    }
-    {
-      command = null;
-      keys = "ctrl+6";
-    }
-    {
-      command = null;
-      keys = "ctrl+7";
-    }
-    {
-      command = null;
-      keys = "ctrl+8";
-    }
-    {
-      command = null;
-      keys = "ctrl+9";
-    }
-    {
-      command = null;
-      keys = "ctrl+f";
-    }
-    {
-      command = null;
-      keys = "ctrl+j";
-    }
-    {
-      command = null;
-      keys = "ctrl+l";
-    }
-    {
-      command = null;
-      keys = "ctrl+m";
-    }
-    {
-      command = null;
-      keys = "ctrl+q";
-    }
-    {
-      command = null;
-      keys = "ctrl+r";
-    }
-    {
-      command = null;
-      keys = "ctrl+w";
-    }
-    {
-      command = null;
-      keys = "ctrl+\\";
-    }
-    {
-      command = null;
-      keys = "ctrl+tab";
-    }
-    {
-      command = null;
-      keys = "ctrl+backtab";
-    }
-    {
-      command = null;
-      keys = "ctrl+pgup";
-    }
-    {
-      command = null;
-      keys = "ctrl+pgdown";
-    }
-    {
-      command = null;
-      keys = "ctrl+f4";
-    }
-    {
-      command = null;
-      keys = "ctrl+shift+tab";
-    }
-    {
-      command = null;
-      keys = "ctrl+shift+up";
-    }
-    {
-      command = null;
-      keys = "ctrl+shift+down";
-    }
-    {
-      command = null;
-      keys = "alt+up";
-    }
-    {
-      command = null;
-      keys = "alt+down";
-    }
-    {
-      command = null;
-      keys = "ctrl+alt+home";
-    }
-    {
-      command = null;
-      keys = "ctrl+alt+end";
-    }
-  ];
+  "${client}/tdata/shortcuts-custom.json".text =
+    let
+      mk = keys: command: { inherit command keys; };
+      nk = mk null;
+    in
+    toJSON [
+      (mk "alt+," "previous_folder")
+      (mk "alt+." "next_folder")
+      (mk "alt+a" "show_archive")
+      (mk "alt+b" "folder4")
+      (mk "alt+c" "folder2")
+      (mk "alt+d" "self_chat")
+      (mk "alt+f" "media_viewer_video_fullscreen")
+      (mk "alt+g" "first_chat")
+      (mk "alt+j" "next_chat")
+      (mk "alt+k" "previous_chat")
+      (mk "alt+m" "last_folder")
+      (mk "alt+n" "folder5")
+      (mk "alt+q" "close_telegram")
+      (mk "alt+r" "read_chat")
+      (mk "alt+s" "show_contacts")
+      (mk "alt+v" "folder3")
+      (mk "alt+x" "folder1")
+      (mk "alt+z" "all_chats")
+      (mk "alt+return" "message")
+      (mk "alt+shift+" "media_previous")
+      (mk "alt+shift+." "media_next")
+      (mk "alt+shift+/" "media_playpause")
+      (mk "alt+shift+1" "account1")
+      (mk "alt+shift+2" "account2")
+      (mk "alt+shift+3" "account3")
+      (mk "alt+shift+4" "account4")
+      (mk "alt+shift+5" "account5")
+      (mk "alt+shift+6" "account6")
+      (mk "alt+shift+a" "archive_chat")
+      (mk "alt+shift+d" "show_chat_menu")
+      (mk "alt+shift+g" "last_chat")
+      (mk "alt+shift+q" "quit_telegram")
+      (mk "alt+shift+s" "show_scheduled")
+      (mk "alt+shift+return" "message_silently")
+      (mk "ctrl+alt+return" "message_scheduled")
+      (nk "media previous")
+      (nk "media next")
+      (nk "toggle media play/pause")
+      (nk "ctrl+0")
+      (nk "ctrl+1")
+      (nk "ctrl+2")
+      (nk "ctrl+3")
+      (nk "ctrl+4")
+      (nk "ctrl+5")
+      (nk "ctrl+6")
+      (nk "ctrl+7")
+      (nk "ctrl+8")
+      (nk "ctrl+9")
+      (nk "ctrl+f")
+      (nk "ctrl+j")
+      (nk "ctrl+l")
+      (nk "ctrl+m")
+      (nk "ctrl+q")
+      (nk "ctrl+r")
+      (nk "ctrl+w")
+      (nk "ctrl+\\")
+      (nk "ctrl+tab")
+      (nk "ctrl+backtab")
+      (nk "ctrl+pgup")
+      (nk "ctrl+pgdown")
+      (nk "ctrl+f4")
+      (nk "ctrl+shift+tab")
+      (nk "ctrl+shift+up")
+      (nk "ctrl+shift+down")
+      (nk "alt+up")
+      (nk "alt+down")
+      (nk "ctrl+alt+home")
+      (nk "ctrl+alt+end")
+    ];
 }

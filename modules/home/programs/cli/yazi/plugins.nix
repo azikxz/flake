@@ -59,6 +59,12 @@ in
         rev = "e3eb54b8d7d2e79d53db90bdb509211d7bceae2f";
         hash = "sha256-7eJjNJyC6q+foCF48lwtjCt8fKqHfRWebbp7ymEb5NE=";
       };
+      office = fetchFromGitHub {
+        owner = "macydnah";
+        repo = "office.yazi";
+        rev = "d1e3e51857c109fbfc707ab0f9f383dc98b9795f";
+        hash = "sha256-ORcexu1f7hb7G4IyzQIfGlCkH3OWlk4w5FtZrbXkR40=";
+      };
     }
     # custom
     // (plugin "smart-paste" # lua

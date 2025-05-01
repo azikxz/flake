@@ -6,7 +6,6 @@
 {
   module.programs = {
     gui.pkgs = with pkgs; [
-      libreoffice-fresh
       filezilla
 
       popsicle

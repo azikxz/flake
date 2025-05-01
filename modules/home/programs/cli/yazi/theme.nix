@@ -6,7 +6,7 @@
 
 with config.lib.stylix.colors.withHashtag;
 let
-  fg = "${base06}";
+  fg = base06;
 in
 
 lib.mkForce {
@@ -33,6 +33,11 @@ lib.mkForce {
     tab_width = 1;
     border_style = {
       fg = base01;
+    };
+    marker_marked = {
+      bg = base00;
+      fg = base0D;
+      bold = true;
     };
     marker_selected = {
       bg = base00;

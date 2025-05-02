@@ -9,7 +9,7 @@ with mpvScripts;
 ]
 ++ [
   (buildLua {
-    pname = "filenavigator";
+    pname = "navigator";
     version = "unstable";
     src = fetchFromGitHub {
       owner = "jonniek";

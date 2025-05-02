@@ -22,6 +22,7 @@ in
       time = if x.sys.is == "iso" then null else cfg.zone;
     in
     {
+      impermanence.dirs = [ "/var/lib/chrony" ];
       time.timeZone = time; # time
       services.chrony = on; # sync time
       i18n.defaultLocale = "en_US.UTF-8";

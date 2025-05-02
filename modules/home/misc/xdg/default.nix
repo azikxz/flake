@@ -14,6 +14,15 @@ with x;
   };
 
   config = {
+    impermanence.dirs = [
+      "Desktop"
+      "Documents"
+      "Downloads"
+      "Music"
+      "Pictures"
+      "Videos"
+      "Study"
+    ];
     home.packages = [ pkgs.xdg-user-dirs ];
     xdg = {
       mime = on;
@@ -32,26 +41,27 @@ with x;
         ];
       };
       userDirs =
+        let
+          mk = config.home.homeDirectory;
+        in
         on
         // {
-          createDirectories = true;
+          # xdg default
+          desktop = mk + "/Desktop";
+          documents = mk + "/Documents";
+          download = mk + "/Downloads";
+          music = mk + "/Music";
+          pictures = mk + "/Pictures";
+          publicShare = mk + "/";
+          templates = mk + "/";
+          videos = mk + "/Videos";
         }
-        // (
-          let
-            hmdir = config.home.homeDirectory;
-          in
-          {
-            # xdg default
-            desktop = hmdir + "/Desktop";
-            documents = hmdir + "/Documents";
-            download = hmdir + "/Downloads";
-            music = hmdir + "/Music";
-            pictures = hmdir + "/Pictures";
-            publicShare = hmdir + "/";
-            templates = hmdir + "/";
-            videos = hmdir + "/Videos";
-          }
-        );
+        // {
+          createDirectories = true;
+          extraConfig = {
+            XDG_STUDY_DIR = mk + "/Study";
+          };
+        };
       desktopEntries =
         let
           mk = name: {

@@ -10,16 +10,15 @@ with lib;
 with types;
 
 rec {
-  # ylib & stylix
+  # ylib
   umport = import ./umport.nix {
     inherit
       lib
       ;
   };
-  baseName = filter (path: baseNameOf path == "default.nix");
   mkUmport =
     path: exclude:
-    (baseName (umport {
+    ((filter (path': baseNameOf path' == "default.nix")) (umport {
       inherit
         path
         exclude

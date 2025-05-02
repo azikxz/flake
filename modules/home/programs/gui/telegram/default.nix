@@ -21,6 +21,22 @@ in
   };
 
   config = mkIf cfg.enable {
+    impermanence.dirs = [
+      ".local/share/${
+        if
+          elem cfg.package [
+            pkgs._64gram
+            pkgs.stable._64gram
+          ]
+        then
+          "64Gram"
+        else if cfg.package == pkgs.ayugram-desktop then
+          "AyuGramDesktop"
+        else
+          "TelegramDesktop"
+      }/tdata"
+      ".cache/stylix-telegram-theme"
+    ];
     home.packages =
       [ cfg.package ]
       ++ (optional (cfg.package == pkgs.ayugram-desktop) (
@@ -39,6 +55,7 @@ in
       dataFile = import ./configs.nix {
         inherit
           pkgs
+          lib
           config
           ;
       };

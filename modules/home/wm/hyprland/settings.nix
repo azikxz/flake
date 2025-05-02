@@ -109,7 +109,7 @@ with config.lib.stylix.colors;
     kb_options = "grp:caps_toggle";
     touchpad = {
       natural_scroll = false;
-      disable_while_typing = true;
+      disable_while_typing = false;
     };
   };
   device = [
@@ -146,11 +146,11 @@ with config.lib.stylix.colors;
     disable_hyprland_logo = true;
     disable_splash_rendering = true;
     mouse_move_enables_dpms = true;
-    # vfr = true;
+    vfr = true;
     vrr = 1;
     animate_manual_resizes = true;
     animate_mouse_windowdragging = true;
-    # enable_swallow = true;
+    enable_swallow = true;
     close_special_on_empty = true;
     background_color = mkForce "rgb(${base00})";
   };

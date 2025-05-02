@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   config,
 }:
 
@@ -7,9 +8,12 @@ let
   inherit (builtins) toJSON;
   cfg = config.module.programs.gui.telegram;
   client =
-    if cfg.package == (pkgs._64gram) then
-      "64Gram"
-    else if cfg.package == (pkgs.stable._64gram) then
+    if
+      lib.elem cfg.package [
+        pkgs._64gram
+        pkgs.stable._64gram
+      ]
+    then
       "64Gram"
     else if cfg.package == (pkgs.ayugram-desktop) then
       "AyuGramDesktop"

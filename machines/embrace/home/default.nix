@@ -68,6 +68,7 @@ in
     ];
     misc = mkOn [
       "dconf"
+      "impermanence"
       "xdg"
     ];
   };

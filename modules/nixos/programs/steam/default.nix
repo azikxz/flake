@@ -33,6 +33,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    impermanence.user.dirs = [
+      ".local/share/Steam"
+      ".steam"
+    ];
     hardware.xone = on;
     programs = {
       fish.shellAbbrs = mkIf config.programs.fish.enable {

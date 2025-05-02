@@ -19,6 +19,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    impermanence.files = [ ".local/share/fish/fish_history" ];
     home.packages = with pkgs; [ grc ];
     programs = {
       fish = on // {
@@ -29,7 +30,6 @@ in
             ;
         };
         interactiveShellInit =
-
           let
             d = "bind -M default";
             v = "bind -M visual";

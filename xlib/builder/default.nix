@@ -7,7 +7,7 @@
 
 let
   inherit (inputs) nixpkgs home nixcord;
-  backup = "pohuy";
+  backup = "poebat";
   secrets = ../../secrets.nix;
   # make configuration
   mkMachine =
@@ -24,6 +24,7 @@ let
         pass = null;
         flake = "/etc/nixos";
         steamUnified = null;
+        impermanence = null;
       },
       styl ? {
         theme = "horizon-dark";

@@ -24,6 +24,7 @@ in
     ./stylesheets.nix
   ];
   config = mkIf cfg.enable {
+    impermanence.dirs = [ ".local/share/qutebrowser" ];
     home.packages = with pkgs.python312Packages; [
       adblock
       requests

@@ -22,6 +22,7 @@ in
 
   imports = with inputs; [ nixpkgs.nixosModules.notDetected ];
   config = mkIf cfg.enable {
+    impermanence.dirs = mkIf cfg.plymouth.enable [ "/var/lib/plymouth" ];
     boot = {
       tmp.cleanOnBoot = true;
       kernelModules = [ "kvm-amd" ];

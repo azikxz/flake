@@ -19,6 +19,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    impermanence.dirs = [ "/var/lib/bluetooth" ];
     environment.systemPackages = with pkgs; [ bluetui ];
     hardware.bluetooth = on // {
       powerOnBoot = true;

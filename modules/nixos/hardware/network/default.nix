@@ -18,6 +18,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    impermanence.dirs = [
+      "/var/lib/NetworkManager"
+      "/var/lib/iwd"
+    ];
     networking = {
       hosts = import ./hosts.nix;
       resolvconf.dnsSingleRequest = true;

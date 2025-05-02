@@ -18,6 +18,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    impermanence.dirs = [ ".local/share/zoxide" ];
     programs.zoxide = on // {
       enableFishIntegration = true;
       enableZshIntegration = true;

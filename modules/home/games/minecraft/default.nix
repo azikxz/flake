@@ -20,6 +20,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    impermanence.dirs = [ ".local/share/PrismLauncher" ];
     home.packages =
       with pkgs;
       [

@@ -19,6 +19,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    impermanence.dirs = [ ".srb2" ];
     home.packages = with pkgs; [
       srb2
     ];

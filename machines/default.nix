@@ -30,9 +30,10 @@
       flake = "/persist/flake";
       pass = "/persist/vault/passwords.kdbx";
       steamUnified = "/persist/proton-prefix";
+      impermanence = "/persist";
     };
     styl = {
-      theme = "neo-gen";
+      theme = "neoGenesis";
       image = "townChristmas";
     };
   };

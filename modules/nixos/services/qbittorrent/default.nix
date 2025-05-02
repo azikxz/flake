@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   ...
@@ -20,6 +19,7 @@ in
 
   imports = [ ./module.nix ];
   config = mkIf cfg.enable {
+    impermanence.dirs = [ "/var/lib/qBittorrent" ];
     services.qbittorrent = on // {
       torrentingPort = 6881;
       serverConfig = {

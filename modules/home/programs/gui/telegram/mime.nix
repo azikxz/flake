@@ -9,7 +9,12 @@ let
   mk = type: list: (lib.genAttrs list (n: (type + ".desktop")));
   cfg = config.module.programs.gui.telegram;
   client =
-    if cfg.package == (pkgs._64gram or pkgs.stable._64gram) then
+    if
+      lib.elem cfg.package [
+        pkgs._64gram
+        pkgs.stable._64gram
+      ]
+    then
       "io.github.tdesktop_x64.TDesktop.desktop"
     else if cfg.package == (pkgs.ayugram-desktop) then
       "com.ayugram.desktop.desktop"

@@ -18,6 +18,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    impermanence.dirs = [
+      ".local/share/syncthing"
+      ".local/state/syncthing"
+    ];
     services.syncthing = on;
   };
 }

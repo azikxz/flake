@@ -23,7 +23,6 @@ in
       boot = on // {
         plymouth = on;
       };
-      impermanence = on;
       network = on;
       power = on;
       sound = on;
@@ -41,6 +40,7 @@ in
       polkit = on;
       qbittorrent = on;
       tlp = on;
+      torrserver = on;
       zram.algo = "zstd";
     };
     programs = {
@@ -50,6 +50,7 @@ in
       nh = on;
     };
     misc = {
+      impermanence = on;
       locales.zone = "Asia/Chita";
       security = on;
       users.passwd = "$2b$05$KxzRemxpLZBhgRObiACMBuZqXgCSdy8OEu2WtGohJkiCiabRhHAtm";

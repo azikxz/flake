@@ -33,10 +33,11 @@ in
   config = mkIf cfg.enable {
     programs.mpv = on // {
       bindings = import ./bindings.nix;
-      scripts = with pkgs.mpvScripts; [
-        sponsorblock-minimal
-        thumbnail
-      ];
+      scripts = import ./scripts.nix {
+        inherit
+          pkgs
+          ;
+      };
       scriptOpts = settings.script // theme.uosc;
       config = settings.config // theme.conf;
       extraInput = settings.extra;

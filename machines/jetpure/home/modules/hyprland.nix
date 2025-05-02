@@ -10,7 +10,10 @@ in
 
 {
   module.wm.hyprland = {
-    autostart = [ "mako" ];
+    autostart = [
+      "keepassxc --minimized"
+      "mako"
+    ];
     binds = [
       (m "RETURN" "kitty")
       (s "RETURN" "kitty --class=termfloat")

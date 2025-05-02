@@ -1,3 +1,7 @@
+let
+  mk = cmd: desc: ''${cmd}; show-text "${desc}"'';
+in
+
 {
   WHEEL_UP = "add volume 2";
   WHEEL_DOWN = "add volume -2";
@@ -30,12 +34,12 @@
   "й" = "quit";
   Q = "quit-watch-later";
 
-  SPACE = "cycle pause";
-  p = "cycle pause";
-  "з" = "cycle pause";
+  SPACE = mk "cycle pause" "Paused";
+  p = mk "cycle pause" "Paused";
+  "з" = mk "cycle pause" "Paused";
 
-  m = "cycle mute";
-  "ь" = "cycle mute";
+  m = mk "cycle mute" "Muted";
+  "ь" = mk "cycle mute" "Muted";
 
   o = "show-progress";
   "щ" = "show-progress";

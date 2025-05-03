@@ -73,6 +73,13 @@
       };
     };
 
+    nixages = {
+      url = "sourcehut:~neverness/nixages";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
     base16 = {
       url = "sourcehut:~neverness/design/base16";
       inputs = {

@@ -1,5 +1,4 @@
 {
-  self,
   inputs,
   pkgs,
   lib,
@@ -36,7 +35,6 @@ rec {
 }
 // import ./nixpkgs.nix {
   inherit
-    self
     inputs
     pkgs
     ;

@@ -1,5 +1,4 @@
 {
-  self,
   inputs,
   pkgs,
   ...
@@ -40,7 +39,7 @@
       with inputs;
       let
         inherit (pkgs) system;
-        xpackage = self.packages.${system};
+        xpackage = nixages.packages.${system};
         torr = torrHelper.packages.${system};
         qb = qbHelper.packages.${system};
       in

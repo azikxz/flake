@@ -50,7 +50,6 @@ let
             }
             // import ./options/addit.nix {
               inherit
-                self
                 inputs
                 lib
                 pkgs

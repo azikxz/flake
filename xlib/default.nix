@@ -22,16 +22,6 @@ let
       ;
   };
 
-  mk = import ./other {
-    inherit
-      forAllSystems
-      self
-      inputs
-      pkgs
-      lib
-      ;
-  };
-
   forAllSystems = i: lib.genAttrs sys i;
   sys = [
     "x86_64-linux"
@@ -43,10 +33,13 @@ in
 
 {
   nixosConfigurations = build machines;
+  formatter = forAllSystems (system: pkgs.nixfmt-rfc-style);
+  devShells = forAllSystems (
+    system:
+    (import ./shells.nix {
+      inherit
+        pkgs
+        ;
+    })
+  );
 }
-
-// (lib.genAttrs [
-  "formatter"
-  "packages"
-  "devShells"
-] (n: mk.${n}))

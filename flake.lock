@@ -584,6 +584,29 @@
         "type": "github"
       }
     },
+    "nixages": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1746255310,
+        "narHash": "sha256-1l7DnJud8dHUE5jCCzMm2d1MGovq2YE06c+UIDdJ1WY=",
+        "owner": "~neverness",
+        "repo": "nixages",
+        "rev": "2acb1eb53c244e37d9b415ab40dc7708b5492923",
+        "type": "sourcehut"
+      },
+      "original": {
+        "owner": "~neverness",
+        "repo": "nixages",
+        "type": "sourcehut"
+      }
+    },
     "nixcord": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -751,6 +774,7 @@
         "home": "home",
         "impermanence": "impermanence",
         "niri": "niri",
+        "nixages": "nixages",
         "nixcord": "nixcord",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",

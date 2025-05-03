@@ -4,7 +4,10 @@
 }:
 
 let
-  inherit (pkgs) writeTextDir fetchFromGitHub;
+  inherit (pkgs)
+    writeTextDir
+    fetchFromGitHub
+    ;
   mkPlugin = n: {
     "${n}" = (yazi-plugins + "/" + n + ".yazi");
   };

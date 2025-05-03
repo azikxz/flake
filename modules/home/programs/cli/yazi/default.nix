@@ -46,7 +46,7 @@ in
           pkgs
           ;
       }
-      // import ./settings/settings.nix {
+      // import ./settings/main.nix {
         inherit
           lib
           config

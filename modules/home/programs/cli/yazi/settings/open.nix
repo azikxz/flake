@@ -1,5 +1,4 @@
 let
-  gen = import ./gen.nix;
   mkMime = mime: use: {
     inherit
       mime
@@ -22,10 +21,17 @@ in
     (mkName "*.exe" [
       "exe"
     ])
+    (mkName "*.pdf" [
+      "pdf"
+    ])
   ];
   rules =
-    gen.ext
-    ++ gen.app
+    (
+      let
+        gen = import ./gen.nix;
+      in
+      gen.ext ++ gen.app
+    )
     ++ [
       (mkMime "image/*" [
         "image"

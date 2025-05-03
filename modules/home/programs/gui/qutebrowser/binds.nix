@@ -17,7 +17,7 @@ in
     # tabs
     "<Alt-j>" = "tab-move +";
     "<Alt-k>" = "tab-move -";
-    "gp" = "tab-pin";
+    "gp" = "tab-pin ;; " + "tab-move";
     # mpv
     ",h" = "open qute://start/";
     # mpv

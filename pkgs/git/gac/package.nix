@@ -1,7 +1,7 @@
 { pkgs, lib }:
 
-pkgs.stdenvNoCC.mkDerivation {
-  pname = "gitAutoCommit";
+pkgs.stdenvNoCC.mkDerivation rec {
+  pname = "gac";
   version = "unstable";
 
   src = pkgs.fetchurl {
@@ -15,13 +15,13 @@ pkgs.stdenvNoCC.mkDerivation {
   installPhase = ''
     mkdir -p $out/bin
 
-    install -Dm755 $src $out/bin/gac
-    chmod +x $out/bin/gac
+    install -Dm755 $src $out/bin/${pname}
+    chmod +x $out/bin/${pname}
 
-    wrapProgram $out/bin/gac \
+    wrapProgram $out/bin/${pname} \
       --prefix PATH ':' \
         "${lib.makeBinPath (with pkgs; [ git ])}"
   '';
 
-  meta.mainProgram = "gac";
+  meta.mainProgram = pname;
 }

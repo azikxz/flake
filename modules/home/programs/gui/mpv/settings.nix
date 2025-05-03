@@ -6,6 +6,7 @@
 
 let
   mkShader = "no-osd change-list glsl-shaders";
+  inherit (lib.x.sys) is;
 in
 
 {
@@ -26,7 +27,7 @@ in
       thumbnail_height = 200;
       thumbnail_count = 150;
       thumbnail_network = "no";
-      background_color = "282828";
+      background_color = "000000";
     };
   };
   config = {
@@ -34,9 +35,9 @@ in
     osc = "no";
     glsl-shaders = toString (
       with pkgs;
-      if (lib.x.sys.is == "laptop") then
+      if (is == "laptop") then
         "${anime4k}/Anime4K_Clamp_Highlights.glsl:${anime4k}/Anime4K_Restore_CNN_Soft_M.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_M.glsl:${anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_S.glsl"
-      else if (lib.x.sys.is == "desktop") then
+      else if (is == "desktop") then
         "${anime4k}/Anime4K_Clamp_Highlights.glsl:${anime4k}/Anime4K_Restore_CNN_VL.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_VL.glsl:${anime4k}/Anime4K_Restore_CNN_M.glsl:${anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_M.glsl"
       else
         null
@@ -44,14 +45,14 @@ in
   };
   extra = ''
     ${toString (
-      if (lib.x.sys.is == "laptop") then
+      if (is == "laptop") then
         (import ./anime4k/laptop.nix {
           inherit
             mkShader
             pkgs
             ;
         })
-      else if (lib.x.sys.is == "desktop") then
+      else if (is == "desktop") then
         (import ./anime4k/desktop.nix {
           inherit
             mkShader

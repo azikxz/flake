@@ -1,13 +1,13 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
-with pkgs;
-with mpvScripts;
-
-[
+(with pkgs.mpvScripts; [
   sponsorblock-minimal
   thumbnail
-]
-++ [
+])
+++ (with pkgs; [
   (buildLua {
     pname = "navigator";
     version = "unstable";
@@ -18,4 +18,4 @@ with mpvScripts;
       hash = "sha256-JjYDBdoPcNH+SVbOIFICJSM1sH6t6IEA2yHnHMbHpV8=";
     };
   })
-]
+])

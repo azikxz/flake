@@ -1,12 +1,12 @@
 { pkgs, lib }:
 
 pkgs.stdenvNoCC.mkDerivation rec {
-  pname = "gac-fzf";
+  pname = "gc";
   version = "unstable";
 
   src = pkgs.fetchurl {
-    url = "https://gist.githubusercontent.com/mctrxnv/1943ce0b6752eca8ed674cf2b283fa51/raw/25004477fa4377d88f49cdf69ae9d51353857c7f/gistfile1.txt";
-    sha256 = "sha256-s020FG7Nitpk//CNAL6VsXdGaFBj8BJvWwVjhlccmwI=";
+    url = "https://gist.githubusercontent.com/mctrxnv/7ddc30a64bf4ed481efda56e90065d08/raw/46ffb6cbf069f0000a0c8ff77376e9fa09c5cebf/gistfile1.txt";
+    sha256 = "sha256-l/HWelNMb0I0Ys6Py4yzZNPLlIMnlw4akVzFkpdh2Ew=";
   };
 
   nativeBuildInputs = [ pkgs.makeWrapper ];
@@ -20,15 +20,7 @@ pkgs.stdenvNoCC.mkDerivation rec {
 
     wrapProgram $out/bin/${pname} \
       --prefix PATH ':' \
-        "${
-          lib.makeBinPath (
-            with pkgs;
-            [
-              git
-              fzf
-            ]
-          )
-        }"
+        "${lib.makeBinPath (with pkgs; [ git ])}"
   '';
 
   meta.mainProgram = pname;

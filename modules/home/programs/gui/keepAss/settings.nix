@@ -35,6 +35,12 @@ in
   PasswordGenerator = {
     Length = 32;
     AdvancedMode = true;
+    LowerCase = true;
+    UpperCase = true;
+    Numbers = true;
+    SpecialChars = true;
+    Quotes = true;
+    Dashes = true;
   };
   Security = {
     ClearSearch = false;

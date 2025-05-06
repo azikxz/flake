@@ -26,7 +26,6 @@ in
         "yazi"
       ];
       gui = mkOn [
-        "keepass"
         "mpv"
         "qutebrowser"
         "spotify"

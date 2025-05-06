@@ -6,7 +6,6 @@
 
 let
   inherit (lib)
-    getExe
     getExe'
     x
     ;
@@ -29,12 +28,6 @@ in
     # keepassxc
     ",p" = "spawn --userscript qute-keepass -p " + x.path.pass;
     # torrent upload
-    ",s" =
-      "hint links spawn ${getExe pkgs."qutebrowser/torrDL"} {url} ;; "
-      + "message-info 'Torrent successfuly added to QBittorrent'";
-    ",S" =
-      "hint links spawn ${getExe pkgs.rut2qb} --paused {url} ;; "
-      + "message-info 'Torrent successfuly added to QBittorrent'";
     ",r" =
       "spawn ${getExe' pkgs.torrMagnet "torrMagnet"} {url} ;; "
       + "message-info 'Torrent successfuly added to Torrserver'";

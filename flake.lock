@@ -738,6 +738,22 @@
         "type": "github"
       }
     },
+    "protonfixes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1746508880,
+        "narHash": "sha256-aVZQ39Tn7iMeTsryaPmSKciN01svhOT+By8ReXk8pkc=",
+        "owner": "Open-Wine-Components",
+        "repo": "umu-protonfixes",
+        "rev": "ee2927ea41e819817ae36f7231b5ba568db7c4e2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Open-Wine-Components",
+        "repo": "umu-protonfixes",
+        "type": "github"
+      }
+    },
     "qbHelper": {
       "inputs": {
         "flake-utils": [
@@ -779,10 +795,12 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
         "nur": "nur",
+        "protonfixes": "protonfixes",
         "qbHelper": "qbHelper",
         "spicetify": "spicetify",
         "stylix": "stylix",
         "torrHelper": "torrHelper",
+        "umu-database": "umu-database",
         "wallpapers": "wallpapers",
         "yt-x": "yt-x"
       }
@@ -1105,6 +1123,18 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
+      }
+    },
+    "umu-database": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-QnGgaTlIaag2G0ZRObVRJxrn4aKIbEGlNXPkQBNeQ/s=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/Open-Wine-Components/umu-database/refs/heads/main/umu-database.csv"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/Open-Wine-Components/umu-database/refs/heads/main/umu-database.csv"
       }
     },
     "wallpapers": {

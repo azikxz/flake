@@ -94,5 +94,14 @@
         flake-utils.follows = "flake-utils";
       };
     };
+
+    protonfixes = {
+      url = "github:Open-Wine-Components/umu-protonfixes";
+      flake = false;
+    };
+    umu-database = {
+      url = "https://raw.githubusercontent.com/Open-Wine-Components/umu-database/refs/heads/main/umu-database.csv";
+      flake = false;
+    };
   };
 }

@@ -7,11 +7,13 @@
 }:
 
 with config.lib.stylix.colors;
+let
+  lutgen = lib.getExe pkgs.lutgen;
+  wall = inputs.wallpapers."${lib.x.styl.image}";
+in
 
 pkgs.runCommand "output.png" { } ''
-  ${lib.getExe pkgs.lutgen} apply ${
-    inputs.wallpapers.paths.x86_64-linux."${lib.x.styl.image}"
-  } -o $out -- ${
+  ${lutgen} apply ${wall} -o $out -- ${
     builtins.concatStringsSep " " [
       base00
       base01

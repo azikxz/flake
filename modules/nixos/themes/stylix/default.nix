@@ -31,7 +31,7 @@ in
           config
           ;
       };
-      base16Scheme = inputs.base16.paths.x86_64-linux."${x.styl.theme}";
+      base16Scheme = inputs.base16."${x.styl.theme}";
       targets = {
         console = on; # tty
         chromium = on; # tty

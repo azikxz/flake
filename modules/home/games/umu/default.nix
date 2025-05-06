@@ -23,7 +23,7 @@ in
   config = mkIf cfg.enable {
     impermanence.dirs = [ ".local/share/umu" ];
     home = {
-      abbrs.uwu = "umu-run";
+      shellAbbrs.uwu = "umu-run";
       packages = with pkgs; [
         (pkgs.umu-launcher.override {
           extraEnv = {

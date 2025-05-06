@@ -3,11 +3,16 @@
   ...
 }:
 
-(with pkgs.mpvScripts; [
+with pkgs.mpvScripts;
+let
+  inherit (pkgs) fetchFromGitHub;
+in
+
+[
   sponsorblock-minimal
   thumbnail
-])
-++ (with pkgs; [
+]
+++ [
   (buildLua {
     pname = "navigator";
     version = "unstable";
@@ -18,4 +23,4 @@
       hash = "sha256-JjYDBdoPcNH+SVbOIFICJSM1sH6t6IEA2yHnHMbHpV8=";
     };
   })
-])
+]

@@ -45,7 +45,7 @@ with x;
           mk = config.home.homeDirectory;
         in
         on
-        // {
+        // rec {
           # xdg default
           desktop = mk + "/Desktop";
           documents = mk + "/Documents";
@@ -55,11 +55,10 @@ with x;
           publicShare = mk + "/";
           templates = mk + "/";
           videos = mk + "/Videos";
-        }
-        // {
           createDirectories = true;
           extraConfig = {
             XDG_STUDY_DIR = mk + "/Study";
+            XDG_SCREENSHOTS_DIR = pictures + "/Screenshots";
           };
         };
       desktopEntries =

@@ -34,6 +34,7 @@ in
         }
         // import ./rules.nix {
           inherit
+            lib
             config
             ;
         }

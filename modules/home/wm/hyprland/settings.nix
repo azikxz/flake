@@ -50,7 +50,7 @@ with config.lib.stylix.colors;
     "col.inactive_border" = mkForce "rgb(${base01})";
   };
   decoration = {
-    rounding = 0;
+    rounding = 12;
     dim_inactive = true;
     dim_strength = 0.3;
     shadow = on // {

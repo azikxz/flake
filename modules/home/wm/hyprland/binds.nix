@@ -74,7 +74,7 @@ in
     ]
     ++ (
       let
-        pic = "$(xdg-user-dir PICTURES)/scr/$(date +'scr_%d-%m-%y|%H:%M:%S.png')";
+        pic = "${config.xdg.userDirs.extraConfig.XDG_SCREENSHOTS_DIR}/$(date +'scr_%d-%m-%y_%H:%M:%S.png')";
       in
       [
         # screenshot
@@ -155,15 +155,16 @@ in
     ]
     ++ (
       let
-        mic = pkgs.writeShellScriptBin "micMute-hyprland" ''
-          fixf4=$(cat /sys/class/leds/platform\:\:micmute/brightness);
-          echo $((1-fixf4)) | sudo ${tee} /sys/class/leds/platform\:\:micmute/brightness;
-          wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-        '';
       in
       [
         (fn "XF86AudioMute       " "$ex, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
-        (fn "XF86AudioMicMute    " "$ex, ${getExe mic}")
+        (fn "XF86AudioMicMute    " "$ex, ${getExe (
+          pkgs.writeShellScriptBin "micMute" ''
+            fixf4=$(cat /sys/class/leds/platform\:\:micmute/brightness);
+            echo $((1-fixf4)) | sudo ${tee} /sys/class/leds/platform\:\:micmute/brightness;
+            wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+          ''
+        )}")
         (fn "XF86AudioRaiseVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")
         (fn "XF86AudioLowerVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
         (fs "XF86AudioRaiseVolume" "$ex, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+")

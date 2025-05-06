@@ -1,7 +1,16 @@
 {
+  lib,
   config,
   ...
 }:
+
+let
+  wsSel = [
+    "w[t1]"
+    "w[tg1]"
+    "f[1]"
+  ];
+in
 
 {
   layerrule =
@@ -12,15 +21,7 @@
       (mk "noanim" "notifications")
       (mk "blur" "launcher")
     ];
-  workspace =
-    let
-      gaps = "gapsout:0, gapsin:0";
-    in
-    [
-      "w[tv1], bordersize:0"
-      ("w[tv1], " + gaps)
-      (" f[1],  " + gaps)
-    ];
+  workspace = map (x: "${x}, gapsout:0, gapsin:0") wsSel;
   windowrule =
     let
       inherit (config.lib.stylix.colors) base0B base01;
@@ -96,5 +97,11 @@
         (no + "onworkspace:w[tv1]")
         (no + "onworkspace:f[1]")
       ]
-    );
+    )
+    ++ (lib.flatten (
+      map (x: [
+        "bordersize 0, floating:0, onworkspace:${x}"
+        "rounding 0, floating:0, onworkspace:${x}"
+      ]) wsSel
+    ));
 }

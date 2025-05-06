@@ -81,7 +81,7 @@ in
   "XF86AudioMicMute" =
     exec
     + (lib.getExe (
-      pkgs.writeShellScriptBin "micMute-hyprland" ''
+      pkgs.writeShellScriptBin "micMute" ''
         fixf4=$(cat /sys/class/leds/platform\:\:micmute/brightness);
         echo $((1-fixf4)) | sudo tee /sys/class/leds/platform\:\:micmute/brightness;
         wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle

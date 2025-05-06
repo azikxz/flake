@@ -13,7 +13,7 @@
       steamUnified = "/media/disks/fastBitch/SteamUnified";
     };
     styl = {
-      theme = "tokyocityDark";
+      theme = "paradise";
       image = "vanRoad";
     };
   };

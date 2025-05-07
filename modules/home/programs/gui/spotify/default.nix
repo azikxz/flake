@@ -45,7 +45,6 @@ in
       // (lib.genAttrs [
         "enabledExtensions"
         "enabledSnippets"
-        "enabledCustomApps"
       ] (n: add.${n}));
   };
 }

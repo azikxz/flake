@@ -2,19 +2,16 @@
   "nodes": {
     "base16": {
       "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1746491281,
-        "narHash": "sha256-wSDNPtCtbgH9RMW9ukql7g6xuEQji0ShPbRb+5SSy/g=",
+        "lastModified": 1746623289,
+        "narHash": "sha256-gLFCfa5I8YSurD/n3REX/D4ywmKsQSvgXGTP3dResfg=",
         "owner": "~neverness",
         "repo": "design",
-        "rev": "79f178fc12841a1d87756be88c698bb002a5c284",
+        "rev": "c26931a0025b1975bb6ca2c98a6ad426ab4c5d4e",
         "type": "sourcehut"
       },
       "original": {
@@ -1139,19 +1136,16 @@
     },
     "wallpapers": {
       "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1746491391,
-        "narHash": "sha256-22I52kE+YdJDgTx9eyoXIAtXA8iwgUnLtLlNEuk90LY=",
+        "lastModified": 1746491524,
+        "narHash": "sha256-vxa0/U9VBdg6BVjHYe4YmyQSSn4IYJSETI2UWwo7GjY=",
         "owner": "~neverness",
         "repo": "design",
-        "rev": "a94d25bebeb0295f0c7860102aecc32adadc4481",
+        "rev": "4bf52dfbffbbd4fe3647a473756eecea17163268",
         "type": "sourcehut"
       },
       "original": {

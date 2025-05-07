@@ -9,14 +9,19 @@ let
   inherit (spicePkgs)
     extensions
     snippets
-    apps
+    themes
     ;
 in
 
 {
-  theme = spicePkgs.themes.sleek // {
-    additionalCss = # css
-      ''*{font-family:"${config.stylix.fonts.monospace.name}"!important}'';
+  theme = themes.default // {
+    additionalCss =
+      # css
+      ''
+        * {
+          font-family: "${config.stylix.fonts.monospace.name}" !important
+        }
+      '';
   };
   enabledExtensions = with extensions; [
     fullAppDisplay
@@ -51,11 +56,5 @@ in
     hideSidebarScrollbar
     betterLyricsStyle
     queueTopSidePanel
-  ];
-  enabledCustomApps = with apps; [
-    lyricsPlus
-    newReleases
-    betterLibrary
-    historyInSidebar
   ];
 }

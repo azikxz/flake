@@ -9,6 +9,7 @@ with lib;
 with x;
 let
   cfg = config.module.wm.hyprland;
+  nixosCfg = config'.programs.hyprland.enable;
 in
 
 {
@@ -21,7 +22,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    wayland.windowManager.hyprland = on // {
+    wayland.windowManager.hyprland = (if nixosCfg then on else off) // {
       xwayland = on;
       systemd = on;
       settings =

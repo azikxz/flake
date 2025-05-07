@@ -29,7 +29,7 @@ in
         helix
         fff
       ]
-      + cfg.extraPackages;
+      ++ cfg.extraPackages;
     programs = {
       adb = if (sys.is == "laptop") then on else off;
       light = if (sys.is == "desktop") then on else off;

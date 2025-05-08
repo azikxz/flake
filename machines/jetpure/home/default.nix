@@ -32,6 +32,7 @@ in
       ];
       gui =
         mkOn [
+          "libreoffice"
           "mpv"
           "nixcord"
           "obs"
@@ -43,7 +44,7 @@ in
           "zathura"
         ]
         // {
-          libreoffice = on // {
+          libreoffice = {
             yazi = on;
           };
         };
@@ -56,9 +57,10 @@ in
     themes =
       mkOn [
         "qt"
+        "stylix"
       ]
       // {
-        stylix = on // {
+        stylix = {
           icon = "adwaita";
           cursor.size = 16;
         };

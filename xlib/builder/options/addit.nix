@@ -23,15 +23,16 @@ rec {
         exclude
         ;
     }));
-
-  # enable = true; ++ enable = false;
-  on.enable = true;
-  off.enable = false;
-
+}
+// {
   # for programs
   toGen = type: contain: generators.${toString type} { } contain;
-  mkOn = list: genAttrs list (n: on);
-  mkOff = list: genAttrs list (n: off);
+  recMerge = lib.foldl' lib.attrsets.recursiveUpdate { };
+}
+// import ./mkBoolAttrs.nix {
+  inherit
+    lib
+    ;
 }
 // import ./nixpkgs.nix {
   inherit

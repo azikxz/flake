@@ -8,19 +8,19 @@
 with lib;
 with x;
 let
-  cfg = config.module.games.mindustry;
+  cfg = config.module.games.openarena;
 in
 
 {
   options = {
-    module.games.mindustry = {
+    module.games.openarena = {
       enable = mkBool false;
     };
   };
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      mindustry-wayland
+      openarena
     ];
   };
 }

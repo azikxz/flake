@@ -19,13 +19,15 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ legendary-gl ];
+    home.packages = with pkgs; [
+      legendary-gl
+    ];
     xdg.configFile."legendary/config.ini".text = toGen "toINI" {
       "Legendary" = {
         log_level = "debug";
         max_memory = 2048;
         max_workers = 8;
-        install_dir = "/mnt/HDD/Games[LITE]";
+        install_dir = "/media/disks/fastBitch/Games";
         locale = "en-US";
         disable_https = false;
         disable_update_check = false;

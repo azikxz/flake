@@ -22,6 +22,8 @@ in
       ".local/share/syncthing"
       ".local/state/syncthing"
     ];
-    services.syncthing = on;
+    services.syncthing = on // {
+      settings.options.relaysEnabled = true;
+    };
   };
 }

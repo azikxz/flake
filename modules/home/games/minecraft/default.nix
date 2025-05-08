@@ -20,7 +20,11 @@ in
   };
 
   config = mkIf cfg.enable {
-    impermanence.dirs = [ ".local/share/PrismLauncher" ];
+    impermanence.dirs =
+      [ ".local/share/PrismLauncher" ]
+      ++ (lib.optionals cfg.cli.enable [
+        ".minecraft"
+      ]);
     home.packages =
       with pkgs;
       [

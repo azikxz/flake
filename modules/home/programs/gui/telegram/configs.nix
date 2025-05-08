@@ -5,7 +5,6 @@
 }:
 
 let
-  inherit (builtins) toJSON;
   cfg = config.module.programs.gui.telegram;
   client =
     if
@@ -22,7 +21,7 @@ let
 in
 
 {
-  "${client}/tdata/enhanced-settings-custom.json".text = toJSON {
+  "${client}/tdata/enhanced-settings-custom.json".text = builtins.toJSON {
     always_delete_for = 0;
     auto_unmute = false;
     bitrate = 0;
@@ -54,7 +53,7 @@ in
     stereo_mode = false;
     translate_to_tc = false;
   };
-  "${client}/tdata/ayu_settings.json".text = toJSON {
+  "${client}/tdata/ayu_settings.json".text = builtins.toJSON {
     appIcon = "alt";
     channelBottomButton = 0;
     collapseSimilarChannels = true;
@@ -119,7 +118,7 @@ in
       mk = keys: command: { inherit command keys; };
       nk = mk null;
     in
-    toJSON [
+    builtins.toJSON [
       (mk "alt+," "previous_folder")
       (mk "alt+." "next_folder")
       (mk "alt+a" "show_archive")

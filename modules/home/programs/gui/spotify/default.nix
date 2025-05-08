@@ -10,7 +10,6 @@ with lib;
 with x;
 let
   cfg = config.module.programs.gui.spotify;
-  theme = add.theme;
   add = import ./addons.nix {
     inherit
       inputs
@@ -32,7 +31,7 @@ in
     programs.spicetify =
       on
       // {
-        inherit theme;
+        inherit (add) theme;
         wayland = true;
         windowManagerPatch = true;
         colorScheme = "custom";
@@ -42,7 +41,7 @@ in
             ;
         };
       }
-      // (lib.genAttrs [
+      // (genAttrs [
         "enabledExtensions"
         "enabledSnippets"
       ] (n: add.${n}));

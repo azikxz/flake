@@ -5,7 +5,6 @@
 
 let
   cfg = config.module.programs.gui.qutebrowser;
-  f = lib.mkForce;
 in
 
 {
@@ -50,10 +49,14 @@ in
     };
     colors = with config.lib.stylix.colors.withHashtag; {
       tabs = {
-        even.bg = f base00;
+        odd.fg = lib.mkForce base03;
+        even = {
+          bg = lib.mkForce base00;
+          fg = lib.mkForce base03;
+        };
         selected = {
-          even.bg = f base03;
-          odd.bg = f base03;
+          even.bg = lib.mkForce base02;
+          odd.bg = lib.mkForce base02;
         };
       };
       webpage = {
@@ -61,12 +64,12 @@ in
         darkmode.enabled = true;
       };
       hints = {
-        bg = f base04;
-        fg = f base00;
+        bg = lib.mkForce base04;
+        fg = lib.mkForce base00;
       };
     };
     fonts = with config.stylix.fonts; {
-      default_family = f monospace.name;
+      default_family = lib.mkForce monospace.name;
     };
     content = {
       blocking.enabled = true;
@@ -77,4 +80,11 @@ in
       chars = "asdfghjkl";
     };
   };
+  extraConfig = ''
+    config.unbind('.')
+    en_keys = "qwertyuiop[]asdfghjkl;'zxcvbnm,./"+'QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>?'
+    ru_keys = 'йцукенгшщзхъфывапролджэячсмитьбю.'+'ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДжЭЯЧСМИТЬБЮ,'
+    for key in ru_keys:
+        c.bindings.key_mappings[key]=en_keys[ru_keys.index(key)]
+  '';
 }

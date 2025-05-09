@@ -1,5 +1,6 @@
 {
   config,
+  ...
 }:
 
 with config.lib.stylix.colors;

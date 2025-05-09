@@ -14,47 +14,54 @@ let
 in
 
 {
-  theme = themes.default // {
-    additionalCss =
-      # css
-      ''
-        * {
-          font-family: "${config.stylix.fonts.monospace.name}" !important
-        }
-      '';
+  theme = themes.sleek // {
+    additionalCss = import ./themeCss.nix {
+      inherit
+        config
+        ;
+    };
   };
   enabledExtensions = with extensions; [
-    fullAppDisplay
-    betterGenres
-    keyboardShortcut
-    adblockify
-    historyShortcut
+    adblock
     beautifulLyrics
-    powerBar
+    betterGenres
+    fullAppDisplayMod
+    keyboardShortcut
     seekSong
-    history
   ];
   enabledSnippets = with snippets; [
-    fixLikedButton
-    smoothPlaylistRevealGradient
-    hideFriendActivityButton
-    centeredLyrics
-    pointer
-    removeConnectBar
-    fixedEpisodesIcon
-    fixProgressBar
-    roundedImages
-    fixMainViewWidth
-    fixPlaylistHover
-    hideNowPlayingViewButton
-    fixLikedIcon
-    removeTopSpacing
-    hideFullScreenButton
-    hideDownloadButton
-    hideMiniPlayerButton
-    leftAlignedHeartIcons
-    hideSidebarScrollbar
     betterLyricsStyle
+    centeredLyrics
+    fixDjIcon
+    fixLikedButton
+    fixLikedIcon
+    fixListenTogetherButton
+    fixListeningOn
+    fixMainViewWidth
+    fixNowPlayingIcon
+    fixPlaylistAndFolderPosition
+    fixPlaylistHover
+    fixProgressBar
+    fixedEpisodesIcon
+    hideDownloadButton
+    hideFriendActivityButton
+    hideFullScreenButton
+    hideMiniPlayerButton
+    hideNowPlayingViewButton
+    hidePlayCount
+    hidePlayingGif
+    hideProfileUsername
+    hideSidebarScrollbar
+    leftAlignedHeartIcons
+    moreVisibleUnplayableTracks
+    pointer
+    prettyLyrics
     queueTopSidePanel
+    removeConnectBar
+    removeGradient
+    removeTheArtistsAndCreditsSectionsFromTheSidebar
+    removeTopSpacing
+    roundedImages
+    roundedNowPlaying
   ];
 }

@@ -24,6 +24,7 @@ in
       [ ".local/share/PrismLauncher" ]
       ++ (lib.optionals cfg.cli.enable [
         ".minecraft"
+        ".config/ferium"
       ]);
     home.packages =
       with pkgs;

@@ -9,7 +9,7 @@
     };
     path = {
       flake = "/persist/flake";
-      pass = "/persist/vault/passwords.kdbx";
+      pass = "/persist/passwords/passwords.kdbx";
       steamUnified = "/media/disks/fastBitch/SteamUnified";
     };
     styl = {

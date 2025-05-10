@@ -16,76 +16,86 @@ in
     path = ./modules;
   };
 
-  module = {
-    programs = {
-      cli = mkOn [
-        "common"
-        "cava"
-        "develop"
-        "fetch"
-        "figlet"
-        "helix"
-        "imageEdit"
-        "legendary"
-        "systop"
-        "yazi"
+  module = lib.mkMerge [
+    {
+      programs = {
+        cli = mkOn [
+          "common"
+          "cava"
+          "develop"
+          "fetch"
+          "figlet"
+          "helix"
+          "imageEdit"
+          "legendary"
+          "systop"
+          "yazi"
+        ];
+        gui =
+          mkOn [
+            "mpv"
+            "nixcord"
+            "obs"
+            "qutebrowser"
+            "spotify"
+            "swayimg"
+            "syncthing"
+            "telegram"
+            "zathura"
+          ]
+          // {
+            libreoffice = on // {
+              yazi = on;
+            };
+          };
+      };
+    }
+    {
+      shells = mkOn [
+        "fish"
+        "translate"
+        "starship"
       ];
-      gui =
+    }
+    {
+      themes =
         mkOn [
-          "libreoffice"
-          "mpv"
-          "nixcord"
-          "obs"
-          "qutebrowser"
-          "spotify"
-          "swayimg"
-          "syncthing"
-          "telegram"
-          "zathura"
+          "qt"
         ]
         // {
-          libreoffice = {
-            yazi = on;
+          stylix = on // {
+            icon = "adwaita";
+            cursor.size = 16;
           };
         };
-    };
-    shells = mkOn [
-      "fish"
-      "translate"
-      "starship"
-    ];
-    themes =
-      mkOn [
-        "qt"
-        "stylix"
-      ]
-      // {
-        stylix = {
-          icon = "adwaita";
-          cursor.size = 16;
-        };
+    }
+    {
+      wm = (mkOn [ "hyprland" ]) // {
+        terminals = mkOn [
+          "kitty"
+        ];
+        misc = mkOn [
+          "mako"
+          "tofi"
+          "wlogout"
+        ];
       };
-    wm = (mkOn [ "hyprland" ]) // {
-      terminals = mkOn [
-        "kitty"
+    }
+    {
+      games = mkOn [
+        "mindustry"
+        "minecraft"
+        "openarena"
+        "srb2"
+        "wine"
+        "umu"
       ];
+    }
+    {
       misc = mkOn [
-        "mako"
-        "tofi"
-        "wlogout"
+        "dconf"
+        "xdg"
       ];
-    };
-    games = mkOn [
-      "mindustry"
-      "minecraft"
-      "openarena"
-      "srb2"
-      "wine"
-      "umu"
-    ];
-    misc = mkOn [
-      "dconf"
-      "xdg"
-    ];
-  };
+    }
+  ];
 }

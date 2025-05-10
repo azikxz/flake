@@ -27,14 +27,14 @@ in
       xwayland = on;
       systemd = on;
       settings =
-        import ./binds.nix {
+        import ./binds/main.nix {
           inherit
             pkgs
             lib
             config
             ;
         }
-        // import ./rules.nix {
+        // import ./rules/main.nix {
           inherit
             lib
             config

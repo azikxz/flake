@@ -68,6 +68,10 @@ in
   (cl "org.qbittorrent.qBittorrent" "size 1020 740")
   (cl "org.qbittorrent.qBittorrent" "pseudo")
 
+  # passwords
+  (cl "org.keepassxc.KeePassXC" "minsize 850 900")
+  (cl "org.keepassxc.KeePassXC" "maxsize 850 900")
+
   # pinned
   (mk "pinned:1" "bordercolor rgb(${base0B}) rgb(${base01})")
 ]

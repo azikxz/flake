@@ -25,6 +25,9 @@ in
     ApplicationTheme = "classic";
     CompactMode = true;
     HidePasswords = true;
+    HideGroupsPanel = true;
+    HidePreviewPanel = true;
+    HideToolbar = true;
     MonospaceNotes = true;
     ColorPasswords = true;
     MinimizeOnClose = true;

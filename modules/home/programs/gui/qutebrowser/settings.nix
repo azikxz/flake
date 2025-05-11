@@ -4,11 +4,17 @@
 }:
 
 let
-  cfg = config.module.programs.gui.qutebrowser;
+  rules = import ./rules.nix {
+    inherit
+      config
+      ;
+  };
 in
 
 {
-  quickmarks = cfg.quickmarks;
+  quickmarks = rules.quickmarks;
+  whitelist = rules.whitelist;
+  userstyle = rules.userstyle;
   settings = {
     url = {
       start_pages = [ "qute://start" ];

@@ -49,7 +49,7 @@ in
 
 {
   options = {
-    module.programs.gui.qutebrowser = {
+    programs.qutebrowser = {
       whitelist = collection;
       userstyle = collection;
     };
@@ -97,7 +97,7 @@ in
               '';
           });
       in
-      map mkWhitelist (attrValues config.module.programs.gui.qutebrowser.whitelist)
-      ++ map mkUserstyle (attrValues config.module.programs.gui.qutebrowser.userstyle);
+      map mkWhitelist (attrValues config.programs.qutebrowser.whitelist)
+      ++ map mkUserstyle (attrValues config.programs.qutebrowser.userstyle);
   };
 }

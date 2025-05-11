@@ -15,14 +15,10 @@ in
   options = {
     module.programs.gui.qutebrowser = {
       enable = mkBool false;
-      quickmarks = mkAttrs.str { };
     };
   };
 
-  imports = [
-    ./rules.nix
-    ./stylesheets.nix
-  ];
+  imports = [ ./whlist.nix ];
   config = mkIf cfg.enable {
     impermanence.dirs = [ ".local/share/qutebrowser" ];
     home.packages = with pkgs.python312Packages; [

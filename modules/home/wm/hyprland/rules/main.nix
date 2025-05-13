@@ -19,11 +19,16 @@ in
     (mk "blur" "launcher")
   ];
   workspace = map (x: "${x}, gapsout:0, gapsin:0") wsSet;
-  windowrule = import ./windowrule.nix {
-    inherit
-      wsSet
-      lib
-      config
-      ;
-  };
+  windowrule =
+    (import ./windowrule.nix {
+      inherit
+        config
+        ;
+    })
+    ++ (lib.flatten (
+      map (x: [
+        "bordersize 0, floating:0, onworkspace:${x}"
+        "rounding 0, floating:0, onworkspace:${x}"
+      ]) wsSet
+    ));
 }

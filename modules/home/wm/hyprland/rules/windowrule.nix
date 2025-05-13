@@ -1,6 +1,4 @@
 {
-  wsSet,
-  lib,
   config,
   ...
 }:
@@ -84,9 +82,3 @@ in
     (no + "onworkspace:f[1]")
   ]
 )
-++ (lib.flatten (
-  map (x: [
-    "bordersize 0, floating:0, onworkspace:${x}"
-    "rounding 0, floating:0, onworkspace:${x}"
-  ]) wsSet
-))

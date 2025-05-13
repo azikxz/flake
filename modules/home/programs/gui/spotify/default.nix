@@ -28,22 +28,20 @@ in
 
   imports = with inputs; [ spicetify.homeManagerModules.default ];
   config = mkIf cfg.enable {
-    programs.spicetify =
-      on
-      // {
-        inherit (add) theme;
-        wayland = true;
-        windowManagerPatch = true;
-        colorScheme = "custom";
-        customColorScheme = import ./theme.nix {
-          inherit
-            config
-            ;
-        };
-      }
-      // (genAttrs [
-        "enabledExtensions"
-        "enabledSnippets"
-      ] (n: add.${n}));
+    programs.spicetify = on // {
+      inherit (add)
+        theme
+        enabledExtensions
+        enabledSnippets
+        ;
+      wayland = true;
+      windowManagerPatch = true;
+      colorScheme = "custom";
+      customColorScheme = import ./theme.nix {
+        inherit
+          config
+          ;
+      };
+    };
   };
 }

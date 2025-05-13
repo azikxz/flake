@@ -24,7 +24,6 @@ in
       with pkgs;
       [
         uutils-coreutils-noprefix
-        corefonts
         killall
         helix
         fff

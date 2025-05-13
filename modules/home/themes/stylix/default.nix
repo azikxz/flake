@@ -55,12 +55,17 @@ in
       };
       fonts =
         let
-          mk = name: package: { inherit name package; };
+          mk = package: name: {
+            inherit
+              name
+              package
+              ;
+          };
+          font = n: mk pkgs.nerd-fonts.caskaydia-cove n;
         in
-        with pkgs;
         rec {
-          emoji = mk "Noto Color Emoji" noto-fonts-emoji;
-          monospace = mk "JetBrainsMono Nerd Font" nerd-fonts.jetbrains-mono;
+          emoji = mk pkgs.noto-fonts-emoji "Noto Color Emoji";
+          monospace = font "CaskaydiaCove Nerd Font";
           sansSerif = monospace;
           serif = monospace;
         }
@@ -78,5 +83,13 @@ in
           ;
       };
     };
+    home.packages =
+      with pkgs;
+      [
+        corefonts
+        liberation_ttf
+        arkpandora_ttf
+      ]
+      ++ (with nerd-fonts; [ tinos ]);
   };
 }

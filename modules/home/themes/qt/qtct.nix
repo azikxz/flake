@@ -5,7 +5,10 @@
 }:
 
 let
-  inherit (config.stylix) fonts iconTheme;
+  inherit (config.stylix)
+    fonts
+    iconTheme
+    ;
   ini = pkgs.formats.ini { };
   mk =
     n:
@@ -23,8 +26,8 @@ let
         style = ''"Fusion"'';
       };
       Fonts = {
-        fixed = ''"${fonts.monospace.name},${toString fonts.sizes.applications},-1,5,50,0,0,0,0,0,Regular"'';
-        general = ''"${fonts.monospace.name},${toString fonts.sizes.applications},-1,5,50,0,0,0,0,0,Regular"'';
+        fixed = ''"${fonts.sansSerif.name},${toString fonts.sizes.applications},-1,5,50,0,0,0,0,0,Regular"'';
+        general = ''"${fonts.sansSerif.name},${toString fonts.sizes.applications},-1,5,50,0,0,0,0,0,Regular"'';
       };
       Interface = {
         activate_item_on_single_click = 1;

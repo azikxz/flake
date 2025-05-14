@@ -73,7 +73,7 @@ in
     increaseWebviewWidth = true;
     localPremium = true;
     markReadAfterAction = false;
-    monoFont = "JetBrainsMono Nerd Font";
+    monoFont = config.stylix.fonts.monospace.name;
     recentStickersCount = 100;
     replaceBottomInfoWithIcons = true;
     saveDeletedMessages = false;

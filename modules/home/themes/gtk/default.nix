@@ -9,8 +9,7 @@ with lib;
 with x;
 
 let
-  inherit (config.stylix) targets fonts;
-  cfg = targets.gtk;
+  cfg = config.stylix.targets.gtk;
   extra = {
     gtk-application-prefer-dark-theme = 1;
     gtk-xft-antialias = 1;
@@ -29,13 +28,8 @@ mkIf cfg.enable {
     noto-fonts-cjk-sans
     noto-fonts
   ];
-  gtk = on // {
+  gtk = {
     gtk3.extraConfig = extra;
     gtk4.extraConfig = extra;
-    font = mkForce {
-      size = 12;
-      name = fonts.monospace.name;
-      package = fonts.monospace.package;
-    };
   };
 }

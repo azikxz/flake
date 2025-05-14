@@ -64,7 +64,7 @@ in
           font = n: mk pkgs.nerd-fonts.caskaydia-cove n;
         in
         rec {
-          emoji = mk pkgs.noto-fonts-emoji "Noto Color Emoji";
+          emoji = mk pkgs.noto-fonts-color-emoji "Noto Color Emoji";
           monospace = font "CaskaydiaCove Nerd Font";
           sansSerif = monospace;
           serif = monospace;

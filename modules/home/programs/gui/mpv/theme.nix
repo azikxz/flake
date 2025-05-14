@@ -6,7 +6,7 @@
 
 let
   colors = config.lib.stylix.colors;
-  fonts = config.stylix.fonts.monospace.name;
+  fonts = config.stylix.fonts.sansSerif.name;
 in
 
 {

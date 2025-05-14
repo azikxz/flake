@@ -20,7 +20,7 @@ in
   config = mkIf cfg.enable {
     programs.kitty = on // {
       keybindings = import ./binds.nix;
-      extraConfig = import ./extraBinds.nix;
+      extraConfig = import ./extraConfig.nix;
       settings =
         import ./settings.nix
         // import ./colors.nix {

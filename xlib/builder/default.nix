@@ -91,6 +91,18 @@ let
         ++ [ home.nixosModules.home-manager ]
         ++ [
           {
+            imports = [
+              (lib.mkAliasOptionModule
+                [
+                  "hm"
+                ]
+                [
+                  "home-manager"
+                  "users"
+                  sys.userName
+                ]
+              )
+            ];
             services.getty.autologinUser = sys.userName;
             networking = {
               hostName = sys.hostName;

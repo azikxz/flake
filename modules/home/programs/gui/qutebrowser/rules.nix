@@ -15,6 +15,8 @@
     # nix
     nixpkgs = "search.nixos.org/packages?channel=unstable";
     homemanager = "home-manager-options.extranix.com/?query=&release=master";
+    searchix = "searchix.ovh";
+    myNixOS = "mynixos.com";
     nixosWiki = "wiki.nixos.org";
     hydra = "hydra.nixos.org";
     prTracker = "nixpk.gs/pr-tracker.html";

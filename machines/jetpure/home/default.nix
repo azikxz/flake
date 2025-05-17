@@ -65,7 +65,6 @@ in
         // {
           stylix = on // {
             icon = "adwaita";
-            cursor.size = 16;
           };
         };
     }

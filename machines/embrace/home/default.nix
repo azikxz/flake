@@ -47,7 +47,6 @@ in
       // {
         stylix = on // {
           icon = "paleorange";
-          cursor.size = 24;
         };
       };
     wm = (mkOn [ "hyprland" ]) // {

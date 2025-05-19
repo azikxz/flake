@@ -37,18 +37,4 @@
       image = "townChristmas";
     };
   };
-
-  isoNixtended = {
-    sys = {
-      hostName = "sus";
-      userName = "amogus";
-      is = "iso";
-      platform = "x86_64-linux";
-      ver = "24.05";
-    };
-    styl = {
-      theme = "horizon-dark";
-      image = "town";
-    };
-  };
 }

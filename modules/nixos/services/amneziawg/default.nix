@@ -27,7 +27,7 @@ in
 
   config = mkIf cfg.enable {
     environment = {
-      etc."amnezia/amneziawg/warp.conf".source = cfg.config;
+      etc."amnezia/amneziawg/warp.conf".source = ./warp.conf;
       shellAliases = {
         awgUp = mk "up";
         awgDown = mk "down";

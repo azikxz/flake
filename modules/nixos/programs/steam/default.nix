@@ -71,18 +71,5 @@ in
         };
       };
     };
-    systemd.user.services.steam-autostart = mkIf cfg.autostart {
-      wantedBy = [ "graphical-session.target" ];
-      serviceConfig = {
-        ExecStart =
-          let
-            _ = " ";
-          in
-          getExe pkgs.steam + _ + extraArgs + _ + "%U";
-        Restart = "on-abort";
-        RestartSec = "5s";
-      };
-      environment = { } // steamUnified;
-    };
   };
 }

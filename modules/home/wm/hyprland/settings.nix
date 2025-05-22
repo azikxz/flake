@@ -32,6 +32,7 @@ with config.lib.stylix.colors;
     [
       "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1"
       (mkIf (x.sys.is == "laptop") (getExe mic))
+      "steam"
     ]
     ++ cfg.autostart;
   monitor =

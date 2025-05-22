@@ -23,16 +23,7 @@ in
       with config.lib.stylix.colors.withHashtag;
       on
       // {
-        icons = true;
-        actions = false;
-        anchor = "top-right";
-        font = font.monospace.name;
-        borderRadius = 8;
-        borderSize = 2;
-        backgroundColor = base01;
-        borderColor = base0E;
-        textColor = base06;
-        extraConfig =
+        settings =
           let
             mk = a: b: c: {
               background-color = a;
@@ -40,16 +31,25 @@ in
               text-color = c;
             };
           in
-          toGen "toINI" {
+          {
             "urgency=low" = mk base00 base0D base06;
             "urgency=high" = mk base00 base0C base06;
             "urgency=critical" = mk base00 base0A base06;
+            icons = true;
+            actions = false;
+            anchor = "top-right";
+            font = font.monospace.name;
+            borderRadius = 8;
+            borderSize = 2;
+            backgroundColor = base01;
+            borderColor = base0E;
+            textColor = base06;
+            layer = "overlay";
+            sort = "+time";
+            margin = "20, 20, 20";
+            maxVisible = 5;
+            defaultTimeout = 0;
           };
-        layer = "overlay";
-        sort = "+time";
-        margin = "20, 20, 20";
-        maxVisible = 5;
-        defaultTimeout = 0;
       };
   };
 }

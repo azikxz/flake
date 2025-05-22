@@ -1,40 +1,55 @@
 {
   pcRyazenka = {
-    sys = {
+    system = {
+      itIs = "desktop";
       hostName = "jetpure";
       userName = "nixzoid";
-      is = "desktop";
       platform = "x86_64-linux";
-      ver = "24.05";
+      version = "24.05";
     };
-    path = {
-      flake = "/persist/flake";
-      pass = "/persist/passwords/passwords.kdbx";
-      steamUnified = "/media/disks/fastBitch/SteamUnified";
+    paths = {
+      flakeDir = "/etc/nixos";
+      passwords = "~/.passwords/passwords.kdbx";
+      winePrefix = "/media/disks/fastBitch/SteamUnified";
+      persist = "/persist";
     };
-    styl = {
+    style = {
       theme = "horizonDark";
       image = "hanabiFireworks";
     };
   };
 
   thinkpadT14 = {
-    sys = {
+    system = {
+      itIs = "laptop";
       hostName = "embrace";
       userName = "huggyer";
-      is = "laptop";
       platform = "x86_64-linux";
-      ver = "24.05";
+      version = "24.05";
     };
-    path = {
-      flake = "/persist/flake";
-      pass = "/persist/vault/passwords.kdbx";
-      steamUnified = "/persist/proton-prefix";
-      impermanence = "/persist";
+    paths = {
+      flakeDir = "/persist/flake";
+      passwords = "/persist/vault/passwords.kdbx";
+      winePrefix = "/persist/proton-prefix";
+      persist = "/persist";
     };
-    styl = {
+    style = {
       theme = "neoGenesis";
       image = "townChristmas";
     };
   };
+
+  # isoNixtended = {
+  #   sys = {
+  #     hostName = "sus";
+  #     userName = "amogus";
+  #     is = "iso";
+  #     platform = "x86_64-linux";
+  #     ver = "24.05";
+  #   };
+  #   styl = {
+  #     theme = "horizon-dark";
+  #     image = "town";
+  #   };
+  # };
 }

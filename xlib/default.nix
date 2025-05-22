@@ -4,42 +4,43 @@ inputs@{
 }:
 
 let
-  inherit (inputs) nixpkgs;
-  system = "x86_64-linux";
-  lib = nixpkgs.lib;
-  pkgs = import nixpkgs {
-    inherit
-      system
-      ;
-  };
-
-  machines = import (self + "/machines");
-  build = import ./builder {
-    inherit
-      self
-      inputs
-      pkgs
-      ;
-  };
-
-  forAllSystems = i: lib.genAttrs sys i;
-  sys = [
-    "x86_64-linux"
-    "aarch64-linux"
-    "x86_64-darwin"
-    "aarch64-darwin"
-  ];
+  inherit (inputs)
+    nixpkgs
+    flake-utils
+    ;
 in
 
-{
-  nixosConfigurations = build machines;
-  formatter = forAllSystems (system: pkgs.nixfmt-rfc-style);
-  devShells = forAllSystems (
+flake-utils.lib.eachSystem
+  [
+    "x86_64-linux"
+    "aarch64-linux"
+  ]
+  (
     system:
-    (import ./shells.nix {
+    let
+      pkgs = import nixpkgs {
+        inherit
+          system
+          ;
+      };
+    in
+    {
+      formatter = pkgs.nixfmt-rfc-style;
+      devShells = import ./shells.nix {
+        inherit
+          pkgs
+          ;
+      };
+    }
+  )
+// {
+  inherit (nixpkgs) lib;
+  nixosConfigurations =
+    (import ./builder {
       inherit
-        pkgs
+        self
+        inputs
         ;
     })
-  );
+      (import "${self}/machines");
 }

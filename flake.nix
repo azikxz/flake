@@ -1,5 +1,5 @@
 {
-  outputs = x: import ./xlib x;
+  outputs = args: import ./xlib args;
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

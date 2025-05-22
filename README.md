@@ -1,6 +1,8 @@
-<div align="center"> <h1>
- ❄️【 NIXOS FLAKE DOTFILES 】❄️
-</h1> </div>
+<div align="center">
+ <h1>
+  ❄️【 NIXOS FLAKE DOTFILES 】❄️
+ </h1>
+</div>
 
 <details>
   <summary>Software</summary>
@@ -120,13 +122,13 @@
 
 ### PREVIEW
 
-![nill kiggers](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/fetch.jpg)
+![nah_id_win](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/fetch.jpg)
 
-![nill kiggers](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/brows.jpg)
+![nah_id_win](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/brows.jpg)
 
-![nill kiggers](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/btop.jpg)
+![nah_id_win](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/btop.jpg)
 
-![nill kiggers](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/misc.jpg)
+![nah_id_win](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/misc.jpg)
 
 - thanks for
   - [hezaki](https://codeberg.org/Hezaki/Touka)

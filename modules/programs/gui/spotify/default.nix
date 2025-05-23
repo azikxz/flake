@@ -10,8 +10,6 @@ with lib;
 
 mkIf (itIs == "desktop") {
   hm = {
-    home.packages = with pkgs; [ lowfi ];
-
     programs.spicetify = {
       enable = true;
 

@@ -46,7 +46,6 @@
 |                                              gui utilites |                                                             |
 | --------------------------------------------------------: | :---------------------------------------------------------- |
 | [qutebrowser](https://github.com/qutebrowser/qutebrowser) | keyboard-driven, vim-like browser (best my opinion)         |
-|     [zen-browser](https://github.com/zen-browser/desktop) | furryfox for zoomers                                        |
 |                 [secrets](https://apps.gnome.org/Secrets) | manage your .kdbx vaults with libadwaita                    |
 |                        [keepASSxc](https://keepassxc.org) | fork keepassx with additionals                              |
 |       [syncthing](https://github.com/syncthing/syncthing) | synchronize folders/files via devices                       |
@@ -65,18 +64,17 @@
 |              [anime4k](https://github.com/bloc97/Anime4K) | anime upscaler                                              |
 |            [swayimg](https://github.com/artemsen/swayimg) | simple image viewer                                         |
 
-|                                                           games |                                                  |
-| --------------------------------------------------------------: | :----------------------------------------------- |
-|                                                          native |                                                  |
-|                [mindustry](https://github.com/Anuken/Mindustry) | OHMYGOD 10/10 RTS YEEEE BOYYYY                   |
-|                                    [srb2](https://www.srb2.org) | classic 3d sonix                                 |
-|                            [openarena](http://www.openarena.ws) | quake 3 with mods!!!                             |
-|                                                        via wine |                                                  |
-|               [bottles](https://github.com/bottlesdevs/Bottles) | wine launcher with multiple prefixes             |
-| [prismlauncher](https://github.com/PrismLauncher/PrismLauncher) | fuckm all my homies plays this shit man          |
-|                         [steam](https://store.steampowered.com) | cool game store and launcher                     |
-|                [legendary](https://github.com/derrod/legendary) | cli for Epic Games Store                         |
-|            [protonup](https://github.com/DavidoTek/ProtonUp-Qt) | provides Proton-GE/Wine-GE for Steam and Bottles |
+|                                                           games |                                         |
+| --------------------------------------------------------------: | :-------------------------------------- |
+|                                                          native |                                         |
+|                [mindustry](https://github.com/Anuken/Mindustry) | OHMYGOD 10/10 RTS YEEEE BOYYYY          |
+|                                    [srb2](https://www.srb2.org) | classic 3d sonix                        |
+|                            [openarena](http://www.openarena.ws) | quake 3 with mods!!!                    |
+|                                                        via wine |                                         |
+| [umu-run](https://github.com/Open-Wine-Components/umu-launcher) | perfect cli proton launcher             |
+|                         [steam](https://store.steampowered.com) | cool game store and launcher            |
+|                [legendary](https://github.com/derrod/legendary) | cli for Epic Games Store                |
+| [prismlauncher](https://github.com/PrismLauncher/PrismLauncher) | fuckm all my homies plays this shit man |
 
 |                                                  misc |                                       |
 | ----------------------------------------------------: | :------------------------------------ |
@@ -86,41 +84,11 @@
 |           [tenki](https://github.com/ckaznable/tenki) | tui clock with effects                |
 |  [jetbrains](https://github.com/ryanoasis/nerd-fonts) | nerded fonts                          |
 
-- IDK WHAT ALSO DUDES
+- idk what also dudes
 
 </details>
 
-### GUIDE FOR CREATE OWN MACHINE & HOME
-
-1. Add your config for machine in [hostDir](./machines/default.nix)
-
-```nix
- {
-  jetpure = {
-   path = {
-    flakeDir = "/persist/flake";
-    pass = "/persist/vault/passwords.kdbx";
-   };
-   sys = {
-    hostName = "jetpure";
-    userName = "nixzoid";
-    is = "desktop";
-    platform = "x86_64-linux";
-    ver = "24.05";
-   };
-   styl = {
-    theme = "paradise";
-    image = "lampa";
-   };
-  };
- }
-```
-
-2. Create directory with your [hostName](./machines/jetpure) in [flakeDir](./)
-
-3. Create in [./machines/hostName](./machines/jetpure) directories [home](./machines/jetpure/home) and [host](./machines/jetpure/host)
-
-### PREVIEW
+# PREVIEW
 
 ![nah_id_win](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/fetch.jpg)
 

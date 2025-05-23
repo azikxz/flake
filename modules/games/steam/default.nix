@@ -9,6 +9,7 @@ with lib;
 let
   extraArgs = lib.concatStringsSep " " [
     "-bigpicture"
+    "-gamepadui"
     "-nochatui"
     "-nofriendsui"
     "-silent"

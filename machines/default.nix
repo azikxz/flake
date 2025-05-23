@@ -9,9 +9,9 @@
     };
     paths = {
       flakeDir = "/etc/nixos";
-      passwords = "~/.passwords/passwords.kdbx";
+      passwords = "~/Sync/passwords.kdbx";
       winePrefix = "/media/disks/fastBitch/SteamUnified";
-      persist = "/persist";
+      persist = null;
     };
     style = {
       theme = "horizonDark";

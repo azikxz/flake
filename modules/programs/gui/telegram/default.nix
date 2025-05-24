@@ -7,7 +7,7 @@
 
 with lib;
 let
-  package = pkgs.ayugram-desktop;
+  package = pkgs._64gram;
 in
 
 mkIf (itIs == "desktop" || itIs == "laptop") {

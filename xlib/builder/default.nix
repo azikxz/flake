@@ -5,7 +5,7 @@
 }:
 
 let
-  backup = "poebat";
+  backup = "backup";
   secretsFile = "${self}/secrets.nix";
 
   lists = with inputs; {
@@ -27,7 +27,7 @@ let
     ];
   };
 
-  mkMachine =
+  makeMachines =
     machineName:
     args@{
       system ? {
@@ -62,8 +62,14 @@ let
       lib = inputs.nixpkgs.lib.extend (
         final: prev:
         {
-          inherit (inputs.home.lib) hm;
-          inherit (system) itIs;
+          inherit (inputs.home.lib)
+            hm
+            ;
+
+          inherit (system)
+            itIs
+            ;
+
           inherit
             machineName
             system
@@ -73,7 +79,10 @@ let
             ;
         }
         // import ./options {
-          inherit inputs lib;
+          inherit
+            inputs
+            lib
+            ;
         }
       );
 
@@ -85,11 +94,8 @@ let
 
           modulesExist = pathExists modulesDir;
           machineExist = pathExists machineDir;
-
-          x = optional modulesExist modulesDir;
-          y = optional machineExist machineDir;
         in
-        [ ] ++ x ++ y ++ lists.nixos;
+        [ ] ++ (optional modulesExist modulesDir) ++ (optional machineExist machineDir) ++ lists.nixos;
     in
 
     lib.nixosSystem {
@@ -120,16 +126,16 @@ let
 
             useGlobalPkgs = true;
             useUserPackages = true;
+          };
 
-            users.${system.userName}.home = rec {
-              username = system.userName;
-              stateVersion = system.version;
-              homeDirectory = "/home/${username}";
-            };
+          hm.home = rec {
+            username = system.userName;
+            stateVersion = system.version;
+            homeDirectory = "/home/${username}";
           };
         }
       ];
     };
 in
 
-builtins.mapAttrs mkMachine
+builtins.mapAttrs makeMachines

@@ -20,6 +20,7 @@ let
       exclude ? [ ],
       recursive ? true,
     }:
+
     with lib;
     with fileset;
     let
@@ -32,6 +33,7 @@ let
         else
           (filter (excludedDir: lib.path.hasPrefix excludedDir path) excludedDirs) != [ ];
     in
+
     unique (
       (filter (file: pathIsRegularFile file && hasSuffix ".nix" (toString file) && !isExcluded file) (
         concatMap (
@@ -47,4 +49,5 @@ let
       ++ (if recursive then concatMap (path: toList path) (unique include) else unique include)
     );
 in
+
 umport

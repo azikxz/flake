@@ -15,6 +15,7 @@ rec {
         default
         ;
     };
+
   mkBool = mkOpt (types.bool);
   mkStr = mkOpt (types.str);
   mkLines = mkOpt (types.lines);
@@ -27,6 +28,7 @@ rec {
   mkOneOf = mkOpt (types.oneOf);
   mkUns = mkOpt (types.unspecified);
   mkAttrsOf = type: (types.attrsOf type);
+
   # mk two sided idk
   mkList =
     let
@@ -36,6 +38,7 @@ rec {
       pkgs = mkOpt (mk types.package);
       str = mkOpt (mk types.str);
     };
+
   mkAttrs =
     let
       mk = types.attrsOf;
@@ -46,6 +49,7 @@ rec {
       any = mkOpt (mk types.anything);
       attrs = mkOpt (mk types.attrs);
     };
+
   mkNull =
     let
       mk = types.nullOr;

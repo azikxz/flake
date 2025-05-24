@@ -105,13 +105,63 @@ with lib;
     };
 
     content = {
-      blocking.enabled = true;
+      blocking = {
+        enabled = true;
+
+        method = "both";
+      };
+
+      pdfjs = true;
+
       javascript.clipboard = "access";
     };
 
     hints = {
       scatter = false;
       chars = "asdfghjkl";
+    };
+
+    editor.command = [
+      "kitty"
+      "--class"
+      "termfloat"
+      "-e"
+      "hx"
+      "{file}:{line}:{column0}"
+    ];
+
+    fileselect = {
+      handler = "external";
+
+      single_file.command = [
+        "kitty"
+        "--class"
+        "float-kitty"
+        "-e"
+        "yazi"
+        "--chooser-file"
+        "{}"
+      ];
+
+      multiple_files.command = [
+        "kitty"
+        "--class"
+        "termfloat"
+        "-e"
+        "yazi"
+        "--chooser-file"
+        "{}"
+      ];
+
+      folder.command = [
+        "kitty"
+        "--class"
+        "termfloat"
+        "-e"
+        "yazi"
+        "--chooser-file"
+        "{}"
+      ];
     };
   };
 

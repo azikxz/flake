@@ -59,8 +59,8 @@ with lib;
       show_switching_delay = 500;
 
       title = {
-        format = "{index}: {current_title}";
-        format_pinned = "{index}";
+        format = "[{index}] {current_title}";
+        format_pinned = "";
       };
     };
 
@@ -74,17 +74,17 @@ with lib;
         };
 
         selected = {
-          even.bg = mkForce base0B;
-          odd.bg = mkForce base0B;
+          even.bg = mkForce base02;
+          odd.bg = mkForce base02;
         };
 
         pinned = {
-          even.bg = mkForce base02;
-          odd.bg = mkForce base02;
+          even.bg = mkForce base00;
+          odd.bg = mkForce base00;
 
           selected = {
-            even.bg = mkForce base0B;
-            odd.bg = mkForce base0B;
+            even.bg = mkForce base02;
+            odd.bg = mkForce base02;
           };
         };
       };

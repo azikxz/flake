@@ -23,8 +23,8 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
       touch = getExe bonk;
       find = getExe hunt;
       frep = getExe ripgrep-all;
-      # cp = "${getExe' fuc "cpz"}";
-      # rm = "${getExe' fuc "rmz"}";
+      cp = getExe' fuc "cpz";
+      rm = getExe' fuc "rmz";
 
       cat = getExe bat;
 

@@ -62,6 +62,11 @@
       mode.select = "SELECT";
     };
 
+    lsp = {
+      display-progress-messages = true;
+      display-inlay-hints = true;
+    };
+
     file-picker.hidden = false;
   };
 }

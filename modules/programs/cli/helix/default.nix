@@ -1,4 +1,5 @@
 {
+  self,
   pkgs,
   lib,
   config,
@@ -19,6 +20,7 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
 
     languages = import ./languages.nix {
       inherit
+        self
         pkgs
         lib
         ;

@@ -1,4 +1,5 @@
 {
+  self,
   pkgs,
   lib,
   ...
@@ -8,6 +9,13 @@ with pkgs;
 let
   inherit (nodePackages_latest)
     prettier
+    ;
+
+  inherit (lib)
+    getExe
+    getExe'
+    machineName
+    paths
     ;
 
   vs = n: "vscode-${n}-language-server";
@@ -29,7 +37,7 @@ in
       language-servers = [ "nixd" ];
 
       formatter = {
-        command = lib.getExe nixfmt-rfc-style;
+        command = getExe nixfmt-rfc-style;
       };
     }
     {
@@ -40,7 +48,7 @@ in
       language-servers = [ "vscode-html" ];
 
       formatter = {
-        command = lib.getExe prettier;
+        command = getExe prettier;
         args = [
           "--use-tabs"
           "--parser"
@@ -56,7 +64,7 @@ in
       language-servers = [ "vscode-json" ];
 
       formatter = {
-        command = lib.getExe prettier;
+        command = getExe prettier;
         args = [
           "--use-tabs"
           "--parser"
@@ -72,7 +80,7 @@ in
       language-servers = [ "vscode-json" ];
 
       formatter = {
-        command = lib.getExe prettier;
+        command = getExe prettier;
         args = [
           "--use-tabs"
           "--parser"
@@ -88,7 +96,7 @@ in
       language-servers = [ "vscode-css" ];
 
       formatter = {
-        command = lib.getExe prettier;
+        command = getExe prettier;
         args = [
           "--use-tabs"
           "--parser"
@@ -104,7 +112,7 @@ in
       language-servers = [ "vscode-css" ];
 
       formatter = {
-        command = lib.getExe prettier;
+        command = getExe prettier;
         args = [
           "--use-tabs"
           "--parser"
@@ -120,7 +128,7 @@ in
       language-servers = [ "marksman" ];
 
       formatter = {
-        command = lib.getExe prettier;
+        command = getExe prettier;
         args = [
           "--use-tabs"
           "--parser"
@@ -136,7 +144,7 @@ in
       language-servers = [ "typescript" ];
 
       formatter = {
-        command = lib.getExe prettier;
+        command = getExe prettier;
         args = [
           "--use-tabs"
           "--parser"
@@ -152,7 +160,7 @@ in
       language-servers = [ "typescript" ];
 
       formatter = {
-        command = lib.getExe prettier;
+        command = getExe prettier;
         args = [
           "--use-tabs"
           "--parser"
@@ -168,7 +176,7 @@ in
       language-servers = [ "yaml" ];
 
       formatter = {
-        command = lib.getExe prettier;
+        command = getExe prettier;
         args = [
           "--use-tabs"
           "--parser"
@@ -206,7 +214,7 @@ in
       injection-regex = "python";
 
       formatter = {
-        command = lib.getExe prettier;
+        command = getExe prettier;
         args = [
           "--use-tabs"
           "--parser"
@@ -224,40 +232,36 @@ in
     in
     {
       nixd = {
-        command = lib.getExe nixd;
+        command = getExe nixd;
 
-        config =
-          let
-            flake = lib.paths.flakeDir;
-          in
-          rec {
-            nixpkgs.expr = "import (builtins.getFlake \"${flake}\").inputs.nixpkgs { }";
-            options = {
-              nixos.expr = "(builtins.getFlake \"${flake}\").nixosConfigurations.${lib.system.hostName}.options";
-              home-manager.expr = "${options.nixos.expr}.home-manager.users.type.getSubOptions [ ]";
-            };
+        config = rec {
+          nixpkgs.expr = ''import (builtins.getFlake "${self}").inputs.nixpkgs { }'';
+          options = {
+            nixos.expr = ''(builtins.getFlake "${self}").nixosConfigurations.${machineName}.options'';
+            home_manager.expr = ''${options.nixos.expr}.home-manager.users.type.getSubOptions [ ]'';
           };
+        };
       };
     } # nix
     // {
-      typescript.command = lib.getExe typescript;
+      typescript.command = getExe typescript;
     } # typescript
     // {
-      yaml.command = lib.getExe yaml;
+      yaml.command = getExe yaml;
     } # typescript
     // {
-      marksman.command = lib.getExe marksman;
+      marksman.command = getExe marksman;
     } # markdown
     // {
-      vscode-html.command = lib.getExe' vscode (vs "html");
-      vscode-json.command = lib.getExe' vscode (vs "json");
-      vscode-css.command = lib.getExe' vscode (vs "css");
+      vscode-html.command = getExe' vscode (vs "html");
+      vscode-json.command = getExe' vscode (vs "json");
+      vscode-css.command = getExe' vscode (vs "css");
     } # vscode <lang> server
     // {
-      pylsp.command = lib.getExe python312Packages.python-lsp-server;
+      pylsp.command = getExe python312Packages.python-lsp-server;
 
       pyright = {
-        command = lib.getExe pyright;
+        command = getExe pyright;
 
         args = [ "--stdio" ];
 

@@ -3,12 +3,7 @@ let
 
   ext4 = {
     fsType = "ext4";
-    options = [
-      "nosuid"
-      "nodev"
-      "nofail"
-      "x-gvfs-show"
-    ];
+    options = [ "x-gvfs-show" ];
   };
 in
 

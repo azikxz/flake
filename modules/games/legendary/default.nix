@@ -7,6 +7,8 @@
 with lib;
 
 mkIf (itIs == "desktop") {
+  persist.user.dirs = [ ".config/legendary" ];
+
   hm = {
     home.packages = [ pkgs.legendary-gl ];
 

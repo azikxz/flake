@@ -53,6 +53,7 @@ in
     };
 
     base16Scheme = inputs.base16."${style.theme}";
+    polarity = "dark";
 
     cursor = {
       size = 24;

@@ -1,10 +1,8 @@
 {
-  lib,
   config,
   ...
 }:
 
-with lib;
 let
   extra = {
     gtk-application-prefer-dark-theme = 1;
@@ -20,8 +18,20 @@ let
 in
 
 {
-  hm.gtk = {
-    gtk3.extraConfig = extra;
-    gtk4.extraConfig = extra;
+  hm = {
+    gtk = {
+      gtk3.extraConfig = extra;
+      gtk4.extraConfig = extra;
+    };
+
+    dconf.settings."org/gnome/desktop/interface" = {
+      color-scheme =
+        if config.stylix.polarity == "dark" then
+          "prefer-dark"
+        else if config.stylix.polarity == "light" then
+          "prefer-light"
+        else
+          null;
+    };
   };
 }

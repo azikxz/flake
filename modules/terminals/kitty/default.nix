@@ -9,6 +9,7 @@ with lib;
 mkIf (itIs == "desktop" || itIs == "laptop") {
   hm.programs.kitty = {
     enable = true;
+    enableGitIntegration = true;
 
     keybindings = import ./binds.nix;
 

@@ -31,14 +31,6 @@
     }
   ];
 
-  office = [
-    {
-      run = ''libreoffice "$@"'';
-      desc = "Open document";
-      orphan = true;
-    }
-  ];
-
   pdf = [
     {
       run = ''zathura "$@"'';

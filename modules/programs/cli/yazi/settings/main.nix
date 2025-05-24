@@ -59,14 +59,6 @@
           }) list);
       in
       {
-        prepend_preloaders = mk "office" [
-          "application/openxmlformats-officedocument.*"
-          "application/oasis.opendocument.*"
-          "application/msword"
-          "application/ms-*"
-          "*.docx"
-        ];
-
         prepend_previewers =
           (mk "ouch" [
             "application/*zip"

@@ -61,6 +61,9 @@
     chatGpt = "chatgpt.com";
     deekpeek = "chat.deepseek.com";
     gemini = "gemini.google.com";
+
+    # misc
+    base16Preview = "sesh.github.io/base16-viewer";
   };
 
   whitelist."whitelist" = {

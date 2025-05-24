@@ -3,6 +3,8 @@
   config,
 }:
 
+with lib;
+
 {
   inherit
     (import ./rules.nix {
@@ -64,16 +66,26 @@
 
     colors = with config.lib.stylix.colors.withHashtag; {
       tabs = {
-        odd.fg = lib.mkForce base03;
+        odd.fg = mkForce base03;
 
         even = {
-          bg = lib.mkForce base00;
-          fg = lib.mkForce base03;
+          bg = mkForce base00;
+          fg = mkForce base03;
         };
 
         selected = {
-          even.bg = lib.mkForce base02;
-          odd.bg = lib.mkForce base02;
+          even.bg = mkForce base0B;
+          odd.bg = mkForce base0B;
+        };
+
+        pinned = {
+          even.bg = mkForce base02;
+          odd.bg = mkForce base02;
+
+          selected = {
+            even.bg = mkForce base0B;
+            odd.bg = mkForce base0B;
+          };
         };
       };
 
@@ -83,13 +95,13 @@
       };
 
       hints = {
-        bg = lib.mkForce base04;
-        fg = lib.mkForce base00;
+        bg = mkForce base04;
+        fg = mkForce base00;
       };
     };
 
     fonts = with config.stylix.fonts; {
-      default_family = lib.mkForce monospace.name;
+      default_family = mkForce monospace.name;
     };
 
     content = {

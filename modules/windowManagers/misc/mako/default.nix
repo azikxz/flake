@@ -30,14 +30,14 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
         sort = "+time";
         margin = "20, 20, 20";
 
-        borderRadius = 8;
-        borderSize = 2;
+        border-radius = 8;
+        border-size = 2;
         font = config.stylix.fonts.monospace.name;
-        backgroundColor = base01;
-        borderColor = base0E;
-        textColor = base06;
-        maxVisible = 5;
-        defaultTimeout = 0;
+        background-color = base01;
+        border-color = base0E;
+        text-color = base06;
+        max-visible = 5;
+        default-timeout = 0;
       };
   };
 }

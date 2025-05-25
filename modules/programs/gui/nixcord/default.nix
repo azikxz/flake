@@ -6,6 +6,8 @@
 with lib;
 
 mkIf (itIs == "desktop") {
+  persist.user.dirs = [ ".config/vesktop" ];
+
   hm.programs.nixcord = {
     enable = true;
 

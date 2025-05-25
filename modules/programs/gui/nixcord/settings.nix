@@ -18,5 +18,13 @@
     openInApp.enable = true;
     translate.enable = true;
     youtubeAdblock.enable = true;
+
+    betterFolders = {
+      enable = true;
+
+      keepIcons = true;
+
+      showFolderIcon = "moreThanOne";
+    };
   };
 }

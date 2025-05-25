@@ -6,6 +6,6 @@
 
 with lib;
 
-mkIf (itIs == "desktop" || itsIs == "laptop") {
+mkIf (itIs == "desktop" || itIs == "laptop") {
   hm.home.packages = [ pkgs.anicliru ];
 }

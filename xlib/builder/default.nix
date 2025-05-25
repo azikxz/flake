@@ -116,7 +116,8 @@ let
               ]
             )
           ];
-
+        }
+        {
           home-manager = {
             sharedModules = lists.home;
 
@@ -125,9 +126,9 @@ let
             extraSpecialArgs = specialArgs;
 
             useGlobalPkgs = true;
-            useUserPackages = true;
           };
-
+        }
+        {
           hm.home = rec {
             username = system.userName;
             stateVersion = system.version;

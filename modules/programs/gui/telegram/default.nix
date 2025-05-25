@@ -25,8 +25,6 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
       else
         "TelegramDesktop"
     }/tdata"
-
-    ".cache/stylix-telegram-theme"
   ];
 
   hm = {

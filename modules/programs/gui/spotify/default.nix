@@ -9,32 +9,35 @@
 with lib;
 
 mkIf (itIs == "desktop") {
-  hm = {
-    programs.spicetify = {
-      enable = true;
+  persist.user.dirs = [
+    ".config/spotify"
+    ".cache/spotify"
+  ];
 
-      inherit
-        (import ./addons.nix {
-          inherit
-            inputs
-            pkgs
-            config
-            ;
-        })
-        theme
-        enabledExtensions
-        enabledSnippets
-        ;
+  hm.programs.spicetify = {
+    enable = true;
 
-      wayland = true;
-      windowManagerPatch = true;
-
-      colorScheme = "custom";
-      customColorScheme = import ./theme.nix {
+    inherit
+      (import ./addons.nix {
         inherit
+          inputs
+          pkgs
           config
           ;
-      };
+      })
+      theme
+      enabledExtensions
+      enabledSnippets
+      ;
+
+    wayland = true;
+    windowManagerPatch = true;
+
+    colorScheme = "custom";
+    customColorScheme = import ./theme.nix {
+      inherit
+        config
+        ;
     };
   };
 }

@@ -169,6 +169,27 @@
         "type": "github"
       }
     },
+    "fjordlauncher": {
+      "inputs": {
+        "libnbtplusplus": "libnbtplusplus",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1747431520,
+        "narHash": "sha256-b1cxAw7MDEqOCX3uLpVWT8L2vRyrJJgCJR5NAdV/IXw=",
+        "owner": "unmojang",
+        "repo": "FjordLauncher",
+        "rev": "ae5541a3fd81e80ecb82576285d685ae6e80f52c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "unmojang",
+        "repo": "FjordLauncher",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -499,6 +520,22 @@
         "type": "github"
       }
     },
+    "libnbtplusplus": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1699286814,
+        "narHash": "sha256-yy0q+bky80LtK1GWzz7qpM+aAGrOqLuewbid8WT1ilk=",
+        "owner": "PrismLauncher",
+        "repo": "libnbtplusplus",
+        "rev": "23b955121b8217c1c348a9ed2483167a6f3ff4ad",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PrismLauncher",
+        "repo": "libnbtplusplus",
+        "type": "github"
+      }
+    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -761,6 +798,7 @@
         "cosmic": "cosmic",
         "cursors": "cursors",
         "disko": "disko",
+        "fjordlauncher": "fjordlauncher",
         "flake-utils": "flake-utils",
         "flatpak": "flatpak",
         "gaming": "gaming",

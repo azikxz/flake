@@ -35,6 +35,7 @@ with lib;
         "https://niri.cachix.org"
         "https://nix-gaming.cachix.org"
         "https://nyx.chaotic.cx"
+        "https://unmojang.cachix.org"
         "https://xache.cachix.org"
       ];
 
@@ -47,6 +48,7 @@ with lib;
         "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
         "nyx.chaotic.cx-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
+        "unmojang.cachix.org-1:OfHnbBNduZ6Smx9oNbLFbYyvOWSoxb2uPcnXPj4EDQY="
         "xache.cachix.org-1:InoMKnvFvDh+J5gFNHN1mmUONxvYJqFImLJY8/bl9YA="
       ];
     };
@@ -56,6 +58,7 @@ with lib;
     hostPlatform = mkDefault system.platform;
 
     overlays = with inputs; [
+      fjordlauncher.overlays.default
       niri.overlays.niri
       nur.overlays.default
 

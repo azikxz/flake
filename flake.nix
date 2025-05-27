@@ -53,6 +53,10 @@
       url = "github:kaylorben/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fjordlauncher = {
+      url = "github:unmojang/FjordLauncher";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     cursors = {
       url = "github:LilleAila/nix-cursors";
       inputs.nixpkgs.follows = "nixpkgs";

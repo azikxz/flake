@@ -28,7 +28,7 @@ mkIf config.services.qbittorrent.enable {
         --rundir /var/lib/flood \
         --host "127.0.0.1" \
         --port 8085 \
-        --qburl "http://localhost:8080 \
+        --qburl "http://localhost:8080" \
         --qbuser "pirate" \
         --qbpass "yoho"
       '';

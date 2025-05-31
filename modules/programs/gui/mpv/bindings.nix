@@ -48,6 +48,6 @@ in
   "а" = "cycle fullscreen";
   ESC = "set fullscreen no";
 
-  "F" = "script-binding quality_menu/video_formats_toggle";
-  "Alt+f" = "script-binding quality_menu/audio_formats_toggle";
+  "G" = "script-binding quality_menu/video_formats_toggle";
+  "Alt+G" = "script-binding quality_menu/audio_formats_toggle";
 }

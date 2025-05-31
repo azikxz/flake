@@ -14,8 +14,8 @@
       persist = null;
     };
     style = {
-      theme = "horizonDark";
-      image = "hanabiFireworks";
+      theme = "foggy";
+      image = "moonWithSputnik";
     };
   };
 

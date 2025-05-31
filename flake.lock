@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1746715017,
-        "narHash": "sha256-U1bWsE/ARmXo2tFNN1RETN8xdnvOzCUoM9Q9OSj6gzw=",
+        "lastModified": 1748698654,
+        "narHash": "sha256-U4gsjcU4avw8sLsgqCf84ZGqhie8fVGDIPnzgtMI71M=",
         "owner": "~neverness",
         "repo": "design",
-        "rev": "3860cbf150284bd832503057ac5bc63ff190582d",
+        "rev": "fa7452ace3ad2aad354a843ed51994c70af924d9",
         "type": "sourcehut"
       },
       "original": {
@@ -606,11 +606,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1747575175,
-        "narHash": "sha256-C7syqonnRqV8K1OIyzaNr99ghCken0lK8i3+A8SXgqE=",
+        "lastModified": 1748334374,
+        "narHash": "sha256-cMy1DJB8kPXNYsH6nFkPg10F8XrM92Ef4IOegC1zwi4=",
         "owner": "~neverness",
         "repo": "nixages",
-        "rev": "1e5f371ee5b073c6f247e86331692656611ef70a",
+        "rev": "7cc1f75651743e918d1d75ef065ce89e198679dd",
         "type": "sourcehut"
       },
       "original": {

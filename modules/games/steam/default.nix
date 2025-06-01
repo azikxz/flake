@@ -42,7 +42,7 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
         (proton-ge-bin.override {
           steamDisplayName = "Proton-GE-unstable";
         })
-        (stable.proton-ge-bin.override {
+        (_24.proton-ge-bin.override {
           steamDisplayName = "Proton-GE-stable";
         })
       ];

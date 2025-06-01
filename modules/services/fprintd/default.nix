@@ -10,12 +10,12 @@ mkIf (itIs == "laptop") {
   services.fprintd = {
     enable = true;
 
-    package = pkgs.stable.fprintd-tod;
+    package = pkgs._24.fprintd-tod;
 
     tod = {
       enable = true;
 
-      driver = pkgs.stable.libfprint-2-tod1-vfs0090;
+      driver = pkgs._24.libfprint-2-tod1-vfs0090;
     };
   };
 }

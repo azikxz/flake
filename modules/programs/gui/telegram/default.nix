@@ -16,7 +16,8 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
       if
         elem package [
           pkgs._64gram
-          pkgs.stable._64gram
+          pkgs._24._64gram
+          pkgs._25._64gram
         ]
       then
         "64Gram"
@@ -42,7 +43,6 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
           package
           pkgs
           lib
-          config
           ;
       };
 

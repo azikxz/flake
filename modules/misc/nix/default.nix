@@ -66,7 +66,13 @@ with lib;
         final: prev:
         nixages.packages."x86_64-linux"
         // {
-          stable = import nixpkgs-stable {
+          _24 = import nixpkgs-24 {
+            inherit (prev)
+              system
+              config
+              ;
+          };
+          _25 = import nixpkgs-25 {
             inherit (prev)
               system
               config

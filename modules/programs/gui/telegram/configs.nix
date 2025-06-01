@@ -10,7 +10,8 @@ let
     if
       lib.elem package [
         pkgs._64gram
-        pkgs.stable._64gram
+        pkgs._24._64gram
+        pkgs._25._64gram
       ]
     then
       "64Gram"

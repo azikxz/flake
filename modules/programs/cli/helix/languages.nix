@@ -1,5 +1,4 @@
 {
-  self,
   pkgs,
   lib,
   ...
@@ -14,8 +13,6 @@ let
   inherit (lib)
     getExe
     getExe'
-    machineName
-    paths
     ;
 
   vs = n: "vscode-${n}-language-server";
@@ -231,17 +228,7 @@ in
       yaml = yaml-language-server;
     in
     {
-      nixd = {
-        command = getExe nixd;
-
-        config = rec {
-          nixpkgs.expr = ''import (builtins.getFlake "${self}").inputs.nixpkgs { }'';
-          options = {
-            nixos.expr = ''(builtins.getFlake "${self}").nixosConfigurations.${machineName}.options'';
-            home_manager.expr = ''${options.nixos.expr}.home-manager.users.type.getSubOptions [ ]'';
-          };
-        };
-      };
+      nixd.command = getExe nixd;
     } # nix
     // {
       typescript.command = getExe typescript;

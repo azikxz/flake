@@ -66,6 +66,10 @@
     base16Preview = "sesh.github.io/base16-viewer";
   };
 
+  perDomainSettings = {
+    "localhost:8085".zoom.default = "125%";
+  };
+
   whitelist."whitelist" = {
     includes =
       let
@@ -129,7 +133,10 @@
 
   userstyle = {
     "start" = {
-      includes = [ "qute://start/" ];
+      includes = [
+        "qute://start/"
+        "qute://bookmarks/"
+      ];
 
       text =
         let
@@ -138,13 +145,24 @@
         with config.lib.stylix.colors.withHashtag;
         # css
         ''
-          body {  background-color:  ${base00};
-                  font-family:      "${font.monospace.name}" !important; }
-          input { color:             ${base05};
+          body {
+                  background-color:  ${base00};
+                  font-family:      "${font.monospace.name}" !important;
+                }  
+          h1 {
+                  color: ${base05};
+                  font-weight: normal;
+                }
+          a {
+                  text-decoration: none;
+                  color: ${base0B};
+                }  
+          input {
+                  color:             ${base05};
                   background-color:  ${base01};
                   border-radius:     8px !important;
-                  font-family:      "${font.monospace.name}" !important; }
-
+                  font-family:      "${font.monospace.name}" !important;
+                }
           .bookmarks { display:    none;   }
           .header    { margin-top: 220px;  }
           .logo      { visibility: hidden; }

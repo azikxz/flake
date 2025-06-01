@@ -14,6 +14,8 @@ mkIf config.services.qbittorrent.enable {
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
 
+    path = with pkgs; [ mediainfo ];
+
     serviceConfig = {
       Type = "simple";
 
@@ -34,6 +36,7 @@ mkIf config.services.qbittorrent.enable {
       '';
     };
   };
+
   users = {
     groups.flood = { };
 

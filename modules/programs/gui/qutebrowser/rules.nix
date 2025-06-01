@@ -7,7 +7,6 @@
   quickmarks = {
     # localhost
     keenWeb = "192.168.1.1";
-    qBittorrent = "localhost:8080";
     flood = "localhost:8085";
     transmission = "localhost:9091";
     torrserver = "localhost:8090";
@@ -26,6 +25,7 @@
 
     # git
     ultima = "git.sr.ht/~neverness/ultima";
+    pubSolar = "git.pub.solar/xmozoid/ultima";
     github = "github.com";
 
     # social
@@ -36,6 +36,7 @@
     protonMail = "mail.proton.me";
     mastodonMl = "mastodon.ml";
     vk = "vk.com";
+    dvach = "2ch.su";
 
     # anime etc
     animeGo = "animego.club/index";

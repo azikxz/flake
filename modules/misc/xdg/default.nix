@@ -70,6 +70,7 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
           XDG_STUDY_DIR = mk + "/Study";
           XDG_SCREENSHOTS_DIR = pictures + "/Screenshots";
           XDG_FLAKE_DIR = paths.flakeDir;
+          XDG_TORRENTS_DIR = config.services.qbittorrent.savePath;
         };
       };
 

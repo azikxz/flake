@@ -15,18 +15,22 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     gaming = {
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs = {
@@ -34,6 +38,7 @@
         nixpkgs-stable.follows = "nixpkgs-stable";
       };
     };
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs = {
@@ -41,25 +46,39 @@
         nixpkgs-stable.follows = "nixpkgs-stable";
       };
     };
+
     yt-x = {
       url = "github:Benexl/yt-x";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     spicetify = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nixcord = {
       url = "github:kaylorben/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     fjordlauncher = {
       url = "github:unmojang/FjordLauncher";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     cursors = {
       url = "github:LilleAila/nix-cursors";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # selfmade
+    nixages = {
+      url = "sourcehut:~neverness/nixages";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
 
     torrHelper = {
@@ -69,6 +88,7 @@
         flake-utils.follows = "flake-utils";
       };
     };
+
     qbHelper = {
       url = "github:mctrxnv/qbHelper";
       inputs = {
@@ -77,22 +97,18 @@
       };
     };
 
-    nixages = {
-      url = "sourcehut:~neverness/nixages";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
+    # selfmade style
     base16 = {
       url = "sourcehut:~neverness/design/base16";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     wallpapers = {
       url = "sourcehut:~neverness/design/wallpapers";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # umu-run tools
     protonfixes = {
       url = "github:Open-Wine-Components/umu-protonfixes";
       flake = false;

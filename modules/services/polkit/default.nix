@@ -12,14 +12,12 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
     soteria.enable = true;
   };
 
-  systemd.user.services.polkit-soteria = {
-    description = "Soteria, Polkit authentication agent for any desktop environment";
-
+  systemd.user.services.soteria = {
     wantedBy = [ "graphical-session.target" ];
     wants = [ "graphical-session.target" ];
     after = [ "graphical-session.target" ];
 
-    script = lib.getExe config.security.soteria.package;
+    script = getExe config.security.soteria.package;
     serviceConfig = {
       Type = "simple";
       Restart = "on-failure";

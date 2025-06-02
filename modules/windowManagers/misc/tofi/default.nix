@@ -75,5 +75,7 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
         padding-top = 4
         padding-bottom = 4
       '';
+
+    home.shellAliases.tofi-hyprland = "tofi-drun | xargs hyprctl dispatch exec -- ";
   };
 }

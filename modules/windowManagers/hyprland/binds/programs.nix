@@ -23,5 +23,5 @@ in
   (s "n" "kitty --class=termfloat yazi")
 
   (m "m" "spotify")
-  (s "m" "kitty --class=ani anicli-ru -q 1080")
+  (s "m" "kitty --class=ani anicli")
 ]

@@ -53,7 +53,7 @@ in
     mode = mkStr "0775";
 
     profileDir = mkPath "/var/lib/qBittorrent/";
-    savePath = mkPath "/media/torrents";
+    savePath = mkPath "${config.hm.xdg.userDirs.download}/Torrents";
 
     webuiPort = mkPort 8080;
     torrentingPort = mkNull.port 6881;

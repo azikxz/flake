@@ -29,15 +29,6 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
           ;
       }
       // {
-        inherit
-          (import ./rules.nix {
-            inherit
-              config
-              ;
-          })
-          perDomainSettings
-          ;
-
         searchEngines = {
           DEFAULT = "https://www.google.com/search?q={}";
         };

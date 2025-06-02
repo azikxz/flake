@@ -63,12 +63,13 @@
     deekpeek = "chat.deepseek.com";
     gemini = "gemini.google.com";
 
+    # wallpapers
+    wallHaven = "wallhaven.cc"; # nazi????
+    wallpapers = "wallpapers.com";
+    wallReddit = "l.opnxng.com/r/wallpaper";
+
     # misc
     base16Preview = "sesh.github.io/base16-viewer";
-  };
-
-  perDomainSettings = {
-    "localhost:8085".zoom.default = "125%";
   };
 
   whitelist."whitelist" = {

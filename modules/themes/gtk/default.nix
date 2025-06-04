@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   ...
 }:
@@ -17,7 +18,7 @@ let
   };
 in
 
-{
+lib.mkIf config.stylix.targets.gtk.enable {
   hm = {
     gtk = {
       gtk3.extraConfig = extra;

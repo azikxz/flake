@@ -20,7 +20,6 @@ in
 {
   hm.stylix = {
     enable = true;
-    autoEnable = false;
 
     iconTheme = {
       enable = true;
@@ -35,12 +34,22 @@ in
       };
     };
 
-    targets = import ./targets.nix;
+    targets = {
+      cava.rainbow.enable = true;
+      hyprland.hyprpaper.enable = true;
+
+      mako.enable = false;
+      spicetify.enable = false;
+      helix.enable = false;
+      mpv.enable = false;
+      tofi.enable = false;
+      qt.enable = false;
+      kde.enable = false;
+    };
   };
 
   stylix = {
     enable = true;
-    autoEnable = false;
     overlays.enable = true;
 
     image = import ./image.nix {
@@ -88,9 +97,9 @@ in
           name = "Noto Emoji";
         };
 
-        monospace = {
-          package = pkgs.nerd-fonts.caskaydia-cove;
-          name = "CaskaydiaCove Nerd Font";
+        monospace = with pkgs.nerd-fonts; {
+          package = jetbrains-mono;
+          name = "JetBrainsMono Nerd Font";
         };
 
         sansSerif = monospace;

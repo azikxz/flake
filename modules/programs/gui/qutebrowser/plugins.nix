@@ -3,51 +3,32 @@
   ...
 }:
 
+with pkgs;
 let
-  inherit (pkgs)
-    fetchurl
-    writeText
-    ;
+  afreakk = "https://raw.githubusercontent.com/afreakk/greasemonkeyscripts/refs/heads/master/";
 in
 
 [
+  (writeText "youtubeTweaks.js" ''
+    // ==UserScript==
+    // @name    Userstyle (youtube.css)
+    // @match        *://*.youtube.com/*
+    // @exclude     *://music.youtube.com/*
+    // ==/UserScript==
+    GM_addStyle(`
+      #country-code.ytd-topbar-logo-renderer { display: none; }
+      yt-button-shape { display: none; }
+      yt-button-renderer, ytd-button-renderer, ytd-toggle-button-renderer { display: none; }
+    `)
+  '')
+
   (fetchurl {
-    url = "https://raw.githubusercontent.com/afreakk/greasemonkeyscripts/refs/heads/master/youtube_sponsorblock.js";
+    url = afreakk + "youtube_sponsorblock.js";
     sha256 = "sha256-nwNade1oHP+w5LGUPJSgAX1+nQZli4Rhe8FFUoF5mLE=";
   })
 
   (fetchurl {
-    url = "https://raw.githubusercontent.com/afreakk/greasemonkeyscripts/refs/heads/master/youtube_adblock.js";
+    url = afreakk + "youtube_adblock.js";
     sha256 = "sha256-AyD9VoLJbKPfqmDEwFIEBMl//EIV/FYnZ1+ona+VU9c=";
   })
-
-  (writeText "nixosWiki" ''
-    // ==UserScript==
-    // @name         NixOS old wiki -> new wiki redirect
-    // @description  Redirects from old nixos.wiki to wiki.nixos.org
-    // @version      0.0.1
-    // @match        https://nixos.wiki/*
-    // @run-at       document-start
-    // @grant        none
-    // ==/UserScript==
-
-    (function() {
-        function redirect() {
-            const pathname = location.pathname;
-
-            // Экранируем фигурные скобки, чтобы Nix не интерпретировал их
-            location.href = "https://wiki.nixos.org" + pathname;
-        }
-
-        // Перенаправляем сразу при запуске
-        redirect();
-
-        // Слушаем изменения URL, если используется SPA
-        window.addEventListener('urlchange', ({ url }) => {
-            if (url.startsWith('https://nixos.wiki/')) {
-                redirect();
-            }
-        });
-    })();
-  '')
 ]

@@ -13,7 +13,7 @@ with lib;
     kernelPackages = pkgs.linuxPackages_zen;
 
     loader = {
-      timeout = mkForce 0;
+      timeout = mkForce 1;
 
       systemd-boot = {
         enable = true;

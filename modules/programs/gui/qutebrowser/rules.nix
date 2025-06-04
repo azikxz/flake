@@ -56,6 +56,8 @@
     mineWiki = "ru.minecraft.wiki";
     broTorrent = "brotorrent.net";
     freeTP = "freetp.org";
+    steamDB = "steamdb.info";
+    protonDB = "protondb.com";
 
     # study
     profteh = "profteh.com/study";

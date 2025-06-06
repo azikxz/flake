@@ -8,10 +8,19 @@
 with lib;
 
 {
-  environment.systemPackages = [ pkgs.hydra-check ];
+  environment = with pkgs; {
+    systemPackages = [ hydra-check ];
+  };
 
   nix = {
     package = pkgs.nix;
+
+    registry =
+      let
+        mapping = mapAttrs (_: v: { flake = v; });
+        flakeInputs = filterAttrs (_: v: isType "flake" v) inputs;
+      in
+      mapping flakeInputs;
 
     settings = {
       warn-dirty = false;

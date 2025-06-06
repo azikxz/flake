@@ -104,3 +104,4 @@
   - [artem](https://github.com/ArtemChandragupta/NixFlake)
   - [luis](https://github.com/luishfonseca/nixos-config)
   - [roman](https://github.com/nullptroma/nixos-configuration)
+  - [fufexan](https://github.com/fufexan/dotfiles)

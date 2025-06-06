@@ -11,8 +11,11 @@
     "<Alt-k>" = "tab-move -";
     "gp" = "tab-pin ;; " + "tab-move";
 
+    "<Alt-t>" = "set-cmd-text -s :open -w";
+    "<Alt-p>" = "open -w -- {clipboard}";
+
     # mpv
-    ",h" = "open qute://start/";
+    "gh" = "open qute://start/";
 
     # mpv
     ",m" = "spawn mpv {url} ;; " + "message-info 'Video will be open in MPV'";
@@ -23,7 +26,7 @@
     "yI" = "hint images yank -s";
 
     # keepassxc
-    ",p" = "spawn --userscript qute-keepass -p " + lib.paths.passwords;
+    ",," = "spawn --userscript qute-keepass -p " + lib.paths.passwords;
 
     # transPopup
     ",t" = "spawn --userscript ${pkgs."qutebrowser/page"}/exe -s en -t ru";

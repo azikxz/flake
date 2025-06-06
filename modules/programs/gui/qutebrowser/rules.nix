@@ -5,6 +5,8 @@
 
 {
   quickmarks = {
+    # search
+    _4get = "4get.nadeko.net";
     # localhost
     keenWeb = "192.168.1.1";
     flood = "localhost:8085";
@@ -30,7 +32,8 @@
 
     # social
     youtube = "youtube.com";
-    redlib = "l.opnxng.com";
+    invidious = "inv.nadeko.net";
+    redlib = "redlib.nadeko.net";
     twitch = "twitch.tv";
     gmail = "mail.google.com";
     protonMail = "mail.proton.me";
@@ -105,6 +108,8 @@
         [
           (mk "priv.au")
           (mk "rutracker.org")
+          (mk "nadeko.net")
+          (mk "*.nadeko.net")
           (pk "*.youtube.com")
           (mk "www.youtube.com")
           (mk "*.google.com")

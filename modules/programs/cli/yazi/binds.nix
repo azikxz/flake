@@ -366,12 +366,12 @@ with lib;
 
         # yank
         {
-          on = [ "y" ];
+          on = [ "W" ];
           run = [
             "plugin wl-clipboard"
             "yank"
           ];
-          desc = "Yank files";
+          desc = "Yank file systemly";
         }
 
         # paste

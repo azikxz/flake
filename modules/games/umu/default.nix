@@ -13,10 +13,6 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
   environment = {
     shellAliases.uwu = "umu-run";
 
-    sessionVariables = {
-      PROTON_USE_NTSYNC = "1";
-    };
-
     systemPackages = with pkgs; [
       (umu-launcher.override {
         extraEnv = {

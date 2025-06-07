@@ -14,6 +14,7 @@ with lib;
 
     loader = {
       timeout = mkForce 1;
+      efi.canTouchEfiVariables = true;
 
       systemd-boot = {
         enable = true;
@@ -23,9 +24,9 @@ with lib;
     };
 
     tmp.cleanOnBoot = true;
-    kernelModules = [ "kvm-amd" ];
     consoleLogLevel = 0;
-    loader.efi.canTouchEfiVariables = true;
+
+    kernelModules = [ "kvm-amd" ];
 
     kernelParams = [
       "boot.shell_on_fail"

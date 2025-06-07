@@ -10,12 +10,18 @@ with lib;
 mkIf (itIs == "desktop" || itIs == "laptop") {
   persist.user.dirs = [ ".local/share/umu" ];
 
-  environment.shellAliases.uwu = "umu-run";
+  environment = {
+    shellAliases.uwu = "umu-run";
 
-  hm = {
-    home.packages = with pkgs; [
+    sessionVariables = {
+      PROTON_USE_NTSYNC = "1";
+    };
+
+    systemPackages = with pkgs; [
       (umu-launcher.override {
         extraEnv = {
+          PROTON_USE_NTSYNC = "1";
+
           SDL_VIDEODRIVER = mkForce "";
 
           WINEPREFIX = paths.winePrefix;
@@ -26,11 +32,11 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
         };
       })
     ];
+  };
 
-    xdg.configFile."protonfixes" = {
-      recursive = true;
+  hm.xdg.configFile."protonfixes" = {
+    recursive = true;
 
-      source = inputs.protonfixes;
-    };
+    source = inputs.protonfixes;
   };
 }

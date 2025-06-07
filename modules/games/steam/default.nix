@@ -7,7 +7,7 @@
 
 with lib;
 let
-  extraArgs = lib.concatStringsSep " " [
+  extraArgs = concatStringsSep " " [
     "-bigpicture"
     "-gamepadui"
     "-nochatui"
@@ -15,8 +15,9 @@ let
     "-silent"
   ];
 
+  # STEAM_COMPAT_DATA_PATH=${paths.winePrefix} %command%
   steamUnified = (
-    lib.optionalAttrs (paths.winePrefix != null) {
+    optionalAttrs (paths.winePrefix != null) {
       STEAM_COMPAT_CLIENT_INSTALL_PATH = config.hm.home.homeDirectory + "/.steam";
       STEAM_COMPAT_DATA_PATH = paths.winePrefix;
     }
@@ -42,6 +43,7 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
         (proton-ge-bin.override {
           steamDisplayName = "Proton-GE-unstable";
         })
+
         (_24.proton-ge-bin.override {
           steamDisplayName = "Proton-GE-stable";
         })
@@ -56,7 +58,13 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
           MANGOHUD = true;
           OBS_VKCAPTURE = true;
           RADV_TEX_ANISO = 16;
+          PROTON_USE_NTSYNC = "1";
         } // steamUnified;
+
+        extraPkgs =
+          pkgs: with pkgs; [
+            mangohud
+          ];
 
         extraLibraries =
           pkgs: with pkgs; [
@@ -65,9 +73,23 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
             wayland
           ];
       };
+
+      platformOptimizations.enable = true;
     };
 
-    gamescope.enable = true;
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+
+      args = [
+        "-e"
+        "-w 1920"
+        "-h 1080"
+        "-r 60"
+        "--xwayland-count 2"
+        "--backend sdl"
+      ];
+    };
 
     gamemode = {
       enable = true;

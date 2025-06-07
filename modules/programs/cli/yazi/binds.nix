@@ -7,7 +7,7 @@
 with lib;
 
 {
-  manager = {
+  mgr = {
     prepend_keymap =
       [
         # main

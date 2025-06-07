@@ -10,7 +10,7 @@ let
 in
 
 lib.mkForce {
-  manager = {
+  mgr = {
     cwd = {
       fg = base0B;
     };

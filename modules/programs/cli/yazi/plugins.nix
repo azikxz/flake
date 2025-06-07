@@ -45,25 +45,18 @@ in
 
       # fetched
       {
-        yatline-tab-path = fetchFromGitHub {
-          owner = "blackdaemon";
-          repo = "yatline-tab-path.yazi";
-          rev = "101fe7c8a979dbdf498259cc773dc8bd781a8733";
-          hash = "sha256-wV5YXm31zMsG7e/YhWa+72eLYC/QmBgjweKFuIn5BpA=";
-        };
-
         ouch = fetchFromGitHub {
           owner = "ndtoan96";
           repo = "ouch.yazi";
-          rev = "2496cd9ac2d1fb52597b22ae84f3af06c826a86d";
-          hash = "sha256-OsNfR7rtnq+ceBTiFjbz+NFMSV/6cQ1THxEFzI4oPJk=";
+          rev = "10b462765f37502065555e83c68a72bb26870fe2";
+          hash = "sha256-mtXl76a54Deg4cyrD0wr++sD/5b/kCsnJ+ngM6OokTc=";
         };
 
         glow = fetchFromGitHub {
-          owner = "Reledia";
+          owner = "khaneliman";
           repo = "glow.yazi";
-          rev = "2da96e3ffd9cd9d4dd53e0b2636f83ff69fe9af0";
-          hash = "sha256-4krck4U/KWmnl32HWRsblYW/biuqzDPysrEn76buRck=";
+          rev = "arg";
+          hash = "sha256-ppsYr26T3iF5UVFq+EPIe/Ai7GgAj0Ry1yu0440tQtc=";
         };
 
         wl-clipboard = fetchFromGitHub {
@@ -76,8 +69,8 @@ in
         office = fetchFromGitHub {
           owner = "macydnah";
           repo = "office.yazi";
-          rev = "d1e3e51857c109fbfc707ab0f9f383dc98b9795f";
-          hash = "sha256-ORcexu1f7hb7G4IyzQIfGlCkH3OWlk4w5FtZrbXkR40=";
+          rev = "4002d368c09841d5722d55720fd29c2eba05300f";
+          hash = "sha256-XE+EfVPsO09zG8qYEhN6O95mS9NJlTdOd4Gsem2KtPI=";
         };
       }
 

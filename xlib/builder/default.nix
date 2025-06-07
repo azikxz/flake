@@ -13,6 +13,7 @@ let
       disko.nixosModules.default
       flatpak.nixosModules.nix-flatpak
       gaming.nixosModules.pipewireLowLatency
+      gaming.nixosModules.platformOptimizations
       home.nixosModules.home-manager
       impermanence.nixosModules.impermanence
       nixpkgs.nixosModules.notDetected

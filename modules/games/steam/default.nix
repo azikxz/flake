@@ -1,28 +1,10 @@
 {
   pkgs,
   lib,
-  config,
   ...
 }:
 
 with lib;
-let
-  extraArgs = concatStringsSep " " [
-    "-bigpicture"
-    "-gamepadui"
-    "-nochatui"
-    "-nofriendsui"
-    "-silent"
-  ];
-
-  # STEAM_COMPAT_DATA_PATH=${paths.winePrefix} %command%
-  steamUnified = (
-    optionalAttrs (paths.winePrefix != null) {
-      STEAM_COMPAT_CLIENT_INSTALL_PATH = config.hm.home.homeDirectory + "/.steam";
-      STEAM_COMPAT_DATA_PATH = paths.winePrefix;
-    }
-  );
-in
 
 mkIf (itIs == "desktop" || itIs == "laptop") {
   persist.user.dirs = [
@@ -30,7 +12,7 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
     ".steam"
   ];
 
-  hardware.xone.enable = true;
+  hardware.xpadneo.enable = true;
 
   programs = with pkgs; {
     steam = {
@@ -50,16 +32,18 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
       ];
 
       package = steam.override {
-        inherit
-          extraArgs
-          ;
+        extraArgs = concatStringsSep " " [
+          "-nochatui"
+          "-nofriendsui"
+          "-silent"
+        ];
 
         extraEnv = {
           MANGOHUD = true;
           OBS_VKCAPTURE = true;
           RADV_TEX_ANISO = 16;
           PROTON_USE_NTSYNC = "1";
-        } // steamUnified;
+        };
 
         extraPkgs =
           pkgs: with pkgs; [

@@ -92,11 +92,11 @@ let
         let
           modulesDir = "${self}/modules";
           machineDir = "${self}/machines/${machineName}";
-
-          modulesExist = pathExists modulesDir;
-          machineExist = pathExists machineDir;
         in
-        [ ] ++ (optional modulesExist modulesDir) ++ (optional machineExist machineDir) ++ lists.nixos;
+        [ ]
+        ++ (optional (pathExists modulesDir) modulesDir)
+        ++ (optional (pathExists machineDir) machineDir)
+        ++ lists.nixos;
     in
 
     lib.nixosSystem {

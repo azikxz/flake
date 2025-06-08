@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -12,10 +13,15 @@ with lib;
       graphics = {
         enable = true;
         enable32Bit = true;
+
+        extraPackages = with pkgs; [ rocmPackages.clr.icd ];
       };
     }
-    // (optionalAttrs (itIs == "desktop" || itIs == "laptop") {
-      amdgpu.initrd.enable = true;
+    // (optionalAttrs true {
+      amdgpu = {
+        initrd.enable = true;
+        opencl.enable = true;
+      };
 
       cpu.amd = {
         ryzen-smu.enable = true;
@@ -23,4 +29,9 @@ with lib;
         updateMicrocode = mkDefault config.hardware.enableRedistributableFirmware;
       };
     });
+
+  environment.variables = {
+    RUSTICL_ENABLE = "radeonsi";
+    ROC_ENABLE_PRE_VEGA = 1;
+  };
 }

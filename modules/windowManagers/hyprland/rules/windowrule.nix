@@ -26,6 +26,7 @@ in
   (cl "steam" "workspace 10 silent")
 
   # term rules
+  (cl "footfloat" "float")
   (cl "termfloat" "float")
   (cl "termfloat" "move center")
   (cl "termfloat" "size 650 430")

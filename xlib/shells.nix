@@ -18,11 +18,13 @@ in
     nix-init
     cachix
   ];
+
   rust = mk [
     rustfmt
     rustc
     cargo
   ];
+
   python = mk [
     python3
     pipx

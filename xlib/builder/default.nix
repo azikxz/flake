@@ -4,108 +4,113 @@
   ...
 }:
 
-let
-  backup = "backup";
-  secretsFile = "${self}/secrets.nix";
+builtins.mapAttrs (
+  machineName:
+  args@{
+    system ? {
+      itIs = null;
+      disk = null;
+      hostName = "starship";
+      userName = "amogus";
+      platform = "x86_64-linux";
+      version = "24.05";
+    },
+    paths ? {
+      passwords = null;
+      flakeDir = "/etc/nixos";
+      winePrefix = null;
+      persist = null;
+    },
+    style ? {
+      theme = "horizon-dark";
+      image = "train";
+    },
+    secrets ? (builtins.pathExists secrets) (import "${self}/secrets.nix" args),
+  }:
 
-  lists = with inputs; {
-    nixos = [
-      disko.nixosModules.default
-      flatpak.nixosModules.nix-flatpak
-      gaming.nixosModules.pipewireLowLatency
-      gaming.nixosModules.platformOptimizations
-      home.nixosModules.home-manager
-      impermanence.nixosModules.impermanence
-      nixpkgs.nixosModules.notDetected
-      nur.modules.nixos.default
-      stylix.nixosModules.stylix
-    ];
+  let
+    specialArgs = {
+      inherit
+        self
+        inputs
+        ;
+    };
 
-    home = [
-      nixcord.homeModules.nixcord
-      nur.modules.homeManager.default
-      spicetify.homeManagerModules.default
-    ];
-  };
-
-  makeMachines =
-    machineName:
-    args@{
-      system ? {
-        itIs = null;
-        disk = null;
-        hostName = "starship";
-        userName = "amogus";
-        platform = "x86_64-linux";
-        version = "24.05";
-      },
-      paths ? {
-        passwords = null;
-        flakeDir = "/etc/nixos";
-        winePrefix = null;
-        persist = null;
-      },
-      style ? {
-        theme = "horizon-dark";
-        image = "train";
-      },
-      secrets ? (builtins.pathExists secrets) import secretsFile args,
-    }:
-
-    let
-      specialArgs = {
-        inherit
-          self
-          inputs
+    lib = inputs.nixpkgs.lib.extend (
+      final: prev:
+      {
+        inherit (inputs.home.lib)
+          hm
           ;
-      };
 
-      lib = inputs.nixpkgs.lib.extend (
-        final: prev:
-        {
-          inherit (inputs.home.lib)
-            hm
-            ;
+        inherit (system)
+          itIs
+          ;
 
-          inherit (system)
-            itIs
-            ;
+        inherit
+          machineName
+          system
+          paths
+          style
+          secrets
+          ;
+      }
+      // import ./options {
+        inherit
+          inputs
+          lib
+          ;
+      }
+    );
+  in
 
-          inherit
-            machineName
-            system
-            paths
-            style
-            secrets
-            ;
-        }
-        // import ./options {
-          inherit
-            inputs
-            lib
-            ;
-        }
-      );
+  lib.nixosSystem {
+    inherit
+      lib
+      specialArgs
+      ;
 
-      mkSystem =
-        with lib;
+    modules =
+      (
         let
           modulesDir = "${self}/modules";
           machineDir = "${self}/machines/${machineName}";
         in
         [ ]
-        ++ (optional (pathExists modulesDir) modulesDir)
-        ++ (optional (pathExists machineDir) machineDir)
-        ++ lists.nixos;
-    in
+        ++ (lib.optional (lib.pathExists modulesDir) modulesDir)
+        ++ (lib.optional (lib.pathExists machineDir) machineDir)
+        ++ (with inputs; [
+          disko.nixosModules.default
+          flatpak.nixosModules.nix-flatpak
+          gaming.nixosModules.pipewireLowLatency
+          gaming.nixosModules.platformOptimizations
+          home.nixosModules.home-manager
+          impermanence.nixosModules.impermanence
+          nixpkgs.nixosModules.notDetected
+          nur.modules.nixos.default
+          stylix.nixosModules.stylix
+        ])
+      )
+      ++ [
+        {
+          home-manager = {
+            sharedModules = with inputs; [
+              nixcord.homeModules.nixcord
+              nur.modules.homeManager.default
+              spicetify.homeManagerModules.default
+            ];
 
-    lib.nixosSystem {
-      inherit
-        lib
-        specialArgs
-        ;
-
-      modules = mkSystem ++ [
+            useGlobalPkgs = true;
+            extraSpecialArgs = specialArgs;
+          };
+        }
+        {
+          hm.home = rec {
+            username = system.userName;
+            stateVersion = system.version;
+            homeDirectory = "/home/${username}";
+          };
+        }
         {
           imports = [
             (lib.mkAliasOptionModule
@@ -118,26 +123,6 @@ let
             )
           ];
         }
-        {
-          home-manager = {
-            sharedModules = lists.home;
-
-            backupFileExtension = backup;
-
-            extraSpecialArgs = specialArgs;
-
-            useGlobalPkgs = true;
-          };
-        }
-        {
-          hm.home = rec {
-            username = system.userName;
-            stateVersion = system.version;
-            homeDirectory = "/home/${username}";
-          };
-        }
       ];
-    };
-in
-
-builtins.mapAttrs makeMachines
+  }
+)

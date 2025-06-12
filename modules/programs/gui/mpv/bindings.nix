@@ -50,4 +50,5 @@ in
 
   "G" = "script-binding quality_menu/video_formats_toggle";
   "Alt+G" = "script-binding quality_menu/audio_formats_toggle";
+  "Ctrl+G" = "script-binding quality_menu/reload";
 }

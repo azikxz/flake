@@ -17,7 +17,6 @@ with lib;
 
     variables = {
       EDITOR = "vim";
-      VISUAL = "vim";
     };
   };
 

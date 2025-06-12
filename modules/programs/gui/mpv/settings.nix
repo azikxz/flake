@@ -26,18 +26,20 @@ in
     mpv_thumbnail_script = {
       autogenerate = "yes";
       autogenerate_max_duration = "3600";
+
       background_color = "000000";
       mpv_no_sub = "no";
       prefer_mpv = "yes";
+
       thumbnail_count = 150;
       thumbnail_height = 200;
       thumbnail_network = "no";
       thumbnail_width = 200;
     };
   };
+
   config = {
     fs = "yes";
-    osc = "no";
 
     glsl-shaders = toString (
       with pkgs;
@@ -48,6 +50,11 @@ in
       else
         null
     );
+
+    ytdl-format = "bestvideo[height<=?1080][fps<=?60]+bestaudio/best";
+
+    osd-blur = 20;
+    osc-deadzonesize = 1;
   };
 
   extra = ''

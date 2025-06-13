@@ -24,6 +24,10 @@ with lib;
 
           commands = [
             {
+              command = lib.getExe' amneziawg-tools "awg-quick";
+              options = [ "NOPASSWD" ];
+            }
+            {
               command = getExe light;
               options = [ "NOPASSWD" ];
             }

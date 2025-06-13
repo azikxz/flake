@@ -179,44 +179,6 @@
         '';
     };
 
-    "vot" = {
-      includes = [
-        "qute://start/"
-        "qute://bookmarks/"
-      ];
-
-      text =
-        with config.lib.stylix.colors.withHashtag;
-        let
-          inherit (lib)
-            concatStringsSep
-            ;
-          font = config.stylix.fonts;
-
-          base00' = concatStringsSep ", " [
-            base00-rgb-r
-            base00-rgb-g
-            base00-rgb-b
-          ];
-
-          base05' = concatStringsSep ", " [
-            base05-rgb-r
-            base05-rgb-g
-            base05-rgb-b
-          ];
-        in
-        # css
-        ''
-          :root {
-            --vot-font-family:           "${font.monospace.name}";
-            --vot-primary-rgb:            ${base05'};
-            --vot-onprimary-rgb:          ${base00'};
-            --vot-surface-rgb:            ${base00'};
-            --vot-onsurface-rgb:          ${base05'};
-          }
-        '';
-    };
-
     "youtube" = {
       includes = [
         "*://*.youtube.com/*"

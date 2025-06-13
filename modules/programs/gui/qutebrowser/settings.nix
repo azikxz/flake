@@ -9,6 +9,7 @@ with lib;
   inherit
     (import ./rules.nix {
       inherit
+        lib
         config
         ;
     })

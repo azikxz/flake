@@ -40,6 +40,7 @@ in
 
   config = {
     fs = "yes";
+    osc = "no";
 
     glsl-shaders = toString (
       with pkgs;
@@ -53,8 +54,7 @@ in
 
     ytdl-format = "bestvideo[height<=?1080][fps<=?60]+bestaudio/best";
 
-    osd-blur = 20;
-    osc-deadzonesize = 1;
+    osd-blur = 0.2;
   };
 
   extra = ''

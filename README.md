@@ -34,14 +34,15 @@
 |                  [btop](https://github.com/aristocratos/btop) | very informated top                |
 |          [trashy](https://github.com/oberblastmeister/trashy) | trash manager                      |
 
-|                                          def cli replacement |                      |
-| -----------------------------------------------------------: | :------------------- |
-|                  [eza](https://github.com/eza-community/eza) | rusted ls with icons |
-|                        [bat](https://github.com/sharkdp/bat) | rusted cat (robo???) |
-|                  [bonk](https://github.com/elliot40404/bonk) | rusted touch         |
-|                [hunt](https://github.com/LyonSyonII/hunt-rs) | rusted find          |
-|           [ripgrep](https://github.com/phiresky/ripgrep-all) | rusted grep          |
-| [sudo-rs](https://github.com/trifectatechfoundation/sudo-rs) | fast and secure sudo |
+|                                          def cli replacement |                          |
+| -----------------------------------------------------------: | :----------------------- |
+|                  [eza](https://github.com/eza-community/eza) | rusted ls with icons     |
+|                        [bat](https://github.com/sharkdp/bat) | rusted cat (robo???)     |
+|                  [bonk](https://github.com/elliot40404/bonk) | rusted touch             |
+|                [hunt](https://github.com/LyonSyonII/hunt-rs) | rusted find              |
+|           [ripgrep](https://github.com/phiresky/ripgrep-all) | rusted grep              |
+| [sudo-rs](https://github.com/trifectatechfoundation/sudo-rs) | fast and secure sudo     |
+|                                  [podman](https://podman.io) | containers are very easy |
 
 |                                              gui utilites |                                                             |
 | --------------------------------------------------------: | :---------------------------------------------------------- |
@@ -65,6 +66,7 @@
 |                  [mpv](https://github.com/mpv-player/mpv) | simplest video player                                       |
 |              [anime4k](https://github.com/bloc97/Anime4K) | anime upscaler                                              |
 |            [swayimg](https://github.com/artemsen/swayimg) | simple image viewer                                         |
+|         [winapps](https://github.com/winapps-org/winapps) | connect to windows via rdp                                  |
 
 |                                                           games |                                         |
 | --------------------------------------------------------------: | :-------------------------------------- |
@@ -72,11 +74,11 @@
 |                [mindustry](https://github.com/Anuken/Mindustry) | OHMYGOD 10/10 RTS YEEEE BOYYYY          |
 |                                    [srb2](https://www.srb2.org) | classic 3d sonix                        |
 |                            [openarena](http://www.openarena.ws) | quake 3 with mods!!!                    |
+| [prismlauncher](https://github.com/PrismLauncher/PrismLauncher) | fuckm all my homies plays this shit man |
 |                                                        via wine |                                         |
 | [umu-run](https://github.com/Open-Wine-Components/umu-launcher) | perfect cli proton launcher             |
 |                         [steam](https://store.steampowered.com) | cool game store and launcher            |
 |                [legendary](https://github.com/derrod/legendary) | cli for Epic Games Store                |
-| [prismlauncher](https://github.com/PrismLauncher/PrismLauncher) | fuckm all my homies plays this shit man |
 
 |                                                  misc |                                       |
 | ----------------------------------------------------: | :------------------------------------ |

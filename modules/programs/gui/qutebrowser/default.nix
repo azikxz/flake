@@ -37,7 +37,6 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
         keyBindings = import ./binds.nix {
           inherit
             pkgs
-            lib
             ;
         };
 

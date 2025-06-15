@@ -40,7 +40,6 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
         "${gn}/World/Secrets/last-opened-database" = {
           generator-length = 24;
           generator-use-numbers = true;
-          last-opened-database = "file://${paths.passwords}";
         };
 
         "${gnDesk}/wm/preferences" = {

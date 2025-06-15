@@ -56,6 +56,8 @@
 |                            [spotify](https://spotify.com) | good music streamer                                         |
 |                        [spicetify](https://spicetify.app) | modder for spotify                                          |
 | [qbittorrent](https://github.com/qbittorrent/qBittorrent) | torrents))))) hahah))))                                     |
+|             [vesktop](https://github.com/Vencord/Vesktop) | cute uwu nya discord (mlp)                                  |
+|                         [mumble](https://www.mumble.info) | foss voicechat                                              |
 |      [ayugram](https://github.com/AyuGram/AyuGramDesktop) | i hate read deleted message >:(                             |
 |        [64gram](https://github.com/TDesktop-x64/tdesktop) | idk just modified tgram client lol                          |
 |       [walogram](https://codeberg.org/thirtysix/walogram) | generate telegram theme on stylix (nix verison in my files) |
@@ -79,6 +81,7 @@
 |                                                  misc |                                       |
 | ----------------------------------------------------: | :------------------------------------ |
 |       [nix-tree](https://github.com/utdemir/nix-tree) | tree for your generations&derivations |
+|                    [nh](https://github.com/cole-h/nh) | nix helper                            |
 | [nix-init](https://github.com/nix-community/nix-init) | easy nix package creator              |
 |         [nurl](https://github.com/nix-community/nurl) | tool for fetching git repo            |
 |           [tenki](https://github.com/ckaznable/tenki) | tui clock with effects                |

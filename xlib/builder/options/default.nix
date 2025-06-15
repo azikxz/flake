@@ -27,3 +27,4 @@ rec {
     lib
     ;
 }
+// import ./syncthing.nix

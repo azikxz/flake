@@ -9,10 +9,6 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
   hm.programs.keepassxc = {
     enable = true;
 
-    settings = import ./settings.nix {
-      inherit
-        lib
-        ;
-    };
+    settings = import ./settings.nix;
   };
 }

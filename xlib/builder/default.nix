@@ -16,7 +16,6 @@ builtins.mapAttrs (
       version = "24.05";
     },
     paths ? {
-      passwords = null;
       flakeDir = "/etc/nixos";
       winePrefix = null;
       persist = null;

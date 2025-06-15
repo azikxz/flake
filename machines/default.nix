@@ -9,7 +9,6 @@
     };
     paths = {
       flakeDir = "/etc/nixos";
-      passwords = "~/Sync/passwords.kdbx";
       winePrefix = "/media/disks/fastBitch/SteamUnified";
       persist = null;
     };
@@ -29,7 +28,6 @@
     };
     paths = {
       flakeDir = "/persist/flake";
-      passwords = "/persist/vault/passwords.kdbx";
       winePrefix = "/persist/proton-prefix";
       persist = "/persist";
     };

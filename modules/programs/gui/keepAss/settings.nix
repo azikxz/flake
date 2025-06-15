@@ -1,12 +1,5 @@
-{
-  lib,
-  ...
-}:
-
 let
-  inherit (lib.paths)
-    passwords
-    ;
+  path = "~/Sync/passwords/db.kdbx";
 in
 
 {
@@ -17,9 +10,9 @@ in
     AutoSaveAfterEveryChange = true;
     AutoSaveOnExit = true;
     ConfigVersion = 2;
-    LastActiveDatabase = passwords;
-    LastDatabases = passwords;
-    LastOpenedDatabases = passwords;
+    LastActiveDatabase = path;
+    LastDatabases = path;
+    LastOpenedDatabases = path;
     NumberOfRememberedLastDatabases = 1;
     OpenPreviousDatabasesOnStartup = true;
     UseAtomicSaves = true;

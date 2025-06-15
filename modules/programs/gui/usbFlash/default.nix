@@ -7,7 +7,5 @@
 with lib;
 
 mkIf (itIs == "desktop") {
-  hm.home.packages = with pkgs; [
-    popsicle
-  ];
+  environment.systemPackages = with pkgs; [ popsicle ];
 }

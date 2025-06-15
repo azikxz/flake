@@ -12,5 +12,5 @@ mkIf (itIs == "desktop") {
     ".local/share/Mumble"
   ];
 
-  hm.home.packages = with pkgs; [ mumble ];
+  environment.systemPackages = with pkgs; [ mumble ];
 }

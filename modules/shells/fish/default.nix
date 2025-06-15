@@ -11,60 +11,58 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
 
   programs.fish.enable = true;
 
-  hm = {
-    home.packages = with pkgs; [ grc ];
+  environment.systemPackages = with pkgs; [ grc ];
 
-    programs = {
-      fish = {
-        enable = true;
+  hm.programs = {
+    fish = {
+      enable = true;
 
-        preferAbbrs = true;
+      preferAbbrs = true;
 
-        plugins = import ./plugins.nix {
-          inherit
-            pkgs
-            ;
-        };
-
-        interactiveShellInit =
-          let
-            d = "bind -M default";
-            v = "bind -M visual";
-          in
-          ''
-            fish_vi_key_bindings
-
-            # default
-            ${d} d delete-char
-            ${d} x cancel
-
-            # visual
-            ${v} x down-line
-          ''
-          + import ./colors.nix;
-
-        shellInitLast =
-          let
-            winman =
-              if (itIs == "desktop") then
-                "Hyprland"
-              else if (itIs == "laptop") then
-                "Hyprland"
-              else
-                "fastfetch";
-          in
-          # fish
-          ''
-            set fish_cursor_default      block
-            set fish_cursor_insert       line
-            set fish_cursor_replace_one  underscore
-            set fish_cursor_replace      underscore
-            set fish_cursor_visual       block
-            set fish_cursor_external     line
-
-            [ "$(tty)" = "/dev/tty1" ] && exec ${winman}
-          '';
+      plugins = import ./plugins.nix {
+        inherit
+          pkgs
+          ;
       };
+
+      interactiveShellInit =
+        let
+          d = "bind -M default";
+          v = "bind -M visual";
+        in
+        ''
+          fish_vi_key_bindings
+
+          # default
+          ${d} d delete-char
+          ${d} x cancel
+
+          # visual
+          ${v} x down-line
+        ''
+        + import ./colors.nix;
+
+      shellInitLast =
+        let
+          winman =
+            if (itIs == "desktop") then
+              "Hyprland"
+            else if (itIs == "laptop") then
+              "Hyprland"
+            else
+              "fastfetch";
+        in
+        # fish
+        ''
+          set fish_cursor_default      block
+          set fish_cursor_insert       line
+          set fish_cursor_replace_one  underscore
+          set fish_cursor_replace      underscore
+          set fish_cursor_visual       block
+          set fish_cursor_external     line
+
+          [ "$(tty)" = "/dev/tty1" ] && exec ${winman}
+        '';
     };
   };
 }

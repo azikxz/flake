@@ -13,7 +13,7 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
     ".minecraft"
   ];
 
-  hm.home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     (prismlauncher.override {
       gamemodeSupport = true;
       controllerSupport = true;

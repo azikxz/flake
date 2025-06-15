@@ -7,7 +7,7 @@
 with lib;
 
 mkIf (itIs != "desktop") {
-  hm.home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     imagemagick
     jpegoptim
     lutgen

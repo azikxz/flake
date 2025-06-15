@@ -8,15 +8,15 @@
 with lib;
 
 mkIf (itIs == "desktop" || itIs == "laptop") {
-  hm.imports = [ ./whlist.nix ];
-
   persist.user.dirs = [ ".local/share/qutebrowser" ];
 
+  environment.systemPackages = with pkgs.python312Packages; [
+    adblock
+    requests
+  ];
+
   hm = {
-    home.packages = with pkgs.python312Packages; [
-      adblock
-      requests
-    ];
+    imports = [ ./whlist.nix ];
 
     programs.qutebrowser =
       {

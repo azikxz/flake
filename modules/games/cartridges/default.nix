@@ -6,10 +6,8 @@
 
 with lib;
 
-mkIf (itIs == "desktop") {
+mkIf false {
   persist.user.dirs = [ ".local/share/cartridges" ];
 
-  hm = {
-    home.packages = with pkgs; [ cartridges ];
-  };
+  environment.systemPackages = with pkgs; [ cartridges ];
 }

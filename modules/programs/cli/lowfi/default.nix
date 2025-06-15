@@ -7,5 +7,5 @@
 with lib;
 
 mkIf (itIs == "desktop") {
-  hm.home.packages = [ pkgs.lowfi ];
+  environment.systemPackages = [ pkgs.lowfi ];
 }

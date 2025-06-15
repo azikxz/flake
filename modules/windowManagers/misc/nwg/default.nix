@@ -8,9 +8,9 @@
 with lib;
 
 mkIf false {
-  hm = {
-    home.packages = [ pkgs.nwg-drawer ];
+  environment.systemPackages = [ pkgs.nwg-drawer ];
 
+  hm = {
     xdg.configFile = with config.lib.stylix.colors.withHashtag; {
       "nwg-drawer/drawer.css".text = # css
         ''

@@ -7,56 +7,54 @@
 with lib;
 
 mkIf (itIs == "desktop" || itIs == "laptop") {
-  hm = {
-    home.packages = with pkgs; [ sd ];
+  environment.systemPackages = with pkgs; [ sd ];
 
-    programs = {
-      ripgrep.enable = true;
+  hm.programs = {
+    ripgrep.enable = true;
 
-      fd = {
-        enable = true;
+    fd = {
+      enable = true;
 
-        ignores = [
-          ".git/"
-          "*.bak"
-        ];
-      };
+      ignores = [
+        ".git/"
+        "*.bak"
+      ];
+    };
 
-      fzf = {
-        enable = true;
+    fzf = {
+      enable = true;
 
-        defaultOptions = [
-          "--border=rounded"
-          "--info=hidden"
-          "--no-mouse"
-          "--margin=1,49%,1,1"
-          "--padding=0"
-        ];
-      };
+      defaultOptions = [
+        "--border=rounded"
+        "--info=hidden"
+        "--no-mouse"
+        "--margin=1,49%,1,1"
+        "--padding=0"
+      ];
+    };
 
-      eza = {
-        enable = true;
+    eza = {
+      enable = true;
 
-        icons = "auto";
+      icons = "auto";
 
-        extraOptions = [
-          "--group-directories-first"
-          "--icons=always"
-        ];
-      };
+      extraOptions = [
+        "--group-directories-first"
+        "--icons=always"
+      ];
+    };
 
-      bat = {
-        enable = true;
+    bat = {
+      enable = true;
 
-        extraPackages = with pkgs.bat-extras; [
-          prettybat
-          batwatch
-          batgrep
-          batdiff
-        ];
+      extraPackages = with pkgs.bat-extras; [
+        prettybat
+        batwatch
+        batgrep
+        batdiff
+      ];
 
-        config.wrap = "character";
-      };
+      config.wrap = "character";
     };
   };
 }

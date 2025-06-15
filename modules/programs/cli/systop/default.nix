@@ -7,13 +7,11 @@
 with lib;
 
 mkIf (itIs == "desktop" || itIs == "laptop") {
-  hm = {
-    home.packages = [ pkgs.nvtopPackages.amd ];
+  environment.systemPackages = [ pkgs.nvtopPackages.amd ];
 
-    programs.btop = {
-      enable = true;
+  hm.programs.btop = {
+    enable = true;
 
-      settings = import ./settings.nix;
-    };
+    settings = import ./settings.nix;
   };
 }

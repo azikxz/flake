@@ -28,15 +28,15 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
     }/tdata"
   ];
 
-  hm = {
-    home.packages =
-      [ package ]
-      ++ (optional (package == pkgs.ayugram-desktop) (
-        pkgs.writeShellScriptBin "telegram-desktop" ''
-          ayugram-desktop
-        ''
-      ));
+  environment.systemPackages =
+    [ package ]
+    ++ (optional (package == pkgs.ayugram-desktop) (
+      pkgs.writeShellScriptBin "telegram-desktop" ''
+        ayugram-desktop
+      ''
+    ));
 
+  hm = {
     xdg = {
       mimeApps = import ./mime.nix {
         inherit

@@ -10,7 +10,7 @@ let
 in
 
 mkIf false {
-  hm.home.packages =
+  environment.systemPackages =
     with pkgs;
     [ ]
     ++ (

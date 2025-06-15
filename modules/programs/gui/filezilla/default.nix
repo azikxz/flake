@@ -7,5 +7,5 @@
 with lib;
 
 mkIf (itIs == "desktop") {
-  hm.home.packages = with pkgs; [ filezilla ];
+  environment.systemPackages = with pkgs; [ filezilla ];
 }

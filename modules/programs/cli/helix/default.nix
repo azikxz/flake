@@ -9,32 +9,30 @@
 with lib;
 
 mkIf (itIs == "desktop" || itIs == "laptop") {
-  hm = {
-    home.packages = with pkgs; [ nodejs ];
+  environment.systemPackages = with pkgs; [ nodejs ];
 
-    programs.helix = {
-      enable = true;
+  hm.programs.helix = {
+    enable = true;
 
-      defaultEditor = true;
+    defaultEditor = true;
 
-      settings = import ./settings.nix // {
-        keys = import ./binds.nix;
-      };
+    settings = import ./settings.nix // {
+      keys = import ./binds.nix;
+    };
 
-      languages = import ./languages.nix {
-        inherit
-          self
-          pkgs
-          lib
-          ;
-      };
+    languages = import ./languages.nix {
+      inherit
+        self
+        pkgs
+        lib
+        ;
+    };
 
-      themes = import ./theme.nix {
-        inherit
-          lib
-          config
-          ;
-      };
+    themes = import ./theme.nix {
+      inherit
+        lib
+        config
+        ;
     };
   };
 }

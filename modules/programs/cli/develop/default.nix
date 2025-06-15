@@ -9,7 +9,7 @@ with lib;
 mkIf (itIs == "desktop") {
   persist.user.dirs = [ ".config/hut" ];
 
-  hm.home.packages = attrValues {
+  environment.systemPackages = attrValues {
     inherit (pkgs)
       cachix
       hut

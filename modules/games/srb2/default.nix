@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (itIs == "desktop") {
+mkIf (itIs == "laptop") {
   persist.user.dirs = [ ".srb2" ];
 
   environment.systemPackages = with pkgs; [ srb2 ];

@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf false {
+mkIf (itIs == "desktop") {
   persist.user.dirs = [ ".config/legendary" ];
 
   environment.systemPackages = [ pkgs.legendary-gl ];

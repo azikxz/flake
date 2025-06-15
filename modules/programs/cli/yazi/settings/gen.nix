@@ -11,14 +11,15 @@ let
     gen = _ "application/";
 
     rule = [
-      "zip"
-      "gzip"
-      "tar"
+      "7z-compressed"
       "bzip"
       "bzip2"
-      "7z-compressed"
+      "gzip"
       "rar"
+      "tar"
       "xz"
+      "zip"
+      "zstd"
     ];
   };
 
@@ -44,6 +45,7 @@ let
       "xar"
       "xz"
       "zip"
+      "zst"
     ];
   };
 in

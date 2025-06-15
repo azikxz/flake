@@ -8,7 +8,10 @@
 with lib;
 
 mkIf (itIs == "desktop" || itIs == "laptop") {
-  environment.systemPackages = with pkgs; [ libreoffice-fresh ];
+  environment.systemPackages = with pkgs; [
+    libreoffice-fresh
+    poppler-utils
+  ];
 
   hm.programs.yazi.settings = mkIf config.hm.programs.yazi.enable {
     opener = {
@@ -57,23 +60,19 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
               run
               ;
           }) list);
+
+        list' = [
+          "application/ms-*"
+          "application/msword"
+          "application/oasis.opendocument.*"
+          "application/openxmlformats-officedocument.*"
+          "*.docx"
+        ];
       in
       {
-        prepend_preloaders = mk "office" [
-          "application/openxmlformats-officedocument.*"
-          "application/oasis.opendocument.*"
-          "application/msword"
-          "application/ms-*"
-          "*.docx"
-        ];
+        prepend_preloaders = mk "office" list';
 
-        prepend_previewers = mk "office" [
-          "application/openxmlformats-officedocument.*"
-          "application/oasis.opendocument.*"
-          "application/msword"
-          "application/ms-*"
-          "*.docx"
-        ];
+        prepend_previewers = mk "office" list';
       };
   };
 }

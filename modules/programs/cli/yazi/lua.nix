@@ -9,9 +9,9 @@ with config.lib.stylix.colors.withHashtag;
 ''
   require("full-border"):setup { type = ui.Border.ROUNDED, }
   require("yatline"):setup({
-    section_separator = { open = "", close = "" },
+    section_separator = { open = "", close = "" },
     part_separator    = { open = "", close = "" },
-    inverse_separator = { open = "", close = "" },
+    inverse_separator = { open = "|", close = "|" },
 
     style_a = {
       fg = "${base00}",

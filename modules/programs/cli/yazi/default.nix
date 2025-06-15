@@ -49,7 +49,6 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
     glow
     jq
     ouch
-    poppler_min
     unrar
     unzip
     wl-clipboard

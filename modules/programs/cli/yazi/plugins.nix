@@ -48,15 +48,15 @@ in
         ouch = fetchFromGitHub {
           owner = "ndtoan96";
           repo = "ouch.yazi";
-          rev = "10b462765f37502065555e83c68a72bb26870fe2";
-          hash = "sha256-mtXl76a54Deg4cyrD0wr++sD/5b/kCsnJ+ngM6OokTc=";
+          rev = "1ee69a56da3c4b90ec8716dd9dd6b82e7a944614";
+          hash = "sha256-4KZeDkMXlhUV0Zh+VGBtz9kFPGOWCexYVuKUSCN463o=";
         };
 
         glow = fetchFromGitHub {
-          owner = "khaneliman";
+          owner = "Reledia";
           repo = "glow.yazi";
-          rev = "arg";
-          hash = "sha256-ppsYr26T3iF5UVFq+EPIe/Ai7GgAj0Ry1yu0440tQtc=";
+          rev = "bd3eaa58c065eaf216a8d22d64c62d8e0e9277e9";
+          hash = "sha256-mzW/ut/LTEriZiWF8YMRXG9hZ70OOC0irl5xObTNO40=";
         };
 
         wl-clipboard = fetchFromGitHub {

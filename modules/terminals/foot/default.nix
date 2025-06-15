@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf true {
+mkIf false {
   hm.programs.foot = {
     enable = true;
 

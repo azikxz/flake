@@ -34,6 +34,7 @@ pkgs.writeShellApplication {
       walname="background.jpg"
       blur="true"
 
+      rm "$cachedir/$themename" -f
       mkdir -p "$cachedir"
       echo "${theme}" > "$tempdir/colors.tdesktop-theme"
       gentheme() {

@@ -19,20 +19,23 @@ mkIf (itIs == "desktop") {
         mk = n: toString (8 * n);
       in
       {
-        "VERSION" = "tiny11";
+        "VERSION" = "tiny11"; # INFO: low size lightweight win11
         "CPU_CORES" = mk 1;
         "RAM_SIZE" = mk 1 + "G";
         "DISK_SIZE" = mk 8 + "G";
         "HOME" = config.users.users.${system.userName}.home;
         "USERNAME" = system.userName;
         "PASSWORD" = "windows";
+        GPU = "Y";
       };
 
     volumes = [
-      "/home/${system.userName}:/shared:ro"
-      "/home/${system.userName}/.oem:/oem:ro"
+      "/home/${system.userName}:/shared:rw"
+      "/home/${system.userName}/.oem:/oem:rw"
       "winapps_data:/storage:rw"
     ];
+
+    devices = [ "/dev/dri:/dev/dri" ];
 
     ports = [
       "8006:8006/tcp"
@@ -61,7 +64,7 @@ mkIf (itIs == "desktop") {
     globalSection = {
       RDP_USER = system.userName;
       RDP_PASS = "windows";
-      RDP_DOMAIN = "";
+      RDP_DOMAIN = "wlfreerdp";
 
       RDP_IP = "127.0.0.1";
       WAFLAVOR = "podman";

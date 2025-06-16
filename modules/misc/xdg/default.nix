@@ -14,8 +14,9 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
     "Downloads"
     "Music"
     "Pictures"
-    "Videos"
     "Study"
+    "Sync"
+    "Videos"
   ];
 
   environment.systemPackages = [ pkgs.xdg-user-dirs ];
@@ -69,6 +70,7 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
 
           extraConfig = {
             XDG_STUDY_DIR = mk + "/Study";
+            XDG_SYNC_DIR = mk + "/Sync";
             XDG_SCREENSHOTS_DIR = pictures + "/Screenshots";
             XDG_FLAKE_DIR = paths.flakeDir;
             XDG_TORRENTS_DIR = config.services.qbittorrent.savePath;

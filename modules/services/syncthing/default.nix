@@ -20,6 +20,7 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
         in
         listToAttrs [
           (mkFolder "passwords" (dirOf "~/Sync/passwords/db.kdbx") devices)
+          (mkFolder "sync" "~/Sync/notes" devices)
         ];
 
       options = {

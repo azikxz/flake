@@ -8,7 +8,14 @@
 
 with lib;
 
-mkIf (itIs == "desktop") {
+# INFO
+# 1) enable this module
+# 2) wait for rebuild
+# 3) watch 'systemctl status podman-winapps.service'
+# 4) enter to http://localhost:8006
+# 5) your windows is ready
+
+mkIf false {
   persist.user.files = [ ".local/share/winapps/winapps.log" ];
 
   virtualisation.oci-containers.containers."winapps" = {
@@ -31,11 +38,13 @@ mkIf (itIs == "desktop") {
 
     volumes = [
       "/home/${system.userName}:/shared:rw"
-      "/home/${system.userName}/.oem:/oem:rw"
+      "/media:/media:rw"
       "winapps_data:/storage:rw"
     ];
 
-    devices = [ "/dev/dri:/dev/dri" ];
+    devices = [
+      "/dev/dri"
+    ];
 
     ports = [
       "8006:8006/tcp"

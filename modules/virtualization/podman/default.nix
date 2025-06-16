@@ -5,21 +5,25 @@
 
 with lib;
 
-mkIf (itIs == "desktop") {
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
+mkIf false {
+  virtualisation = {
+    spiceUSBRedirection.enable = true;
 
-    autoPrune = {
+    podman = {
       enable = true;
-      flags = [
-        "--all"
-        "--volumes"
-      ];
-    };
+      dockerCompat = true;
 
-    defaultNetwork.settings = {
-      dns_enabled = true;
+      autoPrune = {
+        enable = true;
+        flags = [
+          "--all"
+          "--volumes"
+        ];
+      };
+
+      defaultNetwork.settings = {
+        dns_enabled = true;
+      };
     };
   };
 

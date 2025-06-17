@@ -81,6 +81,7 @@ builtins.mapAttrs (
         ++ (with inputs; [
           disko.nixosModules.default
           flatpak.nixosModules.nix-flatpak
+          gaming.nixosModules.ntsync
           gaming.nixosModules.pipewireLowLatency
           gaming.nixosModules.platformOptimizations
           home.nixosModules.home-manager

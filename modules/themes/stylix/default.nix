@@ -67,7 +67,7 @@ in
     cursor = {
       size = 24;
       name = "GoogleDot-Custom";
-      package = inputs.cursors.packages.${pkgs.system}.google-cursor.override (
+      package = pkgs.cursors.google-cursor.override (
         with config.lib.stylix.colors.withHashtag;
         if (itIs == "laptop") then
           {

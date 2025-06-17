@@ -64,7 +64,7 @@ mkIf false {
     ];
   };
 
-  environment.systemPackages = with inputs.winapps.packages."${pkgs.system}"; [
+  environment.systemPackages = with pkgs.winapps; [
     winapps
     winapps-launcher
   ];

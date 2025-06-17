@@ -75,7 +75,8 @@ with lib;
 
       (
         final: prev:
-        nixages.packages."x86_64-linux"
+        gaming.packages.${system.platform}
+        // nixages.packages.${system.platform}
         // {
           _24 = import nixpkgs-24 {
             inherit (prev)
@@ -83,12 +84,17 @@ with lib;
               config
               ;
           };
+
           _25 = import nixpkgs-25 {
             inherit (prev)
               system
               config
               ;
           };
+
+          cursors = cursors.packages.${system.platform};
+          spicetify = spicetify.legacyPackages.${system.platform};
+          winapps = winapps.packages."${pkgs.system}";
         }
       )
     ];

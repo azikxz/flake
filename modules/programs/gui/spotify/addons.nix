@@ -1,13 +1,10 @@
 {
-  inputs,
   pkgs,
   config,
 }:
 
 let
-  spicePkgs = inputs.spicetify.legacyPackages.${pkgs.system};
-
-  inherit (spicePkgs)
+  inherit (pkgs.spicetify)
     extensions
     snippets
     themes

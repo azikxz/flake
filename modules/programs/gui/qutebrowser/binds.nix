@@ -25,7 +25,7 @@
     "yI" = "hint images yank -s";
 
     # keepassxc
-    ",," = "spawn --userscript qute-keepass -p ~/Sync/passwords/db.kdbx";
+    ",," = "spawn --userscript qute-keepass -p ~/Documents/passwords/db.kdbx";
 
     # transPopup
     ",t" = "spawn --userscript ${pkgs."qutebrowser/page"}/exe -s en -t ru";

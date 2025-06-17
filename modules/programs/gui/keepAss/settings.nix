@@ -1,5 +1,5 @@
 let
-  path = "~/Sync/passwords/db.kdbx";
+  path = "~/Documents/passwords/db.kdbx";
 in
 
 {

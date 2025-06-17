@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   lib,
   config,
@@ -20,7 +19,6 @@ mkIf (itIs == "desktop") {
     inherit
       (import ./addons.nix {
         inherit
-          inputs
           pkgs
           config
           ;

@@ -16,11 +16,12 @@ with lib;
     package = pkgs.nix;
 
     registry =
-      let
-        mapping = mapAttrs (_: v: { flake = v; });
-        flakeInputs = filterAttrs (_: v: isType "flake" v) inputs;
-      in
-      mapping flakeInputs;
+      (mapAttrs (
+        _: v: {
+          flake = v;
+        }
+      ))
+        (filterAttrs (_: v: isType "flake" v) inputs);
 
     settings = {
       warn-dirty = false;
@@ -77,6 +78,7 @@ with lib;
         final: prev:
         gaming.packages.${system.platform}
         // nixages.packages.${system.platform}
+        // winapps.packages."${system.platform}"
         // {
           _24 = import nixpkgs-24 {
             inherit (prev)
@@ -94,7 +96,6 @@ with lib;
 
           cursors = cursors.packages.${system.platform};
           spicetify = spicetify.legacyPackages.${system.platform};
-          winapps = winapps.packages."${pkgs.system}";
         }
       )
     ];

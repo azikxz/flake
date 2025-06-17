@@ -14,13 +14,20 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
 
     settings = {
       folders =
-        with sync;
         let
-          devices = (attrNames config.hm.services.syncthing.settings.devices);
+          inherit (lib.sync)
+            mkFolder
+            ;
+
+          devices = attrNames config.hm.services.syncthing.settings.devices;
         in
+        with config.hm.xdg.userDirs;
         listToAttrs [
-          (mkFolder "passwords" (dirOf "~/Sync/passwords/db.kdbx") devices)
-          (mkFolder "sync" "~/Sync/notes" devices)
+          (mkFolder "passwords" "${documents}/passwords" devices)
+
+          (mkFolder "notes" "${documents}/notes" devices)
+
+          (mkFolder "video" "${videos}/filmed" devices)
         ];
 
       options = {

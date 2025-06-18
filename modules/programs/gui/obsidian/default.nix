@@ -7,11 +7,11 @@
 
 with lib;
 
-mkIf (itIs == "desktop") {
+mkIf false {
   persist.user.dirs = [ ".config/obsidian" ];
 
   hm.programs.obsidian = {
-    enable = false;
+    enable = true;
     package = pkgs.obsidian.overrideAttrs (oldAttrs: {
       postInstall =
         (oldAttrs.postInstall or "")

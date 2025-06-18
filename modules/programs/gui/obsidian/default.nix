@@ -1,66 +1,63 @@
 {
+  pkgs,
   lib,
+  config,
   ...
 }:
 
 with lib;
 
 mkIf (itIs == "desktop") {
-  hm = {
-    programs.obsidian = {
-      enable = true;
+  persist.user.dirs = [ ".config/obsidian" ];
 
-      defaultSettings = {
-        app = {
-          vimMode = true;
-          tabSize = 2;
-          defaultViewMode = "preview";
-          livePreview = false;
-          readableLineLength = true;
-          showLineNumber = true;
-        };
+  hm.programs.obsidian = {
+    enable = false;
+    package = pkgs.obsidian.overrideAttrs (oldAttrs: {
+      postInstall =
+        (oldAttrs.postInstall or "")
+        + ''
+          wrapProgram $out/bin/${oldAttrs.pname} \
+            --add-flags "--ozone-platform=wayland --ozone-platform-hint=auto"
+        '';
+    });
 
-        corePlugins =
-          let
-            mk = name: options: {
+    vaults =
+      mapAttrs'
+        (
+          name: _:
+          nameValuePair ((name: removeSuffix ".nix" name) name) (
+            import (./vaults + "/${name}") {
               inherit
-                name
-                options
+                pkgs
+                lib
+                config
                 ;
-            };
-          in
-          [
-            (mk "canvas" {
-              newFileLocation = "folder";
-              newFileFolderPath = "Inbox";
-              defaultWheelBehavior = "zoom";
-              snapToObjects = true;
-              snapToGrid = true;
-              cardLabelVisibility = "hover";
-            })
-          ]
-          ++ [
-            "audio-recorder"
-            "bookmarks"
-            "command-palette"
-            "daily-notes"
-            "editor-status"
-            "file-explorer"
-            "graph"
-            "markdown-importer"
-            "note-composer"
-            "outgoing-link"
-            "outline"
-            "page-preview"
-            "properties"
-            "slash-command"
-            "slides"
-            "switcher"
-            "tag-pane"
-            "word-count"
-            "workspaces"
-          ];
-      };
-    };
+            }
+          )
+        )
+        (filterAttrs (name: type: type == "regular" && hasSuffix ".nix" name) (builtins.readDir ./vaults));
   };
+
+  # hm.xdg.configFile."obsidian/obsidian.json".source = mkForce (
+  #   (pkgs.formats.json { }).generate "obsidian.json" (
+  #     {
+  #       vaults = listToAttrs (
+  #         map (vault: {
+  #           name = builtins.hashString "md5" vault.target;
+  #           value =
+  #             {
+  #               path = "${config.hm.home.homeDirectory}/${vault.target}";
+  #             }
+  #             // (attrsets.optionalAttrs ((length vaults) == 1) {
+  #               open = true;
+  #             });
+  #         }) (filter (vault: vault.enable == true) (attrValues cfg.vaults))
+  #       );
+  #       updateDisabled = true;
+  #     }
+  #     // {
+  #       frame = "native";
+  #     }
+  #   )
+  # );
 }

@@ -13,8 +13,8 @@
       persist = null;
     };
     style = {
-      theme = "foggy";
-      image = "moonWithSputnik";
+      theme = "paradise";
+      image = "flowerOrange";
     };
   };
 

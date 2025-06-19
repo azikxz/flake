@@ -8,7 +8,7 @@ with lib;
 
 mkIf false {
   environment.systemPackages = with pkgs; [
-    wine-tkg-ntsync
+    gaming.wine-tkg-ntsync
     winetricks
   ];
 }

@@ -76,8 +76,7 @@ with lib;
 
       (
         final: prev:
-        gaming.packages.${system.platform}
-        // nixages.packages.${system.platform}
+        nixages.packages.${system.platform}
         // winapps.packages."${system.platform}"
         // {
           _24 = import nixpkgs-24 {
@@ -94,6 +93,7 @@ with lib;
               ;
           };
 
+          gaming = gaming.packages.${system.platform};
           cursors = cursors.packages.${system.platform};
           spicetify = spicetify.legacyPackages.${system.platform};
         }

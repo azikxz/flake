@@ -47,6 +47,15 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
         })
       ];
 
+  networking.firewall =
+    let
+      main = 4445;
+    in
+    {
+      allowedTCPPorts = [ main ];
+      allowedUDPPorts = [ main ];
+    };
+
   hm.xdg.dataFile."PrismLauncher/prismlauncher.cfg".source =
     (pkgs.formats.ini { }).generate "prismlauncher-settings"
       (

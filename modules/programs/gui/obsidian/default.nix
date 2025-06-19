@@ -21,43 +21,14 @@ mkIf false {
         '';
     });
 
-    vaults =
-      mapAttrs'
-        (
-          name: _:
-          nameValuePair ((name: removeSuffix ".nix" name) name) (
-            import (./vaults + "/${name}") {
-              inherit
-                pkgs
-                lib
-                config
-                ;
-            }
-          )
-        )
-        (filterAttrs (name: type: type == "regular" && hasSuffix ".nix" name) (builtins.readDir ./vaults));
+    vaults = {
+      notes = import ./vaults/notes {
+        inherit
+          pkgs
+          lib
+          config
+          ;
+      };
+    };
   };
-
-  # hm.xdg.configFile."obsidian/obsidian.json".source = mkForce (
-  #   (pkgs.formats.json { }).generate "obsidian.json" (
-  #     {
-  #       vaults = listToAttrs (
-  #         map (vault: {
-  #           name = builtins.hashString "md5" vault.target;
-  #           value =
-  #             {
-  #               path = "${config.hm.home.homeDirectory}/${vault.target}";
-  #             }
-  #             // (attrsets.optionalAttrs ((length vaults) == 1) {
-  #               open = true;
-  #             });
-  #         }) (filter (vault: vault.enable == true) (attrValues cfg.vaults))
-  #       );
-  #       updateDisabled = true;
-  #     }
-  #     // {
-  #       frame = "native";
-  #     }
-  #   )
-  # );
 }

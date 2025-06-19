@@ -152,11 +152,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1747431520,
-        "narHash": "sha256-b1cxAw7MDEqOCX3uLpVWT8L2vRyrJJgCJR5NAdV/IXw=",
+        "lastModified": 1750287061,
+        "narHash": "sha256-QIz4qvZmrCS3kNOVLdEHIR4ww9EbQVOiYQyEQLEOl4o=",
         "owner": "unmojang",
         "repo": "FjordLauncher",
-        "rev": "ae5541a3fd81e80ecb82576285d685ae6e80f52c",
+        "rev": "6d0109357551bc29079da18543b7db61223c7f38",
         "type": "github"
       },
       "original": {
@@ -462,11 +462,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1750127463,
-        "narHash": "sha256-K2xFtlD3PcKAZriOE3LaBLYmVfGQu+rIF4Jr1RFYR0Q=",
+        "lastModified": 1750304462,
+        "narHash": "sha256-Mj5t4yX05/rXnRqJkpoLZTWqgStB88Mr/fegTRqyiWc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "28eef8722d1af18ca13e687dbf485e1c653a0402",
+        "rev": "863842639722dd12ae9e37ca83bcb61a63b36f6c",
         "type": "github"
       },
       "original": {
@@ -561,11 +561,11 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1750230031,
-        "narHash": "sha256-h1aDeX8j10N0pHqdvmVoLQsnTwj1TbxeTPos7x1wuZA=",
+        "lastModified": 1750270605,
+        "narHash": "sha256-JfuuBGrM36I7KB9UID5urRvjHWWjFW//gMxQ5g9PrSo=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "1fc50d02ad4fe47daa5c22f9fa116ca220ab5154",
+        "rev": "da32eedd0d2c980fc90fe2b5cdd9080cc8c9f51f",
         "type": "github"
       },
       "original": {
@@ -639,11 +639,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1750210063,
-        "narHash": "sha256-qdaIKNXLESrsx/oP04Z+tnnoxvPHy5scw/skCRcdAVg=",
+        "lastModified": 1750296477,
+        "narHash": "sha256-geLXyPGOaoXMlS5FTJ1iRkCV+zP7LEj74kbgrltdxaA=",
         "owner": "kaylorben",
         "repo": "nixcord",
-        "rev": "7722194f67275a071be75978d15b81ee06f5727b",
+        "rev": "49ae52bfab1c6e56f4454ae4fb8d6a9e57e74315",
         "type": "github"
       },
       "original": {
@@ -755,11 +755,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1750243948,
-        "narHash": "sha256-b06GFVmJNmvRHTC+iOPEBq6nF4uj9c8LzHWAmfTeKpk=",
+        "lastModified": 1750305387,
+        "narHash": "sha256-malIGpJJtfqTaanlzstwWLHVk+BBI+ggOpXqpfLVmhM=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "170c75be2288d97b331b4dfc47dd32f988b6a6c5",
+        "rev": "07171ceded7a75917c194b5a9ba698ccd259168d",
         "type": "github"
       },
       "original": {
@@ -797,11 +797,11 @@
     "protonfixes": {
       "flake": false,
       "locked": {
-        "lastModified": 1750202974,
-        "narHash": "sha256-j3vSyqh+AL6pgWOUJhEn5B1Tty/yPZ5hTJ/bhKvr7RY=",
+        "lastModified": 1750279883,
+        "narHash": "sha256-9iweR18Z76lZOzQS6Xk9PvMONMT/d39bhVC6FOSneDs=",
         "owner": "Open-Wine-Components",
         "repo": "umu-protonfixes",
-        "rev": "8bc6ac2a2f825ab4ec143940e29dcfa965c404c1",
+        "rev": "8a4f06bc5489e620235e9aa25d320b1ad0ee0e84",
         "type": "github"
       },
       "original": {
@@ -1129,7 +1129,7 @@
     "umu-database": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-zXwZEXHzDZR0WL/uJjCkQZDtXmltRh+Nc6m2+SM2lDo=",
+        "narHash": "sha256-n06akN5Z/MOCP8lInwb9iKmcCYo1Go4mfFAE5htYzhI=",
         "type": "file",
         "url": "https://raw.githubusercontent.com/Open-Wine-Components/umu-database/refs/heads/main/umu-database.csv"
       },

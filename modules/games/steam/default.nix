@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -40,7 +41,7 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
         ];
 
         extraEnv = {
-          MANGOHUD = true;
+          MANGOHUD = config.hm.programs.mangohud.enable;
           OBS_VKCAPTURE = true;
           RADV_TEX_ANISO = 16;
           PROTON_USE_NTSYNC = "1";
@@ -48,7 +49,7 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
 
         extraPkgs =
           pkgs: with pkgs; [
-            mangohud
+            config.hm.programs.mangohud.package
           ];
 
         extraLibraries =

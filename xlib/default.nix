@@ -18,6 +18,7 @@ flake-utils.lib.eachSystem
   (
     system:
     let
+      inherit (nixpkgs) lib;
       pkgs = import nixpkgs {
         inherit
           system
@@ -26,6 +27,14 @@ flake-utils.lib.eachSystem
     in
     {
       formatter = pkgs.nixfmt-rfc-style;
+      packages = import ./packages.nix {
+        inherit
+          self
+          inputs
+          pkgs
+          lib
+          ;
+      };
       devShells = import ./shells.nix {
         inherit
           pkgs
@@ -34,7 +43,6 @@ flake-utils.lib.eachSystem
     }
   )
 // {
-  inherit (nixpkgs) lib;
   nixosConfigurations =
     (import ./builder {
       inherit

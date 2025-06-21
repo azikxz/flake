@@ -617,11 +617,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1750166346,
-        "narHash": "sha256-cgw/Mvr5S12kzgxgQrDuzYXhEqTF2aMDqdkvq4ntHRs=",
+        "lastModified": 1750480639,
+        "narHash": "sha256-MSO/SHA1x6UZni0ejNQmcaJfLGEa+24gXaR4P+NIjbc=",
         "owner": "~neverness",
         "repo": "nixages",
-        "rev": "1b363b44b290814b053141c2ae6885b637d4d6b4",
+        "rev": "d91a103c4537fe586c74334725167215ffe39457",
         "type": "sourcehut"
       },
       "original": {

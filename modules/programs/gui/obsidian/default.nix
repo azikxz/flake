@@ -7,28 +7,29 @@
 
 with lib;
 
-mkIf false {
+mkIf true {
   persist.user.dirs = [ ".config/obsidian" ];
 
   hm.programs.obsidian = {
     enable = true;
     package = pkgs.obsidian.overrideAttrs (oldAttrs: {
-      postInstall =
-        (oldAttrs.postInstall or "")
+      installPhase =
+        oldAttrs.installPhase
         + ''
-          wrapProgram $out/bin/${oldAttrs.pname} \
+          wrapProgram $out/bin/obsidian \
             --add-flags "--ozone-platform=wayland --ozone-platform-hint=auto"
         '';
     });
 
-    vaults = {
-      notes = import ./vaults/notes {
+    vaults = mapAttrs (
+      name: _:
+      import (./vaults + "/${name}/main.nix") {
         inherit
           pkgs
           lib
           config
           ;
-      };
-    };
+      }
+    ) (filterAttrs (name: type: type == "directory") (builtins.readDir ./vaults));
   };
 }

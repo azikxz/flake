@@ -24,7 +24,6 @@
   "fullWidthMedia" = true;
   "bordersToggle" = true;
   "minimalStatus" = true;
-  "focusMode" = true;
   "underlineInternal" = true;
   "underlineExternal" = true;
   "folding" = true;

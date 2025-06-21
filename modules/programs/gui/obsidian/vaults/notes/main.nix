@@ -5,7 +5,7 @@
   ...
 }:
 
-with pkgs.self;
+with pkgs.self';
 
 {
   target = lib.removePrefix (
@@ -15,6 +15,7 @@ with pkgs.self;
   settings = {
     app = {
       tabSize = 2;
+      vimMode = true;
       defaultViewMode = "preview";
       livePreview = false;
       readableLineLength = true;
@@ -92,7 +93,7 @@ with pkgs.self;
       {
         pkg = obsidian-helix;
         settings = {
-          enableHelixKeybindings = true;
+          enableHelixKeybindings = false;
           cursorInInsertMode = "bar";
         };
       }
@@ -105,6 +106,8 @@ with pkgs.self;
           simpleSearch = true;
         };
       }
+
+      { pkg = obsidian-prettier; }
     ];
 
     cssSnippets = [

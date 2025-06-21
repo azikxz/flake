@@ -95,7 +95,7 @@ with lib;
 
           cursors = cursors.packages.${system.platform};
           gaming = gaming.packages.${system.platform};
-          self = self.packages.${system.platform};
+          self' = self.packages.${system.platform};
           spicetify = spicetify.legacyPackages.${system.platform};
         }
       )

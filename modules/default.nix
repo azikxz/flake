@@ -6,7 +6,7 @@
 {
   imports = lib.mkUmport ./. [
     ./default.nix
-    ./programs/gui/obsidian
+    # ./programs/gui/obsidian
     ./windowManagers/niri_test
     ./windowManagers/sway
   ];

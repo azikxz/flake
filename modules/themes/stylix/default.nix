@@ -45,6 +45,8 @@ in
       tofi.enable = false;
       qt.enable = false;
       kde.enable = false;
+
+      nixcord.enable = false;
     };
   };
 

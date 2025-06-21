@@ -11,10 +11,12 @@ mkIf (itIs == "desktop") {
     enable = true;
 
     plugins = with pkgs.obs-studio-plugins; [
-      obs-pipewire-audio-capture
-      obs-multi-rtmp
-      obs-vkcapture
       input-overlay
+      obs-backgroundremoval
+      obs-multi-rtmp
+      obs-pipewire-audio-capture
+      obs-vaapi
+      obs-vkcapture
       wlrobs
     ];
   };

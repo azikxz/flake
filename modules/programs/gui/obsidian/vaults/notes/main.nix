@@ -139,6 +139,36 @@ with pkgs.self';
             .cm-hx-status-panel  { display: none !important; }
           '';
       }
+
+      {
+        name = "floating-statusbar";
+        text = # css
+          ''
+            body {
+              --status-bar-position: absolute;
+              --status-bar-radius: var(--radius-m);
+            }
+            body .status-bar {
+              transform: translateX(calc(100% + 5px));
+              transition: transform 300ms 150ms;
+              bottom: 5px;
+              right: 5px;
+            }
+            body .status-bar::before {
+              width: 100%;
+              min-height: 100%;
+              content: " ";
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              transform: translateX(-100%);
+            }
+            body .status-bar:hover {
+              transform: none;
+              transition: transform 300ms 150ms;
+            }
+          '';
+      }
     ];
 
     extraFiles = {

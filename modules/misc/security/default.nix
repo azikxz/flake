@@ -8,8 +8,10 @@ with lib;
 
 {
   security = {
-    sudo.enable = false;
+    polkit.enable = true;
+    soteria.enable = true;
 
+    sudo.enable = false;
     sudo-rs = {
       enable = true;
 
@@ -24,7 +26,7 @@ with lib;
 
           commands = [
             {
-              command = lib.getExe' amneziawg-tools "awg-quick";
+              command = getExe' amneziawg-tools "awg-quick";
               options = [ "NOPASSWD" ];
             }
             {

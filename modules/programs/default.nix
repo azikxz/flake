@@ -19,6 +19,9 @@ with lib;
 
     variables = {
       EDITOR = "vim";
+    };
+
+    sessionVariables = {
       NIXOS_OZONE_WL = 1;
     };
   };

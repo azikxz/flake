@@ -4,7 +4,11 @@
 }:
 
 {
-  environment.systemPackages = [ pkgs.pulsemixer ];
+  environment = {
+    systemPackages = [ pkgs.pulsemixer ];
+
+    shellAliases.pmx = "pulsemixer";
+  };
 
   security.rtkit.enable = true;
 

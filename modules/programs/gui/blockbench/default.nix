@@ -11,11 +11,7 @@ let
 in
 
 mkIf (itIs == "desktop") {
-  environment.systemPackages = with pkgs; [
-    (writeShellScriptBin "blockbench" ''
-      ${getExe blockbench} --ozone-platform=wayland --ozone-platform-hint=auto %U
-    '')
-  ];
+  environment.systemPackages = with pkgs; [ blockbench ];
 
   hm.xdg = {
     configFile =

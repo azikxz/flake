@@ -6,20 +6,24 @@
 with lib;
 
 mkIf (itIs == "desktop" || itIs == "laptop") {
-  hm.programs.translate-shell = {
-    enable = true;
+  hm = {
+    home.shellAliases.tr = "trans --brief";
 
-    settings = {
-      engine = "google";
+    programs.translate-shell = {
+      enable = true;
 
-      brief = true;
-      show-original = false;
+      settings = {
+        engine = "google";
 
-      hl = "en";
-      tl = [
-        "ru"
-        "en"
-      ];
-    } // import ./theme.nix;
+        brief = true;
+        show-original = false;
+
+        hl = "en";
+        tl = [
+          "ru"
+          "en"
+        ];
+      } // import ./theme.nix;
+    };
   };
 }

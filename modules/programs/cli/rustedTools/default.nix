@@ -7,54 +7,66 @@
 with lib;
 
 mkIf (itIs == "desktop" || itIs == "laptop") {
-  environment.systemPackages = with pkgs; [ sd ];
+  environment.systemPackages = with pkgs; [
+    hunt
+    ripgrep-all
+    sd
+  ];
 
-  hm.programs = {
-    ripgrep.enable = true;
-
-    fd = {
-      enable = true;
-
-      ignores = [
-        ".git/"
-        "*.bak"
-      ];
+  hm = {
+    home.shellAliases = {
+      cat = "bat";
+      cp = getExe' fuc "cpz";
+      rm = getExe' fuc "rmz";
     };
 
-    fzf = {
-      enable = true;
+    programs = {
+      ripgrep.enable = true;
 
-      defaultOptions = [
-        "--border=rounded"
-        "--info=hidden"
-        "--no-mouse"
-        "--margin=1,49%,1,1"
-        "--padding=0"
-      ];
-    };
+      fd = {
+        enable = true;
 
-    eza = {
-      enable = true;
+        ignores = [
+          ".git/"
+          "*.bak"
+        ];
+      };
 
-      icons = "auto";
+      fzf = {
+        enable = true;
 
-      extraOptions = [
-        "--group-directories-first"
-        "--icons=always"
-      ];
-    };
+        defaultOptions = [
+          "--border=rounded"
+          "--info=hidden"
+          "--no-mouse"
+          "--margin=1,49%,1,1"
+          "--padding=0"
+        ];
+      };
 
-    bat = {
-      enable = true;
+      eza = {
+        enable = true;
 
-      extraPackages = with pkgs.bat-extras; [
-        prettybat
-        batwatch
-        batgrep
-        batdiff
-      ];
+        icons = "auto";
 
-      config.wrap = "character";
+        extraOptions = [
+          "--group-directories-first"
+          "--icons=always"
+        ];
+      };
+
+      bat = {
+        enable = true;
+
+        extraPackages = with pkgs.bat-extras; [
+          prettybat
+          batwatch
+          batgrep
+          batdiff
+        ];
+
+        config.wrap = "character";
+      };
     };
   };
 }

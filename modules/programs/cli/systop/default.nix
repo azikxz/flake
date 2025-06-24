@@ -9,9 +9,16 @@ with lib;
 mkIf (itIs == "desktop" || itIs == "laptop") {
   environment.systemPackages = [ pkgs.nvtopPackages.amd ];
 
-  hm.programs.btop = {
-    enable = true;
+  hm = {
+    home.shellAliases = {
+      btop = "btop";
+      ntop = "nvtop -i";
+    };
 
-    settings = import ./settings.nix;
+    programs.btop = {
+      enable = true;
+
+      settings = import ./settings.nix;
+    };
   };
 }

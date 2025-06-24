@@ -7,5 +7,5 @@
 with lib;
 
 mkIf (itIs == "desktop") {
-  environment.systemPackages = [ pkgs.lowfi ];
+  environment.systemPackages = with pkgs; [ lowfi ];
 }

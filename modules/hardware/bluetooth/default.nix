@@ -9,7 +9,11 @@ with lib;
 mkIf (itIs == "desktop" || itIs == "laptop") {
   persist.dirs = [ "/var/lib/bluetooth" ];
 
-  environment.systemPackages = with pkgs; [ bluetui ];
+  environment = {
+    systemPackages = [ pkgs.bluetui ];
+
+    shellAliases.pmx = "pulsemixer";
+  };
 
   hardware.bluetooth = {
     enable = true;

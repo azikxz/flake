@@ -21,6 +21,7 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
     programs.qutebrowser =
       {
         enable = true;
+        package = pkgs.qutebrowser.override { enableVulkan = true; };
       }
       // import ./settings.nix {
         inherit

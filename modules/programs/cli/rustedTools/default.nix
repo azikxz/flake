@@ -16,8 +16,8 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
   hm = {
     home.shellAliases = {
       cat = "bat";
-      cp = getExe' fuc "cpz";
-      rm = getExe' fuc "rmz";
+      cp = getExe' pkgs.fuc "cpz";
+      rm = getExe' pkgs.fuc "rmz";
     };
 
     programs = {

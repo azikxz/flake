@@ -77,8 +77,8 @@ in
           in
           {
             "${cfg.savePath}/"."d" = {
-              user = "root";
-              group = "root";
+              user = lib.system.userName;
+              group = lib.system.userName;
               mode = "0755";
             };
 

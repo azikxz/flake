@@ -421,6 +421,39 @@ with pkgs.self';
         }
       ];
       "workspace:undo-close-pane" = [ ];
+
+      # plugins
+      "obsidian-minimal-settings:toggle-colorful-headings" = [
+        {
+          key = "U";
+          modifiers = [ "Alt" ];
+        }
+      ];
+      "obsidian-minimal-settings:toggle-minimal-focus-mode" = [
+        {
+          key = "I";
+          modifiers = [ "Alt" ];
+        }
+      ];
+
+      "app:toggle-left-sidebar" = [
+        {
+          "key" = "[";
+          "modifiers" = [ "Alt" ];
+        }
+      ];
+      "app:toggle-right-sidebar" = [
+        {
+          "key" = "]";
+          "modifiers" = [ "Alt" ];
+        }
+      ];
+      "editor:toggle-source" = [
+        {
+          "key" = " ";
+          "modifiers" = [ "Shift" ];
+        }
+      ];
     };
 
     extraFiles = {

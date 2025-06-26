@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748698654,
-        "narHash": "sha256-U4gsjcU4avw8sLsgqCf84ZGqhie8fVGDIPnzgtMI71M=",
+        "lastModified": 1750845287,
+        "narHash": "sha256-SeuX413DLyNd5me6bfy6W6/KKO5PDlLp8wGFBt4VWc8=",
         "owner": "~neverness",
         "repo": "design",
-        "rev": "fa7452ace3ad2aad354a843ed51994c70af924d9",
+        "rev": "ba68dffe8961725f153d6abc788b586fb36a63b9",
         "type": "sourcehut"
       },
       "original": {

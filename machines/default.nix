@@ -14,7 +14,7 @@
     };
     style = {
       theme = "paradise";
-      image = "flowerOrange";
+      image = "gasStation";
     };
   };
 

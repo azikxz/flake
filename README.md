@@ -104,9 +104,9 @@
 ![nah_id_win](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/misc.jpg)
 
 - thanks for
-  - [hezaki](https://codeberg.org/Hezaki/Touka)
-  - [maxmurr](https://github.com/TheMaxMur/NixOS-Configuration)
   - [artem](https://github.com/ArtemChandragupta/NixFlake)
-  - [luis](https://github.com/luishfonseca/nixos-config)
-  - [roman](https://github.com/nullptroma/nixos-configuration)
   - [fufexan](https://github.com/fufexan/dotfiles)
+  - [hezaki](https://codeberg.org/Hezaki/Touka)
+  - [luis](https://github.com/luishfonseca/nixos-config)
+  - [maxmurr](https://github.com/TheMaxMur/NixOS-Configuration)
+  - [roman](https://github.com/nullptroma/nixos-configuration)

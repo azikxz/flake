@@ -1,5 +1,4 @@
 {
-  lib,
   config,
   ...
 }:
@@ -35,6 +34,7 @@
     youtube = "youtube.com";
     invidious = "inv.nadeko.net";
     redlib = "redlib.nadeko.net";
+    nitter = "nitter.kareem.one";
     twitch = "twitch.tv";
     gmail = "mail.google.com";
     protonMail = "mail.proton.me";
@@ -141,7 +141,7 @@
       '';
   };
 
-  userstyle = {
+  userstyle = with config.lib.stylix.colors.withHashtag; {
     "start" = {
       includes = [
         "qute://start/"
@@ -149,15 +149,11 @@
       ];
 
       text =
-        let
-          font = config.stylix.fonts;
-        in
-        with config.lib.stylix.colors.withHashtag;
         # css
         ''
           body {
                   background-color:  ${base00};
-                  font-family:      "${font.monospace.name}" !important;
+                  font-family:      "${config.stylix.fonts.monospace.name}" !important;
                 }  
           h1 {
                   color: ${base05};
@@ -171,7 +167,7 @@
                   color:             ${base05};
                   background-color:  ${base01};
                   border-radius:     8px !important;
-                  font-family:      "${font.monospace.name}" !important;
+                  font-family:      "${config.stylix.fonts.monospace.name}" !important;
                 }
           .bookmarks { display:    none;   }
           .header    { margin-top: 220px;  }

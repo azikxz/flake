@@ -15,7 +15,12 @@
 
     indent-guides = {
       render = true;
-      character = "»";
+      character =
+        let
+          arrow = "»";
+          line = "▎";
+        in
+        line;
       skip-levels = 0;
     };
 

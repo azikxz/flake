@@ -87,5 +87,12 @@
     };
 
     open = import ./open.nix;
+
+    tasks = {
+      image_bound = [
+        0
+        0
+      ];
+    };
   };
 }

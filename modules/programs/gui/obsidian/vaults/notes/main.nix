@@ -108,6 +108,8 @@ with pkgs.self';
       }
 
       { pkg = obsidian-prettier; }
+
+      { pkg = obsidian-docxer; }
     ];
 
     cssSnippets = [
@@ -167,6 +169,14 @@ with pkgs.self';
               transform: none;
               transition: transform 300ms 150ms;
             }
+          '';
+      }
+
+      {
+        name = "docxer-hide";
+        text = # css
+          ''
+            #docxer-header { display: none !important;  }
           '';
       }
     ];

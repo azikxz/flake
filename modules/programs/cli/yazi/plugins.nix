@@ -30,11 +30,12 @@ in
   plugins =
     {
       inherit (yaziPlugins)
-        jump-to-char
+        chmod
         full-border
+        jump-to-char
+        restore
         smart-enter
         yatline
-        chmod
         ;
     }
 
@@ -53,10 +54,10 @@ in
         };
 
         glow = fetchFromGitHub {
-          owner = "Reledia";
+          owner = "tiejunhu";
           repo = "glow.yazi";
-          rev = "bd3eaa58c065eaf216a8d22d64c62d8e0e9277e9";
-          hash = "sha256-mzW/ut/LTEriZiWF8YMRXG9hZ70OOC0irl5xObTNO40=";
+          rev = "eec50c71586e1649b6655d9a2d349cec245280e8";
+          hash = "sha256-ppsYr26T3iF5UVFq+EPIe/Ai7GgAj0Ry1yu0440tQtc=";
         };
 
         wl-clipboard = fetchFromGitHub {

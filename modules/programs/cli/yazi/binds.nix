@@ -251,6 +251,22 @@ with lib;
           run = "remove --permanently --force";
           desc = "Delete permanently via force";
         }
+        {
+          on = [
+            "d"
+            "u"
+          ];
+          run = "plugin restore";
+          desc = "Restore last deleted files";
+        }
+        {
+          on = [
+            "d"
+            "U"
+          ];
+          run = "shell --block -- clear && trash-restore --overwrite";
+          desc = "Restore deleted file";
+        }
 
         # create
         {

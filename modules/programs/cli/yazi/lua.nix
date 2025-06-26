@@ -8,6 +8,7 @@ with config.lib.stylix.colors.withHashtag;
 # lua
 ''
   require("full-border"):setup { type = ui.Border.ROUNDED, }
+
   require("yatline"):setup({
     section_separator = { open = "", close = "" },
     part_separator    = { open = "", close = "" },
@@ -80,5 +81,15 @@ with config.lib.stylix.colors.withHashtag;
         section_c = { { type = "coloreds", custom = false, name = "permissions" }, }
       }
     },
+  })
+
+  require("restore"):setup({
+      show_confirm = true,
+      -- theme = {
+      --   title = "blue",
+      --   header = "green",
+      --   header_warning = "yellow",
+      --   list_item = { odd = "blue", even = "blue" },
+      -- },
   })
 ''

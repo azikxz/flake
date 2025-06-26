@@ -25,8 +25,17 @@ in
     cargo
   ];
 
-  python = mk [
-    python3
-    pipx
-  ];
+  python = mk (
+    [
+      python3
+      pipx
+    ]
+    ++ (with python313Packages; [
+      pyaes
+      pyasn1
+      rsa
+      telethon
+      urwid
+    ])
+  );
 }

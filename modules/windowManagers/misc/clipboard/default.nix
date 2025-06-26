@@ -12,7 +12,7 @@ with lib;
 
     script = "${getExe pkgs.wl-clip-persist} -c both";
 
-    wantedBy = [ "sway-session.target" ];
+    wantedBy = [ "graphical-session.target" ];
     partOf = [ "graphical-session.target" ];
   };
 }

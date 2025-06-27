@@ -274,8 +274,8 @@ with pkgs.self';
       "editor:open-link-in-new-window" = [ ];
       "editor:open-search" = [
         {
-          key = "/";
-          modifiers = [ "Shift" ];
+          key = "F";
+          modifiers = [ "Alt" ];
         }
       ];
       "editor:open-search-replace" = [ ];
@@ -322,25 +322,13 @@ with pkgs.self';
           ];
         }
       ];
-      "file-explorer:new-file-in-new-pane" = [
+      "file-explorer:new-folder" = [
         {
-          key = "A";
+          key = "F";
           modifiers = [
             "Alt"
             "Shift"
           ];
-        }
-      ];
-      "file-explorer:new-folder" = [
-        {
-          key = "F";
-          modifiers = [ "Alt" ];
-        }
-      ];
-      "global-search:open" = [
-        {
-          key = "/";
-          modifiers = [ "Alt" ];
         }
       ];
       "graph:open" = [

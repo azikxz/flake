@@ -21,6 +21,7 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
     programs.qutebrowser =
       {
         enable = true;
+        package = pkgs._25.qutebrowser;
       }
       // import ./settings.nix {
         inherit

@@ -30,15 +30,15 @@ in
   (s "k" "resizeactive, 0  -50")
   (s "l" "resizeactive, 50   0")
 
-  (a "h" "swapwindow, l")
-  (a "j" "swapwindow, d")
-  (a "k" "swapwindow, u")
-  (a "l" "swapwindow, r")
+  (a "h" "moveactive, -50  0")
+  (a "j" "moveactive, 0   50")
+  (a "k" "moveactive, 0  -50")
+  (a "l" "moveactive, 50   0")
 
-  (c "h" "moveactive, -50  0")
-  (c "j" "moveactive, 0   50")
-  (c "k" "moveactive, 0  -50")
-  (c "l" "moveactive, 50   0")
+  (c "h" "swapwindow, l")
+  (c "j" "swapwindow, d")
+  (c "k" "swapwindow, u")
+  (c "l" "swapwindow, r")
 
   # arrows
   (m "left " "movefocus, l")
@@ -51,15 +51,15 @@ in
   (s "up   " "resizeactive, 0  -50")
   (s "right" "resizeactive, 50   0")
 
-  (a "left " "swapwindow, l")
-  (a "down " "swapwindow, d")
-  (a "up   " "swapwindow, u")
-  (a "right" "swapwindow, r")
+  (a "left " "moveactive, -50  0")
+  (a "down " "moveactive, 0   50")
+  (a "up   " "moveactive, 0  -50")
+  (a "right" "moveactive, 50   0")
 
-  (c "left " "moveactive, -50  0")
-  (c "down " "moveactive, 0   50")
-  (c "up   " "moveactive, 0  -50")
-  (c "right" "moveactive, 50   0")
+  (c "left " "swapwindow, l")
+  (c "down " "swapwindow, d")
+  (c "up   " "swapwindow, u")
+  (c "right" "swapwindow, r")
 
   (fn "XF86AudioMute       " "$ex, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
   (fn "XF86AudioMicMute    " "$ex, ${getExe (

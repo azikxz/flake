@@ -10,6 +10,11 @@ let
 in
 
 mkIf false {
+  persist.user.dirs = [
+    ".local/share/DaVinciResolve"
+    ".local/state/DaVinciResolve"
+  ];
+
   environment.systemPackages = with pkgs; [
     (davinci-resolve-studio.override (old: {
       buildFHSEnv =

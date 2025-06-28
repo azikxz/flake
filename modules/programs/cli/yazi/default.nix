@@ -8,50 +8,56 @@
 with lib;
 
 mkIf (itIs == "desktop" || itIs == "laptop") {
-  hm.programs.yazi =
-    {
-      enable = true;
+  hm = {
+    programs.yazi =
+      {
+        enable = true;
 
-      keymap = import ./binds.nix {
+        keymap = import ./binds.nix {
+          inherit
+            lib
+            config
+            ;
+        };
+
+        initLua = import ./lua.nix {
+          inherit
+            config
+            ;
+        };
+
+        theme = import ./theme.nix {
+          inherit
+            lib
+            config
+            ;
+        };
+      }
+      // import ./plugins.nix {
+        inherit
+          pkgs
+          ;
+      }
+      // import ./settings/main.nix {
         inherit
           lib
           config
           ;
       };
 
-      initLua = import ./lua.nix {
-        inherit
-          config
-          ;
+    xdg.mimeApps = {
+      defaultApplications = {
+        "inode/directory" = "yazi.desktop";
+        "inode/mount-point" = "yazi.desktop";
       };
-
-      theme = import ./theme.nix {
-        inherit
-          lib
-          config
-          ;
-      };
-    }
-    // import ./plugins.nix {
-      inherit
-        pkgs
-        ;
-    }
-    // import ./settings/main.nix {
-      inherit
-        lib
-        config
-        ;
     };
+  };
 
   environment.systemPackages = with pkgs; [
     ffmpegthumbnailer
     glow
     jq
     ouch
-    unrar
-    unzip
     wl-clipboard
-    zip
   ];
 }

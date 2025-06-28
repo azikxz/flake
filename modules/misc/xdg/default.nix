@@ -37,17 +37,6 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
             ;
         };
 
-      portal = {
-        enable = true;
-
-        config.common.default = [ "gtk" ];
-
-        extraPortals = with pkgs; [
-          xdg-desktop-portal-gtk
-          xdg-desktop-portal-hyprland
-        ];
-      };
-
       userDirs =
         let
           mk = n: config.hm.home.homeDirectory + n;
@@ -115,5 +104,29 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
           run rm ${applications}/*.desktop && rm ${applications}/wine
         '';
       };
+  };
+
+  xdg = {
+    terminal-exec = {
+      enable = true;
+
+      settings = {
+        default = [
+          "kitty.desktop"
+          "foot.desktop"
+        ];
+      };
+    };
+
+    portal = {
+      enable = true;
+
+      config.common.default = [ "gtk" ];
+
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
+      ];
+    };
   };
 }

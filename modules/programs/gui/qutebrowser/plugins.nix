@@ -35,6 +35,11 @@ in
   })
 
   (fetchurl {
+    url = "https://raw.githubusercontent.com/Frestein/dotfiles/refs/heads/main/dot_config/private_qutebrowser/greasemonkey/Advanced-Content-Blocker.user.js";
+    sha256 = "sha256-oZAaFyKuKG5KHQq/N04qBUwdZ5F0eSUt7SwF5lCu/80=";
+  })
+
+  (fetchurl {
     url = "https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.18/hls.light.min.js";
     sha256 = "sha256-dpILMwhk+cf2QUUaNHLhs0moVtpkzO84coRuKFlBgvk=";
   })

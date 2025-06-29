@@ -19,8 +19,8 @@
 
   thinkpadT14 = {
     system = {
-      hostName = "embrace";
-      userName = "huggyer";
+      hostName = "blackmamba";
+      userName = "toneus";
       platform = "x86_64-linux";
       version = "24.05";
     };
@@ -31,7 +31,7 @@
     };
     style = {
       theme = "neoGenesis";
-      image = "townChristmas";
+      image = "carGirls";
     };
   };
 

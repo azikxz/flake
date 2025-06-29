@@ -25,8 +25,8 @@
       version = "24.05";
     };
     paths = {
-      flakeDir = "/persist/flake";
-      winePrefix = "/persist/proton-prefix";
+      flakeDir = "/etc/nixos";
+      winePrefix = "/persist/prefix";
       persist = "/persist";
     };
     style = {

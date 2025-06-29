@@ -8,6 +8,8 @@
 with lib;
 
 {
+  persist.dirs = [ "/etc/nixos" ];
+
   environment = with pkgs; {
     systemPackages = [ hydra-check ];
   };

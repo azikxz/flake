@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (itIs == "desktop" || itIs == "laptop") {
+mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
   hm.services.mako = with config.lib.stylix.colors.withHashtag; {
     enable = true;
 

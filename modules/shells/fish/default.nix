@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (itIs == "desktop" || itIs == "laptop") {
+mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
   persist.user.files = [ ".local/share/fish/fish_history" ];
 
   programs.fish.enable = true;
@@ -45,9 +45,9 @@ mkIf (itIs == "desktop" || itIs == "laptop") {
       shellInitLast =
         let
           winman =
-            if (itIs == "desktop") then
+            if (machine == "pcRyazenka") then
               "Hyprland"
-            else if (itIs == "laptop") then
+            else if (machine == "thinkpadT14") then
               "Hyprland"
             else
               "fastfetch";

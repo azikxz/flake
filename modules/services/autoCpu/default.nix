@@ -5,9 +5,9 @@
 
 with lib;
 
-mkIf (itIs == "laptop") {
+mkIf (machine == "thinkpadT14") {
   services.auto-cpufreq = {
-    enable = mkIf (itIs == "laptop") true;
+    enable = mkIf (machine == "thinkpadT14") true;
 
     settings = {
       charger = {

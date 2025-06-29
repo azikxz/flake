@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (itIs == "desktop") {
+mkIf (machine == "pcRyazenka") {
   systemd.services = {
     torrserver = {
       enable = true;

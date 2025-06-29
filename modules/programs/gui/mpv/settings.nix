@@ -7,8 +7,8 @@
 let
   mkShader = "no-osd change-list glsl-shaders";
 
-  inherit (lib.system)
-    itIs
+  inherit (lib)
+    machine
     ;
 in
 
@@ -44,9 +44,9 @@ in
 
     glsl-shaders = toString (
       with pkgs;
-      if (itIs == "laptop") then
+      if (machine == "thinkpadT14") then
         "${anime4k}/Anime4K_Clamp_Highlights.glsl:${anime4k}/Anime4K_Restore_CNN_Soft_M.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_M.glsl:${anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_S.glsl"
-      else if (itIs == "desktop") then
+      else if (machine == "pcRyazenka") then
         "${anime4k}/Anime4K_Clamp_Highlights.glsl:${anime4k}/Anime4K_Restore_CNN_VL.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_VL.glsl:${anime4k}/Anime4K_Restore_CNN_M.glsl:${anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_M.glsl"
       else
         null
@@ -59,14 +59,19 @@ in
 
   extra = ''
     ${toString (
-      if (itIs == "laptop") then
+      if (machine == "thinkpadT14") then
         (import ./anime4k/laptop.nix {
-          inherit mkShader pkgs;
+          inherit
+            mkShader
+            pkgs
+            ;
         })
-
-      else if (itIs == "desktop") then
+      else if (machine == "pcRyazenka") then
         (import ./anime4k/desktop.nix {
-          inherit mkShader pkgs;
+          inherit
+            mkShader
+            pkgs
+            ;
         })
       else
         null

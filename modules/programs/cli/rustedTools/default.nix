@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (itIs == "desktop" || itIs == "laptop") {
+mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
   environment.systemPackages = with pkgs; [
     hunt
     ripgrep-all

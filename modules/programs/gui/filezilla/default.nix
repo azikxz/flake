@@ -6,6 +6,6 @@
 
 with lib;
 
-mkIf (itIs == "desktop") {
+mkIf (machine == "pcRyazenka") {
   environment.systemPackages = with pkgs; [ filezilla ];
 }

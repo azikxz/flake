@@ -8,7 +8,7 @@
 with lib;
 # WARNING: for unified prefix use STEAM_COMPAT_DATA_PATH
 
-mkIf (itIs == "desktop" || itIs == "laptop") {
+mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
   persist.user.dirs = [
     ".local/share/Steam"
     ".steam"

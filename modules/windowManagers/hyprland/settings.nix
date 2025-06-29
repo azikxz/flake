@@ -27,7 +27,7 @@ with config.lib.stylix.colors;
     ];
 
   monitor =
-    if itIs == "laptop" then
+    if machine == "thinkpadT14" then
       "eDP-1, 1920x1080@60, 0x0, 1, transform, 0"
     else
       "HDMI-A-1, 1920x1080@60, 0x0, 1, transform, 0";

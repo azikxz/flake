@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (itIs != "desktop" || itIs != "laptop") {
+mkIf false {
   environment.systemPackages = [ pkgs.figlet ];
 
   hm.xdg.configFile =

@@ -5,11 +5,9 @@
 }:
 
 builtins.mapAttrs (
-  machineName:
+  machine:
   args@{
     system ? {
-      itIs = null;
-      disk = null;
       hostName = "starship";
       userName = "amogus";
       platform = "x86_64-linux";
@@ -42,12 +40,8 @@ builtins.mapAttrs (
           hm
           ;
 
-        inherit (system)
-          itIs
-          ;
-
         inherit
-          machineName
+          machine
           system
           paths
           style
@@ -73,7 +67,7 @@ builtins.mapAttrs (
       (
         let
           modulesDir = "${self}/modules";
-          machineDir = "${self}/machines/${machineName}";
+          machineDir = "${self}/machines/${machine}";
         in
         [ ]
         ++ (lib.optional (lib.pathExists modulesDir) modulesDir)

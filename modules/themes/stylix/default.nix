@@ -9,9 +9,9 @@
 with lib;
 let
   color =
-    if itIs == "desktop" then
+    if machine == "pcRyazenka" then
       "breeze"
-    else if itIs == "laptop" then
+    else if machine == "thinkpadT14" then
       "paleorange"
     else
       "adwaita";
@@ -71,13 +71,13 @@ in
       name = "GoogleDot-Custom";
       package = pkgs.cursors.google-cursor.override (
         with config.lib.stylix.colors.withHashtag;
-        if (itIs == "laptop") then
+        if (machine == "thinkpadT14") then
           {
             background_color = base08;
             outline_color = base00;
             accent_color = base08;
           }
-        else if (itIs == "desktop") then
+        else if (machine == "pcRyazenka") then
           {
             background_color = base0E;
             outline_color = base00;

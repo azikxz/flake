@@ -7,7 +7,7 @@
 
 with lib;
 
-mkIf (itIs == "desktop" || itIs == "laptop") {
+mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
   hm.wayland.windowManager.sway = {
     enable = true;
 

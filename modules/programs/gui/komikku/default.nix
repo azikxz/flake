@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (itIs == "desktop") {
+mkIf (machine == "pcRyazenka") {
   persist.user.dirs = [ ".local/share/komikku" ];
 
   environment.systemPackages = with pkgs; [ komikku ];

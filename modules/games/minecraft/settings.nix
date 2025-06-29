@@ -34,7 +34,7 @@ with lib;
     Language = "en_US";
     LastHostname = "jetpure";
     LaunchMaximized = false;
-    MaxMemAlloc = if (itIs == "desktop") then 16384 else 8192;
+    MaxMemAlloc = if (machine == "pcRyazenka") then 16384 else 8192;
     MenuBarInsteadOfToolBar = true;
     MinMemAlloc = 512;
     ModDependenciesDisabled = false;

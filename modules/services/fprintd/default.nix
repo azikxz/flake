@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (itIs == "laptop") {
+mkIf (machine == "thinkpadT14") {
   services.fprintd = {
     enable = true;
 

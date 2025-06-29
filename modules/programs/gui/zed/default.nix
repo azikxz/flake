@@ -7,7 +7,7 @@
 
 with lib;
 
-mkIf (itIs == "desktop") {
+mkIf (machine == "pcRyazenka") {
   hm.programs.zed-editor = {
     enable = true;
 

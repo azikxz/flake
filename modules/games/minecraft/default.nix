@@ -10,7 +10,7 @@ let
   imp = "gui";
 in
 
-mkIf (itIs == "desktop" || itIs == "laptop") {
+mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
   persist.user.dirs =
     if (imp == "cli") then
       [

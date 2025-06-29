@@ -1,7 +1,6 @@
 {
   pcRyazenka = {
     system = {
-      itIs = "desktop";
       hostName = "jetpure";
       userName = "nixzoid";
       platform = "x86_64-linux";
@@ -20,7 +19,6 @@
 
   thinkpadT14 = {
     system = {
-      itIs = "laptop";
       hostName = "embrace";
       userName = "huggyer";
       platform = "x86_64-linux";

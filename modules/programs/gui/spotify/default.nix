@@ -7,7 +7,7 @@
 
 with lib;
 
-mkIf (itIs == "desktop") {
+mkIf (machine == "pcRyazenka") {
   persist.user.dirs = [
     ".config/spotify"
     ".cache/spotify"

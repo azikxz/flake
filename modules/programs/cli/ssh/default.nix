@@ -5,7 +5,7 @@
 
 with lib;
 
-mkIf (itIs == "desktop" || itIs == "laptop") {
+mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
   persist.user.dirs = [
     ".ssh/id_ed25519"
     ".ssh/id_ed25519.pub"

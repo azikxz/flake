@@ -29,6 +29,6 @@ with lib;
   programs = {
     adb.enable = true;
 
-    light.enable = mkIf (itIs == "laptop") true;
+    light.enable = mkIf (machine == "thinkpadT14") true;
   };
 }

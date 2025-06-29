@@ -12,7 +12,7 @@ let
   mk = n: "sudo ${getExe' pkgs.amneziawg-amneziawg-tools "awg-quick"} ${n} config";
 in
 
-mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
+{
   environment = {
     etc = builtins.listToAttrs (
       map

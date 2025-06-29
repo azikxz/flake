@@ -8,7 +8,7 @@
 with lib;
 
 {
-  services.getty = {
+  services.getty = mkForce {
     autologinUser = system.userName;
     greetingLine = "uwu nya " + system.userName;
     autologinOnce = true;
@@ -51,10 +51,10 @@ with lib;
             "deluge"
             "flood"
           ];
-          initialHashedPassword = passwd;
+          initialHashedPassword = mkForce passwd;
         };
 
-        root.initialHashedPassword = passwd;
+        root.initialHashedPassword = mkForce passwd;
 
         media = {
           isSystemUser = true;

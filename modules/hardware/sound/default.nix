@@ -1,9 +1,12 @@
 {
   pkgs,
+  lib,
   ...
 }:
 
-{
+with lib;
+
+mkIf (machine != "isoXtended") {
   environment = {
     systemPackages = [ pkgs.pulsemixer ];
 

@@ -17,7 +17,7 @@ let
       "adwaita";
 in
 
-{
+mkIf (machine != "isoXtended") {
   hm.stylix = {
     enable = true;
 
@@ -63,7 +63,7 @@ in
         ;
     };
 
-    base16Scheme = inputs.base16."${style.theme}";
+    base16Scheme = if (style.theme != null) then inputs.base16."${style.theme}" else null;
     polarity = "dark";
 
     cursor = {

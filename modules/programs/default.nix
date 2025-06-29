@@ -6,7 +6,7 @@
 
 with lib;
 
-{
+mkIf (machine != "isoXtended") {
   environment = {
     systemPackages = with pkgs; [
       killall

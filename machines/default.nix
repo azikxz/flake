@@ -35,17 +35,16 @@
     };
   };
 
-  # isoNixtended = {
-  #   sys = {
-  #     hostName = "sus";
-  #     userName = "amogus";
-  #     is = "iso";
-  #     platform = "x86_64-linux";
-  #     ver = "24.05";
-  #   };
-  #   styl = {
-  #     theme = "horizon-dark";
-  #     image = "town";
-  #   };
-  # };
+  isoXtended = {
+    system = {
+      hostName = "sus";
+      userName = "amogus";
+      platform = "x86_64-linux";
+      version = "24.05";
+    };
+    style = {
+      theme = "horizonDark";
+      image = "witchCar";
+    };
+  };
 }

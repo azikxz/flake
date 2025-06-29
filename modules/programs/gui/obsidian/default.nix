@@ -7,7 +7,7 @@
 
 with lib;
 
-mkIf true {
+mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
   persist.user.dirs = [ ".config/obsidian" ];
 
   hm.programs.obsidian = {

@@ -18,28 +18,30 @@ with lib;
       execWheelOnly = true;
       wheelNeedsPassword = true;
 
-      extraRules = with pkgs; [
-        {
-          users = [ lib.system.userName ];
+      extraRules =
+        with pkgs;
+        lib.mkIf (lib.machine != "isoXtended") [
+          {
+            users = [ lib.system.userName ];
 
-          groups = [ "wheel" ];
+            groups = [ "wheel" ];
 
-          commands = [
-            {
-              command = getExe' amneziawg-tools "awg-quick";
-              options = [ "NOPASSWD" ];
-            }
-            {
-              command = getExe light;
-              options = [ "NOPASSWD" ];
-            }
-            {
-              command = getExe' uutils-coreutils-noprefix "tee";
-              options = [ "NOPASSWD" ];
-            }
-          ];
-        }
-      ];
+            commands = [
+              {
+                command = getExe' amneziawg-tools "awg-quick";
+                options = [ "NOPASSWD" ];
+              }
+              {
+                command = getExe light;
+                options = [ "NOPASSWD" ];
+              }
+              {
+                command = getExe' uutils-coreutils-noprefix "tee";
+                options = [ "NOPASSWD" ];
+              }
+            ];
+          }
+        ];
     };
   };
 }

@@ -14,8 +14,6 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
     "Downloads"
     "Music"
     "Pictures"
-    "Study"
-    "Sync"
     "Videos"
   ];
 

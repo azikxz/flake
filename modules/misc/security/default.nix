@@ -36,7 +36,7 @@ with lib;
                 options = [ "NOPASSWD" ];
               }
               {
-                command = getExe' uutils-coreutils-noprefix "tee";
+                command = getExe' coreutils "tee";
                 options = [ "NOPASSWD" ];
               }
             ];

@@ -453,15 +453,5 @@ with pkgs.self';
         }
       ];
     };
-
-    extraFiles = {
-      ".obsidian.vimrc" = {
-        target = "../.obsidian.vimrc";
-        text = ''
-          set clipboard=unnamed
-          nnoremap Y y$
-        '';
-      };
-    };
   };
 }

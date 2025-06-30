@@ -1,8 +1,8 @@
 { pkgs }:
 
 pkgs.stdenv.mkDerivation rec {
-  pname = "obsidian-style-settings";
-  version = "1.0.9";
+  pname = "obsidian-omnisearch";
+  version = "1.27.1";
 
   mainJs = pkgs.fetchurl {
     url = "https://github.com/scambier/obsidian-omnisearch/releases/download/${version}/main.js";

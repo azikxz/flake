@@ -77,9 +77,11 @@ in
           in
           {
             "${cfg.savePath}/"."d" = {
-              user = lib.system.userName;
-              group = lib.system.userName;
-              mode = "0755";
+              inherit (cfg)
+                user
+                group
+                mode
+                ;
             };
 
             "${cfg.profileDir}/"."d" = base;

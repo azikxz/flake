@@ -4,6 +4,25 @@
 }:
 
 with lib;
+let
+  terminal =
+    if config.hm.programs.kitty.enable then
+      [
+        "kitty"
+        "--class"
+        "termfloat"
+        "-e"
+      ]
+    else if config.hm.programs.foot.enable then
+      [
+        "foot"
+        "-a"
+        "footfloat"
+        "-e"
+      ]
+    else
+      [ ];
+in
 
 {
   inherit
@@ -153,11 +172,7 @@ with lib;
       chars = "asdfghjkl";
     };
 
-    editor.command = [
-      "kitty"
-      "--class"
-      "termfloat"
-      "-e"
+    editor.command = terminal ++ [
       "hx"
       "{file}:{line}:{column0}"
     ];
@@ -165,31 +180,19 @@ with lib;
     fileselect = {
       handler = "external";
 
-      single_file.command = [
-        "kitty"
-        "--class"
-        "float-kitty"
-        "-e"
+      single_file.command = terminal ++ [
         "yazi"
         "--chooser-file"
         "{}"
       ];
 
-      multiple_files.command = [
-        "kitty"
-        "--class"
-        "termfloat"
-        "-e"
+      multiple_files.command = terminal ++ [
         "yazi"
         "--chooser-file"
         "{}"
       ];
 
-      folder.command = [
-        "kitty"
-        "--class"
-        "termfloat"
-        "-e"
+      folder.command = terminal ++ [
         "yazi"
         "--chooser-file"
         "{}"

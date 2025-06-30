@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
+mkIf false {
   hm.programs.kitty = {
     enable = true;
     enableGitIntegration = true;

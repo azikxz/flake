@@ -96,8 +96,6 @@
         format-ethernet = "󰈀 ETH";
         format-disconnected = " ERR";
 
-        on-click = "kitty nmtui";
-
         interval = 5;
       };
 

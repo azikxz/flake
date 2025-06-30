@@ -64,10 +64,7 @@ in
   "Shift+B" = "keepassxc";
   "V" = "telegram-desktop";
   "Shift+V" = "vesktop";
-  "N" = "kitty yazi";
-  "Shift+N" = "kitty --class=termfloat yazi";
   "M" = "spotify";
-  "Shift+M" = "kitty --class=ani anicli-ru -q 1080";
 })
 // {
   # screenshots

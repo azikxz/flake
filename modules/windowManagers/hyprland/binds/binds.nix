@@ -60,7 +60,13 @@ in
     (mk null "$s" "print, $ex, ${lib.getExe pkgs.grilurp} copysave output " + pic)
   ]
 )
-++ (import ./programs.nix)
+++ (import ./programs.nix {
+  inherit
+    pkgs
+    lib
+    config
+    ;
+})
 ++ (builtins.concatLists (
   builtins.genList (
     i:

@@ -1,3 +1,10 @@
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+
 let
   mk =
     mod: sub: key: cmd:
@@ -7,10 +14,21 @@ let
   s = mk "$m" "$s";
 in
 
-[
-  (m "return" "kitty")
-  (s "return" "kitty --class=termfloat")
-
+(
+  if config.hm.programs.kitty.enable then
+    [
+      (m "return" "kitty")
+      (s "return" "kitty --class=termfloat")
+    ]
+  else if config.hm.programs.foot.enable then
+    [
+      (m "return" "foot")
+      (s "return" "foot -a termfloat")
+    ]
+  else
+    [ (m "return" (lib.getExe pkgs.foot)) ]
+)
+++ [
   (m "tab" "tofi-drun | xargs hyprctl dispatch exec -- ")
 
   (m "v" "telegram-desktop")

@@ -1,5 +1,6 @@
 {
   lib,
+  config,
   ...
 }:
 
@@ -47,7 +48,13 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
         };
 
         "${gnDesk}/applications/terminal" = {
-          exec = "kitty";
+          exec =
+            if config.hm.programs.kitty.enable then
+              "kitty"
+            else if config.hm.programs.foot.enable then
+              "foot"
+            else
+              "xterm";
         };
 
         # nemo configuration

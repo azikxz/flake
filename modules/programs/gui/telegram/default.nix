@@ -6,67 +6,50 @@
 }:
 
 with lib;
-let
-  package = pkgs._64gram;
-in
 
 mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
-  persist.user.dirs = [
-    ".local/share/${
-      if
-        elem package [
-          pkgs._64gram
-          pkgs._24._64gram
-          pkgs._25._64gram
-        ]
-      then
-        "64Gram"
-      else if package == pkgs.ayugram-desktop then
-        "AyuGramDesktop"
-      else
-        "TelegramDesktop"
-    }/tdata"
-  ];
+  persist.user.dirs = [ ".local/share/64Gram/tdata" ];
 
-  environment.systemPackages =
-    [ package ]
-    ++ (optional (package == pkgs.ayugram-desktop) (
-      pkgs.writeShellScriptBin "telegram-desktop" ''
-        ayugram-desktop
-      ''
-    ));
+  environment.systemPackages = with pkgs; [
+    (symlinkJoin {
+      name = "telegram-desktop";
+      paths = [ _64gram ];
+      buildInputs = [ makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/telegram-desktop \
+          --set QT_QPA_PLATFORMTHEME wayland \
+          --set XDG_CURRENT_DESKTOP gnome
+      '';
+    })
+  ];
 
   hm = {
     xdg = {
       mimeApps = import ./mime.nix {
         inherit
-          package
-          pkgs
           lib
           ;
       };
 
       dataFile = import ./configs.nix {
         inherit
-          package
-          pkgs
-          lib
           config
           ;
       };
     };
 
-    home.activation =
-      let
-        walogram = import ./walogram.nix {
-          inherit
-            pkgs
-            config
-            ;
-        };
-      in
-      mkIf (package != null && config.stylix.enable) {
-        telegramTheme = hm.dag.entryAfter [ "" ] ("run " + getExe walogram);
-      };
+    home.activation = mkIf config.stylix.enable {
+      telegramTheme = hm.dag.entryAfter [ "" ] (
+        "run "
+        + getExe (
+          import ./walogram.nix {
+            inherit
+              pkgs
+              config
+              ;
+          }
+        )
+      );
+    };
   };
 }

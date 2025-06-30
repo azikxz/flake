@@ -1,28 +1,9 @@
 {
-  package,
-  pkgs,
-  lib,
   config,
 }:
 
-let
-  client =
-    if
-      lib.elem package [
-        pkgs._64gram
-        pkgs._24._64gram
-        pkgs._25._64gram
-      ]
-    then
-      "64Gram"
-    else if package == pkgs.ayugram-desktop then
-      "AyuGramDesktop"
-    else
-      "TelegramDesktop";
-in
-
 {
-  "${client}/tdata/enhanced-settings-custom.json".text = builtins.toJSON {
+  "64Gram/tdata/enhanced-settings-custom.json".text = builtins.toJSON {
     always_delete_for = 0;
     auto_unmute = false;
     bitrate = 0;
@@ -55,7 +36,7 @@ in
     translate_to_tc = false;
   };
 
-  "${client}/tdata/ayu_settings.json".text = builtins.toJSON {
+  "64Gram/tdata/ayu_settings.json".text = builtins.toJSON {
     appIcon = "alt";
     channelBottomButton = 0;
     collapseSimilarChannels = true;
@@ -116,7 +97,7 @@ in
     wideMultiplier = 1.0;
   };
 
-  "${client}/tdata/shortcuts-custom.json".text =
+  "64Gram/tdata/shortcuts-custom.json".text =
     let
       key = keys: command: {
         inherit command keys;

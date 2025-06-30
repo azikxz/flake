@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   lib,
   config,
@@ -64,7 +63,7 @@ mkIf false {
     ];
   };
 
-  environment.systemPackages = with pkgs.winapps; [
+  environment.systemPackages = with pkgs; [
     winapps
     winapps-launcher
   ];

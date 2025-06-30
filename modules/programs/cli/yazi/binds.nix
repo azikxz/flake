@@ -407,6 +407,13 @@ with lib;
           run = "plugin smart-paste";
           desc = "Paste yanked files in preview dir";
         }
+        {
+          on = [
+            "P"
+          ];
+          run = "plugin save-clipboard-to-file";
+          desc = "Paste files from clipbord";
+        }
 
         # chmod
         {

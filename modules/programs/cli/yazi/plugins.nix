@@ -73,6 +73,13 @@ in
           rev = "4002d368c09841d5722d55720fd29c2eba05300f";
           hash = "sha256-XE+EfVPsO09zG8qYEhN6O95mS9NJlTdOd4Gsem2KtPI=";
         };
+
+        save-clipboard-to-file = fetchFromGitHub {
+          owner = "boydaihungst";
+          repo = "save-clipboard-to-file.yazi";
+          rev = "40de82fec9f46d3c3d1dc8907d0ca3fa6ca8c8f1";
+          hash = "sha256-5wtSjwg6RvbIuODwQOHJ+bHhPjhn0UyRWzPngdS8uQM=";
+        };
       }
 
     # custom

@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (machine == "pcRyazenka") {
+mkIf false {
   hm.programs.foot = {
     enable = true;
 

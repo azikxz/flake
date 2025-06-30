@@ -6,14 +6,18 @@
 
 with lib;
 
-mkIf false {
+mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
   hm.programs.kitty = {
     enable = true;
     enableGitIntegration = true;
 
-    keybindings = import ./binds.nix;
+    keybindings = import ./binds.nix {
+      inherit
+        config
+        ;
+    };
 
-    extraConfig = import ./extraConfig.nix;
+    # extraConfig = import ./extraConfig.nix;
 
     settings =
       import ./settings.nix

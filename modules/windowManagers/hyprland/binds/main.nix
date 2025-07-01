@@ -12,10 +12,6 @@
   "$a" = "ALT";
   "$c" = "CTRL";
 
-  "$rt" = "RETURN";
-  "$sp" = "SPACE";
-  "$tb" = "TAB";
-
   "$ex" = "exec";
 
   # binds

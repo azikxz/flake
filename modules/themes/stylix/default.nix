@@ -38,13 +38,14 @@ mkIf (machine != "isoXtended") {
       cava.rainbow.enable = true;
       hyprland.hyprpaper.enable = true;
 
-      mako.enable = false;
-      spicetify.enable = false;
       helix.enable = false;
-      mpv.enable = false;
-      tofi.enable = false;
-      qt.enable = false;
       kde.enable = false;
+      mako.enable = false;
+      mpv.enable = false;
+      qt.enable = false;
+      spicetify.enable = false;
+      tofi.enable = false;
+      waybar.enable = false;
 
       nixcord.enable = false;
     };

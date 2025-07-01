@@ -25,6 +25,12 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
         Experimental = true;
         Enable = "Source,Sink,Media,Socket";
       };
+
+      LE = {
+        MinConnectionInterval = 7;
+        MaxConnectionInterval = 9;
+        ConnectionLatency = 0;
+      };
     };
   };
 }

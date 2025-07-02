@@ -164,5 +164,6 @@ in
       "application/pdf" = "org.pwmt.zathura.desktop";
       "application/vnd.oasis.opendocument.formula" = "libreoffice-math.desktop";
       "application/vnd.oasis.opendocument.database" = "libreoffice-base.desktop";
+      "inode/directory" = [ "yazi.desktop" ];
     };
 }

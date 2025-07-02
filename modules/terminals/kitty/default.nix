@@ -7,6 +7,11 @@
 with lib;
 
 mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
+  environment.variables = {
+    TERM = "kitty";
+    TERMINAL = "kitty";
+  };
+
   hm.programs.kitty = {
     enable = true;
     enableGitIntegration = true;

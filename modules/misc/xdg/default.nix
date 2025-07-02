@@ -17,8 +17,6 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
     "Videos"
   ];
 
-  environment.systemPackages = [ pkgs.xdg-user-dirs ];
-
   hm = {
     xdg = {
       enable = true;
@@ -107,6 +105,7 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
   xdg = {
     terminal-exec = {
       enable = true;
+      package = pkgs.xdg-terminal-exec-mkhl;
 
       settings = {
         default = [

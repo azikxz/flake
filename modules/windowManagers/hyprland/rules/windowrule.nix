@@ -24,6 +24,7 @@ in
   (cl "anicli" "workspace 6 silent")
   (cl "org.qbittorrent.qBittorrent" "workspace 8 silent")
   (cl "steam" "workspace 10 silent")
+  (tl "Steam" "workspace 10 silent")
 
   # term rules
   (cl "footfloat" "float")

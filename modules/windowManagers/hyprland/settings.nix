@@ -23,7 +23,6 @@ with config.lib.stylix.colors;
       (getExe mic)
       "mako"
       "steam"
-      "waybar"
     ];
 
   monitor =

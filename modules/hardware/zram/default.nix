@@ -5,7 +5,7 @@
 
 with lib;
 
-{
+mkIf (machine != "isoXtended") {
   zramSwap = {
     enable = true;
 

@@ -23,6 +23,8 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
         in
         with config.hm.xdg.userDirs;
         listToAttrs [
+          (mkFolder "temporal" "${desktop}/temp" devices)
+
           (mkFolder "passwords" "${documents}/passwords" devices)
 
           (mkFolder "notes" "${documents}/notes" devices)

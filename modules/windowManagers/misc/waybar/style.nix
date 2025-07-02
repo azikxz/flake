@@ -34,8 +34,8 @@ with config.lib.stylix.colors.withHashtag;
     border-radius: 20px;
     margin: 2px;
     padding: 0px;
-    padding-right: 6px;
-    padding-left: 6px;
+    padding-right: 10px;
+    padding-left: 10px;
     color: ${base05};
     min-height: 25px;
     transition: all 0.4s ease-in-out;
@@ -70,29 +70,31 @@ with config.lib.stylix.colors.withHashtag;
   }
 
   /* modules */
-  #custom-date,
-  #battery,
-  #backlight
-  #clock,
-  #pulseaudio,
-  #workspaces,
-  #window,
-  #language,
-  #text,
-  #custom-launcher,
-  #custom-separator
-
-  #battery,
   #backlight,
-  #custom-date,
-  #cava,
-  #network,
-  #disk,
+  #battery,
   #clock,
+  #custom-date,
+  #custom-launcher,
+  #custom-power,
+  #custom-separator
   #language,
   #pulseaudio,
-  #custom-separator,
+  #text,
+  #window,
+  #workspaces
+
+  #backlight,
+  #battery,
+  #cava,
+  #clock,
+  #custom-date,
   #custom-launcher,
+  #custom-power,
+  #custom-separator,
+  #disk,
+  #language,
+  #network,
+  #pulseaudio,
   #tray {
     color: ${base05};
     background-color: ${base00};

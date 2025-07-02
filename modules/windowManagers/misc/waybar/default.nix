@@ -19,6 +19,7 @@ mkIf (machine == "thinkpadT14") {
 
     settings = import ./settings.nix {
       inherit
+        lib
         config
         ;
     };

@@ -102,6 +102,9 @@ with lib;
           format-ethernet = "󰈀 ETH";
           format-disconnected = " ERR";
 
+          on-click = "nm-applet --indicator";
+          on-click-right = "nm-applet";
+
           interval = 5;
         };
 

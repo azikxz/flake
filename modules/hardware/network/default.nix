@@ -50,4 +50,9 @@ with lib;
   };
 
   services.resolved.enable = true;
+
+  programs.nm-applet = {
+    enable = true;
+    indicator = true;
+  };
 }

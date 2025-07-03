@@ -5,7 +5,7 @@
 
 with lib;
 
-mkIf (machine == "pcRyazenka") {
+mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
   persist.user.dirs = [ ".config/vesktop" ];
 
   hm.programs.nixcord = {

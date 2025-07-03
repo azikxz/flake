@@ -30,7 +30,7 @@ with lib;
               "custom/separator"
               "custom/launcher"
               "custom/separator"
-              "wireplumber#audio"
+              "pulseaudio"
               "custom/separator"
               "backlight"
               "custom/separator"
@@ -62,7 +62,7 @@ with lib;
               "custom/separator"
               "custom/launcher"
               "custom/separator"
-              "wireplumber#audio"
+              "pulseaudio"
               "custom/separator"
               "hyprland/language"
               "custom/separator"
@@ -92,8 +92,8 @@ with lib;
           on-click-right = "tofi-drun | xargs hyprctl dispatch exec -- ";
         };
 
-        "wireplumber#audio" = mkTooltip // {
-          format = "{icon} {volume}%";
+        "pulseaudio" = mkTooltip // {
+          format = "{format_source} / {icon} {volume}%";
           format-icons = {
             default = [
               ""
@@ -103,22 +103,15 @@ with lib;
             headphone = [ "" ];
             headset = [ "" ];
           };
-          format-muted = "  muted";
+          format-muted = "{format_source} /   muted";
+
+          format-source = "󰍬";
+          format-source-muted = "󰍭";
 
           scroll-step = 5;
           max-volume = 100;
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-        };
-
-        "wireplumber#microphone" = mkTooltip // {
-          format = "{icon}";
-          format-icons = [
-            "󰍬 "
-            "󰍭 "
-          ];
-          format-muted = "󰍭 ";
-
-          on-click = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+          on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
         };
 
         "backlight" = mkTooltip // {

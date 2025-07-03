@@ -23,6 +23,9 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
       "~/Documents/passwords/db.kdbx"
     ];
 
+    postStart = "sleep 1";
+    reload = "kill -SIGUSR2 $MAINPID";
+
     wantedBy = [ "graphical-session.target" ];
     partOf = [ "graphical-session.target" ];
   };

@@ -70,18 +70,6 @@ in
     font-weight: bolder;
   }
 
-  #custom-launcher {
-  	background: linear-gradient(45deg,
-      ${base08} 0%,
-      ${base09} 100%
-    );
-  	border-radius: ${rounding};
-  	margin-top: 4;
-  	margin-bottom: 4;
-  	margin-left: 2;
-  	margin-right: 2;
-  }
-
   @keyframes gradient {
     0% { background-position: 0px 50px; }
     50% { background-position: 100px 30px; }

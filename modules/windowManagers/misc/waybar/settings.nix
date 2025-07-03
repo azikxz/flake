@@ -14,54 +14,86 @@ with lib;
     in
     mkMerge [
       {
+        start_hidden = if (machine != "thinkpadT14") then true else false;
         layer = "top";
         position = "bottom";
         height = 1;
-
-        modules-left = [
-          "custom/separator"
-          "custom/launcher"
-          "custom/separator"
-          "wireplumber"
-          "custom/separator"
-          "backlight"
-          "custom/separator"
-          "network"
-          "custom/separator"
-        ];
-
-        modules-center = [ "hyprland/workspaces" ];
-
-        modules-right = [
-          "custom/separator"
-          "tray"
-          "custom/separator"
-          "hyprland/language"
-          "custom/separator"
-          "clock#date"
-          "custom/separator"
-          "clock#time"
-          "custom/separator"
-          "battery"
-          "custom/separator"
-          "custom/power"
-          "custom/separator"
-        ];
 
         "custom/separator" = mkTooltip // {
           format = " ";
         };
       }
+      (
+        if (machine == "thinkpadT14") then
+          {
+            modules-left = [
+              "custom/separator"
+              "custom/launcher"
+              "custom/separator"
+              "custom/separator"
+              "wireplumber#audio"
+              "custom/separator"
+              "backlight"
+              "custom/separator"
+              "network"
+              "custom/separator"
+            ];
+
+            modules-center = [ "hyprland/workspaces" ];
+
+            modules-right = [
+              "custom/separator"
+              "tray"
+              "custom/separator"
+              "hyprland/language"
+              "custom/separator"
+              "clock#date"
+              "custom/separator"
+              "clock#time"
+              "custom/separator"
+              "battery"
+              "custom/separator"
+              "custom/power"
+              "custom/separator"
+            ];
+          }
+        else
+          {
+            modules-left = [
+              "custom/separator"
+              "custom/launcher"
+              "custom/separator"
+              "wireplumber#audio"
+              "custom/separator"
+              "hyprland/language"
+              "custom/separator"
+            ];
+
+            modules-center = [ "hyprland/workspaces" ];
+
+            modules-right = [
+              "custom/separator"
+              "tray"
+              "custom/separator"
+              "clock#date"
+              "custom/separator"
+              "clock#time"
+              "custom/separator"
+              "custom/power"
+              "custom/separator"
+            ];
+          }
+      )
       {
         # left modules
         "custom/launcher" = mkTooltip // {
-          format = "<span color='${config.lib.stylix.colors.withHashtag.base0C}' font='17'></span> {}";
+          format = "<span color='${config.lib.stylix.colors.withHashtag.base00}' font='17'></span> {}";
 
           on-click = ''tofi-drun -c ~/.config/tofi/horizontal | xargs hyprctl dispatch exec -- '';
           on-click-right = "tofi-drun | xargs hyprctl dispatch exec -- ";
         };
 
-        "wireplumber" = mkTooltip // {
+        "wireplumber#audio" = mkTooltip // {
           format = "{icon} {volume}%";
           format-icons = {
             default = [
@@ -74,9 +106,20 @@ with lib;
           };
           format-muted = "  muted";
 
-          scroll-step = 3;
+          scroll-step = 5;
+          max-volume = 100;
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-          on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        };
+
+        "wireplumber#microphone" = mkTooltip // {
+          format = "{icon}";
+          format-icons = [
+            "󰍬 "
+            "󰍭 "
+          ];
+          format-muted = "󰍭 ";
+
+          on-click = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
         };
 
         "backlight" = mkTooltip // {
@@ -121,23 +164,13 @@ with lib;
         "hyprland/workspaces" = mkTooltip // {
           format = "{icon}";
           format-icons = ico.wm // {
-            "urgent" = "";
-            "focused" = "";
-            "default" = "";
+            "active" = "";
           };
 
           disable-scroll = false;
           on-click = "activate";
 
-          persistent-workspaces."*" = [
-            1
-            2
-            3
-            4
-            5
-            6
-            7
-          ];
+          persistent-workspaces."*" = range 1 7;
         };
 
         "sway/workspaces" = mkTooltip // {
@@ -159,7 +192,7 @@ with lib;
         };
 
         "hyprland/language" = mkTooltip // rec {
-          format = "{} 󰌌";
+          format = if (machine == "thinkpadT14") then "{} 󰌌" else "󰌌 {}";
           format-en = "EN";
           format-ru = "RU";
 

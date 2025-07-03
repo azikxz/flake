@@ -30,7 +30,7 @@ in
 )
 ++ [
   (m "tab" "tofi-drun | xargs hyprctl dispatch exec -- ")
-  (s "space" " killall -SIGUSR1 .waybar-wrapped")
+  (s "space" "killall -SIGUSR1 .waybar-wrapped")
 
   (m "v" "telegram-desktop")
   (s "v" "vesktop")

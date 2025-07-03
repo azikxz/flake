@@ -4,13 +4,16 @@
 }:
 
 with config.lib.stylix.colors.withHashtag;
+let
+  rounding = (toString 14) + "px";
+in
 
 # css
 ''
   * {
     font-family: "${config.stylix.fonts.monospace.name}";
     font-weight: bold;
-    font-size: 16px;
+    font-size: ${toString (config.stylix.fonts.sizes.applications + 4)}px;
   }
 
   window#waybar {
@@ -31,7 +34,7 @@ with config.lib.stylix.colors.withHashtag;
   /* workspaces */
   #workspaces button {
     background-color: ${base03};
-    border-radius: 20px;
+    border-radius: ${rounding};
     margin: 2px;
     padding: 0px;
     padding-right: 10px;
@@ -51,7 +54,11 @@ with config.lib.stylix.colors.withHashtag;
   }
 
   #workspaces button.active {
-    background: radial-gradient(circle, ${base0C} 0%, ${base0E} 50%, ${base0D} 100%);
+    background: radial-gradient(circle,
+      ${base0C} 0%,
+      ${base0E} 50%,
+      ${base0D} 100%
+    );
     background-size: 400% 400%;
     animation: gradient 5s linear infinite;
     transition: all 0.3s ease-in-out;
@@ -61,6 +68,18 @@ with config.lib.stylix.colors.withHashtag;
   #workspaces button.active label {
     color: ${base02};
     font-weight: bolder;
+  }
+
+  #custom-launcher {
+  	background: linear-gradient(45deg,
+      ${base08} 0%,
+      ${base09} 100%
+    );
+  	border-radius: ${rounding};
+  	margin-top: 4;
+  	margin-bottom: 4;
+  	margin-left: 2;
+  	margin-right: 2;
   }
 
   @keyframes gradient {

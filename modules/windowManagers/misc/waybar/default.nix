@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (machine == "thinkpadT14") {
+mkIf (machine == "thinkpadT14" || machine == "pcRyazenka") {
   hm.programs.waybar = {
     enable = true;
     systemd.enable = true;

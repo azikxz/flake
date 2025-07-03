@@ -7,6 +7,7 @@ with lib;
 
 {
   persist.dirs = [
+    "/etc/NetworkManager/system-connections"
     "/var/lib/NetworkManager"
     "/var/lib/iwd"
   ];

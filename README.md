@@ -1,7 +1,5 @@
 <div align="center">
- <h1>
-  ❄️【 NIXOS FLAKE DOTFILES 】❄️
- </h1>
+ <h1>【 NIXOS FLAKE DOTFILES 】</h1>
 </div>
 
 <details>
@@ -95,13 +93,16 @@
 
 # PREVIEW
 
-![nah_id_win](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/fetch.jpg)
+<details>
+  <summary>pcRyazenka (main device)</summary>
 
-![nah_id_win](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/brows.jpg)
+![nah_id_win](./.other/main.png)
+![nah_id_win](./.other/tofi.png)
+![nah_id_win](./.other/useful.png)
+![nah_id_win](./.other/obsidian.png)
+![nah_id_win](./.other/bnvtop.png)
 
-![nah_id_win](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/btop.jpg)
-
-![nah_id_win](https://git.sr.ht/~neverness/design/blob/wallpapers/dotfiles/misc.jpg)
+</details>
 
 - thanks for
   - [artem](https://github.com/ArtemChandragupta/NixFlake)

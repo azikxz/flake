@@ -97,17 +97,22 @@
   <summary>pcRyazenka (main device)</summary>
 
 ![nah_id_win](./.other/main.png)
+
 ![nah_id_win](./.other/tofi.png)
+
 ![nah_id_win](./.other/useful.png)
+
 ![nah_id_win](./.other/obsidian.png)
+
 ![nah_id_win](./.other/bnvtop.png)
 
 </details>
 
-- thanks for
-  - [artem](https://github.com/ArtemChandragupta/NixFlake)
-  - [fufexan](https://github.com/fufexan/dotfiles)
-  - [hezaki](https://codeberg.org/Hezaki/Touka)
-  - [luis](https://github.com/luishfonseca/nixos-config)
-  - [maxmurr](https://github.com/TheMaxMur/NixOS-Configuration)
-  - [roman](https://github.com/nullptroma/nixos-configuration)
+#### THANKS FOR
+
+- [artem](https://github.com/ArtemChandragupta/NixFlake)
+- [fufexan](https://github.com/fufexan/dotfiles)
+- [hezaki](https://codeberg.org/Hezaki/Touka)
+- [luis](https://github.com/luishfonseca/nixos-config)
+- [maxmurr](https://github.com/TheMaxMur/NixOS-Configuration)
+- [roman](https://github.com/nullptroma/nixos-configuration)

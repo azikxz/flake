@@ -13,8 +13,10 @@ mkIf (machine == "pcRyazenka") {
     inherit (pkgs)
       cachix
       hut
+      nix-init
       nix-tree
       nurl
+      wallHavenDL
       ;
   };
 }

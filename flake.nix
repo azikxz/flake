@@ -70,6 +70,26 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # zapret
+    zapret = {
+      url = "github:kotudemo/zapret-presets";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        secret_files.follows = "secret_files";
+        zapret-hostlists.follows = "zapret-hostlists";
+      };
+    };
+
+    secret_files = {
+      url = "github:kotudemo/secret_files";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zapret-hostlists = {
+      url = "github:kotudemo/zapret-hostlists";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # selfmade
     nixages = {
       url = "sourcehut:~neverness/nixages";

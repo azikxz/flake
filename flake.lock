@@ -855,12 +855,35 @@
         "nur": "nur",
         "protonfixes": "protonfixes",
         "qbHelper": "qbHelper",
+        "secret_files": "secret_files",
         "spicetify": "spicetify",
         "stylix": "stylix",
         "torrHelper": "torrHelper",
         "umu-database": "umu-database",
         "wallpapers": "wallpapers",
-        "winapps": "winapps"
+        "winapps": "winapps",
+        "zapret": "zapret",
+        "zapret-hostlists": "zapret-hostlists"
+      }
+    },
+    "secret_files": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1751547260,
+        "narHash": "sha256-nvZb9Qf0wIIyxnoMJDkayRwrmFBxdPdzTNXR3XZXYBg=",
+        "owner": "kotudemo",
+        "repo": "secret_files",
+        "rev": "d8e2c7727ec0084c5b7fef52c72511f40cc47f24",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kotudemo",
+        "repo": "secret_files",
+        "type": "github"
       }
     },
     "spicetify": {
@@ -1211,6 +1234,52 @@
       "original": {
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
+        "type": "github"
+      }
+    },
+    "zapret": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "secret_files": [
+          "secret_files"
+        ],
+        "zapret-hostlists": [
+          "zapret-hostlists"
+        ]
+      },
+      "locked": {
+        "lastModified": 1751546890,
+        "narHash": "sha256-hmLCgTJwGleU5ozLqWNz9i/hvc8x+svMBAasM+Dh2X8=",
+        "owner": "kotudemo",
+        "repo": "zapret-presets",
+        "rev": "c660fa1d6a753f613edc6422e7aa69271ad8e282",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kotudemo",
+        "repo": "zapret-presets",
+        "type": "github"
+      }
+    },
+    "zapret-hostlists": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1751546961,
+        "narHash": "sha256-aOaO+Y0UmdVKNo+GxIOXSuJwAUWC1pI38tF9ZxI82q0=",
+        "owner": "kotudemo",
+        "repo": "zapret-hostlists",
+        "rev": "180064165148bb268b92ca231f4b94a8e639a08e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kotudemo",
+        "repo": "zapret-hostlists",
         "type": "github"
       }
     }

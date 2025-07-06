@@ -84,6 +84,7 @@ builtins.mapAttrs (
           nixpkgs.nixosModules.notDetected
           nur.modules.nixos.default
           stylix.nixosModules.stylix
+          zapret.nixosModules.presets
         ])
       )
       ++ [

@@ -91,6 +91,7 @@ in
   #workspaces
 
   #backlight,
+  #bluetooth,
   #battery,
   #cava,
   #clock,

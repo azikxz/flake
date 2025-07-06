@@ -30,11 +30,13 @@ with lib;
               "custom/separator"
               "custom/launcher"
               "custom/separator"
-              "pulseaudio"
+              "group/soundGrp"
               "custom/separator"
               "backlight"
               "custom/separator"
               "network"
+              "custom/separator"
+              "bluetooth"
               "custom/separator"
             ];
 
@@ -46,9 +48,7 @@ with lib;
               "custom/separator"
               "hyprland/language"
               "custom/separator"
-              "clock#date"
-              "custom/separator"
-              "clock#time"
+              "group/dateGrp"
               "custom/separator"
               "battery"
               "custom/separator"
@@ -62,9 +62,11 @@ with lib;
               "custom/separator"
               "custom/launcher"
               "custom/separator"
-              "pulseaudio"
+              "group/soundGrp"
               "custom/separator"
               "hyprland/language"
+              "custom/separator"
+              "group/blueGrp"
               "custom/separator"
             ];
 
@@ -74,9 +76,7 @@ with lib;
               "custom/separator"
               "tray"
               "custom/separator"
-              "clock#date"
-              "custom/separator"
-              "clock#time"
+              "group/dateGrp"
               "custom/separator"
               "custom/power"
               "custom/separator"
@@ -92,8 +92,13 @@ with lib;
           on-click-right = "tofi-drun | xargs hyprctl dispatch exec -- ";
         };
 
+        "pulseaudio#volume" = mkTooltip // {
+          format = "{volume}%";
+          format-muted = "muted";
+        };
+
         "pulseaudio" = mkTooltip // {
-          format = "{format_source} / {icon} {volume}%";
+          format = "{format_source} / {icon}";
           format-icons = {
             default = [
               ""
@@ -103,7 +108,7 @@ with lib;
             headphone = [ "" ];
             headset = [ "" ];
           };
-          format-muted = "{format_source} /   muted";
+          format-muted = "{format_source} /  ";
 
           format-source = "󰍬";
           format-source-muted = "󰍭";
@@ -183,10 +188,30 @@ with lib;
           spacing = 8;
         };
 
+        "bluetooth#name" = mkTooltip // {
+          format = "{status}";
+          format-disabled = "";
+
+          format-connected = "{device_alias}";
+          format-connected-battery = "{device_alias} ({device_battery_percentage}%)";
+
+          on-click = "bluetoothctl disconnect";
+        };
+
+        "bluetooth" = mkTooltip // {
+          format = "";
+          format-disabled = "";
+
+          format-connected = "󰂰 ({num_connections})";
+          format-connected-battery = "󰂳 ({num_connections})";
+
+          on-click = "bluetoothctl disconnect";
+        };
+
         "hyprland/language" = mkTooltip // rec {
           format = if (machine == "thinkpadT14") then "{} 󰌌" else "󰌌 {}";
-          format-en = "EN";
-          format-ru = "RU";
+          format-en = "en";
+          format-ru = "ru";
 
           keyboard-name = "at-translated-set-2-keyboard";
 
@@ -194,13 +219,13 @@ with lib;
         };
 
         "clock#date" = mkTooltip // {
-          format = "{:%d.%m} 󰸘";
+          format = "{:%d.%m.%Y} ";
 
           interval = 1;
         };
 
         "clock#time" = mkTooltip // {
-          format = "{:%H:%M} ";
+          format = "{:%H:%M} 󰥔";
 
           interval = 1;
         };
@@ -221,9 +246,55 @@ with lib;
         };
 
         "custom/power" = mkTooltip // {
-          format = " ";
+          format = "⏻";
           on-click = "wlogout -sc 12 -r 12";
         };
       }
+      (
+        let
+          mkGroup = drawer: modules: {
+            inherit drawer modules;
+            orientation = "inherit";
+          };
+        in
+        {
+          "group/soundGrp" =
+            mkGroup
+              {
+                transition-duration = 300;
+                children-class = "soundGrp";
+                transition-left-to-right = true;
+              }
+              [
+                "pulseaudio"
+                "pulseaudio#volume"
+              ];
+
+          "group/blueGrp" =
+            mkGroup
+              {
+                transition-duration = 300;
+                children-class = "blueGrp";
+                transition-left-to-right = true;
+              }
+              [
+                "bluetooth"
+                "bluetooth#name"
+              ];
+
+          "group/dateGrp" =
+            mkGroup
+              {
+                transition-duration = 300;
+                children-class = "dateGrp";
+                transition-left-to-right = false;
+              }
+              [
+                "clock#time"
+                "clock#date"
+                "custom/separator"
+              ];
+        }
+      )
     ];
 }

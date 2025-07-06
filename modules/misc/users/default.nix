@@ -34,22 +34,23 @@ with lib;
           createHome = true;
 
           extraGroups = [
+            "audio"
+            "input"
             "media"
             "video"
-            "audio"
             #
-            "networkmanager"
-            "wheel"
-            "docker"
-            "podman"
-            "libvirtd"
-            "terraria"
             "adbusers"
+            "docker"
+            "libvirtd"
+            "networkmanager"
+            "podman"
+            "terraria"
+            "wheel"
             # torrent
-            "transmission"
-            "qbittorrent"
             "deluge"
             "flood"
+            "qbittorrent"
+            "transmission"
           ];
           initialHashedPassword = mkForce passwd;
         };

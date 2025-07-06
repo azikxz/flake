@@ -47,7 +47,7 @@ mkIf (machine != "isoXtended") {
       tofi.enable = false;
       waybar.enable = false;
 
-      nixcord.enable = false;
+      nixcord.enable = true;
     };
   };
 

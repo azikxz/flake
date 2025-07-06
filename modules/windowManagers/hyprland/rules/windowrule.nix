@@ -59,6 +59,9 @@ in
   (cl "ani" "float")
   (cl "ani" "size 810 630")
 
+  (cl "wofi" "noanim")
+  (cl "wofi" "size 500 400")
+
   # (cl "mpv" "nodim")
   (cl "io.bassi.Amberol" "float")
   (cl "io.bassi.Amberol" "maxsize 360 660")

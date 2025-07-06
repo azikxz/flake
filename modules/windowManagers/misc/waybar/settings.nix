@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -195,7 +196,8 @@ with lib;
           format-connected = "{device_alias}";
           format-connected-battery = "{device_alias} ({device_battery_percentage}%)";
 
-          on-click = "bluetoothctl disconnect";
+          on-click = getExe pkgs.wofi-bluetooth;
+          on-click-right = "bluetoothctl disconnect";
         };
 
         "bluetooth" = mkTooltip // {
@@ -205,7 +207,8 @@ with lib;
           format-connected = "󰂰 ({num_connections})";
           format-connected-battery = "󰂳 ({num_connections})";
 
-          on-click = "bluetoothctl disconnect";
+          on-click = getExe pkgs.wofi-bluetooth;
+          on-click-right = "bluetoothctl disconnect";
         };
 
         "hyprland/language" = mkTooltip // rec {

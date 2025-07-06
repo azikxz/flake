@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -19,6 +20,7 @@ mkIf (machine == "thinkpadT14" || machine == "pcRyazenka") {
 
     settings = import ./settings.nix {
       inherit
+        pkgs
         lib
         config
         ;

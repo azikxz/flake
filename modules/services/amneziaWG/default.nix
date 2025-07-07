@@ -9,7 +9,7 @@ with lib;
 let
   systemd = false;
 
-  mk = n: "sudo ${getExe' pkgs.amneziawg-amneziawg-tools "awg-quick"} ${n} config";
+  mk = n: "sudo ${getExe' pkgs.amneziawg-tools "awg-quick"} ${n} config";
 in
 
 {

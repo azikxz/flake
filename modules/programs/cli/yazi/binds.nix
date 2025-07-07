@@ -134,6 +134,13 @@ with lib;
           run = "cd $XDG_DESKTOP_DIR";
           desc = "Go to xdg-desktop";
         }
+        {
+          on = [
+            "M"
+          ];
+          run = "plugin mount";
+          desc = "A mount manager";
+        }
 
         # vis
         {

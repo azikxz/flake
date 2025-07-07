@@ -33,6 +33,7 @@ in
         chmod
         full-border
         jump-to-char
+        mount
         restore
         smart-enter
         yatline

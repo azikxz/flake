@@ -367,7 +367,7 @@ with lib;
             "e"
           ];
           run = "arrow bot";
-          desc = "Go to root of git repo";
+          desc = "Go to bottom";
         }
 
         # tabs

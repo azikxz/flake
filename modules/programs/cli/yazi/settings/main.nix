@@ -77,6 +77,19 @@
               run = "glow";
             }
           ];
+
+        prepend_fetchers = [
+          {
+            id = "git";
+            name = "*";
+            run = "git";
+          }
+          {
+            id = "git";
+            name = "*/";
+            run = "git";
+          }
+        ];
       };
 
     opener = import ./opener.nix {

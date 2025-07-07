@@ -9,6 +9,15 @@ with config.lib.stylix.colors.withHashtag;
 ''
   require("full-border"):setup { type = ui.Border.ROUNDED, }
 
+  require("git"):setup()
+  th.git = th.git or {}
+  th.git.modified  = ui.Style():fg("yellow"):bold()
+  th.git.added     = ui.Style():fg("green"):bold()
+  th.git.untracked = ui.Style():fg("gray"):bold()
+  th.git.ignored   = ui.Style():fg("white"):bold()
+  th.git.deleted   = ui.Style():fg("red"):bold()
+  th.git.updated   = ui.Style():fg("yellow"):bold()
+
   require("yatline"):setup({
     section_separator = { open = "", close = "" },
     part_separator    = { open = "", close = "" },

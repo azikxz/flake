@@ -32,6 +32,7 @@ in
       inherit (yaziPlugins)
         chmod
         full-border
+        git
         jump-to-char
         mount
         restore

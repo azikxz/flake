@@ -96,15 +96,15 @@
 <details>
   <summary>pcRyazenka (main device)</summary>
 
-![nah_id_win](./.other/main.png)
+![nah_id_win](./.other/main.jpg)
 
-![nah_id_win](./.other/tofi.png)
+![nah_id_win](./.other/tofi.jpg)
 
-![nah_id_win](./.other/useful.png)
+![nah_id_win](./.other/useful.jpg)
 
-![nah_id_win](./.other/obsidian.png)
+![nah_id_win](./.other/obsidian.jpg)
 
-![nah_id_win](./.other/bnvtop.png)
+![nah_id_win](./.other/bnvtop.jpg)
 
 </details>
 

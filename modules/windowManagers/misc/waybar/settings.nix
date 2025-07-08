@@ -89,8 +89,7 @@ with lib;
         "custom/launcher" = mkTooltip // {
           format = "<span color='${config.lib.stylix.colors.withHashtag.base0C}' font='17'></span> {}";
 
-          on-click = ''tofi-drun -c ~/.config/tofi/horizontal | xargs hyprctl dispatch exec -- '';
-          on-click-right = "tofi-drun | xargs hyprctl dispatch exec -- ";
+          on-click = "tofi-drun | xargs hyprctl dispatch exec -- ";
         };
 
         "pulseaudio#volume" = mkTooltip // {

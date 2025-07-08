@@ -42,40 +42,6 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
       };
     };
 
-    xdg.configFile."tofi/horizontal".text =
-      # conf
-      ''
-        history = false
-        anchor = bottom
-        width = 100%
-        height = 40
-        horizontal = true
-        font-size = 18
-        prompt-text = ""
-        font = "${config.stylix.fonts.monospace.name}"
-        outline-width = 0
-        border-width = 0
-        min-input-width = 0
-        result-spacing = 15
-        padding-top = 0
-        padding-bottom = 0
-        padding-left = 0
-        padding-right = 0
-        text-cursor = false
-
-        selection-background-padding= 8
-        background-color = "${base00}"
-        text-color = "${base05}"
-        prompt-color = "${base04}"
-        input-color = "${base04}"
-        selection-color = "${base0E}"
-        default-result-color = "${base03}"
-        selection-background = "${base01}"
-
-        padding-top = 4
-        padding-bottom = 4
-      '';
-
     home.shellAliases.tofi-hyprland = "tofi-drun | xargs hyprctl dispatch exec -- ";
   };
 }

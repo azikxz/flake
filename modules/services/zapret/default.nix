@@ -11,7 +11,7 @@ mkIf (machine == "pcRyazenka") {
 
     sf_presets = {
       enable = true;
-      preset = "renixos";
+      preset = "general";
     };
   };
 }

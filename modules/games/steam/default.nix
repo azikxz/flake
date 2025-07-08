@@ -34,11 +34,13 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
       ];
 
       package = steam.override {
-        extraArgs = concatStringsSep " " [
-          "-nochatui"
-          "-nofriendsui"
-          "-silent"
-        ];
+        # INFO: doenst works with greetd
+        # moved to hyprland
+        # extraArgs = concatStringsSep " " [
+        #   "-nochatui"
+        #   "-nofriendsui"
+        #   "-silent"
+        # ];
 
         extraEnv = {
           MANGOHUD = config.hm.programs.mangohud.enable;
@@ -69,9 +71,6 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
 
       args = [
         "-e"
-        "-w 1920"
-        "-h 1080"
-        "-r 60"
         "--xwayland-count 2"
         "--backend sdl"
       ];

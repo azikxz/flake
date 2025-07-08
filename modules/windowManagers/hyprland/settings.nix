@@ -20,9 +20,14 @@ with config.lib.stylix.colors;
       '';
     in
     [
-      (getExe mic)
       "mako"
-      "steam"
+      (getExe mic)
+      (concatStringsSep " " [
+        "steam"
+        "-nochatui"
+        "-nofriendsui"
+        "-silent"
+      ])
     ];
 
   monitor =

@@ -43,15 +43,6 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
         + import ./colors.nix;
 
       shellInitLast =
-        let
-          winman =
-            if (machine == "pcRyazenka") then
-              "Hyprland"
-            else if (machine == "thinkpadT14") then
-              "Hyprland"
-            else
-              "fastfetch";
-        in
         # fish
         ''
           set fish_cursor_default      block
@@ -60,8 +51,6 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
           set fish_cursor_replace      underscore
           set fish_cursor_visual       block
           set fish_cursor_external     line
-
-          [ "$(tty)" = "/dev/tty1" ] && exec ${winman}
         '';
     };
   };

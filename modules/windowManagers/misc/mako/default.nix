@@ -40,4 +40,13 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
         default-timeout = 0;
       };
   };
+
+  systemd.user.services.mako = {
+    description = "Autostart for mako";
+
+    script = getExe config.hm.services.mako.package;
+
+    wantedBy = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+  };
 }

@@ -20,7 +20,6 @@ with config.lib.stylix.colors;
       '';
     in
     [
-      "mako"
       (getExe mic)
       (concatStringsSep " " [
         "steam"

@@ -7,7 +7,7 @@
   imports = lib.mkUmport ./. [
     ./default.nix
     ./programs/cli/mpd
-    ./windowManagers/niri_test
-    ./windowManagers/sway
+    ./programs/windowManagers/niri_test
+    ./programs/windowManagers/sway
   ];
 }

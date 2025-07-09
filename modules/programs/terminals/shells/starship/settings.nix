@@ -35,7 +35,7 @@ with lib;
 
     read_only = "[󰌾] ";
     read_only_style = "bold red";
-    home_symbol = "own home";
+    home_symbol = "home";
 
     truncation_length = 1;
     truncation_symbol = "../";

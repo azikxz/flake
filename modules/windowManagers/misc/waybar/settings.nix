@@ -77,6 +77,8 @@ with lib;
               "custom/separator"
               "tray"
               "custom/separator"
+              "custom/amneziawg"
+              "custom/separator"
               "group/dateGrp"
               "custom/separator"
               "custom/power"
@@ -186,6 +188,18 @@ with lib;
           icon-size = 18;
           show-passive-items = true;
           spacing = 8;
+        };
+
+        "custom/amneziawg" = mkTooltip // {
+          format = "{text}";
+          # INFO: text = interface name
+          #       icon = connceted or not
+          interval = 1;
+
+          exec = "${getExe pkgs.self'.waybar-awg} show";
+          on-click = getExe pkgs.self'.waybar-awg;
+
+          return-type = "json";
         };
 
         "bluetooth#name" = mkTooltip // {

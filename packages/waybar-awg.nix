@@ -1,37 +1,27 @@
-{ pkgs, lib }:
+{ pkgs }:
 
-let
-  interface = "wg0";
+# thanks for https://github.com/oatmealine/nix-config/blob/c7220e519db836235c1e3159ef57e5cedfe55393/modules/software/system/amnezia.nix
 
-  awg = lib.getExe' pkgs.amneziawg-tools "awg";
-  awg-quick = lib.getExe' pkgs.amneziawg-tools "awg-quick";
-in
+pkgs.stdenv.mkDerivation rec {
+  pname = "waybar-awg";
+  version = "unstable";
 
-pkgs.writeScript "awg-ctl" ''
-  set -euo pipefail
+  dontUnpack = true;
 
-  status=$(sudo ${awg} show | grep -q '${interface}' && echo "up" || echo "down")
+  buildInputs = [ pkgs.tofi ];
+  # INFO: requires amneziawg
+  # (awg and awg-quick)
 
-  case "''${1:-}" in
-    show)
-      echo "{\"text\": \"󰌆 \", \"tooltip\": \"${interface}: $status\", \"class\": \"$status\"}"
-      ;;
+  src = pkgs.fetchurl {
+    url = "https://gist.githubusercontent.com/mctrxw/e2d48b9f7af2299ba97f2dcfbd14ed37/raw/40fe0d4b0b4eca0ba71974d7e7f187387f75b8d4/gistfile1.txt";
+    sha256 = "sha256-ddjRq8WIDeDMklcHQCBud3/mUj9VdNGBD65JTC3Fpow=";
+  };
 
-    toggle)
-      if [ "$status" = "up" ]; then
-        sudo ${awg-quick} down ${interface}
-        status="down"
-        bool="false"
-      else
-        sudo ${awg-quick} up ${interface}
-        status="up"
-        bool="true"
-      fi
-      notify-send \
-        "${interface}" \
-        "$status" \
-        -i "network-vpn-symbolic"
-      ;;
+  installPhase = ''
+    mkdir -p $out/bin
+    cp $src $out/bin/${pname}
+    chmod +x $out/bin/${pname}
+  '';
 
-  esac
-''
+  meta.mainProgram = "waybar-awg";
+}

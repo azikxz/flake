@@ -32,10 +32,12 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
 
         background-color = base00;
         text-color = base05;
+
         prompt-color = base04;
         input-color = base04;
         selection-color = base0E;
         default-result-color = base03;
+
         selection-background = base01;
         selection-background-padding = 8;
         selection-background-corner-radius = 18;

@@ -97,6 +97,9 @@ with lib;
         "pulseaudio#volume" = mkTooltip // {
           format = "{volume}%";
           format-muted = "muted";
+
+          format-bluetooth = "{volume}%";
+          format-bluetooth-muted = "muted";
         };
 
         "pulseaudio" = mkTooltip // {
@@ -109,6 +112,8 @@ with lib;
             ];
             headphone = [ "" ];
             headset = [ "" ];
+            bluetooth = "";
+            bluetooth-muted = "󰂲";
           };
           format-muted = "{format_source} /  ";
 
@@ -214,8 +219,8 @@ with lib;
         };
 
         "bluetooth" = mkTooltip // {
-          format = "";
-          format-disabled = "";
+          format = "󰂲";
+          format-disabled = "󰂲";
 
           format-connected = "󰂰 ({num_connections})";
           format-connected-battery = "󰂳 ({num_connections})";
@@ -237,7 +242,7 @@ with lib;
         "clock#date" = mkTooltip // {
           format = "{:%d.%m.%Y} ";
 
-          interval = 1;
+          interval = ((60 * 60) * 24);
         };
 
         "clock#time" = mkTooltip // {
@@ -249,9 +254,10 @@ with lib;
         "battery" = mkTooltip // {
           format = "{capacity}% {icon}";
           format-alt = "{time} {icon}";
-          format-charging = "{capacity}% 󱐋";
-          format-charging-alt = "{capacity}% 󱐋";
-          format-full = "{capacity}% 󱈏";
+          format-charging = "{capacity}% 󰂄";
+          format-charging-alt = "{capacity}% 󰂄";
+          format-plugged = "{capacity}% ";
+          format-full = "{capacity}% 󱟢";
           format-icons = ico.bat;
 
           states = {
@@ -259,6 +265,8 @@ with lib;
             warning = 30;
             good = 95;
           };
+
+          interval = 1;
         };
 
         "custom/power" = mkTooltip // {

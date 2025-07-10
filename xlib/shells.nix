@@ -31,11 +31,9 @@ in
       pipx
     ]
     ++ (with python313Packages; [
-      pyaes
-      pyasn1
-      rsa
-      telethon
-      urwid
+      pykeepass
+      pyotp
+      npyscreen
     ])
   );
 }

@@ -157,6 +157,10 @@ in
             ++ (optional (cfg.torrentingPort != null) "--torrenting-port=${toString cfg.torrentingPort}")
           );
 
+          User = cfg.user;
+          Group = cfg.group;
+
+          WorkingDirectory = cfg.profileDir;
           StateDirectory = "qBittorrent";
           TimeoutStopSec = 1800;
 

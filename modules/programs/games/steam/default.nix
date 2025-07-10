@@ -6,7 +6,8 @@
 }:
 
 with lib;
-# WARNING: for unified prefix use STEAM_COMPAT_DATA_PATH
+# WARNING: for unified prefix use
+# STEAM_COMPAT_DATA_PATH=/media/disks/... %command%
 
 mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
   persist.user.dirs = [

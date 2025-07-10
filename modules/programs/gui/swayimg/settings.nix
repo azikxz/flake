@@ -120,6 +120,8 @@ with config.lib.stylix.colors.withHashtag;
     "Ctrl+ScrollDown" = "zoom -10";
     "Shift+ScrollUp" = "prev_file";
     "Shift+ScrollDown" = "next_file";
+    y = "exec wl-copy < '%'; status 'Copied image'";
+    "Shift+y" = "exec wl-copy '%'; status 'Copied image path'";
   };
 
   "keys.gallery" = {
@@ -150,5 +152,7 @@ with config.lib.stylix.colors.withHashtag;
     "Shift+Delete" = ''exec rm "%"; skip_file'';
     ScrollUp = "page_up";
     ScrollDown = "page_down";
+    y = "exec wl-copy < '%'; status 'Copied image'";
+    "Shift+y" = "exec wl-copy '%'; status 'Copied image path'";
   };
 }

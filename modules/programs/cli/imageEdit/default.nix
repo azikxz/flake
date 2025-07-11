@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (machine == "thinkpadT14") {
+mkIf (mac "thinkpadT14") {
   environment.systemPackages = with pkgs; [
     imagemagick
     jpegoptim

@@ -11,7 +11,7 @@ in
 {
   imports = [ ./module.nix ];
 }
-// (mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
+// (mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.dirs = [
     "/var/lib/qBittorrent"
     savePath

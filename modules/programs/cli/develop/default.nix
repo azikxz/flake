@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (machine == "pcRyazenka") {
+mkIf (mac "pcRyazenka") {
   persist.user.dirs = [ ".config/hut" ];
 
   environment.systemPackages = attrValues {

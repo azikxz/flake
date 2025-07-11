@@ -5,7 +5,7 @@
 
 with lib;
 
-mkIf (machine == "pcRyazenka") {
+mkIf (mac "pcRyazenka") {
   services.hardware.openrgb = {
     enable = true;
   };

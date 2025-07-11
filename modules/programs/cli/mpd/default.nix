@@ -14,7 +14,7 @@ let
   fifo = "${dataDir}/fifo_socket";
 in
 
-mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm = {
     programs.rmpc = {
       enable = true;

@@ -5,7 +5,7 @@
 
 with lib;
 
-mkIf (machine == "pcRyazenka") {
+mkIf (mac "pcRyazenka") {
   persist.user.dirs = [ ".mangohud-logs" ];
 
   hm.programs.mangohud = {

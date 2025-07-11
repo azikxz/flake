@@ -10,7 +10,7 @@ let
   plugins = false; # WARN: it doesnt works
 in
 
-mkIf (machine == "pcRyazenka") {
+mkIf (mac "pcRyazenka") {
   environment.systemPackages = with pkgs; [ blockbench ];
 
   hm.xdg = {

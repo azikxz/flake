@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (machine == "pcRyazenka") {
+mkIf (mac "pcRyazenka") {
   hm.programs.obs-studio = {
     enable = true;
 

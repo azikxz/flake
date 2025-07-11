@@ -15,7 +15,7 @@ let
   };
 in
 
-mkIf (machine != "isoXtended") {
+mkIf (mac' "isoXtended") {
   services.greetd = {
     enable = true;
 

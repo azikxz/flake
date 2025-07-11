@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/Trash" ];
 
   environment.systemPackages = [ pkgs.trash-cli ];

@@ -15,7 +15,7 @@ with lib;
     in
     mkMerge [
       {
-        start_hidden = if (machine != "thinkpadT14") then true else false;
+        start_hidden = if (mac' "thinkpadT14") then true else false;
         layer = "top";
         position = "bottom";
         height = 1;
@@ -25,7 +25,7 @@ with lib;
         };
       }
       (
-        if (machine == "thinkpadT14") then
+        if (mac "thinkpadT14") then
           {
             modules-left = [
               "custom/separator"
@@ -230,7 +230,7 @@ with lib;
         };
 
         "hyprland/language" = mkTooltip // rec {
-          format = if (machine == "thinkpadT14") then "{} 󰌌" else "󰌌 {}";
+          format = if (mac "thinkpadT14") then "{} 󰌌" else "󰌌 {}";
           format-en = "en";
           format-ru = "ru";
 

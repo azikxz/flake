@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (machine != "isoXtended") {
+mkIf (mac' "isoXtended") {
   systemd.user.services.wl-clip-persist = {
     description = "Keep clipboard even after programs close";
 

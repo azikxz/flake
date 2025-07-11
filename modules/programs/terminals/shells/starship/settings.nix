@@ -8,7 +8,7 @@ with lib;
 {
   add_newline = true;
 
-  right_format = mkIf (machine == "thinkpadT14") (concatStrings [
+  right_format = mkIf (mac "thinkpadT14") (concatStrings [
     "$battery"
   ]);
 
@@ -75,7 +75,7 @@ with lib;
     vimcmd_visual_symbol = "[V](bold yellow)";
   };
 
-  battery = mkIf (machine == "thinkpadT14") {
+  battery = mkIf (mac "thinkpadT14") {
     format = "[$symbol $percentage]($style)";
 
     full_symbol = "󰁹";

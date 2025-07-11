@@ -5,7 +5,7 @@
 
 with lib;
 
-mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   environment.shellAliases = {
     goToFlake = "cd ${paths.flakeDir}";
     rebuild = "nh os switch -H ${machine}";

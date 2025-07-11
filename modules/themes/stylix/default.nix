@@ -9,15 +9,15 @@
 with lib;
 let
   color =
-    if machine == "pcRyazenka" then
+    if mac "pcRyazenka" then
       "breeze"
-    else if machine == "thinkpadT14" then
+    else if mac "thinkpadT14" then
       "paleorange"
     else
       "adwaita";
 in
 
-mkIf (machine != "isoXtended") {
+mkIf (mac' "isoXtended") {
   hm.stylix = {
     enable = true;
 
@@ -72,13 +72,13 @@ mkIf (machine != "isoXtended") {
       name = "GoogleDot-Custom";
       package = pkgs.cursors.google-cursor.override (
         with config.lib.stylix.colors.withHashtag;
-        if (machine == "thinkpadT14") then
+        if (mac "thinkpadT14") then
           {
             background_color = base08;
             outline_color = base00;
             accent_color = base08;
           }
-        else if (machine == "pcRyazenka") then
+        else if (mac "pcRyazenka") then
           {
             background_color = base0E;
             outline_color = base00;

@@ -7,7 +7,7 @@
 
 with lib;
 
-mkIf (machine == "thinkpadT14" || machine == "pcRyazenka") {
+mkIf (mac "thinkpadT14" || mac "pcRyazenka") {
   hm.programs.waybar = {
     enable = true;
     systemd.enable = true;

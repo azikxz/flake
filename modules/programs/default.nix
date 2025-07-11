@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (machine != "isoXtended") {
+mkIf (mac' "isoXtended") {
   environment = {
     systemPackages = with pkgs; [
       killall
@@ -29,6 +29,6 @@ mkIf (machine != "isoXtended") {
   programs = {
     adb.enable = true;
 
-    light.enable = mkIf (machine == "thinkpadT14") true;
+    light.enable = mkIf (mac "thinkpadT14") true;
   };
 }

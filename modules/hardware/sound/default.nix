@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (machine != "isoXtended") {
+mkIf (mac' "isoXtended") {
   environment = {
     systemPackages = [ pkgs.pulsemixer ];
 

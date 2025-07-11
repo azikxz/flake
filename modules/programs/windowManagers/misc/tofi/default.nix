@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm = with config.lib.stylix.colors.withHashtag; {
     programs.tofi = {
       enable = true;

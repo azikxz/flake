@@ -8,7 +8,7 @@
 
 with lib;
 
-mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm = {
     home.shellAliases.e = "$EDITOR";
 
@@ -29,7 +29,7 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
             ;
         };
       }
-      // (optionalAttrs (machine != "isoXtended") {
+      // (optionalAttrs (mac' "isoXtended") {
         languages = import ./languages.nix {
           inherit
             self

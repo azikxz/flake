@@ -7,6 +7,9 @@ rec {
   on.enable = true;
   off.enable = false;
 
+  mac = n: (lib.machine == n);
+  mac' = n: (lib.machine != n);
+
   umport = import ./umport.nix {
     inherit
       lib

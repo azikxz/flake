@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (machine == "pcRyazenka") {
+mkIf (mac "pcRyazenka") {
   environment.systemPackages = with pkgs; [ tenki ];
 
   environment.shellAliases = {

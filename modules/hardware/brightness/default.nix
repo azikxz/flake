@@ -6,7 +6,7 @@
 
 with lib;
 
-mkIf (machine == "thinkpadT14") {
+mkIf (mac "thinkpadT14") {
   systemd.services.brightness = {
     description = ''
       Sets brightness to 100

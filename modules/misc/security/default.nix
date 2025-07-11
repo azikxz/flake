@@ -18,7 +18,7 @@ with lib;
       execWheelOnly = true;
       wheelNeedsPassword = true;
 
-      extraRules = mkIf (machine != "isoXtended") (
+      extraRules = mkIf (mac' "isoXtended") (
         with pkgs;
         [
           {

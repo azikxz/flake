@@ -10,7 +10,7 @@ let
   imp = "gui";
 in
 
-mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs =
     if (imp == "cli") then
       [
@@ -18,9 +18,7 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
         ".minecraft"
       ]
     else
-      [
-        ".local/share/PrismLauncher"
-      ];
+      [ ".local/share/PrismLauncher" ];
 
   environment.systemPackages =
     with pkgs;
@@ -30,31 +28,17 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
         portablemc
       ]
     else
-      [
-        (prismlauncher.override {
-          gamemodeSupport = true;
-          controllerSupport = true;
-          textToSpeechSupport = false;
-
-          jdks = builtins.attrValues {
-            inherit
-              temurin-jre-bin-23
-              temurin-jre-bin # 21
-              temurin-jre-bin-17
-              temurin-jre-bin-8
-              ;
-          };
-        })
-      ];
+      [ prismlauncher ];
+  # INFO: moved to overlays
 
   networking.firewall =
     let
       main = 4445;
     in
-    {
-      allowedTCPPorts = [ main ];
-      allowedUDPPorts = [ main ];
-    };
+    genAttrs [
+      "allowedTCPPorts"
+      "allowedUDPPorts"
+    ] (n: [ main ]);
 
   hm.xdg.dataFile."PrismLauncher/prismlauncher.cfg".source =
     (pkgs.formats.ini { }).generate "prismlauncher-settings"
@@ -67,4 +51,23 @@ mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
             ;
         }
       );
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      prismlauncher = prev.prismlauncher.override {
+        gamemodeSupport = true;
+        controllerSupport = true;
+        textToSpeechSupport = false;
+
+        jdks = builtins.attrValues {
+          inherit (final)
+            temurin-jre-bin-23
+            temurin-jre-bin # 21
+            temurin-jre-bin-17
+            temurin-jre-bin-8
+            ;
+        };
+      };
+    })
+  ];
 }

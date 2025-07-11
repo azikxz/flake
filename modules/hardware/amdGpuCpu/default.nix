@@ -7,7 +7,7 @@
 
 with lib;
 
-mkIf (machine != "isoXtended") {
+mkIf (mac' "isoXtended") {
   hardware =
     {
       graphics = {

@@ -9,7 +9,7 @@ let
   fix = ''s/\x74\x11\xe8\x21\x23\x00\x00/\xeb\x11\xe8\x21\x23\x00\x00/g'';
 in
 
-mkIf (machine == "pcRyazenka") {
+mkIf (mac "pcRyazenka") {
   persist.user.dirs = [
     ".local/share/DaVinciResolve"
     ".local/state/DaVinciResolve"

@@ -37,6 +37,7 @@ rec {
     {
       pkgs = mkOpt (mk types.package);
       str = mkOpt (mk types.str);
+      any = mkOpt (mk types.anything);
     };
 
   mkAttrs =

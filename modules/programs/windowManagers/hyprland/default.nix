@@ -7,7 +7,7 @@
 
 with lib;
 
-mkIf (machine == "pcRyazenka" || machine == "thinkpadT14") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   programs.hyprland.enable = true;
 
   hm.wayland.windowManager.hyprland = {

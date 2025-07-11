@@ -5,7 +5,7 @@
 
 with lib;
 
-mkIf (machine == "thinkpadT14") {
+mkIf (mac "thinkpadT14") {
   services.upower.enable = true;
 
   powerManagement = {

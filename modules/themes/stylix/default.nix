@@ -27,11 +27,7 @@ mkIf (mac' "isoXtended") {
       dark = "Papirus-Dark";
       light = "Papirus-Light";
 
-      package = pkgs.papirus-icon-theme.override {
-        inherit
-          color
-          ;
-      };
+      package = pkgs.papirus-icon-theme;
     };
 
     targets = {
@@ -137,5 +133,15 @@ mkIf (mac' "isoXtended") {
     liberation_ttf
     noto-fonts
     noto-fonts-cjk-sans
+  ];
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      papirus-icon-theme = prev.papirus-icon-theme.override {
+        inherit
+          color
+          ;
+      };
+    })
   ];
 }

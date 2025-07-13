@@ -18,7 +18,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       (umu-launcher.override {
         extraEnv = {
           PROTON_ENABLE_WAYLAND = 1;
-          PROTONPATH = toString proton-ge-bin.steamcompattool;
+          PROTONPATH = toString self'.proton-umu.steamcompattool;
 
           WINEPREFIX =
             if (paths.winePrefix != null) then

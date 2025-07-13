@@ -1,5 +1,7 @@
 { pkgs }:
 
+# ntsync
+
 (pkgs.proton-ge-bin.overrideAttrs rec {
   pname = "proton-em";
   version = "10.0-24";

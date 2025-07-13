@@ -8,7 +8,7 @@
     };
     paths = {
       flakeDir = "/etc/nixos";
-      winePrefix = "/media/disks/fastBitch/SteamUnified";
+      winePrefix = "/media/disks/fastBitch/UnifiedPrefix";
       persist = null;
     };
     style = {

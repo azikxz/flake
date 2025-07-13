@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -16,17 +17,26 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     systemPackages = with pkgs; [
       (umu-launcher.override {
         extraEnv = {
-          PROTON_USE_NTSYNC = "1";
-
-          SDL_VIDEODRIVER = mkForce "";
-
-          WINEPREFIX = paths.winePrefix;
-
+          PROTON_ENABLE_WAYLAND = 1;
           PROTONPATH = toString proton-ge-bin.steamcompattool;
 
-          STORE = toString inputs.umu-database;
+          WINEPREFIX =
+            if (paths.winePrefix != null) then
+              paths.winePrefix
+            else if (paths.winePrefix == null && paths.persist != null) then
+              (concatStringsSep "/" [
+                paths.persist
+                "UnifiedPrefix"
+              ])
+            else
+              (concatStringsSep "/" [
+                config.hm.home.homeDirectory
+                "UnifiedPrefix"
+              ]);
         };
       })
+
+      vkbasalt
     ];
   };
 

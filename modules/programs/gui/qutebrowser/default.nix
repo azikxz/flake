@@ -21,7 +21,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     programs.qutebrowser =
       {
         enable = true;
-        package = pkgs._25.qutebrowser;
+        package = pkgs.qutebrowser;
       }
       // import ./settings.nix {
         inherit

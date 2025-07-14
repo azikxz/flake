@@ -9,7 +9,7 @@ let
   server = false;
 in
 
-(mkIf (mac "thinkpadT14") {
+(mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/Mindustry" ];
 
   environment.systemPackages = with pkgs; [ mindustry-wayland ];

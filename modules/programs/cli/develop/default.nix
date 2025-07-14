@@ -16,7 +16,6 @@ mkIf (mac "pcRyazenka") {
       nix-init
       nix-tree
       nurl
-      wallHavenDL
       ;
   };
 }

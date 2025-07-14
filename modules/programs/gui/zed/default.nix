@@ -7,7 +7,7 @@
 
 with lib;
 
-mkIf (mac "pcRyazenka") {
+mkIf false {
   hm.programs.zed-editor = {
     enable = true;
 

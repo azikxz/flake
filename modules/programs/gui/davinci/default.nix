@@ -9,14 +9,14 @@ let
   fix = ''s/\x74\x11\xe8\x21\x23\x00\x00/\xeb\x11\xe8\x21\x23\x00\x00/g'';
 in
 
-mkIf (mac "pcRyazenka") {
+mkIf false {
   persist.user.dirs = [
     ".local/share/DaVinciResolve"
     ".local/state/DaVinciResolve"
   ];
 
   environment.systemPackages = with pkgs; [
-    (davinci-resolve-studio.override (old: {
+    (_old.davinci-resolve-studio.override (old: {
       buildFHSEnv =
         fhs:
         (

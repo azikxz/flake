@@ -81,6 +81,13 @@ with lib;
         nixages.packages.${system.platform}
         // winapps.packages."${system.platform}"
         // {
+          old = import nixpkgs-old {
+            inherit (prev)
+              system
+              config
+              ;
+          };
+
           _24 = import nixpkgs-24 {
             inherit (prev)
               system

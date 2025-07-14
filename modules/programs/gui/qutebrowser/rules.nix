@@ -31,7 +31,7 @@
     github = "github.com";
 
     # social
-    youtube = "youtube.com";
+    youtube = "https://www.youtube.com";
     invidious = "inv.nadeko.net";
     redlib = "redlib.nadeko.net";
     nitter = "nitter.kareem.one";

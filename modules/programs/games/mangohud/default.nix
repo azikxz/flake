@@ -5,7 +5,7 @@
 
 with lib;
 
-mkIf (mac "pcRyazenka") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".mangohud-logs" ];
 
   hm.programs.mangohud = {
@@ -13,7 +13,7 @@ mkIf (mac "pcRyazenka") {
     enableSessionWide = true;
 
     settings = {
-      preset = 0;
+      preset = 3;
 
       log_interval = 500;
       output_folder = "$HOME/.mangohud-logs";

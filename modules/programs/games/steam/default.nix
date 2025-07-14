@@ -71,9 +71,12 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       capSysNice = true;
 
       args = [
-        "-e"
-        "--xwayland-count 2"
+        "-W 1920"
+        "-H 1080"
+        "-r 60"
         "--backend sdl"
+        "-F fsr"
+        "--sharpness 0"
       ];
     };
 

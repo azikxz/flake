@@ -18,16 +18,17 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       (umu-launcher.override {
         extraEnv = {
           PROTON_ENABLE_WAYLAND = 1;
-          PROTONPATH = toString self'.proton-umu.steamcompattool;
+          PROTONPATH =
+            if (lib.mac "pcRyazenka") then
+              (toString self'.proton-umu.steamcompattool)
+            else if (lib.mac "thinkpadT14") then
+              (toString proton-ge-bin.steamcompattool)
+            else
+              (toString proton-ge-bin.steamcompattool);
 
           WINEPREFIX =
             if (paths.winePrefix != null) then
               paths.winePrefix
-            else if (paths.winePrefix == null && paths.persist != null) then
-              (concatStringsSep "/" [
-                paths.persist
-                "UnifiedPrefix"
-              ])
             else
               (concatStringsSep "/" [
                 config.hm.home.homeDirectory

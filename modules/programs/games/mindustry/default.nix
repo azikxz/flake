@@ -10,7 +10,7 @@ let
 in
 
 (mkIf (mac "thinkpadT14") {
-  persist.user.dirs = [ ".srb2" ];
+  persist.user.dirs = [ ".local/share/Mindustry" ];
 
   environment.systemPackages = with pkgs; [ mindustry-wayland ];
 })

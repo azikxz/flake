@@ -26,7 +26,7 @@
     };
     paths = {
       flakeDir = "/etc/nixos";
-      winePrefix = "/persist/prefix";
+      winePrefix = "/persist/UnifiedPrefix";
       persist = "/persist";
     };
     style = {

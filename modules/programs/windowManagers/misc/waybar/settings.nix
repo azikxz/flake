@@ -35,9 +35,9 @@ with lib;
               "custom/separator"
               "backlight"
               "custom/separator"
-              "network"
-              "custom/separator"
               "bluetooth"
+              "custom/separator"
+              "custom/amneziawg"
               "custom/separator"
             ];
 
@@ -145,9 +145,9 @@ with lib;
             "󰤥"
             "󰤨"
           ];
-          format-wifi = "{icon} CON";
-          format-ethernet = "󰈀 ETH";
-          format-disconnected = " ERR";
+          format-wifi = "{icon} ";
+          format-ethernet = "󰈀";
+          format-disconnected = "";
 
           on-click = "nm-applet --indicator";
           on-click-right = "nm-applet";

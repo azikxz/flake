@@ -25,15 +25,8 @@ in
     cargo
   ];
 
-  python = mk (
-    [
-      python3
-      pipx
-    ]
-    ++ (with python313Packages; [
-      pykeepass
-      pyotp
-      npyscreen
-    ])
-  );
+  python = mk [
+    python3
+    pipx
+  ];
 }

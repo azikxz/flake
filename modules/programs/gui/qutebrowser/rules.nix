@@ -40,7 +40,7 @@
     protonMail = "mail.proton.me";
     mastodonMl = "mastodon.ml";
     vk = "vk.com";
-    dvach = "2ch.su";
+    dvach = "2ch.su"; # zlob >:(
 
     # anime etc
     animeGo = "animego.club/index";
@@ -68,6 +68,7 @@
     chatGpt = "chatgpt.com";
     deekpeek = "chat.deepseek.com";
     gemini = "gemini.google.com";
+    frok = "grok.com"; # hitler???
 
     # wallpapers
     wallHaven = "wallhaven.cc"; # nazi????

@@ -80,7 +80,6 @@ builtins.mapAttrs (
           gaming.nixosModules.platformOptimizations
           home.nixosModules.home-manager
           impermanence.nixosModules.impermanence
-          libvirt.nixosModules.default
           nixpkgs.nixosModules.notDetected
           nur.modules.nixos.default
           stylix.nixosModules.stylix

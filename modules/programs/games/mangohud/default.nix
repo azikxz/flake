@@ -13,7 +13,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     enableSessionWide = true;
 
     settings = {
-      preset = 3;
+      preset = 0;
 
       log_interval = 500;
       output_folder = "$HOME/.mangohud-logs";

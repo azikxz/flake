@@ -7,6 +7,8 @@
 with lib;
 
 mkIf (mac "pcRyazenka") {
+  persist.dirs = [ "/var/lib/torrserver" ];
+
   systemd.services = {
     torrserver = {
       enable = true;

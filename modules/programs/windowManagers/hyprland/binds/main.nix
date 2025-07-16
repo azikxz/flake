@@ -46,4 +46,6 @@
       (m "273" "resizewindow")
       (s "273" "resizewindow 1")
     ];
+
+  bindl = [ ", switch:Lid Switch, exec, hyprlock" ];
 }

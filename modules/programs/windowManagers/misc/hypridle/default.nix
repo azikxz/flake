@@ -31,11 +31,6 @@ mkIf (mac "thinkpadT14" && config.programs.hyprland.enable) {
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
-
-        {
-          timeout = 840;
-          on-timeout = "systemctl suspend";
-        }
       ];
     };
   };

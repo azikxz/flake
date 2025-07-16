@@ -81,7 +81,7 @@ in
   (fs "XF86MonBrightnessUp  " "$ex, sudo ${getExe pkgs.light} -S 100")
 
   (fn "XF86Favorites" "$ex, wlogout -sc 12 -r 12")
-  (fs "XF86Favorites" "$ex, poweroff")
+  (fs "XF86Favorites" "$ex, hyprctl dispatch dpms toggle")
 
   (fn "XF86HangupPhone" "$ex, makoctl dismiss -a")
   (fs "XF86HangupPhone" "$ex, makoctl restore")

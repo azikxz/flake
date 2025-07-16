@@ -11,7 +11,7 @@ mkIf (mac "thinkpadT14") {
       "lidSwitchExternalPower"
       "lidSwitchDocked"
       "lidSwitch"
-    ] (n: "hybrid-sleep"))
+    ] (n: "ignore"))
     // {
       powerKeyLongPress = "reboot";
       powerKey = "poweroff";

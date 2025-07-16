@@ -5,7 +5,7 @@
 
 with lib;
 
-mkIf (mac' "isoXtended" || mac' "thinkpadT14") {
+mkIf (mac' "isoXtended") {
   zramSwap = {
     enable = true;
 

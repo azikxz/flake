@@ -5,7 +5,7 @@
 
 with lib;
 
-mkIf (mac "thinkpadT14") {
+mkIf false {
   swapDevices = [
     {
       size = 1024 * 8;

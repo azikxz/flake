@@ -47,5 +47,9 @@
       (s "273" "resizewindow 1")
     ];
 
-  bindl = [ ", switch:Lid Switch, exec, hyprlock" ];
+  bindl = [
+    ", switch:Lid Switch, exec, hyprlock"
+    ", switch:on:Lid Switch, exec, hyprctl dispatch dpms off"
+    ", switch:off:Lid Switch, exec, hyprctl dispatch dpms on"
+  ];
 }

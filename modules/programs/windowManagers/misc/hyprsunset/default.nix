@@ -21,10 +21,8 @@ mkIf (mac "thinkpadT14" && config.programs.hyprland.enable) {
       sunset = {
         calendar = "*-*-* 21:00:00";
         requests = [
-          [
-            "temperature 3500"
-            "gamme 60"
-          ]
+          [ "temperature 3500" ]
+          [ "gamma 60" ]
         ];
       };
     };

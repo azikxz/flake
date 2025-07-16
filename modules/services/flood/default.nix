@@ -32,7 +32,7 @@ mkIf config.services.qbittorrent.enable {
         --port 8085 \
         --qburl "http://localhost:8080" \
         --qbuser "pirate" \
-        --qbpass "yoho"
+        --qbpass "passwordus"
       '';
     };
   };

@@ -11,7 +11,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   programs.hyprland.enable = true;
 
   hm.wayland.windowManager.hyprland = {
-    enable = if config.programs.hyprland.enable then true else false;
+    enable = config.programs.hyprland.enable;
 
     xwayland = {
       enable = true;

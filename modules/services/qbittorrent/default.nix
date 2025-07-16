@@ -1,5 +1,7 @@
 {
+  pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -16,6 +18,14 @@ in
     "/var/lib/qBittorrent"
     savePath
   ];
+
+  environment.systemPackages = [ pkgs.qbittorrent-cli ];
+
+  hm.home.file.".qbt/settings.json".text = builtins.toJSON {
+    Url = "http://localhost:${toString config.services.qbittorrent.webuiPort}";
+    Username = "pirate";
+    Password = "passwordus";
+  };
 
   services.qbittorrent = {
     enable = true;

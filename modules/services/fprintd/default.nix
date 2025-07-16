@@ -7,6 +7,10 @@
 with lib;
 
 mkIf (mac "thinkpadT14") {
+  persist.dirs = [
+    "/var/lib/fprint"
+  ];
+
   services.fprintd = {
     enable = true;
 

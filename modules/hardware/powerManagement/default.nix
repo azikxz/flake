@@ -11,5 +11,7 @@ mkIf (mac "thinkpadT14") {
   powerManagement = {
     enable = true;
     powertop.enable = true;
+
+    cpuFreqGovernor = "powersave";
   };
 }

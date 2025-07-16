@@ -68,5 +68,16 @@ with lib;
         ]
       );
     };
+
+    pam.services =
+      genAttrs
+        [
+          "su"
+          "sudo"
+          "login"
+        ]
+        (n: {
+          fprintAuth = true;
+        });
   };
 }

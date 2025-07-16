@@ -23,4 +23,8 @@ in
     inherit savePath;
     torrentingPort = 6881;
   };
+
+  networking.firewall = {
+    allowedTCPPorts = [ 8080 ];
+  };
 })

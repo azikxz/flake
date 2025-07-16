@@ -46,4 +46,8 @@ mkIf config.services.qbittorrent.enable {
       group = "flood";
     };
   };
+
+  networking.firewall = {
+    allowedTCPPorts = [ 8085 ];
+  };
 }

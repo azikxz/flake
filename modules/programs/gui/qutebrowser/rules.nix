@@ -43,6 +43,7 @@
     dvach = "2ch.su"; # zlob >:(
 
     # anime etc
+    anilibria = "anilibria.top";
     animeGo = "animego.club/index";
     anilibMe = "anilib.me/ru";
     yummyAnime = "yummy-anime.org";

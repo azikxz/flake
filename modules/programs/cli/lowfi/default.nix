@@ -6,8 +6,8 @@
 
 with lib;
 
-mkIf (mac "pcRyazenka") {
-  environment.systemPackages = with pkgs; [ lowfi ];
+mkIf false {
+  environment.systemPackages = with pkgs.self'; [ lowfi ];
 
   hm.home.shellAliases = (
     builtins.listToAttrs (

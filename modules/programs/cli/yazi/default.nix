@@ -57,7 +57,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     ffmpegthumbnailer
     glow
     jq
-    ouch
+    (old.ouch.override { enableUnfree = true; })
     wl-clipboard
   ];
 }

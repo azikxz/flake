@@ -106,8 +106,6 @@ with lib;
           gaming = gaming.packages.${system.platform};
           self' = self.packages.${system.platform};
           spicetify = spicetify.legacyPackages.${system.platform};
-
-          ouch = prev.ouch.override { enableUnfree = true; };
         }
       )
     ];

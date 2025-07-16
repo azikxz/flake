@@ -99,7 +99,6 @@
     # selfmade
     nixages = {
       url = "sourcehut:~neverness/nixages";
-      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
 

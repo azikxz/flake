@@ -26,7 +26,7 @@ mkIf config.services.qbittorrent.enable {
       StateDirectoryMode = mkDefault 775;
 
       ExecStart = ''
-        ${getExe pkgs._24.flood} --auth "none" \
+        ${getExe pkgs.flood} --auth "none" \
         --rundir /var/lib/flood \
         --host "127.0.0.1" \
         --port 8085 \

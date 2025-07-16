@@ -37,8 +37,6 @@ with lib;
               "custom/separator"
               "bluetooth"
               "custom/separator"
-              "custom/amneziawg"
-              "custom/separator"
             ];
 
             modules-center = [ "hyprland/workspaces" ];
@@ -46,6 +44,8 @@ with lib;
             modules-right = [
               "custom/separator"
               "tray"
+              "custom/separator"
+              "custom/amneziawg"
               "custom/separator"
               "hyprland/language"
               "custom/separator"

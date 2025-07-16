@@ -181,6 +181,7 @@ with lib;
             "active" = "";
           };
 
+          all-outputs = false;
           disable-scroll = false;
           on-click = "activate";
 
@@ -191,6 +192,7 @@ with lib;
           format = "{icon}";
           format-icons = ico.wm;
 
+          all-outputs = false;
           disable-scroll = false;
           on-click = "activate";
 

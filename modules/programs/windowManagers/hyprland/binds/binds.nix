@@ -30,6 +30,10 @@ in
   (m "w" "cyclenext")
   (s "w" "swapnext")
 
+  (m "bracketright" "split-changemonitor, next")
+  (m "bracketleft" "split-changemonitor, prev")
+  (m "backslash" "split-grabroguewindows")
+
   # window movement
   (m "c" "changegroupactive")
   (m "g" "togglegroup")
@@ -69,13 +73,15 @@ in
 })
 ++ (builtins.concatLists (
   builtins.genList (
-    i:
+    x:
     let
-      ws = i + 1;
+      key = toString x;
+      # key 0 is at the end of the keyboard row
+      workspaceNumber = if x == 0 then 10 else x;
     in
     [
-      "$m,    code:1${toString i}, workspace,       ${toString ws}"
-      "$m $s, code:1${toString i}, movetoworkspace, ${toString ws}"
+      "$m,    ${key}, split-workspace,       ${toString workspaceNumber}"
+      "$m $s, ${key}, split-movetoworkspace, ${toString workspaceNumber}"
     ]
   ) 10
 ))

@@ -5,7 +5,7 @@
 
 with lib;
 
-mkIf (mac "pcRyazenka") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   services.zapret = {
     enable = true;
 

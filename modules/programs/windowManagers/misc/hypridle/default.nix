@@ -21,19 +21,19 @@ mkIf (mac "thinkpadT14" && config.programs.hyprland.enable) {
 
       listener = [
         {
-          timeout = 120;
+          timeout = 600;
           on-timeout = "light -S 10";
           on-resume = "light -S 100";
         }
 
         {
-          timeout = 180;
+          timeout = 720;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
 
         {
-          timeout = 240;
+          timeout = 840;
           on-timeout = "systemctl suspend";
         }
       ];

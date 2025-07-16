@@ -20,6 +20,16 @@ with lib;
         position = "bottom";
         height = 1;
 
+        output =
+          if (mac "thinkpadT14") then
+            [
+              "eDP-1"
+            ]
+          else
+            [
+              "HDMI-A-1"
+            ];
+
         "custom/separator" = mkTooltip // {
           format = " ";
         };

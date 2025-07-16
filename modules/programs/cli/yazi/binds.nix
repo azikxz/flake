@@ -450,6 +450,7 @@ with lib;
         }
       ) (filter (p: hasPrefix "/media" p) (attrNames config.fileSystems)));
   };
+
   completion = {
     prepend_keymap = [
       {

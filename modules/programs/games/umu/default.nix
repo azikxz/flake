@@ -18,6 +18,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       (umu-launcher.override {
         extraEnv = {
           PROTON_ENABLE_WAYLAND = 1;
+          PROTON_USE_NTSYNC = 1;
           PROTONPATH =
             if (lib.mac "pcRyazenka") then
               (toString self'.proton-umu.steamcompattool)

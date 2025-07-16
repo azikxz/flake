@@ -47,7 +47,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           MANGOHUD = config.hm.programs.mangohud.enable;
           OBS_VKCAPTURE = true;
           RADV_TEX_ANISO = 16;
-          PROTON_USE_NTSYNC = "1";
+          PROTON_USE_NTSYNC = 1;
         };
 
         extraPkgs =

@@ -1,32 +1,58 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 
 with lib;
+let
+  savePath = "/media/torrents-other";
+in
 
 mkIf false {
-  systemd.services.transmission.serviceConfig.UMask = mkForce "0037";
+  persist.dirs = [
+    "/var/lib/transmission"
+    savePath
+  ];
 
-  services.transmission = rec {
+  services.transmission = {
     enable = true;
 
     package = pkgs.transmission_4;
-
-    home = "/media/torrents";
     webHome = pkgs.flood-for-transmission;
     downloadDirPermissions = "775";
 
     performanceNetParameters = true;
-    openRPCPort = true;
+    openFirewall = true;
     openPeerPorts = true;
+    openRPCPort = true;
 
     settings = {
+      download-dir = savePath;
+      incomplete-dir = savePath + "/temp";
+
+      download-queue-size = 3;
+
+      start-added-torrents = false;
+
+      rpc-authentication-required = true;
+      rpc-host-whitelist-enabled = true;
+      rpc-username = "root";
+
+      peer-port-random-on-start = true;
       peer-limit-per-torrent = 5;
       upload-slots-per-torrent = 2;
-      incomplete-dir-enabled = false;
-      download-dir = home;
+    };
+  };
+
+  systemd.tmpfiles.settings.transmission = {
+    "${savePath}".d = {
+      inherit (config.services.transmission)
+        user
+        group
+        downloadDirPermissions
+        ;
     };
   };
 

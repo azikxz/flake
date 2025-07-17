@@ -159,6 +159,7 @@ in
 
           User = cfg.user;
           Group = cfg.group;
+          Umask = "0022";
 
           WorkingDirectory = cfg.profileDir;
           StateDirectory = "qBittorrent";

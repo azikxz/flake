@@ -5,13 +5,32 @@
 
 with lib;
 
-mkIf (mac "thinkpadT14") {
-  services.upower.enable = true;
+mkIf (mac' "isoXtended") {
+  services = {
+    upower.enable = true;
 
+    cpupower-gui = {
+      enable = true;
+    };
+  };
+}
+// (optionalAttrs (mac "thinkpadT14") {
   powerManagement = {
     enable = true;
-    powertop.enable = true;
+    powertop = {
+      enable = true;
+      settings = {
+        battery = {
+          governor = "powersave";
+          turbo = "auto";
+        };
+        charger = {
+          governor = "performance";
+          turbo = "auto";
+        };
+      };
+    };
 
     cpuFreqGovernor = "powersave";
   };
-}
+})

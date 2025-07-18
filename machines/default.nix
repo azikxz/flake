@@ -30,8 +30,8 @@
       persist = "/persist";
     };
     style = {
-      theme = "neoGenesis";
-      image = "carGirls";
+      theme = "chinoMidnight";
+      image = "catGlow";
     };
   };
 

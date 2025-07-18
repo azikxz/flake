@@ -15,8 +15,8 @@ in
 
 [
   (fetchurl {
-    url = afreakk + "youtube_sponsorblock.js";
-    sha256 = "sha256-nwNade1oHP+w5LGUPJSgAX1+nQZli4Rhe8FFUoF5mLE=";
+    url = "https://raw.githubusercontent.com/Frestein/dotfiles/refs/heads/main/dot_config/private_qutebrowser/greasemonkey/Youtube-Sponsorblock.js";
+    sha256 = "sha256-dJPPePmrVzm2fe0BJSaKuCORA7j2Tfly9STaegWWNDY=";
   })
 
   (fetchurl {

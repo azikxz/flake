@@ -7,6 +7,7 @@
   quickmarks = {
     # search
     _4get = "4get.nadeko.net";
+
     # localhost
     keenWeb = "192.168.1.1";
     flood = "localhost:8085";
@@ -52,9 +53,10 @@
     urusai = "urusai.social";
 
     # torrents
-    rutracker = "rutracker.org";
+    rutracker = "rutracker.net";
     pirateBay = "thepiratebay.org";
     pirateBayProxy = "piratebayproxy.net";
+    nnmClub = "nnmclub.to";
 
     # games
     modrinth = "modrinth.com";

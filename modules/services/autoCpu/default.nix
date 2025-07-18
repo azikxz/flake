@@ -11,7 +11,7 @@ mkIf (mac "thinkpadT14") {
 
     settings = {
       charger = {
-        governor = "performance";
+        governor = "powersave";
         turbo = "auto";
       };
 

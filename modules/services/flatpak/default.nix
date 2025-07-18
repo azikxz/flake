@@ -1,5 +1,6 @@
 {
   lib,
+  config,
   ...
 }:
 
@@ -29,7 +30,8 @@ mkIf false {
     overrides.global = {
       Context = {
         filesystems = [
-          "/home:ro"
+          "${config.users.users.${system.userName}.home}:ro"
+          "/media/disks:rw"
         ];
 
         sockets = [

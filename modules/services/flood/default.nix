@@ -25,15 +25,16 @@ mkIf config.services.qbittorrent.enable {
       StateDirectory = [ "flood" ];
       StateDirectoryMode = mkDefault 775;
 
-      ExecStart = ''
-        ${getExe pkgs.flood} --auth "none" \
-        --rundir /var/lib/flood \
-        --host "127.0.0.1" \
-        --port 8085 \
-        --qburl "http://localhost:8080" \
-        --qbuser "pirate" \
-        --qbpass "passwordus"
-      '';
+      ExecStart = concatStringsSep " " [
+        (getExe pkgs.flood)
+        "--auth none"
+        "--rundir /var/lib/flood"
+        "--host 127.0.0.1"
+        "--port 8085"
+        "--qburl http://localhost:8080"
+        "--qbuser pirate"
+        "--qbpass passwordus"
+      ];
     };
   };
 

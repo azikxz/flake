@@ -148,7 +148,7 @@ with lib;
             "v"
             "m"
           ];
-          run = "plugin max-preview";
+          run = "plugin toggle-pane max-preview";
           desc = "Maximize preview";
         }
         {
@@ -156,8 +156,16 @@ with lib;
             "v"
             "p"
           ];
-          run = "plugin hide-preview";
+          run = "plugin toggle-pane min-preview";
           desc = "Hide preview";
+        }
+        {
+          on = [
+            "v"
+            "M"
+          ];
+          run = "plugin toggle-pane max-current";
+          desc = "Maxinize current";
         }
         {
           on = [

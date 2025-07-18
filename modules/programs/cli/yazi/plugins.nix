@@ -11,18 +11,21 @@ let
     ;
 
   mkPlugin = n: {
-    "${n}" = (yazi-plugins + "/" + n + ".yazi");
+    "${n}" = (
+      (fetchFromGitHub {
+        owner = "yazi-rs";
+        repo = "plugins";
+        rev = "b8860253fc44e500edeb7a09db648a829084facd";
+        hash = "sha256-29K8PmBoqAMcQhDIfOVnbJt2FU4BR6k23Es9CqyEloo=";
+      })
+      + "/"
+      + n
+      + ".yazi"
+    );
   };
 
   plugin = n: t: {
     "${n}" = toString (writeTextDir (n + ".yazi" + "/" + "main.lua") t) + ("/" + n + ".yazi");
-  };
-
-  yazi-plugins = fetchFromGitHub {
-    owner = "yazi-rs";
-    repo = "plugins";
-    rev = "beb586aed0d41e6fdec5bba7816337fdad905a33";
-    hash = "sha256-enIt79UvQnKJalBtzSEdUkjNHjNJuKUWC4L6QFb3Ou4=";
   };
 in
 
@@ -42,8 +45,7 @@ in
     }
 
     # builtin
-    // (mkPlugin "max-preview")
-    // (mkPlugin "hide-preview")
+    // (mkPlugin "toggle-pane")
     //
 
       # fetched

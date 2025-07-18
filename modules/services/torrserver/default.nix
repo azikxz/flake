@@ -36,4 +36,8 @@ mkIf (mac "pcRyazenka") {
       };
     };
   };
+
+  networking.firewall = {
+    allowedTCPPorts = [ 8090 ];
+  };
 }

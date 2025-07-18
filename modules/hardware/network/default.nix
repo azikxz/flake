@@ -32,15 +32,12 @@ with lib;
     };
 
     nameservers = [
-      "64.188.98.242" # dns.malw.link
+      "1.1.1.1"
+      "8.8.8.8"
     ];
 
     # hosts = import ./hosts.nix;
     extraHosts = builtins.readFile ./hosts;
-
-    firewall = {
-      allowedUDPPorts = [ 5029 ];
-    };
   };
 
   programs.nm-applet = {

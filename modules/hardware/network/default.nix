@@ -12,7 +12,7 @@ with lib;
     "/var/lib/iwd"
   ];
 
-  networking = rec {
+  networking = {
     hostName = system.hostName;
 
     useDHCP = mkDefault true;
@@ -20,25 +20,31 @@ with lib;
     networkmanager = {
       enable = true;
 
-      dns = mkForce "none";
+      dns = "systemd-resolved";
 
       wifi = {
         powersave = true;
         macAddress = "random";
         backend = "iwd";
       };
-
-      insertNameservers = nameservers;
     };
 
     nameservers = [
+      "::1"
+      "127.0.0.1"
+      "100.100.100.100"
+      "1.0.0.1"
       "1.1.1.1"
       "8.8.8.8"
     ];
 
     # hosts = import ./hosts.nix;
     extraHosts = builtins.readFile ./hosts;
+
+    resolvconf.dnsSingleRequest = true;
   };
+
+  services.resolved.enable = true;
 
   programs.nm-applet = {
     enable = true;

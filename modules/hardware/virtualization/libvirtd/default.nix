@@ -7,6 +7,15 @@
 with lib;
 
 mkIf false {
+  environment.systemPackages = with pkgs; [
+    spice
+    spice-gtk
+    spice-protocol
+    virtio-win
+    virt-viewer
+    win-spice
+  ];
+
   programs.virt-manager.enable = true;
 
   virtualisation = {
@@ -21,7 +30,10 @@ mkIf false {
         runAsRoot = true;
         swtpm.enable = true;
 
-        ovmf.packages = [ pkgs.OVMFFull.fd ];
+        ovmf = {
+          enable = true;
+          packages = [ pkgs.OVMFFull.fd ];
+        };
       };
     };
   };

@@ -51,7 +51,9 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
     style = with config.lib.stylix.colors.withHashtag; ''
       * {	background-image: none; box-shadow: none; }
+
       window { background-color: ${base00}; }
+
       button {
         border-radius: 10;
         border-color: ${base0E};
@@ -63,10 +65,11 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       	background-position: center;
       	background-size: 25%;
       }
+
       button:focus,
       button:active,
       button:hover { background-color: ${base01}; outline-style: none; }
-      ${lib.concatMapStringsSep "\n"
+      ${concatMapStringsSep "\n"
         (n: ''
           #${n} {
             background-image: image(url("${config.hm.programs.wlogout.package}/share/wlogout/icons/${n}.png"));

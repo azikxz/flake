@@ -15,6 +15,7 @@
 
     # mpv
     "gh" = "open qute://start/";
+    "ge" = "scroll-to-perc";
 
     # mpv
     ",m" = "spawn mpv {url} ;; " + "message-info 'Video will be open in MPV'";

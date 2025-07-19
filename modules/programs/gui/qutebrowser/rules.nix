@@ -62,6 +62,7 @@
     modrinth = "modrinth.com";
     mineWiki = "ru.minecraft.wiki";
     broTorrent = "brotorrent.net";
+    smallGames = "small-games.info";
     freeTP = "freetp.org";
     steamDB = "steamdb.info";
     protonDB = "protondb.com";

@@ -134,32 +134,6 @@ in
           "thepiratebay.org"
           "trueachievements.com"
         ];
-
-        hosts.lists = [
-          "https://github.com/uBlockOrigin/uAssets/raw/refs/heads/master/filters/filters-2020.txt"
-          "https://github.com/uBlockOrigin/uAssets/raw/refs/heads/master/filters/filters-2021.txt"
-          "https://github.com/uBlockOrigin/uAssets/raw/refs/heads/master/filters/filters-2022.txt"
-          "https://github.com/uBlockOrigin/uAssets/raw/refs/heads/master/filters/filters-2023.txt"
-          "https://github.com/uBlockOrigin/uAssets/raw/refs/heads/master/filters/filters-2024.txt"
-          "https://github.com/uBlockOrigin/uAssets/raw/refs/heads/master/filters/filters-2025.txt"
-
-          "https://github.com/uBlockOrigin/uAssets/raw/refs/heads/master/filters/badware.txt"
-          "https://github.com/uBlockOrigin/uAssets/raw/refs/heads/master/filters/privacy.txt"
-          "https://github.com/uBlockOrigin/uAssets/raw/refs/heads/master/filters/quick-fixes.txt"
-          "https://github.com/uBlockOrigin/uAssets/raw/refs/heads/master/filters/unbreak.txt"
-
-          # "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/annoyances-cookies.txt"
-          # "https://easylist.to/easylist/easylist.txt"
-          # "https://easylist.to/easylist/easyprivacy.txt"
-          # "https://secure.fanboy.co.nz/fanboy-annoyance.txt"
-          # "https://easylist.to/easylist/fanboy-social.txt"
-
-          # "https://malware-filter.gitlab.io/malware-filter/urlhaus-filter-domains.txt"
-          # "https://github.com/easylist/easylist/raw/refs/heads/master/easylist_cookie/easylist_cookie_general_block.txt"
-          # "https://github.com/easylist/easylist/raw/refs/heads/master/easylist_cookie/easylist_cookie_general_hide.txt"
-
-          # "https://easylist-downloads.adblockplus.org/advblock.txt"
-        ];
       };
 
       pdfjs = true;

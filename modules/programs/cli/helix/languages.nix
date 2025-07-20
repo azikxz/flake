@@ -228,7 +228,26 @@ in
       yaml = yaml-language-server;
     in
     {
-      nixd.command = getExe nixd;
+      nixd =
+        let
+          flake = "(builtins.getFlake (toString ${lib.paths.flakeDir}))";
+        in
+        {
+          command = getExe nixd;
+
+          diagnostic.suppress = [ "sema-extra-with" ];
+
+          config.nixd = {
+            nixpkgs.expr = "import ${flake}.inputs.nixpkgs { }";
+
+            options = rec {
+              "nixos".expr = "${flake}.nixosConfigurations.${lib.machine}.options";
+              "home-manager".expr = "${nixos.expr}.home-manager.users.type.getSubOptions [ ]";
+            };
+
+            diagnostic.suppress = [ "sema-extra-with" ];
+          };
+        };
     } # nix
     // {
       typescript.command = getExe typescript;

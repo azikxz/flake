@@ -53,7 +53,7 @@
     urusai = "urusai.social";
 
     # torrents
-    rutracker = "rutracker.net";
+    rutracker = "rutracker.org";
     pirateBay = "thepiratebay.org";
     pirateBayProxy = "piratebayproxy.net";
     nnmClub = "nnmclub.to";

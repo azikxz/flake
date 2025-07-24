@@ -17,6 +17,8 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
   hardware.xpadneo.enable = true;
 
+  environment.systemPackages = with pkgs; [ r2modman ];
+
   programs = with pkgs; {
     steam = {
       enable = true;

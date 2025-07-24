@@ -92,7 +92,7 @@ mkIf (mac' "isoXtended") {
     fonts =
       rec {
         emoji = {
-          package = pkgs.noto-fonts-emoji;
+          package = pkgs.noto-fonts-monochrome-emoji;
           name = "Noto Emoji";
         };
 

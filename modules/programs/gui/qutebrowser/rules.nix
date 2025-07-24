@@ -49,6 +49,7 @@
     anilibMe = "anilib.me/ru";
     yummyAnime = "yummy-anime.org";
     dreamCast = "dreamerscast.com";
+    animeVost = "анимевост.рф";
     mangaLib = "mangalib.me/ru";
     urusai = "urusai.social";
 

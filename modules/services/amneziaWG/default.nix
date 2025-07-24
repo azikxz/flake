@@ -7,6 +7,9 @@
 
 with lib;
 
+# INFO: generate warp configs here
+# https://generator-warp.vercel.app
+
 {
   environment = {
     etc = builtins.listToAttrs (

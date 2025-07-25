@@ -33,12 +33,21 @@
 
   programs.fish.enable = true;
 
+  environment.systemPackages = with pkgs; [ disko ];
+
   hm.stylix.enable = true;
+
   stylix = {
     enable = true;
     overlays.enable = true;
 
     base16Scheme = inputs.base16."${lib.style.theme}";
     polarity = "dark";
+  };
+
+  services.udisks2 = {
+    enable = true;
+
+    mountOnMedia = true;
   };
 }

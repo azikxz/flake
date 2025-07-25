@@ -91,10 +91,9 @@
 
 </details>
 
-# PREVIEW
+# Info
 
-<details>
-  <summary>pcRyazenka (main device)</summary>
+<details> <summary>pcRyazenka (main device)</summary>
 
 ![nah_id_win](./.other/main.jpg)
 
@@ -108,8 +107,23 @@
 
 </details>
 
-#### THANKS FOR
+<details> <summary>isoXtended (installation iso)</summary>
 
+build it by `nix build .#iso`
+or
+obtain on github actions/releases (yet not active)
+
+</details>
+
+<details> <summary>thinkpadT14 (my working and typing machine)</summary>
+
+later(((
+
+</details>
+
+#### Domo arigato 
+
+- [grinya](https://github.com/witttccchhher/nix-conf) my boyfriend) i love him   
 - [artem](https://github.com/ArtemChandragupta/NixFlake)
 - [fufexan](https://github.com/fufexan/dotfiles)
 - [hezaki](https://codeberg.org/Hezaki/Touka)

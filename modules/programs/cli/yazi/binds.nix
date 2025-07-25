@@ -419,15 +419,24 @@ with lib;
             "p"
             "P"
           ];
-          run = "plugin smart-paste";
-          desc = "Paste yanked files in preview dir";
+          run = "paste --force";
+          desc = "Paste yanked files force";
         }
         {
           on = [
             "P"
+            "p"
           ];
           run = "plugin save-clipboard-to-file";
           desc = "Paste files from clipbord";
+        }
+        {
+          on = [
+            "P"
+            "P"
+          ];
+          run = "plugin smart-paste";
+          desc = "Paste yanked files in preview dir";
         }
 
         # chmod
@@ -449,7 +458,7 @@ with lib;
         in
         {
           on = [
-            "b"
+            "B"
             "B"
             firstChar
           ];

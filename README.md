@@ -1,9 +1,7 @@
-<div align="center">
- <h1>【 NIXOS FLAKE DOTFILES 】</h1>
-</div>
+<div align="center"> <h1>【 󰜗 nixos configuration 󰜗 】</h1> </div>
 
 <details>
-  <summary>Software</summary>
+  <summary>Software list</summary>
 
 |                                                         wm & tools |                     |
 | -----------------------------------------------------------------: | :------------------ |
@@ -91,7 +89,7 @@
 
 </details>
 
-# Info
+# Info:
 
 <details> <summary>pcRyazenka (main device)</summary>
 

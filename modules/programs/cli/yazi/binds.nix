@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -397,12 +398,23 @@ with lib;
 
         # yank
         {
-          on = [ "W" ];
+          on = [
+            "W"
+            "w"
+          ];
           run = [
             "plugin wl-clipboard"
             "yank"
           ];
           desc = "Yank file systemly";
+        }
+        {
+          on = [
+            "W"
+            "W"
+          ];
+          run = ''shell -- ${getExe pkgs.dragon-drop} -x -s 512 "$1"'';
+          desc = "Yank drag on drop";
         }
 
         # paste

@@ -4,7 +4,10 @@
 }:
 
 let
-  inherit (config.lib.stylix.colors) base0B base01;
+  inherit (config.lib.stylix.colors)
+    base0B
+    base08
+    ;
   # regex
   mk = type: rule: "${rule}, ${type}";
   # titile & class
@@ -77,7 +80,12 @@ in
   (cl "org.keepassxc.KeePassXC" "maxsize 850 900")
 
   # pinned
-  (mk "pinned:1" "bordercolor rgb(${base0B}) rgb(${base01})")
+  (mk "pinned:1" "bordercolor rgb(${base0B})")
+
+  (cl "dragon-drop" "pin")
+  (cl "dragon-drop" "nodim")
+  (cl "dragon-drop" "noanim")
+  (cl "dragon-drop" "bordercolor rgb(${base08})")
 ]
 ++ (
   let

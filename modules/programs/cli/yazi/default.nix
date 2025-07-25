@@ -15,6 +15,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
         keymap = import ./binds.nix {
           inherit
+            pkgs
             lib
             config
             ;

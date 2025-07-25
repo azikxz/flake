@@ -1,7 +1,6 @@
 <div align="center"> <h1>【 󰜗 nixos configuration 󰜗 】</h1> </div>
 
-<details>
-  <summary>Software list</summary>
+<details> <summary>Software list</summary>
 
 |                                                         wm & tools |                     |
 | -----------------------------------------------------------------: | :------------------ |

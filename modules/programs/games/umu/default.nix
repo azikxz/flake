@@ -7,6 +7,9 @@
 }:
 
 with lib;
+let
+  PROTONPATH = pkgs.proton-ge-bin.steamcompattool;
+in
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/umu" ];
@@ -19,13 +22,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         extraEnv = {
           PROTON_ENABLE_WAYLAND = 1;
           PROTON_USE_NTSYNC = 1;
-          PROTONPATH =
-            if (lib.mac "pcRyazenka") then
-              (toString self'.proton-umu.steamcompattool)
-            else if (lib.mac "thinkpadT14") then
-              (toString proton-ge-bin.steamcompattool)
-            else
-              (toString proton-ge-bin.steamcompattool);
+          inherit PROTONPATH;
 
           WINEPREFIX =
             if (paths.winePrefix != null) then

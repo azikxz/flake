@@ -18,6 +18,10 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       enable = true;
 
       preferAbbrs = true;
+      shellAbbrs = {
+        gai = "git add --intent-to-add";
+        gus = "git update-index --skip-worktree --assume-unchanged";
+      };
 
       plugins = import ./plugins.nix {
         inherit

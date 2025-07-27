@@ -22,7 +22,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         show-apparent-size = true;
         show-relative-size = false;
         show-item-count = true;
-        show-mtime = false;
+        show-mtime = true;
         sequential-scanning = false;
 
         no-mouse = true;
@@ -32,6 +32,8 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         no-cross = false;
         no-hidden = false;
         no-delete = true;
+
+        use-si-prefix = true;
 
         selected-row = {
           text-color = base0B;

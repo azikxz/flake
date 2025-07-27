@@ -92,15 +92,15 @@
 
 <details> <summary>pcRyazenka (main device)</summary>
 
-![nah_id_win](./.other/main.jpg)
+![nah_id_win](./.other/pcRyazenka/main.jpg)
 
-![nah_id_win](./.other/tofi.jpg)
+![nah_id_win](./.other/pcRyazenka/tofi.jpg)
 
-![nah_id_win](./.other/useful.jpg)
+![nah_id_win](./.other/pcRyazenka/useful.jpg)
 
-![nah_id_win](./.other/obsidian.jpg)
+![nah_id_win](./.other/pcRyazenka/obsidian.jpg)
 
-![nah_id_win](./.other/bnvtop.jpg)
+![nah_id_win](./.other/pcRyazenka/bnvtop.jpg)
 
 </details>
 
@@ -114,7 +114,13 @@ obtain on github actions/releases (yet not active)
 
 <details> <summary>thinkpadT14 (my working and typing machine)</summary>
 
-later(((
+![nah_id_win](./.other/blackmamba/fetch.jpg)
+
+![nah_id_win](./.other/blackmamba/tofi.jpg)
+
+![nah_id_win](./.other/blackmamba/browser.jpg)
+
+![nah_id_win](./.other/blackmamba/gdu.jpg)
 
 </details>
 

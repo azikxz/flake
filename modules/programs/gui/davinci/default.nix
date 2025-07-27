@@ -16,7 +16,7 @@ mkIf false {
   ];
 
   environment.systemPackages = with pkgs; [
-    (_old.davinci-resolve-studio.override (old: {
+    (old.davinci-resolve-studio.override (old: {
       buildFHSEnv =
         fhs:
         (

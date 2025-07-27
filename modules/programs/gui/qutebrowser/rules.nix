@@ -27,8 +27,8 @@
     noogle = "noogle.dev";
 
     # git
-    ultima = "git.sr.ht/~neverness/ultima";
-    pubSolar = "git.pub.solar/xmozoid/ultima";
+    ultima = "git.sr.ht/~neverness/multi-flake";
+    pubSolar = "git.pub.solar/xmozoid/multi-flake";
     github = "github.com";
 
     # social
@@ -41,7 +41,7 @@
     protonMail = "mail.proton.me";
     mastodonMl = "mastodon.ml";
     vk = "vk.com";
-    dvach = "2ch.su"; # zlob >:(
+    dvach = "2ch.su"; # zloba >:(
 
     # anime etc
     anilibria = "anilibria.top";
@@ -49,6 +49,7 @@
     anilibMe = "anilib.me/ru";
     yummyAnime = "yummy-anime.org";
     dreamCast = "dreamerscast.com";
+    dreamTorr = "195.91.184.178";
     animeVost = "анимевост.рф";
     mangaLib = "mangalib.me/ru";
     urusai = "urusai.social";
@@ -69,7 +70,6 @@
     protonDB = "protondb.com";
 
     # study
-    profteh = "profteh.com/study";
     chatGpt = "chatgpt.com";
     deekpeek = "chat.deepseek.com";
     gemini = "gemini.google.com";

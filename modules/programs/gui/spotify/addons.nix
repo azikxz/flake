@@ -13,9 +13,14 @@ in
 
 {
   theme = themes.sleek // {
-    additionalCss = import ./themeCss.nix {
-      inherit config;
-    };
+    additionalCss =
+      with config.lib.stylix.colors.withHashtag;
+      # css
+      ''
+        * { font-family: "${config.stylix.fonts.sansSerif.name}" !important }
+
+        .nBGzYhSIK1A7qANmTnpk { background-color: ${base01}; }
+      '';
   };
 
   enabledExtensions = builtins.attrValues {

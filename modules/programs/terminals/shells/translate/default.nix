@@ -4,6 +4,11 @@
 }:
 
 with lib;
+# INFO:
+#
+# > tr "FUCK NIXOS"
+#     Черт, Никсос
+#     FUCK NIXOS
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm = {

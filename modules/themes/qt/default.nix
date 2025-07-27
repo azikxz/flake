@@ -1,10 +1,13 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }:
 
-{
+with lib;
+
+mkIf (mac' "isoXtended") {
   hm = {
     qt = {
       enable = true;

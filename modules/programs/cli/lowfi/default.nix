@@ -5,6 +5,10 @@
 }:
 
 with lib;
+# INFO: create .txt files in ./
+# for getting aliases:
+# ./synthboy.txt -> lowfi-synthbow
+# ./rockMetal.txt -> lowfi-rockMetal
 
 mkIf false {
   environment.systemPackages = with pkgs.self'; [ lowfi ];

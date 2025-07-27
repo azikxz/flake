@@ -4,6 +4,7 @@
 }:
 
 with lib;
+# INFO: base for pods
 
 mkIf false {
   virtualisation = {

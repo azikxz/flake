@@ -4,6 +4,7 @@
 }:
 
 with lib;
+# INFO: connect via nmtui
 
 {
   persist.dirs = [

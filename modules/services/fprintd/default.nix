@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# use 'fprint-enroll' and 'sudo fprint-enroll'
 
 mkIf (mac "thinkpadT14") {
   persist.dirs = [

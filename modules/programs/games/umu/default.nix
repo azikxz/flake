@@ -20,7 +20,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     systemPackages = with pkgs; [
       (umu-launcher.override {
         extraEnv = {
-          PROTON_ENABLE_WAYLAND = 1;
+          # PROTON_ENABLE_WAYLAND = 1;
           inherit PROTONPATH;
 
           WINEPREFIX =

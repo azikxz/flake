@@ -5,6 +5,7 @@
 }:
 
 with lib;
+# INFO: saves clipboard even if window closed
 
 mkIf (mac' "isoXtended") {
   systemd.user.services.wl-clip-persist = {

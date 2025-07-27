@@ -5,6 +5,7 @@
 }:
 
 with lib;
+# http://localhost:8090
 
 mkIf (mac "pcRyazenka") {
   persist.dirs = [ "/var/lib/torrserver" ];

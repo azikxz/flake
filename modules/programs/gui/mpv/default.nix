@@ -17,6 +17,7 @@ let
     inherit pkgs lib;
   };
 in
+# WARN: by default anime4k is enabled
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm.programs.mpv = {

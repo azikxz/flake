@@ -5,6 +5,10 @@
 }:
 
 with lib;
+# INFO:
+# legendary auth
+# legendary list
+# legendary install
 
 mkIf (mac "pcRyazenka") {
   persist.user.dirs = [ ".config/legendary" ];

@@ -4,6 +4,9 @@
 }:
 
 with lib;
+# INFO:
+# zram0       253:0    0  31.3G  0 disk [SWAP]
+# fuck....
 
 mkIf (mac' "isoXtended") {
   zramSwap = {

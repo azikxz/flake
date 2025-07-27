@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# WARN: i didnt yet made it for other browsers
+# (only qutebrowser)
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm.programs.keepassxc = {

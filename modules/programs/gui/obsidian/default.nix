@@ -6,6 +6,7 @@
 }:
 
 with lib;
+# INFO: press enable plugins at start
 
 mkIf (mac "pcRyazenka") {
   persist.user.dirs = [ ".config/obsidian" ];

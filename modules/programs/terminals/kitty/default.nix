@@ -5,6 +5,7 @@
 }:
 
 with lib;
+# INFO: without tabs and multiplexer
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   environment.variables = {

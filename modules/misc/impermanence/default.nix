@@ -8,6 +8,9 @@ with lib;
 let
   cfg = config.persist;
 in
+# INFO:
+# this tool wipes all / on boot
+# but it doesnt delete dirs/files in persist
 
 {
   options = {

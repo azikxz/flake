@@ -4,6 +4,7 @@
 }:
 
 with lib;
+# INFO: see shellAliases
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   environment.shellAliases = {

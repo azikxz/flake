@@ -9,6 +9,7 @@ with lib;
 let
   imp = "gui";
 in
+# INFO: just play
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs =

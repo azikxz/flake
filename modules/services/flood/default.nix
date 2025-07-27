@@ -6,6 +6,7 @@
 }:
 
 with lib;
+# http://localhost:8085
 
 mkIf config.services.qbittorrent.enable {
   persist.dirs = [ "/var/lib/flood" ];

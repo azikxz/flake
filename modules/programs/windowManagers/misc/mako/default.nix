@@ -5,6 +5,7 @@
 }:
 
 with lib;
+# INFO: piece of shit
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm.services.mako = with config.lib.stylix.colors.withHashtag; {

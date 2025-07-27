@@ -6,6 +6,8 @@
 }:
 
 with lib;
+# INFO: by default it hidden
+# press 'Win+Shift+Space' for visible
 
 mkIf (mac "thinkpadT14" || mac "pcRyazenka") {
   hm.programs.waybar = {

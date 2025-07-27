@@ -5,6 +5,7 @@
 }:
 
 with lib;
+# INFO: GOAT
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm = with config.lib.stylix.colors.withHashtag; {

@@ -9,6 +9,7 @@ with lib;
 let
   savePath = "/media/torrents";
 in
+# http://localhost:8080
 
 {
   imports = [ ./module.nix ];

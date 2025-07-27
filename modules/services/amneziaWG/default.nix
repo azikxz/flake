@@ -10,6 +10,13 @@ with lib;
 # INFO: generate warp configs here
 # https://generator-warp.vercel.app
 
+# INFO: create ./connection.conf and fill it
+#
+# git add --intent-to-add ./*.conf
+# git update-index --skip-worktree --assume-unchanged ./*.conf
+#
+# rebuild
+
 {
   environment = {
     etc = builtins.listToAttrs (

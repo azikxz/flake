@@ -5,6 +5,7 @@
 }:
 
 with lib;
+# http://localhost:8384
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/state/syncthing" ];

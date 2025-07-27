@@ -6,12 +6,15 @@
 }:
 
 with lib;
+# INFO: idk how to login, i am via dns.malw.link
 
 mkIf (mac "pcRyazenka") {
   persist.user.dirs = [
     ".config/spotify"
     ".cache/spotify"
   ];
+
+  environment.systemPackages = [ pkgs.spotdl ];
 
   hm.programs.spicetify = {
     enable = true;

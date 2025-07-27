@@ -7,6 +7,7 @@ with lib;
 let
   off = mkDefault { enable = false; };
 in
+# INFO: fuck it
 
 {
   programs = {

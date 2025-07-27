@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO: for empty trash use
+# trash-empty
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/Trash" ];

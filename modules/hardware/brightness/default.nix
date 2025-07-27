@@ -5,6 +5,7 @@
 }:
 
 with lib;
+# INFO: for bug resolution
 
 mkIf (mac "thinkpadT14") {
   systemd.services.brightness = {

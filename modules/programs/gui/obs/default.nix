@@ -6,6 +6,7 @@
 }:
 
 with lib;
+# INFO: set theme in settings
 
 mkIf (mac "pcRyazenka") {
   hm = {

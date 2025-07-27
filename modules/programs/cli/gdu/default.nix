@@ -6,6 +6,8 @@
 }:
 
 with lib;
+# INFO:
+# gdu /path/to/path
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   environment.systemPackages = [ pkgs.gdu ];

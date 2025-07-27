@@ -104,14 +104,6 @@
 
 </details>
 
-<details> <summary>isoXtended (installation iso)</summary>
-
-build it by `nix build .#iso`
-or
-obtain on github actions/releases (yet not active)
-
-</details>
-
 <details> <summary>thinkpadT14 (my working and typing machine)</summary>
 
 ![nah_id_win](./.other/blackmamba/fetch.jpg)
@@ -121,6 +113,14 @@ obtain on github actions/releases (yet not active)
 ![nah_id_win](./.other/blackmamba/browser.jpg)
 
 ![nah_id_win](./.other/blackmamba/gdu.jpg)
+
+</details>
+
+<details> <summary>isoXtended (installation iso)</summary>
+
+build it by `nix build .#iso`
+or
+obtain on github actions/releases (yet not active)
 
 </details>
 

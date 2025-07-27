@@ -33,7 +33,7 @@ in
 
   /* workspaces */
   #workspaces button {
-    background-color: ${base03};
+    background-color: ${base02};
     border-radius: ${rounding};
     margin: 2px;
     padding: 0px;
@@ -50,7 +50,7 @@ in
   }
 
   #workspaces button.empty {
-    background: ${base02};
+    background: ${base01};
   }
 
   #workspaces button.active {

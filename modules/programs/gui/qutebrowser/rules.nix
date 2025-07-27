@@ -158,7 +158,7 @@
         # css
         ''
           body {
-                  background-color:  ${base00};
+                  background-color:  ${base01};
                   font-family:      "${config.stylix.fonts.monospace.name}" !important;
                 }  
           h1 {

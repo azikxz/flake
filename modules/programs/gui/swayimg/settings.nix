@@ -8,7 +8,7 @@ with config.lib.stylix.colors.withHashtag;
 {
   general = {
     mode = "viewer";
-    position = "parent";
+    position = "auto";
     size = "fullscreen";
     sigusr1 = "reload";
     sigusr2 = "next_file";
@@ -25,18 +25,20 @@ with config.lib.stylix.colors.withHashtag;
     slideshow_time = "3";
     history = "5";
     preload = "5";
+    loop = "no";
   };
 
   gallery = {
     size = "400";
     cache = "100";
     fill = "yes";
-    antialiasing = "box";
+    antialiasing = "none";
     window = base00 + "ff";
     background = base01 + "ff";
     select = base02 + "ff";
     border = base0E + "ff";
     shadow = base00 + "a0";
+    preload = "yes";
   };
 
   list = {
@@ -79,8 +81,8 @@ with config.lib.stylix.colors.withHashtag;
 
   "keys.viewer" = {
     F1 = "help";
-    "Space" = "mode";
-    Return = "mode";
+    "Space" = "mode gallery";
+    Return = "mode gallery";
     "Delete" = ''exec trash put "%"; skip_file'';
     "Shift+Delete" = ''exec rm "%"; skip_file'';
     Home = "first_file";
@@ -126,8 +128,8 @@ with config.lib.stylix.colors.withHashtag;
 
   "keys.gallery" = {
     F1 = "help";
-    Space = "mode";
-    Return = "mode";
+    Space = "mode viewer";
+    Return = "mode viewer`";
     Home = "first_file";
     g = "first_file";
     End = "last_file";

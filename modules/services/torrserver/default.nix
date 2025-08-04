@@ -7,13 +7,11 @@
 with lib;
 # http://localhost:8090
 
-mkIf (mac "pcRyazenka") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.dirs = [ "/var/lib/torrserver" ];
 
   systemd.services = {
     torrserver = {
-      enable = true;
-
       after = [ "network.target" ];
 
       wantedBy = [ "multi-user.target" ];

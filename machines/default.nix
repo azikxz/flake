@@ -7,9 +7,7 @@
       version = "24.05";
     };
     paths = {
-      flakeDir = "/etc/nixos";
       winePrefix = "/media/disks/fastBitch/UnifiedPrefix";
-      persist = null;
     };
     style = {
       theme = "paradise";
@@ -24,14 +22,9 @@
       platform = "x86_64-linux";
       version = "24.05";
     };
-    paths = {
-      flakeDir = "/etc/nixos";
-      winePrefix = "/persist/UnifiedPrefix";
-      persist = "/persist";
-    };
     style = {
       theme = "classic";
-      image = "tapestry";
+      image = "inanis";
     };
   };
 

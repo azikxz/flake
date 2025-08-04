@@ -4,7 +4,7 @@
 }:
 
 let
-  compress = "compress=zstd:8";
+  compress = "compress=zstd:16";
 in
 
 {
@@ -40,30 +40,11 @@ in
             type = "btrfs";
             extraArgs = [ "-f" ];
 
-            subvolumes = {
-              "/root" = {
-                mountpoint = "/";
-                mountOptions = [
-                  compress
-                ];
-              };
-
-              "/persist" = {
-                mountpoint = "/persist";
-                mountOptions = [
-                  compress
-                ];
-              };
-
-              "/nix" = {
-                mountpoint = "/nix";
-                mountOptions = [
-                  compress
-                  "noatime"
-                  "noacl"
-                ];
-              };
-            };
+            mountpoint = "/";
+            mountOptions = [
+              compress
+              "noatime"
+            ];
           };
         };
       };

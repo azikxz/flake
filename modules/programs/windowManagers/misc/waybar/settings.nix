@@ -45,7 +45,7 @@ with lib;
               "custom/separator"
               "backlight"
               "custom/separator"
-              "bluetooth"
+              "group/blueGrp"
               "custom/separator"
             ];
 

@@ -11,13 +11,16 @@ mkIf (mac "thinkpadT14" && config.programs.hyprland.enable) {
     enable = true;
 
     settings = {
-      general = {
-        ignore_dbus_inhibit = false;
-        lock_cmd = "pidof hyprlock || hyprlock";
+      general =
+        {
+          ignore_dbus_inhibit = false;
 
-        after_sleep_cmd = "hyprctl dispatch dpms on";
-        before_sleep_cmd = "loginctl lock-session";
-      };
+          after_sleep_cmd = "hyprctl dispatch dpms on";
+          before_sleep_cmd = "loginctl lock-session";
+        }
+        // (optionalAttrs config.hm.programs.hyprlock.enable {
+          lock_cmd = "pidof hyprlock || hyprlock";
+        });
 
       listener = [
         {

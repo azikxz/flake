@@ -11,23 +11,16 @@ with config.lib.stylix.colors;
 {
   env = [ "SLURP_ARGS, -b ${base00}CC -c ${base0F}FF -B ${base02}CC" ];
 
-  exec-once =
-    let
-      mic = pkgs.writeShellScriptBin "micMute" ''
-        fixf4=$(cat /sys/class/leds/platform\:\:micmute/brightness);
-        echo $((1-fixf4)) | sudo tee /sys/class/leds/platform\:\:micmute/brightness;
-        wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-      '';
-    in
-    [
-      (getExe mic)
-      (concatStringsSep " " [
-        "steam"
-        "-nochatui"
-        "-nofriendsui"
-        "-silent"
-      ])
-    ];
+  exec-once = [
+    "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+    (concatStringsSep " " [
+      "steam"
+      "-nochatui"
+      "-nofriendsui"
+      "-silent"
+    ])
+  ];
 
   monitor =
     if mac "thinkpadT14" then
@@ -35,9 +28,11 @@ with config.lib.stylix.colors;
     else
       "HDMI-A-1, 1920x1080@60, 0x0, 1, transform, 0";
 
-  general = {
+  general = rec {
     gaps_in = 4;
     gaps_out = 10;
+    gaps_workspaces = gaps_out + 10;
+
     border_size = 3;
 
     layout = "dwindle";

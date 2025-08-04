@@ -3,7 +3,7 @@
 # ntsync
 
 (pkgs.proton-ge-bin.overrideAttrs rec {
-  pname = "proton-em";
+  pname = "proton-moji";
   version = "10-4";
 
   src = pkgs.fetchzip {

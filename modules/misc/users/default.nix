@@ -41,6 +41,7 @@ with lib;
             #
             "adbusers"
             "docker"
+            "gamemode"
             "libvirtd"
             "networkmanager"
             "podman"

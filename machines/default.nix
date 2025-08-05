@@ -8,6 +8,8 @@
     };
     paths = {
       winePrefix = "/media/disks/fastBitch/UnifiedPrefix";
+      flakeDir = "/etc/nixos";
+      persist = null;
     };
     style = {
       theme = "paradise";

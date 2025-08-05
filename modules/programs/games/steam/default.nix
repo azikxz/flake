@@ -71,15 +71,6 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     gamescope = {
       enable = true;
       capSysNice = true;
-
-      args = [
-        "-W 1920"
-        "-H 1080"
-        "-r 60"
-        "--backend sdl"
-        "-F fsr"
-        "--sharpness 0"
-      ];
     };
 
     gamemode = {

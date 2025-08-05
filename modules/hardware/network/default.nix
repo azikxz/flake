@@ -21,8 +21,6 @@ with lib;
     networkmanager = {
       enable = true;
 
-      dns = "systemd-resolved";
-
       wifi = {
         powersave = true;
         macAddress = "random";
@@ -31,21 +29,15 @@ with lib;
     };
 
     nameservers = [
-      "::1"
-      "127.0.0.1"
-      "100.100.100.100"
-      "1.0.0.1"
-      "1.1.1.1"
+      "46.226.165.53"
       "8.8.8.8"
+      "1.1.1.1"
+      "dns.comss.one"
     ];
 
     # hosts = import ./hosts.nix;
     extraHosts = builtins.readFile ./hosts;
-
-    resolvconf.dnsSingleRequest = true;
   };
-
-  services.resolved.enable = true;
 
   programs.nm-applet = {
     enable = true;

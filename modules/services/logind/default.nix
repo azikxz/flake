@@ -7,14 +7,14 @@ with lib;
 # INFO: lid switch, screen lock and unlock
 
 mkIf (mac "thinkpadT14") {
-  services.logind =
+  services.logind.settings.Login =
     (genAttrs [
-      "lidSwitchExternalPower"
-      "lidSwitchDocked"
-      "lidSwitch"
+      "HandleLidSwitchExternalPower"
+      "HandleLidSwitchDocked"
+      "HandleLidSwitch"
     ] (n: "ignore"))
     // {
-      powerKeyLongPress = "reboot";
-      powerKey = "poweroff";
+      HandlePowerKeyLongPress = "reboot";
+      HandlePowerKey = "poweroff";
     };
 }

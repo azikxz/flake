@@ -34,46 +34,45 @@ with pkgs.self';
       { pkg = obsidian-minimal; }
     ];
 
-    corePlugins =
-      [
-        {
-          name = "canvas";
-          settings = {
-            newFileLocation = "folder";
-            newFileFolderPath = "Inbox";
-            defaultWheelBehavior = "zoom";
-            snapToObjects = true;
-            snapToGrid = true;
-            cardLabelVisibility = "hover";
-          };
-        }
-        {
-          name = "daily-notes";
-          settings = {
-            format = "YYYY-MM-DD/HH:mm";
-          };
-        }
-      ]
-      ++ [
-        "audio-recorder"
-        "bookmarks"
-        "command-palette"
-        "editor-status"
-        "file-explorer"
-        "graph"
-        "markdown-importer"
-        "note-composer"
-        "outgoing-link"
-        "outline"
-        "page-preview"
-        "properties"
-        "slash-command"
-        "slides"
-        "switcher"
-        "tag-pane"
-        "word-count"
-        "workspaces"
-      ];
+    corePlugins = [
+      {
+        name = "canvas";
+        settings = {
+          newFileLocation = "folder";
+          newFileFolderPath = "Inbox";
+          defaultWheelBehavior = "zoom";
+          snapToObjects = true;
+          snapToGrid = true;
+          cardLabelVisibility = "hover";
+        };
+      }
+      {
+        name = "daily-notes";
+        settings = {
+          format = "YYYY-MM-DD_HH:mm";
+        };
+      }
+    ]
+    ++ [
+      "audio-recorder"
+      "bookmarks"
+      "command-palette"
+      "editor-status"
+      "file-explorer"
+      "graph"
+      "markdown-importer"
+      "note-composer"
+      "outgoing-link"
+      "outline"
+      "page-preview"
+      "properties"
+      "slash-command"
+      "slides"
+      "switcher"
+      "tag-pane"
+      "word-count"
+      "workspaces"
+    ];
 
     communityPlugins = [
       {

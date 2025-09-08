@@ -8,7 +8,7 @@
 with lib;
 # INFO: press enable plugins at start
 
-mkIf (mac "pcRyazenka") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".config/obsidian" ];
 
   hm.programs.obsidian = {

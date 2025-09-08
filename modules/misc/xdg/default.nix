@@ -14,6 +14,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     "Downloads"
     "Music"
     "Pictures"
+    "Public"
     "Videos"
   ];
 
@@ -23,15 +24,14 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
       mime.enable = true;
 
-      mimeApps =
-        {
-          enable = true;
-        }
-        // import ./mimeApps.nix {
-          inherit
-            lib
-            ;
-        };
+      mimeApps = {
+        enable = true;
+      }
+      // import ./mimeApps.nix {
+        inherit
+          lib
+          ;
+      };
 
       userDirs =
         let
@@ -47,8 +47,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           download = mk "/Downloads";
           music = mk "/Music";
           pictures = mk "/Pictures";
-          publicShare = mk "/";
-          templates = mk "/";
+          publicShare = mk "/Public";
           videos = mk "/Videos";
 
           createDirectories = true;
@@ -56,7 +55,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           extraConfig = {
             XDG_SCREENSHOTS_DIR = pictures + "/screenshots";
             XDG_FLAKE_DIR = paths.flakeDir;
-            XDG_TORRENTS_DIR = config.services.qbittorrent.savePath;
+            XDG_TORRENTS_DIR = config.services.qbittorrent.serverConfig.BitTorrent.Session.DefaultSavePath;
           };
         };
 
@@ -67,39 +66,29 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
             noDisplay = true;
           };
         in
-        {
+        genAttrs [
           # qt
-          qt5ct = mk "qt5ct";
-          qt6ct = mk "qt6ct";
+          "qt5ct"
+          "qt6ct"
 
           # cli
-          nvtop = mk "nvtop";
-          btop = mk "btop";
-          fish = mk "fish";
+          "nvtop"
+          "btop"
+          "fish"
 
           # shit
-          rofi = mk "rofi";
-          rofi-theme-selector = mk "rofi-theme-selector";
+          "rofi"
+          "rofi-theme-selector"
 
           # office
-          base = mk "base";
-          calc = mk "calc";
-          draw = mk "draw";
-          impress = mk "impress";
-          math = mk "math";
-          writer = mk "writer";
-        };
+          "base"
+          "calc"
+          "draw"
+          "impress"
+          "math"
+          "writer"
+        ] (n: mk n);
     };
-
-    home.activation =
-      let
-        applications = "${config.hm.xdg.dataHome}/applications";
-      in
-      {
-        rmDesktop = hm.dag.entryAfter [ "" ] ''
-          run rm ${applications}/*.desktop && rm ${applications}/wine
-        '';
-      };
   };
 
   xdg = {

@@ -7,7 +7,7 @@ with lib;
 # INFO: tui matrix client
 # https://servers.joinmatrix.org
 
-mkIf (mac "thinkpadT14") {
+mkIf false {
   hm.programs.iamb = {
     enable = true;
 

@@ -6,7 +6,7 @@
 with lib;
 # INFO: tui irc client
 
-mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+mkIf false {
   hm.programs.tiny = {
     enable = true;
 

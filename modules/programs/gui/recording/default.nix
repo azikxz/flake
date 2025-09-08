@@ -6,17 +6,18 @@
 }:
 
 with lib;
+let
+  inherit (config.hm.xdg.userDirs)
+    videos
+    ;
+
+  savePath = videos + "/videocasts";
+in
 # INFO: set theme in settings
 # and wf-recorded
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  environment.systemPackages = with pkgs; [
-    wf-recorder
-    (writeShellScriptBin "wf-rec" ''
-      wf-recorder -r 60 -a \
-        -f "$HOME/Videos/Screencasts/$(date +'%Y%m%dT%H%M%S').mp4"
-    '')
-  ];
+  environment.systemPackages = [ pkgs.wf-recorder ];
 
   hm = {
     programs.obs-studio = {
@@ -41,6 +42,15 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       };
 
       "obs-studio/themes/stylix.obt".text = import ./obt.nix;
+    };
+  };
+
+  tmp.wf-rec = {
+    "${savePath}/"."d" = {
+      user = system.userName;
+      group = "users";
+
+      mode = "0775";
     };
   };
 }

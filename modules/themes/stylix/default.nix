@@ -89,30 +89,29 @@ mkIf (mac' "isoXtended") {
       );
     };
 
-    fonts =
-      rec {
-        emoji = {
-          package = pkgs.noto-fonts-monochrome-emoji;
-          name = "Noto Emoji";
-        };
-
-        monospace = with pkgs.nerd-fonts; {
-          package = jetbrains-mono;
-          name = "JetBrainsMono Nerd Font";
-        };
-
-        sansSerif = monospace;
-
-        serif = monospace;
-      }
-      // {
-        sizes = {
-          desktop = 10;
-          popups = 10;
-          applications = 12;
-          terminal = 12;
-        };
+    fonts = rec {
+      emoji = {
+        package = pkgs.noto-fonts-monochrome-emoji;
+        name = "Noto Emoji";
       };
+
+      monospace = with pkgs.nerd-fonts; {
+        package = jetbrains-mono;
+        name = "JetBrainsMono Nerd Font Propo";
+      };
+
+      sansSerif = monospace;
+
+      serif = monospace;
+    }
+    // {
+      sizes = {
+        desktop = 10;
+        popups = 10;
+        applications = 12;
+        terminal = 12;
+      };
+    };
 
     targets = {
       console.enable = true;

@@ -33,12 +33,13 @@
 
     # social
     youtube = "https://www.youtube.com";
-    invidious = "inv.nadeko.net";
-    redlib = "redlib.nadeko.net";
-    nitter = "nitter.kareem.one";
-    twitch = "twitch.tv";
+    piped = "piped.private.coffee";
     gmail = "mail.google.com";
-    protonMail = "mail.proton.me";
+    safetwitch = "safetwitch.ducks.party";
+    redlib = "redlib.thebunny.zone";
+    phanpy = "phanpy.social";
+    binternet = "binternet.private.coffee";
+    pixivfe = "pixivfe.ducks.party";
     mastodonMl = "mastodon.ml";
     vk = "vk.com";
     dvach = "2ch.su"; # zloba >:(
@@ -55,14 +56,14 @@
     urusai = "urusai.social";
 
     # torrents
-    rutracker = "rutracker.org";
+    rutracker = "rutracker.org"; # ye
     pirateBay = "thepiratebay.org";
     pirateBayProxy = "piratebayproxy.net";
     nnmClub = "nnmclub.to";
 
     # games
     modrinth = "modrinth.com";
-    mineWiki = "ru.minecraft.wiki";
+    mineWiki = "ru.minecraft.wiki"; # i playing 10y along
     broTorrent = "brotorrent.net";
     smallGames = "small-games.info";
     freeTP = "freetp.org";
@@ -75,13 +76,11 @@
     gemini = "gemini.google.com";
     frok = "grok.com"; # hitler???
 
-    # wallpapers
-    wallHaven = "wallhaven.cc"; # nazi????
-    wallpapers = "wallpapers.com";
-    wallReddit = "l.opnxng.com/r/wallpaper";
-
     # misc
     base16Preview = "sesh.github.io/base16-viewer";
+    translate = "simplytranslate.ducks.party";
+    vaultwarden = "vaultwarden.nadeko.net";
+    intellectual = "intellectual.ducks.party";
   };
 
   whitelist."whitelist" = {

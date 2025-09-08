@@ -5,24 +5,18 @@
 }:
 
 with lib;
-let
-  inherit (pkgs)
-    gitMinimal
-    onefetch
-    ;
-in
 # INFO: use gcl, ga, gs for git
 # it is all abbreviations for fish
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  environment.systemPackages = [ onefetch ];
+  environment.systemPackages = [ pkgs.onefetch ];
 
-  programs.git.package = mkDefault gitMinimal;
+  programs.git.package = mkDefault pkgs.gitMinimal;
 
   hm.programs.git = {
     enable = true;
 
-    package = gitMinimal;
+    package = pkgs.gitMinimal;
 
     userName = system.userName;
     userEmail = system.userName + "@" + system.hostName + ".org";

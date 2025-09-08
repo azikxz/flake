@@ -26,7 +26,7 @@
     };
     style = {
       theme = "classic";
-      image = "inanis";
+      image = "painting";
     };
   };
 

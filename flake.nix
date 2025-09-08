@@ -114,6 +114,11 @@
       inputs.flake-utils.follows = "flake-utils";
     };
 
+    easyeffects = {
+      url = "github:mctrxw/easyeffects-presets";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # selfmade style
     base16 = {
       url = "sourcehut:~neverness/design/base16";

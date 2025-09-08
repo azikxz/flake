@@ -8,9 +8,7 @@ with lib;
 
 mkIf false {
   hm = {
-    programs.foliate = {
-      enable = true;
-    };
+    programs.foliate.enable = true;
 
     xdg.dataFile = {
       "com.github.johnfactotum.Foliate/catalogs/catalogs.json".text = builtins.toJSON {

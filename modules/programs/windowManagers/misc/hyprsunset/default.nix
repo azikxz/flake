@@ -10,21 +10,20 @@ mkIf (mac "thinkpadT14" && config.programs.hyprland.enable) {
   hm.services.hyprsunset = {
     enable = true;
 
-    transitions = {
-      sunrise = {
-        calendar = "*-*-* 07:00:00";
-        requests = [
-          [ "identity" ]
-        ];
-      };
+    settings = {
+      max-gamma = 150;
 
-      sunset = {
-        calendar = "*-*-* 21:00:00";
-        requests = [
-          [ "temperature 3500" ]
-          [ "gamma 60" ]
-        ];
-      };
+      profile = [
+        {
+          time = "7:30";
+          identity = true;
+        }
+        {
+          time = "21:00";
+          temperature = 4500;
+          gamma = 0.8;
+        }
+      ];
     };
   };
 }

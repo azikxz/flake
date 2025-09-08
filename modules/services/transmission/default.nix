@@ -46,7 +46,7 @@ mkIf false {
     };
   };
 
-  systemd.tmpfiles.settings.transmission = {
+  tmp.transmission = {
     "${savePath}".d = {
       inherit (config.services.transmission)
         user

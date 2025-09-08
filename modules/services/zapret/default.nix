@@ -11,7 +11,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
     sf_presets = {
       enable = true;
-      preset = "general";
+      preset = "renixos";
     };
   };
 }

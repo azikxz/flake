@@ -10,18 +10,7 @@ with lib;
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/64Gram/tdata" ];
 
-  environment.systemPackages = with pkgs; [
-    (symlinkJoin {
-      name = "telegram-desktop";
-      paths = [ _64gram ];
-      buildInputs = [ makeWrapper ];
-      postBuild = ''
-        wrapProgram $out/bin/telegram-desktop \
-          --set QT_QPA_PLATFORMTHEME wayland \
-          --set XDG_CURRENT_DESKTOP gnome
-      '';
-    })
-  ];
+  environment.systemPackages = with pkgs; [ _64gram ];
 
   hm = {
     xdg = {
@@ -52,4 +41,22 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       );
     };
   };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      _64gram = prev.symlinkJoin {
+        name = "telegram-desktop";
+        paths = [ prev._64gram ];
+        buildInputs = [ prev.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/Telegram \
+            --set QT_QPA_PLATFORMTHEME wayland \
+            --set XDG_CURRENT_DESKTOP gnome
+
+          cd $out/bin
+          ln -s Telegram telegram-desktop
+        '';
+      };
+    })
+  ];
 }

@@ -115,7 +115,7 @@ flake-utils.lib.eachSystem
             ++ (with inputs; [
               disko.nixosModules.default
               flatpak.nixosModules.nix-flatpak
-              gaming.nixosModules.ntsync
+              gaming.nixosModules.wine
               gaming.nixosModules.pipewireLowLatency
               gaming.nixosModules.platformOptimizations
               home.nixosModules.home-manager
@@ -130,6 +130,8 @@ flake-utils.lib.eachSystem
             {
               home-manager = {
                 sharedModules = with inputs; [
+                  niri.homeModules.niri
+                  niri.homeModules.stylix
                   nixcord.homeModules.nixcord
                   nur.modules.homeManager.default
                   spicetify.homeManagerModules.default
@@ -154,6 +156,15 @@ flake-utils.lib.eachSystem
                     "home-manager"
                     "users"
                     system.userName
+                  ]
+                )
+
+                (lib.mkAliasOptionModule
+                  [ "tmp" ]
+                  [
+                    "systemd"
+                    "tmpfiles"
+                    "settings"
                   ]
                 )
               ];

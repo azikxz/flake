@@ -6,6 +6,8 @@
 }:
 
 with lib;
+# INFO: gui text/code editor
+# faster/better than codium
 
 mkIf false {
   hm.programs.zed-editor = {

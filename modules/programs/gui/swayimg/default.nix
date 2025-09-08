@@ -5,6 +5,7 @@
 }:
 
 with lib;
+# INFO: best image viewer
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm.programs.swayimg = {

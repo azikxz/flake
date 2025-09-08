@@ -8,6 +8,8 @@
 with lib;
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+  persist.user.dirs = [ ".config/libreoffice" ];
+
   environment.systemPackages = with pkgs; [
     libreoffice-fresh
     poppler-utils

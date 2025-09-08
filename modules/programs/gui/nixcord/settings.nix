@@ -14,7 +14,7 @@
     dearrow.enable = true;
     decor.enable = true;
     fakeNitro.enable = true;
-    hideAttachments.enable = true;
+    hideMedia.enable = true;
     openInApp.enable = true;
     translate.enable = true;
     youtubeAdblock.enable = true;

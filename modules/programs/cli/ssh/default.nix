@@ -17,9 +17,21 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
   hm.programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
 
-    compression = true;
-
-    hashKnownHosts = true;
+    matchBlocks = {
+      "*" = {
+        addKeysToAgent = "no";
+        compression = true;
+        controlMaster = "no";
+        controlPath = "~/.ssh/master-%r@%n:%p";
+        controlPersist = "no";
+        forwardAgent = false;
+        hashKnownHosts = true;
+        serverAliveCountMax = 3;
+        serverAliveInterval = 0;
+        userKnownHostsFile = "~/.ssh/known_hosts";
+      };
+    };
   };
 }

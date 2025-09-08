@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   ...
@@ -14,6 +13,8 @@ with config.lib.stylix.colors;
   exec-once = [
     "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
+    "[silent] hyprctl dispatch closewindow initialtitle:Support Hyprland"
+
     (concatStringsSep " " [
       "steam"
       "-nochatui"
@@ -22,11 +23,22 @@ with config.lib.stylix.colors;
     ])
   ];
 
-  monitor =
-    if mac "thinkpadT14" then
-      "eDP-1, 1920x1080@60, 0x0, 1, transform, 0"
-    else
-      "HDMI-A-1, 1920x1080@60, 0x0, 1, transform, 0";
+  monitorv2 =
+    let
+      mk = output: position: {
+        mode = "preferred";
+        scale = 1;
+
+        inherit
+          output
+          position
+          ;
+      };
+    in
+    [
+      (mk "desc:ViewSonic Corporation VX2270 SERIES TFA140226113" "auto-left")
+      (mk "desc:BOE 0x07C9" "auto")
+    ];
 
   general = rec {
     gaps_in = 4;

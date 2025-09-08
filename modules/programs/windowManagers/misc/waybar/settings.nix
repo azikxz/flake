@@ -20,16 +20,6 @@ with lib;
         position = "bottom";
         height = 1;
 
-        output =
-          if (mac "thinkpadT14") then
-            [
-              "eDP-1"
-            ]
-          else
-            [
-              "HDMI-A-1"
-            ];
-
         "custom/separator" = mkTooltip // {
           format = " ";
         };
@@ -54,8 +44,6 @@ with lib;
             modules-right = [
               "custom/separator"
               "tray"
-              "custom/separator"
-              "custom/amneziawg"
               "custom/separator"
               "hyprland/language"
               "custom/separator"
@@ -86,8 +74,6 @@ with lib;
             modules-right = [
               "custom/separator"
               "tray"
-              "custom/separator"
-              "custom/amneziawg"
               "custom/separator"
               "group/dateGrp"
               "custom/separator"
@@ -139,7 +125,7 @@ with lib;
         "backlight" = mkTooltip // {
           device = "intel_backlight";
 
-          format = "{icon} {percent}%";
+          format = "{icon}{percent}%";
           format-icons = ico.light;
 
           scroll-step = 1;

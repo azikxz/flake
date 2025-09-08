@@ -29,14 +29,9 @@ with lib;
     };
 
     nameservers = [
-      "46.226.165.53"
       "8.8.8.8"
       "1.1.1.1"
-      "dns.comss.one"
     ];
-
-    # hosts = import ./hosts.nix;
-    extraHosts = builtins.readFile ./hosts;
   };
 
   programs.nm-applet = {

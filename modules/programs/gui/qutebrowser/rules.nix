@@ -41,6 +41,7 @@
     binternet = "binternet.private.coffee";
     pixivfe = "pixivfe.ducks.party";
     mastodonMl = "mastodon.ml";
+    nitter = "nitter.net"; # neck hurt
     vk = "vk.com";
     dvach = "2ch.su"; # zloba >:(
 

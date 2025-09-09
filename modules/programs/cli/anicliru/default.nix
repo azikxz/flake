@@ -14,6 +14,7 @@ with lib;
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   environment.systemPackages = with pkgs; [
     anicliru
+
     (writeScriptBin "anicli" ''anicli-ru -q 1440 ${
       (
         if (pathExists ./headers.txt) then

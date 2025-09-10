@@ -88,22 +88,22 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           "math"
           "writer"
         ] (n: mk n);
+
+      terminal-exec = {
+        enable = true;
+        package = pkgs.xdg-terminal-exec-mkhl;
+
+        settings = {
+          default = [
+            "kitty.desktop"
+            "foot.desktop"
+          ];
+        };
+      };
     };
   };
 
   xdg = {
-    terminal-exec = {
-      enable = true;
-      package = pkgs.xdg-terminal-exec-mkhl;
-
-      settings = {
-        default = [
-          "kitty.desktop"
-          "foot.desktop"
-        ];
-      };
-    };
-
     portal = {
       enable = true;
 

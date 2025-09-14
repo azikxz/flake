@@ -17,7 +17,7 @@ with lib;
     CentralModsDir = "mods";
     CloseAfterLaunch = false;
     ConfigVersion = "1.2";
-    ConsoleFont = config.stylix.fonts.monospace.name;
+    ConsoleFont = config.stylix.fonts.sansSerif.name;
     ConsoleFontSize = config.stylix.fonts.sizes.terminal;
     ConsoleOverflowStop = true;
     DownloadsDir = config.hm.xdg.userDirs.download;

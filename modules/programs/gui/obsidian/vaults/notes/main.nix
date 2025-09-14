@@ -118,11 +118,11 @@ with pkgs.self';
           ''
             body
               {
-                --font-default: "${config.stylix.fonts.monospace.name}";
+                --font-default: "${config.stylix.fonts.sansSerif.name}";
                 --zoom-factor: 1.2;
               }
             body.minimal-theme
-              { --font-editor-override: "${config.stylix.fonts.sansSerif.name}"; }
+              { --font-editor-override: "${config.stylix.fonts.monospace.name}"; }
           '';
       }
 

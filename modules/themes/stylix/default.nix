@@ -89,28 +89,43 @@ mkIf (mac' "isoXtended") {
       );
     };
 
-    fonts = rec {
+    fonts = {
+      monospace = {
+        package = pkgs.nerd-fonts.caskaydia-cove;
+        name = "CaskaydiaCove Nerd Font Propo";
+      };
+
+      sansSerif = {
+        package = pkgs.nerd-fonts.caskaydia-cove;
+        name = "CaskaydiaCove Nerd Font Propo";
+      };
+
+      serif = {
+        package = pkgs.nerd-fonts.caskaydia-cove;
+        name = "CaskaydiaCove Nerd Font Propo";
+      };
+
       emoji = {
-        package = pkgs.noto-fonts-monochrome-emoji;
-        name = "Noto Emoji";
+        package = pkgs.nerd-fonts.symbols-only;
+        name = "Symbols Only Nerd Font";
       };
-
-      monospace = with pkgs.nerd-fonts; {
-        package = jetbrains-mono;
-        name = "JetBrainsMono Nerd Font Propo";
-      };
-
-      sansSerif = monospace;
-
-      serif = monospace;
     }
     // {
-      sizes = {
-        desktop = 10;
-        popups = 10;
-        applications = 12;
-        terminal = 12;
-      };
+      sizes =
+        if (mac "thinkpadT14") then
+          {
+            desktop = 12;
+            popups = 12;
+            applications = 14;
+            terminal = 14;
+          }
+        else
+          {
+            desktop = 10;
+            popups = 10;
+            applications = 12;
+            terminal = 12;
+          };
     };
 
     targets = {

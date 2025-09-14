@@ -120,10 +120,6 @@ in
       };
     };
 
-    fonts = with config.stylix.fonts; {
-      default_family = mkForce monospace.name;
-    };
-
     content = {
       blocking = {
         enabled = true;

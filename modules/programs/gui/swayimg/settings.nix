@@ -53,7 +53,7 @@ with config.lib.stylix.colors.withHashtag;
       font = config.stylix.fonts;
     in
     {
-      name = font.monospace.name;
+      name = font.sansSerif.name;
       size = toString (font.sizes.applications + 2);
       color = base06 + "ff";
       shadow = base00 + "a0";

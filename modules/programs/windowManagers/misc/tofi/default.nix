@@ -17,7 +17,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         hide-cursor = true;
         text-cursor = true;
 
-        font = config.stylix.fonts.monospace.name;
+        font = config.stylix.fonts.sansSerif.name;
 
         width = "100%";
         height = "100%";

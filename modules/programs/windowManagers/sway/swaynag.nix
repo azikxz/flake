@@ -5,7 +5,7 @@
 
 with config.lib.stylix.colors.withHashtag;
 let
-  font = config.stylix.fonts.monospace.name;
+  font = config.stylix.fonts.sansSerif.name;
   edge = "top";
 in
 

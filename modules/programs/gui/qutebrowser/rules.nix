@@ -67,6 +67,7 @@
     mineWiki = "ru.minecraft.wiki"; # i playing 10y along
     broTorrent = "brotorrent.net";
     smallGames = "small-games.info";
+    tuttop = "tuttop.com";
     freeTP = "freetp.org";
     steamDB = "steamdb.info";
     protonDB = "protondb.com";
@@ -159,7 +160,7 @@
         ''
           body {
                   background-color:  ${base00};
-                  font-family:      "${config.stylix.fonts.monospace.name}" !important;
+                  font-family:      "${config.stylix.fonts.sansSerif.name}" !important;
                 }  
           h1 {
                   color: ${base05};
@@ -173,7 +174,7 @@
                   color:             ${base05};
                   background-color:  ${base01};
                   border-radius:     8px !important;
-                  font-family:      "${config.stylix.fonts.monospace.name}" !important;
+                  font-family:      "${config.stylix.fonts.sansSerif.name}" !important;
                 }
           .bookmarks { display:    none;   }
           .header    { margin-top: 220px;  }

@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -11,8 +12,6 @@ with config.lib.stylix.colors;
   env = [ "SLURP_ARGS, -b ${base00}CC -c ${base0F}FF -B ${base02}CC" ];
 
   exec-once = [
-    "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-
     "[silent] hyprctl dispatch closewindow initialtitle:Support Hyprland"
 
     (concatStringsSep " " [
@@ -181,5 +180,28 @@ with config.lib.stylix.colors;
     close_special_on_empty = true;
 
     background_color = mkForce "rgb(${base00})";
+  };
+
+  plugin = {
+    touch_gestures = {
+      edge_margin = 10;
+      emulate_touchpad_swipe = true;
+      experimental.send_cancel = 0;
+      long_press_delay = 400;
+      sensitivity = 4.0;
+      workspace_swipe_fingers = 3;
+
+      hyprgrass-bind =
+        let
+          mk = technique: cmd: ", ${technique}, exec, ${cmd}";
+        in
+        [
+          (mk "edge:l:u" "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+")
+          (mk "edge:l:d" "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-")
+
+          (mk "edge:r:u" "sudo ${getExe pkgs.light} -A 10")
+          (mk "edge:r:d" "sudo ${getExe pkgs.light} -U 10")
+        ];
+    };
   };
 }

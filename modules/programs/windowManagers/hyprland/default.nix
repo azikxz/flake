@@ -11,7 +11,9 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   programs.hyprland.enable = true;
 
   hm.wayland.windowManager.hyprland = {
-    enable = config.programs.hyprland.enable;
+    inherit (config.programs.hyprland)
+      enable
+      ;
 
     xwayland = {
       enable = true;
@@ -43,44 +45,47 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           ninja
           pkg-config
         ];
+
         buildInputs = [
           hyprland
           pango
           cairo
-        ] ++ hyprland.buildInputs;
+        ]
+        ++ hyprland.buildInputs;
       })
+
+      hyprlandPlugins.hyprgrass
     ];
 
-    settings =
-      {
-        plugin = {
-          split-monitor-workspaces = {
-            count = 10;
-            keep_focused = 0;
-            enable_notifications = 0;
-            enable_persistent_workspaces = 1;
-          };
+    settings = {
+      plugin = {
+        split-monitor-workspaces = {
+          count = 10;
+          keep_focused = 0;
+          enable_notifications = 0;
+          enable_persistent_workspaces = 1;
         };
-      }
-      // (import ./binds/main.nix {
-        inherit
-          pkgs
-          lib
-          config
-          ;
-      })
-      // import ./rules/main.nix {
-        inherit
-          lib
-          config
-          ;
-      }
-      // import ./settings.nix {
-        inherit
-          pkgs
-          lib
-          config
-          ;
       };
+    }
+    // (import ./binds/main.nix {
+      inherit
+        pkgs
+        lib
+        config
+        ;
+    })
+    // import ./rules/main.nix {
+      inherit
+        lib
+        config
+        ;
+    }
+    // import ./settings.nix {
+      inherit
+        pkgs
+        lib
+        config
+        ;
+    };
   };
 }

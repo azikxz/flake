@@ -7,17 +7,22 @@
 with lib;
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  environment.systemPackages = with pkgs; [
-    hunt
-    ripgrep-all
-    sd
-  ];
+  environment = {
+    shellAliases = {
+      cp = getExe' pkgs.fuc "cpz";
+      rm = getExe' pkgs.fuc "rmz";
+    };
+
+    systemPackages = with pkgs; [
+      hunt
+      ripgrep-all
+      sd
+    ];
+  };
 
   hm = {
     home.shellAliases = {
       cat = "bat";
-      cp = getExe' pkgs.fuc "cpz";
-      rm = getExe' pkgs.fuc "rmz";
     };
 
     programs = {
@@ -58,12 +63,14 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       bat = {
         enable = true;
 
-        extraPackages = with pkgs.bat-extras; [
-          prettybat
-          batwatch
-          batgrep
-          batdiff
-        ];
+        extraPackages = attrValues {
+          inherit (pkgs.bat-extras)
+            prettybat
+            batwatch
+            batgrep
+            batdiff
+            ;
+        };
 
         config.wrap = "character";
       };

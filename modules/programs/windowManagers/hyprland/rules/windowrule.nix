@@ -40,6 +40,10 @@ in
   (cl "tfm" "move center")
   (cl "tfm" "size 800 350")
 
+  (cl "nemo" "float")
+  (cl "nemo" "move center")
+  (cl "nemo" "size 1100 700")
+
   # gram
   (tl "com.ayugram.desktop" "minsize 540 680")
   (tl "io.github.tdesktop_x64.TDesktop" "minsize 540 680")

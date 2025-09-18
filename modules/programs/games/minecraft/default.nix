@@ -60,7 +60,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         controllerSupport = true;
         textToSpeechSupport = false;
 
-        jdks = builtins.attrValues {
+        jdks = attrValues {
           inherit (final)
             temurin-jre-bin-23
             temurin-jre-bin # 21

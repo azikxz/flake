@@ -21,13 +21,10 @@ mkIf (mac' "isoXtended") {
 
     settings = {
       initial_session = mk (getExe config.programs.hyprland.package);
-    }
-    // {
+
       default_session = mk (
         concatStringsSep " " [
           (getExe pkgs.tuigreet)
-          "--cmd"
-          (getExe config.programs.hyprland.package)
           "--asterisks"
           "--remember"
           "--remember-session"
@@ -45,8 +42,6 @@ mkIf (mac' "isoXtended") {
           ])
         ]
       );
-
-      steam_session = mk "steam-gamescope > /dev/null 2>&1";
     };
   };
 }

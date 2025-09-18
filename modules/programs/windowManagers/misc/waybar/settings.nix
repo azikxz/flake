@@ -170,19 +170,6 @@ with lib;
           all-outputs = false;
           disable-scroll = false;
           on-click = "activate";
-
-          persistent-workspaces."*" = range 1 7;
-        };
-
-        "sway/workspaces" = mkTooltip // {
-          format = "{icon}";
-          format-icons = ico.wm;
-
-          all-outputs = false;
-          disable-scroll = false;
-          on-click = "activate";
-
-          persistent-workspaces = genAttrs (map (n: toString n) (range 1 7)) (n: [ ]);
         };
       }
       {

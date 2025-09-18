@@ -17,6 +17,7 @@ with config.lib.stylix.colors.withHashtag;
       })
       [
         (lib.getExe pkgs.xwayland-satellite)
+        "${lib.getExe pkgs.swaybg} --image ${config.stylix.image}"
       ];
 
   input = {
@@ -75,26 +76,16 @@ with config.lib.stylix.colors.withHashtag;
     center-focused-column = "on-overflow";
     always-center-single-column = true;
 
-    default-column-width.proportion = 1.0;
+    default-column-width.proportion = 0.85;
 
-    preset-column-widths = [
-      { proportion = 0.5; }
-      { proportion = 1.0; }
-    ];
-
-    preset-window-heights = [
-      { proportion = 0.5; }
-      { proportion = 1.0; }
-    ];
-
-    gaps = 10;
+    gaps = 4;
 
     struts = lib.genAttrs [
       "left"
       "right"
       "top"
       "bottom"
-    ] (n: 10);
+    ] (n: 4);
 
     shadow = {
       enable = true;
@@ -110,7 +101,6 @@ with config.lib.stylix.colors.withHashtag;
     (lib.genAttrs
       [
         "horizontal-view-movement"
-        "workspace-switch"
         "window-movement"
         "window-resize"
       ]
@@ -124,8 +114,9 @@ with config.lib.stylix.colors.withHashtag;
     )
     // (lib.genAttrs
       [
-        "window-open"
         "window-close"
+        "window-open"
+        "workspace-switch"
       ]
       (n: {
         kind.easing = {
@@ -151,8 +142,8 @@ with config.lib.stylix.colors.withHashtag;
       matches = [ { is-focused = false; } ];
       opacity = 0.9;
     }
-  ];
-  # ++ import ./rules/main.nix;
+  ]
+  ++ import ./rules/main.nix;
 
   overview = {
     zoom = 0.8;

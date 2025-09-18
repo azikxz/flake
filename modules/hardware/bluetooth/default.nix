@@ -13,7 +13,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   environment = {
     systemPackages = [ pkgs.bluetui ];
 
-    shellAliases.pmx = "pulsemixer";
+    shellAliases.blt = "bluetui";
   };
 
   hardware.bluetooth = {

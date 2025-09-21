@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   ...
 }:
@@ -29,9 +30,13 @@ with lib;
     };
 
     nameservers = [
-      "8.8.8.8"
+      "1.0.0.1"
       "1.1.1.1"
+      "8.8.4.4"
+      "8.8.8.8"
     ];
+
+    extraHosts = readFile ./hosts;
   };
 
   programs.nm-applet = {

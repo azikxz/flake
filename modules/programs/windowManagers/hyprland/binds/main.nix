@@ -52,4 +52,9 @@
     ", switch:on:Lid Switch, exec, hyprctl dispatch dpms off"
     ", switch:off:Lid Switch, exec, hyprctl dispatch dpms on"
   ];
+
+  gesture = [
+    "3, horizontal, workspace"
+    "4, pinch, fullscreen"
+  ];
 }

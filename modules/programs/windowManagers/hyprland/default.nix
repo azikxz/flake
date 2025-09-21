@@ -21,49 +21,60 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
     systemd = {
       enable = true;
-      variables = [
-        "--all"
-      ];
+      variables = [ "--all" ];
     };
 
-    plugins = with pkgs; [
-      (stdenv.mkDerivation {
-        pname = "split-monitor-workspaces";
-        version = "git";
-
-        src = fetchFromGitHub {
-          owner = "Duckonaut";
-          repo = "split-monitor-workspaces";
-          rev = "8f0c875a5ba9864b1267e74e6f03533d18c2bca0";
-          hash = "sha256-VR3g2sihYBlfdsqmhsOquZ9GI+ZTErZlasSh+85PDNk=";
-        };
-
-        BUILT_WITH_NOXWAYLAND = false;
-
-        nativeBuildInputs = [
-          meson
-          ninja
-          pkg-config
-        ];
-
-        buildInputs = [
-          hyprland
-          pango
-          cairo
-        ]
-        ++ hyprland.buildInputs;
-      })
-
-      hyprlandPlugins.hyprgrass
+    plugins = with pkgs.hyprlandPlugins; [
+      hypr-dynamic-cursors
+      # hyprgrass
+      # hyprsplit
     ];
 
     settings = {
       plugin = {
-        split-monitor-workspaces = {
-          count = 10;
-          keep_focused = 0;
-          enable_notifications = 0;
-          enable_persistent_workspaces = 1;
+        hyprsplit = {
+          num_workspaces = 6;
+          persistent_workspaces = true;
+        };
+
+        dynamic-cursors = {
+          enabled = true;
+
+          mode = "stretch";
+          stretch = {
+            limit = 3000;
+            function = "quadratic";
+            window = 100;
+          };
+
+          shake.enabled = true;
+        };
+
+        touch_gestures = {
+          edge_margin = 10;
+          emulate_touchpad_swipe = false;
+          long_press_delay = 400;
+          sensitivity = 4.0;
+          workspace_swipe_fingers = 3;
+
+          hyprgrass-bind = [
+            ", edge:l:u, exec, wpctl set-volume -l 2 @DEFAULT_AUDIO_SINK@ 5%+"
+            ", edge:l:d, exec, wpctl set-volume -l 2 @DEFAULT_AUDIO_SINK@ 5%-"
+
+            ", edge:r:u,  exec, light -A 10"
+            ", edge:r:d,  exec, light -U 10"
+
+            ", edge:r:l, workspace, e+1"
+            ", edge:l:r, workspace, e-1"
+
+            ", swipe:3:d, movetoworkspace, -1"
+            ", swipe:3:u, movetoworkspace, +1"
+          ];
+
+          hyprgrass-bindm = [
+            ", longpress:2, movewindow"
+            ", longpress:3, resizewindow"
+          ];
         };
       };
     }

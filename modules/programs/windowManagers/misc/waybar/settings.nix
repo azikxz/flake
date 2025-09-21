@@ -170,6 +170,8 @@ with lib;
           all-outputs = false;
           disable-scroll = false;
           on-click = "activate";
+
+          persistent-workspaces."*" = range 1 10;
         };
       }
       {

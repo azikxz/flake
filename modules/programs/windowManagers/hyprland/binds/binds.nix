@@ -30,9 +30,9 @@ in
   (m "w" "cyclenext")
   (s "w" "swapnext")
 
-  (m "bracketright" "split-changemonitor, next")
-  (m "bracketleft" "split-changemonitor, prev")
-  (m "backslash" "split-grabroguewindows")
+  # (m "bracketright" "changemonitor, next")
+  # (m "bracketleft" "changemonitor, prev")
+  # (m "backslash" "grabroguewindows")
 
   # window movement
   (m "c" "changegroupactive")
@@ -80,8 +80,8 @@ in
       workspaceNumber = if x == 0 then 10 else x;
     in
     [
-      "$m,    ${key}, split-workspace,       ${toString workspaceNumber}"
-      "$m $s, ${key}, split-movetoworkspace, ${toString workspaceNumber}"
+      "$m,    ${key}, workspace,       ${toString workspaceNumber}"
+      "$m $s, ${key}, movetoworkspace, ${toString workspaceNumber}"
     ]
   ) 10
 ))

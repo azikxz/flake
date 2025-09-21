@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   ...
@@ -98,8 +97,6 @@ with config.lib.stylix.colors;
   animations = {
     enabled = true;
 
-    first_launch_animation = false;
-
     bezier = [
       "over,     0,    0.1, 0.1, 0.3"
       "myBezier, 0.05, 0.9, 0.1, 1.0"
@@ -145,12 +142,6 @@ with config.lib.stylix.colors;
     }
   ];
 
-  gestures = {
-    workspace_swipe = true;
-    workspace_swipe_fingers = 3;
-    workspace_swipe_create_new = true;
-  };
-
   binds = {
     workspace_back_and_forth = false;
     allow_pin_fullscreen = true;
@@ -180,28 +171,5 @@ with config.lib.stylix.colors;
     close_special_on_empty = true;
 
     background_color = mkForce "rgb(${base00})";
-  };
-
-  plugin = {
-    touch_gestures = {
-      edge_margin = 10;
-      emulate_touchpad_swipe = true;
-      experimental.send_cancel = 0;
-      long_press_delay = 400;
-      sensitivity = 4.0;
-      workspace_swipe_fingers = 3;
-
-      hyprgrass-bind =
-        let
-          mk = technique: cmd: ", ${technique}, exec, ${cmd}";
-        in
-        [
-          (mk "edge:l:u" "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+")
-          (mk "edge:l:d" "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-")
-
-          (mk "edge:r:u" "sudo ${getExe pkgs.light} -A 10")
-          (mk "edge:r:d" "sudo ${getExe pkgs.light} -U 10")
-        ];
-    };
   };
 }

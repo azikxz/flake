@@ -14,7 +14,6 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     "Downloads"
     "Music"
     "Pictures"
-    "Public"
     "Videos"
   ];
 
@@ -47,8 +46,10 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           download = mk "/Downloads";
           music = mk "/Music";
           pictures = mk "/Pictures";
-          publicShare = mk "/Public";
           videos = mk "/Videos";
+
+          publicShare = null;
+          templates = null;
 
           createDirectories = true;
 

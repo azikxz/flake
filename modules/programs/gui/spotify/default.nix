@@ -33,7 +33,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       ;
 
     wayland = true;
-    windowManagerPatch = true;
+    # windowManagerPatch = true; # doesnt build
 
     colorScheme = "custom";
     customColorScheme = import ./theme.nix {

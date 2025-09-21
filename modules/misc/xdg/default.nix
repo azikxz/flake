@@ -101,19 +101,14 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           ];
         };
       };
-    };
-  };
 
-  xdg = {
-    portal = {
-      enable = true;
+      portal = {
+        enable = true;
 
-      config.common.default = [ "gtk" ];
+        config.common.default = [ "gtk" ];
 
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-hyprland
-      ];
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      };
     };
   };
 }

@@ -38,7 +38,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         };
 
         dynamic-cursors = {
-          enabled = true;
+          enabled = false;
 
           mode = "stretch";
           stretch = {

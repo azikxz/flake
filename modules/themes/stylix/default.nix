@@ -21,14 +21,13 @@ mkIf (mac' "isoXtended") {
   hm.stylix = {
     enable = true;
 
-    iconTheme = {
-      enable = true;
-
-      dark = "Papirus-Dark";
-      light = "Papirus-Light";
-
-      package = pkgs.papirus-icon-theme;
-    };
+    inherit (config.stylix)
+      image
+      base16Scheme
+      polarity
+      iconTheme
+      cursor
+      ;
 
     targets = {
       cava.rainbow.enable = true;
@@ -62,6 +61,15 @@ mkIf (mac' "isoXtended") {
 
     base16Scheme = if (style.theme != null) then inputs.base16."${style.theme}" else null;
     polarity = "dark";
+
+    iconTheme = {
+      enable = true;
+
+      dark = "Papirus-Dark";
+      light = "Papirus-Light";
+
+      package = pkgs.papirus-icon-theme;
+    };
 
     cursor = {
       size = 24;

@@ -110,5 +110,30 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       };
     };
+
+    gtk.gtk3.bookmarks =
+      (map
+        (
+          dir:
+          (concatStringsSep "/" [
+            "file:/"
+            config.hm.home.homeDirectory
+            dir
+          ])
+        )
+        [
+          lib.paths.flakeDir
+
+          "Desktop"
+          "Documents"
+          "Downloads"
+          "Music"
+          "Pictures"
+          "Videos"
+
+          "Documents/passwords"
+        ]
+      )
+      ++ (optionals config.services.qbittorrent.enable [ "/media/torrents" ]);
   };
 }

@@ -10,22 +10,16 @@ with lib;
 # ./synthboy.txt -> lowfi-synthbow
 # ./rockMetal.txt -> lowfi-rockMetal
 
-mkIf false {
-  environment.systemPackages = with pkgs.self'; [ lowfi ];
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+  environment.systemPackages = [ pkgs.lowfi ];
 
   hm.home.shellAliases = (
     builtins.listToAttrs (
       map
-        (
-          file:
-          let
-            name = builtins.replaceStrings [ ".txt" ] [ "" ] file;
-          in
-          {
-            name = "lowfi-${name}";
-            value = "${getExe pkgs.lowfi} -t ${./. + "/${file}"}";
-          }
-        )
+        (file: {
+          name = "lowfi-${builtins.replaceStrings [ ".txt" ] [ "" ] file}";
+          value = "lowfi -m -w 9 -t ${./. + "/${file}"}";
+        })
         (
           builtins.filter (file: builtins.match ".*\\.txt$" file != null) (
             builtins.attrNames (builtins.readDir ./.)

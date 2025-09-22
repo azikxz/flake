@@ -1,7 +1,5 @@
 { pkgs, lib }:
 
-# thanks https://github.com/avanssion/youtube-channel-id-finder
-
 pkgs.stdenv.mkDerivation rec {
   pname = "ytid";
   version = "stable";
@@ -28,5 +26,11 @@ pkgs.stdenv.mkDerivation rec {
       }
   '';
 
-  meta.mainProgram = "ytid";
+  meta = {
+    description = "Get id youtube channels from url";
+    homepage = "https://github.com/avanssion/youtube-channel-id-finder";
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ azikx ];
+    mainProgram = "ytid";
+  };
 }

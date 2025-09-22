@@ -1,9 +1,4 @@
 {
-  pkgs,
-  ...
-}:
-
-{
   normal = {
     # tabs
     "<Alt-j>" = "tab-move +";
@@ -27,9 +22,5 @@
 
     # keepassxc
     ",," = "spawn --userscript qute-keepass -p ~/Documents/passwords/db.kdbx";
-
-    # transPopup
-    ",t" = "spawn --userscript ${pkgs.qutebrowser-page}/exe -s en -t ru";
-    ",T" = "spawn --userscript ${pkgs.qutebrowser-popup}/exe --target_lang ru";
   };
 }

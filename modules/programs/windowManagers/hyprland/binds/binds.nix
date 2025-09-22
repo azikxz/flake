@@ -60,8 +60,8 @@ in
   in
   [
     # screenshot
-    (mk null null "print, $ex, ${lib.getExe pkgs.grilurp} copysave area   " + pic)
-    (mk null "$s" "print, $ex, ${lib.getExe pkgs.grilurp} copysave output " + pic)
+    (mk null null "print, $ex, ${lib.getExe pkgs.grimblast} copysave area   " + pic)
+    (mk null "$s" "print, $ex, ${lib.getExe pkgs.grimblast} copysave output " + pic)
   ]
 )
 ++ (import ./programs.nix {

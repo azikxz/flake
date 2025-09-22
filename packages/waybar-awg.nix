@@ -1,6 +1,4 @@
-{ pkgs }:
-
-# thanks for https://github.com/oatmealine/nix-config/blob/c7220e519db836235c1e3159ef57e5cedfe55393/modules/software/system/amnezia.nix
+{ pkgs, lib }:
 
 pkgs.stdenv.mkDerivation rec {
   pname = "waybar-awg";
@@ -23,5 +21,11 @@ pkgs.stdenv.mkDerivation rec {
     chmod +x $out/bin/${pname}
   '';
 
-  meta.mainProgram = "waybar-awg";
+  meta = {
+    description = "awg-quick module for waybar";
+    homepage = "https://gist.githubusercontent.com/mctrxw/e2d48b9f7af2299ba97f2dcfbd14ed37";
+    license = lib.licenses.unlicense;
+    maintainers = with lib.maintainers; [ azikx ];
+    mainProgram = "waybar-awg";
+  };
 }

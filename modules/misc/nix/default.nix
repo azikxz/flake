@@ -78,8 +78,7 @@ with lib;
 
       (
         final: prev:
-        nixages.packages.${system.platform}
-        // winapps.packages."${system.platform}"
+        winapps.packages."${system.platform}"
         // {
           old = import nixpkgs-old {
             inherit (prev)

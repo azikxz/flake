@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -16,6 +17,8 @@ in
     "/var/lib/qBittorrent"
     savePath
   ];
+
+  environment.systemPackages = [ pkgs.self'.qb-hash ];
 
   services.qbittorrent = {
     enable = true;

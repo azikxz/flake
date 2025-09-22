@@ -27,6 +27,7 @@ flake-utils.lib.eachSystem
     in
     {
       formatter = pkgs.nixfmt-rfc-style;
+
       packages = import ./packages.nix {
         inherit
           self
@@ -35,6 +36,7 @@ flake-utils.lib.eachSystem
           lib
           ;
       };
+
       devShells = import ./shells.nix {
         inherit
           pkgs

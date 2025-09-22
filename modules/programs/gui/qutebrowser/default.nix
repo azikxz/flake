@@ -6,7 +6,7 @@
 }:
 
 with lib;
-# WARN: !!!!!!!
+# WARN: !!!!!!
 # VERY VERY UNSTABLE BROWSER
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
@@ -20,33 +20,28 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm = {
     imports = [ ./whlist.nix ];
 
-    programs.qutebrowser =
-      {
-        enable = true;
-        package = pkgs.qutebrowser;
-      }
-      // import ./settings.nix {
-        inherit
-          lib
-          config
-          ;
-      }
-      // {
-        searchEngines = {
-          DEFAULT = "https://www.google.com/search?q={}";
-        };
-
-        keyBindings = import ./binds.nix {
-          inherit
-            pkgs
-            ;
-        };
-
-        greasemonkey = import ./plugins.nix {
-          inherit
-            pkgs
-            ;
-        };
+    programs.qutebrowser = {
+      enable = true;
+      package = pkgs.qutebrowser;
+    }
+    // import ./settings.nix {
+      inherit
+        lib
+        config
+        ;
+    }
+    // {
+      searchEngines = {
+        DEFAULT = "https://www.google.com/search?q={}";
       };
+
+      keyBindings = import ./binds.nix;
+
+      greasemonkey = import ./plugins.nix {
+        inherit
+          pkgs
+          ;
+      };
+    };
   };
 }

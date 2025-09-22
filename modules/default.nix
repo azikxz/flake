@@ -8,5 +8,6 @@
     ./default.nix
     ./programs/cli/mpd
     ./programs/windowManagers/sway
+    ./services/mangagrabber
   ];
 }

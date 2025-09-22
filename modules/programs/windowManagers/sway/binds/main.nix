@@ -90,7 +90,7 @@ in
   "Shift+XF86AudioLowerVolume" = exec + "wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-";
 }
 // {
-  "XF86Favorites" = "wlogout -sc 12 -r 12";
+  "XF86Favorites" = "wleave";
   "Shift+XF86Favorites" = "poweroff";
   "Alt+XF86Favorites" = "reboot";
   "XF86HangupPhone" = "makoctl dismiss -a";

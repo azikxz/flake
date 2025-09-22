@@ -5,6 +5,7 @@
 }:
 
 with lib;
+# WARN: use wleave
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm.programs.wlogout = {

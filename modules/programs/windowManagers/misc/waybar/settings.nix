@@ -258,7 +258,7 @@ with lib;
 
         "custom/power" = mkTooltip // {
           format = "⏻";
-          on-click = "wlogout -sc 12 -r 12";
+          on-click = "wleave";
         };
       }
       (

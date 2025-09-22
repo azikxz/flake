@@ -19,11 +19,11 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         maximum_messages = 1024 * 4;
       };
 
-      twitch = rec {
+      twitch = {
         username = "x_azikx";
-        channel = username;
-        server = "irc.chat.twitch.tv";
+        server = "wss://eventsub.wss.twitch.tv/ws";
         token = (n: replaceStrings [ "\n" ] [ "" ] n) (readFile ./token);
+        # generate token via https://twitchtokengenerator.com/?scope=chat:read+chat:edit+channel:moderate+user:read:follows+user:read:emotes+user:read:chat+user:write:chat+moderator:manage:chat_messages+moderator:manage:banned_users+moderator:manage:chat_settings+moderator:manage:shoutouts+channel:manage:broadcast+channel:manage:moderators+channel:manage:vips+channel:manage:raids+channel:edit:commercial&auth=auth_stay
       };
 
       storage = genAttrs [ "channels" "mentions" ] (n: true);
@@ -34,7 +34,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         username_shown = true;
         palette = "pastel";
         title_shown = false;
-        margin = 5;
+        margin = 2;
         badges = true;
         theme = config.stylix.polarity;
         username_highlight = true;

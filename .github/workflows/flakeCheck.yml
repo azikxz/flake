@@ -21,9 +21,16 @@ jobs:
     name: "${{ github.event.head_commit.message || '' }}"
     runs-on: ubuntu-latest # idk what ir means
 
+    strategy:
+      fail-fast: false
+      matrix:
+        commit: ${{ fromJson(toJson(github.event.commits.*.id)) }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Install
         uses: cachix/install-nix-action@v31
@@ -32,4 +39,6 @@ jobs:
           extra_nix_config: ${{ env.EXTRA_NIX_CONFIG }}
 
       - name: Validate
-        run: nix flake check --all-systems
+        run: |
+          git checkout ${{ matrix.commit }}
+          nix flake check --all-systems

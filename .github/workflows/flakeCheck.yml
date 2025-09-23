@@ -1,0 +1,35 @@
+name: "Validate nix flake"
+
+on:
+  # validate flake on every commit
+  push:
+  pull_request:
+
+  # manually via "Actions" in github
+  workflow_dispatch:
+
+env:
+  # nix config
+  EXTRA_NIX_CONFIG: |
+    auto-optimise-store = true
+    download-buffer-size = 500000000
+    experimental-features = nix-command flakes
+    max-jobs = auto
+
+jobs:
+  check:
+    name: "${{ github.event.head_commit.message || '' }}"
+    runs-on: ubuntu-latest # idk what ir means
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install
+        uses: cachix/install-nix-action@v31
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+          extra_nix_config: ${{ env.EXTRA_NIX_CONFIG }}
+
+      - name: Validate
+        run: nix flake check --all-systems

@@ -11,7 +11,14 @@
     (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix")
   ];
 
-  isoImage.squashfsCompression = "gzip -Xcompression-level 1";
+  isoImage = {
+    squashfsCompression = "gzip -Xcompression-level 1";
+
+    makeEfiBootable = true;
+    makeUsbBootable = true;
+
+    volumeID = "NIXOS_ISO";
+  };
 
   boot = {
     kernelPackages = lib.mkDefault pkgs.linuxPackages_zen; # idk for best optimize

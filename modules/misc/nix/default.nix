@@ -27,6 +27,8 @@ with lib;
 
     settings = {
       warn-dirty = false;
+      auto-optimise-store = true;
+      download-buffer-size = (512 * 1000000);
 
       experimental-features = [
         "nix-command"
@@ -39,6 +41,9 @@ with lib;
       ];
 
       substituters = [
+        "https://cache.nixos.org"
+        "https://nix-config.cachix.org"
+        "https://nix-community.cachix.org"
         "https://cache.garnix.io"
         "https://chaotic-nyx.cachix.org"
         "https://cosmic.cachix.org"
@@ -53,6 +58,9 @@ with lib;
       ];
 
       trusted-public-keys = [
+        "https://cache.nixos.org"
+        "https://nix-config.cachix.org"
+        "https://nix-community.cachix.org"
         "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="

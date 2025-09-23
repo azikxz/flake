@@ -21,9 +21,11 @@
 |                [helix](https://github.com/helix-editor/helix) | best text editor with vi-like keys |
 |                      [cava](https://github.com/karlstav/cava) | sound visualizer                   |
 | [translate-shell](https://github.com/soimort/translate-shell) | translate shell?                   |
+|              [newsboat](https://github.com/newsboat/newsboat) | rss reader tui                     |
 |              [lutgen](https://github.com/ozwaldorf/lutgen-rs) | rusted lut                         |
 |                [jpegoptim](https://github.com/tjko/jpegoptim) | low size for jpeg                  |
 |         [ani-cli-ru](https://github.com/vypivshiy/ani-cli-ru) | watch anime in cli                 |
+|          [twitch-tui](https://github.com/Xithrius/twitch-tui) | chat for twitch in tui             |
 |                      [lowfi](https://github.com/talwat/lowfi) | listen lofi music from lofi girl   |
 |                       [nvtop](https://github.com/Syllo/nvtop) | top for GPU                        |
 |                  [btop](https://github.com/aristocratos/btop) | very informated top                |
@@ -82,6 +84,7 @@
 | [nix-init](https://github.com/nix-community/nix-init) | easy nix package creator              |
 |         [nurl](https://github.com/nix-community/nurl) | tool for fetching git repo            |
 |           [tenki](https://github.com/ckaznable/tenki) | tui clock with effects                |
+|                  [gdu](https://github.com/dundee/gdu) | space on disk left                    |
 |  [jetbrains](https://github.com/ryanoasis/nerd-fonts) | nerded fonts                          |
 
 - idk what also dudes

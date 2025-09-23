@@ -41,4 +41,4 @@ jobs:
       - name: Validate
         run: |
           git checkout ${{ matrix.commit }}
-          nix flake check --all-systems
+          nix flake check

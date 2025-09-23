@@ -21,11 +21,6 @@ jobs:
     name: "${{ github.event.head_commit.message || '' }}"
     runs-on: ubuntu-latest # idk what ir means
 
-    strategy:
-      fail-fast: false
-      matrix:
-        commit: ${{ fromJson(toJson(github.event.commits.*.id)) }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -40,5 +35,4 @@ jobs:
 
       - name: Validate
         run: |
-          git checkout ${{ matrix.commit }}
           nix flake check

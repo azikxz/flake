@@ -17,7 +17,7 @@ with lib;
 #
 # rebuild
 
-{
+mkIf false {
   environment = {
     etc = builtins.listToAttrs (
       map

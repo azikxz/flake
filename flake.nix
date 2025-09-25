@@ -80,19 +80,7 @@
 
     # zapret
     zapret = {
-      url = "github:kotudemo/zapret-presets";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.secret_files.follows = "secret_files";
-      inputs.zapret-hostlists.follows = "zapret-hostlists";
-    };
-
-    secret_files = {
-      url = "github:kotudemo/secret_files";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    zapret-hostlists = {
-      url = "github:kotudemo/zapret-hostlists";
+      url = "github:mctrxw/nix-zapret-presets";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

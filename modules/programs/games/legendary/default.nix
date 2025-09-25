@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -10,7 +11,7 @@ with lib;
 # legendary list
 # legendary install
 
-mkIf (mac "pcRyazenka") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".config/legendary" ];
 
   environment.systemPackages = [ pkgs.legendary-gl ];
@@ -22,7 +23,7 @@ mkIf (mac "pcRyazenka") {
       disable_update_check = false;
       disable_update_notice = false;
       install_dir =
-        if (mac "pcRyazenka") then "/media/disks/fastBitch/Games" else config.hm.xdg.userDirs.downloads;
+        if (mac "pcRyazenka") then "/media/disks/fastBitch/Games" else config.hm.xdg.userDirs.download;
       locale = "en-US";
       log_level = "debug";
       max_memory = 2048;

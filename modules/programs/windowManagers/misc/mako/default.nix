@@ -35,7 +35,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         border-size = 2;
         font = concatStringsSep " " [
           config.stylix.fonts.sansSerif.name
-          (toString config.stylix.fonts.sizes.popups)
+          (toString config.stylix.fonts.sizes.applications)
         ];
         background-color = base01;
         border-color = base0E;

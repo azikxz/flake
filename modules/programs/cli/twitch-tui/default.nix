@@ -23,8 +23,12 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         username = "x_azikx";
         server = "wss://eventsub.wss.twitch.tv/ws";
         token =
-          if pathExists ./token then ((n: replaceStrings [ "\n" ] [ "" ] n) (readFile ./token)) else null;
-        # generate token via https://twitchtokengenerator.com/?scope=chat:read+chat:edit+channel:moderate+user:read:follows+user:read:emotes+user:read:chat+user:write:chat+moderator:manage:chat_messages+moderator:manage:banned_users+moderator:manage:chat_settings+moderator:manage:shoutouts+channel:manage:broadcast+channel:manage:moderators+channel:manage:vips+channel:manage:raids+channel:edit:commercial&auth=auth_stay
+          if pathExists ./token then
+            ((n: replaceStrings [ "\n" ] [ "" ] n) (readFile ./token))
+          else
+            "noToken";
+        # generate token via
+        # https://twitchtokengenerator.com/?scope=chat:read+chat:edit+channel:moderate+user:read:follows+user:read:emotes+user:read:chat+user:write:chat+moderator:manage:chat_messages+moderator:manage:banned_users+moderator:manage:chat_settings+moderator:manage:shoutouts+channel:manage:broadcast+channel:manage:moderators+channel:manage:vips+channel:manage:raids+channel:edit:commercial&auth=auth_stay
       };
 
       storage = genAttrs [ "channels" "mentions" ] (n: true);

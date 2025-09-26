@@ -37,14 +37,9 @@ in
           size = "100%";
 
           content = {
-            type = "btrfs";
-            extraArgs = [ "-f" ];
-
+            type = "filesystem";
+            format = "ext4";
             mountpoint = "/";
-            mountOptions = [
-              compress
-              "noatime"
-            ];
           };
         };
       };

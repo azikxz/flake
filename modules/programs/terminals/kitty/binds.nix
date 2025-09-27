@@ -3,6 +3,7 @@
   ...
 }:
 
+# "ctrl+shift"
 let
   inherit (config.hm.programs.kitty.settings)
     kitty_mod
@@ -24,4 +25,6 @@ in
 
   "page_up" = "scroll_page_up";
   "page_down" = "scroll_page_down";
+  "ctrl+page_up" = "scroll_line_up";
+  "ctrl+page_down" = "scroll_line_down";
 }

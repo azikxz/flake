@@ -150,32 +150,55 @@
 
   userstyle = with config.lib.stylix.colors.withHashtag; {
     "start" = {
-      includes = [
-        "qute://start/"
-        "qute://bookmarks/"
-      ];
+      includes = [ "qute://*" ];
 
       text =
         # css
         ''
+          /* everywhere */
           body {
-                  background-color:  ${base00};
-                  font-family:      "${config.stylix.fonts.sansSerif.name}" !important;
-                }  
+            background-color:  ${base00};
+            font-family:      "${config.stylix.fonts.sansSerif.name}" !important;
+          }
+
           h1 {
-                  color: ${base05};
-                  font-weight: normal;
-                }
+            color: ${base05};
+            font-weight: normal;
+          }
+
           a {
-                  text-decoration: none;
-                  color: ${base0B};
-                }  
+            text-decoration: none;
+            color: ${base0B};
+          }
+
+          /* history */
+          .date {
+            color:          ${base04};
+            font-size:      ${toString (config.stylix.fonts.sizes.applications - 2)}pt;
+            padding-bottom: 15px;
+            text-align:     right;
+          }
+
+          .hostname {
+            color:           ${base04};
+            font-size:       0.9em;
+            margin-left:     10px;
+          }
+
+          td.time {
+            color:       ${base04};
+            text-align:  right;
+            white-space: nowrap;
+          }
+
+          /* startpage */
           input {
-                  color:             ${base05};
-                  background-color:  ${base01};
-                  border-radius:     8px !important;
-                  font-family:      "${config.stylix.fonts.sansSerif.name}" !important;
-                }
+            color:             ${base04};
+            background-color:  ${base01};
+            border-radius:     8px !important;
+            font-family:      "${config.stylix.fonts.sansSerif.name}" !important;
+          }
+
           .bookmarks { display:    none;   }
           .header    { margin-top: 220px;  }
           .logo      { visibility: hidden; }

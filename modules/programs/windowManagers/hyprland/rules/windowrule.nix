@@ -80,6 +80,7 @@ in
   (cl "org.qbittorrent.qBittorrent" "pseudo")
 
   # passwords
+  (cl "org.keepassxc.KeePassXC" "float")
   (cl "org.keepassxc.KeePassXC" "minsize 850 900")
   (cl "org.keepassxc.KeePassXC" "maxsize 850 900")
 

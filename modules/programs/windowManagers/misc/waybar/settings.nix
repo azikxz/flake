@@ -221,7 +221,13 @@ with lib;
           format-en = "en";
           format-ru = "ru";
 
-          keyboard-name = "at-translated-set-2-keyboard";
+          keyboard-name =
+            if (mac "thinkpadT14") then
+              "at-translated-set-2-keyboard"
+            else if (mac "pcRyazenka") then
+              "by-tech-patron"
+            else
+              "unknown";
 
           on-click = "hyprctl switchxkblayout ${keyboard-name} next";
         };

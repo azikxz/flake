@@ -77,6 +77,7 @@ with lib;
       fjordlauncher.overlays.default
       niri.overlays.niri
       nur.overlays.default
+      zsh-helix.overlays.default
 
       (
         final: prev:

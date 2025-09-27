@@ -715,7 +715,8 @@
         "umu-database": "umu-database",
         "wallpapers": "wallpapers",
         "winapps": "winapps",
-        "zapret": "zapret"
+        "zapret": "zapret",
+        "zsh-helix": "zsh-helix"
       }
     },
     "spicetify": {
@@ -1048,6 +1049,26 @@
       "original": {
         "owner": "mctrxw",
         "repo": "nix-zapret-presets",
+        "type": "github"
+      }
+    },
+    "zsh-helix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1758445842,
+        "narHash": "sha256-wiUocowz3uL3fTAxTfG3URhOwB2RrFWEmUnW4k0ETJ4=",
+        "owner": "Multirious",
+        "repo": "zsh-helix-mode",
+        "rev": "f9d72d23f5ce12da31967a6ecd15dcafa1355fa7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Multirious",
+        "repo": "zsh-helix-mode",
         "type": "github"
       }
     }

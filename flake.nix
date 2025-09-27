@@ -128,5 +128,12 @@
       url = "https://raw.githubusercontent.com/Open-Wine-Components/umu-database/refs/heads/main/umu-database.csv";
       flake = false;
     };
+
+    # other
+
+    zsh-helix = {
+      url = "github:Multirious/zsh-helix-mode";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }

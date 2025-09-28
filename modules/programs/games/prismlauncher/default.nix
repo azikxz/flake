@@ -6,52 +6,27 @@
 }:
 
 with lib;
-let
-  imp = "gui";
-in
 # INFO: just play
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  persist.user.dirs =
-    if (imp == "cli") then
-      [
-        ".config/ferium"
-        ".minecraft"
-      ]
-    else
-      [ ".local/share/PrismLauncher" ];
+  persist.user.dirs = [ ".local/share/PrismLauncher" ];
 
-  environment.systemPackages =
-    with pkgs;
-    if (imp == "cli") then
-      [
-        ferium
-        portablemc
-      ]
-    else
-      [ prismlauncher ];
-  # INFO: moved to overlays
+  environment.systemPackages = [ pkgs.prismlauncher ];
 
-  networking.firewall =
-    let
-      main = 4445;
-    in
-    genAttrs [
-      "allowedTCPPorts"
-      "allowedUDPPorts"
-    ] (n: [ main ]);
+  networking.firewall = genAttrs [
+    "allowedTCPPorts"
+    "allowedUDPPorts"
+  ] (n: [ 25565 ]);
 
-  hm.xdg.dataFile."PrismLauncher/prismlauncher.cfg".source =
-    (pkgs.formats.ini { }).generate "prismlauncher-settings"
-      (
-        import ./settings.nix {
-          inherit
-            pkgs
-            lib
-            config
-            ;
-        }
-      );
+  hm.xdg.dataFile = {
+    "PrismLauncher/prismlauncher.cfg".source = import ./settings.nix {
+      inherit
+        pkgs
+        lib
+        config
+        ;
+    };
+  };
 
   nixpkgs.overlays = [
     (final: prev: {

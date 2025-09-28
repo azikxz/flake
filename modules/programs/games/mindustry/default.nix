@@ -41,10 +41,5 @@ with lib;
       #   url = "...";
       #   sha256 = "..."; # nix store prefetch-file url
       # }
-      [
-        {
-          url = "https://github.com/Yuria-Shikibe/NewHorizonMod/releases/download/v2.0-pre-beta/NewHorizonMod.2.0-pre-beta-1.jar";
-          sha256 = "sha256-4dBpPr46Q5CluitqHIV70LjiDU8DpKTM580eb+YBOJk=";
-        }
-      ];
+      [ ];
 })

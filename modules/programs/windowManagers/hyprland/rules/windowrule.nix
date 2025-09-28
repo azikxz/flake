@@ -84,6 +84,11 @@ in
   (cl "org.keepassxc.KeePassXC" "minsize 850 900")
   (cl "org.keepassxc.KeePassXC" "maxsize 850 900")
 
+  # prism launcher news
+  (tl "News — Prism Launcher *" "float")
+  (tl "News — Prism Launcher *" "minsize 710 920")
+  (tl "News — Prism Launcher *" "maxsize 710 920")
+
   # pinned
   (mk "pinned:1" "bordercolor rgb(${base0B})")
 

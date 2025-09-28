@@ -17,7 +17,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
   hardware.xpadneo.enable = true;
 
-  programs = with pkgs; {
+  programs = {
     steam = {
       enable = true;
       gamescopeSession.enable = true;
@@ -25,16 +25,12 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       remotePlay.openFirewall = true;
 
       extraCompatPackages = [
-        (proton-ge-bin.override {
-          steamDisplayName = "Proton-GE-unstable";
-        })
-
-        (_24.proton-ge-bin.override {
-          steamDisplayName = "Proton-GE-stable";
+        (pkgs.proton-ge-bin.override {
+          steamDisplayName = "Proton-GE-${pkgs.proton-ge-bin.version}";
         })
       ];
 
-      package = steam.override {
+      package = pkgs.steam.override {
         # INFO: doenst works with greetd
         # moved to hyprland
         # extraArgs = concatStringsSep " " [

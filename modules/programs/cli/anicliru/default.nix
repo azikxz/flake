@@ -12,16 +12,20 @@ with lib;
 # https://github.com/vypivshiy/anicli-api/issues/42#issuecomment-2889017544
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  environment.systemPackages = with pkgs; [
-    self'.anicliru
+  environment.systemPackages = [ pkgs.anicliru ];
 
-    (writeScriptBin "anicli" ''anicli-ru -q 1440 ${
-      (
-        if (pathExists ./headers.txt) then
-          "--header-file ${toString (writeText "headers.txt" (readFile ./headers.txt))}"
-        else
-          ""
-      )
-    }'')
+  nixpkgs.overlays = [
+    (final: prev: {
+      anicliru =
+        with prev.lib;
+        prev.writeShellScriptBin "anicliru" ''${getExe pkgs.self'.anicliru} -q 1080 ${
+          (
+            if (pathExists ./headers.txt) then
+              "--header-file ${toString (prev.writeText "headers.txt" (readFile ./headers.txt))}"
+            else
+              ""
+          )
+        }'';
+    })
   ];
 }

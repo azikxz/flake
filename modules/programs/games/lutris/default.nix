@@ -17,12 +17,9 @@ mkIf (mac "pcRyazenka") {
     defaultWinePackage = pkgs.proton-ge-bin;
     steamPackage = config.programs.steam.package;
 
-    protonPackages = attrValues { };
-
-    winePackages = attrValues {
-      inherit (pkgs.gaming)
-        wine-ge
-        wine-tkg-ntsync
+    protonPackages = attrValues {
+      inherit (pkgs)
+        proton-ge-bin
         ;
     };
   };

@@ -451,6 +451,13 @@ with pkgs.self';
           "modifiers" = [ "Shift" ];
         }
       ];
+
+      "obsidian-plugin-prettier:format-note" = [
+        {
+          "key" = "P";
+          "modifiers" = [ "Mod" ];
+        }
+      ];
     };
   };
 }

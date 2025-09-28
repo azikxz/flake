@@ -19,13 +19,15 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   ] (n: [ 25565 ]);
 
   hm.xdg.dataFile = {
-    "PrismLauncher/prismlauncher.cfg".source = import ./settings.nix {
-      inherit
-        pkgs
-        lib
-        config
-        ;
-    };
+    "PrismLauncher/prismlauncher.cfg".source = (
+      import ./settings.nix {
+        inherit
+          pkgs
+          lib
+          config
+          ;
+      }
+    );
   };
 
   nixpkgs.overlays = [

@@ -6,8 +6,11 @@
 }:
 
 with lib;
+let
+  menubar = false;
+in
 
-{
+(pkgs.formats.ini { }).generate "prismlauncher-settings" {
   General = {
     ApplicationTheme = "system";
     AutoCloseConsole = false;
@@ -24,7 +27,13 @@ with lib;
     DownloadsDirWatchRecursive = false;
     EnableFeralGamemode = config.programs.gamemode.enable;
     EnableMangoHud = config.hm.programs.mangohud.enable;
-    IconTheme = "pe_light";
+    IconTheme =
+      if config.stylix.polarity == "dark" then
+        "pe_light"
+      else if config.stylix.polarity == "light" then
+        "pe_dark"
+      else
+        null;
     IconsDir = "icons";
     IgnoreJavaCompatibility = false;
     IgnoreJavaWizard = true;
@@ -36,7 +45,7 @@ with lib;
     LastHostname = machine;
     LaunchMaximized = false;
     MaxMemAlloc = if (mac "pcRyazenka") then 16384 else 8192;
-    MenuBarInsteadOfToolBar = true;
+    MenuBarInsteadOfToolBar = menubar;
     MinMemAlloc = 512;
     ModDependenciesDisabled = false;
     ModMetadataDisabled = false;
@@ -65,5 +74,8 @@ with lib;
     UseZink = false;
     UserAgentOverride = "";
     UserAskedAboutAutomaticJavaDownload = true;
+  }
+  // optionalAttrs (menubar != true) {
+    MainWindowState = "@ByteArray(AAAA/wAAAAD9AAAAAAAABp8AAAPLAAAABAAAAAQAAAAIAAAACPwAAAACAAAAAAAAAAEAAAAeAGkAbgBzAHQAYQBuAGMAZQBUAG8AbwBsAEIAYQByAwAAAAD/////AAAAAAAAAAAAAAACAAAAAgAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAAAAAAWAG4AZQB3AHMAVABvAG8AbABCAGEAcgEAAAMaAAAEZgAAAAAAAAAA)";
   };
 }

@@ -4,9 +4,13 @@
 }:
 
 let
-  inherit (sway) gaps;
+  inherit (sway)
+    gaps
+    ;
+
   inner = "gaps inner ";
   outer = "gaps outer ";
+
   exitMode = {
     "Return" = "mode default";
     "Escape" = "mode default";
@@ -20,7 +24,9 @@ in
     n = inner + "all set 0, " + outer + "all set 0, mode default";
     i = "mode innerGapsMode";
     o = "mode outerGapMode";
-  } // exitMode;
+  }
+  // exitMode;
+
   innerGapsMode = {
     plus = inner + "current plus 5";
     minus = inner + "current minus 5";
@@ -28,7 +34,9 @@ in
     "Shift+plus" = inner + "all plus 5";
     "Shift+minus" = inner + "all minus 5";
     "Shift+0" = inner + "all set 0";
-  } // exitMode;
+  }
+  // exitMode;
+
   outerGapsMode = {
     plus = outer + "current plus 5";
     minus = outer + "current minus 5";
@@ -36,5 +44,6 @@ in
     "Shift+plus" = outer + "all plus 5";
     "Shift+minus" = outer + "all minus 5";
     "Shift+0" = outer + "all set 0";
-  } // exitMode;
+  }
+  // exitMode;
 }

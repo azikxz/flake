@@ -9,6 +9,7 @@ let
   inherit (lib)
     getExe
     ;
+
   mk = command: always: {
     inherit
       command

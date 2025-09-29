@@ -23,6 +23,6 @@ pkgs.buildGoModule rec {
     homepage = "https://github.com/lirix360/ReadmangaGrabber";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ azikx ];
-    mxainProgram = "ReadmangaGrabber";
+    mainProgram = "ReadmangaGrabber";
   };
 }

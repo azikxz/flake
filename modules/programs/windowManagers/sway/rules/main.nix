@@ -6,6 +6,7 @@
         ;
     };
   };
+
   float = import ./float.nix {
     float = {
       class = class: {
@@ -13,6 +14,7 @@
           class
           ;
       };
+
       title = title: {
         inherit
           title
@@ -20,16 +22,19 @@
       };
     };
   };
+
   allOver = import ./allOver.nix rec {
     allOver = {
       mk = is: rule: command: {
         inherit
           command
           ;
+
         criteria = {
           ${is} = rule;
         };
       };
+
       appid = allOver.mk "app_id";
       title = allOver.mk "title";
     };

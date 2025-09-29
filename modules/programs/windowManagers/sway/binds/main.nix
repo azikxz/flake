@@ -7,24 +7,26 @@
 }:
 
 let
-  inherit (config.xdg.userDirs.extraConfig)
+  inherit (config.hm.xdg.userDirs.extraConfig)
     XDG_SCREENSHOTS_DIR
     ;
+
   inherit (sway)
     modifier
     terminal
     menu
     ;
+
   act = import ./focus2ws.nix {
     inherit
       sway
       lib
       ;
   };
+
   # useful
   exec = "exec ";
-  pic = " ${XDG_SCREENSHOTS_DIR}/$(date +'scr_%d-%m-%y_%H:%M:%S.png')";
-  grilurp = n: exec + (lib.getExe pkgs.grilurp) + " copysave " + n + pic;
+
   # functions
   mkProgram' = pre: data: lib.concatMapAttrs pre data;
   mkProgram =
@@ -66,12 +68,18 @@ in
   "Shift+V" = "vesktop";
   "M" = "spotify";
 })
-// {
-  # screenshots
-  "Print" = grilurp "anything";
-  "Print+Shift" = grilurp "output";
-  "Print+Alt" = grilurp "active";
-}
+// (
+  let
+    pic = " ${XDG_SCREENSHOTS_DIR}/$(date +'scr_%d-%m-%y_%H:%M:%S.png')";
+    scr = n: exec + (lib.getExe pkgs.sway-contrib.grimshot) + " copysave " + n + pic;
+  in
+  {
+    # screenshots
+    "Print" = scr "anything";
+    "Print+Shift" = scr "output";
+    "Print+Alt" = scr "active";
+  }
+)
 // {
   # sound
   "XF86AudioMute" = exec + "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";

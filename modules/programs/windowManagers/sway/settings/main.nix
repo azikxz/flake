@@ -6,14 +6,14 @@
 }:
 
 let
-  sway = config.wayland.windowManager.sway.config;
+  sway = config.hm.wayland.windowManager.sway.config;
   rules = import ../rules/main.nix;
 in
 
 rec {
-  terminal = if config.programs.kitty.enable then "kitty" else (lib.getExe pkgs.foot);
+  terminal = if config.hm.programs.kitty.enable then "kitty" else (lib.getExe pkgs.foot);
   menu =
-    if config.programs.tofi.enable then
+    if config.hm.programs.tofi.enable then
       "tofi-drun | xargs swaymsg exec --"
     else
       (lib.getExe pkgs.bemenu);

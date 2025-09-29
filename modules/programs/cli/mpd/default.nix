@@ -13,6 +13,7 @@ let
   socket = "${dataDir}/mpd_socket";
   fifo = "${dataDir}/fifo_socket";
 in
+# INFO: idk lazy to fix...zzZ
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm = {

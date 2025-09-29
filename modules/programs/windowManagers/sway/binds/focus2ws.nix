@@ -9,6 +9,7 @@ let
   inherit (sway)
     modifier
     ;
+
   mkPreset = pre: data: concatMapAttrs pre data;
 in
 
@@ -25,6 +26,7 @@ in
           "0" = "10";
         }
       );
+
   moveAndFocus =
     mkPreset
       (key: dir: {
@@ -41,6 +43,7 @@ in
         Up = "up";
         Right = "right";
       };
+
   resizeWindow =
     let
       mkResize = h: j: k: l: {

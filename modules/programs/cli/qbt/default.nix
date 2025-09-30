@@ -12,7 +12,7 @@ with lib;
 mkIf config.services.qbittorrent.enable {
   environment.systemPackages = [ pkgs.qbittorrent-cli ];
 
-  home.file = {
+  hm.home.file = {
     ".qbt/settings.json".text = {
       Url = "http://localhost:8080";
 

@@ -8,7 +8,7 @@ with lib;
 # WARN: im too lazy to finish it
 # http://localhost:8888
 
-mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+mkIf false {
   persist.dirs = [ "/var/lib/readmanga-grabber" ];
 
   systemd.services = {

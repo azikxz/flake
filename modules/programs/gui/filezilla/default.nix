@@ -7,5 +7,5 @@
 with lib;
 
 mkIf (mac "pcRyazenka") {
-  environment.systemPackages = with pkgs; [ filezilla ];
+  environment.systemPackages = [ pkgs.filezilla ];
 }

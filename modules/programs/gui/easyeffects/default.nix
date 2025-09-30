@@ -17,9 +17,9 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         else if (mac "pcRyazenka") then
           "perfectEQ"
         else
-          "openEQ";
+          "perfectEQ";
 
-      extraPresets = builtins.mapAttrs (n: v: v) inputs.easyeffects.effects;
+      extraPresets = mapAttrs (n: v: v) inputs.easyeffects.effects;
     };
   };
 }

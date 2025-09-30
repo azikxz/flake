@@ -9,9 +9,7 @@ with lib;
 # use 'fprint-enroll' and 'sudo fprint-enroll'
 
 mkIf (mac "thinkpadT14") {
-  persist.dirs = [
-    "/var/lib/fprint"
-  ];
+  persist.dirs = [ "/var/lib/fprint" ];
 
   services.fprintd = {
     enable = true;

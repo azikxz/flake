@@ -13,5 +13,5 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     ".local/share/Mumble"
   ];
 
-  environment.systemPackages = with pkgs; [ mumble ];
+  environment.systemPackages = [ pkgs.mumble ];
 }

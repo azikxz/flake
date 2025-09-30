@@ -7,7 +7,7 @@
 with lib;
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  environment.systemPackages = with pkgs; [ tenki ];
+  environment.systemPackages = [ pkgs.tenki ];
 
   environment.shellAliases = {
     ter = ''

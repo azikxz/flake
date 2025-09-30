@@ -7,5 +7,5 @@
 with lib;
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  environment.systemPackages = with pkgs; [ blender ];
+  environment.systemPackages = [ pkgs.blender ];
 }

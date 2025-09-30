@@ -24,7 +24,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
       remotePlay.openFirewall = true;
 
-      extraCompatPackages = [ proton-ge-bin ];
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
 
       package = pkgs.steam.override {
         # INFO: doenst works with greetd

@@ -10,7 +10,6 @@ mkIf false {
   services = {
     tor = {
       enable = true;
-
       openFirewall = true;
       torsocks.enable = true;
 

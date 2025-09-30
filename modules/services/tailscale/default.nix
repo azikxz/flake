@@ -12,9 +12,8 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
   services.tailscale = {
     enable = true;
+    openFirewall = true;
 
     useRoutingFeatures = "both";
-
-    openFirewall = true;
   };
 }

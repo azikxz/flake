@@ -18,15 +18,14 @@ mkIf false {
 
   services.transmission = {
     enable = true;
+    openFirewall = true;
+    openPeerPorts = true;
+    openRPCPort = true;
 
     package = pkgs.transmission_4;
     webHome = pkgs.flood-for-transmission;
     downloadDirPermissions = "775";
-
     performanceNetParameters = true;
-    openFirewall = true;
-    openPeerPorts = true;
-    openRPCPort = true;
 
     settings = {
       download-dir = savePath;

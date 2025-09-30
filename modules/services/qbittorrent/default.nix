@@ -22,7 +22,6 @@ in
 
   services.qbittorrent = {
     enable = true;
-
     openFirewall = true;
     torrentingPort = 6881;
 

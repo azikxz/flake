@@ -24,11 +24,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
       remotePlay.openFirewall = true;
 
-      extraCompatPackages = [
-        (pkgs.proton-ge-bin.override {
-          steamDisplayName = "Proton-GE-${pkgs.proton-ge-bin.version}";
-        })
-      ];
+      extraCompatPackages = [ proton-ge-bin ];
 
       package = pkgs.steam.override {
         # INFO: doenst works with greetd
@@ -72,4 +68,12 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       enableRenice = true;
     };
   };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      proton-ge-bin = prev.pkgs.proton-ge-bin.override {
+        steamDisplayName = "Proton-GE";
+      };
+    })
+  ];
 }

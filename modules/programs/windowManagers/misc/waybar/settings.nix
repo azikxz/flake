@@ -63,8 +63,6 @@ with lib;
               "custom/separator"
               "group/soundGrp"
               "custom/separator"
-              "hyprland/language"
-              "custom/separator"
               "group/blueGrp"
               "custom/separator"
             ];
@@ -74,6 +72,8 @@ with lib;
             modules-right = [
               "custom/separator"
               "tray"
+              "custom/separator"
+              "hyprland/language"
               "custom/separator"
               "group/dateGrp"
               "custom/separator"

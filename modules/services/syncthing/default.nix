@@ -22,16 +22,21 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
           devices = attrNames config.hm.services.syncthing.settings.devices;
         in
-        with config.hm.xdg.userDirs;
-        listToAttrs [
-          (mkFolder "temporal" "${desktop}/temp" devices)
+        with config.hm.xdg;
+        listToAttrs (
+          (with userDirs; [
+            (mkFolder "temporal" "${desktop}/temp" devices)
 
-          (mkFolder "passwords" "${documents}/passwords" devices)
+            (mkFolder "passwords" "${documents}/passwords" devices)
 
-          (mkFolder "notes" "${documents}/notes" devices)
+            (mkFolder "notes" "${documents}/notes" devices)
 
-          (mkFolder "video" "${videos}/filmed" devices)
-        ];
+            (mkFolder "video" "${videos}/filmed" devices)
+          ])
+          ++ [
+            (mkFolder "mindustry" "${dataHome}/Mindustry/saves" devices)
+          ]
+        );
 
       options = {
         relaysEnabled = true;

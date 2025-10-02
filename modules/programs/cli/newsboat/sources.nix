@@ -41,6 +41,16 @@ in
     "nixos"
     "tech"
   ])
+
+  (mk "nyaa.iss.one/?page=rss" [
+    "anime"
+  ])
+
+  (mk "readcomicsonline.ru/feed" [
+    "manga"
+    "comics"
+    "geek"
+  ])
 ]
 ++ (map
   (

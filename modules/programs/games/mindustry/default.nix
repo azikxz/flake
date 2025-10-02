@@ -7,7 +7,7 @@
 with lib;
 # INFO: factory maker
 
-(mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/Mindustry" ];
 
   environment.systemPackages = [
@@ -55,4 +55,12 @@ with lib;
           }
         )
       ];
-})
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      mindustry = prev.mindustry.override {
+        jdk17 = final.temurin-jre-bin-17;
+      };
+    })
+  ];
+}

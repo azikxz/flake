@@ -10,7 +10,9 @@ with lib;
 (mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/Mindustry" ];
 
-  environment.systemPackages = [ pkgs.mindustry-wayland ];
+  environment.systemPackages = [
+    pkgs.old.mindustry # 146
+  ];
 
   hm.xdg.dataFile =
     (
@@ -37,9 +39,20 @@ with lib;
         ) mods
       )
     )
+      # example...
       # {
       #   url = "...";
       #   sha256 = "..."; # nix store prefetch-file url
       # }
-      [ ];
+      [
+        (
+          let
+            ver = "2.3.3";
+          in
+          {
+            url = "https://github.com/xpdustry/claj/releases/download/${ver}/claj-client.jar";
+            sha256 = "sha256-WDzzfv4Bh9l6cMcf8QVNFETK+qX74PPN5AdbNWtcvRE=";
+          }
+        )
+      ];
 })

@@ -33,9 +33,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
             (mkFolder "video" "${videos}/filmed" devices)
           ])
-          ++ [
-            (mkFolder "mindustry" "${dataHome}/Mindustry/saves" devices)
-          ]
+          ++ [ ]
         );
 
       options = {

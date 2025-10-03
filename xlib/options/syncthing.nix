@@ -9,6 +9,7 @@
           id
           ;
         autoAcceptFolders = true;
+        compression = "always";
       };
     };
 

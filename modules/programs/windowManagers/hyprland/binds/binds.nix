@@ -53,6 +53,9 @@ in
   (m "mouse:275" "$ex, makoctl dismiss -a")
   (s "mouse:275" "$ex, makoctl restore")
 ]
+++ (lib.optionals (lib.mac "pcRyazenka") [
+  (m "grave" "$ex, wleave")
+])
 ++ (
   let
     inherit (config.hm.xdg.userDirs.extraConfig) XDG_SCREENSHOTS_DIR;

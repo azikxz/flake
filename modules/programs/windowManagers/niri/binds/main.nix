@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   ...
 }:
@@ -22,7 +23,12 @@ in
     (mk "${m}+Backslash" show-hotkey-overlay) # help
 
     (mk "${m}+Q" close-window)
-    (mk "${m}+Grave" quit)
+    (mk "${m}+Grave" (
+      if config.hm.programs.wleave.enable then
+        (spawn (lib.getExe config.hm.programs.wleave.package))
+      else
+        quit
+    ))
 
     (mk "${m}+Space" toggle-window-floating)
     (mk "${m}+${s}+Space" toggle-overview)

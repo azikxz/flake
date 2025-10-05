@@ -8,21 +8,27 @@
 with lib;
 # INFO: press enable plugins at start
 
-mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+(mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".config/obsidian" ];
 
-  hm.programs.obsidian = {
-    enable = true;
+  hm = {
+    imports = [ ./patch.nix ];
 
-    vaults = mapAttrs (
-      name: _:
-      import (./vaults + "/${name}/main.nix") {
-        inherit
-          pkgs
-          lib
-          config
-          ;
-      }
-    ) (filterAttrs (name: type: type == "directory") (builtins.readDir ./vaults));
+    programs.obsidian = {
+      enable = true;
+
+      extraSettings.frame = "native";
+
+      vaults = mapAttrs (
+        name: _:
+        import (./vaults + "/${name}/main.nix") {
+          inherit
+            pkgs
+            lib
+            config
+            ;
+        }
+      ) (filterAttrs (name: type: type == "directory") (builtins.readDir ./vaults));
+    };
   };
-}
+})

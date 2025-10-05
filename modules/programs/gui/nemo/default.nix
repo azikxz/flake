@@ -24,7 +24,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       start-with-menu-bar = false;
       start-with-sidebar = true;
       start-with-status-bar = false;
-      sidebar-width = 200;
+      sidebar-width = 230;
     };
 
     "org/nemo/preferences" = {

@@ -112,28 +112,25 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     };
 
     gtk.gtk3.bookmarks =
-      (map
-        (
-          dir:
+      let
+        mkDirs =
+          subDir: mainDir:
           (concatStringsSep "/" [
             "file:/"
-            config.hm.home.homeDirectory
-            dir
-          ])
-        )
-        [
-          lib.paths.flakeDir
-
-          "Desktop"
-          "Documents"
-          "Downloads"
-          "Music"
-          "Pictures"
-          "Videos"
-
-          "Documents/passwords"
-        ]
-      )
-      ++ (optionals config.services.qbittorrent.enable [ "/media/torrents" ]);
+            subDir
+            mainDir
+          ]);
+      in
+      # home place
+      (map (dir: (mkDirs config.hm.home.homeDirectory dir)) [
+        "Documents"
+        "Downloads"
+        "Music"
+        "Pictures"
+        "Videos"
+      ])
+      ++
+        # other fs place
+        (map (dir: (mkDirs (toString null) dir)) [ paths.flakeDir ]);
   };
 }

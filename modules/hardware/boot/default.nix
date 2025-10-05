@@ -10,7 +10,7 @@ with lib;
   persist.dirs = [ "/var/lib/plymouth" ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = mkDefault pkgs.linuxPackages_zen;
 
     loader = {
       timeout = mkForce 1;

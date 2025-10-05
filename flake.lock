@@ -403,6 +403,26 @@
         "type": "github"
       }
     },
+    "musnix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1756852730,
+        "narHash": "sha256-qPere4RBHoZxiEGl8zXU8gjroZg4gkYGEwaAbKmL4vE=",
+        "owner": "musnix",
+        "repo": "musnix",
+        "rev": "7ccc92050e43dc92309396c6f2fe1f542214a242",
+        "type": "github"
+      },
+      "original": {
+        "owner": "musnix",
+        "repo": "musnix",
+        "type": "github"
+      }
+    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -698,6 +718,7 @@
         "hardware": "hardware",
         "home": "home",
         "impermanence": "impermanence",
+        "musnix": "musnix",
         "niri": "niri",
         "nixages": "nixages",
         "nixcord": "nixcord",

@@ -117,11 +117,12 @@ flake-utils.lib.eachSystem
             ++ (with inputs; [
               disko.nixosModules.default
               flatpak.nixosModules.nix-flatpak
-              gaming.nixosModules.wine
               gaming.nixosModules.pipewireLowLatency
               gaming.nixosModules.platformOptimizations
+              gaming.nixosModules.wine
               home.nixosModules.home-manager
               impermanence.nixosModules.impermanence
+              musnix.nixosModules.default
               nixpkgs.nixosModules.notDetected
               nur.modules.nixos.default
               stylix.nixosModules.stylix

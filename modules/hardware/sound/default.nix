@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -32,5 +33,10 @@ mkIf (mac' "isoXtended") {
     };
 
     lowLatency.enable = true;
+  };
+
+  musnix = {
+    enable = true;
+    rtcqs.enable = true;
   };
 }

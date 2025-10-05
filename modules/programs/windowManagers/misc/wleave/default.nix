@@ -12,8 +12,10 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
     settings = {
       margin = 200;
-      buttons-per-row = toString 3;
-      column-spacing = 8;
+      buttons-per-row = toString 2;
+
+      column-spacing = 32;
+      row-spacing = 32;
 
       show-keybinds = false;
       no-version-info = true;
@@ -44,11 +46,9 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         in
         [
           (mk "shutdown" "systemctl poweroff" "s")
-          (mk "reboot" "systemctl reboot" "r")
-          (mk "suspend" "systemctl suspend" "u")
-          (mk "hibernate" "systemctl hibernate" "h")
           (mk "logout" "loginctl terminate-user $USER" "e")
-          (mk "lock" "loginctl lock-session" "l")
+          (mk "suspend" "systemctl suspend" "u")
+          (mk "lock" "hyprlock" "l")
         ];
     };
 
@@ -65,8 +65,8 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
         button {
           background-color: ${base01};
-          color: ${base05};
-          border-radius:30px;
+          color: oklab(from var(--view-fg-color) var(--standalone-color-oklab));
+          border-radius: 30px;
         }
 
         button:focus, button:hover {
@@ -74,43 +74,33 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         }
 
         button:active {
-          color: ${base05};
-          background-color: ${base02};
+          color: var(--accent-fg-color);
+          background-color: var(--accent-bg-color);
         }
       ''
       + (builtins.concatStringsSep "\n" (
         map
-          (
-            n:
-            (name: color: ''
-              button#${name} { --view-fg-color: ${color}; }
-            '')
-              n.name
-              n.color
-          )
+          (n: ''
+            button#${n.name} { --view-fg-color: ${n.color}; }
+          '')
           [
             {
               name = "shutdown";
               color = base08;
             }
-            {
-              name = "hibernate";
-              color = base0A;
-            }
-            {
-              name = "reboot";
-              color = base0B;
-            }
-            {
-              name = "lock";
-              color = base0D;
-            }
+
             {
               name = "logout";
-              color = base0C;
+              color = base0A;
             }
+
             {
               name = "suspend";
+              color = base0C;
+            }
+
+            {
+              name = "lock";
               color = base0E;
             }
           ]

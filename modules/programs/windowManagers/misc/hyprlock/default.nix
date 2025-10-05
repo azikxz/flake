@@ -1,5 +1,6 @@
 {
   inputs,
+  pkgs,
   lib,
   config,
   ...
@@ -7,70 +8,99 @@
 
 with lib;
 
-mkIf false
-  # (mac "thinkpadT14" && config.programs.hyprland.enable)
-  {
-    hm = {
-      programs.hyprlock = with config.lib.stylix.colors; {
-        enable = true;
+mkIf (config.programs.hyprland.enable) {
+  hm = {
+    programs.hyprlock = with config.lib.stylix.colors; {
+      enable = true;
 
-        settings = {
-          general = {
-            hide_cursor = true;
-            immediate_render = true;
-          };
+      settings = {
+        general = {
+          hide_cursor = true;
+          immediate_render = true;
+        };
 
-          background = mkForce [
-            {
-              blur_passes = 2;
-              path = inputs.wallpapers.plantFlower;
-            }
+        background = mkForce [
+          {
+            blur_passes = 4;
+            blur_size = 12;
+            path = inputs.wallpapers.plantFlower;
+          }
+        ];
+
+        animations = {
+          bezier = [
+            "easeout, 0.5, 1, 0.9, 1"
+            "easeoutback, 0.34, 1.22, 0.65, 1"
           ];
 
-          animations = {
-            bezier = [
-              "easeout, 0.5, 1, 0.9, 1"
-              "easeoutback, 0.34, 1.22, 0.65, 1"
-            ];
-
-            animation = [
-              "fade,       1, 3, easeout"
-              "fadeOut,    1, 3, easeout"
-              "inputField, 1, 1, easeoutback"
-            ];
-          };
-
-          label = [
-            {
-              text = "$TIME";
-              color = "rgb(${base05})";
-              font_family = config.stylix.fonts.monospace.name;
-              font_size = 96;
-              halign = "center";
-              position = "0, 160";
-              text_align = "center";
-              valign = "center";
-            }
-
-            {
-              text = "cmd[update:1000] battery";
-              color = "rgb(${base05})";
-              font_size = config.stylix.fonts.sizes.applications;
-              font_family = config.stylix.fonts.sansSerif.name;
-              position = "-10, 0";
-              halign = "right";
-              valign = "bottom";
-            }
+          animation = [
+            "fade,       1, 3, easeout"
+            "fadeOut,    1, 3, easeout"
+            "inputField, 1, 1, easeoutback"
           ];
+        };
 
-          auth = {
-            fingerprint.enabled = true;
-          };
+        label = [
+          {
+            text = "$TIME";
+            color = "rgb(${base05})";
+            font_family = config.stylix.fonts.monospace.name;
+            font_size = config.stylix.fonts.sizes.applications * 7;
+            text_align = "center";
+            halign = "center";
+            valign = "center";
+            position = "0, ${toString (10 + 2)}%";
+
+            shadow_passes = 6;
+            shadow_size = 4;
+            shadow_color = "rgb(${base00})";
+          }
+
+          {
+            text = "󰌌 $LAYOUT";
+            color = "rgb(${base05})";
+            font_family = config.stylix.fonts.sansSerif.name;
+            font_size = config.stylix.fonts.sizes.applications;
+            halign = "left";
+            valign = "bottom";
+            position = "2%, 2%";
+
+            shadow_passes = 6;
+            shadow_size = 4;
+            shadow_color = "rgb(${base00})";
+          }
+
+          {
+            text = "cmd[update:1000] ${getExe pkgs.self'.hyprlock-battery}";
+            color = "rgb(${base05})";
+            font_family = config.stylix.fonts.sansSerif.name;
+            font_size = config.stylix.fonts.sizes.applications;
+            halign = "center";
+            valign = "bottom";
+            position = "0, 2%";
+
+            shadow_passes = 6;
+            shadow_size = 4;
+            shadow_color = "rgb(${base00})";
+          }
+        ];
+
+        input-field = {
+          outline_thickness = 3;
+          fade_on_empty = true;
+
+          rounding = 18;
+        };
+
+        auth = {
+          pam.enabled = true;
+          fingerprint.enabled = true;
         };
       };
-
-      stylix.targets.hyprlock.useWallpaper = false;
     };
 
-    security.pam.services.hyprlock = { };
-  }
+    stylix.targets.hyprlock.useWallpaper = false;
+  };
+
+  security.pam.services.hyprlock = { };
+}

@@ -53,7 +53,10 @@ with lib;
             "qbittorrent"
             "transmission"
           ];
+
           initialHashedPassword = mkForce passwd;
+
+          description = "nixos system user, owner ${system.hostName} host!";
         };
 
         root.initialHashedPassword = mkForce passwd;

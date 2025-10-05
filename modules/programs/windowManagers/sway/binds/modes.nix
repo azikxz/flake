@@ -31,9 +31,9 @@ in
     plus = inner + "current plus 5";
     minus = inner + "current minus 5";
     "0" = inner + "current set 0";
-    "Shift+plus" = inner + "all plus 5";
-    "Shift+minus" = inner + "all minus 5";
-    "Shift+0" = inner + "all set 0";
+    "shift+plus" = inner + "all plus 5";
+    "shift+minus" = inner + "all minus 5";
+    "shift+0" = inner + "all set 0";
   }
   // exitMode;
 
@@ -41,9 +41,9 @@ in
     plus = outer + "current plus 5";
     minus = outer + "current minus 5";
     "0" = outer + "current set 0";
-    "Shift+plus" = outer + "all plus 5";
-    "Shift+minus" = outer + "all minus 5";
-    "Shift+0" = outer + "all set 0";
+    "shift+plus" = outer + "all plus 5";
+    "shift+minus" = outer + "all minus 5";
+    "shift+0" = outer + "all set 0";
   }
   // exitMode;
 }

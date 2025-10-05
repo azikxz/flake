@@ -37,37 +37,45 @@ let
 in
 
 (mkProgram {
-  "Q" = "kill";
-  "F" = "fullscreen";
+  "q" = "kill";
+  "f" = "fullscreen";
 
-  "Space" = "floating toggle; " + "resize set 90 ppt 90 ppt";
-  "Alt+Space" = "move position center";
+  "space" = "floating toggle; " + "resize set 90 ppt 90 ppt";
+  "alt+space" = "move position center";
 
-  "G" = "layout tabbed";
-  "Shift+G" = "layout toggle split";
+  "g" = "layout tabbed";
+  "shift+g" = "layout toggle split";
 
   "bracketleft" = "split h";
   "bracketright" = "split v";
 
-  "P" = "move scratchpad";
-  "Shift+P" = "scratchpad show";
-  "Alt+P" = "scratchpad show; " + "floating toggle";
+  "p" = "move scratchpad";
+  "shift+P" = "scratchpad show";
+  "alt+P" = "scratchpad show; " + "floating toggle";
 
-  "R" = "mode resize";
-  "Shift+R" = "mode gapsMode";
+  "r" = "mode resize";
+  "shift+r" = "mode gapsMode";
 
-  "Home" = "exit";
-  "Shift+Home" = "reload";
+  "home" = "exit";
+  "shift+home" = "reload";
 
-  "Tab" = exec + menu;
-  "Return" = exec + terminal;
-  "Shift+Return" = exec + terminal + " --class=termfloat";
-  "B" = "qutebrowser";
-  "Shift+B" = "keepassxc";
-  "V" = "telegram-desktop";
-  "Shift+V" = "vesktop";
-  "M" = "spotify";
+  "tab" = exec + menu;
+  "return" = exec + terminal;
+  "shift+return" = exec + terminal + " --class=termfloat";
+
+  "grave" =
+    if config.hm.programs.wleave.enable then
+      (lib.getExe config.hm.programs.wleave.package)
+    else
+      "swaymsg exit";
+
+  "b" = "qutebrowser";
+  "shift+b" = "keepassxc";
+  "v" = "telegram-desktop";
+  "shift+v" = "vesktop";
+  "m" = "spotify";
 })
+
 // (
   let
     pic = " ${XDG_SCREENSHOTS_DIR}/$(date +'scr_%d-%m-%y_%H:%M:%S.png')";

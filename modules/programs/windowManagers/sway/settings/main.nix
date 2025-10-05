@@ -36,12 +36,14 @@ rec {
   };
 
   assigns = rules.workspaces;
+
   window = {
     hideEdgeBorders = "smart";
     commands = rules.allOver;
     titlebar = false;
     border = 2;
   };
+
   floating = {
     inherit modifier;
     criteria = rules.float;

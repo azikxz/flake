@@ -34,24 +34,24 @@ in
         "${modifier}+Shift+${key}" = "move ${dir}";
       })
       {
-        H = "left";
-        J = "down";
-        K = "up";
-        L = "right";
-        Left = "left";
-        Down = "down";
-        Up = "up";
-        Right = "right";
+        h = "left";
+        j = "down";
+        k = "up";
+        l = "right";
+        left = "left";
+        down = "down";
+        up = "up";
+        right = "right";
       };
 
   resizeWindow =
     let
       mkResize = h: j: k: l: {
-        "${modifier}+Ctrl+${h}" = "resize shrink width 10 px or 10 ppt";
-        "${modifier}+Ctrl+${j}" = "resize shrink height 10 px or 10 ppt";
-        "${modifier}+Ctrl+${k}" = "resize grow height 10 px or 10 ppt";
-        "${modifier}+Ctrl+${l}" = "resize grow width 10 px or 10 ppt";
+        "${modifier}+ctrl+${h}" = "resize shrink width 10 px or 10 ppt";
+        "${modifier}+ctrl+${j}" = "resize shrink height 10 px or 10 ppt";
+        "${modifier}+ctrl+${k}" = "resize grow height 10 px or 10 ppt";
+        "${modifier}+ctrl+${l}" = "resize grow width 10 px or 10 ppt";
       };
     in
-    mkResize "H" "J" "K" "L" // mkResize "Left" "Down" "Up" "Right";
+    mkResize "H" "J" "K" "L" // mkResize "left" "down" "up" "right";
 }

@@ -22,6 +22,7 @@ pkgs.stdenv.mkDerivation rec {
     description = "Generate password for qbittorrent-nox";
     homepage = "https://gist.githubusercontent.com/hastinbe/8b8d247f17481cfc262a98d661bc0fd5";
     license = lib.licenses.gpl2;
+    platforms = [ "x86_64-linux" ];
     maintainers = with lib.maintainers; [ azikx ];
     mainProgram = pname;
   };

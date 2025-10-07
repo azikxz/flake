@@ -27,6 +27,7 @@ pkgs.stdenvNoCC.mkDerivation rec {
     description = "Control bt via wofi";
     homepage = "https://github.com/mctrxw/wofi-bluetooth";
     license = lib.licenses.gpl3;
+    platforms = [ "x86_64-linux" ];
     maintainers = with lib.maintainers; [ azikx ];
     mainProgram = pname;
   };

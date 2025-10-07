@@ -23,6 +23,7 @@ pkgs.stdenv.mkDerivation rec {
     description = "Server for live watch torrets";
     homepage = "https://github.com/YouROK/TorrServer";
     license = lib.licenses.gpl3;
+    platforms = [ "x86_64-linux" ];
     maintainers = with lib.maintainers; [ azikx ];
     mainProgram = "torrserver";
   };

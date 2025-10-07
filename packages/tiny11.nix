@@ -23,6 +23,7 @@ pkgs.stdenv.mkDerivation rec {
     description = "Tiny11 it is windows11 sborka";
     homepage = "https://archive.org/details/tiny-11-NTDEV";
     license = lib.licenses.unlicense; # it is unfree
+    platforms = [ "x86_64-linux" ];
     maintainers = with lib.maintainers; [ azikx ];
   };
 }

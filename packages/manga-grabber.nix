@@ -22,6 +22,7 @@ pkgs.buildGoModule rec {
     description = "Downloader for ru manga sources";
     homepage = "https://github.com/lirix360/ReadmangaGrabber";
     license = lib.licenses.mit;
+    platforms = [ "x86_64-linux" ];
     maintainers = with lib.maintainers; [ azikx ];
     mainProgram = "ReadmangaGrabber";
   };

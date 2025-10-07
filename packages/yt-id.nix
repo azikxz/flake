@@ -30,6 +30,7 @@ pkgs.stdenv.mkDerivation rec {
     description = "Get id youtube channels from url";
     homepage = "https://github.com/avanssion/youtube-channel-id-finder";
     license = lib.licenses.mit;
+    platforms = [ "x86_64-linux" ];
     maintainers = with lib.maintainers; [ azikx ];
     mainProgram = "ytid";
   };

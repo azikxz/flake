@@ -21,6 +21,7 @@ pkgs.stdenv.mkDerivation rec {
     description = "TUI client for transmission on bash";
     homepage = "https://github.com/dylanaraps/torque";
     license = lib.licenses.mit;
+    platforms = [ "x86_64-linux" ];
     maintainers = with lib.maintainers; [ azikx ];
     mainProgram = pname;
   };

@@ -11,10 +11,26 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     enable = true;
 
     options = {
+      guioptions = "none";
+
+      selection-clipboard = "clipboard";
       smooth-scroll = true;
+
       window-title-home-tilde = true;
       statusbar-home-tilde = true;
-      font = "${config.stylix.fonts.sansSerif.name} ${toString config.stylix.fonts.sizes.applications}";
+
+      font = concatStringsSep " " [
+        config.stylix.fonts.sansSerif.name
+        (toString config.stylix.fonts.sizes.applications)
+      ];
     };
   };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      zathura = prev.zathura.override {
+        useMupdf = true;
+      };
+    })
+  ];
 }

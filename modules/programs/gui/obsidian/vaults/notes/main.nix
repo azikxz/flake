@@ -31,7 +31,7 @@ with pkgs.self';
     };
 
     themes = [
-      { pkg = obsidian-minimal; }
+      { pkg = obsidian.minimal; }
     ];
 
     corePlugins = [
@@ -76,12 +76,12 @@ with pkgs.self';
 
     communityPlugins = [
       {
-        pkg = obsidian-minimal-settings;
+        pkg = obsidian.minimal-settings;
         settings = import ./minimal-settings.nix;
       }
 
       {
-        pkg = obsidian-style-settings;
+        pkg = obsidian.style-settings;
         settings = import ./style-settings.nix {
           inherit
             config
@@ -90,7 +90,7 @@ with pkgs.self';
       }
 
       {
-        pkg = obsidian-helix;
+        pkg = obsidian.helix;
         settings = {
           enableHelixKeybindings = false;
           cursorInInsertMode = "bar";
@@ -98,7 +98,7 @@ with pkgs.self';
       }
 
       {
-        pkg = obsidian-omnisearch;
+        pkg = obsidian.omnisearch;
         settings = {
           vimLikeNavigationShortcut = true;
           fuzziness = "2";
@@ -106,9 +106,9 @@ with pkgs.self';
         };
       }
 
-      { pkg = obsidian-prettier; }
+      { pkg = obsidian.prettier; }
 
-      { pkg = obsidian-docxer; }
+      { pkg = obsidian.docxer; }
     ];
 
     cssSnippets = [

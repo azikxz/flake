@@ -28,19 +28,14 @@ flake-utils.lib.eachSystem
     {
       formatter = pkgs.nixfmt-rfc-style;
 
-      packages = import ./packages.nix {
-        inherit
-          self
-          inputs
-          pkgs
-          lib
-          ;
-      };
-
-      devShells = import ./shells.nix {
-        inherit
-          pkgs
-          ;
+      packages = lib.filesystem.packagesFromDirectoryRecursive {
+        directory = ../packages;
+        callPackage = pkgs.callPackage {
+          inherit
+            self
+            inputs
+            ;
+        };
       };
     }
   )

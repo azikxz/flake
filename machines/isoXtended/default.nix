@@ -20,10 +20,7 @@
     volumeID = "NIXOS_ISO";
   };
 
-  boot = {
-    kernelPackages = lib.mkDefault pkgs.linuxPackages_zen; # idk for best optimize
-    loader.timeout = lib.mkDefault 0;
-  };
+  boot.loader.timeout = lib.mkDefault 0;
 
   networking = {
     wireless.enable = false;

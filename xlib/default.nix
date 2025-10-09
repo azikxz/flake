@@ -30,10 +30,12 @@ flake-utils.lib.eachSystem
 
       packages = lib.filesystem.packagesFromDirectoryRecursive {
         directory = ../packages;
-        callPackage = pkgs.callPackage {
+        callPackage = lib.callPackageWith {
           inherit
             self
             inputs
+            pkgs
+            lib
             ;
         };
       };

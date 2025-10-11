@@ -26,7 +26,11 @@ with lib;
     tmp.cleanOnBoot = true;
     consoleLogLevel = 0;
 
-    kernelModules = [ "kvm-amd" ];
+    kernelModules = [
+      "kvm-amd"
+      "tun"
+      "tap"
+    ];
 
     kernelParams = [
       "boot.shell_on_fail"

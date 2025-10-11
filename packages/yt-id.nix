@@ -1,6 +1,9 @@
-{ pkgs, lib }:
+{
+  pkgs,
+  lib,
+}:
 
-pkgs.stdenv.mkDerivation rec {
+pkgs.stdenv.mkDerivation {
   pname = "ytid";
   version = "stable";
 
@@ -15,9 +18,9 @@ pkgs.stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/bin
-    cp $src $out/bin/${pname}
-    chmod +x $out/bin/${pname}
-    wrapProgram $out/bin/${pname} \
+    cp $src $out/bin/ytid
+    chmod +x $out/bin/ytid
+    wrapProgram $out/bin/ytid \
       --prefix PATH : ${
         lib.makeBinPath [
           pkgs.curl

@@ -1,8 +1,11 @@
-{ pkgs, lib }:
+{
+  pkgs,
+  lib,
+}:
 
-pkgs.stdenvNoCC.mkDerivation rec {
+pkgs.stdenvNoCC.mkDerivation {
   pname = "wofi-bluetooth";
-  version = "unstable";
+  version = "git";
 
   src = pkgs.fetchurl {
     url = "https://raw.githubusercontent.com/mctrxw/wofi-bluetooth/a4a0caf025fba65d94534471c36158e0e81c154f/wofi-bluetooth";
@@ -15,10 +18,10 @@ pkgs.stdenvNoCC.mkDerivation rec {
   installPhase = ''
     mkdir -p $out/bin
 
-    install -Dm755 $src $out/bin/${pname}
-    chmod +x $out/bin/${pname}
+    install -Dm755 $src $out/bin/wofi-bt
+    chmod +x $out/bin/wofi-bt
 
-    wrapProgram $out/bin/${pname} \
+    wrapProgram $out/bin/wofi-bt \
       --prefix PATH ':' \
         "${lib.makeBinPath (with pkgs; [ wofi ])}"
   '';
@@ -29,6 +32,6 @@ pkgs.stdenvNoCC.mkDerivation rec {
     license = lib.licenses.gpl3;
     platforms = [ "x86_64-linux" ];
     maintainers = with lib.maintainers; [ azikx ];
-    mainProgram = pname;
+    mainProgram = "wofi-bt";
   };
 }

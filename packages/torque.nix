@@ -1,6 +1,9 @@
-{ pkgs, lib }:
+{
+  pkgs,
+  lib,
+}:
 
-pkgs.stdenv.mkDerivation rec {
+pkgs.stdenv.mkDerivation {
   pname = "torque";
   version = "git";
 
@@ -13,8 +16,8 @@ pkgs.stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/bin
-    cp $src $out/bin/${pname}
-    chmod +x $out/bin/${pname}
+    cp $src $out/bin/torque
+    chmod +x $out/bin/torque
   '';
 
   meta = {
@@ -23,6 +26,6 @@ pkgs.stdenv.mkDerivation rec {
     license = lib.licenses.mit;
     platforms = [ "x86_64-linux" ];
     maintainers = with lib.maintainers; [ azikx ];
-    mainProgram = pname;
+    mainProgram = "torque";
   };
 }

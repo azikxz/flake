@@ -1,4 +1,6 @@
-{ pkgs }:
+{
+  pkgs,
+}:
 
 pkgs.writeShellScriptBin "hyprlock-battery-status" ''
   #!/bin/bash

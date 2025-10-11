@@ -1,6 +1,9 @@
-{ pkgs, lib }:
+{
+  pkgs,
+  lib,
+}:
 
-pkgs.stdenv.mkDerivation rec {
+pkgs.stdenv.mkDerivation {
   pname = "qbitHash";
   version = "git";
 
@@ -14,8 +17,8 @@ pkgs.stdenv.mkDerivation rec {
   unpackPhase = "true";
   installPhase = ''
     mkdir -p $out/bin;
-    cp $src $out/bin/${pname}
-    chmod +x $out/bin/${pname}
+    cp $src $out/bin/qbit-hash
+    chmod +x $out/bin/qbit-hash
   '';
 
   meta = {
@@ -24,6 +27,6 @@ pkgs.stdenv.mkDerivation rec {
     license = lib.licenses.gpl2;
     platforms = [ "x86_64-linux" ];
     maintainers = with lib.maintainers; [ azikx ];
-    mainProgram = pname;
+    mainProgram = "qbit-hash";
   };
 }

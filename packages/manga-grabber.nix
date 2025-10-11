@@ -1,13 +1,16 @@
-{ pkgs, lib }:
+{
+  pkgs,
+  lib,
+}:
 
-pkgs.buildGoModule rec {
+pkgs.buildGoModule (final: {
   pname = "readmanga-grabber";
   version = "hotfix";
 
   src = pkgs.fetchFromGitHub {
     owner = "lirix360";
     repo = "ReadmangaGrabber";
-    rev = version;
+    rev = final.version;
     hash = "sha256-J2kyHIx8wXkRdZEXsv87MJ+uMqOTqIHQX/PBGMP+n1A=";
   };
 
@@ -26,4 +29,4 @@ pkgs.buildGoModule rec {
     maintainers = with lib.maintainers; [ azikx ];
     mainProgram = "ReadmangaGrabber";
   };
-}
+})

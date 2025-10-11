@@ -1,4 +1,7 @@
-{ pkgs, lib }:
+{
+  pkgs,
+  lib,
+}:
 
 let
   pyPkgs = pkgs.python312Packages;
@@ -11,13 +14,13 @@ let
 in
 with pyPkgs;
 
-buildPythonApplication rec {
+buildPythonApplication (final: {
   pname = "anicli_ru";
   version = "5.0.17";
   pyproject = true;
 
   src = pkgs.fetchPypi {
-    inherit pname version;
+    inherit (final) pname version;
     hash = "sha256-TEZ/E6UUKkONSsAd3XUaRSE60tfWDgYHqN9cINGCx/I=";
   };
 
@@ -71,4 +74,4 @@ buildPythonApplication rec {
     ];
     mainProgram = "anicli-ru";
   };
-}
+})

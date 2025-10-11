@@ -1,8 +1,11 @@
-{ pkgs, lib }:
+{
+  pkgs,
+  lib,
+}:
 
-pkgs.stdenv.mkDerivation rec {
+pkgs.stdenv.mkDerivation {
   pname = "waybar-awg";
-  version = "unstable";
+  version = "git";
 
   dontUnpack = true;
 
@@ -17,8 +20,8 @@ pkgs.stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/bin
-    cp $src $out/bin/${pname}
-    chmod +x $out/bin/${pname}
+    cp $src $out/bin/waybar-awg
+    chmod +x $out/bin/waybar-awg
   '';
 
   meta = {

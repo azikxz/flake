@@ -1,4 +1,7 @@
-{ pkgs, lib }:
+{
+  pkgs,
+  lib,
+}:
 
 # WARN: broken, im lazy to fixit
 # auto-patchelf failed to find all the required dependencies.

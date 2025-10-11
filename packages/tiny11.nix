@@ -1,11 +1,14 @@
-{ pkgs, lib }:
+{
+  pkgs,
+  lib,
+}:
 
-pkgs.stdenv.mkDerivation rec {
+pkgs.stdenv.mkDerivation (final: {
   pname = "tiny11";
   version = "202311";
 
   src = pkgs.fetchurl {
-    name = "${pname}-${version}.iso";
+    name = "${final.pname}-${final.version}.iso";
     url = "https://archive.org/download/tiny11-2311/tiny11%202311%20x64.iso";
     # or   https://archive.org/download/tiny-11-NTDEV/tiny11%2023H2%20x64.iso
     # use another hash
@@ -26,4 +29,4 @@ pkgs.stdenv.mkDerivation rec {
     platforms = [ "x86_64-linux" ];
     maintainers = with lib.maintainers; [ azikx ];
   };
-}
+})

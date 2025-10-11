@@ -22,6 +22,8 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       enable = true;
       gamescopeSession.enable = true;
 
+      protontricks.enable = true;
+
       remotePlay.openFirewall = true;
 
       extraCompatPackages = [ pkgs.proton-ge-bin ];

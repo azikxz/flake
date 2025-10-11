@@ -14,7 +14,9 @@ with lib;
   ];
 
   networking = {
-    hostName = system.hostName;
+    inherit (system)
+      hostName
+      ;
 
     useDHCP = mkDefault true;
 
@@ -29,13 +31,9 @@ with lib;
     };
 
     nameservers = [
-      "1.0.0.1"
-      "1.1.1.1"
-      "8.8.4.4"
-      "8.8.8.8"
+      "84.21.189.133" # https://info.dns.malw.link
+      "176.99.11.77" # https://xbox-dns.ru
     ];
-
-    extraHosts = readFile ./hosts;
   };
 
   programs.nm-applet = {

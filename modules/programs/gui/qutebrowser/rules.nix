@@ -46,6 +46,7 @@
     dvach = "2ch.su"; # zloba >:(
 
     # anime etc
+    anilist = "anilist.co";
     anilibria = "anilibria.top";
     animeGo = "animego.club/index";
     anilibMe = "v3.animelib.org";

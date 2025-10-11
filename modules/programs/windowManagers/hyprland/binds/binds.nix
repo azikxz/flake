@@ -13,6 +13,8 @@ let
   m = mk "$m,     ";
   s = mk "$m  $s, ";
   a = mk "$m  $a, ";
+
+  o = mk null;
 in
 
 [
@@ -63,8 +65,9 @@ in
   in
   [
     # screenshot
-    (mk null null "print, $ex, ${lib.getExe pkgs.grimblast} copysave area   " + pic)
-    (mk null "$s" "print, $ex, ${lib.getExe pkgs.grimblast} copysave output " + pic)
+    (o null "print, $ex, ${lib.getExe pkgs.grimblast} copysave area   " + pic)
+    (o "$s" "print, $ex, ${lib.getExe pkgs.grimblast} copysave output " + pic)
+    (o "$a" "print, $ex, ${lib.getExe pkgs.grimblast} copysave active " + pic)
   ]
 )
 ++ (import ./programs.nix {

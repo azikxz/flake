@@ -81,7 +81,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
             ''--token "${(n: prev.lib.replaceStrings [ "\n" ] [ "" ] n) (prev.lib.readFile ./token)}"''
           else
             (toString null)
-        }
+        } "$@"
       '';
     })
   ];

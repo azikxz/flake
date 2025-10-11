@@ -48,7 +48,7 @@
     # anime etc
     anilibria = "anilibria.top";
     animeGo = "animego.club/index";
-    anilibMe = "anilib.me/ru";
+    anilibMe = "v3.animelib.org";
     yummyAnime = "yummy-anime.org";
     dreamCast = "dreamerscast.com";
     dreamTorr = "195.91.184.178";

@@ -71,7 +71,7 @@ mkIf (config.programs.hyprland.enable) {
           }
 
           {
-            text = "cmd[update:1000] ${getExe pkgs.self'.hyprlock-battery}";
+            text = "cmd[update:1000] ${getExe pkgs.self'.hyprbat}";
             color = "rgb(${base05})";
             font_family = config.stylix.fonts.sansSerif.name;
             font_size = config.stylix.fonts.sizes.applications;

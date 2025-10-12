@@ -182,18 +182,6 @@ with lib;
           spacing = 8;
         };
 
-        "custom/amneziawg" = mkTooltip // {
-          format = "{text}";
-          # INFO: text = interface name
-          #       icon = connceted or not
-          interval = 1;
-
-          exec = "${getExe pkgs.self'.waybar-awg} show";
-          on-click = getExe pkgs.self'.waybar-awg;
-
-          return-type = "json";
-        };
-
         "bluetooth#name" = mkTooltip // {
           format = "{status}";
           format-disabled = "";

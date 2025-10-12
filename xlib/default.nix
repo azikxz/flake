@@ -28,17 +28,19 @@ flake-utils.lib.eachSystem
     {
       formatter = pkgs.nixfmt-rfc-style;
 
-      packages = lib.filesystem.packagesFromDirectoryRecursive {
-        directory = ../packages;
-        callPackage = lib.callPackageWith {
-          inherit
-            self
-            inputs
-            pkgs
-            lib
-            ;
-        };
-      };
+      packages = lib.attrsets.filterAttrs (name: _: !lib.strings.hasPrefix "obsidian-template" name) (
+        lib.filesystem.packagesFromDirectoryRecursive {
+          directory = ../packages;
+          callPackage = lib.callPackageWith {
+            inherit
+              self
+              inputs
+              pkgs
+              lib
+              ;
+          };
+        }
+      );
     }
   )
 // {

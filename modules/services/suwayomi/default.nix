@@ -15,10 +15,14 @@ mkIf (mac "pcRyazenka") {
     settings.server = {
       port = 4567;
 
-      extensionRepos = map (p: ("https://raw.githubusercontent.com/" + p)) [
-        "suwayomi/tachiyomi-extension/repo/index.min.json"
-        "yuzono/manga-repo/repo/index.min.json"
-      ];
+      extensionRepos = (
+        map (p: ("https://raw.githubusercontent.com/" + p)) [
+          "yuzono/manga-repo/repo/index.min.json"
+        ]
+      );
+
+      downloadAsCbz = true;
+      systemTrayEnabled = true;
     };
   };
 

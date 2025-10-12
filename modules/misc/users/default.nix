@@ -38,15 +38,17 @@ with lib;
             "input"
             "media"
             "video"
-            #
+
             "adbusers"
             "docker"
             "gamemode"
             "libvirtd"
             "networkmanager"
             "podman"
+            "suwayomi"
             "terraria"
             "wheel"
+
             # torrent
             "deluge"
             "flood"

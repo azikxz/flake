@@ -14,13 +14,16 @@ let
 in
 with pyPkgs;
 
-buildPythonApplication (final: {
+buildPythonApplication rec {
   pname = "anicli_ru";
   version = "5.0.17";
   pyproject = true;
 
   src = pkgs.fetchPypi {
-    inherit (final) pname version;
+    inherit
+      pname
+      version
+      ;
     hash = "sha256-TEZ/E6UUKkONSsAd3XUaRSE60tfWDgYHqN9cINGCx/I=";
   };
 
@@ -74,4 +77,4 @@ buildPythonApplication (final: {
     ];
     mainProgram = "anicli-ru";
   };
-})
+}

@@ -2,16 +2,16 @@
 
 pkgs.stdenv.mkDerivation rec {
   pname = "obsidian-docxer";
-  version = "2.2.2";
+  version = "2.3.0";
 
   mainJs = pkgs.fetchurl {
     url = "https://github.com/Developer-Mike/obsidian-docxer/releases/download/${version}/main.js";
-    sha256 = "sha256-xqeqWlomzRjdo18XYVGDnLWAuUvM3teApOASq07R5l0=";
+    sha256 = "sha256-wQsQZGJp+1acw67aXH2RKFSq2nSuSbWdIKjZDD3JJi8=";
   };
 
   manifest = pkgs.fetchurl {
     url = "https://github.com/Developer-Mike/obsidian-docxer/releases/download/${version}/manifest.json";
-    sha256 = "sha256-JMv1JN0zhI+OD010uNhc+CjWW1JfXvHMlYxdWPw47fo=";
+    sha256 = "sha256-lmBOQSOqEMRYOxOq7mhohTpWuvHnOVaePhDgxvtHmdk=";
   };
 
   styleCss = pkgs.fetchurl {

@@ -45,13 +45,6 @@ with lib;
                   "SETENV"
                 ];
               }
-              {
-                command = getExe pkgs.self'.waybar-awg;
-                options = [
-                  "NOPASSWD"
-                  "SETENV"
-                ];
-              }
             ]
             ++ [
               {

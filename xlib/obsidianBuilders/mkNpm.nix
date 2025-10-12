@@ -1,10 +1,13 @@
-{ pkgs, lib }:
+{
+  pkgs,
+  lib,
+}:
 
 lib.extendMkDerivation {
   constructDrv = pkgs.buildNpmPackage;
 
   extendDrvArgs =
-    final:
+    finalAttrs:
     {
       dist ? "dist",
       ...

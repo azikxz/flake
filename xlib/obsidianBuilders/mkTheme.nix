@@ -1,8 +1,11 @@
 {
   pkgs,
   lib,
+}:
 
-  src ? { },
+{
+  src,
+
   subDir ? ".",
   extraFiles ? [ ],
 }:

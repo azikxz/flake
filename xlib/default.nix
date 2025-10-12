@@ -18,7 +18,10 @@ flake-utils.lib.eachSystem
   (
     system:
     let
-      inherit (nixpkgs) lib;
+      inherit (nixpkgs)
+        lib
+        ;
+
       pkgs = import nixpkgs {
         inherit
           system
@@ -28,9 +31,10 @@ flake-utils.lib.eachSystem
     {
       formatter = pkgs.nixfmt-rfc-style;
 
-      packages = lib.attrsets.filterAttrs (name: _: !lib.strings.hasPrefix "obsidian-template" name) (
+      packages = (
         lib.filesystem.packagesFromDirectoryRecursive {
           directory = ../packages;
+
           callPackage = lib.callPackageWith {
             inherit
               self
@@ -38,6 +42,13 @@ flake-utils.lib.eachSystem
               pkgs
               lib
               ;
+
+            obsidian = import ./obsidianBuilders {
+              inherit
+                pkgs
+                lib
+                ;
+            };
           };
         }
       );
@@ -67,6 +78,10 @@ flake-utils.lib.eachSystem
       }:
 
       let
+        pkgs = import nixpkgs {
+          system = system.platform;
+        };
+
         specialArgs = {
           inherit
             self
@@ -92,6 +107,7 @@ flake-utils.lib.eachSystem
           // import ./options {
             inherit
               inputs
+              pkgs
               lib
               ;
           }

@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   ...
 }:
@@ -24,6 +25,13 @@ rec {
         exclude
         ;
     }));
+
+  obsidian = import ./obsidianBuilders {
+    inherit
+      pkgs
+      lib
+      ;
+  };
 }
 // import ./options.nix {
   inherit

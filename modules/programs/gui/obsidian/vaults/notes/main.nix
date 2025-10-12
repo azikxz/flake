@@ -106,7 +106,36 @@ with pkgs.self';
         };
       }
 
-      { pkg = obsidian.prettier; }
+      {
+        pkg = obsidian.prettier;
+        settings = {
+          version = 20002;
+
+          settings = {
+            formatOnSave = true;
+            formatOnFileChange = true;
+            formatCodeBlock = true;
+
+            removeExtraSpaces = false;
+            addTrailingSpaces = true;
+            languageMappings = { };
+
+            formatOptions = {
+              trailingComma = "es5";
+              tabWidth = 4;
+              semi = true;
+              singleQuote = true;
+            };
+
+            ignorePatterns = ''
+              **/.git
+              **/.svn
+              **/.hg
+              **/node_modules
+            '';
+          };
+        };
+      }
 
       { pkg = obsidian.docxer; }
     ];

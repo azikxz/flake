@@ -9,7 +9,7 @@ with lib;
 mkIf false {
   persist.user.dirs = [ ".local/share/komikku" ];
 
-  environment.systemPackages = [ pkgs.komikku ];
+  hmPackages = [ pkgs.komikku ];
 
   hm.dconf.settings = {
     "info/febvre/Komikku" = {

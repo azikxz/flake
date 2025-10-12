@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -7,22 +8,26 @@
 with lib;
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  hm.programs.zathura = {
-    enable = true;
+  hm = {
+    home.packages = [ pkgs.self'.zaread ];
 
-    options = {
-      guioptions = "none";
+    programs.zathura = {
+      enable = true;
 
-      selection-clipboard = "clipboard";
-      smooth-scroll = true;
+      options = {
+        guioptions = "none";
 
-      window-title-home-tilde = true;
-      statusbar-home-tilde = true;
+        selection-clipboard = "clipboard";
+        smooth-scroll = true;
 
-      font = concatStringsSep " " [
-        config.stylix.fonts.sansSerif.name
-        (toString config.stylix.fonts.sizes.applications)
-      ];
+        window-title-home-tilde = true;
+        statusbar-home-tilde = true;
+
+        font = concatStringsSep " " [
+          config.stylix.fonts.sansSerif.name
+          (toString config.stylix.fonts.sizes.applications)
+        ];
+      };
     };
   };
 

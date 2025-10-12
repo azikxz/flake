@@ -10,7 +10,7 @@ with lib;
 # gdu /path/to/path
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  environment.systemPackages = [ pkgs.gdu ];
+  hmPackages = [ pkgs.gdu ];
 
   hm.home.file.".gdu.yaml".text =
     with config.lib.stylix.colors.withHashtag;

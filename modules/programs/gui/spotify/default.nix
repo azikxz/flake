@@ -15,7 +15,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     ".cache/spotify"
   ];
 
-  environment.systemPackages = [ pkgs.spotdl ];
+  hmPackages = [ pkgs.spotdl ];
 
   hm.programs.spicetify = {
     enable = true;

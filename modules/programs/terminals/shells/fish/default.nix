@@ -11,7 +11,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
   programs.fish.enable = true;
 
-  environment.systemPackages = [ pkgs.grc ];
+  hmPackages = [ pkgs.grc ];
 
   hm.programs.fish = {
     enable = true;

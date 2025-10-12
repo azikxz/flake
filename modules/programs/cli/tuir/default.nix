@@ -8,7 +8,7 @@ with lib;
 # INFO: terminal client for reddit
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  environment.systemPackages = [ pkgs.tuir ];
+  hmPackages = [ pkgs.tuir ];
 
   hm.xdg.configFile = {
     "tuir/tuir.cfg".text = lib.generators.toINI { } {

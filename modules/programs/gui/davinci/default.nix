@@ -16,7 +16,7 @@ mkIf false {
     ".local/state/DaVinciResolve"
   ];
 
-  environment.systemPackages = with pkgs; [
+  hmPackages = with pkgs; [
     (old.davinci-resolve-studio.override (old: {
       buildFHSEnv =
         fhs:

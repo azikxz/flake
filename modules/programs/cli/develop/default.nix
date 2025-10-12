@@ -10,7 +10,7 @@ with lib;
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".config/hut" ];
 
-  environment.systemPackages = attrValues {
+  hmPackages = attrValues {
     inherit (pkgs)
       cachix
       hut

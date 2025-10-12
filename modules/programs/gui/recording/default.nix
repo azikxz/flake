@@ -17,7 +17,7 @@ in
 # and wf-recorded
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  environment.systemPackages = [ pkgs.wf-recorder ];
+  hmPackages = [ pkgs.wf-recorder ];
 
   hm = {
     programs.obs-studio = {

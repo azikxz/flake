@@ -7,7 +7,7 @@
 with lib;
 
 mkIf (mac "thinkpadT14") {
-  environment.systemPackages = with pkgs; [
+  hmPackages = with pkgs; [
     imagemagick
     jpegoptim
     lutgen

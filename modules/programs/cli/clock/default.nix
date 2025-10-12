@@ -7,9 +7,9 @@
 with lib;
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  environment.systemPackages = [ pkgs.tenki ];
+  hmPackages = [ pkgs.tenki ];
 
-  environment.shellAliases = {
+  hm.home.shellAliases = {
     ter = ''
       tenki --fps 80 \
         --wind disable \

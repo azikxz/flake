@@ -7,7 +7,7 @@
 with lib;
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  environment.systemPackages = [ pkgs.nvtopPackages.amd ];
+  hmPackages = [ pkgs.nvtopPackages.amd ];
 
   hm = {
     home.shellAliases = {

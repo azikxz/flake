@@ -12,5 +12,5 @@ mkIf (mac "pcRyazenka") {
     ".config/r2modmanPlus-local"
   ];
 
-  environment.systemPackages = [ pkgs.r2modman ];
+  hmPackages = [ pkgs.r2modman ];
 }

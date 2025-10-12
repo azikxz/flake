@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   ...
 }:
@@ -20,15 +19,5 @@
     initialHashedPassword = lib.mkForce "$2b$05$vfFJcNMZaHujKhPSERV/o.nLa2GqYlM0e8ovlfwnhj4XdOJ3Gv7h2";
 
     description = "beta tester for programs";
-  };
-
-  environment.systemPackages = [
-    pkgs.helix
-    pkgs.nwg-drawer
-  ];
-
-  programs = {
-    sway.enable = true;
-    foot.enable = true;
   };
 }

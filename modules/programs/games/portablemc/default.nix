@@ -14,7 +14,7 @@ mkIf false {
     ".minecraft"
   ];
 
-  environment.systemPackages = with pkgs; [
+  hmPackages = with pkgs; [
     ferium
     portablemc
   ];

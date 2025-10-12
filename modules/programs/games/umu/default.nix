@@ -14,33 +14,33 @@ in
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/umu" ];
 
-  environment = {
-    shellAliases.uwu = "umu-run";
+  hmPackages = with pkgs; [
+    (umu-launcher.override {
+      extraEnv = {
+        # PROTON_ENABLE_WAYLAND = 1;
+        inherit PROTONPATH;
 
-    systemPackages = with pkgs; [
-      (umu-launcher.override {
-        extraEnv = {
-          # PROTON_ENABLE_WAYLAND = 1;
-          inherit PROTONPATH;
+        WINEPREFIX =
+          if (paths.winePrefix != null) then
+            paths.winePrefix
+          else
+            (concatStringsSep "/" [
+              config.hm.home.homeDirectory
+              "UnifiedPrefix"
+            ]);
+      };
+    })
 
-          WINEPREFIX =
-            if (paths.winePrefix != null) then
-              paths.winePrefix
-            else
-              (concatStringsSep "/" [
-                config.hm.home.homeDirectory
-                "UnifiedPrefix"
-              ]);
-        };
-      })
+    vkbasalt
+  ];
 
-      vkbasalt
-    ];
-  };
+  hm = {
+    home.shellAliases.uwu = "umu-run";
 
-  hm.xdg.configFile."protonfixes" = {
-    recursive = true;
+    xdg.configFile."protonfixes" = {
+      recursive = true;
 
-    source = inputs.protonfixes;
+      source = inputs.protonfixes;
+    };
   };
 }

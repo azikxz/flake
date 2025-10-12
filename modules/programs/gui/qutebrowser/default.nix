@@ -12,7 +12,7 @@ with lib;
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/qutebrowser" ];
 
-  environment.systemPackages = with pkgs.python312Packages; [
+  hmPackages = with pkgs.python312Packages; [
     adblock
     requests
   ];

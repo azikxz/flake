@@ -12,7 +12,7 @@ with lib;
 # https://github.com/vypivshiy/anicli-api/issues/42#issuecomment-2889017544
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  environment.systemPackages = [ pkgs.anicliru ];
+  hmPackages = [ pkgs.anicliru ];
 
   nixpkgs.overlays = [
     (final: prev: {

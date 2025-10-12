@@ -11,7 +11,7 @@ with lib;
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/PrismLauncher" ];
 
-  environment.systemPackages = [ pkgs.prismlauncher ];
+  hmPackages = [ pkgs.prismlauncher ];
 
   networking.firewall = genAttrs [
     "allowedTCPPorts"

@@ -7,7 +7,7 @@
 with lib;
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  environment.systemPackages = [ pkgs.nemo ];
+  hmPackages = [ pkgs.nemo ];
 
   hm.dconf.settings = {
     "org/nemo/icon-view" = {

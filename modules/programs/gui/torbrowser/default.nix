@@ -7,5 +7,5 @@
 with lib;
 
 mkIf false {
-  environment.systemPackages = [ pkgs.tor-browser ];
+  hmPackages = [ pkgs.tor-browser ];
 }

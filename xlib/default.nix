@@ -178,6 +178,17 @@ flake-utils.lib.eachSystem
                 )
 
                 (lib.mkAliasOptionModule
+                  [ "hmPackages" ]
+                  [
+                    "home-manager"
+                    "users"
+                    system.userName
+                    "home"
+                    "packages"
+                  ]
+                )
+
+                (lib.mkAliasOptionModule
                   [ "tmp" ]
                   [
                     "systemd"

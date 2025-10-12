@@ -10,14 +10,5 @@ with lib;
 # qbt
 
 mkIf config.services.qbittorrent.enable {
-  environment.systemPackages = [ pkgs.qbittorrent-cli ];
-
-  hm.home.file = {
-    ".qbt/settings.json".text = builtins.toJSON {
-      Url = "http://localhost:8080";
-
-      Username = "pirate";
-      Password = "spRAI+w8UcTTURyl7jGwkfT3caXlxQNozd8yoK25HAo=";
-    };
-  };
+  hmPackages = [ pkgs.qbittorrent-cli ];
 }

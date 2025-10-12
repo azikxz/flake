@@ -10,7 +10,7 @@ with lib;
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/64Gram/tdata" ];
 
-  environment.systemPackages = [ pkgs._64gram ];
+  hmPackages = [ pkgs._64gram ];
 
   hm = {
     xdg = {

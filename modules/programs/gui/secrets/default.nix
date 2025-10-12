@@ -12,7 +12,7 @@ in
 # INFO: gnome keepass frontend
 
 mkIf false {
-  environment.systemPackages = [ pkgs.gnome-gnome-secrets ];
+  hmPackages = [ pkgs.gnome-gnome-secrets ];
 
   hm.dconf.settings = {
     "org/gnome/World/Secrets" = {

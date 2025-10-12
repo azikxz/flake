@@ -7,7 +7,7 @@
 with lib;
 
 mkIf false {
-  environment.systemPackages = [ pkgs.figlet ];
+  hmPackages = [ pkgs.figlet ];
 
   hm.xdg.configFile =
     let

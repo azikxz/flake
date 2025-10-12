@@ -14,7 +14,7 @@ with lib;
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".config/legendary" ];
 
-  environment.systemPackages = [ pkgs.legendary-gl ];
+  hmPackages = [ pkgs.legendary-gl ];
 
   hm.xdg.configFile."legendary/config.ini".text = generators.toINI { } {
     "Legendary" = {

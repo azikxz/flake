@@ -12,7 +12,7 @@ in
 # INFO: tui journal tool
 
 mkIf (mac "thinkpadT14") {
-  environment.systemPackages = [ pkgs.tui-journal ];
+  hmPackages = [ pkgs.tui-journal ];
 
   hm.xdg.configFile = {
     "tui-journal/config.toml".source = toml.generate "tjournal" {

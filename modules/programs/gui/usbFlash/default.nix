@@ -7,5 +7,5 @@
 with lib;
 
 mkIf (mac "pcRyazenka") {
-  environment.systemPackages = [ pkgs.popsicle ];
+  hmPackages = [ pkgs.popsicle ];
 }

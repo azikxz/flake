@@ -12,7 +12,7 @@ in
 # very simple
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  environment.systemPackages = [ pkgs.discordo ];
+  hmPackages = [ pkgs.discordo ];
 
   hm.xdg.configFile = {
     "discordo/config.toml".source = toml.generate "discordo" {

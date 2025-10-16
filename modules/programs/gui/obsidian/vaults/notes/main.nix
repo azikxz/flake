@@ -6,6 +6,9 @@
 }:
 
 with pkgs.self';
+let
+  helixBinds = true;
+in
 
 {
   target = lib.removePrefix (
@@ -15,7 +18,7 @@ with pkgs.self';
   settings = {
     app = {
       tabSize = 2;
-      vimMode = true;
+      vimMode = !helixBinds;
       defaultViewMode = "preview";
       livePreview = false;
       readableLineLength = true;
@@ -92,7 +95,7 @@ with pkgs.self';
       {
         pkg = obsidian.helix;
         settings = {
-          enableHelixKeybindings = false;
+          enableHelixKeybindings = helixBinds;
           cursorInInsertMode = "bar";
         };
       }

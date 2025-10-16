@@ -270,7 +270,7 @@
     }
   ];
 
-  "obsidian-plugin-prettier:format-note" = [
+  "prettier:format-content" = [
     {
       "key" = "P";
       "modifiers" = [ "Mod" ];

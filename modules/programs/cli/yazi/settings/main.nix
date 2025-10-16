@@ -3,6 +3,25 @@
   config,
   ...
 }:
+let
+  mk =
+    run: list:
+    (map (mime: {
+      inherit
+        run
+        mime
+        ;
+    }) list);
+
+  office = (
+    mk "office" [
+      "application/ms-*"
+      "application/msword"
+      "application/oasis.*"
+      "application/openxmlformats-officedocument.*"
+    ]
+  );
+in
 
 {
   shellWrapperName = "yy";
@@ -32,65 +51,53 @@
       max_width = 5000;
     };
 
-    input =
-      let
-        _ = n: n + "_origin";
-      in
-      lib.genAttrs [
-        (_ "cd")
-        (_ "find")
-        (_ "rename")
-        (_ "filter")
-        (_ "create")
-        (_ "delete")
-        (_ "search")
-        (_ "shell")
-      ] (n: "center");
+    input = lib.genAttrs [
+      "cd_origin"
+      "find_origin"
+      "rename_origin"
+      "filter_origin"
+      "create_origin"
+      "delete_origin"
+      "search_origin"
+      "shell_origin"
+    ] (n: "center");
 
-    plugin =
-      let
-        mk =
-          run: list:
-          (map (mime: {
-            inherit
-              mime
-              ;
-            run = "ouch";
-          }) list);
-      in
-      {
-        prepend_previewers =
-          (mk "ouch" [
-            "application/*zip"
-            "application/*tar"
-            "application/*bzip2"
-            "application/*7z-compressed"
-            "application/*rar"
-            "application/*xz"
-            "application/vnd.rar"
-            "application/7z-compressed"
-            "application/rar"
-          ])
-          ++ [
-            {
-              name = "*.md";
-              run = "glow";
-            }
-          ];
-
-        prepend_fetchers = [
+    plugin = {
+      prepend_previewers =
+        (mk "ouch" [
+          "application/*zip"
+          "application/*tar"
+          "application/*bzip2"
+          "application/*7z-compressed"
+          "application/*rar"
+          "application/*xz"
+          "application/vnd.rar"
+          "application/7z-compressed"
+          "application/rar"
+        ])
+        ++ office
+        ++ [
           {
-            id = "git";
-            name = "*";
-            run = "git";
-          }
-          {
-            id = "git";
-            name = "*/";
-            run = "git";
+            name = "*.md";
+            run = "glow";
           }
         ];
-      };
+
+      preloaders = office ++ [ ];
+
+      prepend_fetchers = [
+        {
+          id = "git";
+          name = "*";
+          run = "git";
+        }
+        {
+          id = "git";
+          name = "*/";
+          run = "git";
+        }
+      ];
+    };
 
     opener = import ./opener.nix {
       inherit

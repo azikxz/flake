@@ -42,6 +42,10 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     };
   };
 
+  hmMime = mkMime {
+    "io.github.tdesktop_x64.TDesktop.desktop" = [ "x-scheme-handler/tg" ];
+  };
+
   nixpkgs.overlays = [
     (final: prev: {
       _64gram = prev.symlinkJoin {

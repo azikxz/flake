@@ -990,7 +990,7 @@
     "umu-database": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-iEuLU/0ZRy0AdCo2v1CG8T5gm7Tkzn60H1kvIkbY/OQ=",
+        "narHash": "sha256-x99H7tteWiFJva5VYkDeZD8HHXoiU2VTj8M1wljhL58=",
         "type": "file",
         "url": "https://raw.githubusercontent.com/Open-Wine-Components/umu-database/refs/heads/main/umu-database.csv"
       },

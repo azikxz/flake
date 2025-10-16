@@ -43,5 +43,41 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           ;
       };
     };
+
+    xdg.mimeApps.associations.removed = genAttrs [
+      "image/avif"
+      "image/gif"
+      "image/heif"
+      "image/jpg"
+      "image/jpeg"
+      "image/jxl"
+      "image/png"
+      "image/bmp"
+      "image/x-eps"
+      "image/x-icns"
+      "image/x-ico"
+      "image/x-portable-bitmap"
+      "image/x-portable-graymap"
+      "image/x-portable-swayimgmap"
+      "image/x-xbitmap"
+      "image/x-xswayimgmap"
+      "image/tiff"
+      "image/x-psd"
+      "image/x-webp"
+      "image/webp"
+      "image/x-tga"
+      "image/svg+xml"
+    ] (n: [ "org.qutebrowser.qutebrowser.desktop" ]);
+  };
+
+  hmMime = mkMime {
+    "org.qutebrowser.qutebrowser.desktop" = [
+      "text/html"
+      "x-scheme-handler/http"
+      "x-scheme-handler/https"
+      "x-scheme-handler/chrome"
+      "x-scheme-handler/about"
+      "x-scheme-handler/unknown"
+    ];
   };
 }

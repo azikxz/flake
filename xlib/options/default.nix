@@ -26,6 +26,19 @@ rec {
         ;
     }));
 
+  mkMime =
+    assocs:
+    lib.pipe assocs [
+      (lib.mapAttrsToList (
+        prog:
+        map (type: {
+          "${type}" = prog;
+        })
+      ))
+      lib.flatten
+      lib.zipAttrs
+    ];
+
   obsidian = import ./obsidianBuilders {
     inherit
       pkgs

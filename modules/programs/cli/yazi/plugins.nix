@@ -5,124 +5,87 @@
 
 let
   inherit (pkgs)
+    self'
     yaziPlugins
     writeTextDir
     fetchFromGitHub
     ;
 
-  mkPlugin = n: {
-    "${n}" = (
-      (fetchFromGitHub {
-        owner = "yazi-rs";
-        repo = "plugins";
-        rev = "b8860253fc44e500edeb7a09db648a829084facd";
-        hash = "sha256-29K8PmBoqAMcQhDIfOVnbJt2FU4BR6k23Es9CqyEloo=";
-      })
-      + "/"
-      + n
-      + ".yazi"
-    );
-  };
-
   plugin = n: t: {
-    "${n}" = toString (writeTextDir (n + ".yazi" + "/" + "main.lua") t) + ("/" + n + ".yazi");
+    "${n}" = (writeTextDir "${n}.yazi/main.lua" t) + "/${n}.yazi";
   };
 in
 
 {
-  plugins =
+  plugins = {
+    inherit (yaziPlugins)
+      chmod
+      full-border
+      git
+      jump-to-char
+      mount
+      ouch
+      restore
+      smart-enter
+      toggle-pane
+      yatline
+      ;
+
+    inherit (self'.yazi)
+      glow
+      office
+      wl-clipboard
+      ;
+  }
+  //
+
+    # fetched
     {
-      inherit (yaziPlugins)
-        chmod
-        full-border
-        git
-        jump-to-char
-        mount
-        restore
-        smart-enter
-        yatline
-        ;
+      save-clipboard-to-file = fetchFromGitHub {
+        owner = "boydaihungst";
+        repo = "save-clipboard-to-file.yazi";
+        rev = "40de82fec9f46d3c3d1dc8907d0ca3fa6ca8c8f1";
+        hash = "sha256-5wtSjwg6RvbIuODwQOHJ+bHhPjhn0UyRWzPngdS8uQM=";
+      };
     }
 
-    # builtin
-    // (mkPlugin "toggle-pane")
-    //
+  # custom
+  // (plugin "smart-paste" # lua
+    ''
+      --- @sync entry
+      return { entry = function()
+      local h = cx.active.current.hovered
+      if h and h.cha.is_dir then
+      ya.manager_emit("enter", {})
+      ya.manager_emit("paste", {})
+      ya.manager_emit("leave", {}) else
+      ya.manager_emit("paste", {}) end end, }
+    ''
+  )
 
-      # fetched
-      {
-        ouch = fetchFromGitHub {
-          owner = "ndtoan96";
-          repo = "ouch.yazi";
-          rev = "1ee69a56da3c4b90ec8716dd9dd6b82e7a944614";
-          hash = "sha256-4KZeDkMXlhUV0Zh+VGBtz9kFPGOWCexYVuKUSCN463o=";
-        };
+  // (plugin "parent-arrow" # lua
+    ''
+      --- @sync entry
+      local function entry(_, job)
+      local parent = cx.active.parent if not parent then return end
+      local offset = tonumber(job.args[1]) if not offset then return
+      ya.err(job.args[1], 'is not a number') end
+      local start = parent.cursor + 1 + offset
+      local end_ = offset < 0 and 1 or #parent.files
+      local step = offset < 0 and -1 or 1
+      for i = start, end_, step do local target = parent.files[i]
+      if target and target.cha.is_dir then return
+      ya.mgr_emit("cd", { target.url }) end end end
+      return { entry = entry }
+    ''
+  )
 
-        glow = fetchFromGitHub {
-          owner = "tiejunhu";
-          repo = "glow.yazi";
-          rev = "eec50c71586e1649b6655d9a2d349cec245280e8";
-          hash = "sha256-ppsYr26T3iF5UVFq+EPIe/Ai7GgAj0Ry1yu0440tQtc=";
-        };
-
-        wl-clipboard = fetchFromGitHub {
-          owner = "xmozoid";
-          repo = "wl-clipboard.yazi";
-          rev = "e3eb54b8d7d2e79d53db90bdb509211d7bceae2f";
-          hash = "sha256-7eJjNJyC6q+foCF48lwtjCt8fKqHfRWebbp7ymEb5NE=";
-        };
-
-        office = fetchFromGitHub {
-          owner = "macydnah";
-          repo = "office.yazi";
-          rev = "4002d368c09841d5722d55720fd29c2eba05300f";
-          hash = "sha256-XE+EfVPsO09zG8qYEhN6O95mS9NJlTdOd4Gsem2KtPI=";
-        };
-
-        save-clipboard-to-file = fetchFromGitHub {
-          owner = "boydaihungst";
-          repo = "save-clipboard-to-file.yazi";
-          rev = "40de82fec9f46d3c3d1dc8907d0ca3fa6ca8c8f1";
-          hash = "sha256-5wtSjwg6RvbIuODwQOHJ+bHhPjhn0UyRWzPngdS8uQM=";
-        };
-      }
-
-    # custom
-    // (plugin "smart-paste" # lua
-      ''
-        --- @sync entry
-        return { entry = function()
-        local h = cx.active.current.hovered
-        if h and h.cha.is_dir then
-        ya.manager_emit("enter", {})
-        ya.manager_emit("paste", {})
-        ya.manager_emit("leave", {}) else
-        ya.manager_emit("paste", {}) end end, }
-      ''
-    )
-
-    // (plugin "parent-arrow" # lua
-      ''
-        --- @sync entry
-        local function entry(_, job)
-        local parent = cx.active.parent if not parent then return end
-        local offset = tonumber(job.args[1]) if not offset then return
-        ya.err(job.args[1], 'is not a number') end
-        local start = parent.cursor + 1 + offset
-        local end_ = offset < 0 and 1 or #parent.files
-        local step = offset < 0 and -1 or 1
-        for i = start, end_, step do local target = parent.files[i]
-        if target and target.cha.is_dir then return
-        ya.mgr_emit("cd", { target.url }) end end end
-        return { entry = entry }
-      ''
-    )
-
-    // (plugin "smart-tab" # lua
-      ''
-        --- @sync entry
-        return { entry = function() local h = cx.active.current.hovered
-        ya.manager_emit("tab_create", h and h.cha.is_dir and
-        { h.url } or { current = true }) end, }
-      ''
-    );
+  // (plugin "smart-tab" # lua
+    ''
+      --- @sync entry
+      return { entry = function() local h = cx.active.current.hovered
+      ya.manager_emit("tab_create", h and h.cha.is_dir and
+      { h.url } or { current = true }) end, }
+    ''
+  );
 }

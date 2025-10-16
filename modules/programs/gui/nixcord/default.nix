@@ -16,4 +16,8 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
     config = import ./settings.nix;
   };
+
+  hmMime = mkMime {
+    "vesktop.desktop" = [ "x-scheme-handler/discord" ];
+  };
 }

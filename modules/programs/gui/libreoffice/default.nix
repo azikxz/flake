@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  config,
   ...
 }:
 
@@ -15,66 +14,33 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     poppler-utils
   ];
 
-  hm.programs.yazi.settings = mkIf config.hm.programs.yazi.enable {
-    opener = {
-      office = [
-        {
-          run = ''libreoffice "$@"'';
-          desc = "Open document";
-          orphan = true;
-        }
-      ];
-    };
+  hmMime = mkMime {
+    "libreoffice.desktop" = [
+      "application/msword"
+      "application/vnd.oasis.opendocument.text"
+      "application/vnd.oasis.opendocument.text-template"
+      "application/vnd.oasis.opendocument.text-web"
+      "application/vnd.oasis.opendocument.text-master"
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 
-    open.rules = (
-      map
-        (
-          n:
-          (name: use: {
-            inherit
-              name
-              use
-              ;
-          })
-            n
-            "office"
-        )
-        [
-          "*.odt"
-          "*.odp"
-          "*.ods"
-          "*.doc"
-          "*.docx"
-          "*.ppt"
-          "*.pptx"
-          "*.xls"
-          "*.xlsx"
-        ]
-    );
+      "application/vnd.ms-excel"
+      "application/vnd.oasis.opendocument.spreadsheet"
+      "application/vnd.oasis.opendocument.spreadsheet-template"
+      "application/vnd.oasis.opendocument.chart"
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      "text/csv"
 
-    plugin =
-      let
-        mk =
-          run: list:
-          (map (mime: {
-            inherit
-              mime
-              run
-              ;
-          }) list);
+      "application/vnd.ms-powerpoint"
+      "application/vnd.oasis.opendocument.presentation"
+      "application/vnd.oasis.opendocument.presentation-template"
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation"
 
-        list' = [
-          "application/ms-*"
-          "application/msword"
-          "application/oasis.opendocument.*"
-          "application/openxmlformats-officedocument.*"
-          "*.docx"
-        ];
-      in
-      {
-        prepend_preloaders = mk "office" list';
+      "application/vnd.oasis.opendocument.graphics"
+      "application/vnd.oasis.opendocument.graphics-template"
+      "application/vnd.oasis.opendocument.image"
 
-        prepend_previewers = mk "office" list';
-      };
+      "application/vnd.oasis.opendocument.formula"
+      "application/vnd.oasis.opendocument.database"
+    ];
   };
 }

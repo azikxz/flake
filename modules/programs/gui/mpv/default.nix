@@ -37,4 +37,12 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
     extraInput = settings.extra;
   };
+
+  hmMime = mkMime {
+    "mpv.desktop" = [
+      "video/*"
+      "audio/*"
+      "application/x-matroska"
+    ];
+  };
 }

@@ -1,5 +1,6 @@
 {
   lib,
+  config,
   ...
 }:
 
@@ -12,6 +13,8 @@ mkIf (mac "pcRyazenka") {
     enable = true;
 
     openFirewall = true;
+    dataDir = config.hm.home.homeDirectory;
+
     settings.server = {
       port = 4567;
 
@@ -21,10 +24,14 @@ mkIf (mac "pcRyazenka") {
         ]
       );
 
+      updateMangas = true;
       downloadAsCbz = true;
-      systemTrayEnabled = true;
-    };
-  };
+    }
+    // genAttrs [ "downloadsPath" "localSourcePath" ] (
+      n: config.hm.xdg.userDirs.desktop + "/localManga"
+    );
+  }
+  // genAttrs [ "user" "group" ] (n: system.userName);
 
   nixpkgs.overlays = [
     (final: prev: {

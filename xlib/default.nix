@@ -189,6 +189,18 @@ flake-utils.lib.eachSystem
                 )
 
                 (lib.mkAliasOptionModule
+                  [ "hmMime" ]
+                  [
+                    "home-manager"
+                    "users"
+                    system.userName
+                    "xdg"
+                    "mimeApps"
+                    "defaultApplications"
+                  ]
+                )
+
+                (lib.mkAliasOptionModule
                   [ "tmp" ]
                   [
                     "systemd"

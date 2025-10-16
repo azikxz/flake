@@ -31,22 +31,34 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         SearchViewState=@ByteArray()
         SplitterState=178, 1720
       '';
+
+    systemd.user.services.keepassxc = {
+      Unit = {
+        Description = config.hm.programs.keepassxc.package.meta.description;
+        After = [ "graphical-session.target" ];
+      };
+
+      Service = {
+        ExecStart = concatStringsSep " " [
+          (getExe config.hm.programs.keepassxc.package)
+          "--minimized"
+          "--pw-stdin"
+          "~/Documents/passwords/db.kdbx"
+        ];
+
+        Type = "simple";
+        KillMode = "process";
+        Restart = "on-failure";
+        RestartSec = 5;
+      };
+
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
   };
 
-  systemd.user.services.keepassxc = {
-    description = "Autostart for keepassxc";
-
-    script = concatStringsSep " " [
-      (getExe config.hm.programs.keepassxc.package)
-      "--minimized"
-      "--pw-stdin"
-      "~/Documents/passwords/db.kdbx"
+  hmMime = mkMime {
+    "org.keepassxc.KeePassXC.desktop" = [
+      "application/x-keepass2"
     ];
-
-    postStart = "sleep 1";
-    reload = "kill -SIGUSR2 $MAINPID";
-
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
   };
 }

@@ -4,10 +4,12 @@
   ...
 }:
 
+with lib;
+
 {
   edit = [
     {
-      run = ''hx "$@"'';
+      run = ''${config.hm.home.sessionVariables.EDITOR} "$@"'';
       desc = "Open in editor";
       block = true;
     }
@@ -17,8 +19,6 @@
     {
       run = ''mpv --fs "$@"'';
       desc = "Open video";
-      orphan = true;
-      block = true;
     }
   ];
 
@@ -26,15 +26,21 @@
     {
       run = ''swayimg "$@"'';
       desc = "Open image";
+    }
+  ];
+
+  office = [
+    {
+      run = ''libreoffice "$@"'';
+      desc = "Open document";
       orphan = true;
-      block = true;
     }
   ];
 
   pdf = [
     {
       run = ''zathura "$@"'';
-      orphan = true;
+      desc = "Open PDF";
     }
   ];
 
@@ -49,7 +55,13 @@
     {
       run = ''keepassxc "$@"'';
       desc = "Open passwords db";
-      orphan = true;
+    }
+  ];
+
+  prism = [
+    {
+      run = ''prismlauncher "$@"'';
+      desc = "Import modpack to prismlauncher";
     }
   ];
 
@@ -61,17 +73,18 @@
     }
   ];
 
-  native = lib.mkIf config.programs.steam.enable [
+  native = mkIf config.programs.steam.enable [
     {
       run = ''steam-run "$@"'';
       desc = "Open native bin";
       orphan = true;
+      block = true;
     }
   ];
 
   open = [
     {
-      run = "xdg-open \"$@\"";
+      run = ''xdg-open "$@"'';
       desc = "Open via xdg";
     }
   ];

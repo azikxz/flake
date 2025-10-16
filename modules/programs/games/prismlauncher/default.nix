@@ -30,6 +30,15 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     );
   };
 
+  hmMime = mkMime {
+    "org.prismlauncher.PrismLauncher.desktop" = [
+      "x-scheme-handler/prismlauncher"
+      "x-scheme-handler/curseforge"
+      "application/x-modrinth-modpack+zip"
+      "application/zip"
+    ];
+  };
+
   nixpkgs.overlays = [
     (final: prev: {
       prismlauncher = prev.prismlauncher.override {

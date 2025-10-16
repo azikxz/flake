@@ -13,31 +13,38 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm = {
     home.shellAliases.e = "$EDITOR";
 
-    programs.helix =
-      {
-        enable = true;
+    programs.helix = {
+      enable = true;
 
-        defaultEditor = true;
+      defaultEditor = true;
 
-        settings = import ./settings.nix // {
-          keys = import ./binds.nix;
-        };
+      settings = import ./settings.nix // {
+        keys = import ./binds.nix;
+      };
 
-        themes = import ./theme.nix {
-          inherit
-            lib
-            config
-            ;
-        };
-      }
-      // (optionalAttrs (mac' "isoXtended") {
-        languages = import ./languages.nix {
-          inherit
-            self
-            pkgs
-            lib
-            ;
-        };
-      });
+      themes = import ./theme.nix {
+        inherit
+          lib
+          config
+          ;
+      };
+    }
+    // (optionalAttrs (mac' "isoXtended") {
+      languages = import ./languages.nix {
+        inherit
+          self
+          pkgs
+          lib
+          ;
+      };
+    });
+  };
+
+  hmMime = mkMime {
+    "Helix.desktop" = [
+      "inode/empty"
+      "text/*"
+      "application/*"
+    ];
   };
 }

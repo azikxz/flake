@@ -25,11 +25,8 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
       mimeApps = {
         enable = true;
-      }
-      // import ./mimeApps.nix {
-        inherit
-          lib
-          ;
+
+        associations.added = config.hm.xdg.mimeApps.defaultApplications;
       };
 
       userDirs =

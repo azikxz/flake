@@ -13,6 +13,17 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     programs.yazi = {
       enable = true;
 
+      extraPackages = attrValues {
+        inherit (pkgs)
+          ffmpegthumbnailer
+          glow
+          jq
+          wl-clipboard
+          ;
+
+        ouch = pkgs.old.ouch.override { enableUnfree = true; };
+      };
+
       keymap = import ./binds.nix {
         inherit
           pkgs
@@ -48,17 +59,9 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
     xdg.mimeApps = {
       defaultApplications = {
-        "inode/directory" = "yazi.desktop";
-        "inode/mount-point" = "yazi.desktop";
+        "inode/directory" = [ "yazi.desktop" ];
+        "inode/mount-point" = [ "yazi.desktop" ];
       };
     };
   };
-
-  hmPackages = with pkgs; [
-    ffmpegthumbnailer
-    glow
-    jq
-    (old.ouch.override { enableUnfree = true; })
-    wl-clipboard
-  ];
 }

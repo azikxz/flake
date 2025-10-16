@@ -31,6 +31,18 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     };
   };
 
+  hmMime = mkMime {
+    "org.pwmt.zathura-cb.desktop" = [
+      "application/pdf"
+      "application/x-cbt"
+      "application/x-cbr"
+      "application/x-cbz"
+      "application/epub+zip"
+      "application/vnd.comicbook-rar"
+      "application/vnd.comicbook+zip"
+    ];
+  };
+
   nixpkgs.overlays = [
     (final: prev: {
       zathura = prev.zathura.override {

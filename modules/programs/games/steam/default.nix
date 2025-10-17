@@ -7,7 +7,7 @@
 
 with lib;
 # WARNING: for unified prefix use
-# STEAM_COMPAT_DATA_PATH=/media/disks/... %command%
+# STEAM_COMPAT_DATA_PATH=/media/disks/fastBitch/UnifiedPrefix %command%
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [
@@ -76,6 +76,17 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       proton-ge-bin = prev.proton-ge-bin.override {
         steamDisplayName = "Proton-GE";
       };
+
+      # INFO: in stock steam-run you need
+      # > steam-run ./foo/bar
+      # it overlay makes you dont need write ./
+      # it just works
+      steam-run = prev.writeShellScriptBin "steam-run" (
+        with prev.lib;
+        ''
+          ${getExe prev.steam-run} ./$@
+        ''
+      );
     })
   ];
 }

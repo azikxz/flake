@@ -8,8 +8,7 @@ with lib;
 
 mkIf (mac' "isoXtended") {
   hm.services = {
-    # wl-clip-persist.enable = true;
-
+    wl-clip-persist.enable = true;
     cliphist.enable = true;
   };
 }

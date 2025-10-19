@@ -168,6 +168,7 @@ flake-utils.lib.eachSystem
             }
             {
               imports = [
+                # INFO: hm aliases
                 (lib.mkAliasOptionModule
                   [ "hm" ]
                   [
@@ -197,6 +198,15 @@ flake-utils.lib.eachSystem
                     "xdg"
                     "mimeApps"
                     "defaultApplications"
+                  ]
+                )
+
+                # INFO: nixos aliases
+                (lib.mkAliasOptionModule
+                  [ "packages" ]
+                  [
+                    "environment"
+                    "systemPackages"
                   ]
                 )
 

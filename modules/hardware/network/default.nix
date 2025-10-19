@@ -32,6 +32,7 @@ with lib;
 
     nameservers = [
       "84.21.189.133" # https://info.dns.malw.link
+      "45.90.28.48" # https://my.nextdns.io
       "176.99.11.77" # https://xbox-dns.ru
     ];
   };

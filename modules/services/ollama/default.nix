@@ -8,6 +8,8 @@ with lib;
 # with s1mple ui
 
 mkIf (mac "pcRyazenka") {
+  persist.dirs = [ "/var/lib/ollama" ];
+
   services = {
     ollama = {
       enable = true;

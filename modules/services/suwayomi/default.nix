@@ -9,6 +9,8 @@ with lib;
 # with builtin webui
 
 mkIf (mac "pcRyazenka") {
+  persist.user.dirs = [ ".local/share/Tachidesk" ];
+
   services.suwayomi-server = {
     enable = true;
 
@@ -29,14 +31,16 @@ mkIf (mac "pcRyazenka") {
     }
     // genAttrs [ "downloadsPath" "localSourcePath" ] (
       n: config.hm.xdg.userDirs.desktop + "/localManga"
+      # unified genius
     );
   }
   // genAttrs [ "user" "group" ] (n: system.userName);
+  # INFO: system user cause local dir
 
   nixpkgs.overlays = [
     (final: prev: {
       suwayomi-server = prev.suwayomi-server.override {
-        jdk17_headless = final.temurin-jre-bin-17;
+        jdk21_headless = final.temurin-jre-bin-21;
       };
     })
   ];

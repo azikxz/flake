@@ -6,6 +6,8 @@
 with lib;
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+  persist.dirs = [ "/var/lib/clamav" ];
+
   services.clamav = {
     scanner.enable = true;
 

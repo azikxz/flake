@@ -33,7 +33,7 @@ mkIf false {
     };
   };
 
-  tmp.transmission = {
+  tmp.readmanga-grabber = {
     "/var/lib/readmanga-grabber".d = {
       user = "media";
       group = "media";

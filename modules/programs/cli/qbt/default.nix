@@ -10,5 +10,7 @@ with lib;
 # qbt
 
 mkIf config.services.qbittorrent.enable {
+  persist.user.dirs = [ ".qbt" ];
+
   hmPackages = [ pkgs.qbittorrent-cli ];
 }

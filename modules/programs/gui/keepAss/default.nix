@@ -5,6 +5,9 @@
 }:
 
 with lib;
+let
+  cfg = config.hm.programs.keepassxc;
+in
 # WARN: i didnt yet made it for other browsers
 # (only qutebrowser)
 
@@ -34,13 +37,13 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
     systemd.user.services.keepassxc = {
       Unit = {
-        Description = config.hm.programs.keepassxc.package.meta.description;
+        Description = cfg.package.meta.description;
         After = [ "graphical-session.target" ];
       };
 
       Service = {
         ExecStart = concatStringsSep " " [
-          (getExe config.hm.programs.keepassxc.package)
+          (getExe cfg.package)
           "--minimized"
           "--pw-stdin"
           "~/Documents/passwords/db.kdbx"

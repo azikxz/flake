@@ -47,6 +47,7 @@
 
     # anime etc
     anilist = "anilist.co";
+    anichart = "anichart.net";
     anilibria = "anilibria.top";
     animeGo = "animego.club/index";
     anilibMe = "v3.animelib.org";
@@ -56,6 +57,8 @@
     animeVost = "анимевост.рф";
     mangaLib = "mangalib.me/ru";
     urusai = "urusai.social";
+    miruro = "miruro.tv";
+    animekai = "anikai.to/home";
 
     # torrents
     rutracker = "rutracker.org"; # ye
@@ -77,7 +80,8 @@
     chatGpt = "chatgpt.com";
     deekpeek = "chat.deepseek.com";
     gemini = "gemini.google.com";
-    frok = "grok.com"; # hitler???
+    grok = "grok.com"; # hitler???
+    claude = "claude.ai";
 
     # misc
     base16Preview = "sesh.github.io/base16-viewer";

@@ -121,6 +121,8 @@ in
     };
 
     content = {
+      register_protocol_handler = false;
+
       blocking = {
         enabled = true;
 
@@ -129,6 +131,14 @@ in
         whitelist = [
           "thepiratebay.org"
           "trueachievements.com"
+        ];
+
+        adblock.lists = [
+          "https://easylist.to/easylist/easylist.txt"
+          "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt"
+          "https://easylist.to/easylist/easyprivacy.txt"
+          "https://secure.fanboy.co.nz/fanboy-annoyance.txt"
+          "https://easylist.to/easylist/fanboy-social.txt"
         ];
       };
 

@@ -10,7 +10,6 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   environment = {
     shellAliases = {
       cp = getExe' pkgs.fuc "cpz";
-      rm = getExe' pkgs.fuc "rmz";
     };
 
     systemPackages = with pkgs; [

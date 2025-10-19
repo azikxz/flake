@@ -5,7 +5,7 @@
   ...
 }:
 
-with pkgs.self';
+with pkgs.obsidian-plugins;
 let
   helixBinds = true;
 in
@@ -34,7 +34,7 @@ in
     };
 
     themes = [
-      { pkg = obsidian.minimal; }
+      { pkg = minimal; }
     ];
 
     corePlugins = [
@@ -79,12 +79,12 @@ in
 
     communityPlugins = [
       {
-        pkg = obsidian.minimal-settings;
+        pkg = minimal-settings;
         settings = import ./minimal-settings.nix;
       }
 
       {
-        pkg = obsidian.style-settings;
+        pkg = style-settings;
         settings = import ./style-settings.nix {
           inherit
             config
@@ -93,7 +93,7 @@ in
       }
 
       {
-        pkg = obsidian.helix;
+        pkg = helix;
         settings = {
           enableHelixKeybindings = helixBinds;
           cursorInInsertMode = "bar";
@@ -101,7 +101,7 @@ in
       }
 
       {
-        pkg = obsidian.omnisearch;
+        pkg = omnisearch;
         settings = {
           vimLikeNavigationShortcut = true;
           fuzziness = "2";
@@ -110,7 +110,7 @@ in
       }
 
       {
-        pkg = obsidian.prettier;
+        pkg = prettier;
         settings = {
           version = 20002;
 
@@ -140,7 +140,7 @@ in
         };
       }
 
-      { pkg = obsidian.docxer; }
+      { pkg = docxer; }
     ];
 
     hotkeys = import ./binds.nix;

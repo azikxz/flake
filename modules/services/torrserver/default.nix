@@ -28,7 +28,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         StateDirectoryMode = mkDefault 775;
 
         ExecStart = ''
-          ${getExe pkgs.self'.torrserver} \
+          ${getExe pkgs.torrserver} \
           -d /var/lib/torrserver \
           -p 8090
         '';

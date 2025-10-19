@@ -5,7 +5,7 @@
 
 let
   inherit (pkgs)
-    self'
+    yazi-plugins
     yaziPlugins
     writeTextDir
     fetchFromGitHub
@@ -31,7 +31,7 @@ in
       yatline
       ;
 
-    inherit (self'.yazi)
+    inherit (yazi-plugins)
       glow
       office
       wl-clipboard

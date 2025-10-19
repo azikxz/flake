@@ -18,7 +18,7 @@ in
     savePath
   ];
 
-  environment.systemPackages = [ pkgs.self'.qb-hash ];
+  environment.systemPackages = [ pkgs.qb-hash ];
 
   services.qbittorrent = {
     enable = true;
@@ -52,7 +52,7 @@ in
         LocalHostAuth = false;
         UseUPnP = false;
         Username = "pirate";
-        Password_PBKDF2 = "@ByteArray(HsNaxVT2CfZtscvsC7dTtA==:+vOvJK4/ZWgvtSuNwFPXsro2CzGwa2uuDq5lW8faKBNxV4UqkHhTeiC9kANmeYevRg0xtJmhumedqGgCEttQLw==)"; # gen with qbithash
+        Password_PBKDF2 = readFile pkgs.qb-hash-gen;
       };
 
       RSS.Session = {

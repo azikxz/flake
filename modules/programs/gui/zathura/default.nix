@@ -9,7 +9,7 @@ with lib;
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm = {
-    home.packages = [ pkgs.self'.zaread ];
+    home.packages = [ pkgs.zaread ];
 
     programs.zathura = {
       enable = true;

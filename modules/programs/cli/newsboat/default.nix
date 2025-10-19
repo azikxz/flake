@@ -9,7 +9,7 @@ with lib;
 # for youtube feeds use pkg yt-id
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  hmPackages = [ pkgs.self'.yt-id ];
+  hmPackages = [ pkgs.yt-id ];
 
   hm.programs.newsboat = {
     enable = true;

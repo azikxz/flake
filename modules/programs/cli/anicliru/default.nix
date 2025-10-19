@@ -19,7 +19,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       anicliru =
         with prev.lib;
         prev.writeShellScriptBin "anicliru" ''
-          ${getExe pkgs.self'.anicli-ru} -q 1080 ${
+          ${getExe pkgs.anicli-ru} -q 1080 ${
             (
               if (pathExists ./headers.txt) then
                 "--header-file ${toString (prev.writeText "headers.txt" (readFile ./headers.txt))}"

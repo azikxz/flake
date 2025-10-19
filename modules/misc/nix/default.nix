@@ -81,7 +81,8 @@ with lib;
 
       (
         final: prev:
-        winapps.packages."${system.platform}"
+        self.packages.${system.platform}
+        // winapps.packages."${system.platform}"
         // {
           old = import nixpkgs-old {
             inherit (prev)
@@ -104,9 +105,9 @@ with lib;
               ;
           };
 
+          anipy-cli = anipy-cli.packages.${system.platform}.default;
           cursors = cursors.packages.${system.platform};
           gaming = gaming.packages.${system.platform};
-          self' = self.packages.${system.platform};
           spicetify = spicetify.legacyPackages.${system.platform};
         }
       )

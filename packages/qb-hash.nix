@@ -8,8 +8,8 @@ pkgs.stdenv.mkDerivation {
   version = "git";
 
   src = pkgs.fetchurl {
-    url = "https://gist.githubusercontent.com/hastinbe/8b8d247f17481cfc262a98d661bc0fd5/raw/b4e443fc411ebc53f98ef3e12eac61eed49c510d/qbittorrent_hash.py";
-    sha256 = "sha256-qmlBlDPmYJ0hDXpq0cX6Kp4mza+Xu/Tn908/nfZ8Xwk=";
+    url = "https://gist.githubusercontent.com/mctrxw/1ccd74944e0ebc84847829bb922204b4/raw/cf1a299a93cc53cbdbccb53d8a80d524bf99e461/qbit-hash.py";
+    sha256 = "sha256-zSWRzYduB5BzayTrUhYu1+Etk8PnU8oNdOzGzoDwMKg=";
   };
 
   buildInputs = [ pkgs.python3 ];

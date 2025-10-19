@@ -63,6 +63,11 @@
       inputs.home-manager.follows = "home";
     };
 
+    anipy-cli = {
+      url = "github:sdaqo/anipy-cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     spicetify = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -89,7 +94,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # zapret
     zapret = {
       url = "github:mctrxw/nix-zapret-presets";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -132,11 +136,6 @@
     # umu-run tools
     protonfixes = {
       url = "github:Open-Wine-Components/umu-protonfixes";
-      flake = false;
-    };
-
-    umu-database = {
-      url = "https://raw.githubusercontent.com/Open-Wine-Components/umu-database/refs/heads/main/umu-database.csv";
       flake = false;
     };
 

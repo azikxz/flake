@@ -28,7 +28,7 @@ mkIf false {
         StateDirectory = [ "readmanga-grabber" ];
         StateDirectoryMode = mkDefault 775;
 
-        ExecStart = getExe pkgs.self'.manga-grabber;
+        ExecStart = getExe pkgs.manga-grabber;
       };
     };
   };

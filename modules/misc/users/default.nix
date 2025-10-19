@@ -22,52 +22,48 @@ with lib;
       media = { };
     };
 
-    users =
-      let
-        passwd = "$2b$05$vfFJcNMZaHujKhPSERV/o.nLa2GqYlM0e8ovlfwnhj4XdOJ3Gv7h2";
-      in
-      {
-        ${system.userName} = {
-          isNormalUser = true;
+    users = {
+      ${system.userName} = {
+        isNormalUser = true;
 
-          home = "/home/" + system.userName;
-          createHome = true;
+        home = "/home/" + system.userName;
+        createHome = true;
 
-          extraGroups = [
-            "audio"
-            "input"
-            "media"
-            "video"
+        extraGroups = [
+          "audio"
+          "input"
+          "media"
+          "video"
 
-            "adbusers"
-            "docker"
-            "gamemode"
-            "libvirtd"
-            "networkmanager"
-            "podman"
-            "suwayomi"
-            "terraria"
-            "wheel"
+          "adbusers"
+          "docker"
+          "gamemode"
+          "libvirtd"
+          "networkmanager"
+          "podman"
+          "suwayomi"
+          "terraria"
+          "wheel"
 
-            # torrent
-            "deluge"
-            "flood"
-            "qbittorrent"
-            "transmission"
-          ];
+          # torrent
+          "deluge"
+          "flood"
+          "qbittorrent"
+          "transmission"
+        ];
 
-          initialHashedPassword = mkForce passwd;
+        hashedPasswordFile = config.secrets.password;
 
-          description = "nixos system user, owner ${system.hostName} host!";
-        };
-
-        root.initialHashedPassword = mkForce passwd;
-
-        media = {
-          isSystemUser = true;
-
-          group = "media";
-        };
+        description = "nixos system user, owner ${system.hostName} host!";
       };
+
+      root.hashedPasswordFile = config.secrets.password;
+
+      media = {
+        isSystemUser = true;
+
+        group = "media";
+      };
+    };
   };
 }

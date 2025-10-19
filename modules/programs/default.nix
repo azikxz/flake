@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   ...
@@ -9,6 +10,8 @@ with lib;
 mkIf (mac' "isoXtended") {
   environment = {
     systemPackages = with pkgs; [
+      inputs.agenix.packages.${system}.default
+
       killall
       wget
       fff

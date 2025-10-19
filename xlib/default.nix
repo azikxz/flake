@@ -130,6 +130,7 @@ flake-utils.lib.eachSystem
             ++ (lib.optional (lib.pathExists modulesDir) modulesDir)
             ++ (lib.optional (lib.pathExists machineDir) machineDir)
             ++ (with inputs; [
+              agenix.nixosModules.default
               disko.nixosModules.default
               flatpak.nixosModules.nix-flatpak
               gaming.nixosModules.pipewireLowLatency
@@ -140,7 +141,7 @@ flake-utils.lib.eachSystem
               musnix.nixosModules.default
               nixpkgs.nixosModules.notDetected
               nur.modules.nixos.default
-              stylix.nixosModules.stylix
+              stylix.nixosModules.default
               zapret.nixosModules.presets
             ])
           )
@@ -151,7 +152,6 @@ flake-utils.lib.eachSystem
                   niri.homeModules.niri
                   niri.homeModules.stylix
                   nixcord.homeModules.nixcord
-                  nur.modules.homeManager.default
                   spicetify.homeManagerModules.default
                 ];
 

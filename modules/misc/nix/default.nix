@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -68,6 +69,14 @@ with lib;
         "xache.cachix.org-1:InoMKnvFvDh+J5gFNHN1mmUONxvYJqFImLJY8/bl9YA="
       ];
     };
+
+    # INFO: from secret as
+    #
+    # > githubToken.age
+    # access-tokens = github.com=23ac...b289
+    extraOptions = ''
+      !include ${config.secrets.github}
+    '';
   };
 
   nixpkgs = {

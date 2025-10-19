@@ -34,4 +34,6 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       };
     };
   };
+
+  services.openssh.enable = true;
 }

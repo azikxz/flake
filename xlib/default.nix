@@ -6,11 +6,11 @@ inputs@{
 let
   inherit (inputs)
     nixpkgs
-    flake-utils
+    utils
     ;
 in
 
-flake-utils.lib.eachSystem
+utils.lib.eachSystem
   [
     "x86_64-linux"
     "aarch64-linux"
@@ -52,6 +52,25 @@ flake-utils.lib.eachSystem
           };
         }
       );
+
+      devShells = with pkgs; {
+        secrets = mkShell {
+          # GUIDE:
+          # 1) ssh-to-age -private-key -i ~/.ssh/id_ed25519 > ~/.config/sops/age/keys.txt
+          #    # WARN: check your ~/.config/sops/age/keys.txt
+          # 2) age-keygen -y ~/.config/sops/age/keys.txt
+          #    ssh-to-age < ~/.ssh/id_ed25519.pub
+          #    # WARN: will gives you same result
+
+          nativeBuildInputs = [
+            sops
+
+            age
+            ssh-to-age
+            inputs.agenix.packages.${system}.default
+          ];
+        };
+      };
     }
   )
 // {
@@ -141,6 +160,7 @@ flake-utils.lib.eachSystem
               musnix.nixosModules.default
               nixpkgs.nixosModules.notDetected
               nur.modules.nixos.default
+              sopsnix.nixosModules.default
               stylix.nixosModules.default
               zapret.nixosModules.presets
             ])

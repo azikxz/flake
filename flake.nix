@@ -9,7 +9,7 @@
 
     impermanence.url = "github:nix-community/impermanence";
     hardware.url = "github:NixOS/nixos-hardware/master";
-    flake-utils.url = "github:numtide/flake-utils";
+    utils.url = "github:numtide/flake-utils";
     flatpak.url = "github:gmodena/nix-flatpak";
 
     parts = {
@@ -20,7 +20,15 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home";
+
+      # disable support
+      inputs.darwin.follows = "";
+      inputs.home-manager.follows = "";
+    };
+
+    sopsnix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix = {
@@ -63,13 +71,13 @@
       inputs.nixpkgs-stable.follows = "nixpkgs-24";
     };
 
-    plasma-manager = {
+    plasma = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home";
     };
 
-    anipy-cli = {
+    anipy = {
       url = "github:sdaqo/anipy-cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -108,19 +116,19 @@
     # selfmade
     nixages = {
       url = "sourcehut:~neverness/nixages";
-      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-utils.follows = "utils";
     };
 
     torrHelper = {
       url = "github:mctrxnv/torrserver-helper";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-utils.follows = "utils";
     };
 
     qbHelper = {
       url = "github:mctrxnv/qbHelper";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-utils.follows = "utils";
     };
 
     easyeffects = {
@@ -143,13 +151,6 @@
     protonfixes = {
       url = "github:Open-Wine-Components/umu-protonfixes";
       flake = false;
-    };
-
-    # other
-
-    zsh-helix = {
-      url = "github:Multirious/zsh-helix-mode";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

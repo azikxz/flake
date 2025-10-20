@@ -2,10 +2,8 @@
   "nodes": {
     "agenix": {
       "inputs": {
-        "darwin": "darwin",
-        "home-manager": [
-          "home"
-        ],
+        "darwin": [],
+        "home-manager": [],
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -25,7 +23,7 @@
         "type": "github"
       }
     },
-    "anipy-cli": {
+    "anipy": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -155,28 +153,6 @@
         "type": "github"
       }
     },
-    "darwin": {
-      "inputs": {
-        "nixpkgs": [
-          "agenix",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1744478979,
-        "narHash": "sha256-dyN+teG9G82G+m+PX/aSAagkC+vUv0SgUw3XkPhQodQ=",
-        "owner": "lnl7",
-        "repo": "nix-darwin",
-        "rev": "43975d782b418ebf4969e9ccba82466728c2851b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lnl7",
-        "ref": "master",
-        "repo": "nix-darwin",
-        "type": "github"
-      }
-    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -301,24 +277,6 @@
       }
     },
     "flake-utils_2": {
-      "inputs": {
-        "systems": "systems_4"
-      },
-      "locked": {
-        "lastModified": 1731533236,
-        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "flake-utils_3": {
       "inputs": {
         "systems": "systems_7"
       },
@@ -588,7 +546,7 @@
     "nix-github-actions": {
       "inputs": {
         "nixpkgs": [
-          "anipy-cli",
+          "anipy",
           "poetry2nix",
           "nixpkgs"
         ]
@@ -610,7 +568,7 @@
     "nixages": {
       "inputs": {
         "flake-utils": [
-          "flake-utils"
+          "utils"
         ],
         "nixpkgs": "nixpkgs_2"
       },
@@ -791,7 +749,7 @@
         "type": "github"
       }
     },
-    "plasma-manager": {
+    "plasma": {
       "inputs": {
         "home-manager": [
           "home"
@@ -855,7 +813,7 @@
     "qbHelper": {
       "inputs": {
         "flake-utils": [
-          "flake-utils"
+          "utils"
         ],
         "nixpkgs": [
           "nixpkgs"
@@ -878,13 +836,12 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
-        "anipy-cli": "anipy-cli",
+        "anipy": "anipy",
         "base16": "base16",
         "cursors": "cursors",
         "disko": "disko",
         "easyeffects": "easyeffects",
         "fjordlauncher": "fjordlauncher",
-        "flake-utils": "flake-utils_2",
         "flatpak": "flatpak",
         "gaming": "gaming",
         "hardware": "hardware",
@@ -900,16 +857,37 @@
         "nixpkgs-old": "nixpkgs-old",
         "nur": "nur",
         "parts": "parts",
-        "plasma-manager": "plasma-manager",
+        "plasma": "plasma",
         "protonfixes": "protonfixes",
         "qbHelper": "qbHelper",
+        "sopsnix": "sopsnix",
         "spicetify": "spicetify",
         "stylix": "stylix",
         "torrHelper": "torrHelper",
+        "utils": "utils",
         "wallpapers": "wallpapers",
         "winapps": "winapps",
-        "zapret": "zapret",
-        "zsh-helix": "zsh-helix"
+        "zapret": "zapret"
+      }
+    },
+    "sopsnix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1760845571,
+        "narHash": "sha256-PwGzU3EOU65Ef1VvuNnVLie+l+P0g/fzf/PGUG82KbM=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "9c9a9798be331ed3f4b2902933d7677d0659ee61",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     },
     "spicetify": {
@@ -917,7 +895,7 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "systems": "systems_5"
+        "systems": "systems_4"
       },
       "locked": {
         "lastModified": 1760243311,
@@ -950,7 +928,7 @@
         "nur": [
           "nur"
         ],
-        "systems": "systems_6",
+        "systems": "systems_5",
         "tinted-foot": "tinted-foot",
         "tinted-kitty": "tinted-kitty",
         "tinted-schemes": "tinted-schemes",
@@ -1159,7 +1137,7 @@
     "torrHelper": {
       "inputs": {
         "flake-utils": [
-          "flake-utils"
+          "utils"
         ],
         "nixpkgs": [
           "nixpkgs"
@@ -1182,7 +1160,7 @@
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
-          "anipy-cli",
+          "anipy",
           "poetry2nix",
           "nixpkgs"
         ]
@@ -1198,6 +1176,24 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "utils": {
+      "inputs": {
+        "systems": "systems_6"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
         "type": "github"
       }
     },
@@ -1225,7 +1221,7 @@
     "winapps": {
       "inputs": {
         "flake-compat": "flake-compat_2",
-        "flake-utils": "flake-utils_3",
+        "flake-utils": "flake-utils_2",
         "nix-filter": "nix-filter",
         "nixpkgs": [
           "nixpkgs"
@@ -1296,26 +1292,6 @@
       "original": {
         "owner": "mctrxw",
         "repo": "nix-zapret-presets",
-        "type": "github"
-      }
-    },
-    "zsh-helix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1758445842,
-        "narHash": "sha256-wiUocowz3uL3fTAxTfG3URhOwB2RrFWEmUnW4k0ETJ4=",
-        "owner": "Multirious",
-        "repo": "zsh-helix-mode",
-        "rev": "f9d72d23f5ce12da31967a6ecd15dcafa1355fa7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Multirious",
-        "repo": "zsh-helix-mode",
         "type": "github"
       }
     }

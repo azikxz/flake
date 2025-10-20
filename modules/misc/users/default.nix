@@ -52,12 +52,12 @@ with lib;
           "transmission"
         ];
 
-        hashedPasswordFile = config.secrets.password;
+        hashedPasswordFile = config.agenix.password;
 
         description = "nixos system user, owner ${system.hostName} host!";
       };
 
-      root.hashedPasswordFile = config.secrets.password;
+      root.hashedPasswordFile = config.agenix.password;
 
       media = {
         isSystemUser = true;

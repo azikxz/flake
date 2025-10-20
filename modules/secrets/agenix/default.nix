@@ -1,5 +1,14 @@
+# WARN:
+# [X] basic config
+# [X] finished? yes it works
+#
+# how to?
+# see ../../secrets/secrets.nix
+
 {
   self,
+  inputs,
+  pkgs,
   lib,
   config,
   ...
@@ -10,7 +19,11 @@ with lib;
 {
   imports = [ ./module.nix ];
   # alias config.age.secrets.<name>.path
-  # to config.secrets.<name>
+  # to config.agenix.<name>
+
+  packages = [
+    inputs.agenix.packages.${pkgs.system}.default
+  ];
 
   age = {
     secrets =
@@ -33,7 +46,7 @@ with lib;
           // genAttrs [
             "owner"
             "group"
-          ] (n: system.userName);
+          ] (n: "root");
         };
       in
       mapAttrs' genSecret ageFiles;

@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -15,19 +16,12 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hmPackages = [ pkgs.anicliru ];
 
   nixpkgs.overlays = [
-    (final: prev: {
-      anicliru =
-        with prev.lib;
-        prev.writeShellScriptBin "anicliru" ''
-          ${getExe pkgs.anicli-ru} -q 1080 ${
-            (
-              if (pathExists ./headers.txt) then
-                "--header-file ${toString (prev.writeText "headers.txt" (readFile ./headers.txt))}"
-              else
-                ""
-            )
-          } "$@"
+    (
+      final: prev: with prev.lib; {
+        anicliru = prev.writeShellScriptBin "anicliru" ''
+          ${getExe pkgs.anicli-ru} -q 1080 --header-file ${config.agenix.anilibme} "$@"
         '';
-    })
+      }
+    )
   ];
 }

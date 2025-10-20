@@ -35,6 +35,8 @@ with lib;
       "45.90.28.48" # https://my.nextdns.io
       "176.99.11.77" # https://xbox-dns.ru
     ];
+
+    extraHosts = readFile ./hosts;
   };
 
   programs.nm-applet = {

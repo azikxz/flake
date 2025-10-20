@@ -11,8 +11,8 @@ in
 
 {
   options = {
-    secrets = mkOption {
-      description = "Shortcut paths to age secrets";
+    agenix = mkOption {
+      description = "Shortcut paths to agenix secrets";
 
       type = types.attrsOf types.str;
       default = { };
@@ -20,6 +20,6 @@ in
   };
 
   config = {
-    secrets = mapAttrs (name: _: cfg.${name}.path) cfg;
+    agenix = mapAttrs (name: _: cfg.${name}.path) cfg;
   };
 }

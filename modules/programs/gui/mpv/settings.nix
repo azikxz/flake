@@ -40,7 +40,7 @@ in
 
   config = {
     fs = "yes";
-    osc = "no";
+    osc = "yes";
 
     glsl-shaders = toString (
       with pkgs;

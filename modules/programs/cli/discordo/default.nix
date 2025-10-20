@@ -12,6 +12,8 @@ in
 # very simple
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+  # without auth via token cause
+  # idk how to read agenix secrets on eval phase
   hmPackages = [ pkgs.discordo ];
 
   hm.xdg.configFile = {
@@ -72,17 +74,4 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       };
     };
   };
-
-  nixpkgs.overlays = [
-    (final: prev: {
-      discordo = prev.writeShellScriptBin "discordo" ''
-        ${prev.lib.getExe prev.discordo} ${
-          if (prev.lib.pathExists ./token) then
-            ''--token "${(n: prev.lib.replaceStrings [ "\n" ] [ "" ] n) (prev.lib.readFile ./token)}"''
-          else
-            (toString null)
-        } "$@"
-      '';
-    })
-  ];
 }

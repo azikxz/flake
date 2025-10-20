@@ -75,7 +75,7 @@ with lib;
     # > githubToken.age
     # access-tokens = github.com=23ac...b289
     extraOptions = ''
-      !include ${config.secrets.github}
+      !include ${config.agenix.github}
     '';
   };
 
@@ -86,7 +86,6 @@ with lib;
       fjordlauncher.overlays.default
       niri.overlays.niri
       nur.overlays.default
-      zsh-helix.overlays.default
 
       (
         final: prev:
@@ -114,7 +113,7 @@ with lib;
               ;
           };
 
-          anipy-cli = anipy-cli.packages.${system.platform}.default;
+          anipy-cli = anipy.packages.${system.platform}.default;
           cursors = cursors.packages.${system.platform};
           gaming = gaming.packages.${system.platform};
           spicetify = spicetify.legacyPackages.${system.platform};

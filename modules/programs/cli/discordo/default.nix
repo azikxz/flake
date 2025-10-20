@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -74,4 +75,14 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       };
     };
   };
+
+  nixpkgs.overlays = [
+    (
+      final: prev: with prev.lib; {
+        discordo = prev.writeShellScriptBin "discordo" ''
+          ${getExe prev.discordo} --token "$(cat "${config.agenix.discordo}")" "$@"
+        '';
+      }
+    )
+  ];
 }

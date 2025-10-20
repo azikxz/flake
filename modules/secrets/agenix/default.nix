@@ -45,8 +45,8 @@ with lib;
           }
           // genAttrs [
             "owner"
-            "group"
-          ] (n: "root");
+            # "group"
+          ] (n: system.userName);
         };
       in
       mapAttrs' genSecret ageFiles;

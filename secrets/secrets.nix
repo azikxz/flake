@@ -16,6 +16,8 @@ let
     "github"
   ];
 
+  # without nixpkgs.lib
+  # implementation of genAttrs
   mkKeys = file: {
     "${file}.age" = {
       inherit

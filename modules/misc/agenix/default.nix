@@ -3,7 +3,7 @@
 # [X] finished? yes it works
 #
 # how to?
-# see ../../secrets/secrets.nix
+# see ../../../secrets/secrets.nix
 
 {
   self,

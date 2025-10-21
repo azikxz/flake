@@ -1,13 +1,9 @@
 # WARN:
 # [X] basic config
 # [X] finished? yes it works
-#
-# how to?
-# see ../../../secrets/secrets.nix
 
 {
   self,
-  inputs,
   pkgs,
   lib,
   config,
@@ -15,14 +11,26 @@
 }:
 
 with lib;
+# INFO:
+# for create encrypted file use:
+# > cd secrets
+# > agenix -e <name>.age
+#
+# to view whay in encrypted file use:
+# > agenix -d <name>.age
+#
+# to rekey use:
+# > agenix -r
+#
+# for additional info see ../../../secrets/secrets.nix
 
 {
   imports = [ ./module.nix ];
   # alias config.age.secrets.<name>.path
   # to config.agenix.<name>
 
-  packages = [
-    inputs.agenix.packages.${pkgs.system}.default
+  packages = with pkgs; [
+    agenix
   ];
 
   age = {

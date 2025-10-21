@@ -1,6 +1,6 @@
 # WARN: not finished
 # [X] basic config
-# [ ] secrets list
+# [X] secrets list (pizdec)
 # [ ] templates
 
 {
@@ -14,10 +14,15 @@
 with lib;
 # INFO:
 # for encrypt existed file use:
-#   sops -e -i secrets/users/myuser/github.yaml
+# > sops -e -i secrets/users/myuser/github.yaml
 #
 # to edit encrypted file use:
-#   sops secrets/some.env
+# > sops secrets/<name>.env
+#
+# to rekey use:
+# > sops updatekeys secrets/<name>.env
+#
+# for additional info see ../../../.sops.yaml
 
 {
   imports = [ ./module.nix ];
@@ -32,10 +37,22 @@ with lib;
   ];
 
   sops = {
-    defaultSopsKey = "${self}/.secrets.yaml";
+    defaultSopsFile = "${self}/secrets/.default.yaml";
     defaultSopsFormat = "yaml";
 
+    secrets =
+      genAttrs
+        [
+          "password"
+          "tokens/anilibme"
+        ]
+        (n: {
+          owner = system.userName;
+        });
+
     age = {
+      # for create private key use:
+      # > age-keygen -y ~/.config/sops/age/keys.txt
       keyFile =
         let
           keysText = "${config.hm.xdg.configHome}/sops/age/keys.txt";

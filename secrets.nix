@@ -2,19 +2,23 @@ with builtins;
 
 let
   # ssh keys from ~/.ssh/id_ed25519.pub
-  publicKeys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMlPZZJ+ggqwi1gA68WW61gB9NCHmpgzMgejucn4WiiV"
-  ];
+  # without user@hostname
+  #
+  # when u add new host u need rekey secrets
+  # > agenix -r
+  publicKeys = import ./modules/misc/users/sshKeys.nix;
 
   # INFO: write here files
   # whats need to encrypt ./.
-  secretsList = [
-    "password"
+  secretsList = (
+    map (p: ("secrets/" + p)) [
+      "password"
 
-    "anilibme"
-    "discordo"
-    "github"
-  ];
+      "anilibme"
+      "discordo"
+      "github"
+    ]
+  );
 
   # without nixpkgs.lib
   # implementation of genAttrs

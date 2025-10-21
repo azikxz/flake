@@ -36,7 +36,7 @@ with lib;
       "176.99.11.77" # https://xbox-dns.ru
     ];
 
-    extraHosts = readFile ./hosts;
+    # extraHosts = readFile ./hosts;
   };
 
   programs.nm-applet = {

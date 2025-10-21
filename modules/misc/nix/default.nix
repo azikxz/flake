@@ -43,13 +43,8 @@ with lib;
 
       substituters = [
         "https://cache.garnix.io"
-        "https://chaotic-nyx.cachix.org"
-        "https://cosmic.cachix.org"
-        "https://helix.cachix.org"
-        "https://hyprland.cachix.org"
         "https://niri.cachix.org"
         "https://nix-gaming.cachix.org"
-        "https://nyx.chaotic.cx"
         "https://unmojang.cachix.org"
         "https://winapps.cachix.org"
         "https://xache.cachix.org"
@@ -57,13 +52,8 @@ with lib;
 
       trusted-public-keys = [
         "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-        "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
-        "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
         "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-        "nyx.chaotic.cx-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
         "unmojang.cachix.org-1:OfHnbBNduZ6Smx9oNbLFbYyvOWSoxb2uPcnXPj4EDQY="
         "winapps.cachix.org-1:HI82jWrXZsQRar/PChgIx1unmuEsiQMQq+zt05CD36g="
         "xache.cachix.org-1:InoMKnvFvDh+J5gFNHN1mmUONxvYJqFImLJY8/bl9YA="
@@ -72,7 +62,7 @@ with lib;
 
     # INFO: from secret as
     #
-    # > githubToken.age
+    # > githubToken.age | githubToken.yaml
     # access-tokens = github.com=23ac...b289
     extraOptions = ''
       !include ${config.agenix.github}
@@ -113,7 +103,9 @@ with lib;
               ;
           };
 
+          agenix = inputs.agenix.packages.${pkgs.system}.default;
           anipy-cli = anipy.packages.${system.platform}.default;
+
           cursors = cursors.packages.${system.platform};
           gaming = gaming.packages.${system.platform};
           spicetify = spicetify.legacyPackages.${system.platform};

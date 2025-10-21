@@ -1,9 +1,21 @@
+# > ssh-to-age < ~/.ssh/id_ed25519.pub
+# or
+# > nix run nixpkgs#ssh-to-age -- < ~/.ssh/id_ed25519.pub
 keys:
-  - &primary age13qxl594a6jvt5dku8clyga2c3dxap6jur86zwleedylt7ht0fymsvpkyum
+  - &jetpure age13qxl594a6jvt5dku8clyga2c3dxap6jur86zwleedylt7ht0fymsvpkyum
 
 creation_rules:
-  # allow to any (yaml | json | env | ini) file
+  # allow to create any
+  # (yaml | json | env | ini) file
+  # in ./secrets/<name>.ext
+
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
       - age:
-          - *primary
+          - *jetpure
+
+  # allows to create .<name>.ext
+  - path_regex: .[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *jetpure

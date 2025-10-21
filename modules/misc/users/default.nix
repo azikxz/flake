@@ -29,6 +29,8 @@ with lib;
         home = "/home/" + system.userName;
         createHome = true;
 
+        openssh.authorizedKeys.keys = import ./sshKeys.nix;
+
         extraGroups = [
           "audio"
           "input"

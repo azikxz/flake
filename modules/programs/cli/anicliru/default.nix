@@ -19,7 +19,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     (
       final: prev: with prev.lib; {
         anicliru = prev.writeShellScriptBin "anicliru" ''
-          ${getExe pkgs.anicli-ru} -q 1080 --header-file ${config.agenix.anilibme} "$@"
+          ${getExe pkgs.anicli-ru} -q 1080 --header-file ${config.sopsnix."tokens/anilibme"} "$@"
         '';
       }
     )

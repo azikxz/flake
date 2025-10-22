@@ -13,8 +13,6 @@ in
 # very simple
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  # without auth via token cause
-  # idk how to read agenix secrets on eval phase
   hmPackages = [ pkgs.discordo ];
 
   hm.xdg.configFile = {
@@ -80,7 +78,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     (
       final: prev: with prev.lib; {
         discordo = prev.writeShellScriptBin "discordo" ''
-          ${getExe prev.discordo} --token "$(cat "${config.agenix.discordo}")" "$@"
+          ${getExe prev.discordo} --token "$(cat "${config.sopsnix."tokens/discord"}")" "$@"
         '';
       }
     )

@@ -63,7 +63,7 @@ with lib;
     # > githubToken.age | githubToken.yaml
     # access-tokens = github.com=23ac...b289
     extraOptions = ''
-      !include ${config.agenix.github}
+      !include ${config.sopsnix."tokens/github"}
     '';
   };
 

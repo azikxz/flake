@@ -11,5 +11,5 @@ pkgs.runCommand "qb-hash-test" { } ''
         lib
         ;
     }) "qbit-hash"
-  } -e "passwordus" >> $out
+  } -e "simplepassword" >> $out
 ''

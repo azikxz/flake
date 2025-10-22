@@ -13,6 +13,9 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm.services.syncthing = {
     enable = true;
 
+    cert = config.sopsnix."syncthing/cert" or null;
+    key = config.sopsnix."syncthing/key" or null;
+
     settings = {
       folders =
         let

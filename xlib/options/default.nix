@@ -1,4 +1,5 @@
 {
+  self,
   pkgs,
   lib,
   ...
@@ -38,6 +39,17 @@ rec {
       lib.flatten
       lib.zipAttrs
     ];
+
+  mkSecrets = {
+    sops =
+      list: sopsFile:
+      lib.genAttrs list (n: {
+        owner = lib.system.userName;
+        inherit
+          sopsFile
+          ;
+      });
+  };
 
   obsidian = import ./obsidianBuilders {
     inherit

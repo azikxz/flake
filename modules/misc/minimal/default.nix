@@ -10,28 +10,28 @@ in
 # INFO: fuck it
 
 {
-  programs = {
-    nano = off;
-    command-not-found = off;
-  };
+  programs = genAttrs [
+    "nano"
+    "command-not-found"
+  ] (n: off);
 
-  documentation = {
-    dev = off;
-    doc = off;
-    info = off;
-    man = off;
-    nixos = off;
-  };
+  documentation = genAttrs [
+    "dev"
+    "doc"
+    "info"
+    "man"
+    "nixos"
+  ] (n: off);
 
   hm = {
     news.display = "silent";
 
     programs.man = off;
 
-    manual = {
-      html = off;
-      json = off;
-      manpages = off;
-    };
+    manual = genAttrs [
+      "html"
+      "json"
+      "manpages"
+    ] (n: off);
   };
 }

@@ -51,7 +51,7 @@ in
         AuthSubnetWhitelistEnabled = true;
         LocalHostAuth = false;
         UseUPnP = false;
-        Username = "pirate";
+        Username = system.userName;
         Password_PBKDF2 = readFile pkgs.qb-hash-gen;
       };
 

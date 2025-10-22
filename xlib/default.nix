@@ -125,6 +125,7 @@ utils.lib.eachSystem
           }
           // import ./options {
             inherit
+              self
               inputs
               pkgs
               lib

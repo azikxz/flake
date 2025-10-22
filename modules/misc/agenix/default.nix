@@ -28,6 +28,8 @@ with lib;
   imports = [ ./module.nix ];
   # alias config.age.secrets.<name>.path
   # to config.agenix.<name>
+}
+// (mkIf (mac' "isoXtended") {
 
   packages = with pkgs; [
     agenix
@@ -64,4 +66,4 @@ with lib;
       "${config.hm.home.homeDirectory}/.ssh/id_ed25519"
     ];
   };
-}
+})

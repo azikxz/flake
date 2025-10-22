@@ -6,6 +6,9 @@
 }:
 
 with lib;
+let
+  hashedPasswordFile = config.sopsnix."password";
+in
 
 {
   services.getty = mkForce {
@@ -54,12 +57,18 @@ with lib;
           "transmission"
         ];
 
-        hashedPasswordFile = config.agenix.password;
+        inherit
+          hashedPasswordFile
+          ;
 
         description = "nixos system user, owner ${system.hostName} host!";
       };
 
-      root.hashedPasswordFile = config.agenix.password;
+      root = {
+        inherit
+          hashedPasswordFile
+          ;
+      };
 
       media = {
         isSystemUser = true;

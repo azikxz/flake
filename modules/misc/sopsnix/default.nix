@@ -28,6 +28,8 @@ with lib;
   imports = [ ./module.nix ];
   # alias config.age.secrets.<name>.path
   # to config.agenix.<name>
+}
+// (mkIf (mac' "isoXtended") {
 
   packages = with pkgs; [
     sops
@@ -37,18 +39,20 @@ with lib;
   ];
 
   sops = {
-    defaultSopsFile = "${self}/secrets/.default.yaml";
-    defaultSopsFormat = "yaml";
-
     secrets =
-      genAttrs
-        [
-          "password"
-          "tokens/anilibme"
-        ]
-        (n: {
-          owner = system.userName;
-        });
+      # INFO: default for every host secrets
+      # for especially host create
+      # > machines/machine/secerts.yaml
+      mkSecrets.sops [
+        "password"
+
+        "tokens/anilibme"
+        "tokens/discord"
+        "tokens/github"
+
+        "qbittorrent/username"
+        "qbittorrent/password"
+      ] "${self}/.secrets.yaml";
 
     age = {
       # for create private key use:
@@ -71,4 +75,4 @@ with lib;
       ];
     };
   };
-}
+})

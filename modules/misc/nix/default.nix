@@ -42,7 +42,6 @@ with lib;
       ];
 
       substituters = [
-        "https://cache.garnix.io"
         "https://niri.cachix.org"
         "https://nix-gaming.cachix.org"
         "https://unmojang.cachix.org"
@@ -51,7 +50,6 @@ with lib;
       ];
 
       trusted-public-keys = [
-        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
         "unmojang.cachix.org-1:OfHnbBNduZ6Smx9oNbLFbYyvOWSoxb2uPcnXPj4EDQY="

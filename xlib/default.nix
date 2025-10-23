@@ -170,6 +170,7 @@ utils.lib.eachSystem
             {
               home-manager = {
                 sharedModules = with inputs; [
+                  jerry.homeManagerModules.default
                   niri.homeModules.niri
                   niri.homeModules.stylix
                   nixcord.homeModules.nixcord

@@ -82,6 +82,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    jerry = {
+      url = "github:justchokingaround/jerry";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "parts";
+    };
+
+    viu = {
+      url = "github:viu-media/viu";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "utils";
+    };
+
+    curd = {
+      url = "github:Wraient/curd";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     spicetify = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";

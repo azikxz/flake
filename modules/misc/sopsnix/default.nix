@@ -49,6 +49,8 @@ with lib;
         "tokens/anilibme"
         "tokens/discord"
         "tokens/github"
+        "tokens/jerry"
+        "tokens/viu"
       ] "${self}/.secrets.yaml";
 
     age = {

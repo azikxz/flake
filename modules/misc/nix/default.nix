@@ -77,9 +77,12 @@ with lib;
 
       (
         final: prev:
-        self.packages.${system.platform}
-        // winapps.packages."${system.platform}"
-        // {
+        let
+          inherit (lib.system)
+            platform
+            ;
+        in
+        {
           old = import nixpkgs-old {
             inherit (prev)
               system
@@ -101,13 +104,18 @@ with lib;
               ;
           };
 
-          agenix = inputs.agenix.packages.${pkgs.system}.default;
-          anipy-cli = anipy.packages.${system.platform}.default;
+          agenix = inputs.agenix.packages.${platform}.default;
+          anipy-cli = anipy.packages.${platform}.default;
+          jerry = jerry.packages.${platform}.full;
+          viu = viu.packages.${platform}.default;
+          curd = jerry.packages.${platform}.default;
 
-          cursors = cursors.packages.${system.platform};
-          gaming = gaming.packages.${system.platform};
-          spicetify = spicetify.legacyPackages.${system.platform};
+          cursors = cursors.packages.${platform};
+          gaming = gaming.packages.${platform};
+          spicetify = spicetify.legacyPackages.${platform};
         }
+        // self.packages.${platform}
+        // winapps.packages."${platform}"
       )
     ];
 

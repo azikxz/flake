@@ -43,8 +43,8 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           "--border=rounded"
           "--info=hidden"
           "--no-mouse"
-          "--margin=1,49%,1,1"
-          "--padding=0"
+          "--margin=5%"
+          "--padding=3%"
         ];
       };
 

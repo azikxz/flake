@@ -7,7 +7,7 @@
 with lib;
 # WARN: use wleave
 
-mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+mkIf false {
   hm.programs.wlogout = {
     enable = true;
 

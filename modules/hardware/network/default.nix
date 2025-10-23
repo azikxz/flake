@@ -31,9 +31,10 @@ with lib;
     };
 
     nameservers = [
+      "8.8.8.8"
+      "1.1.1.1"
+
       "84.21.189.133" # https://info.dns.malw.link
-      "45.90.28.48" # https://my.nextdns.io
-      "176.99.11.77" # https://xbox-dns.ru
     ];
 
     # extraHosts = readFile ./hosts;

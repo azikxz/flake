@@ -13,9 +13,6 @@ let
   secretsList = (
     map (p: ("secrets/" + p)) [
       "password"
-
-      "anilibme"
-      "discordo"
       "github"
     ]
   );

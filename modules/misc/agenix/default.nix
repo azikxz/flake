@@ -38,19 +38,10 @@ with lib;
   age = {
     secrets =
       let
-        secretsDir = "${self}/secrets";
-        listFiles = builtins.readDir secretsDir;
-
-        ageFiles = filterAttrs (name: type: type == "regular" && hasSuffix ".age" name) listFiles;
-
-        genSecret = name: _: {
-          name = removeSuffix ".age" name;
+        genSecret = path: _: {
+          name = removeSuffix ".age" (baseNameOf path);
           value = {
-            file = concatStringsSep "/" [
-              secretsDir
-              name
-            ];
-
+            file = "${self}/${path}";
             mode = toString 770;
           }
           // genAttrs [
@@ -58,8 +49,12 @@ with lib;
             # "group"
           ] (n: system.userName);
         };
+
+        secrets' = "${self}/machines/${machine}/agenix.nix";
+        machineSecrets = if (pathExists secrets') then (import secrets') else { };
+        # INFO: idk how but create ./machine/machine/agenix.nix
       in
-      mapAttrs' genSecret ageFiles;
+      mapAttrs' genSecret ((import "${self}/secrets.nix") // machineSecrets);
 
     identityPaths = [
       "/etc/ssh/ssh_host_ed25519_key"

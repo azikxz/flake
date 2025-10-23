@@ -17,7 +17,7 @@ with lib;
   sops.secrets = mkSecrets.sops [
     "syncthing/cert"
     "syncthing/key"
-  ] ./secrets.yaml;
+  ] ./sopsnix.yaml;
 
   hm.services.syncthing.settings.devices = listToAttrs [
     (sync.mkDevice "nothing2a" "U2SSOJT-I43YCNB-HAU4LBI-6UWBLRR-AUTELXZ-PZSCFYJ-J3LKH5H-ROFZBQS")

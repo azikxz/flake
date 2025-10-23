@@ -49,9 +49,6 @@ with lib;
         "tokens/anilibme"
         "tokens/discord"
         "tokens/github"
-
-        "qbittorrent/username"
-        "qbittorrent/password"
       ] "${self}/.secrets.yaml";
 
     age = {

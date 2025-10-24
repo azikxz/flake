@@ -63,6 +63,12 @@ in
     };
   };
 
+  systemd.services.qbittorrent = {
+    serviceConfig = {
+      UMask = "0002"; # 775
+    };
+  };
+
   tmp.qbittorrent = {
     "${savePath}/"."d" = {
       inherit (config.services.qbittorrent)

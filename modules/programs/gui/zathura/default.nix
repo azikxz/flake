@@ -8,26 +8,24 @@
 with lib;
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  hm = {
-    home.packages = [ pkgs.zaread ];
+  hmPackages = [ pkgs.zaread ];
 
-    programs.zathura = {
-      enable = true;
+  hm.programs.zathura = {
+    enable = true;
 
-      options = {
-        guioptions = "none";
+    options = {
+      guioptions = "none";
 
-        selection-clipboard = "clipboard";
-        smooth-scroll = true;
+      selection-clipboard = "clipboard";
+      smooth-scroll = true;
 
-        window-title-home-tilde = true;
-        statusbar-home-tilde = true;
+      window-title-home-tilde = true;
+      statusbar-home-tilde = true;
 
-        font = concatStringsSep " " [
-          config.stylix.fonts.sansSerif.name
-          (toString config.stylix.fonts.sizes.applications)
-        ];
-      };
+      font = concatStringsSep " " [
+        config.stylix.fonts.sansSerif.name
+        (toString config.stylix.fonts.sizes.applications)
+      ];
     };
   };
 

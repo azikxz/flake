@@ -18,21 +18,37 @@ with lib;
   play = [
     {
       run = ''mpv --fs "$@"'';
-      desc = "Open video";
+      desc = "Open video in MPV";
     }
   ];
 
   image = [
     {
       run = ''swayimg "$@"'';
-      desc = "Open image";
+      desc = "Open image in swayimg";
+    }
+  ];
+
+  torrent = [
+    {
+      run = ''qbt torrent add file "$@"'';
+      desc = "Add torrent to qBittorrent";
+      orphan = true;
     }
   ];
 
   office = [
     {
       run = ''libreoffice "$@"'';
-      desc = "Open document";
+      desc = "Open document in Libreoffice";
+      orphan = true;
+    }
+  ];
+
+  officePdf = [
+    {
+      run = ''zaread "$@"'';
+      desc = "Open document in Zathura";
       orphan = true;
     }
   ];
@@ -40,35 +56,35 @@ with lib;
   pdf = [
     {
       run = ''zathura "$@"'';
-      desc = "Open PDF";
+      desc = "Open pdf in Zathura";
     }
   ];
 
   extract = [
     {
       run = ''ouch d -y "$@"'';
-      desc = "Extract files";
+      desc = "Extract files via ouch";
     }
   ];
 
   kdbx = [
     {
       run = ''keepassxc "$@"'';
-      desc = "Open passwords db";
+      desc = "Open keepass password db";
     }
   ];
 
   prism = [
     {
       run = ''prismlauncher "$@"'';
-      desc = "Import modpack to prismlauncher";
+      desc = "Import modpack to Prismlauncher";
     }
   ];
 
   exe = [
     {
       run = ''umu-run "$@"'';
-      desc = "Open via umu-run";
+      desc = "Open windows exe via umu-run";
       orphan = true;
     }
   ];
@@ -76,7 +92,7 @@ with lib;
   native = mkIf config.programs.steam.enable [
     {
       run = ''steam-run "$@"'';
-      desc = "Open native bin";
+      desc = "Open native bin via steam-run";
       orphan = true;
       block = true;
     }
@@ -85,7 +101,7 @@ with lib;
   open = [
     {
       run = ''xdg-open "$@"'';
-      desc = "Open via xdg";
+      desc = "Open via xdg-open";
     }
   ];
 }

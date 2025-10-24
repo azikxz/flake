@@ -106,7 +106,11 @@ in
         ;
     };
 
-    open = import ./open.nix;
+    open = import ./open.nix {
+      inherit
+        lib
+        ;
+    };
 
     tasks = {
       image_bound = [

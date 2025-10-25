@@ -3,6 +3,7 @@
 # > nix run nixpkgs#ssh-to-age -- < ~/.ssh/id_ed25519.pub
 keys:
   - &jetpure age13qxl594a6jvt5dku8clyga2c3dxap6jur86zwleedylt7ht0fymsvpkyum
+  - &blackmamba age17q8x2gyzk53d23l8er0zvkntycsm56uu88lte5v6r0qkdev68phsshuzzh
 
 creation_rules:
   # allow to create any
@@ -13,9 +14,11 @@ creation_rules:
     key_groups:
       - age:
           - *jetpure
+          - *blackmamba
 
   # allows to create .<name>.ext
   - path_regex: .[^/]+\.(yaml|json|env|ini)$
     key_groups:
       - age:
           - *jetpure
+          - *blackmamba

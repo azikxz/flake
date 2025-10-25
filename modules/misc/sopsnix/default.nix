@@ -47,6 +47,7 @@ with lib;
         "password"
 
         "tokens/anilibme"
+        "tokens/cachix"
         "tokens/discord"
         "tokens/github"
         "tokens/jerry"

@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -12,11 +13,20 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
   hmPackages = attrValues {
     inherit (pkgs)
-      cachix
       hut
       nix-init
+      ;
+  };
+
+  packages = attrValues {
+    inherit (pkgs)
+      cachix
       nix-tree
       nurl
       ;
   };
+
+  environment.interactiveShellInit = ''
+    export CACHIX_AUTH_TOKEN="$(cat ${config.sopsnix."tokens/cachix"})"
+  '';
 }

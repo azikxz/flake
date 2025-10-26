@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -9,6 +10,8 @@ with lib;
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/state/syncthing" ];
+
+  hmPackages = [ pkgs.stc-cli ];
 
   hm.services.syncthing = {
     enable = true;
@@ -54,4 +57,15 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       "tailscale0".allowedTCPPorts = [ 8384 ];
     };
   };
+
+  nixpkgs.overlays = [
+    (
+      final: prev: with prev.lib; {
+        stc-cli = prev.writeShellScriptBin "stc-cli" ''
+          ${getExe prev.stc-cli} \
+            --homedir ${config.hm.xdg.stateHome}/syncthing "$@"
+        '';
+      }
+    )
+  ];
 }

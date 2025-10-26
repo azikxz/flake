@@ -17,25 +17,21 @@ with lib;
 #
 # rebuild
 
-mkIf false {
+mkIf true {
   environment = {
-    etc = builtins.listToAttrs (
-      map
-        (
+    etc = (
+      listToAttrs (
+        map (
           file:
           let
-            name = builtins.baseNameOf file;
+            name = baseNameOf file;
           in
           {
             name = "amnezia/amneziawg/${name}";
             value.source = ./${name};
           }
-        )
-        (
-          builtins.filter (f: builtins.match ".*\\.conf$" f != null) (
-            builtins.attrNames (builtins.readDir ./.)
-          )
-        )
+        ) (filter (f: match ".*\\.conf$" f != null) (attrNames (builtins.readDir ./.)))
+      )
     ) # awg-quick up ${name}
     ;
 

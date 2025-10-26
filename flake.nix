@@ -130,24 +130,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # selfmade
-    nixages = {
-      url = "sourcehut:~neverness/nixages";
-      inputs.flake-utils.follows = "utils";
-    };
-
-    torrHelper = {
-      url = "github:mctrxnv/torrserver-helper";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "utils";
-    };
-
-    qbHelper = {
-      url = "github:mctrxnv/qbHelper";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "utils";
-    };
-
     easyeffects = {
       url = "github:mctrxw/easyeffects-presets";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -164,9 +146,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # umu-run tools
+    # non flake tools
     protonfixes = {
       url = "github:Open-Wine-Components/umu-protonfixes";
+      flake = false;
+    };
+
+    antizapret = {
+      url = "https://raw.githubusercontent.com/pumPCin/AntiZapret/refs/heads/main/hosts";
       flake = false;
     };
   };

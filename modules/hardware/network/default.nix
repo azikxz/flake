@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   ...
 }:
@@ -37,7 +38,7 @@ with lib;
       "84.21.189.133" # https://info.dns.malw.link
     ];
 
-    # extraHosts = readFile ./hosts;
+    extraHosts = readFile inputs.antizapret;
   };
 
   programs.nm-applet = {

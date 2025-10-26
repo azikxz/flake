@@ -44,6 +44,18 @@
         "type": "github"
       }
     },
+    "antizapret": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-6ZFDaer4MQzW4HmXTbaBxJQmdJjZEWciUApAe3XYV+k=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/pumPCin/AntiZapret/refs/heads/main/hosts"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/pumPCin/AntiZapret/refs/heads/main/hosts"
+      }
+    },
     "base16": {
       "inputs": {
         "nixpkgs": [
@@ -610,27 +622,6 @@
         "type": "github"
       }
     },
-    "nixages": {
-      "inputs": {
-        "flake-utils": [
-          "utils"
-        ],
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "lastModified": 1753411007,
-        "narHash": "sha256-po0kwZVoytZxcTKnhXOKYmP/AGvgggYefP9kRaI0snk=",
-        "owner": "~neverness",
-        "repo": "nixages",
-        "rev": "d099b610a122b984fa8a7e56e5432e6c4cf92e19",
-        "type": "sourcehut"
-      },
-      "original": {
-        "owner": "~neverness",
-        "repo": "nixages",
-        "type": "sourcehut"
-      }
-    },
     "nixcord": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -720,22 +711,6 @@
       }
     },
     "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1750776420,
-        "narHash": "sha256-/CG+w0o0oJ5itVklOoLbdn2dGB0wbZVOoDm4np6w09A=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "30a61f056ac492e3b7cdcb69c1e6abdcf00e39cf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
       "locked": {
         "lastModified": 1760524057,
         "narHash": "sha256-EVAqOteLBFmd7pKkb0+FIUyzTF61VKi7YmvP1tw4nEw=",
@@ -855,33 +830,11 @@
         "type": "github"
       }
     },
-    "qbHelper": {
-      "inputs": {
-        "flake-utils": [
-          "utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1744895533,
-        "narHash": "sha256-OPJ4rTWDly2mxDnETZkk3xUKamz9WGDqG9zZyoxjt7A=",
-        "owner": "mctrxnv",
-        "repo": "qbHelper",
-        "rev": "03d56ecaaf8d93fb13854a61caca6832f41e9f06",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mctrxnv",
-        "repo": "qbHelper",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "agenix": "agenix",
         "anipy": "anipy",
+        "antizapret": "antizapret",
         "base16": "base16",
         "curd": "curd",
         "cursors": "cursors",
@@ -896,9 +849,8 @@
         "jerry": "jerry",
         "musnix": "musnix",
         "niri": "niri",
-        "nixages": "nixages",
         "nixcord": "nixcord",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-24": "nixpkgs-24",
         "nixpkgs-25": "nixpkgs-25",
         "nixpkgs-old": "nixpkgs-old",
@@ -906,11 +858,9 @@
         "parts": "parts",
         "plasma": "plasma",
         "protonfixes": "protonfixes",
-        "qbHelper": "qbHelper",
         "sopsnix": "sopsnix",
         "spicetify": "spicetify",
         "stylix": "stylix",
-        "torrHelper": "torrHelper",
         "utils": "utils",
         "viu": "viu",
         "wallpapers": "wallpapers",
@@ -1209,29 +1159,6 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
-        "type": "github"
-      }
-    },
-    "torrHelper": {
-      "inputs": {
-        "flake-utils": [
-          "utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1744953398,
-        "narHash": "sha256-fBk1XO9055Lz6lA1VkYL/O6UGr8CIiATU/zFojFs2/E=",
-        "owner": "mctrxnv",
-        "repo": "torrserver-helper",
-        "rev": "fd9d74ce201e1d9e5dea6b2c43a8639badcb322e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mctrxnv",
-        "repo": "torrserver-helper",
         "type": "github"
       }
     },

@@ -3,10 +3,6 @@
   ...
 }:
 
-let
-  compress = "compress=zstd:16";
-in
-
 {
   disko.devices.disk.disko = {
     inherit device;
@@ -37,14 +33,9 @@ in
           size = "100%";
 
           content = {
-            type = "btrfs";
-            extraArgs = [ "-f" ];
-
+            type = "filesystem";
+            format = "ext4";
             mountpoint = "/";
-            mountOptions = [
-              compress
-              "noatime"
-            ];
           };
         };
       };

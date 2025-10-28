@@ -52,6 +52,8 @@ with lib;
         "tokens/github"
         "tokens/jerry"
         "tokens/viu"
+
+        "services/winapps"
       ] "${self}/.secrets.yaml";
 
     age = {

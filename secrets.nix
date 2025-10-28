@@ -10,10 +10,11 @@ let
 
   # INFO: write here files
   # whats need to encrypt ./.
+  #
+  # agenix -e name.age
   secretsList = (
     map (p: ("secrets/" + p)) [
       "password"
-      "github"
     ]
   );
 

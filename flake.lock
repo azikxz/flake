@@ -47,7 +47,7 @@
     "antizapret": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-6ZFDaer4MQzW4HmXTbaBxJQmdJjZEWciUApAe3XYV+k=",
+        "narHash": "sha256-5+HhnaPXnbUxIIpaplEQG2DvYVgtgFBoxu9GfwIob/s=",
         "type": "file",
         "url": "https://raw.githubusercontent.com/pumPCin/AntiZapret/refs/heads/main/hosts"
       },

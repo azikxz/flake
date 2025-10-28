@@ -14,53 +14,57 @@ with lib;
 # 4) enter to http://localhost:8006
 # 5) your windows is ready
 
-mkIf false {
+mkIf true {
   persist.user.files = [ ".local/share/winapps/winapps.log" ];
 
-  virtualisation.oci-containers.containers."winapps" = {
-    image = "ghcr.io/dockur/windows:latest";
+  virtualisation.oci-containers.containers = {
+    # WARN: only with WinApps, not winapps
+    "WinApps" = {
+      autoStart = false;
 
-    environment =
-      let
-        mk = n: toString (8 * n);
-      in
-      {
+      image = "ghcr.io/dockur/windows:latest";
+
+      environment = {
         "VERSION" = "tiny11"; # INFO: low size lightweight win11
-        "CPU_CORES" = mk 1;
-        "RAM_SIZE" = mk 1 + "G";
-        "DISK_SIZE" = mk 8 + "G";
-        "HOME" = config.users.users.${system.userName}.home;
-        "USERNAME" = system.userName;
-        "PASSWORD" = "windows";
+
+        "CPU_CORES" = (toString 8);
+        "RAM_SIZE" = (toString 8) + "G";
+        "DISK_SIZE" = (toString (8 * 8)) + "G";
+
+        "HOME" = config.hm.home.homeDirectory;
+        # "PASSWORD" & "USERNAME" automatically sets from secret
+
         GPU = "Y";
       };
 
-    volumes = [
-      "/home/${system.userName}:/shared:rw"
-      "/media:/media:rw"
-      "winapps_data:/storage:rw"
-    ];
+      environmentFiles = [ config.sopsnix."services/winapps" ];
 
-    devices = [
-      "/dev/dri"
-    ];
+      volumes = [
+        "${config.hm.home.homeDirectory}:/shared:rw"
+        "/media:/media:rw"
+        "winapps_data:/storage:rw"
+      ];
 
-    ports = [
-      "8006:8006/tcp"
-      "3389:3389/tcp"
-      "3389:3389/udp"
-    ];
+      devices = [
+        "/dev/dri"
+      ];
 
-    log-driver = "journald";
+      ports = [
+        "8006:8006/tcp"
+        "3389:3389/tcp"
+        "3389:3389/udp"
+      ];
 
-    extraOptions = [
-      "--cap-add=NET_ADMIN"
-      "--device=/dev/kvm:/dev/kvm:rwm"
-      "--device=/dev/net/tun:/dev/net/tun:rwm"
-      "--network=winapps_network"
-      "--network-alias=windows"
-      "--privileged"
-    ];
+      extraOptions = [
+        "--device=/dev/kvm:/dev/kvm:rwm"
+        "--device=/dev/net/tun:/dev/net/tun:rwm"
+
+        "--cap-add=NET_ADMIN"
+
+        "--network-alias=windows"
+        "--privileged"
+      ];
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -68,99 +72,35 @@ mkIf false {
     winapps-launcher
   ];
 
-  hm.xdg.configFile."winapps/winapps.conf".text = generators.toINIWithGlobalSection { } {
+  hm.xdg.configFile."winapps/winapps.conf".text = ''
+    source ${config.sopsnix."services/winapps"}
+  ''
+  + (generators.toINIWithGlobalSection { } {
     globalSection = {
-      RDP_USER = system.userName;
-      RDP_PASS = "windows";
-      RDP_DOMAIN = "wlfreerdp";
+      RDP_USER = "$USER";
+      RDP_PASS = "$PASSWORD";
 
       RDP_IP = "127.0.0.1";
-      WAFLAVOR = "podman";
       RDP_SCALE = "100";
-
       RDP_FLAGS = "\"/cert:tofu /sound /microphone\"";
-      MULTIMON = "false";
-      DEBUG = "true";
+
+      WAFLAVOR = config.virtualisation.oci-containers.backend;
+      DEBUG = "false";
 
       AUTOPAUSE = "on";
       AUTOPAUSE_TIME = "300";
       FREERDP_COMMAND = "";
+
+      REMOVABLE_MEDIA = if config.services.udisks2.mountOnMedia then "/media" else "/run/media"; # cause udisks
     };
+
     sections = { };
-  };
+  });
 
-  systemd = {
-    services = {
-      # INFO: default
-      "winapps" =
-        let
-          dataNetwork = [
-            "winapps_default.service"
-            "winapps_data.service"
-          ];
-
-          root = [
-            "docker-compose-winapps-root.target"
-          ];
-        in
-        {
-          serviceConfig = {
-            Restart = mkOverride 90 "on-failure";
-            RestartMaxDelaySec = mkOverride 90 "1m";
-            RestartSec = mkOverride 90 "100ms";
-            RestartSteps = mkOverride 90 9;
-          };
-
-          after = dataNetwork;
-          partOf = root;
-          requires = dataNetwork;
-          upheldBy = dataNetwork;
-          wantedBy = root;
-        };
-
-      # INFO: volumes
-      "winapps-data" = {
-        path = [ config.virtualisation.podman.package ];
-
-        serviceConfig = {
-          Type = "oneshot";
-          RemainAfterExit = true;
-        };
-
-        script = ''
-          podman volume inspect winapps_data || podman volume create winapps_data
-        '';
-
-        partOf = [ "winapps-root.target" ];
-        wantedBy = [ "winapps-root.target" ];
-      };
-
-      # INFO: network
-      "winapps-network" = {
-        path = [ config.virtualisation.podman.package ];
-
-        serviceConfig = {
-          Type = "oneshot";
-          RemainAfterExit = true;
-          ExecStop = "docker network rm -f winapps_network";
-        };
-
-        script = ''
-          podman network inspect winapps_network || podman network create winapps_network
-        '';
-
-        partOf = [ "winapps-root.target" ];
-        wantedBy = [ "winapps-root.target" ];
-      };
-    };
-
-    # INFO: root target
-    targets."winapps-root" = {
-      unitConfig = {
-        Description = "Root target generated by compose2nix.";
-      };
-
-      wantedBy = [ "multi-user.target" ];
-    };
+  systemd = import ./systemd.nix {
+    inherit
+      lib
+      config
+      ;
   };
 }

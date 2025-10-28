@@ -14,8 +14,10 @@ with lib;
 # 4) enter to http://localhost:8006
 # 5) your windows is ready
 
-mkIf true {
+mkIf false {
   persist.user.files = [ ".local/share/winapps/winapps.log" ];
+
+  networking.firewall.allowedTCPPorts = [ 3389 ];
 
   virtualisation.oci-containers.containers = {
     # WARN: only with WinApps, not winapps

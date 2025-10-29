@@ -6,7 +6,7 @@
 with lib;
 # INFO: base for pods
 
-mkIf true {
+mkIf (mac "pcRyazenka") {
   virtualisation = {
     spiceUSBRedirection.enable = true;
 

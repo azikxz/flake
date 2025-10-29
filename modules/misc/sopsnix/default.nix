@@ -53,7 +53,7 @@ with lib;
         "tokens/jerry"
         "tokens/viu"
 
-        "services/winapps"
+        "services/windows"
       ] "${self}/.secrets.yaml";
 
     age = {

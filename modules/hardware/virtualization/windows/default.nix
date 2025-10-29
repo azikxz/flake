@@ -56,6 +56,12 @@ mkIf (mac "pcRyazenka") {
       };
 
       environmentFiles = [ config.sopsnix."services/windows" ];
+      # secret like this
+      #
+      # services:
+      #   windows: |
+      #     USERNAME=windauser
+      #     PASSWORD=fuckmicosoft
 
       volumes = [
         "${config.hm.home.homeDirectory}:/shared:rw"

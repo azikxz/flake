@@ -54,6 +54,7 @@ with lib;
         "tokens/viu"
 
         "services/windows"
+        "services/transmission"
       ] "${self}/.secrets.yaml";
 
     age = {

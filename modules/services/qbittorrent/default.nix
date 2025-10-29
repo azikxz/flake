@@ -70,13 +70,11 @@ in
   };
 
   tmp.qbittorrent = {
-    "${savePath}/"."d" = {
-      inherit (config.services.qbittorrent)
-        user
-        group
-        ;
-
+    "${savePath}".d = {
       mode = "0775";
-    };
+    }
+    // genAttrs [ "user" "group" ] (n: "media");
   };
+
+  users.users.qbittorrent.extraGroups = [ "media" ];
 })

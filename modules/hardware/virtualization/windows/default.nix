@@ -25,16 +25,16 @@ in
 # 6) to activate windows open powershell and type
 #    > iex (curl.exe -s --doh-url https://1.1.1.1/dns-query https://get.activated.win | Out-String)
 
-mkIf (mac "pcRyazenka") {
+mkIf false {
   networking.firewall.allowedTCPPorts = [ 3389 ];
 
   virtualisation.oci-containers.containers = {
     # WARN: only with WinApps, not winapps cause idk
 
-    windows = {
+    "windows" = {
       autoStart = false;
       # INFO: will be sopped on boot
-      # > systemctl start podman-WinApps.service
+      # > systemctl start podman-windows.service
       # to start container
 
       image = "ghcr.io/dockur/windows:latest";
@@ -70,7 +70,12 @@ mkIf (mac "pcRyazenka") {
       # custom local iso of windows
       ++ (optional (isPath customIso) "${toString customIso}:/custom.iso");
 
-      devices = [ "/dev/dri" ];
+      devices = [
+        "/dev/dri"
+        "/dev/vfio"
+        "/dev/kvm"
+        "/dev/net/tun"
+      ];
 
       ports = [
         "8006:8006/tcp"
@@ -79,10 +84,6 @@ mkIf (mac "pcRyazenka") {
       ];
 
       extraOptions = [
-        "--device=/dev/kvm:/dev/kvm:rwm"
-        "--device=/dev/net/tun:/dev/net/tun:rwm"
-        "--device=/dev/dri:/dev/dri:rwm"
-
         "--cap-add=NET_ADMIN"
 
         "--network-alias=windows"

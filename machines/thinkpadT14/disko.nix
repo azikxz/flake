@@ -30,7 +30,7 @@
         };
 
         root = {
-          size = "412G";
+          size = "180G";
 
           content = {
             type = "filesystem";
@@ -38,6 +38,8 @@
             mountpoint = "/";
           };
         };
+
+        # other 60G will be for windows
       };
     };
   };

@@ -7,13 +7,13 @@
 
 with lib;
 let
-  savePath = "/media/torrents-transmission";
+  savePath = "/media/torrents";
 in
 # INFO:
 # http://localhost:9091
 # another web ui is flood
 
-mkIf (mac "pcRyazenka") {
+mkIf false {
   persist.dirs = [
     "/var/lib/transmission"
     savePath
@@ -72,12 +72,14 @@ mkIf (mac "pcRyazenka") {
 
   tmp.transmission = {
     "${savePath}".d = {
-      mode = "0775";
-    }
-    // genAttrs [ "user" "group" ] (n: "media");
-  };
+      inherit (config.services.transmission)
+        user
+        group
+        ;
 
-  users.users.transmission.extraGroups = [ "media" ];
+      mode = "0775";
+    };
+  };
 
   networking.hosts."163.172.167.207" = [
     "bt.t-ru.org"

@@ -17,7 +17,7 @@ with lib;
 #
 # rebuild
 
-mkIf true {
+mkIf (mac "pcRyazenka") {
   environment = {
     etc = (
       listToAttrs (

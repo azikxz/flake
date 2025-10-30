@@ -18,7 +18,7 @@ in
     savePath
   ];
 
-  environment.systemPackages = [ pkgs.qb-hash ];
+  environment.systemPackages = [ pkgs.qbt-tui ];
 
   services.qbittorrent = {
     enable = true;

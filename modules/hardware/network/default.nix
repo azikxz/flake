@@ -34,11 +34,9 @@ with lib;
     nameservers = [
       "8.8.8.8"
       "1.1.1.1"
-
-      "84.21.189.133" # https://info.dns.malw.link
     ];
 
-    extraHosts = readFile inputs.antizapret;
+    extraHosts = readFile ./hosts;
   };
 
   programs.nm-applet = {

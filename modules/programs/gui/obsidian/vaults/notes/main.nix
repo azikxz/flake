@@ -52,7 +52,7 @@ in
       {
         name = "daily-notes";
         settings = {
-          format = "YYYY-MM-DD_HH:mm";
+          format = "YYYY-MM-DD";
         };
       }
     ]

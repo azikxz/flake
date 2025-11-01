@@ -5,10 +5,9 @@
 
 let
   inherit (pkgs)
-    yazi-plugins
+    yaziPlugins'
     yaziPlugins
     writeTextDir
-    fetchFromGitHub
     ;
 
   plugin = n: t: {
@@ -31,23 +30,13 @@ in
       yatline
       ;
 
-    inherit (yazi-plugins)
+    inherit (yaziPlugins')
+      clipboard-to-file
       glow
       office
       wl-clipboard
       ;
   }
-  //
-
-    # fetched
-    {
-      save-clipboard-to-file = fetchFromGitHub {
-        owner = "boydaihungst";
-        repo = "save-clipboard-to-file.yazi";
-        rev = "40de82fec9f46d3c3d1dc8907d0ca3fa6ca8c8f1";
-        hash = "sha256-5wtSjwg6RvbIuODwQOHJ+bHhPjhn0UyRWzPngdS8uQM=";
-      };
-    }
 
   # custom
   // (plugin "smart-paste" # lua

@@ -6,6 +6,9 @@
 }:
 
 with lib;
+let
+  cfg = config.programs.steam;
+in
 # WARNING: for unified prefix use
 # STEAM_COMPAT_DATA_PATH=/media/disks/fastBitch/UnifiedPrefix %command%
 
@@ -71,22 +74,34 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     };
   };
 
+  hm.systemd.user.services.steam = {
+    Unit = {
+      Description = cfg.package.meta.description;
+      After = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      ExecStart = concatStringsSep " " [
+        (getExe cfg.package)
+        "-nochatui"
+        "-nofriendsui"
+        "-silent"
+      ];
+
+      Type = "simple";
+      KillMode = "process";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
+
   nixpkgs.overlays = [
     (final: prev: {
       proton-ge-bin = prev.proton-ge-bin.override {
         steamDisplayName = "Proton-GE";
       };
-
-      # INFO: in stock steam-run you need
-      # > steam-run ./foo/bar
-      # it overlay makes you dont need write ./
-      # it just works
-      steam-run = prev.writeShellScriptBin "steam-run" (
-        with prev.lib;
-        ''
-          ${getExe prev.steam-run} ./$@
-        ''
-      );
     })
   ];
 }

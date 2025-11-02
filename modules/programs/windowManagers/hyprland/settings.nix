@@ -12,13 +12,6 @@ with config.lib.stylix.colors;
 
   exec-once = [
     "[silent] hyprctl dispatch closewindow initialtitle:Support Hyprland"
-
-    (concatStringsSep " " [
-      "steam"
-      "-nochatui"
-      "-nofriendsui"
-      "-silent"
-    ])
   ];
 
   monitorv2 =

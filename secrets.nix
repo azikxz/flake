@@ -8,20 +8,21 @@ let
   # > agenix -r
   publicKeys = import ./modules/misc/users/sshKeys.nix;
 
-  # INFO: write here files
-  # whats need to encrypt ./.
-  #
-  # agenix -e name.age
-  secretsList = (
-    map (p: ("secrets/" + p)) [
+  secretsList =
+    (mapExt [
       "password"
-    ]
-  );
+    ] "age")
+
+    ++ (mapExt [
+      "email"
+    ] "toml");
+
+  mapExt = names: ext: map (p: "secrets/" + p + "." + ext) names;
 
   # without nixpkgs.lib
   # implementation of genAttrs
   mkKeys = file: {
-    "${file}.age" = {
+    "${file}" = {
       inherit
         publicKeys
         ;
@@ -30,7 +31,7 @@ let
 
   foldl =
     f: i: l:
-    if (l == [ ]) then i else (foldl f (f i (head l)) (tail l));
+    if l == [ ] then i else foldl f (f i (head l)) (tail l);
 
   genAttrs = n: foldl (a: b: a // b) { } n;
 in

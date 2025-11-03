@@ -105,7 +105,7 @@
 |                              [tenki](https://github.com/ckaznable/tenki) | tui clock with effects                |
 |                                     [gdu](https://github.com/dundee/gdu) | space on disk left                    |
 |                     [qbt](https://github.com/fedarovich/qbittorrent-cli) | qbittorrent cli                       |
-| [qbtui](https://gist.github.com/mctrxw/1368b57a9dd8c5af1396d6ff94ac5395) | qbittorrent tui (myself made)         |
+| [qbtui](https://gist.github.com/azikxz/1368b57a9dd8c5af1396d6ff94ac5395) | qbittorrent tui (myself made)         |
 |                     [jetbrains](https://github.com/ryanoasis/nerd-fonts) | nerded fonts                          |
 
 - idk what also dudes

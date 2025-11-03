@@ -126,12 +126,12 @@
     };
 
     zapret = {
-      url = "github:mctrxw/nix-zapret-presets";
+      url = "github:azikxz/nix-zapret-presets";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     easyeffects = {
-      url = "github:mctrxw/easyeffects-presets";
+      url = "github:azikxz/easyeffects-presets";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

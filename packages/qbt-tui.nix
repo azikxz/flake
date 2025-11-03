@@ -13,7 +13,7 @@ buildPythonApplication {
   version = "git";
 
   src = pkgs.fetchurl {
-    url = "https://gist.githubusercontent.com/mctrxw/1368b57a9dd8c5af1396d6ff94ac5395/raw/c2b62030f81ab7ea38d4feaedf91a0ab4a43bc31/qbt-tui.py";
+    url = "https://gist.githubusercontent.com/azikz/1368b57a9dd8c5af1396d6ff94ac5395/raw/c2b62030f81ab7ea38d4feaedf91a0ab4a43bc31/qbt-tui.py";
     sha256 = "sha256-1gAYAAUyjifwOQKM2Ix1QBFnw90tuUxXlKORGIZJzbA=";
   };
 
@@ -35,10 +35,10 @@ buildPythonApplication {
 
   meta = {
     description = "Control qBittorrent via TUI";
-    homepage = "https://gist.github.com/mctrxw/1368b57a9dd8c5af1396d6ff94ac5395";
+    homepage = "https://gist.github.com/azikz/1368b57a9dd8c5af1396d6ff94ac5395";
     license = lib.licenses.wtfpl;
     platforms = [ "x86_64-linux" ];
-    maintainers = with lib.maintainers; [ azikx ];
+    maintainers = with lib.maintainers; [ azikxz ];
     mainProgram = "qbt-tui";
   };
 }

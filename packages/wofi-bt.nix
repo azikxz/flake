@@ -8,7 +8,7 @@ pkgs.stdenvNoCC.mkDerivation {
   version = "git";
 
   src = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/mctrxw/wofi-bluetooth/a4a0caf025fba65d94534471c36158e0e81c154f/wofi-bluetooth";
+    url = "https://raw.githubusercontent.com/azikxz/wofi-bluetooth/a4a0caf025fba65d94534471c36158e0e81c154f/wofi-bluetooth";
     sha256 = "sha256-EAh6UcH6EN19LX6OaamC8QNKkqQXGj7hDVV9zWKwSow=";
   };
 
@@ -28,10 +28,10 @@ pkgs.stdenvNoCC.mkDerivation {
 
   meta = {
     description = "Control bt via wofi";
-    homepage = "https://github.com/mctrxw/wofi-bluetooth";
+    homepage = "https://github.com/azikxz/wofi-bluetooth";
     license = lib.licenses.gpl3;
     platforms = [ "x86_64-linux" ];
-    maintainers = with lib.maintainers; [ azikx ];
+    maintainers = with lib.maintainers; [ azikxz ];
     mainProgram = "wofi-bt";
   };
 }

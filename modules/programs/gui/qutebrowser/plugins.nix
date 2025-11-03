@@ -17,7 +17,7 @@ with pkgs;
   })
 
   (fetchurl {
-    url = "https://gist.githubusercontent.com/mctrxw/482d955868b9fb625ad4d9339a1f24ed/raw/fc6a49e627ddbec1266b686c28dbd0c495275d2d/vot.user.js";
+    url = "https://gist.githubusercontent.com/azikxz/482d955868b9fb625ad4d9339a1f24ed/raw/fc6a49e627ddbec1266b686c28dbd0c495275d2d/vot.user.js";
     sha256 = "sha256-TNG8qiEVXpFRC9ygwX+rGiqx0Szi8XF0NROpx8F8Cuk=";
   })
 

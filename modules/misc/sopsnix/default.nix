@@ -55,6 +55,8 @@ with lib;
 
         "services/windows"
         "services/transmission"
+
+        "accounts/gmailPassword"
       ] "${self}/.secrets.yaml";
 
     age = {

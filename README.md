@@ -114,7 +114,7 @@
 
 ---
 
-# Info:
+### Info:
 
 <details> <summary>pcRyazenka (main device)</summary>
 
@@ -152,7 +152,7 @@ obtain on github actions/releases (yet not active)
 
 ---
 
-#### Domo arigato 
+### Domo arigato 
 
 - [grinya](https://github.com/witttccchhher/nix-conf) my boyfriend) i love him   
 - [artem](https://github.com/ArtemChandragupta/NixFlake)

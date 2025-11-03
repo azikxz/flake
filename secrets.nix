@@ -8,14 +8,16 @@ let
   # > agenix -r
   publicKeys = import ./modules/misc/users/sshKeys.nix;
 
-  secretsList =
-    (mapExt [
+  secretsList = (
+    mapExt [
       "password"
-    ] "age")
+    ] "age"
+  )
 
-    ++ (mapExt [
-      "email"
-    ] "toml");
+  # ++ (mapExt [
+  #   "email"
+  # ] "toml")
+  ;
 
   mapExt = names: ext: map (p: "secrets/" + p + "." + ext) names;
 

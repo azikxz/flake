@@ -18,8 +18,8 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
     package = pkgs.gitMinimal;
 
-    userName = system.userName;
-    userEmail = system.userName + "@" + system.hostName + ".org";
+    userName = "azixz";
+    userEmail = "xfalwa@gmail.com";
 
     extraConfig = {
       color = {

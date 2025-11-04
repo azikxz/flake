@@ -7,7 +7,6 @@
 
 with lib;
 let
-  symlink = config.hm.lib.file.mkOutOfStoreSymlink;
   toml = pkgs.formats.toml { };
 in
 # INFO: anime scrappers/watchers
@@ -61,7 +60,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") (mkMerge [
       };
 
       xdg.dataFile = {
-        "jerry/anilist_token.txt".source = symlink config.sopsnix."tokens/jerry";
+        "jerry/anilist_token.txt".source = mkSymlink config.sopsnix."tokens/jerry";
       };
     };
   }
@@ -85,7 +84,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") (mkMerge [
         }
       );
 
-      "viu/auth.json".source = symlink config.sopsnix."tokens/viu";
+      "viu/auth.json".source = mkSymlink config.sopsnix."tokens/viu";
     };
   }
 

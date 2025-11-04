@@ -1,11 +1,13 @@
 {
-  pkgs,
   lib,
   config,
   ...
 }:
 
 with lib;
+let
+  cfg = config.hm.services.mbsync;
+in
 # INFO:
 # module for emailing
 
@@ -144,6 +146,22 @@ mkIf (mac "pcRyazenka") {
       # sync will be in every 5 minutes
 
       verbose = true;
+    };
+
+    systemd.user.services.mbsync-oneshot = {
+      Unit = {
+        Description = cfg.package.meta.description;
+        After = [ "network-online.target" ];
+      };
+
+      Service = {
+        ExecStart = concatStringsSep " " [
+          (getExe cfg.package)
+          "-aV"
+        ];
+
+        Type = "oneshot";
+      };
     };
   };
 }

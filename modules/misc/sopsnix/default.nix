@@ -26,8 +26,8 @@ with lib;
 
 {
   imports = [ ./module.nix ];
-  # alias config.age.secrets.<name>.path
-  # to config.agenix.<name>
+  # alias config.sops.secrets.<name>.path
+  # to config.sopsnix.<name>
 }
 // (mkIf (mac' "isoXtended") {
 
@@ -52,6 +52,8 @@ with lib;
         "tokens/github"
         "tokens/jerry"
         "tokens/viu"
+        "tokens/butler"
+        "tokens/itchio"
 
         "services/windows"
         "services/transmission"

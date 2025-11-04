@@ -8,8 +8,7 @@ with lib;
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   environment.shellAliases = {
-    goToFlake = "cd ${paths.flakeDir}";
-    rebuild = "sudo nixos-rebuild --sudo --flake ${paths.flakeDir}#${machine} switch";
+    rebuild = "nh os switch --diff always -H ${machine}";
     nixRepl = "nixos-rebuild repl --flake ${paths.flakeDir}#${machine}";
     nixPre = "nix store prefetch-file";
   };

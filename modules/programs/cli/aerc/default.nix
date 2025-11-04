@@ -36,8 +36,6 @@ mkIf (mac "pcRyazenka") {
         styleset-name = "stylix";
         sidebar-width = 15;
 
-        column-separator = "┆";
-
         tab-title-account = " {{.Account}}";
         dirlist-left = " {{.Folder}} ";
 

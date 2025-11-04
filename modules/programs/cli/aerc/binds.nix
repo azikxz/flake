@@ -17,10 +17,12 @@
 
   messages = {
     "<Esc>" = ":clear<Enter>";
-    "<Enter>" = ":view<Enter>";
     "q" = ":quit<Enter>";
 
     # letters navigate
+    "l" = ":view<Enter>";
+    "<Enter>" = ":view<Enter>";
+
     "j" = ":next<Enter>";
     "<Down>" = ":next<Enter>";
     "<C-d>" = ":next 50%<Enter>";

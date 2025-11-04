@@ -65,16 +65,16 @@
       "locked": {
         "lastModified": 1757418582,
         "narHash": "sha256-KkFDwFKgi8xanF1wtlR4s60kVhVBJSq/ioNNBY3klp0=",
-        "owner": "~neverness",
+        "owner": "azikxz",
         "repo": "design",
         "rev": "7531f1566c6e199bc6234091def536264b319d9b",
-        "type": "sourcehut"
+        "type": "github"
       },
       "original": {
-        "owner": "~neverness",
+        "owner": "azikxz",
         "ref": "base16",
         "repo": "design",
-        "type": "sourcehut"
+        "type": "github"
       }
     },
     "base16-fish": {
@@ -215,13 +215,13 @@
       "locked": {
         "lastModified": 1757159908,
         "narHash": "sha256-afXwoS/1gf7mTqJkFKTby8KuG1rP77wv5zBAFz2VM24=",
-        "owner": "mctrxw",
+        "owner": "azikxz",
         "repo": "easyeffects-presets",
         "rev": "15a7f295157240b16ce4f2bf5fe2194e34f1badb",
         "type": "github"
       },
       "original": {
-        "owner": "mctrxw",
+        "owner": "azikxz",
         "repo": "easyeffects-presets",
         "type": "github"
       }
@@ -1232,18 +1232,18 @@
         ]
       },
       "locked": {
-        "lastModified": 1752232826,
-        "narHash": "sha256-QAoVBxASUWg28qHQTfTcSfg4DKZMZxM4GILwSUpJ0Wk=",
-        "owner": "~neverness",
+        "lastModified": 1756991581,
+        "narHash": "sha256-IoUX+9mAQZrcCB4QCQ9GA9clHEtempBR3RPqejNOKaY=",
+        "owner": "azikxz",
         "repo": "design",
-        "rev": "9d72d640cb71661c729171af87d93f7c5f1417e3",
-        "type": "sourcehut"
+        "rev": "b810226b18706cc6fd484ffb0dd52902f540b112",
+        "type": "github"
       },
       "original": {
-        "owner": "~neverness",
+        "owner": "azikxz",
         "ref": "wallpapers",
         "repo": "design",
-        "type": "sourcehut"
+        "type": "github"
       }
     },
     "winapps": {
@@ -1312,13 +1312,13 @@
       "locked": {
         "lastModified": 1758803266,
         "narHash": "sha256-VBVUeMHNlm7Qz2amFY7vL9wyPcwCkhCsOUukSn/9UXQ=",
-        "owner": "mctrxw",
+        "owner": "azikxz",
         "repo": "nix-zapret-presets",
         "rev": "653282269705caf7bcc8a7a0ae72f8d0ecb3831e",
         "type": "github"
       },
       "original": {
-        "owner": "mctrxw",
+        "owner": "azikxz",
         "repo": "nix-zapret-presets",
         "type": "github"
       }

@@ -137,12 +137,12 @@
 
     # selfmade style
     base16 = {
-      url = "sourcehut:~neverness/design/base16";
+      url = "github:azikxz/design/base16";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     wallpapers = {
-      url = "sourcehut:~neverness/design/wallpapers";
+      url = "github:azikxz/design/wallpapers";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

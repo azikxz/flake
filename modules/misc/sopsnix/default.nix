@@ -52,8 +52,6 @@ with lib;
         "tokens/github"
         "tokens/jerry"
         "tokens/viu"
-        "tokens/butler"
-        "tokens/itchio"
 
         "services/windows"
         "services/transmission"

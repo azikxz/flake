@@ -13,8 +13,8 @@ buildPythonApplication {
   version = "git";
 
   src = pkgs.fetchurl {
-    url = "https://gist.githubusercontent.com/azikz/1368b57a9dd8c5af1396d6ff94ac5395/raw/c2b62030f81ab7ea38d4feaedf91a0ab4a43bc31/qbt-tui.py";
-    sha256 = "sha256-1gAYAAUyjifwOQKM2Ix1QBFnw90tuUxXlKORGIZJzbA=";
+    url = "https://gist.githubusercontent.com/azikxz/1368b57a9dd8c5af1396d6ff94ac5395/raw/30ec85955d0b0efd7db5adadf1af392380ea6c8b/qbt-tui.py";
+    sha256 = "sha256-e/4g1MJbqBKn55VIUdSh7szpH2m9s02+Kz+o02KxAYM=";
   };
 
   dontUnpack = true;

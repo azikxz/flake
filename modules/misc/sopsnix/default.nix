@@ -57,6 +57,7 @@ with lib;
         "services/transmission"
 
         "accounts/gmailPassword"
+        "accounts/tg"
       ] "${self}/.secrets.yaml";
 
     age = {

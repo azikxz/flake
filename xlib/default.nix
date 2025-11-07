@@ -70,21 +70,6 @@ utils.lib.eachSystem
             inputs.agenix.packages.${system}.default
           ];
         };
-
-        python = mkShell {
-          nativeBuildInputs = [
-            pkgs.python312Packages.requests
-            pkgs.python312Packages.pyotp
-            pkgs.python312Packages.pyperclip
-            pkgs.python312Packages.qrcode
-            pkgs.python312Packages.pykeepass
-            pkgs.python312Packages.urwid
-            pkgs.python312Packages.zxcvbn
-            pkgs.python312Packages.cryptography
-            pkgs.python312Packages.textual
-            pkgs.python312Packages.tkinter
-          ];
-        };
       };
     }
   )

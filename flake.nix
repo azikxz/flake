@@ -121,6 +121,11 @@
       inputs.flake-utils.follows = "utils";
     };
 
+    minecraft-assets = {
+      url = "github:azikxz/assets";
+      flake = false;
+    };
+
     cursors = {
       url = "github:LilleAila/nix-cursors";
       inputs.nixpkgs.follows = "nixpkgs";

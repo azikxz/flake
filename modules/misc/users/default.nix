@@ -48,6 +48,7 @@ in
           "podman"
           "suwayomi"
           "terraria"
+          "minecraft"
           "wheel"
 
           # torrent

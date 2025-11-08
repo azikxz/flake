@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
@@ -8,6 +9,8 @@
 with lib;
 let
   cfg = config.services.minecraft-servers;
+
+  dir = "/var/lib/minecraft";
 in
 # INFO:
 # your absolute awesome minecraft server
@@ -15,6 +18,8 @@ in
 # with auto generator servers
 
 mkIf (mac "pcRyazenka") {
+  persist.dirs = [ dir ];
+
   sops.secrets = {
     "services/minecraft" = {
       owner = mkForce cfg.user;
@@ -28,13 +33,15 @@ mkIf (mac "pcRyazenka") {
     };
   };
 
+  packages = [ pkgs.packwiz ];
+
   services.minecraft-servers = {
     enable = true;
 
     eula = true;
     openFirewall = true;
 
-    dataDir = "/var/lib/minecraft";
+    dataDir = dir;
     environmentFile = config.sopsnix."services/minecraft";
     # just a plain file
     #
@@ -48,6 +55,7 @@ mkIf (mac "pcRyazenka") {
           name:
           import (serverDirs + "/${name}/main.nix") {
             inherit
+              inputs
               pkgs
               lib
               ;

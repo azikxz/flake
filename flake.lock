@@ -545,6 +545,22 @@
         "type": "github"
       }
     },
+    "minecraft-assets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762592448,
+        "narHash": "sha256-GnjdejRoBo3puv0fShv2wo5d3PJ+uhcmX5MkAPUUx9A=",
+        "owner": "azikxz",
+        "repo": "assets",
+        "rev": "749bcb11eb39d73109d4b80b1a5452f4544043e7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "azikxz",
+        "repo": "assets",
+        "type": "github"
+      }
+    },
     "musnix": {
       "inputs": {
         "nixpkgs": [
@@ -888,6 +904,7 @@
         "impermanence": "impermanence",
         "jerry": "jerry",
         "minecraft": "minecraft",
+        "minecraft-assets": "minecraft-assets",
         "musnix": "musnix",
         "niri": "niri",
         "nixcord": "nixcord",

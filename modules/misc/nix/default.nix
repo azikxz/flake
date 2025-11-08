@@ -72,6 +72,7 @@ with lib;
 
     overlays = with inputs; [
       fjordlauncher.overlays.default
+      minecraft.overlays.default
       niri.overlays.niri
       nur.overlays.default
 

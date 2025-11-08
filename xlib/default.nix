@@ -158,6 +158,7 @@ utils.lib.eachSystem
               gaming.nixosModules.wine
               home.nixosModules.home-manager
               impermanence.nixosModules.impermanence
+              minecraft.nixosModules.minecraft-servers
               musnix.nixosModules.default
               nixpkgs.nixosModules.notDetected
               nur.modules.nixos.default

@@ -55,6 +55,7 @@ with lib;
 
         "services/windows"
         "services/transmission"
+        "services/minecraft"
 
         "accounts/gmailPassword"
         "accounts/tg"

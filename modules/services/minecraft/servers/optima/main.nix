@@ -38,8 +38,7 @@ in
     max-players = 24;
 
     enable-rcon = true;
-    "rcon.port" = 8044;
-    "rcon.password" = "@password@";
+    "rcon.password" = "@MCRCON_PASS@";
 
     server-port = 25565;
     # i use keendns to open server in worldwideweb

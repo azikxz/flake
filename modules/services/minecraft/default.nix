@@ -33,7 +33,15 @@ mkIf (mac "pcRyazenka") {
     };
   };
 
-  packages = [ pkgs.packwiz ];
+  packages = with pkgs; [
+    packwiz
+    mcrcon
+  ];
+
+  # i made two secrets couse owners diffirent
+  hm.home.sessionVariables = {
+    MCRCON_PASS = "$(cat ${config.sopsnix."services/minecraft-main"})";
+  };
 
   services.minecraft-servers = {
     enable = true;
@@ -66,16 +74,16 @@ mkIf (mac "pcRyazenka") {
         filterAttrs (_: v: v == "directory") (builtins.readDir serverDirs)
       );
     # auto generator server
-    #  .
-    # ├  servers
-    # │ ├  modded
-    # │ │ ├──  jvmOpts.nix
-    # │ │ ├──  main.nix
-    # │ │ └──  mods.nix
-    # │ └  vanilla
-    # │   ├──  jvmOpts.nix
-    # │   ├──  main.nix
-    # │   └──  mods.nix
-    # └  default.nix
+    # .
+    #  servers
+    # ├  modded
+    # │ ├──  jvmOpts.nix
+    # │ ├──  main.nix
+    # │ └──  mods.nix
+    # └  vanilla
+    #   ├──  jvmOpts.nix
+    #   ├──  main.nix
+    #   └──  mods.nix
+    #  default.nix
   };
 }

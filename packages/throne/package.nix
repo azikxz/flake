@@ -5,13 +5,13 @@
 
 pkgs.stdenv.mkDerivation (finalAttrs: {
   pname = "throne";
-  version = "1.0.6";
+  version = "1.0.8-unstable-2025-10-29";
 
   src = pkgs.fetchFromGitHub {
     owner = "throneproj";
     repo = "Throne";
-    tag = finalAttrs.version;
-    hash = "sha256-SWTbqyPGoEk8vAbkE1PWqkPbpRNRcIYRW1UY5r137VM=";
+    rev = "54af50fc414ffaf98b3ff88e3dd8aa041c65e041";
+    hash = "sha256-kfvsGw0RUYHkOUSeSA4egLl+gQqN4KkZKXX3CQQzYks=";
   };
 
   strictDeps = true;
@@ -28,11 +28,18 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     qt6Packages.qttools
   ];
 
-  NIX_CFLAGS_COMPILE = "-I${finalAttrs.passthru.routeprofiles}";
-
   cmakeFlags = [ (lib.cmakeBool "NKR_PACKAGE" true) ];
 
   patches = [ ./nixos-disable-setuid-request.patch ];
+
+  preBuild = ''
+    ln -s ${
+      pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/throneproj/routeprofiles/60eb41122de3aa53c701ec948cd52d7a26adafea/srslist.h";
+        hash = "sha256-k9vPtcusML4GR81UVeJ7jhuDHGk5Qh0eKw/cSOxBd5g=";
+      }
+    } ./srslist.h
+  '';
 
   installPhase = ''
     runHook preInstall
@@ -72,7 +79,7 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     patches = [ ./core-also-check-capabilities.patch ];
 
     proxyVendor = true;
-    vendorHash = "sha256-QmpNWxytWZ+ii77OFYeNcO83gJ16V/IYDE+ST+5Wxww=";
+    vendorHash = "sha256-thMRkbs5fS7KsUSRSeUaB2xkTjs7kJ9AKXW0+OXN3io=";
 
     nativeBuildInputs = with pkgs; [
       protobuf
@@ -103,16 +110,6 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     ];
   };
 
-  passthru.routeprofiles = pkgs.fetchFromGitHub {
-    owner = "throneproj";
-    repo = "routeprofiles";
-    rev = "28bf25d624e786cba3704efdd1e696ec502cd123";
-    postFetch = ''
-      rm $out/list # we only need srslist.h
-    '';
-    hash = "sha256-N2UEdEI4ekNixvtlxebxw+jLq7//3vUzfn2qpMvzS6k=";
-  };
-
   passthru = {
     inherit (finalAttrs.passthru.core)
       goModules
@@ -124,7 +121,11 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/throneproj/Throne";
     license = lib.licenses.gpl3Plus;
     mainProgram = "Throne";
-    maintainers = with lib.maintainers; [ tomasajt ];
+    maintainers = with lib.maintainers; [
+      tomasajt
+      aleksana
+      azikx
+    ];
     platforms = lib.platforms.linux;
   };
 })

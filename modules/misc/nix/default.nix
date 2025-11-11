@@ -12,7 +12,10 @@ with lib;
   persist.dirs = [ "/etc/nixos" ];
 
   environment = with pkgs; {
-    systemPackages = [ hydra-check ];
+    systemPackages = [
+      hydra-check
+      hasher
+    ];
   };
 
   nix = {

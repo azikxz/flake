@@ -164,7 +164,7 @@
     };
 
     antizapret = {
-      url = "https://raw.githubusercontent.com/pumPCin/AntiZapret/refs/heads/main/hosts";
+      url = "https://raw.githubusercontent.com/pumPCin/AntiZapret/f0cc7c98265e9c45bed7db0124012dc9c0ed621c/hosts";
       flake = false;
     };
   };

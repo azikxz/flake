@@ -47,13 +47,13 @@
     "antizapret": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-5+HhnaPXnbUxIIpaplEQG2DvYVgtgFBoxu9GfwIob/s=",
+        "narHash": "sha256-avIBPLQuXVUJm2/19F5hMqhYUtqLpXurf1XNmeTpEBY=",
         "type": "file",
-        "url": "https://raw.githubusercontent.com/pumPCin/AntiZapret/refs/heads/main/hosts"
+        "url": "https://raw.githubusercontent.com/pumPCin/AntiZapret/f0cc7c98265e9c45bed7db0124012dc9c0ed621c/hosts"
       },
       "original": {
         "type": "file",
-        "url": "https://raw.githubusercontent.com/pumPCin/AntiZapret/refs/heads/main/hosts"
+        "url": "https://raw.githubusercontent.com/pumPCin/AntiZapret/f0cc7c98265e9c45bed7db0124012dc9c0ed621c/hosts"
       }
     },
     "base16": {
@@ -548,11 +548,11 @@
     "minecraft-assets": {
       "flake": false,
       "locked": {
-        "lastModified": 1762592448,
-        "narHash": "sha256-GnjdejRoBo3puv0fShv2wo5d3PJ+uhcmX5MkAPUUx9A=",
+        "lastModified": 1762667978,
+        "narHash": "sha256-SPrqOymfcuNewGz4Oa4jMlkd6q87MaMNsGefn9C0tFY=",
         "owner": "azikxz",
         "repo": "assets",
-        "rev": "749bcb11eb39d73109d4b80b1a5452f4544043e7",
+        "rev": "52dfb12b4f093574c9b527af1c43c780b65c8f01",
         "type": "github"
       },
       "original": {

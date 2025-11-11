@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# best prompt
 
 mkIf config.programs.fish.enable {
   hm.programs.starship = {

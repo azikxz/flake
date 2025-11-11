@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# best actions for system management
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm.programs.wleave = {

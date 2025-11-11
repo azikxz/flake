@@ -5,7 +5,8 @@
 }:
 
 with lib;
-# WARN: use wleave
+# WARN:
+# use wleave
 
 mkIf false {
   hm.programs.wlogout = {

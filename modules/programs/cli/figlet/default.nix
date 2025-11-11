@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# generate cool stylished words
 
 mkIf false {
   hmPackages = [ pkgs.figlet ];

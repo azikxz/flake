@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# analog ms office
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".config/libreoffice" ];

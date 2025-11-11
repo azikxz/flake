@@ -10,8 +10,9 @@ let
   savePath = "/media/torrents";
 in
 # INFO:
+# another torrent client with web ui as flood
+#
 # http://localhost:9091
-# another web ui is flood
 
 mkIf false {
   persist.dirs = [

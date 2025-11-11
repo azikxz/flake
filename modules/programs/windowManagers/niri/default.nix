@@ -6,6 +6,8 @@
 }:
 
 with lib;
+# INFO:
+# idk maybe on 2st place?
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   programs.niri = {

@@ -5,6 +5,9 @@
 }:
 
 with lib;
+# INFO:
+# read manga/manhwa
+# but i have suwayomi
 
 mkIf false {
   persist.user.dirs = [ ".local/share/komikku" ];

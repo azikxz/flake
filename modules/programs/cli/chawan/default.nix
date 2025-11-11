@@ -5,8 +5,10 @@
 }:
 
 with lib;
+# INFO:
+# tui web (very unstable)
 
-mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+mkIf false {
   hm.programs.chawan = {
     enable = true;
 

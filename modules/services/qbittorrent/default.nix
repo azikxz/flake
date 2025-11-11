@@ -9,8 +9,10 @@ with lib;
 let
   savePath = "/media/torrents";
 in
-# http://localhost:8080
+# INFO:
 # or if u want use flood, enable service
+#
+# http://localhost:8080
 
 (mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.dirs = [

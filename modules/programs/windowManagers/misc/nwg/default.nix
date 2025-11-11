@@ -6,6 +6,8 @@
 }:
 
 with lib;
+# INFO:
+# just drawer from macos
 
 mkIf false {
   hmPackages = [ pkgs.nwg-drawer ];

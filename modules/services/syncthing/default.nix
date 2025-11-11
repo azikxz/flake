@@ -6,6 +6,9 @@
 }:
 
 with lib;
+# INFO:
+# best syncronize tool
+#
 # http://localhost:8384
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {

@@ -6,29 +6,30 @@
 }:
 
 with lib;
+# INFO:
+# it is modules for my AMD video graphics
 
 mkIf (mac' "isoXtended") {
-  hardware =
-    {
-      graphics = {
-        enable = true;
-        enable32Bit = true;
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
 
-        extraPackages = with pkgs; [ rocmPackages.clr.icd ];
-      };
-    }
-    // (optionalAttrs true {
-      amdgpu = {
-        initrd.enable = true;
-        opencl.enable = true;
-      };
+      extraPackages = with pkgs; [ rocmPackages.clr.icd ];
+    };
+  }
+  // (optionalAttrs true {
+    amdgpu = {
+      initrd.enable = true;
+      opencl.enable = true;
+    };
 
-      cpu.amd = {
-        ryzen-smu.enable = true;
+    cpu.amd = {
+      ryzen-smu.enable = true;
 
-        updateMicrocode = mkDefault config.hardware.enableRedistributableFirmware;
-      };
-    });
+      updateMicrocode = mkDefault config.hardware.enableRedistributableFirmware;
+    };
+  });
 
   services.lact.enable = true;
 

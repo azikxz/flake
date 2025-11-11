@@ -4,7 +4,8 @@
 }:
 
 with lib;
-# INFO: saves clipboard even if window closed
+# INFO:
+# saves clipboard even if window closed
 
 mkIf (mac' "isoXtended") {
   hm = {

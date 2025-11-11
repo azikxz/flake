@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# security on 1st place...but not for me
 
 {
   security = {
@@ -28,7 +30,7 @@ with lib;
             runAs = "root";
 
             commands = [
-              # WARNING: works only by this path
+              # WARN: works only by this path
               # with (getExe' pkgs.amneziawg-tools "awg-quick")
               # it doesnt works
               {

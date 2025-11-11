@@ -7,7 +7,7 @@
 
 with lib;
 # INFO:
-# gdu /path/to/path
+# > gdu /path/to/path
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hmPackages = [ pkgs.gdu ];

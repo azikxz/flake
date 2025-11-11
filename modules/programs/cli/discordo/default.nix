@@ -9,7 +9,8 @@ with lib;
 let
   toml = pkgs.formats.toml { };
 in
-# INFO: tui for discrord
+# INFO:
+# tui for discrord
 # very simple
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {

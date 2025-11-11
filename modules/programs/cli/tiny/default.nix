@@ -4,7 +4,8 @@
 }:
 
 with lib;
-# INFO: tui irc client
+# INFO:
+# tui irc client
 
 mkIf false {
   hm.programs.tiny = {

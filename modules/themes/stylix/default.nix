@@ -16,6 +16,8 @@ let
     else
       "adwaita";
 in
+# INFO:
+# cool colors, i lova rainbow
 
 mkIf (mac' "isoXtended") {
   hm.stylix = {

@@ -5,7 +5,9 @@
 }:
 
 with lib;
-# INFO: factory maker
+# INFO:
+# factory maker
+# and tower defense, very cool
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/Mindustry" ];

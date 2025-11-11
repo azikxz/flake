@@ -5,6 +5,10 @@
 }:
 
 with lib;
+# INFO:
+# bullshit
+# ok not bullshit
+# but proton > wine
 
 mkIf false {
   persist.user.dirs = [ ".wine" ];

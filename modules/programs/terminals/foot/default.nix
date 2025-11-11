@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# minimal native wayland terminal
 
 mkIf false {
   hm.programs.foot = {

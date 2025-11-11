@@ -4,6 +4,9 @@
 }:
 
 with lib;
+# INFO:
+# dpi idk what
+#
 # list of available configs
 /*
   "general"

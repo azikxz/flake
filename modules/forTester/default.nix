@@ -3,6 +3,9 @@
   ...
 }:
 
+# INFO:
+# tester for some programs etc...
+
 {
   imports = [
     ../misc/locales/default.nix

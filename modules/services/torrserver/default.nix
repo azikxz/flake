@@ -5,6 +5,9 @@
 }:
 
 with lib;
+# INFO:
+# watch torrents when it downloads
+#
 # http://localhost:8090
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {

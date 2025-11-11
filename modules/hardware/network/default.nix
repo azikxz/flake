@@ -4,7 +4,9 @@
 }:
 
 with lib;
-# INFO: connect via nmtui
+# INFO:
+# connect via nmtui
+# also it contains dns resolving
 
 {
   persist.dirs = [

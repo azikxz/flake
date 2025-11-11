@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# executes on timer
 
 mkIf (mac "thinkpadT14" && config.programs.hyprland.enable) {
   hm.services.hypridle = {

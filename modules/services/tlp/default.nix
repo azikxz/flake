@@ -4,6 +4,8 @@
 }:
 
 with lib;
+# INFO:
+# idk
 
 mkIf (mac "thinkpadT14") {
   services.tlp = {

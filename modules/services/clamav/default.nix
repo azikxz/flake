@@ -4,6 +4,8 @@
 }:
 
 with lib;
+# INFO:
+# anitivrus and db for virus
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.dirs = [ "/var/lib/clamav" ];

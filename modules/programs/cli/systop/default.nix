@@ -5,6 +5,9 @@
 }:
 
 with lib;
+# INFO:
+# watch system status
+# CPU, RAM, netwwork, GPU...
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hmPackages = [ pkgs.nvtopPackages.amd ];

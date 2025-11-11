@@ -7,6 +7,8 @@
 }:
 
 with lib;
+# INFO:
+# beauty lockscreen
 
 mkIf (config.programs.hyprland.enable) {
   hm = {

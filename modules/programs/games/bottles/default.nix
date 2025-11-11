@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# bullshit
 
 mkIf false {
   persist.user.dirs = [ ".local/share/bottles" ];

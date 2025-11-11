@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# shitass
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm.dconf = {

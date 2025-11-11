@@ -1,11 +1,12 @@
 {
   pkgs,
   lib,
-  config,
   ...
 }:
 
 with lib;
+# INFO:
+# pipewire audio with musnix
 
 mkIf (mac' "isoXtended") {
   environment = {

@@ -9,8 +9,9 @@ with lib;
 let
   cfg = config.programs.steam;
 in
-# WARNING: for unified prefix use
-# STEAM_COMPAT_DATA_PATH=/media/disks/fastBitch/UnifiedPrefix %command%
+# WARN:
+# for unified prefix use
+# STEAM_COMPAT_DATA_PATH=your_path_withouts_strings_around %command%
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [
@@ -32,7 +33,8 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       extraCompatPackages = [ pkgs.proton-ge-bin ];
 
       package = pkgs.steam.override {
-        # INFO: doenst works with greetd
+        # INFO:
+        # doenst works with greetd
         # moved to hyprland
         # extraArgs = concatStringsSep " " [
         #   "-nochatui"

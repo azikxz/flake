@@ -6,7 +6,8 @@
 }:
 
 with lib;
-# INFO: use 'yy' wrapper fot cd in yazi directory
+# INFO:
+# use 'yy' wrapper fot cd in yazi directory
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm = {

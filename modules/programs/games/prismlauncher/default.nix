@@ -6,7 +6,10 @@
 }:
 
 with lib;
-# INFO: just play
+# INFO:
+# just play
+# in ../../../services/minecraft/default.nix
+# i have server, but tsss
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/PrismLauncher" ];

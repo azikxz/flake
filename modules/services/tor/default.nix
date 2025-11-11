@@ -4,7 +4,9 @@
 }:
 
 with lib;
-# INFO: tor
+# INFO:
+# tor
+# not thor, tor as луковица
 
 mkIf false {
   services = {

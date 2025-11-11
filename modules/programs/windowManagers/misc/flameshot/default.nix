@@ -6,6 +6,8 @@
 }:
 
 with lib;
+# INFO:
+# take screenshots and edit them
 
 mkIf false {
   hm.services.flameshot = {

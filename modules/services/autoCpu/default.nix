@@ -4,6 +4,8 @@
 }:
 
 with lib;
+# INFO:
+# idk auto sets cpu freq
 
 mkIf (mac "thinkpadT14") {
   services.auto-cpufreq = {

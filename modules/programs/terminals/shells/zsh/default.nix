@@ -6,6 +6,8 @@
 }:
 
 with lib;
+# INFO:
+# cool shell with big customize
 
 mkIf false {
   hm.programs.zsh = with pkgs; {

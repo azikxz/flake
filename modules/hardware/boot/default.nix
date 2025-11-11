@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# just boot with plymouth
 
 {
   persist.dirs = [ "/var/lib/plymouth" ];

@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# best shell
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.files = [ ".local/share/fish/fish_history" ];

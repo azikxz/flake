@@ -7,8 +7,10 @@
 
 with lib;
 let
-  hashedPasswordFile = config.sopsnix."password";
+  hashedPasswordFile = if (mac' "isoXtended") then config.sopsnix."password" else ./passwd;
 in
+# INFO:
+# too much groups and hashed passwd
 
 {
   services.getty = mkForce {

@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# rusted replacement for much software
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   environment = {

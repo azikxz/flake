@@ -6,7 +6,8 @@
 }:
 
 with lib;
-# INFO: tui tg client
+# INFO:
+# tui tg client
 
 mkIf (mac "pcRyazenka") {
   hmPackages = [ pkgs.tg ];

@@ -6,6 +6,8 @@
 }:
 
 with lib;
+# INFO:
+# goon experience
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [

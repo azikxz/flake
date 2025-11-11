@@ -8,6 +8,8 @@ with lib;
 let
   settings = import ./settings.nix;
 in
+# INFO:
+# one of the best browsers ever
 
 mkIf false {
   hm.programs.firefox = {

@@ -6,8 +6,10 @@
 }:
 
 with lib;
+# INFO:
+# good...goon
 
-mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+mkIf false {
   hm.wayland.windowManager.sway = {
     enable = true;
 

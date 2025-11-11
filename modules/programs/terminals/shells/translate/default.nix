@@ -7,8 +7,7 @@ with lib;
 # INFO:
 #
 # > tr "FUCK NIXOS"
-#     Черт, Никсос
-#     FUCK NIXOS
+#     Нахуй Никсос
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm.programs.translate-shell = {

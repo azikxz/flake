@@ -6,7 +6,8 @@
 }:
 
 with lib;
-# INFO: multi launcher for linux
+# INFO:
+# multi launcher for linux
 
 mkIf (mac "pcRyazenka") {
   persist.user.dirs = [ ".config/lutris" ];

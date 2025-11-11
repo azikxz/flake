@@ -1,7 +1,7 @@
 # WARN: not finished
 # [X] basic config
 # [X] secrets list (pizdec)
-# [ ] templates
+# [ ] templates (nahuya?)
 
 {
   self,

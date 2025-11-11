@@ -6,6 +6,9 @@
 }:
 
 with lib;
+# INFO:
+# useful wm
+# with various qol things
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   programs.hyprland.enable = true;

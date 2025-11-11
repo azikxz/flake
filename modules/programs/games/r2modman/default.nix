@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# modded games cool manager
 
 mkIf (mac "pcRyazenka") {
   persist.user.dirs = [

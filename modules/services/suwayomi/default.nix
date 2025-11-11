@@ -5,7 +5,8 @@
 }:
 
 with lib;
-# INFO: server for manga reading
+# INFO:
+# server for manga/manhwa reading
 # with builtin webui
 
 mkIf (mac "pcRyazenka") {

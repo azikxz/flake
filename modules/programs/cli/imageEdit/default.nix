@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# image editors
 
 mkIf (mac "thinkpadT14") {
   hmPackages = with pkgs; [

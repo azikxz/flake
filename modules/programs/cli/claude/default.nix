@@ -4,7 +4,8 @@
 }:
 
 with lib;
-# WARN: require Claude Pro/Max
+# WARN:
+# require Claude Pro/Max
 
 mkIf false {
   hm.programs.claude-code = {

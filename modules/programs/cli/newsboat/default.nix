@@ -5,7 +5,8 @@
 }:
 
 with lib;
-# INFO: rss feed reader
+# INFO:
+# rss feed reader
 # for youtube feeds use pkg yt-id
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {

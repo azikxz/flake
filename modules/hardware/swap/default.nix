@@ -4,6 +4,8 @@
 }:
 
 with lib;
+# INFO:
+# it brakes suspend on thinkpad
 
 mkIf false {
   swapDevices = [

@@ -9,6 +9,9 @@ with lib;
 let
   cfg = config.services.qbittorrent;
 in
+# INFO:
+# best webui for qbittorrent
+#
 # http://localhost:8085
 
 mkIf config.services.qbittorrent.enable {

@@ -10,6 +10,7 @@ let
 in
 # INFO:
 # module for emailing
+# and supporting clients
 
 mkIf (mac "pcRyazenka") {
   hm = {

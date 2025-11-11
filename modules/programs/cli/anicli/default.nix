@@ -9,7 +9,8 @@ with lib;
 let
   toml = pkgs.formats.toml { };
 in
-# INFO: anime scrappers/watchers
+# INFO:
+# anime scrappers/watchers
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") (mkMerge [
   {

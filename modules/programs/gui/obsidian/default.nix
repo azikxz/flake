@@ -6,7 +6,11 @@
 }:
 
 with lib;
-# INFO: press enable plugins at start
+# INFO:
+# best notes database
+#
+# WARN:
+# press enable plugins at start
 
 (mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".config/obsidian" ];

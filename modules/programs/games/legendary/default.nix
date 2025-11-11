@@ -7,9 +7,11 @@
 
 with lib;
 # INFO:
-# legendary auth
-# legendary list
-# legendary install
+# egs cli instller
+#
+# > legendary auth
+# > legendary list
+# > legendary install
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".config/legendary" ];

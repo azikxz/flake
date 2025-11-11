@@ -4,7 +4,9 @@
 }:
 
 with lib;
-# INFO: configuring via
+# INFO:
+# creates vpn(local network) for multiple devices
+# configuring via
 # https://login.tailscale.com/admin/machines
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {

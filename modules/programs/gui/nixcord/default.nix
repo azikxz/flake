@@ -4,6 +4,8 @@
 }:
 
 with lib;
+# INFO:
+# modded vesktop with wayland screencast
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".config/vesktop" ];

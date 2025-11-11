@@ -5,7 +5,8 @@
 }:
 
 with lib;
-# INFO: use gcl, ga, gs for git
+# INFO:
+# use gcl, ga, gs for git
 # it is all abbreviations for fish
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {

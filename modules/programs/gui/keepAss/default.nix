@@ -8,7 +8,8 @@ with lib;
 let
   cfg = config.hm.programs.keepassxc;
 in
-# WARN: i didnt yet made it for other browsers
+# WARN:
+# i didnt yet made it for other browsers
 # (only qutebrowser)
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {

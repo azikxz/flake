@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# just cool
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".config/easyeffects" ];

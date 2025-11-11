@@ -7,6 +7,9 @@
 }:
 
 with lib;
+# INFO:
+# added registry bases on inputs
+# and overlays
 
 {
   persist.dirs = [ "/etc/nixos" ];

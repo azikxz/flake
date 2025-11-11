@@ -4,7 +4,8 @@
 }:
 
 with lib;
-# INFO: local neuroweb
+# INFO:
+# local neuroweb
 # with s1mple ui
 
 mkIf (mac "pcRyazenka") {

@@ -4,9 +4,10 @@
 }:
 
 with lib;
-# INFO: for generating ssh key use
-# ssh-keygen
-# then watch checl ~/.ssh/id_ed25519.pub
+# INFO:
+# for generating ssh key use
+# > ssh-keygen
+# then watch check ~/.ssh/id_ed25519.pub
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.files = [

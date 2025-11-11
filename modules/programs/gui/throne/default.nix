@@ -4,7 +4,10 @@
 }:
 
 with lib;
-# INFO: new gen nekoray
+# INFO:
+# new gen nekoray
+# ...
+# doesnt works...(((
 
 {
   imports = [ ./module.nix ];

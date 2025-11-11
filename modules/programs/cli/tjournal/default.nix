@@ -9,9 +9,11 @@ with lib;
 let
   toml = pkgs.formats.toml { };
 in
-# INFO: tui journal tool
+# INFO:
+# tui journal tool
+# i dont use it
 
-mkIf (mac "thinkpadT14") {
+mkIf false {
   hmPackages = [ pkgs.tui-journal ];
 
   hm.xdg.configFile = {

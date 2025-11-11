@@ -14,6 +14,8 @@ let
       ;
   };
 in
+# INFO:
+# best display manager
 
 mkIf (mac' "isoXtended") {
   services.greetd = {

@@ -5,6 +5,9 @@
 }:
 
 with lib;
+# INFO:
+# basis
+# with additioanl ntp servers for Russia
 
 {
   persist.dirs = [ "/var/lib/chrony" ];

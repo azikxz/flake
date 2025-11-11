@@ -4,6 +4,8 @@
 }:
 
 with lib;
+# INFO:
+# optimization battery my thinkpadT14
 
 mkIf (mac' "isoXtended") {
   services = {

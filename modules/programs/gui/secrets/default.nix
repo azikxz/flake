@@ -9,7 +9,8 @@ with lib;
 let
   db = "${config.hm.xdg.userDirs.documents}/passwords/db.kdbx";
 in
-# INFO: gnome keepass frontend
+# INFO:
+# gnome keepass frontend
 
 mkIf false {
   hmPackages = [ pkgs.gnome-gnome-secrets ];

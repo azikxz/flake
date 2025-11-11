@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# declarative, ye
 
 mkIf false {
   services.flatpak = {

@@ -6,7 +6,8 @@
 }:
 
 with lib;
-# INFO: idk how to login, i am via dns.malw.link
+# INFO:
+# idk how to login, i am via ~~dns.malw.link~~
 # okay... sometimes via vpn lol
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {

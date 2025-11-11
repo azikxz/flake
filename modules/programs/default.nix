@@ -5,6 +5,8 @@
 }:
 
 with lib;
+# INFO:
+# default applicationas
 
 mkIf (mac' "isoXtended") {
   environment = {

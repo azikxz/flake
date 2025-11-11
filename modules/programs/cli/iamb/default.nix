@@ -4,7 +4,8 @@
 }:
 
 with lib;
-# INFO: tui matrix client
+# INFO:
+# tui matrix client
 # https://servers.joinmatrix.org
 
 mkIf false {

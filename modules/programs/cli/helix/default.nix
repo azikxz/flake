@@ -7,7 +7,8 @@
 }:
 
 with lib;
-# INFO: i made alias 'e' it is '$EDITOR'
+# INFO:
+# i made alias 'e' it is '$EDITOR'
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm = {

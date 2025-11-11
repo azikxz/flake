@@ -6,7 +6,8 @@
 }:
 
 with lib;
-# INFO: gui text/code editor
+# INFO:
+# best gui text/code editor
 # faster/better than codium
 
 mkIf false {

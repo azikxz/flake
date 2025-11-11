@@ -4,7 +4,8 @@
 }:
 
 with lib;
-# INFO: just read
+# INFO:
+# just read
 
 mkIf false {
   hm = {

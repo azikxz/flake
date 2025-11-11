@@ -13,8 +13,10 @@ let
 
   savePath = videos + "/videocasts";
 in
-# INFO: set theme in settings
-# and wf-recorded
+# INFO:
+# set theme in settings
+# ...
+# with wf-recorded
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hmPackages = [ pkgs.wf-recorder ];

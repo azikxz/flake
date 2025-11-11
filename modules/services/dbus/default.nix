@@ -4,6 +4,8 @@
 }:
 
 with lib;
+# INFO:
+# bassis
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   services = {

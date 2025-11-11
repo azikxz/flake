@@ -5,7 +5,8 @@
 }:
 
 with lib;
-# INFO: launch minecraft via cli
+# INFO:
+# launch minecraft via cli
 # and mod manager in cli
 
 mkIf false {

@@ -5,7 +5,9 @@
 }:
 
 with lib;
-# INFO: piece of shit
+# INFO:
+# piece of shit
+# (im working on swaync)
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm.services.mako = with config.lib.stylix.colors.withHashtag; {

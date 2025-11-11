@@ -5,7 +5,9 @@
 }:
 
 with lib;
-# INFO: terminal client for reddit
+# INFO:
+# terminal client for reddit
+# requieres token to auth
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hmPackages = [ pkgs.tuir ];

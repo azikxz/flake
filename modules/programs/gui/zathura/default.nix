@@ -6,6 +6,8 @@
 }:
 
 with lib;
+# INFO:
+# pdf/word/pptx viewer
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hmPackages = [ pkgs.zaread ];

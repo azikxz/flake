@@ -6,6 +6,9 @@
 }:
 
 with lib;
+# INFO:
+# best messaging
+# now with stylix theming
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/64Gram/tdata" ];

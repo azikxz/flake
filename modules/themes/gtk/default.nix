@@ -19,6 +19,8 @@ let
     gtk-xft-rgba = "rgb";
   };
 in
+# INFO:
+# gtk styling
 
 lib.mkIf config.stylix.targets.gtk.enable {
   hm = {

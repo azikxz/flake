@@ -9,6 +9,8 @@ with lib;
 let
   plugins = false; # WARN: it doesnt works
 in
+# INFO:
+# best texture/skin maker
 
 mkIf (mac "pcRyazenka") {
   persist.user.dirs = [ ".local/share/Blockbench/plugins" ];

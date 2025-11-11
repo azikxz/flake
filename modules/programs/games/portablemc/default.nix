@@ -30,7 +30,7 @@ mkIf false {
         with prev.lib;
         let
           jdks = [
-            "24"
+            "25"
             "21"
             "17"
             "8"

@@ -37,8 +37,10 @@ in
     (mk "${m}+F" maximize-column)
     (mk "${m}+${s}+F" fullscreen-window)
 
-    (mk "Print" (spawn "niri" "msg" "action" "screenshot-screen"))
-    (mk "${s}+Print" screenshot-window)
+    # (mk "Print" (spawn "niri" "msg" "action" "screenshot-screen"))
+    # (mk "${s}+Print" screenshot-window)
+    # https://github.com/sodiboo/niri-flake/issues/1380
+    # fuck it, i w'ont to fuck with this
 
     (mk "${m}+S" switch-preset-column-width)
     (mk "${m}+Comma" consume-window-into-column)

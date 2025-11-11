@@ -48,7 +48,9 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
         jdks = attrValues {
           inherit (final)
-            temurin-jre-bin-23
+            # its all LTS
+            # https://adoptium.net/temurin/releases
+            temurin-jre-bin-25
             temurin-jre-bin-21
             temurin-jre-bin-17
             temurin-jre-bin-8

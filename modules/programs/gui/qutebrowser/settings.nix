@@ -133,7 +133,7 @@ in
           "trueachievements.com"
         ];
 
-        adblock.lists = [
+        adblock.lists = mkIf false [
           "https://easylist.to/easylist/easylist.txt"
           "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt"
           "https://easylist.to/easylist/easyprivacy.txt"

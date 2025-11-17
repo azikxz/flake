@@ -45,10 +45,9 @@ mkIf (mac "pcRyazenka") {
 
   services.minecraft-servers = {
     enable = true;
-
-    eula = true;
     openFirewall = true;
 
+    eula = true;
     dataDir = dir;
     environmentFile = config.sopsnix."services/minecraft";
     # just a plain file

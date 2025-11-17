@@ -14,8 +14,8 @@ mkIf (mac "pcRyazenka") {
 
   services.suwayomi-server = {
     enable = true;
-
     openFirewall = true;
+
     dataDir = config.hm.home.homeDirectory;
 
     settings.server = {

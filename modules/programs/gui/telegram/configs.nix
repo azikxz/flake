@@ -3,69 +3,38 @@
 }:
 
 {
-  "64Gram/tdata/enhanced-settings-custom.json".text = builtins.toJSON {
-    always_delete_for = 0;
-    auto_unmute = false;
-    bitrate = 0;
-    blocked_user_spoiler_mode = false;
-    disable_cloud_draft_sync = false;
-    disable_global_search = false;
-    disable_link_warning = true;
-    disable_premium_animation = false;
-    hd_video = false;
-    hide_all_chats = true;
-    hide_classic_fwd = true;
-    hide_counter = false;
-    hide_stories = false;
-    net_dl_speed_boost = true;
-    net_speed_boost = 0;
-    radio_controller = "http//localhost2468";
-    recent_display_limit = 0;
-    repeater_reply_to_orig_msg = false;
-    replace_edit_button = true;
-    screenshot_mode = false;
-    show_emoji_button_as_text = false;
-    show_group_sender_avatar = false;
-    show_messages_id = false;
-    show_phone_number = false;
-    show_repeater_option = false;
-    show_scheduled_button = false;
-    show_seconds = false;
-    skip_to_next = true;
-    stereo_mode = false;
-    translate_to_tc = false;
-  };
-
-  "64Gram/tdata/ayu_settings.json".text = builtins.toJSON {
+  "AyuGramDesktop/tdata/ayu_settings.json".text = builtins.toJSON {
     appIcon = "alt";
     channelBottomButton = 0;
     collapseSimilarChannels = true;
     deletedMark = "deleted";
     disableAds = true;
-    disableCustomBackgrounds = true;
-    disableNotificationsDelay = true;
+    disableCustomBackgrounds = false;
+    disableNotificationsDelay = false;
     disableStories = false;
     editedMark = "edited";
     gifConfirmation = false;
     hideAllChatsFolder = true;
-    hideFromBlocked = true;
+    hideChannelReactions = true;
+    hideFromBlocked = false;
+    hideGroupReactions = true;
     hideNotificationBadge = false;
     hideNotificationCounters = false;
     hideSimilarChannels = false;
-    increaseWebviewHeight = true;
-    increaseWebviewWidth = true;
-    localPremium = true;
+    increaseWebviewHeight = false;
+    increaseWebviewWidth = false;
+    localPremium = false;
     markReadAfterAction = false;
     monoFont = config.stylix.fonts.monospace.name;
     recentStickersCount = 100;
     replaceBottomInfoWithIcons = true;
     saveDeletedMessages = false;
     saveForBots = false;
-    saveMessagesHistory = true;
+    saveMessagesHistory = false;
     sendOfflinePacketAfterOnline = false;
     sendOnlinePackets = true;
     sendReadMessages = true;
-    sendReadStories = false;
+    sendReadStories = true;
     sendUploadProgress = true;
     sendWithoutSound = false;
     showAttachButtonInMessageField = true;
@@ -76,12 +45,13 @@
     showEmojiPopup = true;
     showGhostToggleInDrawer = true;
     showGhostToggleInTray = true;
-    showHideMessageInContextMenu = 0;
-    showLReadToggleInDrawer = false;
+    showHideMessageInContextMenu = 2;
+    showLReadToggleInDrawer = true;
     showMessageDetailsInContextMenu = 2;
     showMessageSeconds = false;
     showMessageShot = true;
     showMicrophoneButtonInMessageField = true;
+    showOnlyAddedEmojisAndStickers = false;
     showPeerId = 2;
     showReactionsPanelInContextMenu = 1;
     showSReadToggleInDrawer = true;
@@ -89,15 +59,15 @@
     showStreamerToggleInTray = false;
     showUserMessagesInContextMenu = 2;
     showViewsPanelInContextMenu = 1;
-    simpleQuotesAndReplies = true;
+    simpleQuotesAndReplies = false;
     spoofWebviewAsAndroid = false;
     stickerConfirmation = false;
     useScheduledMessages = false;
     voiceConfirmation = false;
-    wideMultiplier = 1.0;
+    wideMultiplier = 1.6;
   };
 
-  "64Gram/tdata/shortcuts-custom.json".text =
+  "AyuGramDesktop/tdata/shortcuts-custom.json".text =
     let
       key = keys: command: {
         inherit command keys;

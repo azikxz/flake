@@ -113,6 +113,7 @@ with config.lib.stylix.colors.withHashtag;
   dialogsNameFgOver: windowBoldFgOver;
   dialogsSendingIconFg: pOrange; // ??? little clock icon on chat contact (the ones on left sidebar) when sending
   dialogsSendingIconFgActive: dialogsSendingIconFg;
+  dialogsOnlineBadgeFgActive: base0B;
   dialogsSendingIconFgOver: dialogsSendingIconFg;
   dialogsSentIconFg: pGreen;
   dialogsSentIconFgActive: dialogsSentIconFg;
@@ -123,7 +124,7 @@ with config.lib.stylix.colors.withHashtag;
   dialogsTextFgService: base0E;
   dialogsTextFgServiceActive: pOrange; // [te]
   dialogsTextFgServiceOver: dialogsTextFgService;
-  dialogsUnreadBg: pComment; // [te]
+  dialogsUnreadBg: base0D; // [te]
   dialogsUnreadBgActive: dialogsUnreadBg;
   dialogsUnreadBgMuted: pSelection; // [te]
   dialogsUnreadBgMutedActive: dialogsUnreadBgMuted;
@@ -311,7 +312,7 @@ with config.lib.stylix.colors.withHashtag;
   msgInDateFg: base05; // Date in IN msg (text color) [ie time recieved] [te]
   msgInDateFgSelected: base04; // msgInDateFG but when msg is selected [te]
   msgInMonoFg: pOrange; // [te]
-  msgInReplyBarColor: activeLineFg;
+  msgInReplyBarColor: base0C;
   msgInReplyBarSelColor: activeLineFg;
   msgInServiceFg: windowActiveTextFg; // Chat name color when system message in (ie the computer... Forwarded by, Channels, etc)
   msgInServiceFgSelected: windowActiveTextFg; // msgInServiceFg when selected

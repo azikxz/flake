@@ -23,7 +23,7 @@
           devices
           ;
 
-        rescanIntervalS = 10;
+        rescanIntervalS = 4;
         versioning = {
           type = "simple";
           params = {

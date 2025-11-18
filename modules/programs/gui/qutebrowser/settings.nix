@@ -182,9 +182,15 @@ in
 
   extraConfig = ''
     config.unbind('.')
+
     en_keys = "qwertyuiop[]asdfghjkl;'zxcvbnm,./"+'QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>?'
     ru_keys = 'йцукенгшщзхъфывапролджэячсмитьбю.'+'ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДжЭЯЧСМИТЬБЮ,'
     for key in ru_keys:
         c.bindings.key_mappings[key]=en_keys[ru_keys.index(key)]
+
+    c.content.javascript.log_message.excludes = {
+        "userscript:_qute_stylesheet": [ "*Refused to apply inline style because it violates the following Content Security Policy directive: *" ],
+        "userscript:_qute_js": [ "*TrustedHTML*" ]
+    }
   '';
 }

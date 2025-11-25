@@ -923,7 +923,8 @@
         "viu": "viu",
         "wallpapers": "wallpapers",
         "winapps": "winapps",
-        "zapret": "zapret"
+        "zapret": "zapret",
+        "zen": "zen"
       }
     },
     "sopsnix": {
@@ -1378,6 +1379,29 @@
       "original": {
         "owner": "azikxz",
         "repo": "nix-zapret-presets",
+        "type": "github"
+      }
+    },
+    "zen": {
+      "inputs": {
+        "home-manager": [
+          "home"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1763353619,
+        "narHash": "sha256-y30wSzjr7QiO4OVB/Tt7dnLRLIuK2EpaftpKeMMLGu0=",
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "rev": "7463345c68cfdd9e92e2d40e390b1a802b0f2add",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

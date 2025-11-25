@@ -1,4 +1,8 @@
 {
+  AppAutoUpdate = false;
+  AutofillAddressEnabled = false;
+  AutofillCreditCardEnabled = false;
+  BackgroundAppUpdate = false;
   CaptivePortal = false;
   DisableFirefoxScreenshots = true;
   DisableFirefoxStudies = true;
@@ -13,9 +17,29 @@
   LegacyProfiles = true;
   ManualAppUpdateOnly = true;
   NetworkPrediction = false;
-  PasswordManagerEnabled = true;
+  OfferToSaveLoginsDefault = false;
+  OfferToSaveLogins = false;
+  PasswordManagerEnabled = false;
   PromptForDownloadLocation = false;
-  showSearchBar = true;
+
+  EnableTrackingProtection = {
+    Value = true;
+    Locked = true;
+    Cryptomining = true;
+    Fingerprinting = true;
+    EmailTracking = true;
+  };
+
+  SearchEngines = {
+    Default = "Google";
+    Remove = [
+      "Bing"
+      "Amazon.com"
+      "eBay"
+      "Twitter"
+      "Wikipedia"
+    ];
+  };
 
   ExtensionSettings = {
     "*".installation_mode = "blocked";

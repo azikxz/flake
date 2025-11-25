@@ -38,10 +38,23 @@ in
     ;
 
   settings = {
-    url = {
-      start_pages = [ "qute://start" ];
-      default_page = "qute://start";
-    };
+    url =
+      let
+        cfg = config.services.glance;
+
+        page =
+          if cfg.enable then
+            (concatStringsSep ":" [
+              cfg.settings.server.host
+              cfg.settings.server.port
+            ])
+          else
+            "qute://start";
+      in
+      (genAttrs [
+        "start_pages"
+        "default_page"
+      ] (n: page));
 
     completion.height = "75%";
 
@@ -115,8 +128,10 @@ in
       };
 
       hints = {
-        bg = mkForce base04;
-        fg = mkForce base00;
+        bg = mkForce base00;
+        fg = mkForce base04;
+
+        match.fg = mkForce base08;
       };
     };
 

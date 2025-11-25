@@ -33,6 +33,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     // {
       searchEngines = {
         DEFAULT = "https://www.google.com/search?q={}";
+        _4get = "https://4get.nadeko.net/web?s={}";
       };
 
       keyBindings = import ./binds.nix;

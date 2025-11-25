@@ -5,9 +5,6 @@
 
 {
   quickmarks = {
-    # search
-    _4get = "4get.nadeko.net";
-
     # localhost
     keenWeb = "192.168.1.1";
     flood = "localhost:8085";

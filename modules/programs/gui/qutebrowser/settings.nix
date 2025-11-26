@@ -46,7 +46,7 @@ in
           if cfg.enable then
             (concatStringsSep ":" [
               cfg.settings.server.host
-              cfg.settings.server.port
+              (toString cfg.settings.server.port)
             ])
           else
             "qute://start";

@@ -57,6 +57,7 @@ with lib;
         "services/transmission"
         "services/minecraft"
         "services/minecraft-main"
+        "services/glance"
 
         "accounts/gmailPassword"
         "accounts/tg"

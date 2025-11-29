@@ -15,6 +15,8 @@ let
         config
         ;
     }).init;
+
+  isRu = true;
 in
 # INFO:
 # very customizable dashboard
@@ -33,10 +35,6 @@ mkIf (mac "pcRyazenka") {
       branding = {
         app-name = "Glance - homepage";
         logo-text = "󱄅";
-
-        app-icon-url = "https://github.com/glanceapp/glance/blob/36d5ae023f95efd10f7d53d6fe4818b170f6e92f/docs/logo.png";
-        favicon-url = "https://github.com/glanceapp/glance/blob/36d5ae023f95efd10f7d53d6fe4818b170f6e92f/docs/logo.png";
-        # just an glance favicon
 
         app-background-color = config.lib.stylix.colors.withHashtag.base00;
         hide-footer = true;
@@ -61,19 +59,23 @@ mkIf (mac "pcRyazenka") {
               type = "markets";
               markets = [
                 {
-                  symbol = "BTC-USD";
-                  name = "Bitcoin";
-                  chart-link = "https://www.tradingview.com/chart/?symbol=INDEX:BTCUSD";
+                  symbol = "GOGL";
+                  name = "Google";
                 }
+
                 {
-                  symbol = "SOL-USD";
-                  name = "Solana";
-                  chart-link = "https://www.tradingview.com/chart/?symbol=INDEX:SOLUSD";
+                  symbol = "AMD";
+                  name = "AMD";
                 }
+
                 {
-                  symbol = "ETH-USD";
-                  name = "Ethereum";
-                  chart-link = "https://www.tradingview.com/chart/?symbol=INDEX:ETHUSD";
+                  symbol = "NVDA";
+                  name = "Nvidia";
+                }
+
+                {
+                  symbol = "MSFT";
+                  name = "Microsoft";
                 }
               ];
             }
@@ -95,11 +97,6 @@ mkIf (mac "pcRyazenka") {
                     {
                       label = "Tashkent";
                       timezone = "Asia/Tashkent";
-                    }
-
-                    {
-                      label = "Tokyo";
-                      timezone = "Asia/Tokyo";
                     }
 
                     {
@@ -186,6 +183,7 @@ mkIf (mac "pcRyazenka") {
 
                 {
                   type = "bookmarks";
+                  hide-arrow = true;
                   groups =
                     let
                       https = "https://";
@@ -202,8 +200,9 @@ mkIf (mac "pcRyazenka") {
                     with config.lib.stylix.colors;
                     [
                       {
-                        title = "";
+                        title = "General links...";
                         same-tab = true;
+                        color = mkHsl "base08";
                         links = [
                           (mk "mail.google.com" {
                             title = "Gmail";
@@ -285,42 +284,21 @@ mkIf (mac "pcRyazenka") {
                           })
                         ];
                       }
-
-                      {
-                        title = "Games...";
-                        same-tab = true;
-                        color = mkHsl "base08";
-                        links = [
-                          (mk "modrinth.com" {
-                            title = "Modrinth";
-                            icon = "icons.ly/modrinth/${base0B}";
-                          })
-
-                          (mk "ru.minecraft.wiki" {
-                            title = "Minecraft Wiki";
-                            icon = "icons.ly/wikipedia/${base0C}";
-                          })
-
-                          (mk "steamdb.info" {
-                            title = "Steam DB";
-                            icon = "icons.ly/steamdb/${base0D}";
-                          })
-
-                          (mk "protondb.com" {
-                            title = "Proton DB";
-                            icon = "icons.ly/protondb/${base0D}";
-                          })
-                        ];
-                      }
                     ];
                 }
 
                 {
-                  type = "hacker-news";
-                }
-
-                {
-                  type = "lobsters";
+                  type = "split-column";
+                  widgets = [
+                    {
+                      type = "hacker-news";
+                      collapse-after = 3;
+                    }
+                    {
+                      type = "lobsters";
+                      collapse-after = 3;
+                    }
+                  ];
                 }
               ];
             }
@@ -328,35 +306,88 @@ mkIf (mac "pcRyazenka") {
             {
               size = "small";
               widgets = [
-                (
-                  let
-                    isRu = true;
-                  in
-                  {
-                    type = "custom-api";
-                    title = "Steam Specials";
-                    cache = "12h";
+                {
+                  type = "custom-api";
+                  title = "Steam Specials";
+                  cache = "12h";
 
-                    # replace cc=ru on cc=us for change currency to USD
-                    url = "https://store.steampowered.com/api/featuredcategories?cc=${if isRu then "ru" else "us"}";
-                    template = ''
-                      <ul class="list list-gap-10 collapsible-container" data-collapse-after="5">
-                      {{ range .JSON.Array "specials.items" }}
-                        <li>
-                          <a class="size-h4 color-highlight block text-truncate" href="https://store.steampowered.com/app/{{ .Int "id" }}/">{{ .String "name" }}</a>
-                          <ul class="list-horizontal-text">
-                            <li>{{ div (.Int "final_price" | toFloat) 100 | printf "${
-                              if isRu then "%.2f ₽" else "%.2f $"
-                            }" }}</li>
-                            {{ $discount := .Int "discount_percent" }}
-                            <li{{ if ge $discount 40 }} class="color-positive"{{ end }}>{{ $discount }}%</li>
-                          </ul>
-                        </li>
+                  # replace cc=ru on cc=us for change currency to USD
+                  url = "https://store.steampowered.com/api/featuredcategories?cc=${if isRu then "ru" else "us"}";
+                  template = ''
+                    <ul class="list list-gap-10 collapsible-container" data-collapse-after="5"> {{ range .JSON.Array "specials.items" }}
+                    <li> <a class="size-h4 color-highlight block text-truncate" href="https://store.steampowered.com/app/{{ .Int "id" }}/">{{ .String "name" }}</a> <ul class="list-horizontal-text">
+                      <li>{{ div (.Int "final_price" | toFloat) 100 | printf "${
+                        if isRu then "%.0f₽" else "%.0f$"
+                      }" }}</li>
+                      {{ $discount := .Int "discount_percent" }}
+                      <li><del style="opacity:0.6">{{ div (.Int "original_price" | toFloat) 100 | printf "${
+                        if isRu then "%.0f₽" else "%.0f$"
+                      }" }}</del></li>
+                      {{ $discount := .Int "discount_percent" }}
+                      <li{{ if ge $discount 40 }} class="color-positive"{{ end }}>{{ $discount }}%</li>
+                    </ul> </li> {{ end }} </ul>
+                  '';
+                }
+
+                {
+                  type = "custom-api";
+                  title = "Epic Games Discount";
+                  cache = "6h";
+
+                  url = "https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?locale=en&country=${if isRu then "RU" else "US"}";
+                  template = ''
+                    <div>
+                      {{ if eq .Response.StatusCode 200 }}
+                        <div class="horizontal-cards-2">
+                          {{ range .JSON.Array "data.Catalog.searchStore.elements" }}
+                            {{ $price := .String "price.totalPrice.discountPrice" }}
+                            {{ $originalPrice := .String "price.totalPrice.originalPrice" }}
+                            {{ $hasPromo := gt (len (.Array "promotions.promotionalOffers")) 0 }}
+                            {{ if and $hasPromo (eq $price "0") }}
+                              {{ $gamePage := .String "productSlug" }}
+                              {{ if gt (len (.Array "offerMappings")) 0 }}
+                                {{ $gamePage = .String "offerMappings.0.pageSlug" }}
+                              {{ end }}
+                              <a href="https://store.epicgames.com/en-US/p/{{ $gamePage }}" target="_blank" class="card">
+                                <div class="card-content">
+                                  <span class="size-h4 color-primary">{{ .String "title" }}</span>
+                                  {{ if ne $originalPrice "0" }}
+                                    <span class="size-h5"> • <del style="opacity:0.6">
+                                      {{ div (.Int "price.totalPrice.originalPrice" | toFloat) 100 | printf "${
+                                        if isRu then "%.0f₽" else "%.0f$"
+                                      }" }}
+                                    </del></span>
+                                  {{ end }}
+                                  <br>
+                                  <span class="size-h5 color-paragraph">
+                                    {{ if $hasPromo }}
+                                      {{ $promotions := .Array "promotions.promotionalOffers" }}
+                                      {{ if gt (len $promotions) 0 }}
+                                        {{ $firstPromo := index $promotions 0 }}
+                                        {{ $offers := $firstPromo.Array "promotionalOffers" }}
+                                        {{ if gt (len $offers) 0 }}
+                                          {{ $firstOffer := index $offers 0 }}
+                                          {{ $endDate := $firstOffer.String "endDate" }}
+                                          free until {{ slice $endDate 8 10 }}.{{ slice $endDate 5 7 }}.{{ slice $endDate 0 4 }}
+                                        {{ else }}
+                                          free this week!
+                                        {{ end }}
+                                      {{ else }}
+                                        free this week!
+                                      {{ end }}
+                                    {{ end }}
+                                  </span>
+                                </div>
+                              </a>
+                            {{ end }}
+                          {{ end }}
+                        </div>
+                      {{ else }}
+                        <p class="color-negative">Error fetching Epic Games data!!!</p>
                       {{ end }}
-                      </ul>
-                    '';
-                  }
-                )
+                    </div>
+                  '';
+                }
 
                 {
                   type = "custom-api";

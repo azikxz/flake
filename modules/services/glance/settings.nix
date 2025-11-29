@@ -295,6 +295,7 @@ in
               cache = "6h";
 
               url = "https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?locale=en&country=${if isRu then "RU" else "US"}";
+              # modified module for fetch epic games discounts
               template = ''
                 <div>
                   {{ if eq .Response.StatusCode 200 }}
@@ -308,16 +309,13 @@ in
                           {{ if gt (len (.Array "offerMappings")) 0 }}
                             {{ $gamePage = .String "offerMappings.0.pageSlug" }}
                           {{ end }}
-                          <a href="https://store.epicgames.com/en-US/p/{{ $gamePage }}" target="_blank" class="card">
+                          <div class="card">
                             <div class="card-content">
-                              <span class="size-h4 color-primary">{{ .String "title" }}</span>
-                              {{ if ne $originalPrice "0" }}
-                                <span class="size-h5"> • <del style="opacity:0.6">
-                                  {{ div (.Int "price.totalPrice.originalPrice" | toFloat) 100 | printf "${
-                                    if isRu then "%.0f₽" else "%.0f$"
-                                  }" }}
-                                </del></span>
-                              {{ end }}
+                              <a href="https://store.epicgames.com/${
+                                if isRu then "ru" else "en-US"
+                              }/p/{{ $gamePage }}" target="_blank">
+                                <span class="size-h4 color-primary">{{ .String "title" }}</span>
+                              </a>
                               <br>
                               <span class="size-h5 color-paragraph">
                                 {{ if $hasPromo }}
@@ -327,8 +325,16 @@ in
                                     {{ $offers := $firstPromo.Array "promotionalOffers" }}
                                     {{ if gt (len $offers) 0 }}
                                       {{ $firstOffer := index $offers 0 }}
+                                      {{ $startDate := $firstOffer.String "startDate" }}
                                       {{ $endDate := $firstOffer.String "endDate" }}
-                                      free until {{ slice $endDate 8 10 }}.{{ slice $endDate 5 7 }}.{{ slice $endDate 0 4 }}
+                                      {{ slice $startDate 8 10 }}.{{ slice $startDate 5 7 }}.{{ slice $startDate 0 4 }} - {{ slice $endDate 8 10 }}.{{ slice $endDate 5 7 }}.{{ slice $endDate 0 4 }}
+                                      {{ if ne $originalPrice "0" }}
+                                        <span class="size-h5"> • <del style="opacity:0.6">
+                                          {{ div (.Int "price.totalPrice.originalPrice" | toFloat) 100 | printf "${
+                                            if isRu then "%.0f₽" else "%.0f$"
+                                          }" }}
+                                        </del></span>
+                                      {{ end }}
                                     {{ else }}
                                       free this week!
                                     {{ end }}
@@ -338,7 +344,7 @@ in
                                 {{ end }}
                               </span>
                             </div>
-                          </a>
+                          </div>
                         {{ end }}
                       {{ end }}
                     </div>

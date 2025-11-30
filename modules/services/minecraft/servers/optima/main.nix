@@ -5,13 +5,6 @@
   ...
 }:
 
-let
-  modpack = pkgs.fetchPackwizModpack {
-    url = "https://raw.githubusercontent.com/azikxz/assets/refs/heads/main/mods/pack.toml";
-    packHash = "sha256-H8g8cO3Lq9GaZ3wQaJ5lzsiZUyL9e9KI/WHOmcmNmBM=";
-  };
-in
-
 {
   enable = true;
   autoStart = false;
@@ -40,6 +33,11 @@ in
     enable-rcon = true;
     "rcon.password" = "@MCRCON_PASS@";
 
+    online-mode = false;
+    # true to license minecraft only
+    # i will use 'Alternative Authentication'
+    # for ely.by support couse - why not?
+
     server-port = 25565;
     # i use keendns to open server in worldwideweb
     # https://minecraft.ebola.netcraze.pro
@@ -48,7 +46,7 @@ in
   };
 
   symlinks = {
-    "mods" = "${modpack}/mods";
+    # "mods" = "${modpack}/mods";
   };
 
   files = {
@@ -57,7 +55,7 @@ in
       sha256 = "sha256-5YOCkJtbg8TbX2S+j5sDD7+E5h88PU0LR/yqN7nqOmU=";
     };
 
-    "config" = "${modpack}/config";
+    # "config" = "${modpack}/config";
 
     "world/datapacks" = builtins.path {
       path = inputs.minecraft-assets + "/datapacks";

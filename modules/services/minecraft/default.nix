@@ -17,7 +17,7 @@ in
 # in some lines of code
 # with auto generator servers
 
-mkIf (mac "pcRyazenka") {
+mkIf false {
   persist.dirs = [ dir ];
 
   sops.secrets = {

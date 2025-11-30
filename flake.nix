@@ -143,8 +143,14 @@
     };
 
     zapret = {
-      url = "github:azikxz/nix-zapret-presets";
+      url = "github:kotudemo/zapret-presets";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zapret-alt = {
+      url = "github:kartavkun/zapret-discord-youtube";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "utils";
     };
 
     easyeffects = {

@@ -924,6 +924,7 @@
         "wallpapers": "wallpapers",
         "winapps": "winapps",
         "zapret": "zapret",
+        "zapret-alt": "zapret-alt",
         "zen": "zen"
       }
     },
@@ -1369,16 +1370,39 @@
         ]
       },
       "locked": {
-        "lastModified": 1758803266,
+        "lastModified": 1760267658,
         "narHash": "sha256-VBVUeMHNlm7Qz2amFY7vL9wyPcwCkhCsOUukSn/9UXQ=",
-        "owner": "azikxz",
-        "repo": "nix-zapret-presets",
-        "rev": "653282269705caf7bcc8a7a0ae72f8d0ecb3831e",
+        "owner": "kotudemo",
+        "repo": "zapret-presets",
+        "rev": "c3c2bf5a9a9e96b9bf546603b80b1fe3d4adbcb6",
         "type": "github"
       },
       "original": {
-        "owner": "azikxz",
-        "repo": "nix-zapret-presets",
+        "owner": "kotudemo",
+        "repo": "zapret-presets",
+        "type": "github"
+      }
+    },
+    "zapret-alt": {
+      "inputs": {
+        "flake-utils": [
+          "utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1763722865,
+        "narHash": "sha256-P7FmZv8ruoSLxOaRoCVzSaoZ07busha+ryDgjGZ00EE=",
+        "owner": "kartavkun",
+        "repo": "zapret-discord-youtube",
+        "rev": "dc3e026536fe5b9b9d800c108431cb0723609f0e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kartavkun",
+        "repo": "zapret-discord-youtube",
         "type": "github"
       }
     },

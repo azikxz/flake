@@ -165,6 +165,7 @@ utils.lib.eachSystem
               sopsnix.nixosModules.default
               stylix.nixosModules.default
               zapret.nixosModules.presets
+              zapret-alt.nixosModules.default
             ])
           )
           ++ [

@@ -117,11 +117,6 @@ in
                   label = "Tashkent";
                   timezone = "Asia/Tashkent";
                 }
-
-                {
-                  label = "New York";
-                  timezone = "America/New_York";
-                }
               ];
             }
 
@@ -267,92 +262,97 @@ in
           size = "small";
           widgets = [
             {
-              type = "custom-api";
-              title = "Steam Specials";
-              cache = "12h";
+              type = "group";
+              widgets = [
+                {
+                  type = "custom-api";
+                  title = "Steam";
+                  cache = "12h";
 
-              # replace cc=ru on cc=us for change currency to USD
-              url = "https://store.steampowered.com/api/featuredcategories?cc=${if isRu then "ru" else "us"}";
-              template = ''
-                <ul class="list list-gap-10 collapsible-container" data-collapse-after="5"> {{ range .JSON.Array "specials.items" }}
-                <li> <a class="size-h4 color-highlight block text-truncate" href="https://store.steampowered.com/app/{{ .Int "id" }}/">{{ .String "name" }}</a> <ul class="list-horizontal-text">
-                  <li>{{ div (.Int "final_price" | toFloat) 100 | printf "${
-                    if isRu then "%.0f₽" else "%.0f$"
-                  }" }}</li>
-                  {{ $discount := .Int "discount_percent" }}
-                  <li><del style="opacity:0.6">{{ div (.Int "original_price" | toFloat) 100 | printf "${
-                    if isRu then "%.0f₽" else "%.0f$"
-                  }" }}</del></li>
-                  {{ $discount := .Int "discount_percent" }}
-                  <li{{ if ge $discount 40 }} class="color-positive"{{ end }}>{{ $discount }}%</li>
-                </ul> </li> {{ end }} </ul>
-              '';
-            }
+                  # replace cc=ru on cc=us for change currency to USD
+                  url = "https://store.steampowered.com/api/featuredcategories?cc=${if isRu then "ru" else "us"}";
+                  template = ''
+                    <ul class="list list-gap-10 collapsible-container" data-collapse-after="5"> {{ range .JSON.Array "specials.items" }}
+                    <li> <a class="size-h4 color-highlight block text-truncate" href="https://store.steampowered.com/app/{{ .Int "id" }}/">{{ .String "name" }}</a> <ul class="list-horizontal-text">
+                      <li>{{ div (.Int "final_price" | toFloat) 100 | printf "${
+                        if isRu then "%.0f₽" else "%.0f$"
+                      }" }}</li>
+                      {{ $discount := .Int "discount_percent" }}
+                      <li><del style="opacity:0.6">{{ div (.Int "original_price" | toFloat) 100 | printf "${
+                        if isRu then "%.0f₽" else "%.0f$"
+                      }" }}</del></li>
+                      {{ $discount := .Int "discount_percent" }}
+                      <li{{ if ge $discount 40 }} class="color-positive"{{ end }}>{{ $discount }}%</li>
+                    </ul> </li> {{ end }} </ul>
+                  '';
+                }
 
-            {
-              type = "custom-api";
-              title = "Epic Games Discount";
-              cache = "6h";
+                {
+                  type = "custom-api";
+                  title = "EGS";
+                  cache = "6h";
 
-              url = "https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?locale=en&country=${if isRu then "RU" else "US"}";
-              # modified module for fetch epic games discounts
-              template = ''
-                <div>
-                  {{ if eq .Response.StatusCode 200 }}
-                    <div class="horizontal-cards-2">
-                      {{ range .JSON.Array "data.Catalog.searchStore.elements" }}
-                        {{ $price := .String "price.totalPrice.discountPrice" }}
-                        {{ $originalPrice := .String "price.totalPrice.originalPrice" }}
-                        {{ $hasPromo := gt (len (.Array "promotions.promotionalOffers")) 0 }}
-                        {{ if and $hasPromo (eq $price "0") }}
-                          {{ $gamePage := .String "productSlug" }}
-                          {{ if gt (len (.Array "offerMappings")) 0 }}
-                            {{ $gamePage = .String "offerMappings.0.pageSlug" }}
-                          {{ end }}
-                          <div class="card">
-                            <div class="card-content">
-                              <a href="https://store.epicgames.com/${
-                                if isRu then "ru" else "en-US"
-                              }/p/{{ $gamePage }}" target="_blank">
-                                <span class="size-h4 color-primary">{{ .String "title" }}</span>
-                              </a>
-                              <br>
-                              <span class="size-h5 color-paragraph">
-                                {{ if $hasPromo }}
-                                  {{ $promotions := .Array "promotions.promotionalOffers" }}
-                                  {{ if gt (len $promotions) 0 }}
-                                    {{ $firstPromo := index $promotions 0 }}
-                                    {{ $offers := $firstPromo.Array "promotionalOffers" }}
-                                    {{ if gt (len $offers) 0 }}
-                                      {{ $firstOffer := index $offers 0 }}
-                                      {{ $startDate := $firstOffer.String "startDate" }}
-                                      {{ $endDate := $firstOffer.String "endDate" }}
-                                      {{ slice $startDate 8 10 }}.{{ slice $startDate 5 7 }}.{{ slice $startDate 0 4 }} - {{ slice $endDate 8 10 }}.{{ slice $endDate 5 7 }}.{{ slice $endDate 0 4 }}
-                                      {{ if ne $originalPrice "0" }}
-                                        <span class="size-h5"> • <del style="opacity:0.6">
-                                          {{ div (.Int "price.totalPrice.originalPrice" | toFloat) 100 | printf "${
-                                            if isRu then "%.0f₽" else "%.0f$"
-                                          }" }}
-                                        </del></span>
+                  url = "https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?locale=en&country=${if isRu then "RU" else "US"}";
+                  # modified module for fetch epic games discounts
+                  template = ''
+                    <div>
+                      {{ if eq .Response.StatusCode 200 }}
+                        <div class="horizontal-cards-2">
+                          {{ range .JSON.Array "data.Catalog.searchStore.elements" }}
+                            {{ $price := .String "price.totalPrice.discountPrice" }}
+                            {{ $originalPrice := .String "price.totalPrice.originalPrice" }}
+                            {{ $hasPromo := gt (len (.Array "promotions.promotionalOffers")) 0 }}
+                            {{ if and $hasPromo (eq $price "0") }}
+                              {{ $gamePage := .String "productSlug" }}
+                              {{ if gt (len (.Array "offerMappings")) 0 }}
+                                {{ $gamePage = .String "offerMappings.0.pageSlug" }}
+                              {{ end }}
+                              <div class="card">
+                                <div class="card-content">
+                                  <a href="https://store.epicgames.com/${
+                                    if isRu then "ru" else "en-US"
+                                  }/p/{{ $gamePage }}" target="_blank">
+                                    <span class="size-h4 color-primary">{{ .String "title" }}</span>
+                                  </a>
+                                  <br>
+                                  <span class="size-h5 color-paragraph">
+                                    {{ if $hasPromo }}
+                                      {{ $promotions := .Array "promotions.promotionalOffers" }}
+                                      {{ if gt (len $promotions) 0 }}
+                                        {{ $firstPromo := index $promotions 0 }}
+                                        {{ $offers := $firstPromo.Array "promotionalOffers" }}
+                                        {{ if gt (len $offers) 0 }}
+                                          {{ $firstOffer := index $offers 0 }}
+                                          {{ $startDate := $firstOffer.String "startDate" }}
+                                          {{ $endDate := $firstOffer.String "endDate" }}
+                                          {{ slice $startDate 8 10 }}.{{ slice $startDate 5 7 }}.{{ slice $startDate 0 4 }} - {{ slice $endDate 8 10 }}.{{ slice $endDate 5 7 }}.{{ slice $endDate 0 4 }}
+                                          {{ if ne $originalPrice "0" }}
+                                            <span class="size-h5"> • <del style="opacity:0.6">
+                                              {{ div (.Int "price.totalPrice.originalPrice" | toFloat) 100 | printf "${
+                                                if isRu then "%.0f₽" else "%.0f$"
+                                              }" }}
+                                            </del></span>
+                                          {{ end }}
+                                        {{ else }}
+                                          free this week!
+                                        {{ end }}
+                                      {{ else }}
+                                        free this week!
                                       {{ end }}
-                                    {{ else }}
-                                      free this week!
                                     {{ end }}
-                                  {{ else }}
-                                    free this week!
-                                  {{ end }}
-                                {{ end }}
-                              </span>
-                            </div>
-                          </div>
-                        {{ end }}
+                                  </span>
+                                </div>
+                              </div>
+                            {{ end }}
+                          {{ end }}
+                        </div>
+                      {{ else }}
+                        <p class="color-negative">Error fetching Epic Games data!!!</p>
                       {{ end }}
                     </div>
-                  {{ else }}
-                    <p class="color-negative">Error fetching Epic Games data!!!</p>
-                  {{ end }}
-                </div>
-              '';
+                  '';
+                }
+              ];
             }
 
             {
@@ -391,40 +391,57 @@ in
             }
 
             {
-              type = "releases";
-              repositories = [
-                "syncthing/syncthing"
-                "hyprwm/Hyprland"
-                "YaLTeR/niri"
-                "Alexays/Waybar"
-                "sxyazi/yazi"
-                "artemsen/swayimg"
-                "qbittorrent/qBittorrent"
-                "qutebrowser/qutebrowser"
-                "keepassxreboot/keepassxc"
-                "Vencord/Vesktop"
-                "AyuGram/AyuGramDesktop"
-                "TDesktop-x64/tdesktop"
-                "mpv-player/mpv"
-                "fish-shell/fish-shell"
-                "helix-editor/helix"
-                "talwat/lowfi"
-                "dundee/gdu"
-                "bol-van/zapret"
-                "YouROK/TorrServer"
-                "ebkr/r2modmanPlus"
-                "derrod/legendary"
-                "lutris/lutris"
-                "mindstorm38/portablemc"
-                "PrismLauncher/PrismLauncher"
-                "unmojang/FjordLauncher"
-                "Anuken/Mindustry"
-                "Anuken/MindustryBuilds"
-              ];
+              type = "group";
+              widgets = [
+                {
+                  type = "releases";
+                  repositories = [
+                    "syncthing/syncthing"
+                    "hyprwm/Hyprland"
+                    "YaLTeR/niri"
+                    "Alexays/Waybar"
+                    "sxyazi/yazi"
+                    "artemsen/swayimg"
+                    "qbittorrent/qBittorrent"
+                    "qutebrowser/qutebrowser"
+                    "keepassxreboot/keepassxc"
+                    "Vencord/Vesktop"
+                    "AyuGram/AyuGramDesktop"
+                    "TDesktop-x64/tdesktop"
+                    "mpv-player/mpv"
+                    "fish-shell/fish-shell"
+                    "helix-editor/helix"
+                    "talwat/lowfi"
+                    "dundee/gdu"
+                    "bol-van/zapret"
+                    "YouROK/TorrServer"
+                    "ebkr/r2modmanPlus"
+                    "derrod/legendary"
+                    "lutris/lutris"
+                    "mindstorm38/portablemc"
+                    "PrismLauncher/PrismLauncher"
+                    "unmojang/FjordLauncher"
+                    "Anuken/Mindustry"
+                    "Anuken/MindustryBuilds"
+                  ];
 
-              inherit
-                token
-                ;
+                  inherit
+                    token
+                    ;
+                }
+
+                {
+                  type = "repository";
+                  repository = "NixOS/nixpkgs";
+                  commits-limit = 8;
+                  issues-limit = -1;
+                  pull-requests-limit = -1;
+
+                  inherit
+                    token
+                    ;
+                }
+              ];
             }
           ];
         }
@@ -433,39 +450,10 @@ in
           size = "full";
           widgets = [
             {
-              type = "repository";
-              repository = "NixOS/nixpkgs";
-              commits-limit = 5;
-              issues-limit = 5;
-              pull-requests-limit = -1;
-
-              inherit
-                token
-                ;
-            }
-
-            {
-              type = "split-column";
-              max-columns = 4;
-              widgets = [
-                {
-                  type = "reddit";
-                  subreddit = "gamingnews";
-                  collapse-after = 15;
-                }
-
-                {
-                  type = "reddit";
-                  subreddit = "nixos";
-                  collapse-after = 15;
-                }
-
-                {
-                  type = "reddit";
-                  subreddit = "linux";
-                  collapse-after = 15;
-                }
-              ];
+              type = "reddit";
+              subreddit = "nixos";
+              style = "horizontal-cards";
+              collapse-after = 15;
             }
           ];
         }

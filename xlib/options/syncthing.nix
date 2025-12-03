@@ -8,6 +8,7 @@
         inherit
           id
           ;
+
         autoAcceptFolders = true;
         compression = "always";
       };

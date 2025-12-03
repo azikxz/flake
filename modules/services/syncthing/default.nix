@@ -31,9 +31,9 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
           devices = attrNames config.hm.services.syncthing.settings.devices;
         in
-        with config.hm.xdg;
+
         listToAttrs (
-          (with userDirs; [
+          (with config.hm.xdg.userDirs; [
             (mkFolder "temporal" "${desktop}/temp" devices)
 
             (mkFolder "passwords" "${documents}/passwords" devices)
@@ -41,13 +41,15 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
             (mkFolder "notes" "${documents}/notes" devices)
 
             (mkFolder "video" "${videos}/filmed" devices)
+
+            (mkFolder "video" "${music}" devices)
           ])
           ++ [ ]
         );
 
       options = {
-        relaysEnabled = true;
-        urAccepted = -1;
+        localAnnounceEnabled = true;
+        localAnnouncePort = 21027;
       };
     };
   };

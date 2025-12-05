@@ -1,4 +1,7 @@
-{ pkgs }:
+{
+  pkgs,
+  lib,
+}:
 
 pkgs.stdenv.mkDerivation rec {
   pname = "obsidian-docxer";
@@ -27,4 +30,10 @@ pkgs.stdenv.mkDerivation rec {
     cp $manifest $out/manifest.json
     cp $styleCss $out/style.css
   '';
+
+  meta = {
+    description = "Previewing and converting Word files easily to markdown.";
+    homepage = "https://github.com/Developer-Mike/obsidian-docxer";
+    license = lib.licenses.gpl3;
+  };
 }

@@ -1,4 +1,7 @@
-{ pkgs }:
+{
+  pkgs,
+  lib,
+}:
 
 pkgs.stdenv.mkDerivation rec {
   pname = "obsidian-prettier";
@@ -28,4 +31,10 @@ pkgs.stdenv.mkDerivation rec {
     cp $manifest $out/manifest.json
     cp $stylesCss $out/styles.css
   '';
+
+  meta = {
+    description = "This is an Obsidian plugin that uses Prettier to format notes.";
+    homepage = "https://github.com/GoodbyeNJN/obsidian-plugin-prettier";
+    license = lib.licenses.mit;
+  };
 }

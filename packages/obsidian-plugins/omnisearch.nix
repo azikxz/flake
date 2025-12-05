@@ -1,4 +1,7 @@
-{ pkgs }:
+{
+  pkgs,
+  lib,
+}:
 
 pkgs.stdenv.mkDerivation rec {
   pname = "obsidian-omnisearch";
@@ -27,4 +30,10 @@ pkgs.stdenv.mkDerivation rec {
     cp $manifest $out/manifest.json
     cp $stylesCss $out/styles.css
   '';
+
+  meta = {
+    description = "A search engine that 'just works' for Obsidian.";
+    homepage = "https://github.com/scambier/obsidian-omnisearch";
+    license = lib.licenses.gpl3;
+  };
 }

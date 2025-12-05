@@ -1,4 +1,7 @@
-{ pkgs }:
+{
+  pkgs,
+  lib,
+}:
 
 pkgs.stdenv.mkDerivation rec {
   pname = "obsidian-minimal-settings";
@@ -21,4 +24,10 @@ pkgs.stdenv.mkDerivation rec {
     cp $mainJs $out/main.js
     cp $manifest $out/manifest.json
   '';
+
+  meta = {
+    description = "Settings plugin to control colors and fonts in Minimal Theme";
+    homepage = "https://github.com/kepano/obsidian-minimal-settings";
+    license = lib.licenses.mit;
+  };
 }

@@ -1,4 +1,7 @@
-{ pkgs }:
+{
+  pkgs,
+  lib,
+}:
 
 pkgs.stdenv.mkDerivation rec {
   pname = "obsidian-style-settings";
@@ -27,4 +30,10 @@ pkgs.stdenv.mkDerivation rec {
     cp $manifest $out/manifest.json
     cp $stylesCss $out/styles.css
   '';
+
+  meta = {
+    description = "A dynamic user interface for adjusting theme, plugin, and snippet CSS variables within Obsidian.";
+    homepage = "https://github.com/mgmeyers/obsidian-style-settings";
+    license = lib.licenses.gpl3;
+  };
 }

@@ -8,6 +8,8 @@
 
   subDir ? ".",
   extraFiles ? [ ],
+
+  meta,
 }:
 
 pkgs.runCommand

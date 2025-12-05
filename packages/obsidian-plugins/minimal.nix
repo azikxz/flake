@@ -9,7 +9,7 @@ obsidian.mkTheme {
     owner = "kepano";
     repo = "obsidian-minimal";
     rev = "8.0.4";
-    sha256 = "sha256-9FHkJ47R+cy2Pq62OuUUZQLSxd929xUIsQcpFGb4rso=";
+    sha256 = "sha256-TGToK2k9zpd5LappqlkGgxJliXqE4HzsBq07c4IN+T4=";
   };
 
   meta = {

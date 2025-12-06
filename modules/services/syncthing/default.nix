@@ -42,7 +42,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
             (mkFolder "video" "${videos}/filmed" devices)
 
-            (mkFolder "video" "${music}" devices)
+            (mkFolder "music" "${music}" devices)
           ])
           ++ [ ]
         );

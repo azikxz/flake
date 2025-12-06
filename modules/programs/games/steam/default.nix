@@ -56,9 +56,12 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
         extraLibraries =
           pkgs: with pkgs; [
-            libxkbcommon
-            mesa
+            mono
+            SDL
+            SDL2
+            sdl3
             wayland
+            gtk2
           ];
       };
 

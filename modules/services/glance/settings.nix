@@ -14,7 +14,10 @@ in
 
 {
   # not 8080 caouse qbittorrent
-  server.port = 5678;
+  server = {
+    port = 5678;
+    host = "0.0.0.0";
+  };
 
   branding = {
     app-name = "Glance - homepage";
@@ -391,61 +394,62 @@ in
             }
 
             {
-              type = "group";
-              widgets = [
-                {
-                  type = "releases";
-                  repositories = [
-                    "syncthing/syncthing"
-                    "hyprwm/Hyprland"
-                    "YaLTeR/niri"
-                    "Alexays/Waybar"
-                    "sxyazi/yazi"
-                    "artemsen/swayimg"
-                    "qbittorrent/qBittorrent"
-                    "qutebrowser/qutebrowser"
-                    "keepassxreboot/keepassxc"
-                    "Vencord/Vesktop"
-                    "AyuGram/AyuGramDesktop"
-                    "TDesktop-x64/tdesktop"
-                    "mpv-player/mpv"
-                    "fish-shell/fish-shell"
-                    "helix-editor/helix"
-                    "talwat/lowfi"
-                    "dundee/gdu"
-                    "bol-van/zapret"
-                    "YouROK/TorrServer"
-                    "ebkr/r2modmanPlus"
-                    "derrod/legendary"
-                    "lutris/lutris"
-                    "mindstorm38/portablemc"
-                    "PrismLauncher/PrismLauncher"
-                    "unmojang/FjordLauncher"
-                    "Anuken/Mindustry"
-                    "Anuken/MindustryBuilds"
-                  ];
-
-                  inherit
-                    token
-                    ;
-                }
-
-                {
-                  type = "repository";
-                  repository = "NixOS/nixpkgs";
-                  commits-limit = 8;
-                  issues-limit = -1;
-                  pull-requests-limit = -1;
-
-                  inherit
-                    token
-                    ;
-                }
+              type = "releases";
+              repositories = [
+                "Alexays/Waybar"
+                "Anuken/Mindustry"
+                "Anuken/MindustryBuilds"
+                "artemsen/swayimg"
+                "AyuGram/AyuGramDesktop"
+                "bol-van/zapret"
+                "derrod/legendary"
+                "dundee/gdu"
+                "ebkr/r2modmanPlus"
+                "fish-shell/fish-shell"
+                "helix-editor/helix"
+                "hyprwm/Hyprland"
+                "keepassxreboot/keepassxc"
+                "lutris/lutris"
+                "mindstorm38/portablemc"
+                "mpv-player/mpv"
+                "PrismLauncher/PrismLauncher"
+                "qbittorrent/qBittorrent"
+                "qutebrowser/qutebrowser"
+                "sxyazi/yazi"
+                "syncthing/syncthing"
+                "talwat/lowfi"
+                "TDesktop-x64/tdesktop"
+                "unmojang/FjordLauncher"
+                "Vencord/Vesktop"
+                "YaLTeR/niri"
+                "YouROK/TorrServer"
               ];
+
+              inherit
+                token
+                ;
             }
           ];
         }
 
+        {
+          size = "full";
+          widgets = [
+            {
+              type = "reddit";
+              subreddit = "nixos";
+              style = "horizontal-cards";
+              collapse-after = 15;
+            }
+          ];
+        }
+      ];
+    }
+
+    {
+      name = "Games and info";
+
+      columns = [
         {
           size = "full";
           widgets = [

@@ -38,7 +38,7 @@ mkIf config.services.qbittorrent.enable {
           (getExe pkgs.flood)
           "--auth none"
           "--rundir /var/lib/flood"
-          "--host 127.0.0.1"
+          "--host 0.0.0.0"
           "--port 8085"
           "--qburl http://localhost:${toString cfg.webuiPort}"
           "--qbuser ${system.userName}"

@@ -8,7 +8,6 @@
 with lib;
 let
   cfg = config.programs.throne;
-  package = pkgs.throne;
 in
 # INFO: taken from
 # https://github.com/amirhossein-fzl/nixos-config/blob/main/modules/custom/throne/default.nix
@@ -17,6 +16,8 @@ in
   options = {
     programs.throne = {
       enable = mkEnableOption "throne, a GUI proxy configuration manager";
+
+      package = mkPackageOption pkgs "throne" { nullable = true; };
 
       tunMode = {
         enable = mkEnableOption "TUN mode of throne";
@@ -32,11 +33,11 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ package ];
+    environment.systemPackages = [ cfg.package ];
 
     security.wrappers = {
       throne-core = mkIf cfg.tunMode.enable {
-        source = "${package}/share/throne/Core";
+        source = "${cfg.package}/share/throne/Core";
 
         owner = "root";
         group = "root";

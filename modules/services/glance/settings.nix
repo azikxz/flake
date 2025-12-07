@@ -21,7 +21,9 @@ with lib;
     logo-text = "󱄅";
 
     app-background-color = config.lib.stylix.colors.withHashtag.base00;
-    hide-footer = true;
+
+    # hide-footer = true;
+    custom-footer = ''<b><p>ᓚᘏᗢ</p></b>'';
   };
 
   theme = mkForce {

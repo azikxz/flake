@@ -24,6 +24,12 @@ in
 # i'll update it often
 
 mkIf (mac "pcRyazenka") {
+  sops.secrets = {
+    "services/glance" = {
+      restartUnits = [ "glance.service" ];
+    };
+  };
+
   services.glance = {
     enable = true;
     openFirewall = true;

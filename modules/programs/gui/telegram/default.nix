@@ -13,21 +13,7 @@ with lib;
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/AyuGramDesktop/tdata" ];
 
-  hmPackages = with pkgs; [
-    (symlinkJoin {
-      name = "ayugram-desktop";
-
-      paths = [ ayugram-desktop ];
-      buildInputs = [ makeWrapper ];
-
-      postBuild = ''
-        wrapProgram $out/bin/AyuGram --set 'XDG_CURRENT_DESKTOP' 'gnome'
-
-        ln -s $out/bin/AyuGram $out/bin/Telegram
-        ln -s $out/bin/AyuGram $out/bin/telegram-desktop
-      '';
-    })
-  ];
+  hmPackages = [ pkgs.ayugram-desktop ];
 
   hm = {
     xdg = {
@@ -43,6 +29,27 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           config
           ;
       };
+    };
+
+    systemd.user.services.telegram-tray = {
+      Unit = {
+        Description = pkgs.ayugram-desktop.meta.description;
+        After = [ "graphical-session.target" ];
+      };
+
+      Service = {
+        ExecStart = concatStringsSep " " [
+          (getExe pkgs.ayugram-desktop)
+          "-startintray"
+        ];
+
+        Type = "simple";
+        KillMode = "process";
+        Restart = "on-failure";
+        RestartSec = 5;
+      };
+
+      Install.WantedBy = [ "graphical-session.target" ];
     };
 
     home.activation = mkIf config.hm.stylix.enable {

@@ -36,7 +36,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         SplitterState=178, 1720
       '';
 
-    systemd.user.services.keepassxc = {
+    systemd.user.services.keepassxc-tray = {
       Unit = {
         Description = cfg.package.meta.description;
         After = [ "graphical-session.target" ];

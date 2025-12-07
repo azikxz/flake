@@ -5,13 +5,10 @@
 
 with lib;
 # INFO:
-# saves clipboard even if window closed
+# modern clipboard with tui
 
 mkIf (mac' "isoXtended") {
-  hm = {
-    services = {
-      wl-clip-persist.enable = true;
-      cliphist.enable = true;
-    };
+  services.ringboard = {
+    wayland.enable = true;
   };
 }

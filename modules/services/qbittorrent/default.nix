@@ -7,6 +7,7 @@
 
 with lib;
 let
+  cfg = config.services.qbittorrent;
   savePath = "/media/torrents";
 in
 # INFO:
@@ -14,17 +15,27 @@ in
 #
 # http://localhost:8080
 
-(mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.dirs = [
     "/var/lib/qBittorrent"
     savePath
   ];
+
+  sops.secrets = {
+    "ssl/qbittorrent/cert" = {
+      owner = mkForce cfg.user;
+
+      restartUnits = [ "qbittorrent.service" ];
+    };
+  };
 
   environment.systemPackages = [ pkgs.qbt-tui ];
 
   services.qbittorrent = {
     enable = true;
     openFirewall = true;
+
+    webuiPort = 8112;
     torrentingPort = 6881;
 
     serverConfig = {
@@ -55,6 +66,13 @@ in
         UseUPnP = false;
         Username = system.userName;
         Password_PBKDF2 = readFile pkgs.qb-hash-gen;
+        Address = "0.0.0.0";
+
+        HTTPS = {
+          Enabled = true;
+          CertificatePath = config.sopsnix."ssl/qbittorrent/cert";
+          KeyPath = config.sopsnix."ssl/qbittorrent/key";
+        };
       };
 
       RSS.Session = {
@@ -81,4 +99,9 @@ in
       mode = "0775";
     };
   };
-})
+
+  services.caddy.virtualHosts."qbittorrent.binarin.info".extraConfig = ''
+    reverse_proxy http://127.0.0.1:8080
+    import letsencrypt
+  '';
+}

@@ -63,7 +63,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         Enabled = true;
         AuthSubnetWhitelistEnabled = true;
         LocalHostAuth = false;
-        UseUPnP = false;
+        UseUPnP = true;
         Username = system.userName;
         Password_PBKDF2 = readFile pkgs.qb-hash-gen;
         Address = "0.0.0.0";

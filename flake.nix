@@ -76,6 +76,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home";
     };
+  
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "parts";
+    };
 
     anipy = {
       url = "github:sdaqo/anipy-cli";

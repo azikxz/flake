@@ -59,11 +59,6 @@ with lib;
         "services/minecraft-main"
         "services/glance"
 
-        "ssl/qbittorrent/cert"
-        "ssl/qbittorrent/key"
-        "ssl/torrserver/cert"
-        "ssl/torrserver/key"
-
         "accounts/gmailPassword"
         "accounts/tg"
       ] "${self}/.secrets.yaml";

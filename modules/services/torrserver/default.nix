@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  config,
   ...
 }:
 
@@ -16,17 +15,6 @@ in
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.dirs = [ dir ];
-
-  sops.secrets =
-    genAttrs
-      [
-        "ssl/torrserver/cert"
-        "ssl/torrserver/key"
-      ]
-      (n: {
-        owner = mkForce "media";
-        restartUnits = [ "torrserver.service" ];
-      });
 
   systemd.services = {
     torrserver = {
@@ -89,9 +77,6 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
             RemoveCacheOnDrop = false;
             ResponsiveMode = false;
             RetrackersMode = 1;
-            SslCert = config.sopsnix."ssl/torrserver/cert";
-            SslKey = config.sopsnix."ssl/torrserver/key";
-            SslPort = 8224;
             TorrentDisconnectTimeout = 30;
             TorrentsSavePath = "${dir}/temp";
             UploadRateLimit = 0;

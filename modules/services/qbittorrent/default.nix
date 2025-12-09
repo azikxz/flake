@@ -7,9 +7,7 @@
 
 with lib;
 let
-  cfg = config.services.qbittorrent;
   savePath = "/media/torrents";
-  ssl = false;
 in
 # INFO:
 # or if u want use flood, enable service
@@ -21,17 +19,6 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     "/var/lib/qBittorrent"
     savePath
   ];
-
-  sops.secrets =
-    genAttrs
-      [
-        "ssl/qbittorrent/cert"
-        "ssl/qbittorrent/key"
-      ]
-      (n: {
-        owner = mkForce cfg.user;
-        restartUnits = [ "qbittorrent.service" ];
-      });
 
   environment.systemPackages = [ pkgs.qbt-tui ];
 
@@ -71,14 +58,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         Username = system.userName;
         Password_PBKDF2 = readFile pkgs.qb-hash-gen;
         Address = "0.0.0.0";
-      }
-      // (optionalAttrs ssl {
-        HTTPS = {
-          Enabled = true;
-          CertificatePath = config.sopsnix."ssl/qbittorrent/cert";
-          KeyPath = config.sopsnix."ssl/qbittorrent/key";
-        };
-      });
+      };
 
       RSS.Session = {
         EnableProcessing = true;

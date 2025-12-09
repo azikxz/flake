@@ -40,7 +40,7 @@ mkIf config.services.qbittorrent.enable {
           "--rundir /var/lib/flood"
           "--host 0.0.0.0"
           "--port 8085"
-          "--qburl http://${cfg.serverConfig.Preferences.WebUI.Address}:${toString cfg.webuiPort}"
+          "--qburl https://${cfg.serverConfig.Preferences.WebUI.Address}:${toString cfg.webuiPort}"
           "--qbuser ${system.userName}"
           "--qbpass simplepassword"
         ];

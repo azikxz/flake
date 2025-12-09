@@ -21,13 +21,16 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     savePath
   ];
 
-  sops.secrets = {
-    "ssl/qbittorrent/cert" = {
-      owner = mkForce cfg.user;
-
-      restartUnits = [ "qbittorrent.service" ];
-    };
-  };
+  sops.secrets =
+    genAttrs
+      [
+        "ssl/qbittorrent/cert"
+        "ssl/qbittorrent/key"
+      ]
+      (n: {
+        owner = mkForce cfg.user;
+        restartUnits = [ "qbittorrent.service" ];
+      });
 
   environment.systemPackages = [ pkgs.qbt-tui ];
 
@@ -99,9 +102,4 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       mode = "0775";
     };
   };
-
-  services.caddy.virtualHosts."qbittorrent.binarin.info".extraConfig = ''
-    reverse_proxy http://127.0.0.1:8080
-    import letsencrypt
-  '';
 }

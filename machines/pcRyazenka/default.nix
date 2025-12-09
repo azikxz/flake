@@ -18,9 +18,6 @@ with lib;
     "syncthing/cert"
     "syncthing/key"
     "syncthing/password"
-
-    "ssl/qbittorrent/cert"
-    "ssl/qbittorrent/key"
   ] ./sopsnix.yaml;
 
   hm.services.syncthing.settings.devices = listToAttrs [

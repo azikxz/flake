@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   ...
 }:
@@ -40,7 +41,7 @@ in
       "8.8.8.8"
     ];
 
-    extraHosts = readFile ./hosts;
+    extraHosts = readFile (inputs.dns-malw-link.outPath + "/hosts");
   };
 
   programs.nm-applet = {

@@ -44,18 +44,6 @@
         "type": "github"
       }
     },
-    "antizapret": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-avIBPLQuXVUJm2/19F5hMqhYUtqLpXurf1XNmeTpEBY=",
-        "type": "file",
-        "url": "https://raw.githubusercontent.com/pumPCin/AntiZapret/f0cc7c98265e9c45bed7db0124012dc9c0ed621c/hosts"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://raw.githubusercontent.com/pumPCin/AntiZapret/f0cc7c98265e9c45bed7db0124012dc9c0ed621c/hosts"
-      }
-    },
     "base16": {
       "inputs": {
         "nixpkgs": [
@@ -203,6 +191,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "disko",
+        "type": "github"
+      }
+    },
+    "dns-malw-link": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1764601169,
+        "narHash": "sha256-JXX/f3n+l2EIjSSIIKm3YrgZBF4uE4dug5yEFFdFjwQ=",
+        "owner": "ImMALWARE",
+        "repo": "dns.malw.link",
+        "rev": "358c329baf532f6afd145f0f12ed56970a796847",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ImMALWARE",
+        "repo": "dns.malw.link",
         "type": "github"
       }
     },
@@ -947,11 +951,11 @@
       "inputs": {
         "agenix": "agenix",
         "anipy": "anipy",
-        "antizapret": "antizapret",
         "base16": "base16",
         "curd": "curd",
         "cursors": "cursors",
         "disko": "disko",
+        "dns-malw-link": "dns-malw-link",
         "easyeffects": "easyeffects",
         "fjordlauncher": "fjordlauncher",
         "flatpak": "flatpak",

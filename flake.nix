@@ -76,7 +76,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home";
     };
-  
+
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -181,8 +181,8 @@
       flake = false;
     };
 
-    antizapret = {
-      url = "https://raw.githubusercontent.com/pumPCin/AntiZapret/f0cc7c98265e9c45bed7db0124012dc9c0ed621c/hosts";
+    dns-malw-link = {
+      url = "github:ImMALWARE/dns.malw.link";
       flake = false;
     };
   };

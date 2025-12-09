@@ -7,9 +7,9 @@
   quickmarks = {
     # localhost
     keenWeb = "192.168.1.1";
-    flood = "localhost:8085";
+    flood = "localhost:8113";
     transmission = "localhost:9091";
-    torrserver = "localhost:8090";
+    torrserver = "localhost:8223";
     syncthing = "localhost:8384";
 
     # nix

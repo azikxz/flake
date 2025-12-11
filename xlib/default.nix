@@ -111,6 +111,58 @@ utils.lib.eachSystem
             allowInsecure = true;
             allowUnfree = true;
           };
+
+          hostPlatform = lib.mkDefault system.platform;
+
+          overlays = with inputs; [
+            fjordlauncher.overlays.default
+            minecraft.overlays.default
+            niri.overlays.niri
+            nur.overlays.default
+
+            (
+              final: prev:
+              let
+                inherit (lib.system)
+                  platform
+                  ;
+              in
+              {
+                old = import nixpkgs-old {
+                  inherit (prev)
+                    system
+                    config
+                    ;
+                };
+
+                _24 = import nixpkgs-24 {
+                  inherit (prev)
+                    system
+                    config
+                    ;
+                };
+
+                _25 = import nixpkgs-25 {
+                  inherit (prev)
+                    system
+                    config
+                    ;
+                };
+
+                agenix = inputs.agenix.packages.${platform}.default;
+                anipy-cli = anipy.packages.${platform}.default;
+                jerry = jerry.packages.${platform}.full;
+                viu = viu.packages.${platform}.default;
+                curd = jerry.packages.${platform}.default;
+
+                cursors = cursors.packages.${platform};
+                gaming = gaming.packages.${platform};
+                spicetify = spicetify.legacyPackages.${platform};
+              }
+              // self.packages.${platform}
+              // winapps.packages."${platform}"
+            )
+          ];
         };
 
         specialArgs = {

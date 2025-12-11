@@ -26,6 +26,12 @@ utils.lib.eachSystem
         inherit
           system
           ;
+
+        config = {
+          allowBroken = true;
+          allowInsecure = true;
+          allowUnfree = true;
+        };
       };
     in
     {
@@ -99,6 +105,12 @@ utils.lib.eachSystem
       let
         pkgs = import nixpkgs {
           system = system.platform;
+
+          config = {
+            allowBroken = true;
+            allowInsecure = true;
+            allowUnfree = true;
+          };
         };
 
         specialArgs = {
@@ -136,6 +148,7 @@ utils.lib.eachSystem
 
       lib.nixosSystem {
         inherit
+          pkgs
           lib
           specialArgs
           ;

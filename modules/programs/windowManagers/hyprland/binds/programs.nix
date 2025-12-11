@@ -30,6 +30,8 @@ in
 )
 ++ [
   (m "tab" "tofi-drun | xargs hyprctl dispatch exec -- ")
+  (s "tab" (lib.getExe pkgs.clapboard))
+
   (s "space" "killall -SIGUSR1 .waybar-wrapped")
 
   (m "v" "AyuGram")

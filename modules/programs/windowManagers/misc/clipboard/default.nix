@@ -25,7 +25,7 @@ mkIf (mac' "isoXtended") {
       Service = {
         ExecStart = concatStringsSep " " [
           (getExe pkg)
-          "-r primary"
+          "-r clipboard"
         ];
 
         Type = "simple";

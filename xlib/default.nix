@@ -200,13 +200,10 @@ utils.lib.eachSystem
 
         modules =
           (
-            let
-              modulesDir = "${self}/modules";
-              machineDir = "${self}/machines/${machine}";
-            in
-            [ ]
-            ++ (lib.optional (lib.pathExists modulesDir) modulesDir)
-            ++ (lib.optional (lib.pathExists machineDir) machineDir)
+            (lib.umport {
+              path = ../machines/${machine};
+            })
+            ++ (lib.mkUmport ../modules [ ])
             ++ (with inputs; [
               agenix.nixosModules.default
               disko.nixosModules.default

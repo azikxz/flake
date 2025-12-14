@@ -13,7 +13,7 @@
     };
     style = {
       theme = "paradise";
-      image = "gasStation";
+      image = "townChristmas";
     };
   };
 

@@ -6,14 +6,6 @@
 with lib;
 
 {
-  imports = umport {
-    path = ./.;
-
-    exclude = [
-      ./default.nix
-    ];
-  };
-
   sops.secrets = mkSecrets.sops [
     "syncthing/cert"
     "syncthing/key"

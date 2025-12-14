@@ -1,22 +1,28 @@
 {
   lib,
+  config,
   ...
 }:
 
 with lib;
 # INFO:
-# modded vesktop with wayland screencast
+# enchnced vesktop
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
-  persist.user.dirs = [ ".config/vesktop" ];
+  persist.user.dirs = [ ".config/equibop" ];
 
   hm.programs.nixcord = {
     enable = true;
 
-    discord.enable = false;
-    vesktop.enable = true;
+    discord.enable = false; # why?
+    equibop.enable = true; # equibop is newgen vesktop
 
-    config = import ./settings.nix;
+    equibopConfig = import ./settings.nix {
+      inherit
+        lib
+        config
+        ;
+    };
   };
 
   hmMime = mkMime {

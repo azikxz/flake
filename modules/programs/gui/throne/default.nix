@@ -10,13 +10,8 @@ let
 in
 # INFO:
 # new gen nekoray
-# ...
-# doesnt works...(((
 
-{
-  imports = [ ./module.nix ];
-}
-// (mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".config/Throne" ];
 
   programs.throne = {
@@ -45,4 +40,4 @@ in
 
     Install.WantedBy = [ "graphical-session.target" ];
   };
-})
+}

@@ -19,10 +19,12 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
     package = pkgs.gitMinimal;
 
-    userName = "azixz";
-    userEmail = "xfalwa@gmail.com";
+    settings = {
+      user = {
+        name = "azixz";
+        email = "xfalwa@gmail.com";
+      };
 
-    extraConfig = {
       color = {
         ui = true;
 
@@ -38,8 +40,8 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
       init.defaultBranch = "main";
       safe.directory = paths.flakeDir;
-    };
 
-    aliases = import ./aliases.nix;
+      alias = import ./aliases.nix;
+    };
   };
 }

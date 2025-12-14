@@ -128,21 +128,14 @@ utils.lib.eachSystem
                   ;
               in
               {
-                old = import nixpkgs-old {
+                _2505 = import nixpkgs-2505 {
                   inherit (prev)
                     system
                     config
                     ;
                 };
 
-                _24 = import nixpkgs-24 {
-                  inherit (prev)
-                    system
-                    config
-                    ;
-                };
-
-                _25 = import nixpkgs-25 {
+                _2511 = import nixpkgs-2511 {
                   inherit (prev)
                     system
                     config

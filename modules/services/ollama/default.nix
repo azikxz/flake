@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   ...
 }:
@@ -14,9 +15,7 @@ mkIf (mac "pcRyazenka") {
   services = {
     ollama = {
       enable = true;
-      openFirewall = true;
-
-      acceleration = "rocm";
+      package = pkgs.ollama-rocm;
 
       loadModels = [ ];
     };

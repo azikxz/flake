@@ -8,7 +8,7 @@
 
 with lib;
 let
-  PROTONPATH = pkgs._24.proton-ge-bin.steamcompattool;
+  PROTONPATH = pkgs.proton-ge-bin.steamcompattool;
 in
 # INFO:
 # my favorite launcher for exe
@@ -20,7 +20,9 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     (umu-launcher.override {
       extraEnv = {
         # PROTON_ENABLE_WAYLAND = 1;
-        inherit PROTONPATH;
+        inherit
+          PROTONPATH
+          ;
 
         WINEPREFIX =
           if (paths.winePrefix != null) then

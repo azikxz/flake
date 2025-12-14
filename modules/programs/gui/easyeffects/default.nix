@@ -1,5 +1,6 @@
 {
   inputs,
+  pkgs,
   lib,
   ...
 }:
@@ -12,8 +13,12 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".config/easyeffects" ];
 
   hm = {
+    disabledModules = [ "services/easyeffects.nix" ];
+    imports = [ ./module.nix ];
+
     services.easyeffects = {
       enable = true;
+      package = pkgs._2505.easyeffects;
 
       preset =
         if (mac "thinkpadT14") then

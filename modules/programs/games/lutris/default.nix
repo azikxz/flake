@@ -9,7 +9,7 @@ with lib;
 # INFO:
 # multi launcher for linux
 
-mkIf (mac "pcRyazenka") {
+mkIf false {
   persist.user.dirs = [ ".config/lutris" ];
 
   hm.programs.lutris = {

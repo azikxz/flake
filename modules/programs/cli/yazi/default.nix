@@ -22,7 +22,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           wl-clipboard
           ;
 
-        ouch = pkgs.old.ouch.override { enableUnfree = true; };
+        ouch = pkgs.ouch.override { enableUnfree = true; };
       };
 
       keymap = import ./binds.nix {

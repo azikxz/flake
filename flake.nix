@@ -3,9 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-24.url = "github:NixOS/nixpkgs/nixos-24.11";
-    nixpkgs-25.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgs-old.url = "github:nixos/nixpkgs/30a61f056ac492e3b7cdcb69c1e6abdcf00e39cf";
+    nixpkgs-2505.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-2511.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     impermanence.url = "github:nix-community/impermanence";
     hardware.url = "github:NixOS/nixos-hardware/master";
@@ -68,7 +67,7 @@
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-stable.follows = "nixpkgs-24";
+      inputs.nixpkgs-stable.follows = "nixpkgs-2511";
     };
 
     plasma = {
@@ -81,6 +80,13 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "parts";
+      inputs.ndg.follows = "ndg";
+    };
+
+    # added for override nvf input
+    ndg = {
+      url = "github:feel-co/ndg";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     anipy = {

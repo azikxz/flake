@@ -56,7 +56,6 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
         extraLibraries =
           pkgs: with pkgs; [
-            mono
             SDL
             SDL2
             sdl3

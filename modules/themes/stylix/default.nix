@@ -8,6 +8,10 @@
 
 with lib;
 let
+  inherit (lib.style)
+    theme
+    ;
+
   color =
     if mac "pcRyazenka" then
       "breeze"
@@ -61,7 +65,14 @@ mkIf (mac' "isoXtended") {
         ;
     };
 
-    base16Scheme = if (style.theme != null) then inputs.base16."${style.theme}" else null;
+    base16Scheme =
+      if (isString theme) then
+        inputs.base16."${theme}"
+      else if (isAttrs theme) then
+        theme
+      else
+        inputs.base16."oxocarbonDark";
+
     polarity = "dark";
 
     iconTheme = {
@@ -116,8 +127,8 @@ mkIf (mac' "isoXtended") {
       };
 
       emoji = {
-        package = pkgs.nerd-fonts.symbols-only;
-        name = "Symbols Only Nerd Font";
+        package = pkgs.noto-fonts-monochrome-emoji;
+        name = "Noto Emoji";
       };
     }
     // {
@@ -142,13 +153,30 @@ mkIf (mac' "isoXtended") {
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    arkpandora_ttf
-    corefonts
-    liberation_ttf
-    noto-fonts
-    noto-fonts-cjk-sans
-  ];
+  fonts.packages = attrValues (
+    {
+      inherit (pkgs)
+        arkpandora_ttf
+        corefonts
+        gelasio
+        inter
+        liberation_ttf
+        noto-fonts
+        noto-fonts-cjk-sans
+        ;
+    }
+    // {
+      inherit (pkgs.fonts)
+        gost
+        segoe
+        ;
+    }
+    // {
+      inherit (pkgs.wineWow64Packages)
+        fonts
+        ;
+    }
+  );
 
   nixpkgs.overlays = [
     (final: prev: {

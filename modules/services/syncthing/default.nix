@@ -29,25 +29,32 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
             mkFolder
             ;
 
-          devices = attrNames config.hm.services.syncthing.settings.devices;
+          inherit (config.hm.services.syncthing.settings)
+            devices
+            ;
+
+          # call function with args [ ] if u want exlude dir for device
+          shared = list: attrNames (removeAttrs devices list);
         in
 
         listToAttrs (
           (with config.hm.xdg.userDirs; [
-            (mkFolder "temporal" "${desktop}/temp" devices)
+            (mkFolder "temporal" "${desktop}/temp" (shared [ ]))
 
-            (mkFolder "passwords" "${documents}/passwords" devices)
+            (mkFolder "passwords" "${documents}/passwords" (shared [ ]))
 
-            (mkFolder "notes" "${documents}/notes" devices)
+            (mkFolder "notes" "${documents}/notes" (shared [ ]))
 
-            (mkFolder "video" "${videos}/filmed" devices)
+            (mkFolder "video" "${videos}/filmed" (shared [ "windauser" ]))
 
-            (mkFolder "music" "${music}" devices)
+            (mkFolder "music" "${music}" (shared [ "windauser" ]))
           ])
           ++ [ ]
         );
 
       options = {
+        relaysEnabled = true;
+        urAccepted = -1;
         localAnnounceEnabled = true;
         localAnnouncePort = 21027;
       };

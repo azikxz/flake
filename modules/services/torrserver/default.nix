@@ -87,7 +87,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     };
   };
 
-  networking.firewall = {
+  networking.firewall = mkIf false {
     allowedTCPPorts = [ 8223 ];
   };
 }

@@ -91,7 +91,7 @@ mkIf false {
     };
   };
 
-  networking.firewall = {
+  networking.firewall = mkIf false {
     allowedTCPPorts = [ 8888 ];
   };
 }

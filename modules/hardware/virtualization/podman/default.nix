@@ -27,8 +27,4 @@ mkIf (mac "pcRyazenka") {
       };
     };
   };
-
-  networking.firewall.interfaces = {
-    "podman+".allowedUDPPorts = [ 53 ];
-  };
 }

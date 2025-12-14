@@ -10,7 +10,6 @@
 with lib;
 
 {
-  # not 8080 caouse qbittorrent
   server = {
     port = 5678;
     host = "0.0.0.0";
@@ -38,7 +37,6 @@ with lib;
     {
       name = "Home";
 
-      hide-desktop-navigation = true;
       center-vertically = true;
       width = "slim";
 
@@ -50,7 +48,6 @@ with lib;
           # soon i will host 4get on my own
 
           new-tab = true;
-          autofocus = true;
 
           bangs = [
             {
@@ -114,10 +111,19 @@ with lib;
             }
 
             {
-              type = "weather";
-              location = "Tynda, Russia";
-              hide-location = true;
-              hour-format = "24h";
+              type = "group";
+              widgets = [
+                {
+                  type = "weather";
+                  location = "Tynda, Russia";
+                  hide-location = true;
+                  hour-format = "24h";
+                }
+
+                {
+                  type = "calendar";
+                }
+              ];
             }
           ];
         }
@@ -488,6 +494,155 @@ with lib;
                   token = "\${GITHUB}";
                 }
               ];
+            }
+          ];
+        }
+      ];
+    }
+
+    {
+      name = "Research";
+
+      center-vertically = true;
+      width = "slim";
+
+      columns = [
+        {
+          size = "small";
+          widgets = [
+            {
+              type = "server-stats";
+              servers = [
+                {
+                  type = "local";
+                  name = "Services";
+                  hide-swap = true;
+                  hide-mountpoints-by-default = true;
+                  mountpoints = {
+                    "/" = {
+                      name = "root";
+                      hide = false;
+                    };
+                  };
+                }
+
+                {
+                  type = "monitor";
+                  cache = "1m";
+                  title = "Services (localhost)";
+                }
+              ];
+            }
+          ];
+        }
+
+        {
+          size = "full";
+          widgets = [
+            {
+              type = "bookmarks";
+              hide-arrow = true;
+              groups =
+                let
+                  https = "https://";
+
+                  # GREAT OVER-ENGINEERING
+                  mk =
+                    address: args:
+                    args
+                    // {
+                      url = https + address;
+                      icon = https + args.icon;
+                    };
+                in
+                with config.lib.stylix.colors;
+                [
+                  {
+                    title = "General links...";
+                    same-tab = true;
+                    color = mkHsl "base08";
+                    links = [
+                      (mk "mail.google.com" {
+                        title = "Gmail";
+                        icon = "icons.ly/gmail/${base08}";
+                      })
+
+                      (mk "youtube.com" {
+                        title = "Youtube";
+                        icon = "icons.ly/youtube/${base09}";
+                      })
+
+                      (mk "github.com" {
+                        title = "Github";
+                        icon = "icons.ly/github/${base0F}";
+                      })
+
+                      (mk "chat.deepseek.com" {
+                        title = "Deepseek";
+                        icon = "icons.ly/chatbot/${base0D}";
+                      })
+
+                      (mk "claude.ai" {
+                        title = "Claude AI";
+                        icon = "icons.ly/claude/${base09}";
+                      })
+                    ];
+                  }
+
+                  {
+                    title = "NixOS useful...";
+                    same-tab = true;
+                    color = mkHsl "base0D";
+                    links = [
+                      (mk "search.nixos.org/options?channel=unstable" {
+                        title = "NixOS Search";
+                        icon = "icons.ly/nixos/${base0D}";
+                      })
+
+                      (mk "home-manager-options.extranix.com/?query=&release=master" {
+                        title = "Home-Manager Search";
+                        icon = "icons.ly/nixos/${base0C}";
+                      })
+
+                      (mk "wiki.nixos.org" {
+                        title = "NixOS Wiki";
+                        icon = "icons.ly/nixos/${base0E}";
+                      })
+                    ];
+                  }
+
+                  {
+                    title = "Social...";
+                    same-tab = true;
+                    color = mkHsl "base0B";
+                    links = [
+                      (mk "anilist.co" {
+                        title = "Anilist";
+                        icon = "icons.ly/anilist/${base0D}";
+                      })
+
+                      (mk "anichart.net" {
+                        title = "Anichart";
+                        icon = "icons.ly/anilist/${base0C}";
+                      })
+
+                      (mk "binternet.private.coffee" {
+                        title = "Binternet";
+                        icon = "icons.ly/pinterest/${base08}";
+                      })
+
+                      (mk "simplytranslate.ducks.party" {
+                        title = "Translate";
+                        icon = "icons.ly/googletranslate/${base0D}";
+                      })
+
+                      (mk "intellectual.ducks.party" {
+                        title = "Intellectual";
+                        icon = "icons.ly/genius/${base0A}";
+                      })
+                    ];
+                  }
+                ];
             }
           ];
         }

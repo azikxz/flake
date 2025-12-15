@@ -7,7 +7,7 @@ with lib;
 # INFO:
 # osd for various actions
 
-mkIf true {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm = {
     services.wob = {
       enable = true;

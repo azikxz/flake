@@ -27,6 +27,7 @@
     inherit
       pkgs
       lib
+      config
       ;
   };
 

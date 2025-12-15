@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -77,19 +78,36 @@ in
     ''
   )}")
 
-  (fn "XF86AudioRaiseVolume" "$ex, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+")
-  (fn "XF86AudioLowerVolume" "$ex, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-")
-  (fs "XF86AudioRaiseVolume" "$ex, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+")
-  (fs "XF86AudioLowerVolume" "$ex, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%-")
-
-  (fn "XF86MonBrightnessDown" "$ex, sudo ${getExe pkgs.light} -U 10")
-  (fn "XF86MonBrightnessUp  " "$ex, sudo ${getExe pkgs.light} -A 10")
-  (fs "XF86MonBrightnessDown" "$ex, sudo ${getExe pkgs.light} -S 70")
-  (fs "XF86MonBrightnessUp  " "$ex, sudo ${getExe pkgs.light} -S 100")
-
   (fn "XF86Favorites" "$ex, wleave")
   (fs "XF86Favorites" "$ex, hyprctl dispatch dpms toggle")
 
   (fn "XF86HangupPhone" "$ex, makoctl dismiss -a")
   (fs "XF86HangupPhone" "$ex, makoctl restore")
+
+  (fn "XF86AudioRaiseVolume" "$ex, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+")
+  (fn "XF86AudioLowerVolume" "$ex, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-")
+  (fs "XF86AudioRaiseVolume" "$ex, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+")
+  (fs "XF86AudioLowerVolume" "$ex, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%-")
 ]
+++ (optionals config.hm.services.wob.enable [
+  (fn "XF86AudioRaiseVolume" "$ex, wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}' > $WOBSOCK")
+  (fn "XF86AudioLowerVolume" "$ex, wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}' > $WOBSOCK")
+  (fs "XF86AudioRaiseVolume" "$ex, wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}' > $WOBSOCK")
+  (fs "XF86AudioLowerVolume" "$ex, wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}' > $WOBSOCK")
+
+  (fn "XF86AudioMute" "$ex, wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{if ($3) print 0; else print int($2*100)}' > $WOBSOCK")
+])
+++ (
+  let
+    make = arg: [
+      (fn "XF86MonBrightnessDown" ("$ex, sudo ${getExe pkgs.light} -U 10" + arg))
+      (fn "XF86MonBrightnessUp  " ("$ex, sudo ${getExe pkgs.light} -A 10" + arg))
+      (fs "XF86MonBrightnessDown" ("$ex, sudo ${getExe pkgs.light} -S 70" + arg))
+      (fs "XF86MonBrightnessUp  " ("$ex, sudo ${getExe pkgs.light} -S 100" + arg))
+    ];
+  in
+  if config.hm.services.wob.enable then
+    (make " && sudo ${getExe pkgs.light} -G | cut -d'.' -f1 > $WOBSOCK")
+  else
+    (make (toString null))
+)

@@ -17,6 +17,7 @@ in
 {
   layerrule = [
     (mk "noanim" "notifications")
+    (mk "noanim" "wob")
   ];
 
   workspace = map (x: "${x}, gapsout:0, gapsin:0") wsSet;

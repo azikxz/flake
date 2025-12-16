@@ -1,5 +1,6 @@
 {
   lib,
+  config,
   ...
 }:
 
@@ -12,20 +13,32 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     services.wob = {
       enable = true;
 
-      settings = {
+      settings = with config.lib.stylix.colors; {
         # INFO: "" it mean to all styles
-        "" = {
-          timeout = 700;
+        "" = mkForce rec {
+          timeout = 1400;
 
           orientation = "horizontal";
           anchor = "bottom center";
 
-          width = 48;
-          height = 200;
+          width = height * 10;
+          height = 48;
 
           border_offset = 6;
-          border_size = 3;
+          border_size = 0;
           margin = 30;
+
+          bar_color = base0B;
+          background_color = base00;
+          border_color = base00 + "00"; # transparent
+
+          overflow_bar_color = base08;
+          overflow_background_color = base00;
+          overflow_border_color = base00 + "00"; # transparent
+        };
+
+        "style.muted" = {
+          bar_color = base02;
         };
       };
     };

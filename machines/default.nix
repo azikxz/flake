@@ -13,7 +13,7 @@
     };
     style = {
       theme = "paradise";
-      image = "townChristmas";
+      image = "tapestry";
     };
   };
 
@@ -36,10 +36,6 @@
       userName = "amogus";
       platform = "x86_64-linux";
       version = "24.05";
-    };
-    style = {
-      theme = "horizonDark";
-      image = "witchCar";
     };
   };
 }

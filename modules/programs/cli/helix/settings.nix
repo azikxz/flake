@@ -1,5 +1,5 @@
 {
-  theme = "themo";
+  keys = import ./binds.nix;
 
   editor = {
     auto-completion = true;

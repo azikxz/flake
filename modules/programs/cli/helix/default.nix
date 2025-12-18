@@ -12,25 +12,27 @@ with lib;
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14" || mac "isoXtended") {
   hm = {
-    home.shellAliases.e = "$EDITOR";
+    home.shellAliases.e = "$EDITOR"; # cause defaultEditor
 
     programs.helix = {
       enable = true;
 
       defaultEditor = true;
 
-      settings = import ./settings.nix // {
-        keys = import ./binds.nix;
-      };
-
+      settings =
+        (import ./settings.nix)
+        // (optionalAttrs (mac' "isoXtended") {
+          theme = "themo";
+        });
+    }
+    // (optionalAttrs (mac' "isoXtended") {
       themes = import ./theme.nix {
         inherit
           lib
           config
           ;
       };
-    }
-    // (optionalAttrs (mac' "isoXtended") {
+
       languages = import ./languages.nix {
         inherit
           self

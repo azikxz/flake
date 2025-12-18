@@ -8,7 +8,7 @@ with lib;
 # INFO:
 # security on 1st place...but not for me
 
-{
+mkIf (mac' "isoXtended") {
   security = {
     polkit.enable = true;
     soteria.enable = true;

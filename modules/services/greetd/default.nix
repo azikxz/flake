@@ -17,7 +17,7 @@ in
 # INFO:
 # best display manager
 
-mkIf (mac' "isoXtended") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   services.greetd = {
     enable = true;
 

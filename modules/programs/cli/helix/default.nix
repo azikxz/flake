@@ -10,7 +10,7 @@ with lib;
 # INFO:
 # i made alias 'e' it is '$EDITOR'
 
-mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14" || mac "isoXtended") {
   hm = {
     home.shellAliases.e = "$EDITOR";
 

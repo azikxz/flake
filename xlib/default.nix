@@ -95,8 +95,8 @@ utils.lib.eachSystem
           persist = null;
         },
         style ? {
-          theme = "horizon-dark";
-          image = "train";
+          theme = null;
+          image = null;
         },
         secrets ? (builtins.pathExists secrets) (import "${self}/secrets.nix" args),
       }:

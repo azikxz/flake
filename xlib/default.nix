@@ -73,7 +73,6 @@ utils.lib.eachSystem
 
             age
             ssh-to-age
-            inputs.agenix.packages.${system}.default
           ];
         };
       };
@@ -205,7 +204,6 @@ utils.lib.eachSystem
             })
             ++ (lib.mkUmport ../modules [ ])
             ++ (with inputs; [
-              agenix.nixosModules.default
               disko.nixosModules.default
               flatpak.nixosModules.nix-flatpak
               gaming.nixosModules.pipewireLowLatency

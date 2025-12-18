@@ -20,7 +20,7 @@
   thinkpadT14 = {
     system = {
       hostName = "blackmamba";
-      userName = "toneus";
+      userName = "hackerx";
       platform = "x86_64-linux";
       version = "24.05";
     };

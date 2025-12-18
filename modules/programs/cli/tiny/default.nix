@@ -17,7 +17,7 @@ mkIf false {
           realname = "azikx";
           nicks = [
             "nixzoid"
-            "toneus"
+            "hackerx"
           ];
           addr = "irc.libera.chat";
           port = 6697;

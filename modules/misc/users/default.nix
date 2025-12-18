@@ -7,7 +7,8 @@
 
 with lib;
 let
-  hashedPasswordFile = if (mac' "isoXtended") then config.sopsnix."password" else ./passwd;
+  hashedPasswordFile = config.sopsnix."password";
+  # hashedPasswordFile = if (mac' "isoXtended") then config.sopsnix."password" else null;
 in
 # INFO:
 # too much groups and hashed passwd
@@ -68,6 +69,8 @@ in
       };
 
       root = {
+        initialHashedPassword = mkForce null;
+
         inherit
           hashedPasswordFile
           ;

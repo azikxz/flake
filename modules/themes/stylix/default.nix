@@ -23,7 +23,7 @@ in
 # INFO:
 # cool colors, i lova rainbow
 
-mkIf (mac' "isoXtended") {
+{
   hm.stylix = {
     enable = true;
 
@@ -152,7 +152,8 @@ mkIf (mac' "isoXtended") {
       };
     };
   };
-
+}
+// (optionalAttrs (mac' "isoXtended") {
   fonts.packages = attrValues (
     {
       inherit (pkgs)
@@ -187,4 +188,4 @@ mkIf (mac' "isoXtended") {
       };
     })
   ];
-}
+})

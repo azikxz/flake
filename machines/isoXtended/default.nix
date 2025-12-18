@@ -11,6 +11,11 @@
     (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix")
   ];
 
+  sops.secrets = lib.mkSecrets.sops [
+    "password"
+    "tokens/github"
+  ] ./sopsnix.yaml;
+
   isoImage = {
     squashfsCompression = "gzip -Xcompression-level 1";
 
@@ -20,7 +25,10 @@
     volumeID = "NIXOS_ISO";
   };
 
-  boot.loader.timeout = lib.mkDefault 0;
+  boot = {
+    kernelPackages = pkgs._2505.linuxPackages_zen;
+    loader.timeout = lib.mkDefault 0;
+  };
 
   networking = {
     wireless.enable = false;
@@ -37,16 +45,15 @@
 
   programs.fish.enable = true;
 
-  environment.systemPackages = with pkgs; [ disko ];
-
-  hm.stylix.enable = true;
+  environment.systemPackages = with pkgs; [
+    disko
+    ntfs3g
+  ];
 
   stylix = {
-    enable = true;
-    overlays.enable = true;
-
-    base16Scheme = inputs.base16."${lib.style.theme}";
-    polarity = "dark";
+    image = lib.mkForce null;
+    iconTheme.enable = lib.mkForce false;
+    cursor = lib.mkForce null;
   };
 
   services.udisks2 = {

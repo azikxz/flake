@@ -40,28 +40,31 @@ with lib;
 
   sops = {
     secrets =
-      # INFO: default for every host secrets
-      # for especially host create
-      # > machines/machine/secerts.yaml
-      mkSecrets.sops [
-        "password"
+      mkIf (mac' "isoXtended")
+        # INFO: default for every host secrets
+        # for especially host create
+        # > machines/machine/secerts.yaml
+        (
+          mkSecrets.sops [
+            "password"
 
-        "tokens/anilibme"
-        "tokens/cachix"
-        "tokens/discord"
-        "tokens/github"
-        "tokens/jerry"
-        "tokens/viu"
+            "tokens/anilibme"
+            "tokens/cachix"
+            "tokens/discord"
+            "tokens/github"
+            "tokens/jerry"
+            "tokens/viu"
 
-        "services/windows"
-        "services/transmission"
-        "services/minecraft"
-        "services/minecraft-main"
-        "services/glance"
+            "services/windows"
+            "services/transmission"
+            "services/minecraft"
+            "services/minecraft-main"
+            "services/glance"
 
-        "accounts/gmailPassword"
-        "accounts/tg"
-      ] "${self}/.secrets.yaml";
+            "accounts/gmailPassword"
+            "accounts/tg"
+          ] "${self}/.secrets.yaml"
+        );
 
     age = {
       # for create private key use:

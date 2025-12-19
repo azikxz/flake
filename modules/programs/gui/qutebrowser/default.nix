@@ -8,6 +8,10 @@
 with lib;
 # WARN: !!!!!!
 # VERY VERY UNSTABLE BROWSER
+#
+# INFO:
+# if u cant login Google use this
+# :set -u https://accounts.google.com/* content.headers.user_agent "Mozilla/5.0 ({os_info}; rv:135.0) Gecko/20100101 Firefox/135"
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/qutebrowser" ];

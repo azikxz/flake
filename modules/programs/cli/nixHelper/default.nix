@@ -9,7 +9,7 @@ with lib;
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   environment.shellAliases = {
-    rebuild = "nh os switch --diff always -H ${machine}";
+    rebuild = "sudo nixos-rebuild switch --flake ${paths.flakeDir}#${machine}";
     repl = "nixos-rebuild repl --flake ${paths.flakeDir}#${machine}";
   };
 

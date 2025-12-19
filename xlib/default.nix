@@ -141,6 +141,13 @@ utils.lib.eachSystem
                     ;
                 };
 
+                _2411 = import nixpkgs-2411 {
+                  inherit (prev)
+                    system
+                    config
+                    ;
+                };
+
                 agenix = inputs.agenix.packages.${platform}.default;
                 anipy-cli = anipy.packages.${platform}.default;
                 jerry = jerry.packages.${platform}.full;

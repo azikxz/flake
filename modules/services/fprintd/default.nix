@@ -14,12 +14,12 @@ mkIf (mac "thinkpadT14") {
   services.fprintd = {
     enable = true;
 
-    package = pkgs._25.fprintd-tod;
+    package = pkgs._2411.fprintd-tod;
 
     tod = {
       enable = true;
 
-      driver = pkgs._25.libfprint-2-tod1-vfs0090;
+      driver = pkgs._2411.libfprint-2-tod1-vfs0090;
     };
   };
 }

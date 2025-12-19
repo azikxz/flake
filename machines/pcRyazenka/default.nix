@@ -7,6 +7,8 @@ with lib;
 
 {
   sops.secrets = mkSecrets.sops [
+    "password"
+
     "syncthing/cert"
     "syncthing/key"
     "syncthing/password"

@@ -46,8 +46,9 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         ExecStart = concatStringsSep " " [
           (getExe cfg.package)
           "--minimized"
-          "--pw-stdin"
           "~/Documents/passwords/db.kdbx"
+          "--keyfile"
+          "~/Documents/passwords/db.key"
         ];
 
         Type = "simple";

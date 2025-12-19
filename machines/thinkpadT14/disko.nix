@@ -49,18 +49,24 @@
 
   (
     let
-      mk = name: "/dev/disk/by-uuid/" + name;
+      mk =
+        {
+          device,
+        }:
+        {
+          inherit
+            device
+            ;
 
-      ext4 = {
-        fsType = "ext4";
-        options = [ "x-gvfs-show" ];
-      };
+          fsType = "ext4";
+          options = [ "x-gvfs-show" ];
+        };
     in
 
     {
       fileSystems = {
-        "/media/disks/mark2" = ext4 // {
-          device = mk "add0974f-e762-457c-96fb-2050609a0288";
+        "/media/disks/samsaDisker" = mk {
+          device = "/dev/disk/by-label/samsaDisker";
         };
       };
     }

@@ -29,8 +29,7 @@ with lib;
   # alias config.sops.secrets.<name>.path
   # to config.sopsnix.<name>
 }
-// (mkIf (mac' "isoXtended") {
-
+// {
   packages = with pkgs; [
     sops
     age
@@ -87,4 +86,4 @@ with lib;
       ];
     };
   };
-})
+}

@@ -95,7 +95,7 @@ in
   (fs "XF86AudioRaiseVolume" "$ex, wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}' > $WOBSOCK")
   (fs "XF86AudioLowerVolume" "$ex, wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}' > $WOBSOCK")
 
-  (fn "XF86AudioMute" "$ex, wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{if ($3) print 0; else print int($2*100)}' > $WOBSOCK")
+  (fn "XF86AudioMute" "$ex, wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{if ($3) print int($2*100); else print 0}' > $WOBSOCK")
 ])
 ++ (
   let

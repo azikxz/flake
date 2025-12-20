@@ -25,7 +25,7 @@
       version = "24.05";
     };
     style = {
-      theme = "oxocarbonDark";
+      theme = "neoGenesis";
       image = "painting";
     };
   };

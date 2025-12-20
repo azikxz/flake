@@ -8,7 +8,10 @@ with lib;
 with config.lib.stylix.colors;
 
 {
-  env = [ "SLURP_ARGS, -b ${base00}CC -c ${base0F}FF -B ${base02}CC" ];
+  env = [
+    "SLURP_ARGS, -b ${base00}CC -c ${base0F}FF -B ${base02}CC"
+    "WOBSOCK, ${config.hm.home.sessionVariables.WOBSOCK}"
+  ];
 
   exec-once = [
     "[silent] hyprctl dispatch closewindow initialtitle:Support Hyprland"

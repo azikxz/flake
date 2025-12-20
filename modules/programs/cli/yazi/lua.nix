@@ -64,41 +64,31 @@ with config.lib.stylix.colors.withHashtag;
 
     header_line = {
       left = {
-        section_a = { { type = "string", custom = false, name = "tab_path", params = {
-                        trimed = true, max_length = 24, trim_length = 5 } }, },
+        section_a = { { type = "string", custom = false, name = "tab_path", params = {{
+                        trimed = true, max_length=24, trim_length=10 }} }, },
         section_b = { },
         section_c = { }
       },
       right = {
-        section_a = { { type = "line", custom = false, name = "tabs", params = {"right"} }, },
+        section_a = { { type = "line", custom = false, name = "tabs", params = { "right" } }, },
         section_b = { },
-        section_c = { { type = "coloreds", custom = false, name = "githead" }, }
+        section_c = { }
       }
     },
 
     status_line = {
       left = {
         section_a = { { type = "string",   custom = false, name = "tab_mode" }, },
-        section_b = { { type = "string",   custom = false, name = "tab_num_files" }, },
-        section_c = { { type = "coloreds", custom = false, name = "count", params = "true" },
-                      { type = "string",   custom = false, name = "hovered_size" }, }
+        section_b = { { type = "string",   custom = false, name = "cursor_position" }, },
+        section_c = { { type = "coloreds", custom = false, name = "count" }, }
       },
       right = {
-        section_a = { { type = "string",   custom = false, name = "date", params = { "%d/%m/%Y" } }, },
-        section_b = { { type = "string",   custom = false, name = "hovered_file_extension", params = { true } },
-                      { type = "string",   custom = false, name = "hovered_mime" }, },
+        section_a = { { type = "string",   custom = false, name = "hovered_file_extension", }, },
+        section_b = { { type = "string",   custom = false, name = "hovered_size" }, },
         section_c = { { type = "coloreds", custom = false, name = "permissions" }, }
       }
     },
   })
 
-  require("restore"):setup({
-      show_confirm = true,
-      -- theme = {
-      --   title = "blue",
-      --   header = "green",
-      --   header_warning = "yellow",
-      --   list_item = { odd = "blue", even = "blue" },
-      -- },
-  })
+  require("restore"):setup({ show_confirm = true, })
 ''

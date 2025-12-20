@@ -48,6 +48,11 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
             (mkFolder "video" "${videos}/filmed" (shared [ "windauser" ]))
 
             (mkFolder "music" "${music}" (shared [ "windauser" ]))
+
+            (mkFolder "clipboard" "~/.cache/clapboard" (shared [
+              "nothing2a"
+              "windauser"
+            ]))
           ])
           ++ [ ]
         );

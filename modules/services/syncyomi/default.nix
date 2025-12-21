@@ -20,5 +20,8 @@ with lib;
 
     config.host = "0.0.0.0";
   }
-  // genAttrs [ "user" "group" ] (n: system.userName);
+  // genAttrs [
+    "user"
+    "group"
+  ] (n: system.userName);
 })

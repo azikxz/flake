@@ -9,7 +9,7 @@ with lib;
 # server for manga/manhwa reading
 # with builtin webui
 
-mkIf (mac "pcRyazenka") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/Tachidesk" ];
 
   services.suwayomi-server = {
@@ -30,12 +30,21 @@ mkIf (mac "pcRyazenka") {
       updateMangas = true;
       downloadAsCbz = true;
     }
-    // genAttrs [ "downloadsPath" "localSourcePath" ] (
-      n: config.hm.xdg.userDirs.desktop + "/localManga"
-      # unified genius
-    );
+    //
+      genAttrs
+        [
+          "downloadsPath"
+          "localSourcePath"
+        ]
+        (
+          n: config.hm.xdg.userDirs.desktop + "/localManga"
+          # unified genius
+        );
   }
-  // genAttrs [ "user" "group" ] (n: system.userName);
+  // genAttrs [
+    "user"
+    "group"
+  ] (n: system.userName);
   # INFO: system user cause local dir
 
   nixpkgs.overlays = [

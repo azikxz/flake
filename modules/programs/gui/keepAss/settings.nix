@@ -1,21 +1,15 @@
-let
-  path = "~/Documents/passwords/db.kdbx";
-in
-
 {
-  Browser.Enabled = true;
+  Browser = {
+    Browser_AllowLocalhostWithPasskeys = true;
+    Enabled = true;
+    UseCustomBrowser = true; # default is firefox
+  };
 
   General = {
     AutoReloadOnChange = true;
     AutoSaveAfterEveryChange = true;
     AutoSaveOnExit = true;
     ConfigVersion = 2;
-    LastActiveDatabase = path;
-    LastDatabases = path;
-    LastOpenedDatabases = path;
-    NumberOfRememberedLastDatabases = 1;
-    OpenPreviousDatabasesOnStartup = true;
-    UseAtomicSaves = true;
   };
 
   GUI = {
@@ -34,10 +28,15 @@ in
   };
 
   PasswordGenerator = {
-    AdvancedMode = true;
-    Dashes = true;
     Length = 32;
+
+    AdvancedMode = true;
+    Braces = true;
+    Dashes = true;
+    EASCII = true;
+    Logograms = true;
     LowerCase = true;
+    Math = true;
     Numbers = true;
     Quotes = true;
     SpecialChars = true;
@@ -45,11 +44,15 @@ in
   };
 
   Security = {
-    ClearClipboardTimeout = 20;
+    ClearClipboardTimeout = 24;
     ClearSearch = false;
     IconDownloadFallback = true;
     LockDatabaseIdle = true;
     LockDatabaseScreenLock = false;
     Security_HideNotes = true;
+  };
+
+  FdoSecrets = {
+    Enabled = true;
   };
 }

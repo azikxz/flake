@@ -60,6 +60,8 @@ with lib;
 
             "accounts/gmailPassword"
             "accounts/tg"
+
+            "vpn/amneziawg/warp_1"
           ] "${self}/.secrets.yaml"
         );
 

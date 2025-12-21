@@ -21,10 +21,25 @@ with lib;
 #
 # rebuild
 
-mkIf (mac "pcRyazenka") {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   environment = {
-    etc = (
-      listToAttrs (
+    etc =
+      let
+        genSops = mapAttrs' (
+          sopsPath: source:
+          let
+            name = last (splitString "/" sopsPath);
+            etcPath = "amneziawg/${name}.conf";
+          in
+          nameValuePair etcPath {
+            inherit
+              source
+              ;
+          }
+        ) (filterAttrs (path: _: hasPrefix "vpn/amneziawg/" path) (config.sopsnix or { }));
+      in
+      genSops
+      // (listToAttrs (
         map (
           file:
           let
@@ -35,8 +50,7 @@ mkIf (mac "pcRyazenka") {
             value.source = ./${name};
           }
         ) (filter (f: match ".*\\.conf$" f != null) (attrNames (builtins.readDir ./.)))
-      )
-    ) # awg-quick up ${name}
+      )) # awg-quick up ${name}
     ;
 
     systemPackages = with pkgs; [

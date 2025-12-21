@@ -5,23 +5,14 @@ syncthing:
     password: ENC[AES256_GCM,data:BY08y75jz8mcEok=,iv:lMlMBssdDIky1XmEDJrJkmLpqA1LlxEQy9QlOH4HlcU=,tag:PHu7DH9ax3pv5YsRQSxnRA==,type:str]
 sops:
     age:
-        - recipient: age13qxl594a6jvt5dku8clyga2c3dxap6jur86zwleedylt7ht0fymsvpkyum
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA5cWJURTdrUzdDOFY3azMx
-            ZUhRQVZsb0x5eXd2SnprKzByZmFaRGYwM3g4CnpiODAwVHZTWEloWUk4cUFOTHVk
-            alN5SmhKOGI0TG11YUV3VytFSXBMam8KLS0tIEFPcEVVUlZiQXNYQUN2dDUzb2Za
-            OUdQM25FU1BiOUtXSlNUNkswR2pTMmMKu9FjrKInwfGAFQYqzqy8rfMyKVaNqOCq
-            7ElkJgWn7I3ZxjlWcTr8AyMxBSYirhvdaS/FOJ+uV/mtSe54A9MYDw==
-            -----END AGE ENCRYPTED FILE-----
         - recipient: age16ermygpuxg2k6mmyu3q9nzjptzjdqz6kyswnhpxktqa58stff5cs3aupl6
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBWQlJaMFRFUSs3RzZ2dWdD
-            Z0FpeEJjbEhkWVdaaDBXc3ZZd1Exa3ZzZ0VVClBhT0ZKejFUd0g1T3htTEJhOHhi
-            dGdYT1ErSUd6V1A1NWVrOVkvakFBTGMKLS0tIEtTQ0NnZmVTNjlqYk1vS3NmOVZp
-            bUdKcFI0QTNKcG1sWkcxcGRnb01tRE0KsZGUpwGuUslDDa/CEDnUdLaXBAwoNapQ
-            2dH98au7q5HX8i73snf41h3D9AWJvpxLll9ZWP18JqLnDYgf9gHAFQ==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBSUzFqN0dNSlJpMVppYi8v
+            T2pncElpK0pmL3VnV3VNcS9PL1pMWTJGMm4wCmFJTGxvVEtuNjVNcUJTKzF0d1FR
+            b05od3hWeGNiWmVoK1FzN0hLQ0ZpWjQKLS0tIGRWVmZBU3A4NU9EM2R5NG9LNDRx
+            S0Z1QjJkQyttaG9SWXc0RE0zRFNPTXMKm9Kjrjy1lUqZpsqWbMszbLS+lENvvzVI
+            irezbr4B3kyV+SrVb62bVkusxaPrhBTpNS6fcJlRMDUdGxDG3Vcx/g==
             -----END AGE ENCRYPTED FILE-----
     lastmodified: "2025-12-19T10:12:15Z"
     mac: ENC[AES256_GCM,data:/bFQImPzq1IU4ltDehcz7YIoy+SI4/1igHALJK1v2GvYP7C8Sv3TYUEpau1fRRFaMhBExxH+Pkk844841vDEC+jytxP5deB0jMqyGU1C/pXZ+5rZgHIshBQmcxtU4589X8SCVlt2x/7GT4RIwLhTRriU0JVdtV/X07/1JXiPvsA=,iv:2SNJRMfX19DOZJcIKBBqar7Ja7fFz8P8RhfV+PolVMM=,tag:ji8NmpYMqKfOlax8zkVgPw==,type:str]

@@ -2,25 +2,25 @@
 # or
 # > nix run nixpkgs#ssh-to-age -- < ~/.ssh/id_ed25519.pub
 keys:
-  - &jetpure age13qxl594a6jvt5dku8clyga2c3dxap6jur86zwleedylt7ht0fymsvpkyum
-  - &blackmamba age16ermygpuxg2k6mmyu3q9nzjptzjdqz6kyswnhpxktqa58stff5cs3aupl6
+  - &pcRyazenka age13qxl594a6jvt5dku8clyga2c3dxap6jur86zwleedylt7ht0fymsvpkyum
+  - &thinkpadT14 age16ermygpuxg2k6mmyu3q9nzjptzjdqz6kyswnhpxktqa58stff5cs3aupl6
 # to rekey secrets
 # > sops updatekeys ./file
 
 creation_rules:
-  # allow to create any
-  # (yaml | json | env | ini) file
-  # in ./secrets/<name>.ext
-
-  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+  - path_regex: machines/thinkpadT14/sopsnix.yaml
     key_groups:
       - age:
-          - *jetpure
-          - *blackmamba
+          - *thinkpadT14
+
+  - path_regex: machines/pcRyazenka/sopsnix.yaml
+    key_groups:
+      - age:
+          - *pcRyazenka
 
   # allows to create .<name>.ext
-  - path_regex: .[^/]+\.(yaml|json|env|ini)$
+  - path_regex: .secrets.yaml
     key_groups:
       - age:
-          - *jetpure
-          - *blackmamba
+          - *pcRyazenka
+          - *thinkpadT14

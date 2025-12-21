@@ -29,9 +29,8 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           sopsPath: source:
           let
             name = last (splitString "/" sopsPath);
-            etcPath = "amneziawg/${name}.conf";
           in
-          nameValuePair etcPath {
+          nameValuePair "amnezia/amneziawg/${name}.conf" {
             inherit
               source
               ;

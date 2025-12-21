@@ -108,53 +108,13 @@
 | [qbtui](https://gist.github.com/azikxz/1368b57a9dd8c5af1396d6ff94ac5395) | qbittorrent tui (myself made)         |
 |                     [jetbrains](https://github.com/ryanoasis/nerd-fonts) | nerded fonts                          |
 
-- idk what also dudes
-
 </details>
 
 ---
 
-### Info:
+## Domo arigato
 
-<details> <summary>pcRyazenka (main device)</summary>
-
-![nah_id_win](./.other/pcRyazenka/main.jpg)
-
-![nah_id_win](./.other/pcRyazenka/tofi.jpg)
-
-![nah_id_win](./.other/pcRyazenka/useful.jpg)
-
-![nah_id_win](./.other/pcRyazenka/obsidian.jpg)
-
-![nah_id_win](./.other/pcRyazenka/bnvtop.jpg)
-
-</details>
-
-<details> <summary>thinkpadT14 (my working and typing machine)</summary>
-
-![nah_id_win](./.other/blackmamba/fetch.jpg)
-
-![nah_id_win](./.other/blackmamba/tofi.jpg)
-
-![nah_id_win](./.other/blackmamba/browser.jpg)
-
-![nah_id_win](./.other/blackmamba/gdu.jpg)
-
-</details>
-
-<details> <summary>isoXtended (installation iso)</summary>
-
-build it by `nix build .#iso`
-or
-obtain on github actions/releases (yet not active)
-
-</details>
-
----
-
-### Domo arigato 
-
-- [grinya](https://github.com/witttccchhher/nix-conf) my boyfriend) i love him   
+- [grinya](https://github.com/witttccchhher/nix-conf)
 - [artem](https://github.com/ArtemChandragupta/NixFlake)
 - [fufexan](https://github.com/fufexan/dotfiles)
 - [hezaki](https://codeberg.org/Hezaki/Touka)

@@ -22,7 +22,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
       preset =
         if (mac "thinkpadT14") then
-          "thinkpadT14-output"
+          "thinkpadT14"
         else if (mac "pcRyazenka") then
           "perfectEQ"
         else

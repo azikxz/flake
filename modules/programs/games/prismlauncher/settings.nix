@@ -41,10 +41,14 @@ in
     InstanceDir = "instances";
     JavaDir = "java";
     JavaPath = getExe pkgs.temurin-jre-bin;
-    Language = builtins.head (builtins.split "\\." config.i18n.defaultLocale);
+    Language = head (split "\\." config.i18n.defaultLocale);
     LastHostname = machine;
     LaunchMaximized = false;
-    MaxMemAlloc = if (mac "pcRyazenka") then 16384 else 8192;
+    MaxMemAlloc =
+      let
+        int = 1024;
+      in
+      if (mac "pcRyazenka") then (int * 16) else (int * 8);
     MenuBarInsteadOfToolBar = menubar;
     MinMemAlloc = 512;
     ModDependenciesDisabled = false;

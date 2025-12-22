@@ -56,7 +56,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         LocalHostAuth = false;
         UseUPnP = true;
         Username = system.userName;
-        Password_PBKDF2 = readFile pkgs.qb-hash-gen;
+        Password_PBKDF2 = "@ByteArray(IoH2ujUzBVy3G7m2I3GoVw==:wnPcHXPppcu+hGgC3m4yPG0cgRRMmcmboTJWzw0KL5FNZ9IhxNVHzZd1Z7t+bndBCkvxi3lXIR8kdMK6C1fRaQ==)";
         Address = "0.0.0.0";
       };
 

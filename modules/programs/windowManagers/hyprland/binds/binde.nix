@@ -62,13 +62,7 @@ in
   (c "up   " "swapwindow, u")
   (c "right" "swapwindow, r")
 
-  (fn "XF86AudioMute" "$ex, ${getExe (
-    pkgs.writeShellScriptBin "micMute" ''
-      fixf4=$(cat /sys/class/leds/platform\:\:mute/brightness);
-      echo $((1-fixf4)) | sudo ${getExe' pkgs.coreutils "tee"} /sys/class/leds/platform\:\:mute/brightness;
-      wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-    ''
-  )}")
+  (fn "XF86AudioMute" "$ex, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
 
   (fn "XF86AudioMicMute" "$ex, ${getExe (
     pkgs.writeShellScriptBin "micMute" ''

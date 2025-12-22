@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -13,14 +14,22 @@ let
   c = "Ctrl";
 
   mk = name: action: {
-    inherit name;
-    value = { inherit action; };
+    inherit
+      name
+      ;
+    value = {
+      inherit
+        action
+        ;
+    };
   };
+
+  sh = spawn "sh" "-c";
 in
 
-(builtins.listToAttrs (
+(lib.listToAttrs (
   [
-    (mk "${m}+Backslash" show-hotkey-overlay) # help
+    (mk "${m}+${s}+Slash" show-hotkey-overlay) # help
 
     (mk "${m}+Q" close-window)
     (mk "${m}+Grave" (
@@ -43,8 +52,7 @@ in
     # fuck it, i w'ont to fuck with this
 
     (mk "${m}+S" switch-preset-column-width)
-    (mk "${m}+Comma" consume-window-into-column)
-    (mk "${m}+Period" expel-window-from-column)
+    (mk "${m}+${s}+S" switch-preset-window-height)
 
     (mk "${m}+Minus" (set-column-width "-10%"))
     (mk "${m}+Equal" (set-column-width "+10%"))
@@ -80,19 +88,29 @@ in
     (mk "${m}+${c}+Down" move-window-down-or-to-workspace-down)
     (mk "${m}+${c}+Up" move-window-up-or-to-workspace-up)
   ]
-  ++ [
-    (mk "XF86AudioMute" (spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"))
-    (mk "XF86AudioMicMute" (spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"))
-    (mk "XF86AudioRaiseVolume" (spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"))
-    (mk "XF86AudioLowerVolume" (spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"))
-    (mk "${s}+XF86AudioRaiseVolume" (spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "10%+"))
-    (mk "${s}+XF86AudioLowerVolume" (spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "10%-"))
+  ++ (
+    let
+      mute = " && wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{if ($3) print int($2*100); else print 0}' > /run/user/1000/wob.sock";
+      vol = " && wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}' > /run/user/1000/wob.sock";
+      light = " && sudo ${lib.getExe pkgs.light} -G | cut -d'.' -f1 > /run/user/1000/wob.sock";
+    in
+    [
+      (mk "XF86AudioMute" (sh ("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" + mute)))
+      (mk "XF86AudioMicMute" (sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"))
 
-    (mk "XF86MonBrightnessUp" (spawn "sudo" "light" "-A" "10"))
-    (mk "XF86MonBrightnessDown" (spawn "sudo" "light" "-U" "10"))
-    (mk "${s}+XF86MonBrightnessUp" (spawn "sudo" "light" "-S" "70"))
-    (mk "${s}+XF86MonBrightnessDown" (spawn "sudo" "light" "-S" "100"))
-  ]
+      (mk "XF86AudioRaiseVolume" (sh ("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+" + vol)))
+      (mk "XF86AudioLowerVolume" (sh ("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-" + vol)))
+      (mk "${s}+XF86AudioRaiseVolume" (sh ("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+" + vol)))
+      (mk "${s}+XF86AudioLowerVolume" (sh ("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%-" + vol)))
+
+      (mk "XF86MonBrightnessUp" (sh ("sudo ${lib.getExe pkgs.light} -A 10" + light)))
+      (mk "XF86MonBrightnessDown" (sh ("sudo ${lib.getExe pkgs.light} -U 10" + light)))
+      (mk "${s}+XF86MonBrightnessUp" (sh ("sudo ${lib.getExe pkgs.light} -S 70" + light)))
+      (mk "${s}+XF86MonBrightnessDown" (sh ("sudo ${lib.getExe pkgs.light} -S 100" + light)))
+
+      (mk "XF86Favorites" (spawn "wleave"))
+    ]
+  )
   ++ (import ./programs.nix {
     inherit
       config

@@ -10,15 +10,9 @@ with config.lib.stylix.colors.withHashtag;
 {
   screenshot-path = "~/Pictures/screenshots/scr_%d-%m-%y_%H:%M:%S.png";
 
-  spawn-at-startup =
-    map
-      (reference: {
-        command = [ reference ];
-      })
-      [
-        (lib.getExe pkgs.xwayland-satellite)
-        "${lib.getExe pkgs.swaybg} --image ${config.stylix.image}"
-      ];
+  spawn-at-startup = map (reference: { argv = [ reference ]; }) [
+    "${lib.getExe pkgs.swaybg} --image ${config.stylix.image}"
+  ];
 
   input = {
     keyboard.xkb = {
@@ -58,8 +52,6 @@ with config.lib.stylix.colors.withHashtag;
   };
 
   layout = {
-    focus-ring.enable = false;
-
     border = {
       enable = true;
       width = 3;
@@ -170,5 +162,9 @@ with config.lib.stylix.colors.withHashtag;
 
   environment = {
     DISPLAY = ":0";
+    SLURP_ARGS = "-b ${base00}CC -c ${base0F}FF -B ${base02}CC";
+    WOBSOCK = config.hm.home.sessionVariables.WOBSOCK;
   };
+
+  xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 }

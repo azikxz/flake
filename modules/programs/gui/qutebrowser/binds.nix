@@ -21,7 +21,6 @@
     "yI" = "hint images yank -s";
 
     # keepassxc
-    ",," =
-      "spawn --userscript qute-keepass -p ~/Documents/passwords/db.kdbx --keyfile-path ~/Documents/passwords/db.key";
+    ",," = "spawn --userscript qute-keepass -p ~/Documents/passwords/db.kdbx";
   };
 }

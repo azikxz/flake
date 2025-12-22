@@ -127,8 +127,8 @@ in
       };
 
       emoji = {
-        package = pkgs.noto-fonts-monochrome-emoji;
-        name = "Noto Emoji";
+        package = pkgs.nerd-fonts.symbols-only;
+        name = "Symbols Only Nerd Font";
       };
     }
     // {

@@ -3,12 +3,12 @@
   lib,
 }:
 
-pkgs.stdenv.mkDerivation (final: {
+pkgs.stdenv.mkDerivation rec {
   pname = "animesh";
   version = "0.2.3";
 
   src = pkgs.fetchurl {
-    url = "https://github.com/Abhi-Gautam/animesh/releases/download/v${final.version}/animesh-linux.tar.gz";
+    url = "https://github.com/Abhi-Gautam/animesh/releases/download/v${version}/animesh-linux.tar.gz";
     sha256 = "sha256-1Q5DjDMsT8vqW8EEs+V0ox/vCuruO2LyioeyOowQPA4=";
   };
 
@@ -37,4 +37,4 @@ pkgs.stdenv.mkDerivation (final: {
     maintainers = with lib.maintainers; [ azikx ];
     mainProgram = "animesh";
   };
-})
+}

@@ -16,9 +16,9 @@ pkgs.buildGoModule rec {
 
   vendorHash = "sha256-fzPEljXFskr1/qzTsnASFNNc+8vA7kqO21mhMqwT44w=";
 
-  web = pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
+  web = pkgs.stdenvNoCC.mkDerivation rec {
     pname = "${pname}-web";
-    sourceRoot = "${finalAttrs.src.name}/web";
+    sourceRoot = "${src.name}/web";
 
     inherit
       src
@@ -26,7 +26,7 @@ pkgs.buildGoModule rec {
       ;
 
     pnpmDeps = pkgs.pnpm_9.fetchDeps {
-      inherit (finalAttrs)
+      inherit
         pname
         version
         src
@@ -73,7 +73,7 @@ pkgs.buildGoModule rec {
       cp -r dist $out
       runHook postInstall
     '';
-  });
+  };
 
   preConfigure = ''
     cp -r $web/* web/dist

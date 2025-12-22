@@ -3,7 +3,7 @@
   lib,
 }:
 
-pkgs.stdenv.mkDerivation (final: {
+pkgs.stdenv.mkDerivation {
   pname = "zaread";
   version = "git";
 
@@ -48,4 +48,4 @@ pkgs.stdenv.mkDerivation (final: {
     maintainers = with lib.maintainers; [ azikx ];
     mainProgram = "zaread";
   };
-})
+}

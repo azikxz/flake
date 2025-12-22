@@ -18,8 +18,7 @@ pkgs.stdenv.mkDerivation (final: {
   phases = [ "installPhase" ];
 
   installPhase = ''
-    mkdir -p $out;
-    mv $src $out/tiny11.iso
+    install -Dm755 $src $out/bin/tiny11.iso
   '';
 
   meta = {

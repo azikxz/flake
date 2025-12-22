@@ -16,9 +16,7 @@ pkgs.stdenv.mkDerivation {
 
   unpackPhase = "true";
   installPhase = ''
-    mkdir -p $out/bin;
-    cp $src $out/bin/hasher
-    chmod +x $out/bin/hasher
+    install -Dm755 $src $out/bin/hasher
   '';
 
   meta = {

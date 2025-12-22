@@ -15,9 +15,7 @@ pkgs.stdenv.mkDerivation {
   };
 
   installPhase = ''
-    mkdir -p $out/bin
-    cp $src $out/bin/torque
-    chmod +x $out/bin/torque
+    install -Dm755 $src $out/bin/torque
   '';
 
   meta = {

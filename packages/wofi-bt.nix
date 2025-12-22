@@ -16,11 +16,7 @@ pkgs.stdenvNoCC.mkDerivation {
   dontUnpack = true;
 
   installPhase = ''
-    mkdir -p $out/bin
-
     install -Dm755 $src $out/bin/wofi-bt
-    chmod +x $out/bin/wofi-bt
-
     wrapProgram $out/bin/wofi-bt \
       --prefix PATH ':' \
         "${lib.makeBinPath (with pkgs; [ wofi ])}"

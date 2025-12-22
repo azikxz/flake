@@ -19,9 +19,7 @@ pkgs.stdenv.mkDerivation (final: {
   installPhase = ''
     runHook preInstall
 
-    mkdir -p $out/bin
-    cp $src $out/bin/torrserver
-    chmod +x $out/bin/torrserver
+    install -Dm755 $src $out/bin/torrserver
 
     runHook postInstall
   '';

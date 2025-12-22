@@ -17,9 +17,7 @@ pkgs.stdenv.mkDerivation {
   };
 
   installPhase = ''
-    mkdir -p $out/bin
-    cp $src $out/bin/ytid
-    chmod +x $out/bin/ytid
+    install -Dm755 $src $out/bin/ytid
     wrapProgram $out/bin/ytid \
       --prefix PATH : ${
         lib.makeBinPath [

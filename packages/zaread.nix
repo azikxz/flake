@@ -22,10 +22,7 @@ pkgs.stdenv.mkDerivation (final: {
   installPhase = ''
     runHook preInstall
 
-    mkdir -p $out/bin
-    cp $src $out/bin/zaread
-    chmod +x $out/bin/zaread
-
+    install -Dm755 $src $out/bin/zaread
     wrapProgram $out/bin/zaread \
       --prefix PATH ':' \
         "${

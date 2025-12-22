@@ -22,8 +22,7 @@ pkgs.stdenv.mkDerivation {
   '';
 
   installPhase = ''
-    mkdir -p $out/bin
-    cp brrtfetch $out/bin/
+    install -Dm755 brrtfetch -t $out/bin
   '';
 
   meta = {

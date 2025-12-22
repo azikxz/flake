@@ -28,9 +28,7 @@ buildPythonApplication {
   format = "other";
 
   installPhase = ''
-    mkdir -p $out/bin
-    cp $src $out/bin/qbtui
-    chmod +x $out/bin/qbtui
+    install -Dm755 $src $out/bin/qbtui
   '';
 
   meta = {

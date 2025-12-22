@@ -16,9 +16,7 @@ pkgs.stdenv.mkDerivation {
 
   unpackPhase = "true";
   installPhase = ''
-    mkdir -p $out/bin;
-    cp $src $out/bin/qbit-hash
-    chmod +x $out/bin/qbit-hash
+    install -Dm755 $src $out/bin/qbit-hash
   '';
 
   meta = {

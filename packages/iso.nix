@@ -2,4 +2,10 @@
   self,
 }:
 
-self.nixosConfigurations.isoXtended.config.system.build.isoImage
+let
+  inherit (self.nixosConfigurations.isoXtended.config.system)
+    build
+    ;
+in
+
+build.isoImage

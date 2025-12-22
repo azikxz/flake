@@ -3,10 +3,11 @@
   ...
 }:
 
+with lib;
 # INFO:
 # tester for some programs etc...
 
-{
+mkIf false {
   imports = [
     ../misc/locales/default.nix
     ../misc/minimal/default.nix
@@ -19,7 +20,7 @@
     home = "/home/tester";
     createHome = true;
 
-    initialHashedPassword = lib.mkForce "$2b$05$vfFJcNMZaHujKhPSERV/o.nLa2GqYlM0e8ovlfwnhj4XdOJ3Gv7h2";
+    initialHashedPassword = mkForce "$2b$05$vfFJcNMZaHujKhPSERV/o.nLa2GqYlM0e8ovlfwnhj4XdOJ3Gv7h2";
 
     description = "beta tester for programs";
   };

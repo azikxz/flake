@@ -19,7 +19,7 @@ mkIf (mac "thinkpadT14") {
       # platform
       PLATFORM_PROFILE_ON_AC = "performance";
       PLATFORM_PROFILE_ON_BAT = "balanced";
-      MEM_SLEEP_ON_AC = "s2idle";
+      MEM_SLEEP_ON_AC = "deep";
       MEM_SLEEP_ON_BAT = "deep";
 
       # cpu

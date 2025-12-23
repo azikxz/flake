@@ -12,9 +12,10 @@ mkIf (mac "thinkpadT14") {
     (genAttrs [
       "HandleLidSwitchExternalPower"
       "HandleLidSwitchDocked"
-      "HandleLidSwitch"
     ] (n: "ignore"))
     // {
+      "HandleLidSwitch" = "suspend";
+
       HandlePowerKeyLongPress = "reboot";
       HandlePowerKey = "poweroff";
     };

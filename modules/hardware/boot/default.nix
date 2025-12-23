@@ -35,19 +35,12 @@ with lib;
     ];
 
     kernelParams = [
-      "boot.shell_on_fail"
-      "loglevel=3"
-      "nowatchdog"
-      "page_alloc.shuffle=1"
-      "page_alloc.shuffle=1"
-      "pci=pcie_bus_perf"
-      "psmouse.synaptics_intertouch=0"
+      "acpi.sleep_state=3"
+      "amdgpu.runpm=0"
+      "mem_sleep_default=deep"
       "quiet"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
-      "split_lock_detect=off"
-      "threadirqs"
-      "udev.log_priority=3"
+      "acpi.ec_no_wakeup=1"
+      "acpi_enforce_resources=lax"
     ];
 
     initrd = {
@@ -55,20 +48,6 @@ with lib;
 
       compressor = "zstd";
       compressorArgs = [ "-16" ];
-
-      kernelModules = [
-        "ahci"
-        "ehci_pci"
-        "nvme"
-        "ohci_pci"
-        "pata_atiixp"
-        "sdhci_pci"
-        "sd_mod"
-        "sr_mod"
-        "ums_realtek"
-        "usb_storage"
-        "xhci_pci"
-      ];
     };
 
     plymouth = {

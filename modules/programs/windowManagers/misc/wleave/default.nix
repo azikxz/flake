@@ -48,9 +48,9 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         in
         [
           (mk "shutdown" "systemctl poweroff" "s")
-          (mk "logout" "loginctl terminate-user $USER" "e")
+          (mk "reboot" "systemctl reboot" "r")
           (mk "suspend" "systemctl suspend" "u")
-          (mk "lock" "hyprlock" "l")
+          (mk "logout" "loginctl terminate-user $USER" "e")
         ];
     };
 
@@ -92,7 +92,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
             }
 
             {
-              name = "logout";
+              name = "reboot";
               color = base0A;
             }
 
@@ -102,7 +102,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
             }
 
             {
-              name = "lock";
+              name = "logout";
               color = base0E;
             }
           ]

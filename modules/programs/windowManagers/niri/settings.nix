@@ -14,6 +14,14 @@ with config.lib.stylix.colors.withHashtag;
     "eDP-1".scale = 1.0;
   };
 
+  binds = import ./binds.nix {
+    inherit
+      pkgs
+      lib
+      config
+      ;
+  };
+
   input = {
     keyboard.xkb = {
       layout = "us,ru";
@@ -119,6 +127,20 @@ with config.lib.stylix.colors.withHashtag;
     always-center-single-column = true;
   };
 
+  # recent-windows = {
+  #   debounce-ms = 350;
+  #   open-delay-ms = 100;
+
+  #   previews.max-scale = 0.75;
+
+  #   highlight = {
+  #     active-color = base02;
+  #     urgent-color = base08;
+  #     padding = 30;
+  #     corner-radius = 12;
+  #   };
+  # };
+
   animations =
     (lib.genAttrs
       [
@@ -152,6 +174,7 @@ with config.lib.stylix.colors.withHashtag;
   window-rules = [
     {
       clip-to-geometry = true;
+      draw-border-with-background = true;
       geometry-corner-radius = lib.genAttrs [
         "top-left"
         "top-right"
@@ -163,6 +186,7 @@ with config.lib.stylix.colors.withHashtag;
   ++ import ./rules.nix {
     inherit
       lib
+      config
       ;
   };
 
@@ -189,6 +213,10 @@ with config.lib.stylix.colors.withHashtag;
     DISPLAY = ":0";
     SLURP_ARGS = "-b ${base00}CC -c ${base0F}FF -B ${base02}CC";
     WOBSOCK = config.hm.home.sessionVariables.WOBSOCK;
+  };
+
+  debug = {
+    deactivate-unfocused-windows = true;
   };
 
   xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;

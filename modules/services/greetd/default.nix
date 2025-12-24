@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -16,10 +17,11 @@ in
 # INFO:
 # best display manager
 
-mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+mkIf (mac' "isoXtended") {
   services.greetd = {
     enable = true;
     useTextGreeter = true;
+    greeterManagesPlymouth = true;
 
     settings = {
       default_session = mk (
@@ -42,6 +44,16 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           ])
         ]
       );
-    };
+    }
+    // (optionalAttrs (mac "pcRyazenka") {
+      initial_session = {
+        command =
+          if config.programs.uwsm.enable then
+            "uwsm start niri-uwsm.desktop"
+          else
+            getExe' config.programs.niri.package "niri-session";
+        user = system.userName;
+      };
+    });
   };
 }

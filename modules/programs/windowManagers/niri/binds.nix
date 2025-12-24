@@ -31,10 +31,10 @@ in
 (lib.listToAttrs (
   # programs
   [
-    (mk "${m}+${s}+Space" (sh "killall -SIGUSR1 .waybar-wrapped"))
+    (mk "${m}+Tab" (sh "bash -c tofi-drun | xargs niri msg action spawn --"))
 
     (mk "${m}+Return" (sh "kitty"))
-    (mk "${m}+Tab" (sh "bash -c tofi-drun | xargs niri msg action spawn --"))
+    (mk "${m}+${s}+Return" (sh "kitty --class=kitty_small"))
 
     (mk "${m}+V" (sh "AyuGram"))
     (mk "${m}+${s}+V" (sh "equibop"))
@@ -51,18 +51,18 @@ in
       (mk "${m}+${s}+Slash" show-hotkey-overlay) # help
 
       (mk "${m}+Q" close-window)
-      (mk "${m}+Grave" (
+
+      (mk "${m}+Space" toggle-overview)
+      (mk "${m}+${a}+Space" center-window)
+      (mk "${m}+${s}+Space" (
         if config.hm.programs.wleave.enable then
-          (spawn (lib.getExe config.hm.programs.wleave.package))
+          (sh (lib.getExe config.hm.programs.wleave.package))
         else
           quit
       ))
 
-      (mk "${m}+Space" toggle-overview)
-      (mk "${m}+${a}+Space" center-window)
-
-      (mk "${m}+F" maximize-column)
-      (mk "${m}+${s}+F" fullscreen-window)
+      (mk "${m}+F" fullscreen-window)
+      (mk "${m}+${s}+F" maximize-column)
 
       # (mk "Print" (spawn "niri" "msg" "action" "screenshot-screen"))
       # (mk "${s}+Print" screenshot-window)

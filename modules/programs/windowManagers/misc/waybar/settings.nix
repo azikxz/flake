@@ -14,7 +14,9 @@ with lib;
         tooltip = false;
         rotate = 90;
       };
+
       ico = import ./icons.nix;
+      space = (if (mac "pcRyazenka") then " " else (toString null));
     in
     mkMerge [
       {
@@ -33,6 +35,7 @@ with lib;
           {
             modules-left = [
               "custom/spacing"
+              "custom/launcher"
               "group/soundGrp"
               "backlight"
               "group/blueGrp"
@@ -45,6 +48,7 @@ with lib;
               "group/trayGrp"
               "group/dateGrp"
               "battery"
+              "custom/power"
               "custom/spacing"
             ];
           }
@@ -52,6 +56,7 @@ with lib;
           {
             modules-left = [
               "custom/spacing"
+              "custom/launcher"
               "group/soundGrp"
               "group/blueGrp"
             ];
@@ -62,11 +67,23 @@ with lib;
               "group/trayGrp"
               "niri/language"
               "group/dateGrp"
+              "custom/power"
               "custom/spacing"
             ];
           }
       )
       {
+        "custom/launcher" = mkTooltip // {
+          format = "<span color='${config.lib.stylix.colors.withHashtag.base0C}' font='17'></span> {}";
+
+          on-click = "tofi-drun | xargs niri msg action spawn --";
+        };
+
+        "custom/power" = mkTooltip // {
+          format = space + "⏻";
+          on-click = "wleave";
+        };
+
         "pulseaudio#volume" = mkTooltip // {
           format = "{volume}% ";
           format-muted = "muted ";
@@ -183,7 +200,7 @@ with lib;
         };
 
         "niri/language" = mkTooltip // {
-          format = "{} 󰌌";
+          format = if (mac "pcRyazenka") then "󰌌 {}" else "{} 󰌌";
           format-en = "en";
           format-ru = "ru";
 
@@ -191,9 +208,9 @@ with lib;
         };
 
         "clock#date" = mkTooltip // {
-          format = "{:%d.%m.%Y} ";
+          format = " {:%d.%m.%Y} ";
 
-          interval = ((60 * 60) * 24);
+          interval = ((60 * 60) * 2);
         };
 
         "clock#time" = mkTooltip // {
@@ -263,9 +280,9 @@ with lib;
                 children-class = "dateGrp";
                 transition-left-to-right = false;
               }
+
               [
                 "clock#time"
-                # "clock#date"
               ];
 
           "group/trayGrp" =

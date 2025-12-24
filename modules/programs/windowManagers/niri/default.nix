@@ -22,16 +22,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         package
         ;
 
-      settings = {
-        binds = import ./binds.nix {
-          inherit
-            pkgs
-            lib
-            config
-            ;
-        };
-      }
-      // import ./settings.nix {
+      settings = import ./settings.nix {
         inherit
           pkgs
           lib

@@ -68,7 +68,7 @@ with lib;
       )
       {
         "pulseaudio#volume" = mkTooltip // {
-          format = "{volume}%";
+          format = "{volume}% ";
           format-muted = "muted ";
 
           format-bluetooth = "{volume}% ";
@@ -183,7 +183,7 @@ with lib;
         };
 
         "niri/language" = mkTooltip // {
-          format = "󰌌 {}";
+          format = "{} 󰌌";
           format-en = "en";
           format-ru = "ru";
 

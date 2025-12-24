@@ -15,8 +15,7 @@ mkIf (mac "thinkpadT14") {
     ] (n: "ignore"))
     // {
       "HandleLidSwitch" = "suspend";
-
       HandlePowerKeyLongPress = "reboot";
-      HandlePowerKey = "poweroff";
+      HandlePowerKey = "suspend";
     };
 }

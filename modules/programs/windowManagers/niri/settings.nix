@@ -103,13 +103,14 @@ with config.lib.stylix.colors.withHashtag;
     default-column-width.proportion = 0.9;
 
     preset-column-widths = [
-      { proportion = 0.3; }
+      { proportion = 0.4; }
       { proportion = 0.5; }
-      { proportion = 0.8; }
+      { proportion = 0.9; }
       { proportion = 1.0; }
     ];
 
     preset-window-heights = [
+      { proportion = 0.4; }
       { proportion = 0.5; }
       { proportion = 1.0; }
     ];

@@ -37,10 +37,10 @@
   }
 
   {
-    open-floating = true;
+    default-column-width = 0.4;
     matches = [
       {
-        app-id = "firefox$";
+        app-id = "steam$";
         title = "^Friends List$";
       }
     ];

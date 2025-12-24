@@ -13,10 +13,7 @@ with lib;
 mkIf (mac "thinkpadT14" || mac "pcRyazenka") {
   hm.programs.waybar = {
     enable = true;
-    systemd = {
-      enable = true;
-      target = "hyprland-session.target";
-    };
+    systemd.enable = true;
 
     style = import ./style.nix {
       inherit

@@ -10,7 +10,7 @@ with lib;
 # INFO:
 # beauty lockscreen
 
-mkIf (config.programs.hyprland.enable) {
+mkIf (config.programs.niri.enable || config.programs.hyprland.enable) {
   hm = {
     programs.hyprlock = with config.lib.stylix.colors; {
       enable = true;

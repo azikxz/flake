@@ -35,7 +35,7 @@ in
   (s "space" "killall -SIGUSR1 .waybar-wrapped")
 
   (m "v" "AyuGram")
-  (s "v" "vesktop")
+  (s "v" "equibop")
 
   (m "b" "qutebrowser")
   (s "b" "keepassxc")

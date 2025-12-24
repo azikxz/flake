@@ -44,6 +44,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     };
 
     home.sessionVariables = {
+      WOBSOCK_PATH = "/run/user/1000/wob.sock";
       WOBSOCK = "$XDG_RUNTIME_DIR/wob.sock";
     };
   };

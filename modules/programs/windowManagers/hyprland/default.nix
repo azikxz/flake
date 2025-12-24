@@ -10,7 +10,7 @@ with lib;
 # useful wm
 # with various qol things
 
-mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+mkIf false {
   programs.hyprland.enable = true;
 
   hm.wayland.windowManager.hyprland = {

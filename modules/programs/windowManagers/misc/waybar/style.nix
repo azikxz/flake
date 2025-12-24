@@ -35,10 +35,8 @@ in
   #workspaces button {
     background-color: ${base02};
     border-radius: ${rounding};
-    margin: 2px;
-    padding: 0px;
-    padding-right: 10px;
-    padding-left: 10px;
+    margin: 4px;
+    padding: 2px;
     color: ${base05};
     min-height: 25px;
     transition: all 0.4s ease-in-out;

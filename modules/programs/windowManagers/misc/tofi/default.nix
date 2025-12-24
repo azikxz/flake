@@ -44,7 +44,5 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         selection-background-corner-radius = 18;
       };
     };
-
-    home.shellAliases.tofi-hyprland = "tofi-drun | xargs hyprctl dispatch exec -- ";
   };
 }

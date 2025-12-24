@@ -10,99 +10,76 @@ with lib;
 {
   mainBar =
     let
-      mkTooltip.tooltip = false;
+      mkTooltip = {
+        tooltip = false;
+        rotate = 90;
+      };
       ico = import ./icons.nix;
     in
     mkMerge [
       {
-        start_hidden = if (mac' "thinkpadT14") then true else false;
+        start_hidden = false;
         layer = "top";
-        position = "bottom";
+        position = "left";
+        spacing = 16;
         height = 1;
 
-        "custom/separator" = mkTooltip // {
-          format = " ";
+        "custom/spacing" = mkTooltip // {
+          format = "";
         };
       }
       (
         if (mac "thinkpadT14") then
           {
             modules-left = [
-              "custom/separator"
-              "custom/launcher"
-              "custom/separator"
+              "custom/spacing"
               "group/soundGrp"
-              "custom/separator"
               "backlight"
-              "custom/separator"
               "group/blueGrp"
-              "custom/separator"
+              "niri/language"
             ];
 
-            modules-center = [ "hyprland/workspaces" ];
+            modules-center = [ "niri/workspaces" ];
 
             modules-right = [
-              "custom/separator"
-              "tray"
-              "custom/separator"
-              "hyprland/language"
-              "custom/separator"
+              "group/trayGrp"
               "group/dateGrp"
-              "custom/separator"
               "battery"
-              "custom/separator"
-              "custom/power"
-              "custom/separator"
+              "custom/spacing"
             ];
           }
         else
           {
             modules-left = [
-              "custom/separator"
-              "custom/launcher"
-              "custom/separator"
+              "custom/spacing"
               "group/soundGrp"
-              "custom/separator"
               "group/blueGrp"
-              "custom/separator"
             ];
 
-            modules-center = [ "hyprland/workspaces" ];
+            modules-center = [ "niri/workspaces" ];
 
             modules-right = [
-              "custom/separator"
-              "tray"
-              "custom/separator"
-              "hyprland/language"
-              "custom/separator"
+              "group/trayGrp"
+              "niri/language"
               "group/dateGrp"
-              "custom/separator"
-              "custom/power"
-              "custom/separator"
+              "custom/spacing"
             ];
           }
       )
       {
-        # left modules
-        "custom/launcher" = mkTooltip // {
-          format = "<span color='${config.lib.stylix.colors.withHashtag.base0C}' font='17'></span> {}";
-
-          on-click = "tofi-drun | xargs hyprctl dispatch exec -- ";
-        };
-
         "pulseaudio#volume" = mkTooltip // {
           format = "{volume}%";
-          format-muted = "muted";
+          format-muted = "muted ";
 
-          format-bluetooth = "{volume}%";
-          format-bluetooth-muted = "muted";
+          format-bluetooth = "{volume}% ";
+          format-bluetooth-muted = "muted ";
         };
 
         "pulseaudio" = mkTooltip // {
           format = "{format_source} / {icon}";
           format-icons = {
             default = [
-              ""
+              " "
               " "
               " "
             ];
@@ -125,7 +102,7 @@ with lib;
         "backlight" = mkTooltip // {
           device = "intel_backlight";
 
-          format = "{icon}{percent}%";
+          format = "{percent}% {icon}";
           format-icons = ico.light;
 
           scroll-step = 1;
@@ -158,10 +135,8 @@ with lib;
 
           interval = 30;
         };
-      }
-      {
-        # center modules
-        "hyprland/workspaces" = mkTooltip // {
+
+        "niri/workspaces" = mkTooltip // {
           format = "{icon}";
           format-icons = ico.wm // {
             "active" = "";
@@ -173,9 +148,12 @@ with lib;
 
           persistent-workspaces."*" = range 1 10;
         };
-      }
-      {
-        # right modules
+
+        "custom/trayLogo" = mkTooltip // {
+          rotate = 90;
+          format = "󱂫 ";
+        };
+
         "tray" = mkTooltip // {
           icon-size = 18;
           show-passive-items = true;
@@ -204,20 +182,12 @@ with lib;
           on-click-right = "bluetoothctl disconnect";
         };
 
-        "hyprland/language" = mkTooltip // rec {
-          format = if (mac "thinkpadT14") then "{} 󰌌" else "󰌌 {}";
+        "niri/language" = mkTooltip // {
+          format = "󰌌 {}";
           format-en = "en";
           format-ru = "ru";
 
-          keyboard-name =
-            if (mac "thinkpadT14") then
-              "at-translated-set-2-keyboard"
-            else if (mac "pcRyazenka") then
-              "by-tech-patron"
-            else
-              "unknown";
-
-          on-click = "hyprctl switchxkblayout ${keyboard-name} next";
+          on-click = "niri msg action switch-layout next";
         };
 
         "clock#date" = mkTooltip // {
@@ -227,19 +197,20 @@ with lib;
         };
 
         "clock#time" = mkTooltip // {
-          format = "{:%H:%M} 󰥔";
+          format = "󰥔 {:%H:%M}";
 
           interval = 1;
         };
 
         "battery" = mkTooltip // {
-          format = "{capacity}% {icon}";
-          format-alt = "{time} {icon}";
-          format-charging = "{capacity}% 󰂄";
-          format-charging-alt = "{capacity}% 󰂄";
-          format-plugged = "{capacity}% ";
-          format-full = "{capacity}% 󱟢";
+          format = " {icon} {capacity}%";
+          format-alt = " {icon} {time}";
+          format-charging = "  {capacity}%";
+          format-charging-alt = "  {capacity}%";
+          format-plugged = "  {capacity}%";
+          format-full = " 󱟢 {capacity}%";
           format-icons = ico.bat;
+          format-time = "{H}:{M}";
 
           states = {
             critical = 15;
@@ -249,17 +220,15 @@ with lib;
 
           interval = 1;
         };
-
-        "custom/power" = mkTooltip // {
-          format = "⏻";
-          on-click = "wleave";
-        };
       }
       (
         let
           mkGroup = drawer: modules: {
-            inherit drawer modules;
             orientation = "inherit";
+            inherit
+              drawer
+              modules
+              ;
           };
         in
         {
@@ -296,8 +265,19 @@ with lib;
               }
               [
                 "clock#time"
-                "clock#date"
-                "custom/separator"
+                # "clock#date"
+              ];
+
+          "group/trayGrp" =
+            mkGroup
+              {
+                transition-duration = 300;
+                children-class = "trayGrp";
+                transition-left-to-right = false;
+              }
+              [
+                "custom/trayLogo"
+                "tray"
               ];
         }
       )

@@ -8,6 +8,8 @@ with lib;
 # idk
 
 mkIf (mac "thinkpadT14") {
+  persist.dirs = [ "/var/lib/tlp" ];
+
   services.tlp = {
     enable = true;
 

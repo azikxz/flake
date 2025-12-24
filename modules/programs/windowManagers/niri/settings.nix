@@ -10,14 +10,14 @@ with config.lib.stylix.colors.withHashtag;
 {
   screenshot-path = "~/Pictures/screenshots/scr_%d-%m-%y_%H:%M:%S.png";
 
-  spawn-at-startup = map (reference: { argv = [ reference ]; }) [
-    "${lib.getExe pkgs.swaybg} --image ${config.stylix.image}"
-  ];
+  outputs = {
+    "eDP-1".scale = 1.0;
+  };
 
   input = {
     keyboard.xkb = {
       layout = "us,ru";
-      options = "grp:caps_toggle";
+      options = "grp:caps_toggle, lv3:ralt_switch";
     };
 
     mouse = {
@@ -42,7 +42,8 @@ with config.lib.stylix.colors.withHashtag;
       accel-profile = "adaptive";
     };
 
-    focus-follows-mouse.enable = true;
+    power-key-handling.enable = false;
+    focus-follows-mouse.enable = false;
     workspace-auto-back-and-forth = false;
   };
 
@@ -52,25 +53,36 @@ with config.lib.stylix.colors.withHashtag;
   };
 
   layout = {
-    border = {
-      enable = true;
-      width = 3;
+    background-color = base00;
 
-      active.color = base01;
-      inactive.color = base01;
-      urgent.color = base08;
-    };
+    border =
+      let
+        mk = from: to: {
+          gradient = {
+            relative-to = "workspace-view";
+            angle = 45;
+
+            inherit
+              from
+              to
+              ;
+          };
+        };
+      in
+      {
+        enable = true;
+        width = 5;
+
+        active.color = base01;
+        inactive.color = base01;
+        urgent = mk base08 base09;
+      };
 
     insert-hint = {
-      display.color = base01;
+      display.color = base01 + "CC";
     };
 
-    center-focused-column = "on-overflow";
-    always-center-single-column = true;
-
-    default-column-width.proportion = 0.85;
-
-    gaps = 4;
+    gaps = 8;
 
     struts = lib.genAttrs [
       "left"
@@ -87,6 +99,23 @@ with config.lib.stylix.colors.withHashtag;
       color = base00 + "70";
       inactive-color = base00 + "70";
     };
+
+    default-column-width.proportion = 0.9;
+
+    preset-column-widths = [
+      { proportion = 0.3; }
+      { proportion = 0.5; }
+      { proportion = 0.8; }
+      { proportion = 1.0; }
+    ];
+
+    preset-window-heights = [
+      { proportion = 0.5; }
+      { proportion = 1.0; }
+    ];
+
+    center-focused-column = "on-overflow";
+    always-center-single-column = true;
   };
 
   animations =
@@ -129,17 +158,18 @@ with config.lib.stylix.colors.withHashtag;
         "bottom-right"
       ] (n: 12.0);
     }
-
-    {
-      matches = [ { is-focused = false; } ];
-      opacity = 0.9;
-    }
   ]
-  ++ import ./rules/main.nix;
+  ++ import ./rules.nix {
+    inherit
+      lib
+      ;
+  };
+
+  workspaces = lib.genAttrs (map toString (lib.range 1 5)) (n: { });
 
   overview = {
-    zoom = 0.8;
-    backdrop-color = base01;
+    zoom = 0.95;
+    backdrop-color = base00;
 
     workspace-shadow = {
       softness = 20;
@@ -149,16 +179,10 @@ with config.lib.stylix.colors.withHashtag;
     };
   };
 
+  clipboard.disable-primary = true;
   gestures.hot-corners.enable = false;
-
-  prefer-no-csd = true;
   hotkey-overlay.skip-at-startup = true;
-
-  outputs = {
-    "eDP-1".scale = 1.0;
-  };
-
-  workspaces = lib.genAttrs (map toString (lib.range 1 9)) (n: { });
+  prefer-no-csd = true;
 
   environment = {
     DISPLAY = ":0";

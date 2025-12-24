@@ -101,13 +101,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         };
       };
 
-      portal = {
-        enable = true;
-
-        config.common.default = [ "gtk" ];
-
-        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-      };
+      portal.enable = true;
     };
 
     gtk.gtk3.bookmarks =

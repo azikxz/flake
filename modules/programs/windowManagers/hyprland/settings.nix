@@ -9,7 +9,7 @@ with config.lib.stylix.colors;
 
 {
   env = [
-    "SLURP_ARGS, -b ${base00}CC -c ${base0F}FF -B ${base02}CC"
+    "SLURP_ARGS, -b ${base00}CC -c ${base08}FF -B ${base02}CC"
     "WOBSOCK, ${config.hm.home.sessionVariables.WOBSOCK}"
   ];
 
@@ -61,7 +61,7 @@ with config.lib.stylix.colors;
     };
 
     blur = {
-      enabled = true;
+      enabled = if (mac "thinkpadT14") then false else true;
 
       size = 4;
       passes = 4;
@@ -84,7 +84,7 @@ with config.lib.stylix.colors;
       gradients = false;
       render_titles = false;
 
-      "col.active" = mkForce "rgb(${base05})";
+      "col.active" = mkForce "rgb(${base0D})";
       "col.inactive" = mkForce "rgb(${base01})";
     };
   };

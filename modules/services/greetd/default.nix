@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  config,
   ...
 }:
 
@@ -20,10 +19,9 @@ in
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   services.greetd = {
     enable = true;
+    useTextGreeter = true;
 
     settings = {
-      initial_session = mk (getExe config.programs.hyprland.package);
-
       default_session = mk (
         concatStringsSep " " [
           (getExe pkgs.tuigreet)

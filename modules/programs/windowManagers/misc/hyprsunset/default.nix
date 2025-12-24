@@ -9,7 +9,7 @@ with lib;
 # blue filter
 # for eyes saver
 
-mkIf (mac "thinkpadT14" && config.programs.hyprland.enable) {
+mkIf (config.programs.hyprland.enable) {
   hm.services.hyprsunset = {
     enable = true;
 

@@ -26,6 +26,7 @@ let
   };
 
   sh = spawn-sh;
+  msg = cmd: sh ("niri msg action " + cmd);
 in
 
 (lib.listToAttrs (
@@ -76,6 +77,9 @@ in
       (mk "${m}+Equal" (set-column-width "+10%"))
       (mk "${m}+${s}+Minus" (set-window-height "-10%"))
       (mk "${m}+${s}+Equal" (set-window-height "+10%"))
+
+      (mk "${m}+Comma" consume-window-into-column)
+      (mk "${m}+Period" expel-window-from-column)
     ]
   # windows manipukating
   ++ [
@@ -107,9 +111,9 @@ in
   ]
   # screenshots
   ++ [
-    (mk "Print" (sh "niri msg action screenshot"))
-    (mk "${s}+Print" (sh "niri msg action screenshot-screen"))
-    (mk "${a}+Print" (sh "niri msg action screenshot-window"))
+    (mk "Print" (msg "screenshot -p false"))
+    (mk "${s}+Print" (msg "screenshot-screen -p false"))
+    (mk "${a}+Print" (msg "screenshot-window -p false"))
   ]
   # volume and brightness
   ++ (
@@ -174,14 +178,14 @@ in
   "${m}+9".action = focus-workspace 9;
   "${m}+0".action = focus-workspace 10;
 
-  "${m}+${s}+1".action = sh "niri msg action move-column-to-workspace 1";
-  "${m}+${s}+2".action = sh "niri msg action move-column-to-workspace 2";
-  "${m}+${s}+3".action = sh "niri msg action move-column-to-workspace 3";
-  "${m}+${s}+4".action = sh "niri msg action move-column-to-workspace 4";
-  "${m}+${s}+5".action = sh "niri msg action move-column-to-workspace 5";
-  "${m}+${s}+6".action = sh "niri msg action move-column-to-workspace 6";
-  "${m}+${s}+7".action = sh "niri msg action move-column-to-workspace 7";
-  "${m}+${s}+8".action = sh "niri msg action move-column-to-workspace 8";
-  "${m}+${s}+9".action = sh "niri msg action move-column-to-workspace 9";
-  "${m}+${s}+0".action = sh "niri msg action move-column-to-workspace 10";
+  "${m}+${s}+1".action = msg "move-column-to-workspace 1";
+  "${m}+${s}+2".action = msg "move-column-to-workspace 2";
+  "${m}+${s}+3".action = msg "move-column-to-workspace 3";
+  "${m}+${s}+4".action = msg "move-column-to-workspace 4";
+  "${m}+${s}+5".action = msg "move-column-to-workspace 5";
+  "${m}+${s}+6".action = msg "move-column-to-workspace 6";
+  "${m}+${s}+7".action = msg "move-column-to-workspace 7";
+  "${m}+${s}+8".action = msg "move-column-to-workspace 8";
+  "${m}+${s}+9".action = msg "move-column-to-workspace 9";
+  "${m}+${s}+0".action = msg "move-column-to-workspace 10";
 }

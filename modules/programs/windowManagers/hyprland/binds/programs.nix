@@ -20,13 +20,11 @@ in
       (m "return" "kitty")
       (s "return" "kitty --class=termfloat")
     ]
-  else if config.hm.programs.foot.enable then
-    [
-      (m "return" "foot")
-      (s "return" "foot -a termfloat")
-    ]
   else
-    [ (m "return" (lib.getExe pkgs.foot)) ]
+    [
+      (m "return" (lib.getExe pkgs.foot))
+      (s "return" ((lib.getExe pkgs.foot) + " -a termfloat"))
+    ]
 )
 ++ [
   (m "tab" "tofi-drun | xargs hyprctl dispatch exec -- ")

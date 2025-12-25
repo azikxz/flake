@@ -38,13 +38,6 @@ with config.lib.stylix.colors.withHashtag;
     open-maximized = false;
     open-fullscreen = false;
   }
-
-  {
-    opacity = 0.9;
-    matches = [
-      { is-focused = false; }
-    ];
-  }
 ]
 ++ (
   let
@@ -75,7 +68,7 @@ with config.lib.stylix.colors.withHashtag;
     default-column-width.proportion = 0.5;
     matches = [
       {
-        app-id = "^kitty_small&";
+        app-id = "kitty_small";
       }
     ];
   }
@@ -84,10 +77,9 @@ with config.lib.stylix.colors.withHashtag;
     default-column-width.proportion = 0.5;
     block-out-from = "screen-capture";
     matches = [
-      {
-        app-id = "org.keepassxc.KeePassXC";
-        title = "KeePassXC";
-      }
+      { title = "^.*1Password.*$"; }
+      { title = "^.*Bitwarden.*$"; }
+      { title = "^.*KeePassXC.*$"; }
     ];
   }
 
@@ -112,7 +104,7 @@ with config.lib.stylix.colors.withHashtag;
     border = border base08;
     matches = [
       {
-        app-id = "^dragon-drop&";
+        app-id = "dragon-drop";
       }
     ];
   }
@@ -137,12 +129,11 @@ with config.lib.stylix.colors.withHashtag;
   }
 
   {
-    open-maximized = true;
-    open-floating = true;
+    open-fullscreen = true;
     matches = [
       {
         app-id = "ayugram";
-        title = "^Media viewer&";
+        title = "Media viewer";
       }
     ];
   }
@@ -151,8 +142,8 @@ with config.lib.stylix.colors.withHashtag;
     {
       matches = [
         {
-          app-id = "^wofi&";
-          title = "^Bluetooth$";
+          app-id = "wofi";
+          title = "Bluetooth";
         }
       ];
     }

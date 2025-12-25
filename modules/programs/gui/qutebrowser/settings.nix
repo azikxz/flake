@@ -13,15 +13,13 @@ let
         "termfloat"
         "-e"
       ]
-    else if config.hm.programs.foot.enable then
+    else
       [
-        "foot"
+        (getExe pkgs.foot)
         "-a"
         "footfloat"
         "-e"
-      ]
-    else
-      [ ];
+      ];
 in
 
 {

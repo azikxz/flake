@@ -17,7 +17,6 @@ in
   }
 
   window#waybar {
-    border-top: 3px solid ${base01};
     background-color: ${base00};
     color: ${base05};
   }
@@ -28,7 +27,7 @@ in
     border-top: 0px;
     border-bottom: 0;
     border-style: solid;
-    border-color: #3C3836;
+    border-color: ${base01};
   }
 
   /* workspaces */

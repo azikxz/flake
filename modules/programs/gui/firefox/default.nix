@@ -11,8 +11,8 @@ in
 # INFO:
 # one of the best browsers ever
 
-mkIf false {
-  hm.programs.firefox = {
+mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+  hm.programs.librewolf = {
     enable = true;
 
     policies = import ./policies.nix;

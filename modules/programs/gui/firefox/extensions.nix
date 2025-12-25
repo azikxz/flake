@@ -4,28 +4,18 @@
   ...
 }:
 
-with pkgs.nur.repos.rycee.firefox-addons;
-let
-  custom = pkgs.callPackage ./addons.nix {
-    inherit
-      pkgs
-      lib
-      ;
-  };
-in
+lib.attrValues {
+  inherit (pkgs.nur.repos.rycee.firefox-addons)
+    censor-tracker
+    darkreader
+    keepassxc-browser
+    sponsorblock
+    stylus
+    translate-web-pages
+    ublock-origin
+    ;
 
-[
-  ublock-origin
-  sponsorblock
-  darkreader
-  vimium-c
-  censor-tracker
-  #
-  tabcenter-reborn
-  firefox-color
-  stylus
-  translate-web-pages
-]
-++ (with custom; [
-  torrserver-adder
-])
+  inherit (pkgs.firefox-addons)
+    torrserver-adder
+    ;
+}

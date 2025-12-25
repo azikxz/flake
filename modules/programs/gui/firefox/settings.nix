@@ -6,19 +6,6 @@
     "layers.acceleration.force-enabled" = true;
     "svg.context-properties.content.enabled" = true;
     "ui.key.menuAccessKeyFocuses" = false;
-
-    # "zen.migration.version" = 1;
-    # "zen.tab-unloader.enabled" = false;
-    # "zen.urlbar.behavior" = "float";
-    # "zen.view.show-newtab-button-border-top" = true;
-    # "zen.view.show-newtab-button-top" = false;
-    # "zen.welcome-screen.seen" = true;
-    # "zen.workspaces.hide-default-container-indicator" = false;
-    # "zen.workspaces.show-icon-strip" = false;
-
-    # "zen.view.compact.hide-toolbar" = true;
-    # "zen.view.sidebar-expanded" = false;
-    # "zen.view.use-single-toolbar" = false;
   };
 
   ext = {

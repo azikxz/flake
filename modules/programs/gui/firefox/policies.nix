@@ -4,14 +4,19 @@
   AutofillCreditCardEnabled = false;
   BackgroundAppUpdate = false;
   CaptivePortal = false;
+  DisableAppUpdate = true;
+  DisableBuiltinPDFViewer = true;
   DisableFirefoxScreenshots = true;
   DisableFirefoxStudies = true;
   DisableFormHistory = true;
+  DisableMasterPasswordCreation = true;
+  DisablePasswordReveal = true;
   DisablePocket = true;
   DisableProfileRefresh = true;
   DisableSetDesktopBackground = true;
   DisableTelemetry = true;
   DisplayBookmarksToolbar = false;
+  DisplayMenuBar = "never";
   DontCheckDefaultBrowser = true;
   HardwareAcceleration = true;
   LegacyProfiles = true;
@@ -20,7 +25,11 @@
   OfferToSaveLoginsDefault = false;
   OfferToSaveLogins = false;
   PasswordManagerEnabled = false;
+  PDFjs.Enabled = false;
+  PictureInPicture.Enabled = true;
+  PrimaryPassword = false;
   PromptForDownloadLocation = false;
+  ShowHomeButton = false;
 
   EnableTrackingProtection = {
     Value = true;
@@ -50,6 +59,14 @@
     Snippets = false;
   };
 
+  GenerativeAI = {
+    Enabled = false;
+    Chatbot = false;
+    LinkPreviews = false;
+    TabGroups = false;
+    Locked = false;
+  };
+
   SanitizeOnShutdown = {
     Cache = true;
     Cookies = false;
@@ -57,6 +74,6 @@
     FormData = true;
     History = false;
     OfflineApps = true;
-    Sessions = true;
+    Sessions = false;
   };
 }

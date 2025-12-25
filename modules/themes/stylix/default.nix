@@ -13,9 +13,9 @@ let
     ;
 
   color =
-    if mac "pcRyazenka" then
+    if (mac "pcRyazenka") then
       "breeze"
-    else if mac "thinkpadT14" then
+    else if (mac "thinkpadT14") then
       "paleorange"
     else
       "adwaita";
@@ -38,6 +38,11 @@ in
     targets = {
       cava.rainbow.enable = true;
       hyprland.hyprpaper.enable = true;
+
+      firefox = {
+        colorTheme.enable = true;
+        profileNames = [ system.userName ];
+      };
 
       helix.enable = false;
       kde.enable = false;

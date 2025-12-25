@@ -7,6 +7,7 @@ let
   inherit (inputs)
     nixpkgs
     utils
+    nur
     ;
 in
 
@@ -26,6 +27,8 @@ utils.lib.eachSystem
         inherit
           system
           ;
+
+        overlays = [ nur.overlays.default ];
 
         config = {
           allowBroken = true;
@@ -47,6 +50,16 @@ utils.lib.eachSystem
               inputs
               pkgs
               lib
+              ;
+
+            # for firefox addons
+            inherit (pkgs.nur.repos.rycee.firefox-addons)
+              buildFirefoxXpiAddon
+              ;
+
+            inherit (pkgs)
+              fetchurl
+              stdenv
               ;
 
             obsidian = import ./obsidianBuilders {

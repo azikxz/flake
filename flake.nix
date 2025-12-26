@@ -188,6 +188,11 @@
       flake = false;
     };
 
+    betterfox = {
+      url = "github:yokoffing/Betterfox";
+      flake = false;
+    };
+
     dns-malw-link = {
       url = "github:ImMALWARE/dns.malw.link";
       flake = false;

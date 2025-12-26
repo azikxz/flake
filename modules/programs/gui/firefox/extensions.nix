@@ -6,7 +6,6 @@
 
 lib.attrValues {
   inherit (pkgs.nur.repos.rycee.firefox-addons)
-    censor-tracker
     darkreader
     keepassxc-browser
     sponsorblock

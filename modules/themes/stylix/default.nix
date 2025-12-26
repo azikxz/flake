@@ -39,11 +39,6 @@ in
       cava.rainbow.enable = true;
       hyprland.hyprpaper.enable = true;
 
-      firefox = {
-        colorTheme.enable = true;
-        profileNames = [ system.userName ];
-      };
-
       helix.enable = false;
       kde.enable = false;
       mako.enable = false;
@@ -54,7 +49,18 @@ in
       waybar.enable = false;
 
       nixcord.enable = true;
-    };
+    }
+    // (genAttrs
+      [
+        "firefox"
+        "librewolf"
+        "floorp"
+      ]
+      (n: {
+        colorTheme.enable = true;
+        profileNames = [ system.userName ];
+      })
+    );
   };
 
   stylix = {

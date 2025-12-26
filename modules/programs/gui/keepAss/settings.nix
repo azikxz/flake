@@ -1,6 +1,7 @@
 {
   Browser = {
     Browser_AllowLocalhostWithPasskeys = true;
+    BrowserType = "Firefox";
     Enabled = true;
     UseCustomBrowser = true; # default is firefox
   };

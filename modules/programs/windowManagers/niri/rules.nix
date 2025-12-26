@@ -55,6 +55,7 @@ with config.lib.stylix.colors.withHashtag;
   [
     # workspaces rules
     (mk 2 "org.qutebrowser.qutebrowser")
+    (mk 2 "librewolf")
     (mk 2 "spotify")
     (mk 3 "com.ayugram.desktop")
     (mk 3 "equibop")
@@ -109,15 +110,22 @@ with config.lib.stylix.colors.withHashtag;
     ];
   }
 
-  {
-    open-floating = true;
-    matches = [
-      {
-        app-id = "firefox$";
-        title = "^Picture-in-Picture$";
-      }
-    ];
-  }
+  (
+    {
+      open-floating = true;
+      matches = [
+        {
+          app-id = "firefox$";
+          title = "^Picture-in-Picture$";
+        }
+        {
+          app-id = "librewolf";
+          title = "Picture-in-Picture";
+        }
+      ];
+    }
+    // (size 640 360)
+  )
 
   {
     block-out-from = "screencast";

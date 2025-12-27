@@ -24,10 +24,7 @@ in
   window#waybar > box {
     margin: 5px 0px 0px 0px;
     background-color: ${base00};
-    border-top: 0px;
-    border-bottom: 0;
-    border-style: solid;
-    border-color: ${base01};
+    border-right: 3px solid ${base01};
   }
 
   /* workspaces */

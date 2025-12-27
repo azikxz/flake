@@ -33,11 +33,11 @@ mkIf (mac' "isoXtended") {
       support32Bit = true;
     };
 
-    lowLatency.enable = true;
+    # lowLatency.enable = true;
   };
 
-  musnix = {
-    enable = true;
-    rtcqs.enable = true;
-  };
+  # musnix = {
+  #   enable = true;
+  #   rtcqs.enable = true;
+  # };
 }

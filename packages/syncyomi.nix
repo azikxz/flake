@@ -25,7 +25,7 @@ pkgs.buildGoModule rec {
       version
       ;
 
-    pnpmDeps = pkgs.pnpm_9.fetchDeps {
+    pnpmDeps = pkgs.fetchPnpmDeps {
       inherit
         pname
         version
@@ -39,7 +39,7 @@ pkgs.buildGoModule rec {
 
     nativeBuildInputs = with pkgs; [
       nodejs
-      pnpm_9.configHook
+      pnpmConfigHook
     ];
 
     env.ESBUILD_BINARY_PATH = lib.getExe (

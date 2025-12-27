@@ -71,6 +71,12 @@
       inputs.nixpkgs-stable.follows = "nixpkgs-2511";
     };
 
+    mangowc = {
+      url = "github:DreamMaoMao/mangowc";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "parts";
+    };
+
     plasma = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";

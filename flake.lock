@@ -560,6 +560,30 @@
         "type": "github"
       }
     },
+    "mangowc": {
+      "inputs": {
+        "flake-parts": [
+          "parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "scenefx": "scenefx"
+      },
+      "locked": {
+        "lastModified": 1766808612,
+        "narHash": "sha256-W39Wp2UdR4CEEZ1YMka1g9bNRz/FNHfpO7zfwD36/Fc=",
+        "owner": "DreamMaoMao",
+        "repo": "mangowc",
+        "rev": "81319e99de0625e792419358771cfa87c0254dc8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DreamMaoMao",
+        "repo": "mangowc",
+        "type": "github"
+      }
+    },
     "minecraft": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -995,6 +1019,7 @@
         "home": "home",
         "impermanence": "impermanence",
         "jerry": "jerry",
+        "mangowc": "mangowc",
         "minecraft": "minecraft",
         "minecraft-assets": "minecraft-assets",
         "musnix": "musnix",
@@ -1020,6 +1045,27 @@
         "zapret": "zapret",
         "zapret-alt": "zapret-alt",
         "zen": "zen"
+      }
+    },
+    "scenefx": {
+      "inputs": {
+        "nixpkgs": [
+          "mangowc",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1750785057,
+        "narHash": "sha256-tGX6j4W91rcb+glXJo43sjPI9zQvPotonknG1BdihR4=",
+        "owner": "wlrfx",
+        "repo": "scenefx",
+        "rev": "3a6cfb12e4ba97b43326357d14f7b3e40897adfc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wlrfx",
+        "repo": "scenefx",
+        "type": "github"
       }
     },
     "sopsnix": {

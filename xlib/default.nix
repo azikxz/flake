@@ -231,20 +231,22 @@ utils.lib.eachSystem
               gaming.nixosModules.wine
               home.nixosModules.home-manager
               impermanence.nixosModules.impermanence
+              mangowc.nixosModules.mango
               minecraft.nixosModules.minecraft-servers
               musnix.nixosModules.default
               nixpkgs.nixosModules.notDetected
               nur.modules.nixos.default
               sopsnix.nixosModules.default
               stylix.nixosModules.default
-              zapret.nixosModules.presets
               zapret-alt.nixosModules.default
+              zapret.nixosModules.presets
             ])
           )
           ++ [
             {
               home-manager = {
                 sharedModules = with inputs; [
+                  mangowc.hmModules.mango
                   jerry.homeManagerModules.default
                   niri.homeModules.niri
                   niri.homeModules.stylix

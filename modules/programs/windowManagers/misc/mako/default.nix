@@ -9,7 +9,7 @@ with lib;
 # piece of shit
 # (im working on swaync)
 
-mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+mkIf false {
   hm.services.mako = with config.lib.stylix.colors.withHashtag; {
     enable = true;
 
@@ -44,6 +44,8 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         text-color = base06;
         max-visible = 5;
         default-timeout = 0;
+        # idk why on timeout != 0
+        # notifications just...dissappear
       };
   };
 

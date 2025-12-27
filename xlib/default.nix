@@ -128,6 +128,7 @@ utils.lib.eachSystem
 
           overlays = with inputs; [
             fjordlauncher.overlays.default
+            glide.overlays.default
             minecraft.overlays.default
             niri.overlays.niri
             nur.overlays.default

@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   ...
@@ -57,6 +58,16 @@ rec {
       name = lib.hm.strings.storeFileName (baseNameOf pathStr);
     in
     pkgs.runCommandLocal name { } "ln -s ${lib.escapeShellArg pathStr} $out";
+
+  mkFirefoxModule = import (
+    lib.concatStringsSep "/" [
+      inputs.home
+      "modules"
+      "programs"
+      "firefox"
+      "mkFirefoxModule.nix"
+    ]
+  );
 
   obsidian = import ./obsidianBuilders {
     inherit

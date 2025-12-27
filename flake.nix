@@ -194,7 +194,7 @@
     };
 
     dns-malw-link = {
-      url = "github:ImMALWARE/dns.malw.link";
+      url = "github:azikxz/dns.malw.link/azikx_patches";
       flake = false;
     };
   };

@@ -5,7 +5,7 @@
 
 with lib;
 let
-  revision = "zapret-alt"; # zapret / zapret-alt
+  revision = "zapret"; # zapret / zapret-alt
 in
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") (
@@ -76,7 +76,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") (
 
           sf_presets = {
             enable = true;
-            preset = "general_alt6";
+            preset = "renixos";
           };
         };
       };

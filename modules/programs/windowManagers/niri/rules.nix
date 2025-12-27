@@ -35,6 +35,17 @@ with config.lib.stylix.colors.withHashtag;
 
 [
   {
+    opacity = 0.6;
+    draw-border-with-background = true;
+    # ^^^ if true then opacity will be replaced dim
+    matches = [
+      {
+        is-focused = false;
+      }
+    ];
+  }
+
+  {
     open-maximized = false;
     open-fullscreen = false;
   }
@@ -78,9 +89,9 @@ with config.lib.stylix.colors.withHashtag;
     default-column-width.proportion = 0.5;
     block-out-from = "screen-capture";
     matches = [
-      { title = "^.*1Password.*$"; }
-      { title = "^.*Bitwarden.*$"; }
-      { title = "^.*KeePassXC.*$"; }
+      { title = ".*1Password.*"; }
+      { title = ".*Bitwarden.*"; }
+      { title = ".*KeePassXC.*"; }
     ];
   }
 
@@ -91,8 +102,8 @@ with config.lib.stylix.colors.withHashtag;
       block-out-from = "screen-capture";
       matches = [
         {
-          app-id = "org.keepassxc.KeePassXC$";
-          title = "^Generate Password$";
+          app-id = "org.keepassxc.KeePassXC";
+          title = "Generate Password";
         }
       ];
     }
@@ -115,8 +126,8 @@ with config.lib.stylix.colors.withHashtag;
       open-floating = true;
       matches = [
         {
-          app-id = "firefox$";
-          title = "^Picture-in-Picture$";
+          app-id = "firefox";
+          title = "^Picture-in-Picture";
         }
         {
           app-id = "librewolf";
@@ -139,6 +150,9 @@ with config.lib.stylix.colors.withHashtag;
   {
     open-fullscreen = true;
     matches = [
+      {
+        app-id = "swayimg";
+      }
       {
         app-id = "ayugram";
         title = "Media viewer";

@@ -13,7 +13,7 @@
     };
     style = {
       theme = "paradise";
-      image = "tapestry";
+      image = "snowCity";
     };
   };
 
@@ -26,7 +26,7 @@
     };
     style = {
       theme = "neoGenesis";
-      image = "painting";
+      image = "wow";
     };
   };
 

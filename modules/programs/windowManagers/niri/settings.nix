@@ -65,6 +65,8 @@ with config.lib.stylix.colors.withHashtag;
 
     border =
       let
+        gradient = false;
+
         mk = from: to: {
           gradient = {
             relative-to = "workspace-view";
@@ -80,11 +82,21 @@ with config.lib.stylix.colors.withHashtag;
       {
         enable = true;
         width = 5;
-
-        active.color = base01;
-        inactive.color = base01;
-        urgent = mk base08 base09;
-      };
+      }
+      // (
+        if gradient then
+          {
+            active = mk base0B base0A;
+            inactive.color = base01;
+            urgent = mk base08 base09;
+          }
+        else
+          {
+            active.color = base01;
+            inactive.color = base02;
+            urgent.color = base08;
+          }
+      );
 
     insert-hint = {
       display.color = base01 + "CC";
@@ -174,7 +186,6 @@ with config.lib.stylix.colors.withHashtag;
   window-rules = [
     {
       clip-to-geometry = true;
-      draw-border-with-background = true;
       geometry-corner-radius = lib.genAttrs [
         "top-left"
         "top-right"

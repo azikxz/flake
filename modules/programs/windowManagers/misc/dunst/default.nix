@@ -14,7 +14,7 @@ let
   prg = config.programs;
 in
 # INFO:
-# take screenshots and edit them
+# blyat just perfect notificate
 
 mkIf (prg.hyprland.enable || prg.niri.enable) {
   hm.services.dunst = {

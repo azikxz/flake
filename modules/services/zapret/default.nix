@@ -5,7 +5,7 @@
 
 with lib;
 let
-  revision = "zapret"; # zapret / zapret-alt
+  revision = "zapret-alt"; # zapret / zapret-alt
 in
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") (
@@ -37,7 +37,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") (
 
         zapret-discord-youtube = {
           enable = true;
-          config = "general(ALT7)";
+          config = "general(ALT)";
         };
       };
     }

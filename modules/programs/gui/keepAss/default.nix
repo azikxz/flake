@@ -7,6 +7,8 @@
 
 with lib;
 let
+  cfg = config.hm.programs.keepassxc;
+
   ini = pkgs.formats.ini { };
 in
 # WARN:
@@ -43,6 +45,27 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           SplitterState = "178, 1720";
         };
       };
+    };
+
+    systemd.user.services.keepassxc-tray = {
+      Unit = {
+        Description = cfg.package.meta.description;
+        After = [ "graphical-session.target" ];
+      };
+
+      Service = {
+        ExecStart = concatStringsSep " " [
+          (getExe cfg.package)
+          "--minimized"
+        ];
+
+        Type = "simple";
+        KillMode = "process";
+        Restart = "on-failure";
+        RestartSec = 5;
+      };
+
+      Install.WantedBy = [ "graphical-session.target" ];
     };
   };
 

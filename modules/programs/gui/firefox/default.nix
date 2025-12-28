@@ -114,4 +114,20 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       );
     };
   };
+
+  hmMime = mkMime {
+    "spotify.desktop" = [
+      "x-scheme-handler/spotify"
+      "x-scheme-handler/https"
+    ];
+
+    "librewolf.desktop" = [
+      "text/html"
+      "x-scheme-handler/http"
+      "x-scheme-handler/https"
+      "x-scheme-handler/chrome"
+      "x-scheme-handler/about"
+      "x-scheme-handler/unknown"
+    ];
+  };
 }

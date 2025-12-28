@@ -201,6 +201,17 @@ with config.lib.stylix.colors.withHashtag;
       ;
   };
 
+  layer-rules = [
+    {
+      block-out-from = "screencast";
+      matches = [
+        {
+          namespace = "^notifications$";
+        }
+      ];
+    }
+  ];
+
   workspaces = lib.genAttrs (map toString (lib.range 1 5)) (n: { });
 
   overview = {

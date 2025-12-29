@@ -57,6 +57,7 @@ with lib;
             "services/minecraft"
             "services/minecraft-main"
             "services/glance"
+            "services/mpd/lastfm"
 
             "accounts/gmailPassword"
             "accounts/tg"

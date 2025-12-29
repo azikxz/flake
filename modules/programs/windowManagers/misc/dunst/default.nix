@@ -40,8 +40,8 @@ mkIf (prg.hyprland.enable || prg.niri.enable) {
 
         origin = "top-right";
         offset = concatStringsSep "x" [
-          "30"
-          "30"
+          "10"
+          "10"
         ];
 
         icon_path =

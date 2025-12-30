@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -16,7 +17,9 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hmPackages = [ pkgs.grc ];
 
   hm.programs.fish = {
-    enable = true;
+    inherit (config.programs.fish)
+      enable
+      ;
 
     preferAbbrs = true;
     shellAbbrs = {

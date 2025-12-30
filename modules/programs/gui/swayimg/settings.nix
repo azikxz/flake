@@ -19,13 +19,9 @@ with config.lib.stylix.colors.withHashtag;
     window = "#000000" + "ff";
     transparency = "grid";
     scale = "optimal";
-    fixed = "yes";
     antialiasing = "none";
-    slideshow = "no";
-    slideshow_time = "3";
     history = "5";
     preload = "5";
-    loop = "no";
   };
 
   gallery = {
@@ -43,7 +39,6 @@ with config.lib.stylix.colors.withHashtag;
 
   list = {
     order = "alpha";
-    loop = "yes";
     recursive = "no";
     all = "yes";
   };

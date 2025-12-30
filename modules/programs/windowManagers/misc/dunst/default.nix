@@ -37,6 +37,8 @@ mkIf (prg.hyprland.enable || prg.niri.enable) {
 
         alignment = "left";
         format = "<b>[%a]</b>\\n<b>%s</b>\\n%b";
+        vertical_alignment = "top";
+        notification_limit = 4;
 
         origin = "top-right";
         offset = concatStringsSep "x" [
@@ -66,9 +68,14 @@ mkIf (prg.hyprland.enable || prg.niri.enable) {
             ];
       };
 
+      urgency_low.timeout = 3;
+
       urgency_normal = {
+        timeout = 5;
         frame_color = mkForce base04;
       };
+
+      urgency_critical.timeout = 0;
     };
   };
 }

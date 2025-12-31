@@ -17,12 +17,11 @@ pkgs.buildGoModule rec {
   vendorHash = "sha256-fzPEljXFskr1/qzTsnASFNNc+8vA7kqO21mhMqwT44w=";
 
   web = pkgs.stdenvNoCC.mkDerivation rec {
-    pname = "${pname}-web";
+    name = "${pname}-web-${version}";
     sourceRoot = "${src.name}/web";
 
     inherit
       src
-      version
       ;
 
     pnpmDeps = pkgs.fetchPnpmDeps {
@@ -34,11 +33,12 @@ pkgs.buildGoModule rec {
         ;
 
       fetcherVersion = 1;
-      hash = "sha256-Gg4nOxqWb692GvvwE7AJKQzGrrLLW7haaooEkUZW7FQ=";
+      hash = "sha256-73aPBY4WYuZf6s9aw8yOLszW4lspVn0/axNzfYBUiG8=";
     };
 
     nativeBuildInputs = with pkgs; [
       nodejs
+      pnpm
       pnpmConfigHook
     ];
 

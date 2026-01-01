@@ -1,5 +1,15 @@
 [
-	{
-		"slug": "torrserver-adder"
-	}
+	{ "slug": "torrserver-adder" },
+	{ "slug": "libredirect" },
+	{ "slug": "youtube-addon" },
+	{ "slug": "redirectnixwiki" },
+	{ "slug": "traduzir-paginas-web" },
+	{ "slug": "keepassxc-browser" },
+	{ "slug": "bitwarden-password-manager" },
+	{ "slug": "ublock-origin" },
+	{ "slug": "steam-database" },
+	{ "slug": "styl-us" },
+	{ "slug": "protondb-for-steam" },
+	{ "slug": "darkreader" },
+	{ "slug": "sponsorblock" }
 ]

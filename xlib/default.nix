@@ -57,11 +57,6 @@ utils.lib.eachSystem
               buildFirefoxXpiAddon
               ;
 
-            inherit (pkgs)
-              fetchurl
-              stdenv
-              ;
-
             obsidian = import ./obsidianBuilders {
               inherit
                 pkgs

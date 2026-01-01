@@ -129,6 +129,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    addons2nix = {
+      url = "github:azikxz/mozilla-addons-to-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     spicetify = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";

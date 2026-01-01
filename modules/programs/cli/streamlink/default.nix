@@ -1,5 +1,6 @@
 {
   lib,
+  config,
   ...
 }:
 
@@ -9,7 +10,12 @@ with lib;
 
 mkIf false {
   hm.programs.streamlink = {
-    enable = true;
+    # WARN::
+    # mkIf (config.hm.programs.mpv.enable) { ... }
+    # replacement
+    inherit (config.hm.programs.mpv)
+      enable
+      ;
 
     settings = {
       player = "mpv";
@@ -17,26 +23,19 @@ mkIf false {
       player-no-close = true;
     };
 
-    plugins = {
-      twitch.settings = {
-        player = "haruna";
-        quiet = true;
-      };
-
-      steam.settings = {
-        player = "haruna";
-        quiet = true;
-      };
-
-      tiktok.settings = {
-        player = "haruna";
-        quiet = true;
-      };
-
-      googledrive.settings = {
-        player = "haruna";
-        quiet = true;
-      };
-    };
+    plugins =
+      genAttrs
+        [
+          "twitch"
+          "steam"
+          "tiktok"
+          "googledrive"
+        ]
+        (n: {
+          settings = {
+            player = "mpv";
+            quiet = true;
+          };
+        });
   };
 }

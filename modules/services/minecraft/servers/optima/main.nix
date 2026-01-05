@@ -6,7 +6,7 @@
 }:
 
 {
-  enable = true;
+  enable = false;
   autoStart = false;
   # cause it is my personal pc, not server
 
@@ -38,7 +38,7 @@
     # i will use 'Alternative Authentication'
     # for ely.by support couse - why not?
 
-    server-port = 25565;
+    server-port = 25001;
     # i use keendns to open server in worldwideweb
     # https://minecraft.ebola.netcraze.pro
     # in server list paste it like (without https://)

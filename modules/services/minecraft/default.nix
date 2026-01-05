@@ -72,6 +72,7 @@ mkIf false {
       mapAttrs (name: _: loadServer name) (
         filterAttrs (_: v: v == "directory") (builtins.readDir serverDirs)
       );
+
     # auto generator server
     # .
     #  servers

@@ -48,7 +48,7 @@ in
       let
         int = 1024;
       in
-      if (mac "pcRyazenka") then (int * 16) else (int * 8);
+      if (mac "pcRyazenka") then (int * 12) else (int * 8);
     MenuBarInsteadOfToolBar = menubar;
     MinMemAlloc = 512;
     ModDependenciesDisabled = false;

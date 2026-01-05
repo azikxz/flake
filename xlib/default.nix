@@ -44,26 +44,29 @@ utils.lib.eachSystem
         lib.filesystem.packagesFromDirectoryRecursive {
           directory = ../packages;
 
-          callPackage = lib.callPackageWith {
-            inherit
-              self
-              inputs
-              pkgs
-              lib
-              ;
-
-            # for firefox addons
-            inherit (pkgs.nur.repos.rycee.firefox-addons)
-              buildFirefoxXpiAddon
-              ;
-
-            obsidian = import ./obsidianBuilders {
+          callPackage = lib.callPackageWith (
+            {
               inherit
+                self
+                inputs
                 pkgs
                 lib
                 ;
-            };
-          };
+
+              # for firefox addons
+              inherit (pkgs.nur.repos.rycee.firefox-addons)
+                buildFirefoxXpiAddon
+                ;
+
+              obsidian = import ./obsidianBuilders {
+                inherit
+                  pkgs
+                  lib
+                  ;
+              };
+            }
+            // self.packages.${system}
+          );
         }
       );
 

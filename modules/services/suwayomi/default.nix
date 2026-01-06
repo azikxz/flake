@@ -68,23 +68,13 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           ]
       );
 
-      backupPath = localDir + "backups";
+      downloadsPath = localDir;
 
       # syncYomiEnabled = true;
       # syncYomiHost = syncyomi.config.host;
       # syncYomiApiKey = "...";
       # syncInterval = 2;
-    }
-    //
-      genAttrs
-        [
-          "downloadsPath"
-          "localSourcePath"
-        ]
-        (
-          n: localDir
-          # unified genius
-        );
+    };
   }
   // genAttrs [
     "user"

@@ -7,7 +7,7 @@ with lib;
 # INFO:
 # anitivrus and db for virus
 
-mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+mkIf false {
   persist.dirs = [ "/var/lib/clamav" ];
 
   services.clamav = {

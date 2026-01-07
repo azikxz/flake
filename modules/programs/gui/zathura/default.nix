@@ -24,10 +24,17 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       window-title-home-tilde = true;
       statusbar-home-tilde = true;
 
+      page-right-to-left = true;
+      first-page-column = "1:1";
+
       font = concatStringsSep " " [
         config.stylix.fonts.sansSerif.name
         (toString config.stylix.fonts.sizes.applications)
       ];
+    };
+
+    mappings = {
+      m = "toggle_page_mode";
     };
   };
 

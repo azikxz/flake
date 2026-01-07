@@ -12,7 +12,7 @@ with lib;
 {
   imports = [ ./module.nix ];
 }
-// (mkIf (config.services.suwayomi-server.enable) {
+// (mkIf (false && (config.services.suwayomi-server.enable)) {
   persist.dirs = [ "/var/lib/syncyomi" ];
 
   services.syncyomi = {

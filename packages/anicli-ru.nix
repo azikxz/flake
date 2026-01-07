@@ -35,7 +35,10 @@ buildPythonApplication rec {
       pyproject = true;
 
       src = pkgs.fetchPypi {
-        inherit pname version;
+        inherit
+          pname
+          version
+          ;
         hash = "sha256-8Vo39BePA86wcLKs/F+u2N7tpIpPrEyEPp3POszy050=";
       };
 
@@ -47,12 +50,15 @@ buildPythonApplication rec {
 
     (buildPythonApplication rec {
       pname = "anicli_api";
-      version = "0.7.17";
+      version = "0.8.6";
       pyproject = true;
 
       src = pkgs.fetchPypi {
-        inherit pname version;
-        hash = "sha256-nrv3JQaYSjZTCDbwBc/7/oYurJcJKFyVlzTfO9xz1qg=";
+        inherit
+          pname
+          version
+          ;
+        hash = "sha256-SDCEdZNGXNnUA814CV52UgtmO54RYmKOqAmmGWFmLdI=";
       };
 
       inherit build-system;

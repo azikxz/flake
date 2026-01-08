@@ -17,6 +17,16 @@ with pkgs;
   })
 
   (fetchurl {
+    url = "https://github.com/MALSync/MALSync/releases/download/0.12.2/malsync.user.js";
+    sha256 = "sha256-r1ar8cqvsTjK/INyM0tq0zn/7qMmPe7UXxT0RPHzabU=";
+  })
+
+  (fetchurl {
+    url = "https://github.com/MALSync/MALSync/releases/download/0.12.2/malsync-adult.user.js";
+    sha256 = "sha256-xFjK7k1s3rVtJ5EYfUTQYB118cz0cP1O3FbTcsGq/ec=";
+  })
+
+  (fetchurl {
     url = "https://gist.githubusercontent.com/ilyhalight/6eb5bb4dffc7ca9e3c57d6933e2452f3/raw/7ab38af2228d0bed13912e503bc8a9ee4b11828d/gm-addstyle-polyfill.js";
     sha256 = "sha256-C4NkK3NGDV0XehzoStm0lTUVT6XUMy4app+vAFpxY0E=";
   })

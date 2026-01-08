@@ -39,6 +39,7 @@ in
       cava.rainbow.enable = true;
       hyprland.hyprpaper.enable = true;
 
+      gdu.enable = false;
       helix.enable = false;
       kde.enable = false;
       mako.enable = false;

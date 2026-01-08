@@ -1,91 +1,95 @@
 {
+  lib,
   config,
   ...
 }:
 
 {
-  quickmarks = {
-    # localhost
-    keenWeb = "192.168.1.1";
-    flood = "localhost:8113";
-    transmission = "localhost:9091";
-    torrserver = "localhost:8223";
-    syncthing = "localhost:8384";
+  quickmarks = lib.mkMerge [
+    {
+      # localhost
+      keenWeb = "192.168.1.1";
+      flood = "localhost:8113";
+      transmission = "localhost:9091";
+      torrserver = "localhost:8223";
+      syncthing = "localhost:8384";
+    }
+    (lib.mapAttrs (name: value: "https://${value}") {
+      # nix
+      nixpkgs = "search.nixos.org/packages?channel=unstable";
+      homemanager = "home-manager-options.extranix.com/?query=&release=master";
+      searchix = "searchix.ovh";
+      myNixOS = "mynixos.com";
+      nixosWiki = "wiki.nixos.org";
+      hydra = "hydra.nixos.org";
+      prTracker = "nixpk.gs/pr-tracker.html";
+      cachix = "app.cachix.org/cache/xache";
+      noogle = "noogle.dev";
 
-    # nix
-    nixpkgs = "search.nixos.org/packages?channel=unstable";
-    homemanager = "home-manager-options.extranix.com/?query=&release=master";
-    searchix = "searchix.ovh";
-    myNixOS = "mynixos.com";
-    nixosWiki = "wiki.nixos.org";
-    hydra = "hydra.nixos.org";
-    prTracker = "nixpk.gs/pr-tracker.html";
-    cachix = "app.cachix.org/cache/xache";
-    noogle = "noogle.dev";
+      # git
+      ultima = "git.sr.ht/~neverness/multi-flake";
+      pubSolar = "git.pub.solar/xmozoid/multi-flake";
+      github = "github.com";
 
-    # git
-    ultima = "git.sr.ht/~neverness/multi-flake";
-    pubSolar = "git.pub.solar/xmozoid/multi-flake";
-    github = "github.com";
+      # social
+      youtube = "www.youtube.com";
+      piped = "piped.private.coffee";
+      gmail = "mail.google.com";
+      safetwitch = "safetwitch.ducks.party";
+      redlib = "redlib.thebunny.zone";
+      phanpy = "phanpy.social";
+      binternet = "binternet.private.coffee";
+      pixivfe = "pixivfe.ducks.party";
+      mastodonMl = "mastodon.ml";
+      nitter = "nitter.net"; # neck hurt
+      vk = "vk.com";
+      dvach = "2ch.su"; # zloba >:(
 
-    # social
-    youtube = "https://www.youtube.com";
-    piped = "piped.private.coffee";
-    gmail = "mail.google.com";
-    safetwitch = "safetwitch.ducks.party";
-    redlib = "redlib.thebunny.zone";
-    phanpy = "phanpy.social";
-    binternet = "binternet.private.coffee";
-    pixivfe = "pixivfe.ducks.party";
-    mastodonMl = "mastodon.ml";
-    nitter = "nitter.net"; # neck hurt
-    vk = "vk.com";
-    dvach = "2ch.su"; # zloba >:(
+      # anime etc
+      anilist = "anilist.co";
+      anichart = "anichart.net";
+      anilibria = "anilibria.top";
+      animeGo = "animego.club/index";
+      anilibMe = "v3.animelib.org";
+      yummyAnime = "yummy-anime.org";
+      dreamCast = "dreamerscast.com";
+      dreamTorr = "195.91.184.178";
+      animeVost = "анимевост.рф";
+      mangaLib = "mangalib.me/ru";
+      urusai = "urusai.social";
+      miruro = "miruro.tv";
+      animekai = "anikai.to/home";
 
-    # anime etc
-    anilist = "anilist.co";
-    anichart = "anichart.net";
-    anilibria = "anilibria.top";
-    animeGo = "animego.club/index";
-    anilibMe = "v3.animelib.org";
-    yummyAnime = "yummy-anime.org";
-    dreamCast = "dreamerscast.com";
-    dreamTorr = "195.91.184.178";
-    animeVost = "анимевост.рф";
-    mangaLib = "mangalib.me/ru";
-    urusai = "urusai.social";
-    miruro = "miruro.tv";
-    animekai = "anikai.to/home";
+      # torrents
+      rutracker = "rutracker.org"; # ye
+      pirateBay = "thepiratebay.org";
+      pirateBayProxy = "piratebayproxy.net";
+      nnmClub = "nnmclub.to";
 
-    # torrents
-    rutracker = "rutracker.org"; # ye
-    pirateBay = "thepiratebay.org";
-    pirateBayProxy = "piratebayproxy.net";
-    nnmClub = "nnmclub.to";
+      # games
+      modrinth = "modrinth.com";
+      mineWiki = "ru.minecraft.wiki"; # i playing 10y along
+      broTorrent = "brotorrent.net";
+      smallGames = "small-games.info";
+      tuttop = "tuttop.com";
+      freeTP = "freetp.org";
+      steamDB = "steamdb.info";
+      protonDB = "protondb.com";
 
-    # games
-    modrinth = "modrinth.com";
-    mineWiki = "ru.minecraft.wiki"; # i playing 10y along
-    broTorrent = "brotorrent.net";
-    smallGames = "small-games.info";
-    tuttop = "tuttop.com";
-    freeTP = "freetp.org";
-    steamDB = "steamdb.info";
-    protonDB = "protondb.com";
+      # study
+      chatGpt = "chatgpt.com";
+      deekpeek = "chat.deepseek.com";
+      gemini = "gemini.google.com";
+      grok = "grok.com"; # hitler???
+      claude = "claude.ai";
 
-    # study
-    chatGpt = "chatgpt.com";
-    deekpeek = "chat.deepseek.com";
-    gemini = "gemini.google.com";
-    grok = "grok.com"; # hitler???
-    claude = "claude.ai";
-
-    # misc
-    base16Preview = "sesh.github.io/base16-viewer";
-    translate = "simplytranslate.ducks.party";
-    vaultwarden = "vaultwarden.nadeko.net";
-    intellectual = "intellectual.ducks.party";
-  };
+      # misc
+      base16Preview = "sesh.github.io/base16-viewer";
+      translate = "simplytranslate.ducks.party";
+      vaultwarden = "vaultwarden.nadeko.net";
+      intellectual = "intellectual.ducks.party";
+    })
+  ];
 
   whitelist."whitelist" = {
     includes =

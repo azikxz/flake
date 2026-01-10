@@ -11,7 +11,7 @@ with lib;
 # like electron but not chromium
 
 mkIf false {
-  programs.firefoxpwa = {
+  hm.programs.firefoxpwa = {
     enable = true;
 
     settings = { };

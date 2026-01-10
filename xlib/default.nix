@@ -262,6 +262,7 @@ utils.lib.eachSystem
                 username = system.userName;
                 stateVersion = system.version;
                 homeDirectory = "/home/${username}";
+                preferXdgDirectories = true;
               };
             }
             {

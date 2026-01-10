@@ -87,13 +87,13 @@ with config.lib.stylix.colors.withHashtag;
         if gradient then
           {
             active = mk base0B base0A;
-            inactive.color = base01;
+            inactive.color = base00;
             urgent = mk base08 base09;
           }
         else
           {
             active.color = base01;
-            inactive.color = base02;
+            inactive.color = base01;
             urgent.color = base08;
           }
       );

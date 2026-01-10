@@ -7,7 +7,7 @@
 # INFO:
 # "^name$" - exact match
 # "^name"  - start with name
-# "name&"  - ends with name
+# "name$"  - ends with name
 # "name"   - name everywhere
 let
   corner =
@@ -28,6 +28,11 @@ let
   size = height: width: {
     default-column-width.fixed = width;
     default-window-height.fixed = height;
+  };
+
+  size' = height: width: {
+    default-column-width.proportion = width;
+    default-window-height.proportion = height;
   };
 in
 
@@ -65,13 +70,13 @@ with config.lib.stylix.colors.withHashtag;
   in
   [
     # workspaces rules
-    (mk 2 "org.qutebrowser.qutebrowser")
+    (mk 2 "^*.qutebrowser.*$")
     (mk 2 "librewolf")
     (mk 2 "spotify")
-    (mk 3 "com.ayugram.desktop")
+    (mk 3 "^*.ayugram.*$")
     (mk 3 "equibop")
     (mk 3 "mumble")
-    (mk 5 "steam")
+    (mk 5 "^steam$")
   ]
 )
 ++ [
@@ -102,12 +107,27 @@ with config.lib.stylix.colors.withHashtag;
       block-out-from = "screen-capture";
       matches = [
         {
-          app-id = "org.keepassxc.KeePassXC";
-          title = "Generate Password";
+          app-id = "^org.keepassxc.KeePassXC&";
+          title = "^Generate Password";
         }
       ];
     }
     // (size 1041 501)
+  )
+
+  (
+    {
+      open-floating = true;
+      open-focused = true;
+      block-out-from = "screen-capture";
+      matches = [
+        {
+          app-id = "^org.keepassxc.KeePassXC&";
+          title = "^Unlock Database";
+        }
+      ];
+    }
+    // (size' 0.4 0.4)
   )
 
   {
@@ -116,7 +136,7 @@ with config.lib.stylix.colors.withHashtag;
     border = border base08;
     matches = [
       {
-        app-id = "dragon-drop";
+        app-id = "^dragon-drop$";
       }
     ];
   }
@@ -126,12 +146,12 @@ with config.lib.stylix.colors.withHashtag;
       open-floating = true;
       matches = [
         {
-          app-id = "firefox";
+          app-id = "^firefox$";
           title = "^Picture-in-Picture";
         }
         {
           app-id = "librewolf";
-          title = "Picture-in-Picture";
+          title = "^Picture-in-Picture";
         }
       ];
     }
@@ -142,7 +162,7 @@ with config.lib.stylix.colors.withHashtag;
     block-out-from = "screencast";
     matches = [
       {
-        app-id = "ayugram";
+        app-id = "^*ayugram*$";
       }
     ];
   }
@@ -151,7 +171,7 @@ with config.lib.stylix.colors.withHashtag;
     open-fullscreen = true;
     matches = [
       {
-        app-id = "swayimg";
+        app-id = "^swayimg$";
       }
       {
         app-id = "ayugram";
@@ -164,19 +184,31 @@ with config.lib.stylix.colors.withHashtag;
     {
       matches = [
         {
-          app-id = "wofi";
-          title = "Bluetooth";
+          app-id = "^wofi$";
+          title = "^Bluetooth$";
         }
       ];
     }
     // (size 960 470)
   )
 
+  (
+    {
+      matches = [
+        {
+          app-id = "^org.prismlauncher.PrismLauncher$";
+          title = "^New Instance";
+        }
+      ];
+    }
+    // (size' 0.7 0.7)
+  )
+
   {
     default-column-width.proportion = 0.4;
     matches = [
       {
-        app-id = "steam$";
+        app-id = "^steam$";
         title = "^Friends List$";
       }
     ];
@@ -193,7 +225,7 @@ with config.lib.stylix.colors.withHashtag;
     };
     matches = [
       {
-        app-id = "steam";
+        app-id = "^steam$";
         title = ''^notificationtoasts_\d+_desktop$'';
       }
     ];

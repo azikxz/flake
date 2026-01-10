@@ -33,6 +33,7 @@ in
   # programs
   [
     (mk "${m}+Tab" (sh "bash -c tofi-drun | xargs niri msg action spawn --"))
+    (mk "${m}+${s}+Tab" (sh (lib.getExe pkgs.clapboard)))
 
     (mk "${m}+Return" (sh "kitty"))
     (mk "${m}+${s}+Return" (sh "kitty --class=kitty_small"))

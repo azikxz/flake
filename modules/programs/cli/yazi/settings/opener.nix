@@ -85,7 +85,7 @@ with lib;
     {
       run = ''umu-run "$@"'';
       desc = "Open windows exe via umu-run";
-      orphan = true;
+      block = true;
     }
   ];
 

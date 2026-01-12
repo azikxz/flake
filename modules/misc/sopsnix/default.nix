@@ -59,6 +59,8 @@ with lib;
             "services/glance"
             "services/mpd/lastfm"
 
+            "accounts/googleCardDav/id"
+            "accounts/googleCardDav/secret"
             "accounts/gmailPassword"
             "accounts/tg"
 

@@ -15,7 +15,7 @@ in
 mkIf (mac "pcRyazenka") {
   hm = {
     accounts.email = {
-      maildirBasePath = "${config.hm.home.homeDirectory}/.mail";
+      maildirBasePath = "${config.hm.home.homeDirectory}/.email";
 
       accounts = {
         homeMail = {

@@ -30,7 +30,15 @@ mkIf (mac "pcRyazenka") {
         reply-to-self = false;
 
         # editor = getExe pkgs.vim;
-      };
+      }
+      // (
+        let
+          cfg = config.hm.programs.khard;
+        in
+        optionalAttrs cfg.enable {
+          address-book-cmd = (getExe cfg.package) + " %s";
+        }
+      );
 
       ui = {
         styleset-name = "stylix";

@@ -18,12 +18,14 @@ in
 
 mkIf (mac "pcRyazenka") {
   hm = {
-    accounts.contact = {
-      basePath = "${config.hm.home.homeDirectory}/.contacts";
+    accounts.calendar = {
+      basePath = "${config.hm.home.homeDirectory}/.calendar";
 
       accounts = {
-        homeContacts = {
-          remote.type = "google_contacts";
+        homeCalendar = {
+          primary = true;
+
+          remote.type = "google_calendar";
           # nearly ill replace it
 
           vdirsyncer = {
@@ -36,21 +38,27 @@ mkIf (mac "pcRyazenka") {
 
             # get client id/secret here
             # for google: https://console.cloud.google.com/apis
-            # Enabled API & services -> enable "Google Contacts CardDAV API"
+            # Enabled API & services -> enable "Google Contacts CalDAV API"
             # Credentials -> create client OAuth 2.0, copy data
             # Audience -> add your email to "Test users"
             clientIdCommand = sh "cat ${config.sopsnix."accounts/googleClient/id"}";
             clientSecretCommand = sh "cat ${config.sopsnix."accounts/googleClient/secret"}";
 
-            tokenFile = "${config.hm.accounts.contact.basePath}/homeContacts/token";
+            tokenFile = "${config.hm.accounts.calendar.basePath}/homeCalendar/token";
           };
 
-          khard = {
-            inherit (config.hm.programs.khard)
+          qcal = {
+            inherit (config.hm.programs.khal)
+              enable
+              ;
+          };
+
+          khal = {
+            inherit (config.hm.programs.khal)
               enable
               ;
 
-            addressbooks = [ "default" ];
+            color = config.lib.stylix.colors.withHashtag.base0B;
           };
         };
       };

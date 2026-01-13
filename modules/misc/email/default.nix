@@ -31,6 +31,8 @@ mkIf (mac "pcRyazenka") {
           # https://myaccount.google.com/apppasswords
           # write as 16 digit word without spaces
 
+          # just perfection
+          # aerc folders are same
           folders = {
             sent = " sent";
             inbox = " inbox";

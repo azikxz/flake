@@ -6,7 +6,7 @@
 
 with lib;
 # INFO:
-# beauty visualizer
+# list ur contacts and edit/sync
 
 mkIf (mac "pcRyazenka") {
   hm.programs.khard = {

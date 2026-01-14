@@ -1,12 +1,20 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 
 with lib;
 let
   pkg = pkgs.clapboard;
+
+  inherit (config.hm.services.syncthing.settings)
+    devices
+    ;
+
+  shared = list: attrNames (removeAttrs devices list);
+
   toml = pkgs.formats.toml { };
 in
 # INFO:
@@ -14,7 +22,16 @@ in
 
 mkIf (mac' "isoXtended") {
   hm = {
-    services.wl-clip-persist.enable = true;
+    services = {
+      wl-clip-persist.enable = true;
+
+      syncthing.settings.folders = listToAttrs [
+        (sync.mkFolder "clipboard" "${config.hm.xdg.cacheHome}/clapboard" (shared [
+          "nothing2a"
+          "windauser"
+        ]))
+      ];
+    };
 
     systemd.user.services.clapboard = {
       Unit = {

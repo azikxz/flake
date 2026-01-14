@@ -9,6 +9,12 @@ with lib;
 let
   cfg = config.hm.programs.keepassxc;
 
+  inherit (config.hm.services.syncthing.settings)
+    devices
+    ;
+
+  shared = list: attrNames (removeAttrs devices list);
+
   ini = pkgs.formats.ini { };
 in
 # WARN:
@@ -67,6 +73,10 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
       Install.WantedBy = [ "graphical-session.target" ];
     };
+
+    services.syncthing.settings.folders = listToAttrs [
+      (sync.mkFolder "passwords" "${config.hm.xdg.userDirs.documents}/passwords" (shared [ ]))
+    ];
   };
 
   hmMime = mkMime {

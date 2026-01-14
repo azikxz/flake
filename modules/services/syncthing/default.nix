@@ -39,20 +39,9 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
         listToAttrs (
           (with config.hm.xdg.userDirs; [
-            (mkFolder "temporal" "${desktop}/temp" (shared [ ]))
-
-            (mkFolder "passwords" "${documents}/passwords" (shared [ ]))
-
             (mkFolder "notes" "${documents}/notes" (shared [ ]))
-
+            (mkFolder "temporal" "${desktop}/temp" (shared [ ]))
             (mkFolder "video" "${videos}/filmed" (shared [ "windauser" ]))
-
-            (mkFolder "music" "${music}" (shared [ "windauser" ]))
-
-            (mkFolder "clipboard" "~/.cache/clapboard" (shared [
-              "nothing2a"
-              "windauser"
-            ]))
           ])
           ++ [ ]
         );

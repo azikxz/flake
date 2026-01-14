@@ -145,6 +145,12 @@
       inputs.flake-parts.follows = "parts";
     };
 
+    hytale = {
+      url = "github:JPyke3/hytale-launcher-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "utils";
+    };
+
     fjordlauncher = {
       url = "github:unmojang/FjordLauncher";
       inputs.nixpkgs.follows = "nixpkgs";

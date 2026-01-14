@@ -160,11 +160,12 @@ utils.lib.eachSystem
                     ;
                 };
 
-                agenix = inputs.agenix.packages.${platform}.default;
+                agenix = agenix.packages.${platform}.default;
                 anipy-cli = anipy.packages.${platform}.default;
+                curd = jerry.packages.${platform}.default;
+                hytale = hytale.packages.${platform}.default;
                 jerry = jerry.packages.${platform}.full;
                 viu = viu.packages.${platform}.default;
-                curd = jerry.packages.${platform}.default;
 
                 cursors = cursors.packages.${platform};
                 gaming = gaming.packages.${platform};

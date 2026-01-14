@@ -584,6 +584,29 @@
         "type": "github"
       }
     },
+    "hytale": {
+      "inputs": {
+        "flake-utils": [
+          "utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768346273,
+        "narHash": "sha256-1q+vzqjnjj6/uZm6RTZnjoOGsiA/OFVMvn9UaIaLeHk=",
+        "owner": "JPyke3",
+        "repo": "hytale-launcher-nix",
+        "rev": "226c36b20aa9450193241133735af51b1c43bfad",
+        "type": "github"
+      },
+      "original": {
+        "owner": "JPyke3",
+        "repo": "hytale-launcher-nix",
+        "type": "github"
+      }
+    },
     "impermanence": {
       "locked": {
         "lastModified": 1737831083,
@@ -1121,6 +1144,7 @@
         "glide": "glide",
         "hardware": "hardware",
         "home": "home",
+        "hytale": "hytale",
         "impermanence": "impermanence",
         "jerry": "jerry",
         "mangowc": "mangowc",

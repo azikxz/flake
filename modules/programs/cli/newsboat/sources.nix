@@ -51,6 +51,10 @@ in
     "comics"
     "geek"
   ])
+
+  (mk "hytracker.net/rss.xml" [
+    "games"
+  ])
 ]
 ++ (map
   (

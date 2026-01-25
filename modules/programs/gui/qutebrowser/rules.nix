@@ -86,7 +86,7 @@
       # misc
       base16Preview = "sesh.github.io/base16-viewer";
       translate = "simplytranslate.ducks.party";
-      vaultwarden = "vaultwarden.nadeko.net";
+      vaultwarden = "vault.vaultwarden.net"; # need own server
       intellectual = "intellectual.ducks.party";
     })
   ];

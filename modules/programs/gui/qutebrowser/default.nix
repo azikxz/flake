@@ -40,7 +40,12 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         _4get = "https://4get.nadeko.net/web?s={}";
       };
 
-      keyBindings = import ./binds.nix;
+      keyBindings = import ./binds.nix {
+        inherit
+          pkgs
+          lib
+          ;
+      };
 
       greasemonkey = import ./plugins.nix {
         inherit

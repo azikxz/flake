@@ -1,9 +1,17 @@
 {
+  lib,
+  ...
+}:
+
+{
   sync = {
+    mkFilter = config: list: lib.attrNames (removeAttrs config list);
+
     mkDevice = name: id: {
       inherit
         name
         ;
+
       value = {
         inherit
           id
@@ -14,26 +22,35 @@
       };
     };
 
-    mkFolder = name: path: devices: {
-      inherit
-        name
-        ;
-      value = {
+    mkFolder =
+      {
+        id,
+        name,
+        path,
+        devices,
+      }:
+      {
         inherit
-          path
-          devices
+          name
           ;
 
-        rescanIntervalS = 4;
-        versioning = {
-          type = "simple";
-          params = {
-            cleanupIntervalS = toString (60 * 2);
-            cleanoutDays = toString (7 * 4);
-            keep = toString (7 * 1);
+        value = {
+          inherit
+            id
+            path
+            devices
+            ;
+
+          rescanIntervalS = 4;
+          versioning = {
+            type = "simple";
+            params = {
+              cleanupIntervalS = toString (60 * 2);
+              cleanoutDays = toString (7 * 4);
+              keep = toString (7 * 1);
+            };
           };
         };
       };
-    };
   };
 }

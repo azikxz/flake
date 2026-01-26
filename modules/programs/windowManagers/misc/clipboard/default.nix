@@ -13,8 +13,6 @@ let
     devices
     ;
 
-  shared = list: attrNames (removeAttrs devices list);
-
   toml = pkgs.formats.toml { };
 in
 # INFO:
@@ -26,10 +24,15 @@ mkIf (mac' "isoXtended") {
       wl-clip-persist.enable = true;
 
       syncthing.settings.folders = listToAttrs [
-        (sync.mkFolder "clipboard" "${config.hm.xdg.cacheHome}/clapboard" (shared [
-          "nothing2a"
-          "windauser"
-        ]))
+        (sync.mkFolder {
+          name = "clipboard";
+          id = "kudfyfcmxhtpt8ta";
+          path = "${config.hm.xdg.cacheHome}/clapboard";
+          devices = sync.mkFilter devices [
+            "nothing2a"
+            "windauser"
+          ];
+        })
       ];
     };
 

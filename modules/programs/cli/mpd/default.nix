@@ -11,8 +11,6 @@ let
   inherit (config.hm.services.syncthing.settings)
     devices
     ;
-
-  shared = list: attrNames (removeAttrs devices list);
 in
 # INFO:
 # very good music service with clients
@@ -83,7 +81,14 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       };
 
       syncthing.settings.folders = listToAttrs [
-        (sync.mkFolder "music" "${config.hm.xdg.userDirs.music}" (shared [ "windauser" ]))
+        (sync.mkFolder {
+          name = "music";
+          id = "wfufr6w4fr7dyuhe";
+          path = "${config.hm.xdg.userDirs.music}";
+          devices = sync.mkFilter devices [
+            "windauser"
+          ];
+        })
       ];
     };
   };

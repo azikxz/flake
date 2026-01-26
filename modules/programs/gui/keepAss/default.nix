@@ -13,8 +13,6 @@ let
     devices
     ;
 
-  shared = list: attrNames (removeAttrs devices list);
-
   ini = pkgs.formats.ini { };
 in
 # WARN:
@@ -75,7 +73,12 @@ mkIf false {
     };
 
     services.syncthing.settings.folders = listToAttrs [
-      (sync.mkFolder "passwords" "${config.hm.xdg.userDirs.documents}/passwords" (shared [ ]))
+      (sync.mkFolder {
+        name = "keepassdb";
+        id = "463hjpdhbmxnfbh4";
+        path = "${config.hm.xdg.userDirs.documents}/passwords";
+        devices = sync.mkFilter devices [ ];
+      })
     ];
   };
 

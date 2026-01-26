@@ -81,4 +81,8 @@ rec {
     lib
     ;
 }
-// import ./syncthing.nix
+// import ./syncthing.nix {
+  inherit
+    lib
+    ;
+}

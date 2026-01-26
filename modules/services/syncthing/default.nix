@@ -25,26 +25,26 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
     settings = {
       folders =
         let
-          inherit (lib.sync)
-            mkFolder
-            ;
-
           inherit (config.hm.services.syncthing.settings)
             devices
             ;
-
-          # call function with args [ ] if u want exlude dir for device
-          shared = list: attrNames (removeAttrs devices list);
         in
 
-        listToAttrs (
-          (with config.hm.xdg.userDirs; [
-            (mkFolder "notes" "${documents}/notes" (shared [ ]))
-            (mkFolder "temporal" "${desktop}/temp" (shared [ ]))
-            (mkFolder "video" "${videos}/filmed" (shared [ "windauser" ]))
-          ])
-          ++ [ ]
-        );
+        listToAttrs ([
+          (sync.mkFolder {
+            name = "notes";
+            id = "kudfyfcmxhtpt8ta";
+            path = "${config.hm.xdg.userDirs.documents}/notes";
+            devices = mkFilter device [ ];
+          })
+
+          (sync.mkFolder {
+            name = "tempbin";
+            id = "yew4af7dtnmnuwdr";
+            path = "${config.hm.xdg.userDirs.desktop}/tempbin";
+            devices = sync.mkFilter devices [ ];
+          })
+        ]);
 
       options = {
         relaysEnabled = true;

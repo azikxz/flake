@@ -264,4 +264,16 @@ in
       Sessions = false;
     };
   };
+
+  bookmarks = [
+    # need update
+    {
+      name = "Bitwarden (local)";
+      tags = [
+        "passwords"
+        "security"
+      ];
+      url = "moz-extension://306cfb1b-562c-4188-a063-644bee12636f/popup/index.html";
+    }
+  ];
 }

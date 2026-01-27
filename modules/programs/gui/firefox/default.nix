@@ -17,14 +17,15 @@ let
 in
 # INFO:
 # one of the best browsers ever
+#
+# WARN:
+# update extensions everytime when u remember it
 
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hm.programs.librewolf = {
     enable = true;
 
-    nativeMessagingHosts = [
-      (optionals config.hm.programs.keepassxc.enable pkgs.keepassxc)
-    ];
+    nativeMessagingHosts = [ ] ++ (optionals config.hm.programs.keepassxc.enable [ pkgs.keepassxc ]);
 
     inherit (settings)
       policies
@@ -67,8 +68,14 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           inherit
             pkgs
             lib
+            config
             ;
         };
+      };
+
+      bookmarks = {
+        meta.maintainers = [ maintainers.azikxz ];
+        settings = settings.bookmarks;
       };
 
       userContent =

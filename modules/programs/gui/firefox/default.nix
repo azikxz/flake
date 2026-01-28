@@ -76,6 +76,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       bookmarks = {
         meta.maintainers = [ maintainers.azikxz ];
         settings = settings.bookmarks;
+        force = true;
       };
 
       userContent =

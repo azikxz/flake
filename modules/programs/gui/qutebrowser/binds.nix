@@ -27,12 +27,13 @@
     "yI" = "hint images yank -s";
 
     # keepassxc
-    ",." = "spawn --userscript qute-keepass -p ~/Documents/passwords/db.kdbx";
+    # ",." = "spawn --userscript qute-keepass -p ~/Documents/passwords/db.kdbx";
+    ",." = "spawn --userscript ${lib.getExe pkgs.qutebrowser-plugins.bitwarden}";
 
     # bitwarden / vaultwarden
-    ",," = "spawn --userscript ${lib.getExe pkgs.qute-rbw}";
-    ",l" = "spawn --userscript ${lib.getExe pkgs.qute-rbw} username";
-    ",p" = "spawn --userscript ${lib.getExe pkgs.qute-rbw} password";
-    ",t" = "spawn --userscript ${lib.getExe pkgs.qute-rbw} totp";
+    ",," = "spawn --userscript ${lib.getExe pkgs.qutebrowser-plugins.rbw}";
+    ",l" = "spawn --userscript ${lib.getExe pkgs.qutebrowser-plugins.rbw} username";
+    ",p" = "spawn --userscript ${lib.getExe pkgs.qutebrowser-plugins.rbw} password";
+    ",t" = "spawn --userscript ${lib.getExe pkgs.qutebrowser-plugins.rbw} totp";
   };
 }

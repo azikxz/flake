@@ -21,7 +21,7 @@ in
     "browser.tabs.hoverPreview.enabled" = true;
     "browser.tabs.hoverPreview.showThumbnails" = false;
     "browser.tabs.inTitlebar" = 0;
-    "browser.translations.newSettingsUI.enable" = true;
+    "browser.translations.enable" = false;
     "browser.uidensity" = 2;
     "browser.uitour.enabled" = false;
     "browser.urlbar.suggest.addons" = false;

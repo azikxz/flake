@@ -74,14 +74,23 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
             PeersListenPort = 0;
             PreloadCache = 50;
             ReaderReadAHead = 95;
-            RemoveCacheOnDrop = false;
             ResponsiveMode = false;
             RetrackersMode = 1;
             TorrentDisconnectTimeout = 30;
             TorrentsSavePath = "${dir}/temp";
             UploadRateLimit = 0;
-            UseDisk = false;
-          };
+          }
+          // (
+            let
+              mk =
+                bool:
+                (genAttrs [
+                  "UseDisk"
+                  "RemoveCacheOnDrop"
+                ] (n: true));
+            in
+            if (mac "pcRyazenka") then (mk true) else (mk false)
+          );
         }
       );
     };

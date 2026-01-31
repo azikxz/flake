@@ -17,7 +17,7 @@ in
 # server for manga/manhwa reading
 # with builtin webui
 
-mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
+mkIf false {
   persist.user.dirs = [ ".local/share/Tachidesk" ];
 
   services.suwayomi-server = {

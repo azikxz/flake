@@ -35,7 +35,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
             name = "notes";
             id = "kudfyfcmxhtpt8ta";
             path = "${config.hm.xdg.userDirs.documents}/notes";
-            devices = mkFilter device [ ];
+            devices = sync.mkFilter devices [ ];
           })
 
           (sync.mkFolder {

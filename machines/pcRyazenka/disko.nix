@@ -51,7 +51,11 @@
 
       ext4 = {
         fsType = "ext4";
-        options = [ "x-gvfs-show" ];
+        options = [
+          "x-gvfs-show"
+          "noauto"
+          "user"
+        ];
       };
     in
 

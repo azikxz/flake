@@ -77,6 +77,7 @@ with config.lib.stylix.colors.withHashtag;
     (mk 3 "equibop")
     (mk 3 "mumble")
     (mk 5 "^steam$")
+    (mk 5 "^HytaleClient$")
   ]
 )
 ++ [
@@ -170,6 +171,9 @@ with config.lib.stylix.colors.withHashtag;
   {
     open-fullscreen = true;
     matches = [
+      {
+        app-id = "^HytaleClient$";
+      }
       {
         app-id = "^swayimg$";
       }

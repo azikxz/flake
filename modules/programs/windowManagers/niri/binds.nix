@@ -42,7 +42,7 @@ in
     (mk "${m}+${s}+V" (sh "equibop"))
 
     (mk "${m}+B" (sh "qutebrowser"))
-    (mk "${m}+${s}+B" (sh "keepassxc"))
+    (mk "${m}+${s}+B" (sh "librewolf"))
 
     (mk "${m}+M" (sh "spotify"))
     (mk "${m}+${s}+M" (sh "obsidian"))

@@ -104,7 +104,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   nixpkgs.overlays = [
     (final: prev: {
       proton-ge-bin = prev.proton-ge-bin.override {
-        steamDisplayName = "Proton-GE";
+        steamDisplayName = "ProtonGE-latest";
       };
     })
   ];

@@ -50,7 +50,7 @@ buildPythonApplication rec {
 
     (buildPythonApplication rec {
       pname = "anicli_api";
-      version = "0.8.6";
+      version = "0.8.10";
       pyproject = true;
 
       src = pkgs.fetchPypi {
@@ -58,7 +58,7 @@ buildPythonApplication rec {
           pname
           version
           ;
-        hash = "sha256-SDCEdZNGXNnUA814CV52UgtmO54RYmKOqAmmGWFmLdI=";
+        hash = "sha256-+CUYDDJ+R9r8wzGDPMSAKd0kBp93P0wkVESlFwFuctw=";
       };
 
       inherit build-system;

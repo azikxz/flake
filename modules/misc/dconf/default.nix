@@ -28,6 +28,8 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           generator-use-numbers = true;
         };
 
+        "${gn}/system/location".enabled = true;
+
         "${gnDesk}/wm/preferences" = {
           button-layout = "";
         };

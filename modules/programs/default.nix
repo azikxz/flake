@@ -16,6 +16,7 @@ with lib;
       helix
       killall
       wget
+      android-tools
     ];
 
     shellAliases.x = "exit";
@@ -26,8 +27,6 @@ with lib;
   };
 
   programs = {
-    adb.enable = true;
-
     light.enable = mkIf (mac "thinkpadT14") true;
   };
 }

@@ -17,7 +17,10 @@ buildPythonApplication {
   pname = "qute-bitwarden";
   version = "git";
 
-  src = ./script.py;
+  src = pkgs.fetchurl {
+    url = "https://gist.githubusercontent.com/azikxz/6716b8671c9fd608f4f0a52b6b2e2900/raw/f6877ade0b35db744a1c213bd2113ca6afe5844b/rbw_qute.py";
+    sha256 = "sha256-VKeUDwKL8DzC6vJj8P8LWwnnhusfiRllIBQLIBP7GT8=";
+  };
 
   dontUnpack = true;
 

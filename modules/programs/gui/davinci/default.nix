@@ -9,7 +9,7 @@ with lib;
 # it will be very very long (6~ gb for 20.0)
 # kdenlive is shit
 
-mkIf (mac "pcRyazenka") {
+mkIf false {
   persist.user.dirs = [
     ".local/share/DaVinciResolve"
     ".local/state/DaVinciResolve"

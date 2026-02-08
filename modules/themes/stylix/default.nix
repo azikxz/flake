@@ -31,7 +31,7 @@ in
       image
       base16Scheme
       polarity
-      iconTheme
+      icons
       cursor
       ;
 
@@ -87,7 +87,7 @@ in
 
     polarity = "dark";
 
-    iconTheme = {
+    icons = {
       enable = true;
 
       dark = "Papirus-Dark";

@@ -57,11 +57,6 @@ in
     "network.proxy.type" = 0;
     "privacy.userContext.enabled" = false;
     "reader.content_width" = 5;
-    "reader.custom_colors.background" = withHashtag.base00;
-    "reader.custom_colors.foreground" = withHashtag.base05;
-    "reader.custom_colors.selection-highlight" = withHashtag.base09;
-    "reader.custom_colors.unvisited-links" = withHashtag.base0B;
-    "reader.custom_colors.visited-links" = withHashtag.base0C;
     "reader.text_alignment" = "justify";
     "svg.context-properties.content.enabled" = true;
     "ui.key.menuAccessKeyFocuses" = false;
@@ -265,15 +260,30 @@ in
     };
   };
 
-  bookmarks = [
-    # need update
-    {
-      name = "Bitwarden (local)";
-      tags = [
+  bookmarks =
+    let
+      mk = name: tags: url: {
+        inherit
+          name
+          tags
+          url
+          ;
+      };
+    in
+    [
+      (mk "Bitwarden (local)" [
         "passwords"
         "security"
-      ];
-      url = "moz-extension://306cfb1b-562c-4188-a063-644bee12636f/popup/index.html";
-    }
-  ];
+      ] "moz-extension://306cfb1b-562c-4188-a063-644bee12636f/popup/index.html")
+
+      (mk "GitHub" [
+        "development"
+        "git"
+      ] "https://github.com")
+
+      (mk "NixOS Wiki" [
+        "documentation"
+        "nixos"
+      ] "https://nixos.wiki")
+    ];
 }

@@ -8,7 +8,7 @@
 with lib;
 let
   inherit (config.stylix)
-    iconTheme
+    icons
     ;
 
   prg = config.programs;
@@ -21,11 +21,11 @@ mkIf (prg.hyprland.enable || prg.niri.enable) {
     enable = true;
 
     iconTheme = {
-      name = if (config.stylix == "dark") then iconTheme.dark else iconTheme.light;
+      name = if (config.stylix == "dark") then icons.dark else icons.light;
 
       size = "64x64";
 
-      inherit (iconTheme)
+      inherit (icons)
         package
         ;
     };
@@ -50,8 +50,8 @@ mkIf (prg.hyprland.enable || prg.niri.enable) {
           concatMapStringsSep ":"
             (
               category:
-              "${iconTheme.package}/share/icons/${
-                if (config.stylix == "dark") then iconTheme.dark else iconTheme.light
+              "${icons.package}/share/icons/${
+                if (config.stylix == "dark") then icons.dark else icons.light
               }/${config.hm.services.dunst.iconTheme.size}/${category}"
             )
             [

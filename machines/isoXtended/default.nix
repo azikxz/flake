@@ -26,7 +26,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs._2505.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_zen;
     loader.timeout = lib.mkDefault 0;
   };
 
@@ -52,7 +52,7 @@
 
   stylix = {
     image = lib.mkForce null;
-    iconTheme.enable = lib.mkForce false;
+    icons.enable = lib.mkForce false;
     cursor = lib.mkForce null;
   };
 

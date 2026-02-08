@@ -9,6 +9,12 @@ let
     utils
     nur
     ;
+
+  config = {
+    allowBroken = true;
+    allowInsecure = true;
+    allowUnfree = true;
+  };
 in
 
 utils.lib.eachSystem
@@ -26,15 +32,10 @@ utils.lib.eachSystem
       pkgs = import nixpkgs {
         inherit
           system
+          config
           ;
 
         overlays = [ nur.overlays.default ];
-
-        config = {
-          allowBroken = true;
-          allowInsecure = true;
-          allowUnfree = true;
-        };
       };
     in
     {
@@ -108,15 +109,13 @@ utils.lib.eachSystem
 
       let
         pkgs = import nixpkgs {
-          system = system.platform;
+          system = lib.system.platform;
 
-          config = {
-            allowBroken = true;
-            allowInsecure = true;
-            allowUnfree = true;
-          };
+          inherit
+            config
+            ;
 
-          hostPlatform = lib.mkDefault system.platform;
+          stdenv.hostPlatform = lib.mkDefault system.platform;
 
           overlays = with inputs; [
             fjordlauncher.overlays.default
@@ -128,45 +127,43 @@ utils.lib.eachSystem
             (
               final: prev:
               let
-                inherit (lib.system)
-                  platform
-                  ;
+                system = lib.system.platform;
               in
               {
                 _2505 = import nixpkgs-2505 {
-                  inherit (prev)
+                  inherit
                     system
                     config
                     ;
                 };
 
                 _2511 = import nixpkgs-2511 {
-                  inherit (prev)
+                  inherit
                     system
                     config
                     ;
                 };
 
                 _2411 = import nixpkgs-2411 {
-                  inherit (prev)
+                  inherit
                     system
                     config
                     ;
                 };
 
-                agenix = agenix.packages.${platform}.default;
-                anipy-cli = anipy.packages.${platform}.default;
-                curd = jerry.packages.${platform}.default;
-                hytale = hytale.packages.${platform}.default;
-                jerry = jerry.packages.${platform}.full;
-                viu = viu.packages.${platform}.default;
+                agenix = agenix.packages.${system}.default;
+                anipy-cli = anipy.packages.${system}.default;
+                curd = jerry.packages.${system}.default;
+                hytale = hytale.packages.${system}.default;
+                jerry = jerry.packages.${system}.full;
+                viu = viu.packages.${system}.default;
 
-                cursors = cursors.packages.${platform};
-                gaming = gaming.packages.${platform};
-                spicetify = spicetify.legacyPackages.${platform};
+                cursors = cursors.packages.${system};
+                gaming = gaming.packages.${system};
+                spicetify = spicetify.legacyPackages.${system};
               }
-              // self.packages.${platform}
-              // winapps.packages."${platform}"
+              // self.packages.${system}
+              // winapps.packages."${system}"
             )
           ];
         };

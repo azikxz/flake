@@ -29,8 +29,6 @@ pkgs.mkShell {
 
           build-system = [
             setuptools
-            hatchling
-            poetry-core
           ];
         })
       ]
@@ -38,6 +36,8 @@ pkgs.mkShell {
   ];
 
   shellHook = ''
-    fish
+    if command -v fish >/dev/null; then
+      fish
+    fi
   '';
 }

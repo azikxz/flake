@@ -52,21 +52,20 @@
       ext4 = {
         fsType = "ext4";
         options = [
-          "x-gvfs-show"
-          "noauto"
           "user"
+          "x-gvfs-show"
         ];
       };
     in
 
     {
       fileSystems = {
-        "/media/disks/bigBunny" = ext4 // {
-          device = mk "9290bc08-17fe-47db-a535-d4044b8c8dfb";
+        "/media/disks/fatBunny" = ext4 // {
+          device = mk "c39db01d-8014-4b5a-a85e-1a8a4bb697fa";
         };
 
         "/media/disks/fastBitch" = ext4 // {
-          device = mk "e6bc9034-95a4-43bd-b5f5-c7c1743e9f7c";
+          device = mk "cbf20134-a653-493c-96de-b2b6699d16d5";
         };
       };
     }

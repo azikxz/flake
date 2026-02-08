@@ -6,7 +6,7 @@
 
 let
   inherit (config.hm.stylix)
-    iconTheme
+    icons
     ;
 
   inherit (config.stylix)
@@ -25,7 +25,7 @@ let
             ;
         };
 
-        icon_theme = iconTheme.dark;
+        icon_theme = icons.dark;
         standard_dialogs = ''"default"'';
         style = ''"Fusion"'';
       };

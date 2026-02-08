@@ -7,14 +7,29 @@
     nixpkgs-2511.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-2411.url = "github:NixOS/nixpkgs/nixos-24.11";
 
-    impermanence.url = "github:nix-community/impermanence";
     hardware.url = "github:NixOS/nixos-hardware/master";
     utils.url = "github:numtide/flake-utils";
     flatpak.url = "github:gmodena/nix-flatpak";
 
+    home = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home";
+    };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     agenix = {
@@ -38,11 +53,6 @@
       inputs.nur.follows = "nur";
     };
 
-    home = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -53,11 +63,6 @@
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "parts";
-    };
-
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     musnix = {
@@ -148,7 +153,6 @@
     hytale = {
       url = "github:JPyke3/hytale-launcher-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "utils";
     };
 
     fjordlauncher = {
@@ -159,7 +163,6 @@
     minecraft = {
       url = "github:Infinidoge/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "utils";
     };
 
     minecraft-assets = {

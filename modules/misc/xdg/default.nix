@@ -53,9 +53,9 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
           createDirectories = true;
 
           extraConfig = {
-            XDG_SCREENSHOTS_DIR = pictures + "/screenshots";
-            XDG_FLAKE_DIR = paths.flakeDir;
-            XDG_TORRENTS_DIR = config.services.qbittorrent.serverConfig.BitTorrent.Session.DefaultSavePath;
+            SCREENSHOTS = pictures + "/screenshots";
+            FLAKE = paths.flakeDir;
+            TORRENTS = config.services.qbittorrent.serverConfig.BitTorrent.Session.DefaultSavePath;
           };
         };
 

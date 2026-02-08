@@ -10,19 +10,30 @@ let
 in
 
 lib.mkForce {
-  mgr = {
-    cwd = {
-      fg = base0B;
-    };
-
-    hovered = {
+  indicator = {
+    current = {
       fg = base00;
       bg = base0E;
       bold = true;
     };
 
-    preview_hovered = {
+    preview = {
       underline = false;
+    };
+
+    parent = {
+      bg = base00;
+    };
+
+    padding = {
+      open = "█";
+      close = "█";
+    };
+  };
+
+  mgr = {
+    cwd = {
+      fg = base0B;
     };
 
     tab_active = {

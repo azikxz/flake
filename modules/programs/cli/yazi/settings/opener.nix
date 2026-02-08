@@ -9,7 +9,7 @@ with lib;
 {
   edit = [
     {
-      run = ''${config.hm.home.sessionVariables.EDITOR} "$@"'';
+      run = ''${config.hm.home.sessionVariables.EDITOR} "%s"'';
       desc = "Open in editor";
       block = true;
     }
@@ -17,21 +17,21 @@ with lib;
 
   play = [
     {
-      run = ''mpv --fs "$@"'';
+      run = ''mpv --fs "%h"'';
       desc = "Open video in MPV";
     }
   ];
 
   image = [
     {
-      run = ''swayimg "$@"'';
+      run = ''swayimg "%s"'';
       desc = "Open image in swayimg";
     }
   ];
 
   torrent = [
     {
-      run = ''qbt torrent add file "$@"'';
+      run = ''qbt torrent add file "%s"'';
       desc = "Add torrent to qBittorrent";
       orphan = true;
     }
@@ -39,7 +39,7 @@ with lib;
 
   office = [
     {
-      run = ''libreoffice "$@"'';
+      run = ''libreoffice "%h"'';
       desc = "Open document in Libreoffice";
       orphan = true;
     }
@@ -47,7 +47,7 @@ with lib;
 
   officePdf = [
     {
-      run = ''zaread "$@"'';
+      run = ''zaread "%h"'';
       desc = "Open document in Zathura";
       orphan = true;
     }
@@ -55,35 +55,35 @@ with lib;
 
   pdf = [
     {
-      run = ''zathura "$@"'';
+      run = ''zathura "%h"'';
       desc = "Open pdf in Zathura";
     }
   ];
 
   extract = [
     {
-      run = ''ouch d -y "$@"'';
+      run = ''ouch d -y "%s"'';
       desc = "Extract files via ouch";
     }
   ];
 
   kdbx = [
     {
-      run = ''keepassxc "$@"'';
+      run = ''keepassxc "%h"'';
       desc = "Open keepass password db";
     }
   ];
 
   prism = [
     {
-      run = ''prismlauncher "$@"'';
+      run = ''prismlauncher "%s"'';
       desc = "Import modpack to Prismlauncher";
     }
   ];
 
   exe = [
     {
-      run = ''umu-run "$@"'';
+      run = ''umu-run "%h"'';
       desc = "Open windows exe via umu-run";
       block = true;
     }
@@ -91,7 +91,7 @@ with lib;
 
   native = mkIf config.programs.steam.enable [
     {
-      run = ''steam-run "$@"'';
+      run = ''steam-run "%h"'';
       desc = "Open native bin via steam-run";
       orphan = true;
       block = true;
@@ -100,7 +100,7 @@ with lib;
 
   open = [
     {
-      run = ''xdg-open "$@"'';
+      run = ''xdg-open "%h"'';
       desc = "Open via xdg-open";
     }
   ];

@@ -39,6 +39,21 @@
         inherit fg;
       }
       {
+        name = "ada";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "adb";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "ads";
+        text = "";
+        inherit fg;
+      }
+      {
         name = "ai";
         text = "";
         inherit fg;
@@ -69,6 +84,11 @@
         inherit fg;
       }
       {
+        name = "apl";
+        text = "";
+        inherit fg;
+      }
+      {
         name = "app";
         text = "";
         inherit fg;
@@ -84,6 +104,11 @@
         inherit fg;
       }
       {
+        name = "asm";
+        text = "";
+        inherit fg;
+      }
+      {
         name = "ass";
         text = "󰨖";
         inherit fg;
@@ -91,6 +116,11 @@
       {
         name = "astro";
         text = "";
+        inherit fg;
+      }
+      {
+        name = "avif";
+        text = "";
         inherit fg;
       }
       {
@@ -110,7 +140,7 @@
       }
       {
         name = "bash";
-        text = "";
+        text = "";
         inherit fg;
       }
       {
@@ -164,6 +194,11 @@
         inherit fg;
       }
       {
+        name = "bqn";
+        text = "";
+        inherit fg;
+      }
+      {
         name = "brep";
         text = "󰻫";
         inherit fg;
@@ -210,7 +245,7 @@
       }
       {
         name = "cbl";
-        text = "⚙";
+        text = "";
         inherit fg;
       }
       {
@@ -224,8 +259,18 @@
         inherit fg;
       }
       {
+        name = "cfc";
+        text = "";
+        inherit fg;
+      }
+      {
         name = "cfg";
         text = "";
+        inherit fg;
+      }
+      {
+        name = "cfm";
+        text = "";
         inherit fg;
       }
       {
@@ -255,22 +300,27 @@
       }
       {
         name = "cmake";
-        text = "";
+        text = "";
         inherit fg;
       }
       {
         name = "cob";
-        text = "⚙";
+        text = "";
         inherit fg;
       }
       {
         name = "cobol";
-        text = "⚙";
+        text = "";
         inherit fg;
       }
       {
         name = "coffee";
         text = "";
+        inherit fg;
+      }
+      {
+        name = "conda";
+        text = "";
         inherit fg;
       }
       {
@@ -281,6 +331,11 @@
       {
         name = "config.ru";
         text = "";
+        inherit fg;
+      }
+      {
+        name = "cow";
+        text = "󰆚";
         inherit fg;
       }
       {
@@ -300,7 +355,7 @@
       }
       {
         name = "cpy";
-        text = "⚙";
+        text = "";
         inherit fg;
       }
       {
@@ -340,7 +395,7 @@
       }
       {
         name = "css";
-        text = "";
+        text = "";
         inherit fg;
       }
       {
@@ -429,6 +484,11 @@
         inherit fg;
       }
       {
+        name = "dockerignore";
+        text = "󰡨";
+        inherit fg;
+      }
+      {
         name = "docx";
         text = "󰈬";
         inherit fg;
@@ -471,6 +531,11 @@
       {
         name = "ebook";
         text = "";
+        inherit fg;
+      }
+      {
+        name = "ebuild";
+        text = "";
         inherit fg;
       }
       {
@@ -629,6 +694,11 @@
         inherit fg;
       }
       {
+        name = "feature";
+        text = "";
+        inherit fg;
+      }
+      {
         name = "fish";
         text = "";
         inherit fg;
@@ -651,6 +721,31 @@
       {
         name = "fnl";
         text = "";
+        inherit fg;
+      }
+      {
+        name = "fodg";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "fodp";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "fods";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "fodt";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "frag";
+        text = "";
         inherit fg;
       }
       {
@@ -689,6 +784,11 @@
         inherit fg;
       }
       {
+        name = "geom";
+        text = "";
+        inherit fg;
+      }
+      {
         name = "gif";
         text = "";
         inherit fg;
@@ -701,6 +801,16 @@
       {
         name = "glb";
         text = "";
+        inherit fg;
+      }
+      {
+        name = "gleam";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "glsl";
+        text = "";
         inherit fg;
       }
       {
@@ -719,8 +829,18 @@
         inherit fg;
       }
       {
+        name = "gpr";
+        text = "";
+        inherit fg;
+      }
+      {
         name = "gql";
         text = "";
+        inherit fg;
+      }
+      {
+        name = "gradle";
+        text = "";
         inherit fg;
       }
       {
@@ -796,6 +916,11 @@
       {
         name = "html";
         text = "";
+        inherit fg;
+      }
+      {
+        name = "http";
+        text = "";
         inherit fg;
       }
       {
@@ -895,7 +1020,7 @@
       }
       {
         name = "ipynb";
-        text = "";
+        text = "";
         inherit fg;
       }
       {
@@ -906,6 +1031,11 @@
       {
         name = "ixx";
         text = "";
+        inherit fg;
+      }
+      {
+        name = "jar";
+        text = "";
         inherit fg;
       }
       {
@@ -1175,7 +1305,7 @@
       }
       {
         name = "material";
-        text = "󰔉";
+        text = "";
         inherit fg;
       }
       {
@@ -1230,12 +1360,17 @@
       }
       {
         name = "mo";
-        text = "∞";
+        text = "";
         inherit fg;
       }
       {
         name = "mobi";
         text = "";
+        inherit fg;
+      }
+      {
+        name = "mojo";
+        text = "";
         inherit fg;
       }
       {
@@ -1289,13 +1424,18 @@
         inherit fg;
       }
       {
+        name = "norg";
+        text = "";
+        inherit fg;
+      }
+      {
         name = "nswag";
         text = "";
         inherit fg;
       }
       {
         name = "nu";
-        text = ">";
+        text = "";
         inherit fg;
       }
       {
@@ -1309,8 +1449,53 @@
         inherit fg;
       }
       {
+        name = "odf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "odg";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "odin";
+        text = "󰟢";
+        inherit fg;
+      }
+      {
+        name = "odp";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "ods";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "odt";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "oga";
+        text = "";
+        inherit fg;
+      }
+      {
         name = "ogg";
         text = "";
+        inherit fg;
+      }
+      {
+        name = "ogv";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "ogx";
+        text = "";
         inherit fg;
       }
       {
@@ -1409,6 +1594,11 @@
         inherit fg;
       }
       {
+        name = "pptx";
+        text = "󰈧";
+        inherit fg;
+      }
+      {
         name = "prisma";
         text = "";
         inherit fg;
@@ -1484,6 +1674,11 @@
         inherit fg;
       }
       {
+        name = "pyw";
+        text = "";
+        inherit fg;
+      }
+      {
         name = "pyx";
         text = "";
         inherit fg;
@@ -1514,6 +1709,11 @@
         inherit fg;
       }
       {
+        name = "R";
+        text = "󰟔";
+        inherit fg;
+      }
+      {
         name = "r";
         text = "󰟔";
         inherit fg;
@@ -1526,6 +1726,11 @@
       {
         name = "rar";
         text = "";
+        inherit fg;
+      }
+      {
+        name = "rasi";
+        text = "";
         inherit fg;
       }
       {
@@ -1571,6 +1776,11 @@
       {
         name = "rss";
         text = "";
+        inherit fg;
+      }
+      {
+        name = "s";
+        text = "";
         inherit fg;
       }
       {
@@ -1640,12 +1850,12 @@
       }
       {
         name = "sig";
-        text = "λ";
+        text = "󰘧";
         inherit fg;
       }
       {
         name = "signature";
-        text = "λ";
+        text = "󰘧";
         inherit fg;
       }
       {
@@ -1674,13 +1884,18 @@
         inherit fg;
       }
       {
+        name = "slnx";
+        text = "";
+        inherit fg;
+      }
+      {
         name = "slvs";
         text = "󰻫";
         inherit fg;
       }
       {
         name = "sml";
-        text = "λ";
+        text = "󰘧";
         inherit fg;
       }
       {
@@ -1711,6 +1926,11 @@
       {
         name = "spec.tsx";
         text = "";
+        inherit fg;
+      }
+      {
+        name = "spx";
+        text = "";
         inherit fg;
       }
       {
@@ -1751,6 +1971,41 @@
       {
         name = "stl";
         text = "󰆧";
+        inherit fg;
+      }
+      {
+        name = "stories.js";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "stories.jsx";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "stories.mjs";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "stories.svelte";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "stories.ts";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "stories.tsx";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "stories.vue";
+        text = "";
         inherit fg;
       }
       {
@@ -1795,6 +2050,11 @@
       }
       {
         name = "svg";
+        text = "󰜡";
+        inherit fg;
+      }
+      {
+        name = "svgz";
         text = "󰜡";
         inherit fg;
       }
@@ -1874,6 +2134,11 @@
         inherit fg;
       }
       {
+        name = "tmpl";
+        text = "";
+        inherit fg;
+      }
+      {
         name = "tmux";
         text = "";
         inherit fg;
@@ -1934,6 +2199,11 @@
         inherit fg;
       }
       {
+        name = "typ";
+        text = "";
+        inherit fg;
+      }
+      {
         name = "typoscript";
         text = "";
         inherit fg;
@@ -1950,7 +2220,12 @@
       }
       {
         name = "vala";
-        text = "";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vert";
+        text = "";
         inherit fg;
       }
       {
@@ -1966,6 +2241,11 @@
       {
         name = "vhdl";
         text = "󰍛";
+        inherit fg;
+      }
+      {
+        name = "vi";
+        text = "";
         inherit fg;
       }
       {
@@ -2024,6 +2304,11 @@
         inherit fg;
       }
       {
+        name = "wmv";
+        text = "";
+        inherit fg;
+      }
+      {
         name = "woff";
         text = "";
         inherit fg;
@@ -2041,6 +2326,16 @@
       {
         name = "wrz";
         text = "󰆧";
+        inherit fg;
+      }
+      {
+        name = "wv";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "wvc";
+        text = "";
         inherit fg;
       }
       {
@@ -2094,6 +2389,11 @@
         inherit fg;
       }
       {
+        name = "xslt";
+        text = "󰗀";
+        inherit fg;
+      }
+      {
         name = "xul";
         text = "";
         inherit fg;
@@ -2133,96 +2433,17 @@
         text = "";
         inherit fg;
       }
-    ];
-    files = [
       {
-        name = "gulpfile.js";
-        text = "";
+        name = "🔥";
+        text = "";
         inherit fg;
       }
+    ];
+
+    files = [
       {
         name = ".babelrc";
         text = "";
-        inherit fg;
-      }
-      {
-        name = "copying.lesser";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".npmrc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "docker-compose.yml";
-        text = "󰡨";
-        inherit fg;
-      }
-      {
-        name = "svelte.config.js";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "copying";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "prettier.config.ts";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "gruntfile.babel.js";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".SRCINFO";
-        text = "󰣇";
-        inherit fg;
-      }
-      {
-        name = ".xinitrc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "docker-compose.yaml";
-        text = "󰡨";
-        inherit fg;
-      }
-      {
-        name = "nuxt.config.ts";
-        text = "󱄆";
-        inherit fg;
-      }
-      {
-        name = "build";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".editorconfig";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "nuxt.config.mjs";
-        text = "󱄆";
-        inherit fg;
-      }
-      {
-        name = ".gitlab-ci.yml";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "PKGBUILD";
-        text = "";
         inherit fg;
       }
       {
@@ -2236,48 +2457,38 @@
         inherit fg;
       }
       {
-        name = "compose.yml";
+        name = ".clang-format";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".clang-tidy";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".codespellrc";
+        text = "󰓆";
+        inherit fg;
+      }
+      {
+        name = ".condarc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".dockerignore";
         text = "󰡨";
         inherit fg;
       }
       {
-        name = "eslint.config.cjs";
-        text = "";
+        name = ".ds_store";
+        text = "";
         inherit fg;
       }
       {
-        name = "go.mod";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".mailmap";
-        text = "󰊢";
-        inherit fg;
-      }
-      {
-        name = "gtkrc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "go.work";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "justfile";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "kritadisplayrc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "commitlint.config.js";
-        text = "󰜘";
+        name = ".editorconfig";
+        text = "";
         inherit fg;
       }
       {
@@ -2286,18 +2497,28 @@
         inherit fg;
       }
       {
-        name = "PrusaSlicerGcodeViewer.ini";
-        text = "";
+        name = ".eslintignore";
+        text = "";
         inherit fg;
       }
       {
-        name = "r";
-        text = "󰟔";
+        name = ".eslintrc";
+        text = "";
         inherit fg;
       }
       {
-        name = "license";
-        text = "";
+        name = ".git-blame-ignore-revs";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".gitattributes";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".gitconfig";
+        text = "";
         inherit fg;
       }
       {
@@ -2306,13 +2527,168 @@
         inherit fg;
       }
       {
-        name = "tailwind.config.js";
-        text = "󱏿";
+        name = ".gitlab-ci.yml";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".gitmodules";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".gtkrc-2.0";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".gvimrc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".justfile";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".luacheckrc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".luaurc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".mailmap";
+        text = "󰊢";
+        inherit fg;
+      }
+      {
+        name = ".nanorc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".npmignore";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".npmrc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".nuxtrc";
+        text = "󱄆";
+        inherit fg;
+      }
+      {
+        name = ".nvmrc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".pnpmfile.cjs";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".pre-commit-config.yaml";
+        text = "󰛢";
+        inherit fg;
+      }
+      {
+        name = ".prettierignore";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".prettierrc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".prettierrc.cjs";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".prettierrc.js";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".prettierrc.json";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".prettierrc.json5";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".prettierrc.mjs";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".prettierrc.toml";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".prettierrc.yaml";
+        text = "";
         inherit fg;
       }
       {
         name = ".prettierrc.yml";
         text = "";
+        inherit fg;
+      }
+      {
+        name = ".pylintrc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".settings.json";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".SRCINFO";
+        text = "󰣇";
+        inherit fg;
+      }
+      {
+        name = ".vimrc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".Xauthority";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".xinitrc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".Xresources";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".xsession";
+        text = "";
         inherit fg;
       }
       {
@@ -2326,78 +2702,63 @@
         inherit fg;
       }
       {
-        name = "xmonad.hs";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".eslintignore";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "tsconfig.json";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".prettierrc.json5";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".ds_store";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "gulpfile.coffee";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "R";
-        text = "󰟔";
-        inherit fg;
-      }
-      {
         name = ".zshrc";
         text = "";
         inherit fg;
       }
       {
-        name = ".prettierrc.toml";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".gvimrc";
+        name = "_gvimrc";
         text = "";
         inherit fg;
       }
       {
-        name = ".xsession";
-        text = "";
+        name = "_vimrc";
+        text = "";
         inherit fg;
       }
       {
-        name = ".justfile";
-        text = "";
+        name = "AUTHORS";
+        text = "";
         inherit fg;
       }
       {
-        name = ".gitconfig";
-        text = "";
+        name = "AUTHORS.txt";
+        text = "";
         inherit fg;
       }
       {
-        name = "gradle-wrapper.properties";
+        name = "brewfile";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "bspwmrc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "build";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "build.gradle";
         text = "";
         inherit fg;
       }
       {
-        name = "ionic.config.json";
-        text = "";
+        name = "build.zig.zon";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "bun.lock";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "bun.lockb";
+        text = "";
         inherit fg;
       }
       {
@@ -2406,8 +2767,408 @@
         inherit fg;
       }
       {
-        name = ".gleam";
-        text = "";
+        name = "checkhealth";
+        text = "󰓙";
+        inherit fg;
+      }
+      {
+        name = "cmakelists.txt";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "code_of_conduct";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "code_of_conduct.md";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "commit_editmsg";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "commitlint.config.js";
+        text = "󰜘";
+        inherit fg;
+      }
+      {
+        name = "commitlint.config.ts";
+        text = "󰜘";
+        inherit fg;
+      }
+      {
+        name = "compose.yaml";
+        text = "󰡨";
+        inherit fg;
+      }
+      {
+        name = "compose.yml";
+        text = "󰡨";
+        inherit fg;
+      }
+      {
+        name = "config";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "containerfile";
+        text = "󰡨";
+        inherit fg;
+      }
+      {
+        name = "copying";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "copying.lesser";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "Directory.Build.props";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "Directory.Build.targets";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "Directory.Packages.props";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "docker-compose.yaml";
+        text = "󰡨";
+        inherit fg;
+      }
+      {
+        name = "docker-compose.yml";
+        text = "󰡨";
+        inherit fg;
+      }
+      {
+        name = "dockerfile";
+        text = "󰡨";
+        inherit fg;
+      }
+      {
+        name = "eslint.config.cjs";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "eslint.config.js";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "eslint.config.mjs";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "eslint.config.ts";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "ext_typoscript_setup.txt";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "favicon.ico";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "fp-info-cache";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "fp-lib-table";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "FreeCAD.conf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "Gemfile";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "gnumakefile";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "go.mod";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "go.sum";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "go.work";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "gradle-wrapper.properties";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "gradle.properties";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "gradlew";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "groovy";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "gruntfile.babel.js";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "gruntfile.coffee";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "gruntfile.js";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "gruntfile.ts";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "gtkrc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "gulpfile.babel.js";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "gulpfile.coffee";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "gulpfile.js";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "gulpfile.ts";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "hypridle.conf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "hyprland.conf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "hyprlandd.conf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "hyprlock.conf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "hyprpaper.conf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "hyprsunset.conf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "i18n.config.js";
+        text = "󰗊";
+        inherit fg;
+      }
+      {
+        name = "i18n.config.ts";
+        text = "󰗊";
+        inherit fg;
+      }
+      {
+        name = "i3blocks.conf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "i3status.conf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "index.theme";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "ionic.config.json";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "Jenkinsfile";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "justfile";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "kalgebrarc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "kdeglobals";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "kdenlive-layoutsrc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "kdenliverc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "kritadisplayrc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "kritarc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "license";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "license.md";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "lxde-rc.xml";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "lxqt.conf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "makefile";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "mix.lock";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "mpv.conf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "next.config.cjs";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "next.config.js";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "next.config.ts";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "node_modules";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "nuxt.config.cjs";
+        text = "󱄆";
+        inherit fg;
+      }
+      {
+        name = "nuxt.config.js";
+        text = "󱄆";
+        inherit fg;
+      }
+      {
+        name = "nuxt.config.mjs";
+        text = "󱄆";
+        inherit fg;
+      }
+      {
+        name = "nuxt.config.ts";
+        text = "󱄆";
         inherit fg;
       }
       {
@@ -2421,443 +3182,8 @@
         inherit fg;
       }
       {
-        name = "hyprland.conf";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "gulpfile.babel.js";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".nvmrc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".prettierignore";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "ext_typoscript_setup.txt";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "QtProject.conf";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "avif";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "mix.lock";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "build.gradle";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "gemfile$";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".vimrc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "i18n.config.ts";
-        text = "󰗊";
-        inherit fg;
-      }
-      {
-        name = "gulpfile.ts";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "build.zig.zon";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "checkhealth";
-        text = "󰓙";
-        inherit fg;
-      }
-      {
-        name = "xmobarrc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "_vimrc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".luaurc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "kdenlive-layoutsrc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "gradlew";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "xsettingsd.conf";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "vlcrc";
-        text = "󰕼";
-        inherit fg;
-      }
-      {
-        name = "xorg.conf";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "xmobarrc.hs";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "workspace";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".gitattributes";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "favicon.ico";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "go.sum";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "pom.xml";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "webpack";
-        text = "󰜫";
-        inherit fg;
-      }
-      {
-        name = "vagrantfile$";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "unlicense";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "tmux.conf.local";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "settings.gradle";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".dockerignore";
-        text = "󰡨";
-        inherit fg;
-      }
-      {
-        name = "sym-lib-table";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "_gvimrc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "kdenliverc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "kdeglobals";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".prettierrc.yaml";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "rmd";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "tailwind.config.mjs";
-        text = "󱏿";
-        inherit fg;
-      }
-      {
-        name = "sxhkdrc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "robots.txt";
-        text = "󰚩";
-        inherit fg;
-      }
-      {
-        name = "tailwind.config.ts";
-        text = "󱏿";
-        inherit fg;
-      }
-      {
-        name = "prettier.config.mjs";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "mpv.conf";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "py.typed";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "PrusaSlicer.ini";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "procfile";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "rakefile";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "kritarc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".Xresources";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "prettier.config.js";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "commitlint.config.ts";
-        text = "󰜘";
-        inherit fg;
-      }
-      {
-        name = "weston.ini";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "eslint.config.js";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "cmakelists.txt";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".git-blame-ignore-revs";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "config";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "nuxt.config.cjs";
-        text = "󱄆";
-        inherit fg;
-      }
-      {
-        name = "node_modules";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "makefile";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "lxqt.conf";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "i18n.config.js";
-        text = "󰗊";
-        inherit fg;
-      }
-      {
-        name = "FreeCAD.conf";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "prettier.config.cjs";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "tmux.conf";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "kalgebrarc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "i3status.conf";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".settings.json";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "containerfile";
-        text = "󰡨";
-        inherit fg;
-      }
-      {
-        name = "i3blocks.conf";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "lxde-rc.xml";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "gradle.properties";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "hypridle.conf";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "gruntfile.ts";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "gruntfile.js";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "dockerfile";
-        text = "󰡨";
-        inherit fg;
-      }
-      {
-        name = "groovy";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "hyprlock.conf";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = ".prettierrc";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "gnumakefile";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "commit_editmsg";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "fp-lib-table";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "fp-info-cache";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "eslint.config.ts";
-        text = "";
-        inherit fg;
-      }
-      {
-        name = "nuxt.config.js";
-        text = "󱄆";
+        name = "PKGBUILD";
+        text = "";
         inherit fg;
       }
       {
@@ -2866,63 +3192,454 @@
         inherit fg;
       }
       {
-        name = ".nuxtrc";
-        text = "󱄆";
+        name = "playwright.config.cjs";
+        text = "";
         inherit fg;
       }
       {
-        name = "gruntfile.coffee";
-        text = "";
+        name = "playwright.config.cts";
+        text = "";
         inherit fg;
       }
       {
-        name = "eslint.config.mjs";
-        text = "";
+        name = "playwright.config.js";
+        text = "";
         inherit fg;
       }
       {
-        name = "compose.yaml";
-        text = "󰡨";
+        name = "playwright.config.mjs";
+        text = "";
         inherit fg;
       }
       {
-        name = "bspwmrc";
-        text = "";
+        name = "playwright.config.mts";
+        text = "";
         inherit fg;
       }
       {
-        name = "brewfile";
-        text = "";
+        name = "playwright.config.ts";
+        text = "";
         inherit fg;
       }
       {
-        name = ".eslintrc";
-        text = "";
+        name = "pnpm-lock.yaml";
+        text = "";
         inherit fg;
       }
       {
-        name = ".gtkrc-2.0";
-        text = "";
+        name = "pnpm-workspace.yaml";
+        text = "";
         inherit fg;
       }
       {
-        name = ".Xauthority";
-        text = "";
+        name = "pom.xml";
+        text = "";
         inherit fg;
       }
       {
-        name = ".prettierrc.json";
+        name = "prettier.config.cjs";
         text = "";
         inherit fg;
       }
       {
-        name = ".npmignore";
-        text = "";
+        name = "prettier.config.js";
+        text = "";
         inherit fg;
       }
       {
-        name = ".gitmodules";
-        text = "";
+        name = "prettier.config.mjs";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "prettier.config.ts";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "prisma.config.mts";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "prisma.config.ts";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "procfile";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "PrusaSlicer.ini";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "PrusaSlicerGcodeViewer.ini";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "py.typed";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "QtProject.conf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "rakefile";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "readme";
+        text = "󰂺";
+        inherit fg;
+      }
+      {
+        name = "readme.md";
+        text = "󰂺";
+        inherit fg;
+      }
+      {
+        name = "rmd";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "robots.txt";
+        text = "󰚩";
+        inherit fg;
+      }
+      {
+        name = "security";
+        text = "󰒃";
+        inherit fg;
+      }
+      {
+        name = "security.md";
+        text = "󰒃";
+        inherit fg;
+      }
+      {
+        name = "settings.gradle";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "svelte.config.js";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "sxhkdrc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "sym-lib-table";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "tailwind.config.js";
+        text = "󱏿";
+        inherit fg;
+      }
+      {
+        name = "tailwind.config.mjs";
+        text = "󱏿";
+        inherit fg;
+      }
+      {
+        name = "tailwind.config.ts";
+        text = "󱏿";
+        inherit fg;
+      }
+      {
+        name = "tmux.conf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "tmux.conf.local";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "tsconfig.json";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "unlicense";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vagrantfile";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vercel.json";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vite.config.cjs";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vite.config.cts";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vite.config.js";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vite.config.mjs";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vite.config.mts";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vite.config.ts";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vitest.config.cjs";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vitest.config.cts";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vitest.config.js";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vitest.config.mjs";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vitest.config.mts";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vitest.config.ts";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "vlcrc";
+        text = "󰕼";
+        inherit fg;
+      }
+      {
+        name = "webpack";
+        text = "󰜫";
+        inherit fg;
+      }
+      {
+        name = "weston.ini";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "workspace";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "wrangler.jsonc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "wrangler.toml";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "xdph.conf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "xmobarrc";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "xmobarrc.hs";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "xmonad.hs";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "xorg.conf";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "xsettingsd.conf";
+        text = "";
+        inherit fg;
+      }
+    ];
+
+    conds = [
+      {
+        "if" = "orphan";
+        text = "";
+        inherit fg;
+      }
+      {
+        "if" = "link";
+        text = "";
+        inherit fg;
+      }
+      {
+        "if" = "block";
+        text = "";
+        inherit fg;
+      }
+      {
+        "if" = "char";
+        text = "";
+        inherit fg;
+      }
+      {
+        "if" = "fifo";
+        text = "";
+        inherit fg;
+      }
+      {
+        "if" = "sock";
+        text = "";
+        inherit fg;
+      }
+      {
+        "if" = "sticky";
+        text = "";
+        inherit fg;
+      }
+      {
+        "if" = "dummy";
+        text = "";
+        inherit fg;
+      }
+      {
+        "if" = "dir";
+        text = "";
+        inherit fg;
+      }
+      {
+        "if" = "exec";
+        text = "";
+        inherit fg;
+      }
+      {
+        "if" = "!dir";
+        text = "";
+        inherit fg;
+      }
+    ];
+
+    dirs = [
+      {
+        name = ".config";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".git";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".github";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = ".npm";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "Desktop";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "Development";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "Documents";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "Downloads";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "Library";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "Movies";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "Music";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "Pictures";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "Public";
+        text = "";
+        inherit fg;
+      }
+      {
+        name = "Videos";
+        text = "";
         inherit fg;
       }
     ];

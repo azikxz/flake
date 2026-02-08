@@ -24,6 +24,7 @@ with lib;
       vaults = builtins.filter (vault: vault.enable == true) (attrValues cfg.vaults);
     in
     {
+      home.activation.obsidian = mkForce "# godamn u karaodlis";
       xdg.configFile."obsidian/obsidian.json".source = mkForce (
         (pkgs.formats.json { }).generate "obsidian.json" (
           {

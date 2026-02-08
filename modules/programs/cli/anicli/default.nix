@@ -43,7 +43,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") (mkMerge [
 
     hm = {
       programs.jerry = {
-        enable = true;
+        # enable = true;
 
         config = {
           provider = "hdrezka";
@@ -90,6 +90,6 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") (mkMerge [
   }
 
   {
-    hmPackages = [ pkgs.curd ];
+    # hmPackages = [ pkgs.curd ];
   }
 ])

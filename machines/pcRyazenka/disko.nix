@@ -43,30 +43,30 @@
   };
 }
 
-//
+# //
 
-  (
-    let
-      mk = name: "/dev/disk/by-uuid/" + name;
+  # (
+  #   let
+  #     mk = name: "/dev/disk/by-uuid/" + name;
 
-      ext4 = {
-        fsType = "ext4";
-        options = [
-          "user"
-          "x-gvfs-show"
-        ];
-      };
-    in
+  #     ext4 = {
+  #       fsType = "ext4";
+  #       options = [
+  #         "user"
+  #         "x-gvfs-show"
+  #       ];
+  #     };
+  #   in
 
-    {
-      fileSystems = {
-        "/media/disks/fatBunny" = ext4 // {
-          device = mk "c39db01d-8014-4b5a-a85e-1a8a4bb697fa";
-        };
+  # {
+  #   fileSystems = {
+  #     "/media/disks/fatBunny" = ext4 // {
+  #       device = mk "c39db01d-8014-4b5a-a85e-1a8a4bb697fa";
+  #     };
 
-        "/media/disks/fastBitch" = ext4 // {
-          device = mk "cbf20134-a653-493c-96de-b2b6699d16d5";
-        };
-      };
-    }
-  )
+  #     "/media/disks/fastBitch" = ext4 // {
+  #       device = mk "cbf20134-a653-493c-96de-b2b6699d16d5";
+  #     };
+  #   };
+  # }
+  # )

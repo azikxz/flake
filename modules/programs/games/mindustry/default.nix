@@ -12,7 +12,7 @@ with lib;
 mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   persist.user.dirs = [ ".local/share/Mindustry" ];
 
-  hmPackages = [ pkgs.mindustry ];
+  # hmPackages = [ pkgs.mindustry ];
 
   hm.xdg.dataFile =
     (

@@ -11,7 +11,6 @@ with lib;
 
     "syncthing/cert"
     "syncthing/key"
-    "syncthing/password"
   ] ./sopsnix.yaml;
 
   hm.services.syncthing.settings.devices = listToAttrs [

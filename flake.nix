@@ -118,10 +118,10 @@
       inputs.flake-utils.follows = "utils";
     };
 
-    curd = {
-      url = "github:Wraient/curd";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # curd = {
+    #   url = "github:Wraient/curd";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     zen = {
       url = "github:0xc000022070/zen-browser-flake";

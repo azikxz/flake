@@ -20,7 +20,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
   hmPackages = [ pkgs.spotdl ];
 
   hm.programs.spicetify = {
-    enable = true;
+    # enable = true;
 
     inherit
       (import ./addons.nix {

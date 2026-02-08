@@ -2,7 +2,7 @@
 # or
 # > nix run nixpkgs#ssh-to-age -- < ~/.ssh/id_ed25519.pub
 keys:
-  - &pcRyazenka age13qxl594a6jvt5dku8clyga2c3dxap6jur86zwleedylt7ht0fymsvpkyum
+  - &pcRyazenka age16dzy76gf6jcw03cppgghm7a8ld4g57f73z85wcj9fvq7w3ct53rs4rclm7
   - &thinkpadT14 age16ermygpuxg2k6mmyu3q9nzjptzjdqz6kyswnhpxktqa58stff5cs3aupl6
 # to rekey secrets
 # > sops updatekeys ./file

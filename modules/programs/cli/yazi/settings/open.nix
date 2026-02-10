@@ -11,9 +11,9 @@ let
       ;
   };
 
-  mkName = name: use: {
+  mkName = url: use: {
     inherit
-      name
+      url
       use
       ;
   };

@@ -49,7 +49,7 @@ with lib;
             "tokens/cachix"
             "tokens/discord"
             "tokens/github"
-            "tokens/jerry"
+            "tokens/github-nurl"
             "tokens/viu"
 
             "services/windows"
@@ -57,7 +57,7 @@ with lib;
             "services/minecraft"
             "services/minecraft-main"
             "services/glance"
-            "services/mpd/lastfm"
+            "services/lastfm"
 
             "accounts/googleClient/id"
             "accounts/googleClient/secret"

@@ -20,6 +20,8 @@ buildPythonApplication {
   dontUnpack = true;
 
   propagatedBuildInputs = [
+    pkgs.mpv
+    pkgs.fzf
     pkgs.python3
     requests
 

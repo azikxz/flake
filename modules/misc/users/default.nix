@@ -31,6 +31,7 @@ in
     users = {
       ${system.userName} = {
         isNormalUser = true;
+        uid = 1000;
 
         home = "/home/" + system.userName;
         createHome = true;
@@ -42,6 +43,7 @@ in
           "input"
           "media"
           "video"
+          "users"
 
           "adbusers"
           "docker"

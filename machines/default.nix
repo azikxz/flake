@@ -7,7 +7,7 @@
       version = "24.05";
     };
     paths = {
-      winePrefix = "/media/disks/fastBitch/UnifiedPrefix";
+      winePrefix = "/media/fatKartman/UnifiedPrefix";
       flakeDir = "/etc/nixos";
       persist = null;
     };

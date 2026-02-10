@@ -35,7 +35,19 @@ mkIf config.services.qbittorrent.enable {
         StateDirectoryMode = mkDefault 775;
 
         ExecStart = concatStringsSep " " [
-          (getExe pkgs.flood)
+          (getExe (
+            # WARN:
+            # dont forget to delete when will update
+            pkgs.flood.overrideAttrs {
+              version = "4.12.5";
+              src = pkgs.fetchFromGitHub {
+                owner = "jesec";
+                repo = "flood";
+                tag = "v${version}";
+                hash = "sha256-4lmP8RRHALN8XPKZEW2jfFzwPyux5H33rF3dYxJ9u/U=";
+              };
+            }
+          ))
           "--auth none"
           "--rundir /var/lib/flood"
           "--host 0.0.0.0"

@@ -101,27 +101,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    anipy = {
-      url = "github:sdaqo/anipy-cli";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    jerry = {
-      url = "github:justchokingaround/jerry";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "parts";
-    };
-
     viu = {
       url = "github:viu-media/viu";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "utils";
     };
-
-    # curd = {
-    #   url = "github:Wraient/curd";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
 
     zen = {
       url = "github:0xc000022070/zen-browser-flake";

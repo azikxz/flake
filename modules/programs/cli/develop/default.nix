@@ -29,5 +29,6 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
   environment.interactiveShellInit = ''
     export CACHIX_AUTH_TOKEN="$(cat ${config.sopsnix."tokens/cachix"})"
+    export GITHUB_TOKEN="$(cat ${config.sopsnix."tokens/github-nurl"})"
   '';
 }

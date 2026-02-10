@@ -73,7 +73,16 @@ utils.lib.eachSystem
 
       devShells = lib.listToAttrs (
         map (path: {
-          name = (lib.replaceStrings [ ".nix" ] [ "" ] (builtins.baseNameOf path));
+          name = (
+            lib.replaceStrings
+              [
+                ".nix"
+              ]
+              [
+                ""
+              ]
+              (lib.baseNameOf path)
+          );
           value = import path {
             inherit
               pkgs
@@ -152,15 +161,11 @@ utils.lib.eachSystem
                 };
 
                 agenix = agenix.packages.${system}.default;
-                anipy-cli = anipy.packages.${system}.default;
-                curd = jerry.packages.${system}.default;
-                hytale = hytale.packages.${system}.default;
-                jerry = jerry.packages.${system}.full;
-                viu = viu.packages.${system}.default;
-
                 cursors = cursors.packages.${system};
                 gaming = gaming.packages.${system};
+                hytale = hytale.packages.${system}.default;
                 spicetify = spicetify.legacyPackages.${system};
+                viu = viu.packages.${system}.default;
               }
               // self.packages.${system}
               // winapps.packages."${system}"
@@ -215,6 +220,7 @@ utils.lib.eachSystem
             })
             ++ (lib.mkUmport ../modules [ ])
             ++ (with inputs; [
+              agenix.nixosModules.default
               disko.nixosModules.default
               flatpak.nixosModules.nix-flatpak
               gaming.nixosModules.pipewireLowLatency
@@ -238,7 +244,6 @@ utils.lib.eachSystem
               home-manager = {
                 sharedModules = with inputs; [
                   mangowc.hmModules.mango
-                  jerry.homeManagerModules.default
                   niri.homeModules.niri
                   niri.homeModules.stylix
                   nixcord.homeModules.nixcord

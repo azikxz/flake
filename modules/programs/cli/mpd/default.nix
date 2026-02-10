@@ -54,7 +54,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
 
         endpoints = {
           "last.fm" = {
-            passwordFile = config.sopsnix."services/mpd/lastfm";
+            passwordFile = config.sopsnix."services/lastfm";
             username = "azikx6"; # cause azikx was taken already... eh...
           };
         };

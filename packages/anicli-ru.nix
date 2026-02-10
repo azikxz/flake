@@ -5,18 +5,13 @@
 
 let
   pyPkgs = pkgs.python312Packages;
-
-  build-system = with pyPkgs; [
-    setuptools
-    hatchling
-    poetry-core
-  ];
 in
+
 with pyPkgs;
 
 buildPythonApplication rec {
   pname = "anicli_ru";
-  version = "5.0.17";
+  version = "6.0.2";
   pyproject = true;
 
   src = pkgs.fetchPypi {
@@ -24,33 +19,25 @@ buildPythonApplication rec {
       pname
       version
       ;
-    hash = "sha256-TEZ/E6UUKkONSsAd3XUaRSE60tfWDgYHqN9cINGCx/I=";
+    hash = "sha256-mDkXJGL0YeIYP5wKkMG56Tte284nsUEDkOxRCCn3Snc=";
   };
 
-  inherit build-system;
-  dependencies = build-system ++ [
-    (buildPythonApplication rec {
-      pname = "eggella";
-      version = "0.1.7";
-      pyproject = true;
+  build-system = with pyPkgs; [
+    hatchling
+  ];
 
-      src = pkgs.fetchPypi {
-        inherit
-          pname
-          version
-          ;
-        hash = "sha256-8Vo39BePA86wcLKs/F+u2N7tpIpPrEyEPp3POszy050=";
-      };
-
-      inherit build-system;
-      dependencies = [
-        prompt-toolkit
-      ];
-    })
+  dependencies = [
+    jinja2
+    prompt-toolkit
+    python-multipart
+    rich
+    segno
+    typer
+    fastapi
 
     (buildPythonApplication rec {
       pname = "anicli_api";
-      version = "0.8.10";
+      version = "0.8.11";
       pyproject = true;
 
       src = pkgs.fetchPypi {
@@ -58,10 +45,13 @@ buildPythonApplication rec {
           pname
           version
           ;
-        hash = "sha256-+CUYDDJ+R9r8wzGDPMSAKd0kBp93P0wkVESlFwFuctw=";
+        hash = "sha256-Hu69ymwgsyLZKPZwzmRFU8WqRKWj/tvgXHCnHx9eeVE=";
       };
 
-      inherit build-system;
+      build-system = with pyPkgs; [
+        hatchling
+      ];
+
       dependencies = [
         attrs
         httpx
@@ -69,6 +59,64 @@ buildPythonApplication rec {
         hatchling
         parsel
         tqdm
+      ];
+    })
+
+    # (buildPythonApplication rec {
+    #   pname = "rookiepy";
+    #   version = "0.5.6";
+    #   pyproject = true;
+
+    #   src = pkgs.fetchPypi {
+    #     inherit
+    #       pname
+    #       version
+    #       ;
+    #     hash = "sha256-76apOxGUeKlrPYxEVCFcTxrzFqJLOzswFbc8HB2IcHg=";
+    #   };
+
+    #   build-system = [
+    #     (buildPythonApplication rec {
+    #       pname = "rookiepy";
+    #       version = "0.5.6";
+    #       pyproject = true;
+
+    #       src = pkgs.fetchPypi {
+    #         inherit
+    #           pname
+    #           version
+    #           ;
+    #         hash = "sha256-76apOxGUeKlrPYxEVCFcTxrzFqJLOzswFbc8HB2IcHg=";
+    #       };
+
+    #       build-system = [
+    #         pkgs.maturin
+    #       ];
+    #     })
+    #   ];
+    # })
+
+    (buildPythonApplication rec {
+      pname = "uvicorn";
+      version = "0.40.0";
+      pyproject = true;
+
+      src = pkgs.fetchPypi {
+        inherit
+          pname
+          version
+          ;
+        hash = "sha256-g5Z2Z16H5zaUUYtVdP0PJMnZe0a+oW33uMBeoaUQceo=";
+      };
+
+      build-system = with pyPkgs; [
+        hatchling
+      ];
+
+      dependencies = [
+        click
+        h11
+        typing-extensions
       ];
     })
   ];

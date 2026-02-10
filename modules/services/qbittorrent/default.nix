@@ -65,6 +65,38 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
         MaxArticlesPerFeed = 2000;
         RefreshInterval = 10;
       };
+
+      Network.Proxy = {
+        # INFO:
+        #
+        # px1.blockme.site:3128
+        # px2.blockme.site:3128
+        #
+        # https://rutracker.org/forum/viewtopic.php?t=5134313
+        HostnameLookupEnabled = true;
+        IP = "px1.blockme.site";
+        Port = 3128;
+        Type = "HTTP";
+      };
+
+      AutoRun = {
+        enabled = true;
+        program = "Finished %N in %D";
+        /*
+          %N: Torrent name
+          %L: Category
+          %G: Tags (separated by comma)
+          %F: Content path (same as root path for multifile torrent)
+          %R: Root path (first torrent subdirectory path)
+          %D: Save path
+          %C: Number of files
+          %Z: Torrent size (bytes)
+          %T: Current tracker
+          %I: Info hash v1
+          %J: Info hash v2
+          %K: Torrent ID
+        */
+      };
     };
   };
 

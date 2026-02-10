@@ -62,6 +62,7 @@
 
       # torrents
       rutracker = "rutracker.org"; # ye
+      rutrackerWiki = "rutracker.wiki";
       pirateBay = "thepiratebay.org";
       pirateBayProxy = "piratebayproxy.net";
       nnmClub = "nnmclub.to";
@@ -75,6 +76,7 @@
       freeTP = "freetp.org";
       steamDB = "steamdb.info";
       protonDB = "protondb.com";
+      gogDB = "www.gogdb.org";
 
       # study
       chatGpt = "chatgpt.com";

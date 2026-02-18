@@ -44,7 +44,7 @@ in
   config = {
     sopsnix = mapAttrs (n: _: secrets.${n}.path) secrets;
 
-    sopsplace = placeholder;
+    sopsplace = config.sops.placeholder;
 
     sops.templates =
       let

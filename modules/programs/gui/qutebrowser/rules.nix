@@ -144,6 +144,7 @@
           (mk "*.sr.ht")
           (mk "wiki.nixos.org")
           (mk "*.nixos.org")
+          (mk "rutracker.org")
         ]
       );
 

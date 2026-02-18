@@ -45,6 +45,7 @@ with lib;
         # > machines/machine/secerts.yaml
         (
           mkSecrets.sops [
+            "git/email"
             "tokens/anilibme"
             "tokens/cachix"
             "tokens/discord"

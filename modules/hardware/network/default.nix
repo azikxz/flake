@@ -36,11 +36,11 @@ with lib;
     nameservers = [
       "1.1.1.1"
       "8.8.8.8"
-      "84.21.189.133"
-      "83.220.169.155"
+      # "84.21.189.133"
+      # "83.220.169.155"
     ];
 
-    extraHosts = readFile (inputs.dns-malw-link.outPath + "/hosts");
+    # extraHosts = readFile (inputs.dns-malw-link.outPath + "/hosts");
   };
 
   programs.nm-applet = {

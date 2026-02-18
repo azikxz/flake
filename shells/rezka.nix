@@ -7,9 +7,14 @@ pkgs.mkShell {
   nativeBuildInputs = [
     (pkgs.python312.withPackages (
       packages: with packages; [
-        mpv # player for work
+        pkgs.mpv # player for work
+        pkgs.fzf # for fzf edition
         rich # for rich edition
-        fzf # for fzf edition
+        flask
+        flask-cors
+        flask-sqlalchemy
+        pillow
+        numpy
 
         (buildPythonPackage rec {
           pname = "HdRezkaApi";

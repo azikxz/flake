@@ -72,7 +72,7 @@ buildPythonApplication {
     homepage = "https://gist.github.com/axax-loll/09750e07b880123ccbe9010343f066ee";
     license = lib.licenses.wtfpl;
     platforms = [ "x86_64-linux" ];
-    maintainers = with lib.maintainers; [ azikxz ];
+    maintainers = with lib.maintainers; [ unazikx ];
     mainProgram = "rezka-fzf";
   };
 }

@@ -26,10 +26,10 @@ pkgs.stdenv.mkDerivation {
 
   meta = {
     description = "pipes in terminal yeee";
-    homepage = "https://gist.github.com/azikxz/261536eed5cefe385fa1a0b0eed7b2c2";
+    homepage = "https://gist.github.com/unazikx/261536eed5cefe385fa1a0b0eed7b2c2";
     license = lib.licenses.wtfpl;
     platforms = [ "x86_64-linux" ];
-    maintainers = with lib.maintainers; [ azikxz ];
+    maintainers = with lib.maintainers; [ unazikx ];
     mainProgram = "hasher";
   };
 }

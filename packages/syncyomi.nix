@@ -95,7 +95,7 @@ pkgs.buildGoModule rec {
     homepage = "https://github.com/SyncYomi/SyncYomi";
     license = lib.licenses.gpl2Only;
     platforms = lib.platforms.linux ++ lib.platforms.darwin;
-    maintainers = with lib.maintainers; [ azikxz ];
+    maintainers = with lib.maintainers; [ unazikx ];
     mainProgram = "syncyomi";
   };
 }

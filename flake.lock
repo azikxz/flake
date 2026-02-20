@@ -10,13 +10,13 @@
       "locked": {
         "lastModified": 1767192613,
         "narHash": "sha256-S3R778WASvkaSm47lWTl2b4qOwuFBeGSG9NJ0zXQ3bY=",
-        "owner": "azikxz",
+        "owner": "unazikx",
         "repo": "mozilla-addons-to-nix",
         "rev": "050646c09832df5cfef59bac5bac404d425fe801",
         "type": "github"
       },
       "original": {
-        "owner": "azikxz",
+        "owner": "unazikx",
         "repo": "mozilla-addons-to-nix",
         "type": "github"
       }
@@ -53,13 +53,13 @@
       "locked": {
         "lastModified": 1757418582,
         "narHash": "sha256-KkFDwFKgi8xanF1wtlR4s60kVhVBJSq/ioNNBY3klp0=",
-        "owner": "azikxz",
+        "owner": "unazikx",
         "repo": "design",
         "rev": "7531f1566c6e199bc6234091def536264b319d9b",
         "type": "github"
       },
       "original": {
-        "owner": "azikxz",
+        "owner": "unazikx",
         "ref": "base16",
         "repo": "design",
         "type": "github"
@@ -194,13 +194,13 @@
       "locked": {
         "lastModified": 1766817625,
         "narHash": "sha256-qBettxwBk0SR6QOAWcHIIs2gn+7AGv1mR+sW0x2igY0=",
-        "owner": "azikxz",
+        "owner": "unazikx",
         "repo": "dns.malw.link",
         "rev": "430c43640b04d11fca0e1bcdb0ab2075b874fccd",
         "type": "github"
       },
       "original": {
-        "owner": "azikxz",
+        "owner": "unazikx",
         "ref": "azikx_patches",
         "repo": "dns.malw.link",
         "type": "github"
@@ -215,13 +215,13 @@
       "locked": {
         "lastModified": 1757159908,
         "narHash": "sha256-afXwoS/1gf7mTqJkFKTby8KuG1rP77wv5zBAFz2VM24=",
-        "owner": "azikxz",
+        "owner": "unazikx",
         "repo": "easyeffects-presets",
         "rev": "15a7f295157240b16ce4f2bf5fe2194e34f1badb",
         "type": "github"
       },
       "original": {
-        "owner": "azikxz",
+        "owner": "unazikx",
         "repo": "easyeffects-presets",
         "type": "github"
       }
@@ -634,13 +634,13 @@
       "locked": {
         "lastModified": 1762667978,
         "narHash": "sha256-SPrqOymfcuNewGz4Oa4jMlkd6q87MaMNsGefn9C0tFY=",
-        "owner": "azikxz",
+        "owner": "unazikx",
         "repo": "assets",
         "rev": "52dfb12b4f093574c9b527af1c43c780b65c8f01",
         "type": "github"
       },
       "original": {
-        "owner": "azikxz",
+        "owner": "unazikx",
         "repo": "assets",
         "type": "github"
       }
@@ -1379,13 +1379,13 @@
       "locked": {
         "lastModified": 1766838053,
         "narHash": "sha256-TCXbSJRks3VZLsDzO9jWo9RT5AgXF/CcheXMUHIaeQc=",
-        "owner": "azikxz",
+        "owner": "unazikx",
         "repo": "design",
         "rev": "df527e105182bdf5351bfe13cff9c749eb231754",
         "type": "github"
       },
       "original": {
-        "owner": "azikxz",
+        "owner": "unazikx",
         "ref": "wallpapers",
         "repo": "design",
         "type": "github"

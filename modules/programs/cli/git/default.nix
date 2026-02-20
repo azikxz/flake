@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -25,7 +26,7 @@ mkIf (mac "pcRyazenka" || mac "thinkpadT14") {
       user = {
         name = "azixz";
         email = "xfalwa@gmail.com";
-        signingkey = "~/.ssh/id_ed25519.pub";
+        signingkey = "${config.hm.home.homeDirectory}/.ssh/id_ed25519.pub";
       };
 
       color = {

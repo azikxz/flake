@@ -36,7 +36,7 @@ pkgs.stdenv.mkDerivation {
     homepage = "https://gist.github.com/axax-loll/94c563d81c5e8694de0e27aa588a53aa";
     license = lib.licenses.unlicense;
     platforms = [ "x86_64-linux" ];
-    maintainers = with lib.maintainers; [ azikxz ];
+    maintainers = with lib.maintainers; [ unazikx ];
     mainProgram = "rbw-fzf";
   };
 }

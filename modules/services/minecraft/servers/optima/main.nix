@@ -51,7 +51,7 @@
 
   files = {
     "server-icon.png" = pkgs.fetchurl {
-      url = "https://github.com/azikxz/assets/blob/03d6107e20c2b117f6686bb3a3bbd6ad3909facf/minecraft/icons/vanilla.png";
+      url = "https://github.com/unazikx/assets/blob/03d6107e20c2b117f6686bb3a3bbd6ad3909facf/minecraft/icons/vanilla.png";
       sha256 = "sha256-5YOCkJtbg8TbX2S+j5sDD7+E5h88PU0LR/yqN7nqOmU=";
     };
 

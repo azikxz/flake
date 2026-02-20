@@ -36,7 +36,7 @@ buildPythonApplication {
     homepage = "https://gist.github.com/azikz/46ae13e0ea722203a13e318c871bb349";
     license = lib.licenses.wtfpl;
     platforms = [ "x86_64-linux" ];
-    maintainers = with lib.maintainers; [ azikxz ];
+    maintainers = with lib.maintainers; [ unazikx ];
     mainProgram = "qute-rbw";
   };
 }

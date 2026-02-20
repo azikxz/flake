@@ -119,7 +119,7 @@
     };
 
     addons2nix = {
-      url = "github:azikxz/mozilla-addons-to-nix";
+      url = "github:unazikx/mozilla-addons-to-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -150,7 +150,7 @@
     };
 
     minecraft-assets = {
-      url = "github:azikxz/assets";
+      url = "github:unazikx/assets";
       flake = false;
     };
 
@@ -176,18 +176,18 @@
     };
 
     easyeffects = {
-      url = "github:azikxz/easyeffects-presets";
+      url = "github:unazikx/easyeffects-presets";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # selfmade style
     base16 = {
-      url = "github:azikxz/design/base16";
+      url = "github:unazikx/design/base16";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     wallpapers = {
-      url = "github:azikxz/design/wallpapers";
+      url = "github:unazikx/design/wallpapers";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -203,7 +203,7 @@
     };
 
     dns-malw-link = {
-      url = "github:azikxz/dns.malw.link/azikx_patches";
+      url = "github:unazikx/dns.malw.link/azikx_patches";
       flake = false;
     };
   };

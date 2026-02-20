@@ -1,3 +1,5 @@
+# WARNING: THIS REPO DEPRECATED USE [NEW REPO](https://github.com/unazikx/flakeReborn)
+
 <div align="center"> <h1>【 󰜗 nixos configuration 󰜗 】</h1> </div>
 
 <details> <summary>Software list</summary>
